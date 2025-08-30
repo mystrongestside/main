@@ -1,67 +1,134 @@
-/* RESET / BASE */
+/* =========================
+   RESET / BASE
+========================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+:root{
+  --blue:#192B45;     /* mørk blå */
+  --blue-2:#24344d;   /* sekundær blå (brukes i noen seksjoner) */
+  --orange:#F47F42;   /* oransje */
+  --text:#000;
+}
+
+html, body { height: 100%; }
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #000;
+  color: var(--text);
+  background:#fff;
 }
 
-/* --- Navbar --- */
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
+  position: relative;
+  z-index: 50;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #24344d;
-  padding: 1rem 2rem;
-  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--blue);
 }
 
-.navbar-left .logo {
-  height: 50px;
-  max-width: 150px;
-  margin-left: 10px;
-  margin-top: 5px;
+.navbar-left, .navbar-right { flex: 0 0 auto; }
+
+.logo {
+  height: 50px;           /* mer luft, ikke “trøkt” */
+  width: auto;
+  display: block;
+  margin: 5px 10px 0 10px;
 }
 
 .navbar-center {
-  flex: 1;
+  flex: 1 1 auto;
   display: flex;
   justify-content: center;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
 }
 
 .nav-links a {
-  color: white;
+  color: #fff;
   text-decoration: none;
-  font-weight: 500;
-  white-space: nowrap;
+  font-weight: 600;
+  line-height: 1;
 }
-
-.navbar-right {
-  display: flex;
-  justify-content: flex-end;
-}
+.nav-links a:hover,
+.nav-links a:focus { text-decoration: underline; }
 
 .btn-book {
-  background: white;
-  color: #24344d;
-  padding: 0.6rem 1.2rem;
-  border-radius: 25px;
+  display: inline-block;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: var(--orange);
+  color: #0b1423;
+  font-weight: 700;
   text-decoration: none;
-  font-weight: bold;
   white-space: nowrap;
 }
+.btn-book:hover,
+.btn-book:focus { filter: brightness(1.05); }
 
-/* --- Masthead (toppbilde) --- */
+/* Hamburger */
+.hamburger {
+  display: none;               /* vises på mobil */
+  background: transparent;
+  border: 0;
+  padding: 0.25rem;
+  cursor: pointer;
+  line-height: 0;
+}
+.hamburger:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  margin: 4px 0;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+/* Mobil / nettbrett */
+@media (max-width: 900px) {
+  .hamburger { display: inline-block; }
+
+  .navbar-center {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    display: none;                /* skjult til hamburger trykkes */
+    background: var(--blue);
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding: 0.75rem 1rem;
+  }
+  .navbar-center.active { display: block; }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .navbar-center, .navbar-right { order: 3; }
+  .navbar-right { margin-left: auto; }
+}
+
+/* Hamburger → X når åpen */
+.hamburger[aria-expanded="true"] span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.hamburger[aria-expanded="true"] span:nth-child(2){ opacity: 0; }
+.hamburger[aria-expanded="true"] span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+/* =========================
+   MASTHEAD (toppbilde)
+========================= */
 .masthead {
   background: url('hero-large.jpg') center/cover no-repeat;
   min-height: 60vh;
@@ -70,166 +137,108 @@ body {
   border-bottom: 1px solid #eaeaea;
 }
 
-/* --- Hero (blå seksjon) --- */
+/* =========================
+   HERO (blå kort over masthead)
+========================= */
 .hero-card {
-  background: #24344d;
+  background: var(--blue-2);
   color: #fff;
   text-align: center;
   padding: 6rem 2rem;
-  margin: -80px 0 0 0;   /* overlapper masthead */
-  border-radius: 0;
-  box-shadow: none;
+  margin-top: -80px;      /* overlapper masthead */
   position: relative;
   z-index: 2;
   width: 100%;
 }
-
 .hero-card h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 600; /* <-- justert fra 700 */
 }
-
 .hero-card p {
   max-width: 900px;
   margin: 0 auto;
   font-size: 1.1rem;
   line-height: 1.6;
 }
-
 .dot { color: #ff6d00; }
 
-/* Oransje sløyfe - uendret */
+/* =========================
+   MARQUEE (oransje sløyfe)
+========================= */
 .marquee {
-  background: #f47f42;
+  background: var(--orange);
   color: #fff;
   overflow: hidden;
-  white-space: nowrap;
-  padding: 1rem 0;
+  width: 100%;
   position: relative;
   z-index: 1;
-}
-.marquee-inner { display:inline-block; padding-left:100%; animation: marquee 30s linear infinite; }
-.marquee span    { display:inline-block; margin:0 3rem; font-size:1.1rem; font-weight:700; }
-@keyframes marquee { from {transform:translateX(0)} to {transform:translateX(-100%)} }
-
-/* Alt etter sløyfen skal være hvitt i full bredde */
-.section-white { background:#fff; }
-
-/* Statement (uten logo) */
-.statement {
-  padding: 5rem 2rem 4rem;
-}
-.statement .statement-text {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.statement .statement-text h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.25;
-  font-weight: 800;
-  color: #24344d; /* blå som ellers */
-  /* fjern eventuell ekstra bokstav/ord-spacing som kan dytte punktum */
-  letter-spacing: 0;
-  word-spacing: 0;
+  margin-bottom: 1.5rem;  /* <-- ekstra luft under */
 }
 
-/* Punktum tett inntil ordet */
-.statement .dot {
-  color: #f47f42;
-  display: inline-block;
-  margin-left: 0.08em;   /* litt luft */
-  transform: translateX(0); /* ingen forskyvning */
+.marquee__wrap { display: flex; width: max-content; }
+.marquee__row {
+  display: flex;
+  gap: 2.5rem;
+  padding: 0.8rem 1rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  animation: marqueeB 70s linear infinite;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
-/* Statement – to kolonner som alltid ligger på samme rad */
-.statement { background:#fff; } /* behold hvit bakgrunn etter sløyfen */
+.marquee__row span { display: inline-block; }
 
-.statement-wrap{
-  display:grid;
-  grid-template-columns: 1fr auto; /* tekst tar resten, logo er auto-bredde */
-  align-items:center;
-  gap:2rem;
-  max-width:1200px;
-  margin:0 auto;
-  padding:5rem 2rem;
+@keyframes marqueeB {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
 }
 
-.statement-copy{
-  color:#24344d;                 /* blå som resten av profilen */
-  font-weight:800;
-  line-height:1.15;
-  font-size:clamp(1.8rem, 4.5vw, 3.2rem); /* skalerer, men holder seg stor */
-  letter-spacing:0;
-  word-spacing:0;
-}
-.statement-copy .dot{
-  color:#f47f42;                 /* oransje punktum */
-  margin-left:.06em;             /* tett på ordet */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__row { animation: none; }
 }
 
-.statement-emblem{ flex:0 0 auto; }
-.statement-emblem img{
-  height:120px;                  /* fast høyre-logo, skaleres på mobil */
-  width:auto;
-  display:block;
-}
+/* =========================
+   STATEMENT (hvit seksjon)
+========================= */
+.section-white { background: #fff; }
 
-/* Mobil: behold to kolonner, men skaler ned */
-@media (max-width:768px){
-  .statement-wrap{ gap:1rem; padding:3.5rem 1.25rem; }
-  .statement-emblem img{ height:84px; }
-  .statement-copy{ font-size:clamp(1.6rem, 6vw, 2.4rem); }
-}
-
-@media (max-width:480px){
-  .statement-emblem img{ height:72px; }
-  .statement-copy{ font-size:clamp(1.4rem, 7vw, 2.1rem); }
-}
-/* Hvit bakgrunn etter sløyfen */
-.section-white { background:#fff; }
-
-/* Statement – to kolonner, god luft, stort symbol */
-.statement-wrap{
-  display:grid;
-  grid-template-columns: 1fr auto;                  /* tekst | symbol */
-  align-items:center;
-  column-gap: clamp(32px, 6vw, 120px);              /* luft mellom */
+.statement-wrap {
+  display: grid;
+  grid-template-columns: 1fr auto;        /* tekst | symbol */
+  align-items: center;
+  column-gap: clamp(32px, 6vw, 120px);
   max-width: 1200px;
   margin: 0 auto;
   padding: clamp(48px, 6vw, 96px) 2rem;
 }
 
-.statement-copy{
-  color:#24344d;
-  font-weight: 800;
+.statement-copy {
+  color: var(--blue-2);
+  font-weight: 400;   /* <-- ikke bold lenger */
   line-height: 1.12;
-  font-size: clamp(2.2rem, 5.5vw, 3.6rem);          /* større statement */
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
   letter-spacing: 0;
   word-spacing: 0;
 }
-.statement-copy .dot{
-  color:#f47f42;
-  margin-left: .06em;
-}
+.statement-copy .dot { color: var(--orange); margin-left: .06em; }
 
-/* Symbol til høyre – større, men skalerer på små skjermer */
-.statement-emblem{ flex:0 0 auto; }
-.statement-emblem img{
-  height: clamp(120px, 14vw, 200px);                /* merkbar størrelse */
+.statement-emblem { flex: 0 0 auto; }
+.statement-emblem img {
+  height: clamp(120px, 14vw, 200px);
   width: auto;
-  display:block;
+  display: block;
 }
 
-/* Små skjermer: behold to kolonner, men skaler ned symbol og la teksten få mer plass */
-@media (max-width: 768px){
-  .statement-wrap{
+@media (max-width: 768px) {
+  .statement-wrap {
     column-gap: clamp(20px, 5vw, 56px);
     padding: clamp(36px, 7vw, 56px) 1.25rem;
   }
-  .statement-copy{
+  .statement-copy {
     font-size: clamp(1.8rem, 6.5vw, 2.4rem);
   }
-  .statement-emblem img{
+  .statement-emblem img {
     height: clamp(80px, 12vw, 120px);
   }
 }
