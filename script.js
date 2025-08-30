@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const items = document.querySelectorAll('.news-item');
+  const items = document.querySelectorAll('.news-card');
   if (!items.length) return;
 
   if ('IntersectionObserver' in window) {
