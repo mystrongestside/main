@@ -1,29 +1,19 @@
-// Hamburger toggle for mobil
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
 
-if (hamburger && navMenu) {
-  const toggle = () => {
-    const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
-    hamburger.setAttribute('aria-expanded', String(!isOpen));
+  if (!hamburger || !navMenu) return;
+
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', String(!expanded));
     navMenu.classList.toggle('active');
-  };
-
-  hamburger.addEventListener('click', toggle);
-
-  // Lukk meny hvis du klikker lenke (mobil)
-  navMenu.addEventListener('click', (e) => {
-    if (e.target.closest('a')) {
-      hamburger.setAttribute('aria-expanded', 'false');
-      navMenu.classList.remove('active');
-    }
   });
 
-  // Lukk ved escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      hamburger.setAttribute('aria-expanded', 'false');
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
       navMenu.classList.remove('active');
-    }
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
   });
-}
+});
