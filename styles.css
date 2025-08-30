@@ -163,6 +163,13 @@ body {
 }
 .dot { color: #ff6d00; }
 
+@media (max-width: 600px) {
+  .masthead { min-height: 40vh; }
+  .hero-card { padding: 4rem 1.5rem; margin-top: -40px; }
+  .hero-card h1 { font-size: 2rem; }
+}
+
+
 /* =========================
    MARQUEE (oransje sløyfe)
 ========================= */
