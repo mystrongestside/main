@@ -328,8 +328,6 @@ body {
 .hero {
   text-align: center;
   padding: 6rem 1rem;
-  background: var(--bg);
-}
 
 .hero h1 {
   font-size: clamp(2rem, 5vw, 3rem);
