@@ -249,3 +249,68 @@ body {
     height: clamp(80px, 12vw, 120px);
   }
 }
+
+/* =========================
+   NEWS FEED
+========================= */
+.news-feed {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1rem;
+  background: var(--blue);
+  color: #fff;
+  position: relative;
+}
+.news-feed::before,
+.news-feed::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 2rem;
+  height: 100%;
+  pointer-events: none;
+}
+.news-feed::before {
+  left: 0;
+  background: linear-gradient(to right, var(--blue), transparent);
+}
+.news-feed::after {
+  right: 0;
+  background: linear-gradient(to left, var(--blue), transparent);
+}
+.news-item {
+  flex: 0 0 250px;
+  scroll-snap-align: start;
+  background: #fff;
+  color: var(--blue);
+  border-radius: 8px;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+.news-item.visible {
+  opacity: 1;
+}
+.news-item img {
+  width: 100%;
+  height: auto;
+  max-height: 80px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+.news-item h3 {
+  color: var(--blue);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+.news-item a {
+  color: var(--orange);
+  font-weight: 700;
+  text-decoration: none;
+}
+.news-item a:hover,
+.news-item a:focus {
+  text-decoration: underline;
+}
