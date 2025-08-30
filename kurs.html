@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kalender – My Strongest Side</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
   <style>
     /* Lett wrapper-stil for å matche temaet ditt */
     .kalender {
@@ -33,14 +34,17 @@
 <body>
 
   <!-- Navbar (samme som på index) -->
-  <header class="navbar">
+  <header class="navbar" role="navigation" aria-label="Hovedmeny">
     <div class="navbar-left">
-      <a href="index.html"><img src="logo.png" alt="My Strongest Side logo" class="logo" /></a>
+      <a href="index.html" class="logo-link" aria-label="Til forsiden">
+        <img src="logo.png" alt="My Strongest Side logo" class="logo" />
+      </a>
     </div>
 
-    <div class="hamburger" id="hamburger">
+    <button class="hamburger" id="hamburger"
+            aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
       <span></span><span></span><span></span>
-    </div>
+    </button>
 
     <nav class="navbar-center" id="nav-menu">
       <ul class="nav-links">
@@ -98,13 +102,5 @@
     </noscript>
   </section>
 
-  <!-- Hamburger -->
-  <script>
-    const hamburger = document.getElementById("hamburger");
-    const navMenu = document.getElementById("nav-menu");
-    hamburger.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-    });
-  </script>
 </body>
 </html>
