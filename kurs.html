@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kalender – My Strongest Side</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Lett wrapper-stil for å matche temaet ditt */
+    .kalender {
+      padding: 4rem 2rem;
+      background: #f7f8fb;
+      min-height: 70vh;
+    }
+    .kalender .intro {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 1.5rem;
+      color: #24344d;
+    }
+    .kalender .intro p { color: #334155; }
+    /* Selve Checkin-containeren */
+    #checkin_event_index {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar (samme som på index) -->
+  <header class="navbar">
+    <div class="navbar-left">
+      <a href="index.html"><img src="logo.png" alt="My Strongest Side logo" class="logo" /></a>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+
+    <nav class="navbar-center" id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="kalender.html">Kurs</a></li>
+        <li><a href="tjenester.html">Tjenester</a></li>
+        <li><a href="om-oss.html">Om oss</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <div class="navbar-right">
+      <a href="kalender.html" class="btn-book">Book nå</a>
+    </div>
+  </header>
+
+  <!-- Kalender -->
+  <section class="kalender">
+    <div class="intro">
+      <h2>Påmelding & kurskalender</h2>
+      <p>Finn kommende arrangementer og meld deg på direkte i oversikten under.</p>
+    </div>
+
+    <!-- Checkin Event Index -->
+    <div id="checkin_event_index"></div>
+    <script>
+      // Kunde-ID og konfig fra deg
+      document.customerId = 16927;
+      document.calendarConfig = {
+        openRegistrationModal: false, // sett true hvis du ønsker popup-registrering
+        view: 'TILE',                 // 'TILE' | 'LIST' | 'CALENDAR'
+        showSearch: true,
+        showTopics: true,
+        showViewToggle: true,
+        showOnlyForm: false,
+        language: 'nb',
+        topics: null,
+        style: {
+          searchButtonBgColor: 'rgba(28, 43, 57, 1)',
+          searchButtonTextColor:  'rgba(255, 255, 255, 1)',
+          searchButtonBorderRadius:  3,
+          topicBadgeBgColor: 'rgba(85, 96, 106, 1)',
+          topicBadgeTextColor: 'rgba(255, 255, 255, 1)',
+          topicBadgeBorderRadius: 3,
+          headerTextColor: 'rgba(28, 43, 57, 1)',
+          bodyTextColor: 'rgba(28, 43, 57, 1)',
+          backgroundColor: 'rgba(255, 255, 255, 1)',
+          eventTileColor: 'rgba(28, 43, 57, 0)'
+        }
+      };
+    </script>
+    <script async src="https://static.checkin.no/loaders/eventindex/loader.js"></script>
+
+    <noscript>
+      Aktiver JavaScript for å se kurskalenderen.
+    </noscript>
+  </section>
+
+  <!-- Hamburger -->
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>

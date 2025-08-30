@@ -1,0 +1,235 @@
+/* RESET / BASE */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #000;
+}
+
+/* --- Navbar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #24344d;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.navbar-left .logo {
+  height: 50px;
+  max-width: 150px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-book {
+  background: white;
+  color: #24344d;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* --- Masthead (toppbilde) --- */
+.masthead {
+  background: url('hero-large.jpg') center/cover no-repeat;
+  min-height: 60vh;
+  position: relative;
+  z-index: 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+/* --- Hero (blå seksjon) --- */
+.hero-card {
+  background: #24344d;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 2rem;
+  margin: -80px 0 0 0;   /* overlapper masthead */
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-card h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero-card p {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.dot { color: #ff6d00; }
+
+/* Oransje sløyfe - uendret */
+.marquee {
+  background: #f47f42;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 1rem 0;
+  position: relative;
+  z-index: 1;
+}
+.marquee-inner { display:inline-block; padding-left:100%; animation: marquee 30s linear infinite; }
+.marquee span    { display:inline-block; margin:0 3rem; font-size:1.1rem; font-weight:700; }
+@keyframes marquee { from {transform:translateX(0)} to {transform:translateX(-100%)} }
+
+/* Alt etter sløyfen skal være hvitt i full bredde */
+.section-white { background:#fff; }
+
+/* Statement (uten logo) */
+.statement {
+  padding: 5rem 2rem 4rem;
+}
+.statement .statement-text {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.statement .statement-text h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.25;
+  font-weight: 800;
+  color: #24344d; /* blå som ellers */
+  /* fjern eventuell ekstra bokstav/ord-spacing som kan dytte punktum */
+  letter-spacing: 0;
+  word-spacing: 0;
+}
+
+/* Punktum tett inntil ordet */
+.statement .dot {
+  color: #f47f42;
+  display: inline-block;
+  margin-left: 0.08em;   /* litt luft */
+  transform: translateX(0); /* ingen forskyvning */
+}
+/* Statement – to kolonner som alltid ligger på samme rad */
+.statement { background:#fff; } /* behold hvit bakgrunn etter sløyfen */
+
+.statement-wrap{
+  display:grid;
+  grid-template-columns: 1fr auto; /* tekst tar resten, logo er auto-bredde */
+  align-items:center;
+  gap:2rem;
+  max-width:1200px;
+  margin:0 auto;
+  padding:5rem 2rem;
+}
+
+.statement-copy{
+  color:#24344d;                 /* blå som resten av profilen */
+  font-weight:800;
+  line-height:1.15;
+  font-size:clamp(1.8rem, 4.5vw, 3.2rem); /* skalerer, men holder seg stor */
+  letter-spacing:0;
+  word-spacing:0;
+}
+.statement-copy .dot{
+  color:#f47f42;                 /* oransje punktum */
+  margin-left:.06em;             /* tett på ordet */
+}
+
+.statement-emblem{ flex:0 0 auto; }
+.statement-emblem img{
+  height:120px;                  /* fast høyre-logo, skaleres på mobil */
+  width:auto;
+  display:block;
+}
+
+/* Mobil: behold to kolonner, men skaler ned */
+@media (max-width:768px){
+  .statement-wrap{ gap:1rem; padding:3.5rem 1.25rem; }
+  .statement-emblem img{ height:84px; }
+  .statement-copy{ font-size:clamp(1.6rem, 6vw, 2.4rem); }
+}
+
+@media (max-width:480px){
+  .statement-emblem img{ height:72px; }
+  .statement-copy{ font-size:clamp(1.4rem, 7vw, 2.1rem); }
+}
+/* Hvit bakgrunn etter sløyfen */
+.section-white { background:#fff; }
+
+/* Statement – to kolonner, god luft, stort symbol */
+.statement-wrap{
+  display:grid;
+  grid-template-columns: 1fr auto;                  /* tekst | symbol */
+  align-items:center;
+  column-gap: clamp(32px, 6vw, 120px);              /* luft mellom */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 96px) 2rem;
+}
+
+.statement-copy{
+  color:#24344d;
+  font-weight: 800;
+  line-height: 1.12;
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);          /* større statement */
+  letter-spacing: 0;
+  word-spacing: 0;
+}
+.statement-copy .dot{
+  color:#f47f42;
+  margin-left: .06em;
+}
+
+/* Symbol til høyre – større, men skalerer på små skjermer */
+.statement-emblem{ flex:0 0 auto; }
+.statement-emblem img{
+  height: clamp(120px, 14vw, 200px);                /* merkbar størrelse */
+  width: auto;
+  display:block;
+}
+
+/* Små skjermer: behold to kolonner, men skaler ned symbol og la teksten få mer plass */
+@media (max-width: 768px){
+  .statement-wrap{
+    column-gap: clamp(20px, 5vw, 56px);
+    padding: clamp(36px, 7vw, 56px) 1.25rem;
+  }
+  .statement-copy{
+    font-size: clamp(1.8rem, 6.5vw, 2.4rem);
+  }
+  .statement-emblem img{
+    height: clamp(80px, 12vw, 120px);
+  }
+}
