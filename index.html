@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -9,140 +10,107 @@
 <body>
 
   <!-- Navbar -->
-  <header class="navbar">
+  <header class="navbar" role="navigation" aria-label="Hovedmeny">
     <div class="navbar-left">
-      <a href="index.html"><img src="logo.png" alt="My Strongest Side logo" class="logo" /></a>
+      <a href="index.html" class="logo-link" aria-label="Til forsiden">
+        <img src="logo.png" alt="My Strongest Side" class="logo" />
+      </a>
     </div>
 
     <!-- Hamburger (mobil) -->
-    <div class="hamburger" id="hamburger" aria-label="Meny" aria-expanded="false" aria-controls="nav-menu">
+    <button class="hamburger" id="hamburger"
+            aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
       <span></span><span></span><span></span>
-    </div>
+    </button>
 
     <!-- Nav links -->
     <nav class="navbar-center" id="nav-menu">
       <ul class="nav-links">
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="tjenester.html">Tjenester</a></li>
-        <li><a href="kurs.html">Kurs</a></li>
         <li><a href="om-oss.html">Om oss</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-        <li><a href="login.html">Logg inn</a></li>
-        <li><a href="cart.html">Handlekurv</a></li>
+        <li><a href="kurs.html">Kurs</a></li>
+        <li><a href="studenter.html">For studenter</a></li>
       </ul>
     </nav>
 
     <div class="navbar-right">
-      <a href="kalender.html" class="btn-book">Book nå</a>
+      <a href="kalender.html" class="btn-book">Kontakt</a>
     </div>
   </header>
 
- <!-- 1) Toppbilde -->
-<section class="masthead"></section>
+  <script src="script.js" defer></script>
 
-<!-- 2) Blå hero-boks som overlapper masthead -->
-<section class="hero-card">
-  <h1>Gjør trening tilgjengelig for flest mulig<span class="dot">.</span></h1>
-  
-</section>
+  <!-- 1) Toppbilde -->
+  <section class="masthead"></section>
 
-<!-- Marquee -->
-<style>
-  .marquee {
-    --speed: 70s;         /* juster hastighet */
-    --gap: 2.5rem;        /* avstand mellom ord */
-    background: #f47f42;  /* “sløyfen” */
-    color: #fff;
-    overflow: hidden;
-    width: 100%;
-  }
-  .marquee__row {
-    display: flex;
-    gap: var(--gap);
-    padding: 0.8rem 1rem;
-    white-space: nowrap;
-    flex-shrink: 0;
-    animation: marqueeScroll var(--speed) linear infinite;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-  }
-  .marquee__row span { display: inline-block; }
-  /* Dupliserte rader for sømløs loop */
-  .marquee__wrap {
-    display: flex;
-    width: max-content;
-  }
-  @keyframes marqueeScroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-100%); }
-  }
-  /* Tilgjengelighet + redusert bevegelse */
-  @media (prefers-reduced-motion: reduce) {
-    .marquee__row { animation: none; }
-  }
-</style>
+  <!-- 2) Blå hero-boks som overlapper masthead -->
+  <section class="hero-card">
+    <h1>Gjør trening tilgjengelig for flest mulig<span class="dot">.</span></h1>
+  </section>
 
-<div class="marquee" role="region" aria-label="MyStrongestSide statements">
-  <div class="marquee__wrap">
-    <div class="marquee__row">
-      <span>Tilrettelagt.</span>
-      <span>Fellesskap.</span>
-      <span>Trygt.</span>
-      <span>Kompetanse.</span>
-      <span>Tilhørighet.</span>
-      <span>Mestring.</span>
-      <span>Åpent for alle.</span>
-      <span>Kunnskap.</span>
-      <span>Universelt.</span>
-      <span>Inkluderende.</span>
-      <span>Sertifisert.</span>
-      <span>Standardisert.</span>
-      <span>Enkelt.</span>
-      <span>Profesjonelt.</span>
-      <span>Tilgjengelig.</span>
-      <span>Godkjent.</span>
-      <span>Støtte.</span>
-      <span>Like muligheter.</span>
-      <span>Riktig tilpasning.</span>
-      <span>Trening for alle.</span>
-    </div>
-    <!-- Duplikat for sømløs rull -->
-    <div class="marquee__row" aria-hidden="true">
-      <span>Tilrettelagt.</span>
-      <span>Fellesskap.</span>
-      <span>Trygt.</span>
-      <span>Kompetanse.</span>
-      <span>Tilhørighet.</span>
-      <span>Mestring.</span>
-      <span>Åpent for alle.</span>
-      <span>Kunnskap.</span>
-      <span>Universelt.</span>
-      <span>Inkluderende.</span>
-      <span>Sertifisert.</span>
-      <span>Standardisert.</span>
-      <span>Enkelt.</span>
-      <span>Profesjonelt.</span>
-      <span>Tilgjengelig.</span>
-      <span>Godkjent.</span>
-      <span>Støtte.</span>
-      <span>Like muligheter.</span>
-      <span>Riktig tilpasning.</span>
-      <span>Trening for alle.</span>
+  <!-- Marquee -->
+  <div class="marquee" role="region" aria-label="MyStrongestSide statements">
+    <div class="marquee__wrap">
+      <div class="marquee__row">
+        <span>Tilrettelagt.</span>
+        <span>Fellesskap.</span>
+        <span>Trygt.</span>
+        <span>Kompetanse.</span>
+        <span>Tilhørighet.</span>
+        <span>Mestring.</span>
+        <span>Åpent for alle.</span>
+        <span>Kunnskap.</span>
+        <span>Universelt.</span>
+        <span>Inkluderende.</span>
+        <span>Sertifisert.</span>
+        <span>Standardisert.</span>
+        <span>Enkelt.</span>
+        <span>Profesjonelt.</span>
+        <span>Tilgjengelig.</span>
+        <span>Godkjent.</span>
+        <span>Støtte.</span>
+        <span>Like muligheter.</span>
+        <span>Riktig tilpasning.</span>
+        <span>Trening for alle.</span>
+      </div>
+      <!-- Duplikat for sømløs rull -->
+      <div class="marquee__row" aria-hidden="true">
+        <span>Tilrettelagt.</span>
+        <span>Fellesskap.</span>
+        <span>Trygt.</span>
+        <span>Kompetanse.</span>
+        <span>Tilhørighet.</span>
+        <span>Mestring.</span>
+        <span>Åpent for alle.</span>
+        <span>Kunnskap.</span>
+        <span>Universelt.</span>
+        <span>Inkluderende.</span>
+        <span>Sertifisert.</span>
+        <span>Standardisert.</span>
+        <span>Enkelt.</span>
+        <span>Profesjonelt.</span>
+        <span>Tilgjengelig.</span>
+        <span>Godkjent.</span>
+        <span>Støtte.</span>
+        <span>Like muligheter.</span>
+        <span>Riktig tilpasning.</span>
+        <span>Trening for alle.</span>
+      </div>
     </div>
   </div>
- <!-- STATEMENT (tekst venstre, symbol høyre – uavhengig av navbar-logo) -->
-<section class="statement section-white">
-  <div class="statement-wrap">
-    <h2 class="statement-copy">
-      Mennesker i fokus<span class="dot">.</span><br>
-      Trening som tilpasses<span class="dot">.</span><br>
-      Fellesskap som vokser<span class="dot">.</span>
-    </h2>
 
-    <!-- Bruk et EGET filnavn, f.eks. symbol-orange.png,
-         så kolliderer det ikke med navbarens logo.png -->
-    <div class="statement-emblem">
-      <img src="symbol-orange.png" alt="Symbol" />
+  <!-- STATEMENT (tekst venstre, symbol høyre – uavhengig av navbar-logo) -->
+  <section class="statement section-white">
+    <div class="statement-wrap">
+      <h2 class="statement-copy">
+        Mennesker i fokus<span class="dot">.</span><br>
+        Trening som tilpasses<span class="dot">.</span><br>
+        Fellesskap som vokser<span class="dot">.</span>
+      </h2>
+
+     
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+</body>
+</html>
