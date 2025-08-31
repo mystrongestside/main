@@ -225,5 +225,46 @@ body {
 .focus-center    { object-position: 50% 50% !important; }
 .focus-lower     { object-position: 50% 65% !important; }
 .focus-bottom    { object-position: 50% 80% !important; }
+/* === RESTORE: kompakt desktop + smart mobil-crop === */
+
+/* Grid: 2 kolonner på desktop */
+@media (min-width: 768px){
+  .news-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* Grunnoppsett for bilder */
+.news-card { position: relative; overflow: hidden; }
+.news-card .news-media,
+.news-card > img{
+  width: 100% !important;
+  display: block;
+  object-fit: cover !important;
+}
+
+/* MOBIL/TABLET: behold ratio og flytt fokus opp (mindre “avkapp av hoder”) */
+@media (max-width: 899px){
+  .news-card .news-media,
+  .news-card > img{
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    object-position: 50% 20% !important; /* 20% ned fra toppen */
+  }
+}
+
+/* DESKTOP: fast, liten høyde (juster etter smak: 180–220px funker bra) */
+@media (min-width: 900px){
+  .news-card .news-media,
+  .news-card > img{
+    height: 200px !important;    /* ← endre til 180/190/220 hvis ønskelig */
+    aspect-ratio: auto !important;
+  }
+}
+
+/* Valgfrie fokusklasser for enkeltbilder (bruk i HTML: class="news-media focus-lower") */
+.focus-top     { object-position: 50% 15% !important; }
+.focus-upper   { object-position: 50% 25% !important; }
+.focus-center  { object-position: 50% 50% !important; }
+.focus-lower   { object-position: 50% 65% !important; }
+.focus-bottom  { object-position: 50% 80% !important; }
 
 
