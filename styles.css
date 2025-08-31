@@ -290,11 +290,7 @@ body {
   color: var(--blue);
   border-radius: 8px;
   padding: 1rem;
-  opacity: 0;
   transition: opacity .5s ease;
-}
-.news-item.visible {
-  opacity: 1;
 }
 .news-item img {
   width: 100%;
