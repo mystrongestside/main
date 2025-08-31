@@ -191,130 +191,39 @@ body {
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .news-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12); }
+/* === BILDER I NYHETSKORT: EN ENESTE SANNHET === */
 
-/* SMÅ, FASTE BILDEHØYDER – gjelder både .news-media og vanlige <img> */
+/* 1) Grunnregel: aldri strekk, crop pent */
 .news-card .news-media,
-.news-card > img {
-  width: 100%;
-  height: 140px;               /* mobil */
-  object-fit: cover;
-  display: block;
-  transition: transform .3s ease;
-}
-@media (min-width: 600px){
-  .news-card .news-media,
-  .news-card > img { height: 160px; }         /* nettbrett */
-}
-@media (min-width: 600px){
-  .news-card .news-media,
-  .news-card > img { height: 160px; }         /* desktop */
-}
-.news-card:hover .news-media,
-.news-card:hover > img { transform: scale(1.03); }
-
-/* Innhold */
-.news-body { padding: 0.75rem 0.9rem 0.9rem; background:#fff; }
-.news-title { margin:0 0 .35rem; font-size:1.05rem; color: var(--blue); font-weight: 700; }
-.news-text  { margin:0 0 .6rem;  color:#333; font-size:.95rem; line-height:1.4; }
-
-/* Knapp */
-.news-button {
-  display:inline-block; padding:.45rem .9rem; border-radius:999px;
-  background: var(--orange); color:#fff; font-weight:600; text-decoration:none;
-  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,.18);
-  font-size: .95rem;
-}
-.news-button:hover { transform: translateY(-2px); filter: brightness(1.07); box-shadow: 0 8px 18px rgba(0,0,0,.22); }
-
-/* Logo/partner-bilder som ikke skal beskjæres */
-.media--contain{
-  object-fit: contain;
-  background:#fff;
-  padding: 1rem;
-}
-
-/* =========================
-   DATO-BADGE
-========================= */
-.news-card { position: relative; }  /* nødvendig for absolutt posisjonering */
-
-.date-badge{
-  position: absolute;
-  top: 10px; left: 10px;
-  z-index: 5;                       /* over bildet, også ved hover */
-  display: grid;
-  grid-auto-rows: min-content;
-  align-content: start;
-  padding: 10px 12px;
-  width: 90px;
-  background: #fff;
-  color: var(--blue);
-  border-radius: 10px;
-  box-shadow: 0 6px 16px rgba(0,0,0,.16);
-  pointer-events: none;
-}
-.date-month{ font-weight:700; letter-spacing:.06em; font-size:.9rem; text-transform:uppercase; line-height:1; }
-.date-day{ font-weight:800; font-size:2.2rem; line-height:.95; margin:6px 0 6px; }
-.date-line{ height:2px; width:100%; background:var(--orange); border-radius:1px; margin:2px 0 8px; }
-.date-range{ font-weight:700; font-size:.85rem; line-height:1.1; color:var(--orange); }
-
-@media (min-width: 900px){
-  .date-badge{ width: 100px; padding: 12px 12px; }
-  .date-day{ font-size: 2.4rem; }
-}
-/* --- STOPP STREKK: bruk aspect-ratio i stedet for pikselhøyde --- */
-.news-card .news-media,
-.news-card > img {
-  width: 100%;
-  height: auto !important;      /* fjern tvungen høyde */
-  object-fit: cover;
-  display: block;
-  aspect-ratio: 16 / 9;         /* mobil/tett */
-}
-
-/* På større skjermer, litt høyere format */
-@media (min-width: 900px){
-  .news-card .news-media,
-  .news-card > img {
-    aspect-ratio: 4 / 3;        /* ser mindre “avlangt” ut */
-  }
-}
-.news-card .news-media { height: 140px; }
-@media (...) { .news-card .news-media { height: 160px; } }
-@media (...) { .news-card .news-media { height: 180px; } }
-/* === FIXED BILDESTØRRELSE PÅ DESKTOP === */
-.news-card .news-media {
+.news-card > img{
   width: 100%;
   height: auto;
-  object-fit: cover;
   display: block;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;              /* mobil / smal */
 }
 
-/* Mobil og små skjermer (behold dynamisk høyde) */
-@media (max-width: 899px) {
-  .news-card .news-media {
-    aspect-ratio: 16 / 9;   /* cropper pent */
-    height: auto;
+/* 2) Desktop: litt høyere format så det ikke ser “avlangt” ut */
+@media (min-width: 900px){
+  .news-card .news-media,
+  .news-card > img{
+    aspect-ratio: 4 / 3;
   }
 }
 
-/* Desktop – fast høyde */
-@media (min-width: 900px) {
-  .news-card .news-media {
-    height: 220px;          /* <-- juster til ønsket “vanlig” bildestørrelse */
-    aspect-ratio: auto;     /* fjern ratio-lås på desktop */
-  }
-}
+/* 3) Mobil: flytt fokus oppover (slipper avkapp av hode) */
 @media (max-width: 899px){
-  .news-card .news-media{
-    object-position: 50% 20%;
+  .news-card .news-media,
+  .news-card > img{
+    object-position: 50% 20%;        /* sentrert horisontalt, 20% fra toppen */
   }
 }
-/* Finjuster utsnittet for enkelte bilder */
-.focus-top        { object-position: 50% 15% !important; }
-.focus-upper      { object-position: 50% 25% !important; } /* litt opp */
-.focus-center     { object-position: 50% 50% !important; }
-.focus-lower      { object-position: 50% 65% !important; } /* litt ned */
-.focus-bottom     { object-position: 50% 80% !important; } /* mye ned */
+
+/* 4) Valgfrie finjusteringsklasser for enkeltbilder */
+.focus-top       { object-position: 50% 15% !important; }
+.focus-upper     { object-position: 50% 25% !important; }
+.focus-center    { object-position: 50% 50% !important; }
+.focus-lower     { object-position: 50% 65% !important; }
+.focus-bottom    { object-position: 50% 80% !important; }
+
 
