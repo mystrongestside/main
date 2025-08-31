@@ -459,3 +459,40 @@ body {
 .news-title { text-shadow: 0 2px 10px rgba(0,0,0,.4); }
 .news-card.text-only { min-height: 200px; }
 
+/* Innhold i kortet */
+.news-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 80%);
+  width: 100%;
+  color: #fff;
+}
+
+.news-text {
+  font-size: 0.95rem;
+  margin: 0.5rem 0 1rem;
+  line-height: 1.4;
+}
+
+/* Trendi "Les mer"-knapp */
+.news-button {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.news-button:hover {
+  background: #ff925d;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+
+
