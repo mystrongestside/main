@@ -263,3 +263,21 @@ body {
   .date-badge{ width: 100px; padding: 12px 12px; }
   .date-day{ font-size: 2.4rem; }
 }
+/* --- STOPP STREKK: bruk aspect-ratio i stedet for pikselhøyde --- */
+.news-card .news-media,
+.news-card > img {
+  width: 100%;
+  height: auto !important;      /* fjern tvungen høyde */
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 16 / 9;         /* mobil/tett */
+}
+
+/* På større skjermer, litt høyere format */
+@media (min-width: 900px){
+  .news-card .news-media,
+  .news-card > img {
+    aspect-ratio: 4 / 3;        /* ser mindre “avlangt” ut */
+  }
+}
+
