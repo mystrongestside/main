@@ -9,6 +9,9 @@
   --orange:#F47F42;
   --text:#000;
   --bg:#E4E8F2;
+
+  --container: 980px;         /* bredde for seksjoner på desktop */
+  --card-img-h: 200px;        /* FAST bildehøyde på desktop */
 }
 
 html, body { height: 100%; }
@@ -81,7 +84,7 @@ body {
 }
 
 /* =========================
-   HERO-KORT OVER MASTHEAD
+   HERO CARD
 ========================= */
 .hero-card {
   background: var(--blue-2);
@@ -94,9 +97,7 @@ body {
   width: 100%;
 }
 .hero-card h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 600; }
-.hero-card p { max-width: 900px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6; }
 .dot { color: #ff6d00; }
-
 @media (max-width: 600px) {
   .masthead { min-height: 40vh; }
   .hero-card { padding: 4rem 1.5rem; margin-top: -40px; }
@@ -104,69 +105,40 @@ body {
 }
 
 /* =========================
-   ORANSJE MARQUEE
+   MARQUEE
 ========================= */
-.marquee {
-  background: var(--orange); color: #fff; overflow: hidden; width: 100%;
-  position: relative; z-index: 1; margin-bottom: 1.5rem;
-}
+.marquee { background: var(--orange); color: #fff; overflow: hidden; width: 100%; position: relative; z-index: 1; margin-bottom: 1.5rem; }
 .marquee__wrap { display: flex; width: max-content; }
-.marquee__row {
-  display: flex; gap: 2.5rem; padding: 0.8rem 1rem; white-space: nowrap; flex-shrink: 0;
-  animation: marqueeB 70s linear infinite; font-weight: 700; letter-spacing: 0.01em;
-}
+.marquee__row { display: flex; gap: 2.5rem; padding: 0.8rem 1rem; white-space: nowrap; flex-shrink: 0; animation: marqueeB 70s linear infinite; font-weight: 700; letter-spacing: 0.01em; }
 .marquee__row span { display: inline-block; }
 @keyframes marqueeB { from { transform: translateX(0); } to { transform: translateX(-100%); } }
 @media (prefers-reduced-motion: reduce) { .marquee__row { animation: none; } }
 
 /* =========================
-   HVIT HERO-STATEMENT
+   WHITE HERO LINE
 ========================= */
-.hero {
-  text-align: center; padding: 6rem 1rem; background: #fff;
-}
-.hero h1 {
-  font-size: 2.5rem; font-weight: 600; line-height: 1.2;
-  max-width: 900px; margin: 0 auto; color: var(--blue);
-}
+.hero { text-align: center; padding: 6rem 1rem; background: #fff; }
+.hero h1 { font-size: 2.5rem; font-weight: 600; line-height: 1.2; max-width: 900px; margin: 0 auto; color: var(--blue); }
 
 /* =========================
-   FILTER-KNAPPER
+   FILTERS
 ========================= */
-.news-filters {
-  display: flex; gap: 0.5rem; flex-wrap: wrap; padding: 1rem; background: var(--bg);
-}
-.filter { padding: 0.35rem 0.75rem; border: 1px solid #d0d0d0; background: none; cursor: pointer; }
+.news-filters { display: flex; gap: .5rem; flex-wrap: wrap; padding: 1rem; background: var(--bg); }
+.filter { padding: .35rem .75rem; border: 1px solid #d0d0d0; background: none; cursor: pointer; }
 .filter.active { background: #000; color: #fff; }
 
 /* =========================
-   AKTIVITETSSEKSJON
-========================= */
-/* =========================
-   AKTIVITETSSEKSJON
+   NEWS SECTION
 ========================= */
 .news-section { background:#eef2fa; padding: 2rem 1rem 3rem; }
 
-.news-header {
-  max-width: 980px;              /* linjer opp med grid */
-  margin: 0 auto 1.25rem;
-  padding: 0 1rem;
-  text-align: left;
-}
-.news-header h2 {
-  color: var(--blue);
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  line-height: 1.1;
-  margin: 0 0 .35rem;
-  font-weight: 800;
-}
+.news-header { max-width: var(--container); margin: 0 auto 1.25rem; padding: 0 1rem; text-align: left; }
+.news-header h2 { color: var(--blue); font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1; margin: 0 0 .35rem; font-weight: 800; }
 .news-header p { color:#24344d; opacity:.9; margin: 0; }
 
-/* =========================
-   GRID FOR KORT
-========================= */
+/* Grid */
 .news-grid {
-  max-width: 980px;
+  max-width: var(--container);
   margin: 0 auto;
   padding: 0 1rem;
   display: grid;
@@ -177,9 +149,7 @@ body {
   .news-grid { grid-template-columns: repeat(2, 1fr); }  /* desktop */
 }
 
-/* =========================
-   KORT: BILDE OVER + INNHOLD UNDER
-========================= */
+/* Card */
 .news-card {
   position: relative;
   background:#fff;
@@ -191,80 +161,86 @@ body {
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .news-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12); }
-/* === BILDER I NYHETSKORT: EN ENESTE SANNHET === */
 
-/* 1) Grunnregel: aldri strekk, crop pent */
+/* === BILDE-REGLER (stabile) ============================== */
 .news-card .news-media,
 .news-card > img{
   width: 100%;
-  height: auto;
   display: block;
   object-fit: cover;
-  aspect-ratio: 16 / 9;              /* mobil / smal */
 }
 
-/* 2) Desktop: litt høyere format så det ikke ser “avlangt” ut */
-@media (min-width: 900px){
-  .news-card .news-media,
-  .news-card > img{
-    aspect-ratio: 4 / 3;
-  }
-}
-
-/* 3) Mobil: flytt fokus oppover (slipper avkapp av hode) */
+/* Mobil/Tablet: ratio + fokus litt opp (færre avkappede hoder) */
 @media (max-width: 899px){
   .news-card .news-media,
   .news-card > img{
-    object-position: 50% 20%;        /* sentrert horisontalt, 20% fra toppen */
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-position: 50% 20%;
   }
 }
 
-/* 4) Valgfrie finjusteringsklasser for enkeltbilder */
-.focus-top       { object-position: 50% 15% !important; }
-.focus-upper     { object-position: 50% 25% !important; }
-.focus-center    { object-position: 50% 50% !important; }
-.focus-lower     { object-position: 50% 65% !important; }
-.focus-bottom    { object-position: 50% 80% !important; }
-/* === RESTORE: kompakt desktop + smart mobil-crop === */
-
-/* Grid: 2 kolonner på desktop */
-@media (min-width: 768px){
-  .news-grid { grid-template-columns: repeat(2, 1fr) !important; }
-}
-
-/* Grunnoppsett for bilder */
-.news-card { position: relative; overflow: hidden; }
-.news-card .news-media,
-.news-card > img{
-  width: 100% !important;
-  display: block;
-  object-fit: cover !important;
-}
-
-/* MOBIL/TABLET: behold ratio og flytt fokus opp (mindre “avkapp av hoder”) */
-@media (max-width: 899px){
-  .news-card .news-media,
-  .news-card > img{
-    height: auto !important;
-    aspect-ratio: 16 / 9 !important;
-    object-position: 50% 20% !important; /* 20% ned fra toppen */
-  }
-}
-
-/* DESKTOP: fast, liten høyde (juster etter smak: 180–220px funker bra) */
+/* Desktop: FAST høyde – lik størrelse i alle kort */
 @media (min-width: 900px){
   .news-card .news-media,
   .news-card > img{
-    height: 200px !important;    /* ← endre til 180/190/220 hvis ønskelig */
-    aspect-ratio: auto !important;
+    height: var(--card-img-h);
+    aspect-ratio: auto;
+    object-position: 50% 50%;
   }
 }
 
-/* Valgfrie fokusklasser for enkeltbilder (bruk i HTML: class="news-media focus-lower") */
+/* Innhold */
+.news-body { padding: 0.9rem 1rem 1rem; background:#fff; }
+.news-title { margin:0 0 .35rem; font-size:1.05rem; color: var(--blue); font-weight: 700; }
+.news-text  { margin:0 0 .7rem;  color:#333; font-size:.95rem; line-height:1.4; }
+
+/* Knapp */
+.news-button {
+  display:inline-block; padding:.45rem .9rem; border-radius:999px;
+  background: var(--orange); color:#fff; font-weight:600; text-decoration:none;
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,.18);
+  font-size: .95rem;
+}
+.news-button:hover { transform: translateY(-2px); filter: brightness(1.07); box-shadow: 0 8px 18px rgba(0,0,0,.22); }
+
+/* Logo/partner-bilder som ikke skal beskjæres */
+.media--contain{ object-fit: contain; background:#fff; padding: 1rem; }
+
+/* =========================
+   DATE BADGE
+========================= */
+.date-badge{
+  position: absolute;
+  top: 10px; left: 10px;
+  z-index: 5;
+  display: grid;
+  grid-auto-rows: min-content;
+  align-content: start;
+  padding: 10px 12px;
+  width: 90px;
+  background: #fff;
+  color: var(--blue);
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.16);
+  pointer-events: none;
+}
+.date-month{ font-weight:700; letter-spacing:.06em; font-size:.9rem; text-transform:uppercase; line-height:1; }
+.date-day{ font-weight:800; font-size:2.2rem; line-height:.95; margin:6px 0 6px; }
+.date-line{ height:2px; width:100%; background:var(--orange); border-radius:1px; margin:2px 0 8px; }
+.date-range{ font-weight:700; font-size:.85rem; line-height:1.1; color:var(--orange); }
+
+@media (min-width: 900px){
+  .date-badge{ width: 100px; padding: 12px 12px; }
+  .date-day{ font-size: 2.4rem; }
+}
+
+/* =========================
+   FOKUS-UTILS (bruk på enkeltbilder ved behov)
+========================= */
 .focus-top     { object-position: 50% 15% !important; }
 .focus-upper   { object-position: 50% 25% !important; }
 .focus-center  { object-position: 50% 50% !important; }
 .focus-lower   { object-position: 50% 65% !important; }
 .focus-bottom  { object-position: 50% 80% !important; }
-
-
