@@ -306,4 +306,8 @@ body {
     aspect-ratio: auto;     /* fjern ratio-lås på desktop */
   }
 }
-
+@media (max-width: 899px){
+  .news-card .news-media{
+    object-position: 50% 20%;
+  }
+}
