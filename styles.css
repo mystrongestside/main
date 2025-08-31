@@ -231,3 +231,60 @@ body {
    OPPRYDDING – fjern gammel overlay
 ========================= */
 .news-content { display:none !important; }  /* gammel overlay-wrapper */
+/* === Dato-badge på bilde === */
+.date-badge{
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: grid;
+  grid-auto-rows: min-content;
+  align-content: start;
+  padding: 12px 14px;
+  width: 108px;                 /* konsistent bredde */
+  background: #fff;
+  color: var(--blue);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+}
+
+.date-month{
+  font-weight: 700;
+  letter-spacing: .06em;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.date-day{
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: .95;
+  margin: 6px 0 6px;
+}
+
+.date-line{
+  height: 2px;
+  width: 100%;
+  background: var(--orange);     /* oransje detaljlinje */
+  border-radius: 1px;
+  margin: 2px 0 8px;
+}
+
+.date-range{
+  font-weight: 700;
+  font-size: .9rem;
+  line-height: 1.1;
+  color: var(--orange);          /* oransje tekst som ønsket */
+}
+
+/* Responsivt – litt mindre på mobil */
+@media (max-width: 520px){
+  .date-badge{ width: 96px; padding: 10px 12px; top: 10px; left: 10px; }
+  .date-month{ font-size: .85rem; }
+  .date-day{ font-size: 2rem; margin: 4px 0 6px; }
+  .date-range{ font-size: .8rem; }
+}
+
+/* Sikre at kortet kan ha absolutte elementer over bildet */
+.news-card{ position: relative; }
+
