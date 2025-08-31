@@ -453,3 +453,9 @@ body {
 .news-link:hover {
   text-decoration: underline;
 }
+/* Behold jevn kort-høyde og bedre lesbar tittel */
+.news-card { background:#000; }
+.news-card img { aspect-ratio: 16 / 9; object-fit: cover; }
+.news-title { text-shadow: 0 2px 10px rgba(0,0,0,.4); }
+.news-card.text-only { min-height: 200px; }
+
