@@ -408,3 +408,33 @@ body {
 details { border-top: 1px solid #eee; padding-top:.6rem; margin-top:.6rem; }
 details summary{ cursor:pointer; font-weight:700; color:var(--blue); }
 
+/* =========================
+   CONTENT-BILDER (inne i artikler/sekjoner)
+========================= */
+.media img,
+.thumb,
+.content img {
+  max-width: 100%;      /* aldri bredere enn container */
+  height: auto;         /* bevar proporsjoner */
+  display: block;
+  border-radius: 8px;   /* myke hjørner */
+  margin: 1rem 0;       /* luft rundt bildet */
+  object-fit: cover;    /* cropper pent hvis container har fast høyde */
+}
+
+/* Mindre høyde på store content-bilder */
+.media img {
+  max-height: 300px;    /* juster hvis du vil ha mindre/høyere */
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Bildetekst */
+.media-caption {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.25rem;
+  text-align: center;
+}
+
+
