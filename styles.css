@@ -287,4 +287,59 @@ body {
 
 /* Sikre at kortet kan ha absolutte elementer over bildet */
 .news-card{ position: relative; }
+/* === CARD STABILIZER (lim inn nederst) ===================== */
+
+/* 1) Kortet er en ren kolonne: bilde over, innhold under */
+.news-card{
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+}
+
+/* 2) ÉN gyldig regel for bilder i kort (slett/overstyrer andre) */
+.news-card img,
+.news-media{
+  width: 100% !important;
+  height: auto !important;          /* <- IKKE height:100% */
+  display: block;
+  object-fit: cover;
+  transition: transform .45s ease;
+  aspect-ratio: 16 / 9;             /* mobil */
+}
+@media (min-width: 900px){
+  .news-card img,
+  .news-media{ aspect-ratio: 3 / 2; }  /* desktop */
+}
+
+/* 3) Diskré zoom ved hover, uten å påvirke layouten */
+.news-card:hover .news-media,
+.news-card:hover img{
+  transform: scale(1.04);
+}
+
+/* 4) Dato-badge alltid over bildet (zoom skaper stacking-context) */
+.date-badge{
+  position: absolute;
+  top: 12px; left: 12px;
+  z-index: 5;                 /* over bildet */
+  pointer-events: none;       /* klikk går gjennom */
+}
+
+/* 5) Skru helt av gammel overlay-variant hvis den finnes */
+.news-content{ display:none !important; }
+.news-card .news-title,
+.news-card .news-text,
+.news-card .news-button,
+.news-body{
+  position: static !important;
+}
+
+/* 6) Partnerlogoer som ikke skal beskjæres */
+.media--contain{
+  object-fit: contain !important;
+  background: #fff;
+  padding: 1.25rem;
+}
 
