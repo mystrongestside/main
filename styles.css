@@ -326,11 +326,11 @@ body {
   line-height: 1.6;
 }
 
-/* Hero */
+/* Hero - white background with blue heading */
 .hero {
   text-align: center;
   padding: 6rem 1rem;
-  background: var(--blue-2);
+  background: #fff;
 }
 
 .hero h1 {
@@ -339,7 +339,7 @@ body {
   line-height: 1.2;
   max-width: 900px;
   margin: 0 auto;
-  color: #fff;
+  color: var(--blue);
 }
 
 /* Nyhetsliste */
