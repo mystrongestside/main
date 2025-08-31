@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Styrketrening – lett funksjonsvariasjon | My Strongest Side</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navbar (gjenbruk) -->
+  <header class="navbar" role="navigation" aria-label="Hovedmeny">
+    <div class="navbar-left">
+      <a href="index.html" class="logo-link" aria-label="Til forsiden">
+        <img src="logo.png" alt="My Strongest Side" class="logo" />
+      </a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="navbar-center" id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="om-oss.html">Om oss</a></li>
+        <li><a href="kurs.html">Kurs</a></li>
+        <li><a href="studenter.html">For studenter</a></li>
+      </ul>
+    </nav>
+
+    <div class="navbar-right">
+      <a href="kalender.html" class="btn-book">Kontakt</a>
+    </div>
+  </header>
+  <script src="script.js" defer></script>
+
+  <!-- Oransje bånd (valgfritt, matcher toppen) -->
+  <div class="marquee marquee--thin" role="region" aria-label="Verdier">
+    <div class="marquee__wrap">
+      <div class="marquee__row">
+        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span>
+        <span>Kompetanse.</span><span>Mestring.</span><span>Inkluderende.</span>
+      </div>
+      <div class="marquee__row" aria-hidden="true">
+        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span>
+        <span>Kompetanse.</span><span>Mestring.</span><span>Inkluderende.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Styrketrening for voksne med lett funksjonsvariasjon<span class="dot">.</span></h1>
+      <p class="lead">Tilpasset styrketrening i grupper – trygt, sosialt og med kompetente veiledere.</p>
+      <div class="hero-cta">
+        <a href="#pamelding" class="btn-primary">Meld deg på</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Innhold: 2 kolonner -->
+  <main class="container two-col">
+    <!-- Venstre kolonne -->
+    <article class="content">
+
+      <section class="block">
+        <h2>Hva får du<span class="dot">?</span></h2>
+        <ul class="checklist">
+          <li>Tilpassede økter i mindre grupper</li>
+          <li>Veiledning fra sertifiserte instruktører</li>
+          <li>Fokus på mestring, trygghet og fellesskap</li>
+          <li>Enkle øvelser som gradvis kan økes</li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Hvem passer det for<span class="dot">?</span></h2>
+        <p>Deg som har lett funksjonsvariasjon og ønsker treningsglede, struktur og sosialt miljø. Ingen forkunnskaper kreves – vi tilpasser.</p>
+      </section>
+
+      <section class="block">
+        <h2>Praktisk info<span class="dot">.</span></h2>
+        <div class="facts">
+          <div><strong>Oppstart:</strong> 25. september</div>
+          <div><strong>Varighet:</strong> t.o.m. 29. januar</div>
+          <div><strong>Sted:</strong> Eksempelveien 1, 0001 Oslo</div>
+          <div><strong>Nivå:</strong> Nybegynner til lett øvet</div>
+        </div>
+      </section>
+
+      <!-- Galleri -->
+      <section class="block">
+        <h2>Se fra treningene<span class="dot">.</span></h2>
+        <div class="gallery">
+          <img src="bilde1.jpg" alt="Treningseksempel 1" class="thumb">
+          <img src="bilde2.jpg" alt="Treningseksempel 2" class="thumb">
+          <img src="bilde3.jpg" alt="Treningseksempel 3" class="thumb">
+        </div>
+      </section>
+
+      <!-- FAQ / ofte stilte spørsmål (enkelt) -->
+      <section class="block">
+        <h2>Ofte stilte spørsmål<span class="dot">.</span></h2>
+        <details>
+          <summary>Kan jeg prøve en time før jeg bestemmer meg?</summary>
+          <p>Ja, ta kontakt så finner vi en time som passer. Du kan prøve én gang uten forpliktelser.</p>
+        </details>
+        <details>
+          <summary>Hva trenger jeg å ha med?</summary>
+          <p>Vanlige treningsklær, innesko og en vannflaske.</p>
+        </details>
+      </section>
+    </article>
+
+    <!-- Høyre kolonne / sticky kort -->
+    <aside class="aside-card" id="pamelding">
+      <h3 class="aside-title">Påmelding</h3>
+      <p>Vi kontakter deg for å sette deg opp i riktig gruppe.</p>
+
+      <form class="signup-form" action="https://forms.gle/" method="get">
+        <label>
+          Navn
+          <input type="text" name="navn" required>
+        </label>
+        <label>
+          E-post
+          <input type="email" name="epost" required>
+        </label>
+        <label>
+          Telefon
+          <input type="tel" name="telefon" required>
+        </label>
+        <button class="btn-primary" type="submit">Send påmelding</button>
+      </form>
+
+      <hr/>
+      <p class="aside-meta"><strong>Tider:</strong> Man & Tor kl. 18:00–19:00</p>
+      <p class="aside-meta"><strong>Pris:</strong> 1490,- per mnd</p>
+    </aside>
+  </main>
+
+  <!-- Footer (bruk den du allerede la inn) -->
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> My Strongest Side · Alle rettigheter forbeholdt</p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
