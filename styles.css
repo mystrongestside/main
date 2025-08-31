@@ -480,3 +480,44 @@ body {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 6px 16px rgba(0,0,0,0.35);
 }
+/* Seksjonstittel over grid */
+.news-section { background:#eef2fa; padding: 2rem 1rem 3rem; }
+.news-header { max-width: 1000px; margin: 0 auto 1rem; padding: 0 1rem; }
+.news-header h2 {
+  color: var(--blue); font-size: clamp(1.6rem, 2.5vw, 2.2rem); line-height:1.1; margin: 0 0 .25rem;
+}
+.news-header p { color:#24344d; opacity:.9; }
+
+/* Grid */
+.news-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; gap: 1.5rem; padding: 0 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Kort: bilde over, innhold under (ikke overlay) */
+.news-card {
+  background:#fff; border:1px solid #e6e6e6; border-radius: 12px; overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.news-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12); }
+
+.news-media {
+  width:100%; aspect-ratio: 16 / 9; object-fit: cover; display:block;
+  transition: transform .5s ease;
+}
+.news-card:hover .news-media { transform: scale(1.04); }
+
+.news-body { padding: 1rem; }
+.news-title { margin:0 0 .4rem; font-size:1.1rem; color: var(--blue); }
+.news-text { margin:0 0 .9rem; color:#333; }
+
+/* Knapp */
+.news-button {
+  display:inline-block; padding:.5rem 1rem; border-radius:999px;
+  background: var(--orange); color:#fff; font-weight:600; text-decoration:none;
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+.news-button:hover { transform: translateY(-2px); filter: brightness(1.07); box-shadow: 0 8px 18px rgba(0,0,0,.25); }
+
