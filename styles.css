@@ -4,9 +4,9 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root{
-  --blue:#192B45;     /* mørk blå */
-  --blue-2:#24344d;   /* sekundær blå (brukes i noen seksjoner) */
-  --orange:#F47F42;   /* oransje */
+  --blue:#192B45;
+  --blue-2:#24344d;
+  --orange:#F47F42;
   --text:#000;
   --bg:#E4E8F2;
 }
@@ -16,7 +16,7 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: var(--text);
-  background:var(--bg);
+  background: var(--bg);
 }
 
 /* =========================
@@ -32,92 +32,44 @@ body {
   padding: 0.5rem 1rem;
   background: var(--blue);
 }
-
 .navbar-left, .navbar-right { flex: 0 0 auto; }
 
 .logo {
-  height: 50px;           /* mer luft, ikke “trøkt” */
+  height: 50px;
   width: auto;
   display: block;
   margin: 5px 10px 0 10px;
 }
 
-.navbar-center {
-  flex: 1 1 auto;
-  display: flex;
-  justify-content: center;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  line-height: 1;
-}
-.nav-links a:hover,
-.nav-links a:focus { text-decoration: underline; }
+.navbar-center { flex: 1 1 auto; display: flex; justify-content: center; }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a { color: #fff; text-decoration: none; font-weight: 600; line-height: 1; }
+.nav-links a:hover, .nav-links a:focus { text-decoration: underline; }
 
 .btn-book {
-  display: inline-block;
-  padding: 0.65rem 1rem;
-  border-radius: 999px;
-  background: var(--orange);
-  color: #0b1423;
-  font-weight: 700;
-  text-decoration: none;
-  white-space: nowrap;
+  display: inline-block; padding: 0.65rem 1rem; border-radius: 999px;
+  background: var(--orange); color: #0b1423; font-weight: 700; text-decoration: none; white-space: nowrap;
 }
-.btn-book:hover,
-.btn-book:focus { filter: brightness(1.05); }
+.btn-book:hover, .btn-book:focus { filter: brightness(1.05); }
 
 /* Hamburger */
-.hamburger {
-  display: none;               /* vises på mobil */
-  background: transparent;
-  border: 0;
-  padding: 0.25rem;
-  cursor: pointer;
-  line-height: 0;
-}
+.hamburger { display: none; background: transparent; border: 0; padding: 0.25rem; cursor: pointer; line-height: 0; }
 .hamburger:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-.hamburger span {
-  display: block;
-  width: 26px;
-  height: 3px;
-  background: #fff;
-  border-radius: 2px;
-  margin: 4px 0;
-  transition: transform .2s ease, opacity .2s ease;
-}
+.hamburger span { display: block; width: 26px; height: 3px; background: #fff; border-radius: 2px; margin: 4px 0; transition: transform .2s ease, opacity .2s ease; }
 
 /* Mobil / nettbrett */
 @media (max-width: 900px) {
   .hamburger { display: inline-block; }
 
   .navbar-center {
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    display: none;                /* skjult til hamburger trykkes */
-    background: var(--blue);
+    position: absolute; top: 100%; left: 0; right: 0;
+    display: none; background: var(--blue);
     border-top: 1px solid rgba(255,255,255,.08);
     padding: 0.75rem 1rem;
   }
   .navbar-center.active { display: block; }
 
-  .nav-links {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
+  .nav-links { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .navbar-center, .navbar-right { order: 3; }
   .navbar-right { margin-left: auto; }
 }
@@ -146,370 +98,105 @@ body {
   color: #fff;
   text-align: center;
   padding: 6rem 2rem;
-  margin-top: -80px;      /* overlapper masthead */
+  margin-top: -80px;   /* overlapper masthead */
   position: relative;
   z-index: 2;
   width: 100%;
 }
-.hero-card h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: 600; /* <-- justert fra 700 */
-}
-.hero-card p {
-  max-width: 900px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
+.hero-card h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 600; }
+.hero-card p { max-width: 900px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6; }
 .dot { color: #ff6d00; }
 
 @media (max-width: 600px) {
   .masthead { min-height: 40vh; }
   .hero-card { padding: 4rem 1.5rem; margin-top: -40px; }
   .hero-card h1 { font-size: 2rem; }
-  .hero { padding: 4rem 1.5rem; }
-  .hero h1 { font-size: 2rem; }
 }
 
-
 /* =========================
-   MARQUEE (oransje sløyfe)
+   ORANSJE MARQUEE
 ========================= */
 .marquee {
-  background: var(--orange);
-  color: #fff;
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 1.5rem;  /* <-- ekstra luft under */
+  background: var(--orange); color: #fff; overflow: hidden; width: 100%;
+  position: relative; z-index: 1; margin-bottom: 1.5rem;
 }
-
 .marquee__wrap { display: flex; width: max-content; }
 .marquee__row {
-  display: flex;
-  gap: 2.5rem;
-  padding: 0.8rem 1rem;
-  white-space: nowrap;
-  flex-shrink: 0;
-  animation: marqueeB 70s linear infinite;
-  font-weight: 700;
-  letter-spacing: 0.01em;
+  display: flex; gap: 2.5rem; padding: 0.8rem 1rem; white-space: nowrap; flex-shrink: 0;
+  animation: marqueeB 70s linear infinite; font-weight: 700; letter-spacing: 0.01em;
 }
 .marquee__row span { display: inline-block; }
-
-@keyframes marqueeB {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee__row { animation: none; }
-}
+@keyframes marqueeB { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+@media (prefers-reduced-motion: reduce) { .marquee__row { animation: none; } }
 
 /* =========================
-   STATEMENT (hvit seksjon)
+   HVIT HERO-STATEMENT
 ========================= */
-.section-white { background: #fff; }
-
-.statement-wrap {
-  display: grid;
-  grid-template-columns: 1fr auto;        /* tekst | symbol */
-  align-items: center;
-  column-gap: clamp(32px, 6vw, 120px);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: clamp(48px, 6vw, 96px) 2rem;
-}
-
-.statement-copy {
-  color: var(--blue-2);
-  font-weight: 400;   /* <-- ikke bold lenger */
-  line-height: 1.12;
-  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
-  letter-spacing: 0;
-  word-spacing: 0;
-}
-.statement-copy .dot { color: var(--orange); margin-left: .06em; }
-
-.statement-emblem { flex: 0 0 auto; }
-.statement-emblem img {
-  height: clamp(120px, 14vw, 200px);
-  width: auto;
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .statement-wrap {
-    column-gap: clamp(20px, 5vw, 56px);
-    padding: clamp(36px, 7vw, 56px) 1.25rem;
-  }
-  .statement-copy {
-    font-size: clamp(1.8rem, 6.5vw, 2.4rem);
-  }
-  .statement-emblem img {
-    height: clamp(80px, 12vw, 120px);
-  }
-}
-
-/* =========================
-   NEWS FEED
-========================= */
-.news-feed {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 1rem;
-  background: var(--blue);
-  color: #fff;
-  position: relative;
-}
-.news-feed::before,
-.news-feed::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 2rem;
-  height: 100%;
-  pointer-events: none;
-}
-.news-feed::before {
-  left: 0;
-  background: linear-gradient(to right, var(--blue), transparent);
-}
-.news-feed::after {
-  right: 0;
-  background: linear-gradient(to left, var(--blue), transparent);
-}
-.news-item {
-  flex: 0 0 250px;
-  scroll-snap-align: start;
-  background: #fff;
-  color: var(--blue);
-  border-radius: 8px;
-  padding: 1rem;
-  transition: opacity .5s ease;
-}
-.news-item img {
-  width: 100%;
-  height: auto;
-  max-height: 80px;
-  object-fit: cover;
-  margin-bottom: 0.5rem;
-}
-.news-item h3 {
-  color: var(--blue);
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-.news-item a {
-  color: var(--orange);
-  font-weight: 700;
-  text-decoration: none;
-}
-.news-item a:hover,
-.news-item a:focus {
-  text-decoration: underline;
-}
-/* Generelt */
-body {
-  font-family: sans-serif;
-  color: #333;
-  margin: 0;
-  background-color: var(--bg);
-  line-height: 1.6;
-}
-
-/* Hero - white background with blue heading */
 .hero {
-  text-align: center;
-  padding: 6rem 1rem;
-  background: #fff;
+  text-align: center; padding: 6rem 1rem; background: #fff;
 }
-
 .hero h1 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  line-height: 1.2;
-  max-width: 900px;
-  margin: 0 auto;
-  color: var(--blue);
+  font-size: 2.5rem; font-weight: 600; line-height: 1.2;
+  max-width: 900px; margin: 0 auto; color: var(--blue);
 }
 
-/* Nyhetsliste */
-.news-list {
-  max-width: 800px;
-  margin: 4rem auto;
-  padding: 0 1rem;
-}
-
-.news-item {
-  margin-bottom: 4rem;
-}
-
-.news-item img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
-.news-item h2 {
-  font-size: 1.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.news-item p {
-  font-size: 1rem;
-  margin: 0;
-}
-
-/* CTA */
-.cta {
-  text-align: center;
-  padding: 4rem 1rem;
-  background-color: var(--bg);
-}
-
-.cta-button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #0066cc;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-}
-/* Filter-knapper */
+/* =========================
+   FILTER-KNAPPER OVER GRID
+========================= */
 .news-filters {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  padding: 1rem;
-  background: var(--bg);
+  display: flex; gap: 0.5rem; flex-wrap: wrap; padding: 1rem; background: var(--bg);
 }
+.filter { padding: 0.35rem 0.75rem; border: 1px solid #d0d0d0; background: none; cursor: pointer; }
+.filter.active { background: #000; color: #fff; }
 
-.filter {
-  padding: 0.35rem 0.75rem;
-  border: 1px solid #d0d0d0;
-  background: none;
-  cursor: pointer;
-}
-
-.filter.active {
-  background: #000;
-  color: #fff;
-}
- 
-/* Rutenett for nyheter */
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-}
-
-/* Nyhetskort */
-.news-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  background: #000;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.news-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s ease;
-}
-
-/* Zoom på bilde ved hover */
-.news-card:hover img {
-  transform: scale(1.1);
-}
-
-/* Løft kortet ved hover */
-.news-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
-}
-
-/* Tekstlag nederst */
-.news-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 80%);
-  width: 100%;
-  color: #fff;
-}
-
-.news-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem;
-}
-
-.news-text {
-  font-size: 0.95rem;
-  margin: 0 0 1rem;
-  line-height: 1.4;
-}
-
-/* Trendy "Les mer"-knapp */
-.news-button {
-  display: inline-block;
-  padding: 0.5rem 1.25rem;
-  border-radius: 999px;
-  background: var(--orange);
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
-.news-button:hover {
-  background: #ff925d;
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-}
-/* Seksjonstittel over grid */
+/* =========================
+   SEKSJON: AKTIVITETER (heading + intro)
+========================= */
 .news-section { background:#eef2fa; padding: 2rem 1rem 3rem; }
 .news-header { max-width: 1000px; margin: 0 auto 1rem; padding: 0 1rem; }
 .news-header h2 {
-  color: var(--blue); font-size: clamp(1.6rem, 2.5vw, 2.2rem); line-height:1.1; margin: 0 0 .25rem;
+  color: var(--blue);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  line-height:1.1;
+  margin: 0 0 .25rem;
 }
 .news-header p { color:#24344d; opacity:.9; }
 
-/* Grid */
+/* =========================
+   RESPONSIV GRID FOR KORT
+========================= */
 .news-grid {
   max-width: 1200px; margin: 0 auto;
   display: grid; gap: 1.5rem; padding: 0 1rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-/* Kort: bilde over, innhold under (ikke overlay) */
+/* =========================
+   KORT: BILDE OVER + INNHOLD UNDER
+========================= */
 .news-card {
-  background:#fff; border:1px solid #e6e6e6; border-radius: 12px; overflow: hidden;
+  background:#fff;
+  border:1px solid #e6e6e6;
+  border-radius: 12px;
+  overflow: hidden;                 /* runde hjørner */
+  cursor: pointer;
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .news-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12); }
 
-.news-media {
-  width:100%; aspect-ratio: 16 / 9; object-fit: cover; display:block;
+.news-media,
+.news-card img {                      /* sikrer at gamle img-regler ikke tar over */
+  width:100%;
+  height:auto;                        /* <- viktig: ikke 100% */
+  object-fit: cover;
+  display:block;
   transition: transform .5s ease;
 }
-.news-card:hover .news-media { transform: scale(1.04); }
+.news-card:hover .news-media,
+.news-card:hover img { transform: scale(1.04); }
 
-.news-body { padding: 1rem; }
-.news-title { margin:0 0 .4rem; font-size:1.1rem; color: var(--blue); }
+.news-body { padding: 1rem; background:#fff; }
+.news-title { margin:0 0 .4rem; font-size:1.1rem; color: var(--blue); font-weight: 700; }
 .news-text { margin:0 0 .9rem; color:#333; }
 
 /* Knapp */
@@ -520,33 +207,9 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,.2);
 }
 .news-button:hover { transform: translateY(-2px); filter: brightness(1.07); box-shadow: 0 8px 18px rgba(0,0,0,.25); }
-/* ---- RESET av gamle overlay-stiler for kortene ---- */
-.news-card { position: relative; overflow: hidden; }
 
-.news-card .news-title {
-  position: static;            /* ikke absolute lenger */
-  color: var(--blue);          /* blå tittel */
-  margin: 0 0 .4rem;
-}
-
-.news-card .news-body {
-  position: static;            /* ikke absolute */
-  background: #fff;
-  padding: 1rem;
-}
-
-.news-card .news-text { color: #333; }
-
-.news-card .news-button { position: static; }
-
-/* sørg for at bildet ikke tar all plassen */
-.news-card .news-media {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-  transition: transform .5s ease;
-}
-.news-card:hover .news-media { transform: scale(1.04); }
-
-
+/* =========================
+   RYDDING: FJERN GAMMEL OVERLAY-VERSJON
+   (hindrer at tekst/knapp blir absolute over bildet)
+========================= */
+.news-content { display:none !important; }   /* gammel overlay-wrapper */
