@@ -244,3 +244,10 @@ body {
 .focus-center  { object-position: 50% 50% !important; }
 .focus-lower   { object-position: 50% 65% !important; }
 .focus-bottom  { object-position: 50% 80% !important; }
+
+/* Juster utsnittet for enkelte bilder på DESKTOP */
+@media (min-width: 900px){
+  .news-media.focus-upper-desktop  { object-position: 50% 35% !important; } /* litt opp */
+  .news-media.focus-top-desktop    { object-position: 50% 25% !important; } /* mer opp  */
+}
+
