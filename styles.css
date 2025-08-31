@@ -213,3 +213,29 @@ body {
    (hindrer at tekst/knapp blir absolute over bildet)
 ========================= */
 .news-content { display:none !important; }   /* gammel overlay-wrapper */
+/* --- Fiks: gjør at innhold under bilde alltid vises --- */
+.news-card {
+  display: flex;
+  flex-direction: column;  /* bilde + innhold under */
+  overflow: visible;       /* tillat innholdet å synes */
+}
+
+.news-media {
+  flex-shrink: 0;          /* bildet beholder høyden */
+}
+
+.news-body {
+  padding: 1rem;
+  background: #fff;
+  flex: 1;                 /* gjør at body fyller plass */
+}
+
+/* --- Venstrejuster seksjonstittel --- */
+.news-header {
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+  padding: 0 1rem;
+  text-align: left;        /* flytt tekst til venstre */
+}
+
+
