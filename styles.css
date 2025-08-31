@@ -283,4 +283,27 @@ body {
 .news-card .news-media { height: 140px; }
 @media (...) { .news-card .news-media { height: 160px; } }
 @media (...) { .news-card .news-media { height: 180px; } }
+/* === FIXED BILDESTØRRELSE PÅ DESKTOP === */
+.news-card .news-media {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobil og små skjermer (behold dynamisk høyde) */
+@media (max-width: 899px) {
+  .news-card .news-media {
+    aspect-ratio: 16 / 9;   /* cropper pent */
+    height: auto;
+  }
+}
+
+/* Desktop – fast høyde */
+@media (min-width: 900px) {
+  .news-card .news-media {
+    height: 220px;          /* <-- juster til ønsket “vanlig” bildestørrelse */
+    aspect-ratio: auto;     /* fjern ratio-lås på desktop */
+  }
+}
 
