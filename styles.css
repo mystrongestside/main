@@ -342,4 +342,42 @@ body {
   background: #fff;
   padding: 1.25rem;
 }
+/* === FAST HØYDE PÅ KORTBILDER === */
+.news-card{
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fast høyde på bilder – cropper pent */
+.news-media,
+.news-card img{
+  width: 100%;
+  height: 220px;          /* <-- juster høyde som du ønsker */
+  object-fit: cover;      /* fyller boksen, kutter hvis nødvendig */
+  display: block;
+  transition: transform .4s ease;
+}
+
+@media (min-width: 900px){
+  .news-media,
+  .news-card img{
+    height: 280px;        /* litt høyere på større skjermer */
+  }
+}
+
+/* Zoom-effekt uten å ødelegge layout */
+.news-card:hover .news-media,
+.news-card:hover img{
+  transform: scale(1.05);
+}
+
+/* Sørg for at date-badge alltid er synlig */
+.date-badge{
+  position: absolute;
+  top: 12px; left: 12px;
+  z-index: 5;
+}
 
