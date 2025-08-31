@@ -205,9 +205,9 @@ body {
   .news-card .news-media,
   .news-card > img { height: 160px; }         /* nettbrett */
 }
-@media (min-width: 900px){
+@media (min-width: 600px){
   .news-card .news-media,
-  .news-card > img { height: 180px; }         /* desktop */
+  .news-card > img { height: 160px; }         /* desktop */
 }
 .news-card:hover .news-media,
 .news-card:hover > img { transform: scale(1.03); }
