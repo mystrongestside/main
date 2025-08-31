@@ -520,4 +520,33 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,.2);
 }
 .news-button:hover { transform: translateY(-2px); filter: brightness(1.07); box-shadow: 0 8px 18px rgba(0,0,0,.25); }
+/* ---- RESET av gamle overlay-stiler for kortene ---- */
+.news-card { position: relative; overflow: hidden; }
+
+.news-card .news-title {
+  position: static;            /* ikke absolute lenger */
+  color: var(--blue);          /* blå tittel */
+  margin: 0 0 .4rem;
+}
+
+.news-card .news-body {
+  position: static;            /* ikke absolute */
+  background: #fff;
+  padding: 1rem;
+}
+
+.news-card .news-text { color: #333; }
+
+.news-card .news-button { position: static; }
+
+/* sørg for at bildet ikke tar all plassen */
+.news-card .news-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+.news-card:hover .news-media { transform: scale(1.04); }
+
 
