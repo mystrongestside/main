@@ -311,3 +311,10 @@ body {
     object-position: 50% 20%;
   }
 }
+/* Finjuster utsnittet for enkelte bilder */
+.focus-top        { object-position: 50% 15% !important; }
+.focus-upper      { object-position: 50% 25% !important; } /* litt opp */
+.focus-center     { object-position: 50% 50% !important; }
+.focus-lower      { object-position: 50% 65% !important; } /* litt ned */
+.focus-bottom     { object-position: 50% 80% !important; } /* mye ned */
+
