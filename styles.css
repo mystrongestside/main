@@ -142,6 +142,9 @@ body {
 /* =========================
    AKTIVITETSSEKSJON
 ========================= */
+/* =========================
+   AKTIVITETSSEKSJON
+========================= */
 .news-section { background:#eef2fa; padding: 2rem 1rem 3rem; }
 
 .news-header {
@@ -163,12 +166,15 @@ body {
    GRID FOR KORT
 ========================= */
 .news-grid {
-  max-width: 980px;              /* smalere grid på desktop */
+  max-width: 980px;
   margin: 0 auto;
   padding: 0 1rem;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: 1fr;                 /* mobil */
+}
+@media (min-width: 768px){
+  .news-grid { grid-template-columns: repeat(2, 1fr); }  /* desktop */
 }
 
 /* =========================
@@ -180,34 +186,36 @@ body {
   border:1px solid #e6e6e6;
   border-radius: 12px;
   overflow: hidden;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .news-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12); }
 
-/* SMÅ, FASTE BILDEHØYDER */
-.news-card .news-media{
+/* SMÅ, FASTE BILDEHØYDER – gjelder både .news-media og vanlige <img> */
+.news-card .news-media,
+.news-card > img {
   width: 100%;
   height: 140px;               /* mobil */
   object-fit: cover;
   display: block;
-  transition: transform .35s ease;
+  transition: transform .3s ease;
 }
 @media (min-width: 600px){
-  .news-card .news-media{ height: 160px; }  /* nettbrett */
+  .news-card .news-media,
+  .news-card > img { height: 160px; }         /* nettbrett */
 }
 @media (min-width: 900px){
-  .news-card .news-media{ height: 180px; }  /* desktop (liten) */
+  .news-card .news-media,
+  .news-card > img { height: 180px; }         /* desktop */
 }
+.news-card:hover .news-media,
+.news-card:hover > img { transform: scale(1.03); }
 
-.news-card:hover .news-media{ transform: scale(1.04); }
-
-/* Innholdet */
-.news-body { padding: 0.9rem 1rem 1rem; background:#fff; }
+/* Innhold */
+.news-body { padding: 0.75rem 0.9rem 0.9rem; background:#fff; }
 .news-title { margin:0 0 .35rem; font-size:1.05rem; color: var(--blue); font-weight: 700; }
-.news-text { margin:0 0 .75rem; color:#333; font-size: .95rem; line-height: 1.4; }
+.news-text  { margin:0 0 .6rem;  color:#333; font-size:.95rem; line-height:1.4; }
 
 /* Knapp */
 .news-button {
@@ -229,10 +237,12 @@ body {
 /* =========================
    DATO-BADGE
 ========================= */
+.news-card { position: relative; }  /* nødvendig for absolutt posisjonering */
+
 .date-badge{
   position: absolute;
   top: 10px; left: 10px;
-  z-index: 5;
+  z-index: 5;                       /* over bildet, også ved hover */
   display: grid;
   grid-auto-rows: min-content;
   align-content: start;
@@ -244,65 +254,12 @@ body {
   box-shadow: 0 6px 16px rgba(0,0,0,.16);
   pointer-events: none;
 }
-.date-month{
-  font-weight: 700; letter-spacing: .06em; font-size: .9rem; text-transform: uppercase; line-height: 1;
-}
-.date-day{
-  font-weight: 800; font-size: 2.2rem; line-height: .95; margin: 6px 0 6px;
-}
-.date-line{ height: 2px; width: 100%; background: var(--orange); border-radius: 1px; margin: 2px 0 8px; }
-.date-range{ font-weight: 700; font-size: .85rem; line-height: 1.1; color: var(--orange); }
+.date-month{ font-weight:700; letter-spacing:.06em; font-size:.9rem; text-transform:uppercase; line-height:1; }
+.date-day{ font-weight:800; font-size:2.2rem; line-height:.95; margin:6px 0 6px; }
+.date-line{ height:2px; width:100%; background:var(--orange); border-radius:1px; margin:2px 0 8px; }
+.date-range{ font-weight:700; font-size:.85rem; line-height:1.1; color:var(--orange); }
 
 @media (min-width: 900px){
   .date-badge{ width: 100px; padding: 12px 12px; }
   .date-day{ font-size: 2.4rem; }
 }
-
-/* =========================
-   RYDDING – fjern gammel overlay
-========================= */
-.news-content { display:none !important; }   /* gammel overlay-wrapper */
-/* --- GRID: 1 kolonne på mobil, 2 på desktop --- */
-.news-grid {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;                 /* mobil: 1 */
-}
-@media (min-width: 768px){
-  .news-grid { grid-template-columns: repeat(2, 1fr); }  /* desktop: 2 */
-}
-
-/* --- Kort: kompakt innhold --- */
-.news-card {
-  border-radius: 12px;
-  border: 1px solid #e6e6e6;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-}
-
-/* Fast, liten bildehøyde (samme i alle kort) */
-.news-card .news-media {
-  width: 50%;
-  height: 160px;           /* desktop */
-  object-fit: cover;
-  display: block;
-  transition: transform .3s ease;
-}
-@media (max-width: 767px){
-  .news-card .news-media { height: 140px; }   /* mobil */
-}
-.news-card:hover .news-media { transform: scale(1.03); }
-
-/* Innhold – mindre luft så hvitflaten ikke ser “tom” ut */
-.news-body { padding: 0.75rem 0.9rem 0.9rem; }
-.news-title { margin: 0 0 .35rem; font-size: 1.05rem; }
-.news-text  { margin: 0 0 .6rem;  font-size: .95rem; }
-
-/* Dato-badge alltid over bildet */
-.news-card { position: relative; }
-.date-badge { top: 10px; left: 10px; z-index: 5; pointer-events: none; }
