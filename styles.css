@@ -287,7 +287,7 @@ body {
 
 /* Fast, liten bildehøyde (samme i alle kort) */
 .news-card .news-media {
-  width: 100%;
+  width: 50%;
   height: 160px;           /* desktop */
   object-fit: cover;
   display: block;
