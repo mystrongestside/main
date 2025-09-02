@@ -1,118 +1,203 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Søk som frivillig | My Strongest Side</title>
-<meta name="description" content="Bli frivillig hos My Strongest Side. Bidra i tilrettelagt styrketrening, få veiledningserfaring og et inkluderende fagmiljø. Søknadsskjema her." />
-<link rel="stylesheet" href="styles.css" />
-<!-- Minimal side-spesifikk styling for skjemaoppsett -->
-<style>
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-grid .full { grid-column: 1 / -1; }
-.form-help { font-size: .9rem; opacity: .85; }
-.charcount { font-size: .85rem; opacity: .75; display: inline-block; margin-top: .25rem; }
-.req { color: var(--accent, #F77C37); font-weight: 600; }
-.badge { display:inline-block; padding:.25rem .5rem; border-radius:9999px; background:#eee; font-size:.85rem; }
-.pill { display:inline-block; padding:.35rem .65rem; border-radius:9999px; background:#f3f4f6; margin:.25rem .25rem 0 0; font-size:.85rem; }
-.list-tight li { margin: .35rem 0; }
-.note { background: #fff7ed; border: 1px solid #ffedd5; padding: .75rem; border-radius: .5rem; }
-@media (max-width: 860px){ .form-grid{ grid-template-columns:1fr; } }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Søk som frivillig | My Strongest Side</title>
+  <meta name="description" content="Bli frivillig hos My Strongest Side. Bidra i tilrettelagt styrketrening, få veiledningserfaring og et inkluderende fagmiljø. Søknadsskjema her." />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Minimal side-spesifikk styling for skjemaoppsett -->
+  <style>
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-grid .full { grid-column: 1 / -1; }
+    .form-help { font-size: .9rem; opacity: .85; }
+    .charcount { font-size: .85rem; opacity: .75; display: inline-block; margin-top: .25rem; }
+    .req { color: var(--accent, #F77C37); font-weight: 600; }
+    .badge { display:inline-block; padding:.25rem .5rem; border-radius:9999px; background:#eee; font-size:.85rem; }
+    .pill { display:inline-block; padding:.35rem .65rem; border-radius:9999px; background:#f3f4f6; margin:.25rem .25rem 0 0; font-size:.85rem; }
+    .list-tight li { margin: .35rem 0; }
+    .note { background: #fff7ed; border: 1px solid #ffedd5; padding: .75rem; border-radius: .5rem; }
+    @media (max-width: 860px){ .form-grid{ grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
 
-<!-- Navbar (gjenbruk) -->
-<header class="navbar" role="navigation" aria-label="Hovedmeny">
-<div class="navbar-left">
-<a href="index.html" class="logo-link" aria-label="Til forsiden">
-<img src="logo.png" alt="My Strongest Side" class="logo" />
-</a>
-</div>
+  <!-- Navbar (gjenbruk) -->
+  <header class="navbar" role="navigation" aria-label="Hovedmeny">
+    <div class="navbar-left">
+      <a href="index.html" class="logo-link" aria-label="Til forsiden">
+        <img src="logo.png" alt="My Strongest Side" class="logo" />
+      </a>
+    </div>
 
-<button class="hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
-<span></span><span></span><span></span>
-</button>
+    <button class="hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
 
-<nav class="navbar-center" id="nav-menu">
-<ul class="nav-links">
-<li><a href="om-oss.html">Om oss</a></li>
-<li><a href="kurs.html">Kurs</a></li>
-<li><a href="studenter.html">For studenter</a></li>
-</ul>
-</nav>
+    <nav class="navbar-center" id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="om-oss.html">Om oss</a></li>
+        <li><a href="kurs.html">Kurs</a></li>
+        <li><a href="studenter.html">For studenter</a></li>
+      </ul>
+    </nav>
 
-<div class="navbar-right">
-<a href="kalender.html" class="btn-book">Kontakt</a>
-</div>
-</header>
-<script src="script.js" defer></script>
+    <div class="navbar-right">
+      <a href="kalender.html" class="btn-book">Kontakt</a>
+    </div>
+  </header>
+  <script src="script.js" defer></script>
 
-<!-- Oransje bånd (verdier) -->
-<div class="marquee marquee--thin" role="region" aria-label="Verdier">
-<div class="marquee__wrap">
-<div class="marquee__row">
-<span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span>
-<span>Kompetanse.</span><span>Mestring.</span><span>Inkluderende.</span>
-</div>
-<div class="marquee__row" aria-hidden="true">
-<span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span>
-<span>Kompetanse.</span><span>Mestring.</span><span>Inkluderende.</span>
-</div>
-</div>
-</div>
+  <!-- Oransje bånd (verdier) -->
+  <div class="marquee marquee--thin" role="region" aria-label="Verdier">
+    <div class="marquee__wrap">
+      <div class="marquee__row">
+        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span>
+        <span>Kompetanse.</span><span>Mestring.</span><span>Inkluderende.</span>
+      </div>
+      <div class="marquee__row" aria-hidden="true">
+        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span>
+        <span>Kompetanse.</span><span>Mestring.</span><span>Inkluderende.</span>
+      </div>
+    </div>
+  </div>
 
-<!-- Page hero -->
-<section class="page-hero">
-<div class="container">
-<h1>Bli frivillig hos My Strongest Side<span class="dot">.</span></h1>
-<p class="lead">Vil du bidra til at flere opplever treningsglede i trygge, tilrettelagte rammer? Søk her – vi trenger deg.</p>
-<div class="hero-cta">
-<a href="#soknad" class="btn-primary">Søk nå</a>
-</div>
-</div>
-</section>
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Bli frivillig hos My Strongest Side<span class="dot">.</span></h1>
+      <p class="lead">Vil du bidra til at flere opplever treningsglede i trygge, tilrettelagte rammer? Søk her – vi trenger deg.</p>
+      <div class="hero-cta">
+        <a href="#soknad" class="btn-primary">Søk nå</a>
+      </div>
+    </div>
+  </section>
 
-<!-- Innhold: 2 kolonner -->
-<main class="container two-col">
-<!-- Venstre kolonne -->
-<article class="content">
+  <!-- Innhold: 2 kolonner -->
+  <main class="container two-col">
+    <!-- Venstre kolonne -->
+    <article class="content">
 
-<section class="block">
-<h2>Frivillig søknad<span class="dot">.</span></h2>
-<p>Fyll ut skjemaet – felter merket med <strong>*</strong> er nødvendige. Kort om motivasjon og relevant erfaring hjelper oss å matche deg med riktig gruppe.</p>
-</section>
+      <section class="block">
+        <h2>Frivillig søknad<span class="dot">.</span></h2>
+        <p>Fyll ut skjemaet – felter merket med <strong>*</strong> er nødvendige. Kort om motivasjon og relevant erfaring hjelper oss å matche deg med riktig gruppe.</p>
+      </section>
 
-</article>
+    </article>
 
-<!-- Høyre kolonne / sticky søknadsskjema -->
-<aside class="aside-card" id="soknad">
-<h3 class="aside-title">Søknadsskjema for frivillige</h3>
-<p>Vi tar kontakt når vi har sett gjennom søknaden.</p>
+    <!-- Høyre kolonne / sticky søknadsskjema -->
+    <aside class="aside-card" id="soknad">
+      <h3 class="aside-title">Søknadsskjema for frivillige</h3>
+      <p>Vi tar kontakt når vi har sett gjennom søknaden.</p>
 
-<form class="signup-form" action="https://formspree.io/f/xxxxxx" method="POST">
-<div class="form-grid">
-<label class="full">Navn <span class="req">*</span>
-<input type="text" name="navn" required>
-</label>
+      <form class="signup-form" action="https://formspree.io/f/xxxxxx" method="POST">
+        <div class="form-grid">
+          <label class="full">Navn <span class="req">*</span>
+            <input type="text" name="navn" required>
+          </label>
 
-<label>Født <span class="req">*</span>
-<input type="text" name="fodt" placeholder="dd.mm.åååå" required>
-</label>
-<label>Adresse <span class="req">*</span>
-<input type="text" name="adresse" required>
-</label>
+          <label>Født <span class="req">*</span>
+            <input type="text" name="fodt" placeholder="dd.mm.åååå" inputmode="numeric" pattern="^\\d{2}\\.\\d{2}\\.\\d{4}$" title="Bruk format dd.mm.åååå (f.eks. 21.06.1990)" required>
+          </label>
+          <label>Adresse <span class="req">*</span>
+            <input type="text" name="adresse" required>
+          </label>
 
-<label>E‑post <span class="req">*</span>
-<input type="email" name="epost" required>
-</label>
-<label>Telefonnummer <span class="req">*</span>
-<input type="tel" name="telefon" required>
-</label>
+          <label>E‑post <span class="req">*</span>
+            <input type="email" name="epost" required>
+          </label>
+          <label>Telefonnummer <span class="req">*</span>
+            <input type="tel" name="telefon" required>
+          </label>
 
-<label class="full">Arbeidssted <span class="req">*</span>
-<input type="text" name="arbeidssted" required>
-</label>
+          <label class="full">Arbeidssted <span class="req">*</span>
+            <input type="text" name="arbeidssted" required>
+          </label>
 
-<fieldset class="full" style="border:0; padding:0; margin:0;">
-<legend style="font-weight:600; margin-bottom:.5rem;">Er du helsepersonell?</legend>
+          <fieldset class="full" style="border:0; padding:0; margin:0;">
+            <legend style="font-weight:600; margin-bottom:.5rem;">Er du helsepersonell?</legend>
+            <div class="form-grid">
+              <label><input type="radio" name="rolle" value="Lege"> Lege</label>
+              <label><input type="radio" name="rolle" value="Sykepleier"> Sykepleier</label>
+              <label><input type="radio" name="rolle" value="Helsefagarbeider"> Helsefagarbeider</label>
+              <label><input type="radio" name="rolle" value="Idrettspedagog"> Idrettspedagog</label>
+              <label><input type="radio" name="rolle" value="Sosionom"> Sosionom</label>
+              <label><input type="radio" name="rolle" value="Psykolog"> Psykolog</label>
+              <label><input type="radio" name="rolle" value="Fysioterapeut"> Fysioterapeut</label>
+              <label><input type="radio" name="rolle" value="Ergoterapeut"> Ergoterapeut</label>
+              <label><input type="radio" name="rolle" value="Student"> Student (spesifiser)</label>
+              <label><input type="radio" name="rolle" value="Annet"> Annet (spesifiser)</label>
+            </div>
+            <label class="full" id="student_felt" style="display:none;">
+              Hvis du er student, spesifiser her
+              <input type="text" name="student_spesifiser" placeholder="Studie / årstrinn / institusjon">
+            </label>
+            <label class="full" id="annet_felt" style="display:none;">
+              Hvis annet, spesifiser her
+              <input type="text" name="annet_spesifiser" placeholder="Kort beskrivelse">
+            </label>
+          </fieldset>
+
+          <fieldset class="full" style="border:0; padding:0; margin:0;">
+            <legend style="font-weight:600; margin-bottom:.5rem;">Jeg ønsker å delta på følgende (kryss av) <span class="req">*</span></legend>
+            <label class="full"><input type="checkbox" name="camper[]" value="Barn og ungdom 12–18, tor 15:50–17:30, Fantoft – datoer: 25.09, 09.10, 23.10, 06.11, 20.11, 04.12.2025 • 15.01, 29.01.2026"> <strong>Styrketrening for barn og ungdom (12–18 år)</strong> – torsdager 15:50–17:30, Trene Sammen Fantoft<br>Datoer: 25.09, 09.10, 23.10, 06.11, 20.11, 04.12.2025 • 15.01, 29.01.2026</label>
+
+            <label class="full"><input type="checkbox" name="camper[]" value="Veiledere – voksne 19+, tor 17:30–18:45 – datoer: 25.09, 09.10, 23.10, 06.11, 20.11, 04.12.2025 • 15.01, 29.01.2026"> <strong>Veiledere – styrketreningsgruppe (voksne 19+, lett funksjonsvariasjon)</strong> – torsdager 17:30–18:45<br>Datoer: 25.09, 09.10, 23.10, 06.11, 20.11, 04.12.2025 • 15.01, 29.01.2026</label>
+
+            <label class="full"><input type="checkbox" name="camper[]" value="Tilrettelagt – tett oppfølging, tor 16:30–17:30, Fantoft – datoer: 18.09, 02.10, 16.10, 30.10, 13.11, 27.11, 11.12.2025 • 08.01.2026"> <strong>Tilrettelagt styrketreningsgruppe – tett oppfølging</strong> – torsdager 16:30–17:30 (Trene Sammen Fantoft)<br>Datoer: 18.09, 02.10, 16.10, 30.10, 13.11, 27.11, 11.12.2025 • 08.01.2026</label>
+          </fieldset>
+          <p id="camper-error" class="form-help" style="display:none;color:#b91c1c;margin:.25rem 0 .5rem;">Velg minst én gruppe.</p>
+
+          <label class="full">Søknad / Application <span class="req">*</span>
+            <textarea name="soknad" rows="6" required placeholder="Skriv litt om deg selv, motivasjon og evt. erfaring som leder/mentor."></textarea>
+          </label>
+
+          <button class="btn-primary full" type="submit">Send søknad</button>
+        </div>
+      </form>
+
+      <hr />
+      <p class="aside-meta">Ved spørsmål: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a>.</p>
+      <script>
+        // Vis/skjul spesifiseringsfelt for student/annet + enkel validering
+    </aside>
+  </main>
+
+  <!-- Personvern (anker-mål for lenken) -->
+  <section id="personvern" class="container block">
+    <h2>Personvern og behandling av personopplysninger<span class="dot">.</span></h2>
+    <p>My Strongest Side (MySS) behandler personopplysninger i tråd med gjeldende regelverk (GDPR og norsk personvernlovgivning). Formålet er rekruttering, oppfølging og administrasjon av frivillige i forbindelse med våre treningstilbud.</p>
+    <ul>
+      <li><strong>Hvilke opplysninger:</strong> navn, kontaktinformasjon, rolle/studieretning, tilgjengelighet, motivasjon/erfaring, samt eventuelle frivillige samtykker (foto/video).</li>
+      <li><strong>Behandlingsgrunnlag:</strong> samtykke og berettiget interesse (art. 6(1) a/f).</li>
+      <li><strong>Lagring:</strong> opplysningene lagres sikkert og kun så lenge det er nødvendig for formålet, eller til samtykke trekkes tilbake.</li>
+      <li><strong>Deling:</strong> opplysninger deles ikke med tredjeparter uten ditt samtykke, med mindre det foreligger lovpålagt grunnlag.</li>
+      <li><strong>Dine rettigheter:</strong> innsyn, retting, sletting, begrensning, dataportabilitet og å trekke tilbake samtykke. Kontakt <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a>.</li>
+    </ul>
+    <p>For spørsmål om personvern, ta kontakt på <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a>.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> My Strongest Side · Alle rettigheter forbeholdt</p>
+    </div>
+  </footer>
+
+  <script>
+    // Oppdater årstall
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Enkle tegn-tellere
+    function bindCount(id, outId){
+      var el = document.getElementById(id);
+      var out = document.getElementById(outId);
+      if(!el || !out) return;
+      function update(){ out.textContent = el.value.length + '/' + el.maxLength; }
+      el.addEventListener('input', update); update();
+    }
+    bindCount('motivasjon','motivasjon-count');
+    bindCount('erfaring','erfaring-count');
+  </script>
+</body>
+</html>
