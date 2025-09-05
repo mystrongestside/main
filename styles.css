@@ -614,5 +614,41 @@ aside .btn-primary {
   padding: 12px 24px;
   font-size: 1.05rem;
 }
+/* === Marquee: fjern glippen (v3 override) === */
+.marquee { overflow: hidden; }                 /* skjul sømmen */
+.marquee__wrap { position: relative; overflow: hidden; }
+.marquee__row{
+  display: inline-flex;                        /* én lang rad */
+  gap: 2.4rem;                                 /* luft mellom ordene */
+  padding-inline: 2.4rem;                      /* litt «buffer» i hver ende */
+  min-width: 100%;                             /* må minst dekke hele bredden */
+  white-space: nowrap;
+  animation: marquee 28s linear infinite;      /* bruk samme keyframes som v3 */
+  will-change: transform;
+}
+.marquee__row[aria-hidden="true"]{
+  position: absolute;
+  left: 100%;                                  /* plasser kopi rett etter rad 1 */
+  top: 0;
+}
+
+/* === Mer luft i frivillig-seksjonen (v3 override) === */
+.two-col { gap: 40px; }                        /* større mellom kolonnene */
+
+.block{
+  padding: 44px 48px;                          /* mer innvendig luft */
+  line-height: 1.8;                            /* luftigere linjeavstand */
+}
+.block h2{ margin: 34px 0 16px; font-size: 1.45rem; }
+.block h2:first-child{ margin-top: 0; }
+.block h3{ margin: 28px 0 14px; }
+
+.block p { margin: 12px 0 20px; }
+.block ul{ margin: 6px 0 28px; }
+.block li{ margin: 12px 0; }                   /* luft mellom punkt */
+aside.block p{ margin: 10px 0 16px; }
+
+.btn-primary,
+.block .btn { padding: 12px 24px; font-size: 1.05rem; }
 
 
