@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Om oss | My Strongest Side</title>
+  <title>Frivillig | My Strongest Side</title>
   <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
-  <!-- NAVBAR (samme som index) -->
+  <!-- NAVBAR (identisk som index) -->
   <header class="navbar" role="navigation" aria-label="Hovedmeny">
     <div class="navbar-inner">
       <div class="navbar-left">
@@ -24,8 +24,8 @@
 
       <nav class="navbar-center" id="nav-menu">
         <ul class="nav-links">
-          <li><a href="about.html" aria-current="page">Om oss</a></li>
-          <li><a href="frivillig.html">Frivillig</a></li>
+          <li><a href="about.html">Om oss</a></li>
+          <li><a href="frivillig.html" class="active">Frivillig</a></li>
         </ul>
       </nav>
 
@@ -35,71 +35,108 @@
     </div>
   </header>
 
+  <!-- JS (defer) -->
   <script src="script.js" defer></script>
 
-  <!-- SIDETOPP / HERO-BILDE -->
-  <section class="masthead" style="background-image:url('gruppebilde.jpg'); min-height: 40vh;"></section>
+  <!-- MASTHEAD -->
+  <section class="masthead"></section>
 
-  <!-- Tittel + ingress -->
-  <section class="page-hero">
-    <div class="container">
-      <h1>Om oss<span class="dot">.</span></h1>
-      <p class="lead">
-        Vi gjør styrketrening tilgjengelig for flest mulig – med trygge rammer, faglig forankring og tilpasninger som faktisk fungerer i praksis.
-      </p>
+  <!-- HERO-CARD -->
+  <section class="hero-card">
+    <h1>Bli frivillig<span class="dot">.</span></h1>
+    <p>Bidra i trygge, tilpassede treningsgrupper – og bygg praksisnær erfaring i et godt fagmiljø.</p>
+    <div class="hero-cta">
+      <a href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide"
+         target="_blank" rel="noopener" class="btn-primary">Søk som frivillig</a>
     </div>
   </section>
 
-  <!-- Innhold -->
+  <!-- Marquee (samme linje som index) -->
+  <div class="marquee" role="region" aria-label="MyStrongestSide statements">
+    <div class="marquee__wrap">
+      <div class="marquee__row">
+        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+        <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+        <span>Støtte.</span><span>Like muligheter.</span><span>Riktig tilpasning.</span><span>Trening for alle.</span>
+      </div>
+      <div class="marquee__row" aria-hidden="true">
+        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+        <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- INNHOLD -->
   <main class="container">
     <div class="two-col">
-      <!-- Tekst -->
+      <!-- Venstre kolonne -->
       <article class="block">
-        <p><strong>MyStrongestSide</strong> finnes for å gjøre trening tilgjengelig for flest mulig.
-          Vi vet at mange møter barrierer når de vil bruke treningssentre – enten det handler om utstyr,
-          kunnskap eller trygghet. Vår oppgave er å fjerne disse barrierene.</p>
+        <h2>Hvem ser vi etter?</h2>
+        <ul>
+          <li>Ergoterapi- og fysioterapistudenter (alle nivåer)</li>
+          <li>Personlige trenere/instruktører som vil bidra i tilrettelagt styrketrening</li>
+          <li>Andre med interesse for inkluderende trening og trygg oppfølging</li>
+        </ul>
 
-        <p>Prosjektet er startet av <strong>Alexander Mjøs Sviggum</strong>, ergoterapeut og styrkeløfter med
-          egen erfaring med cerebral parese. Gjennom målrettet trening har han oppnådd personlige rekorder i
-          styrkeløft, men for Alexander er dette først og fremst et bevis på hva som er mulig når man får riktige
-          tilpasninger – ikke et krav til andre. Med MyStrongestSide ønsker han å dele kunnskap og erfaring for å
-          gjøre treningshverdagen mer inkluderende.</p>
+        <h2>Roller og oppgaver</h2>
+        <ul>
+          <li>Veilede deltakere i basisøvelser (knebøy, press, roing m.m.) med enkle tilpasninger</li>
+          <li>Bidra i oppvarming, sikre god flyt mellom stasjoner og følge opp individuelle mål</li>
+          <li>Hjelpe til med logistikk: registrering, tilpasning av utstyr, trygghet og trivsel</li>
+          <li>Gi korte observasjoner/notater som kan forbedre neste økt</li>
+        </ul>
 
-        <p>Hos oss handler trening om mestring og fellesskap, ikke prestasjon. Vi tilbyr små grupper, tett oppfølging
-          og tilrettelagte løsninger, slik at alle kan finne sin plass.</p>
+        <h2>Hva får du?</h2>
+        <ul>
+          <li>Praksisnær erfaring i tverrfaglig miljø (ergo/fysio/PT)</li>
+          <li>Veiledning underveis og innføring i universell utforming/tilpasning i styrkerommet</li>
+          <li>Attest etter endt periode – nyttig i videre studier og jobbsøking</li>
+          <li>Et varmt fellesskap og mulighet til å gjøre en konkret forskjell</li>
+        </ul>
 
-        <p>Gjennom samarbeid med CP-foreningen, Høgskulen på Vestlandet og andre fagmiljøer, jobber vi for å utvikle
-          universelt utformede treningsarenaer. Målet vårt er enkelt: at flere skal oppleve gleden ved styrketrening,
-          og få lyst til å komme tilbake – gang på gang.</p>
+        <h2>Praktisk</h2>
+        <ul>
+          <li>Økter arrangeres jevnlig – du kan bidra fast eller ved behov</li>
+          <li>Oppmøte i god tid før økt for gjennomgang (ca. 15–20 min)</li>
+          <li>Du får opplæring og tydelige forventninger før første økt</li>
+        </ul>
 
-        <p><em>Alle har en sterk side. Vi hjelper deg å finne din.</em></p>
+        <p><em>Alle har en sterk side. Hos oss får du være med på å finne den – sammen med deltakerne.</em></p>
       </article>
 
-      <!-- Sidekort (frivillig eller kontakt) -->
-      <aside class="aside-card">
-        <h3 class="aside-title">Bli med som frivillig</h3>
-        <p class="aside-meta">Studenter og fagfolk er velkommen – vi gir veiledning og praksisnær erfaring.</p>
-        <a class="btn-primary" href="frivillig.html">Les mer</a>
+      <!-- Høyre kolonne -->
+      <aside class="block">
+        <h2>Klar til å bidra?</h2>
+        <p>Fyll ut skjemaet – vi tar kontakt fortløpende.</p>
+        <p>
+          <a href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide"
+             target="_blank" rel="noopener" class="btn-primary">Søk som frivillig</a>
+        </p>
 
-        <details>
-          <summary>Kontakt</summary>
-          <p class="aside-meta">E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a><br>
-          Tlf: <a href="tel:+4741439384">41 43 93 84</a></p>
-        </details>
+        <h3>FAQ</h3>
+        <p><strong>Må jeg ha erfaring?</strong><br>
+          Nei, du får opplæring. Lyst til å lære og være trygg med folk er viktigst.</p>
+
+        <p><strong>Binder jeg meg til alle økter?</strong><br>
+          Nei – vi avtaler omfanget sammen.</p>
+
+        <p><strong>Får jeg attest?</strong><br>
+          Ja, etter endt periode.</p>
+
+        <h3>Kontakt</h3>
+        <p>
+          E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a><br>
+          Tlf: <a href="tel:+4741439384">41 43 93 84</a>
+        </p>
       </aside>
     </div>
-
-    <!-- Liten bildegalleri-rad (valgfritt) -->
-    <!--
-    <div class="gallery block">
-      <img class="thumb" src="bilde01.jpg" alt="">
-      <img class="thumb" src="bilde02.jpg" alt="">
-      <img class="thumb" src="bilde03.jpg" alt="">
-    </div>
-    -->
   </main>
 
-  <!-- FOOTER (samme som index) -->
+  <!-- FOOTER (identisk som index) -->
   <footer class="site-footer">
     <div class="marquee marquee--footer" role="region" aria-label="MyStrongestSide statements nederst">
       <div class="marquee__wrap">
@@ -146,6 +183,7 @@
   </footer>
 
   <script>
+    // årstall i footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
