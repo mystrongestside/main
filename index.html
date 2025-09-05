@@ -1,29 +1,44 @@
-<header class="navbar" role="navigation" aria-label="Hovedmeny">
-  <div class="navbar-inner">
-    <div class="navbar-left">
-      <a href="index.html" class="logo-link" aria-label="Til forsiden">
-        <img src="logo.png" alt="My Strongest Side" class="logo" />
-      </a>
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Strongest Side</title>
+
+  <!-- Oppdatert: cache-busting på CSS -->
+  <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" role="navigation" aria-label="Hovedmeny">
+    <div class="navbar-inner">
+      <div class="navbar-left">
+        <a href="index.html" class="logo-link" aria-label="Til forsiden">
+          <img src="logo.png" alt="My Strongest Side" class="logo" />
+        </a>
+      </div>
+
+      <button class="hamburger" id="hamburger"
+        aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="navbar-center" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="about.html">Om oss</a></li>
+          <li><a href="frivillig.html">Frivillig</a></li>
+          <!-- legg til flere her ved behov -->
+        </ul>
+      </nav>
+
+      <div class="navbar-right">
+        <a href="kalender.html" class="btn-book">Kalender</a>
+      </div>
     </div>
+  </header>
 
-    <button class="hamburger" id="hamburger"
-      aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="navbar-center" id="nav-menu">
-      <ul class="nav-links">
-        <li><a href="about.html">Om oss</a></li>
-        <li><a href="frivillig.html">Frivillig</a></li>
-        <!-- legg til flere her ved behov -->
-      </ul>
-    </nav>
-
-    <div class="navbar-right">
-      <a href="kalender.html" class="btn-book">Kalender</a>
-    </div>
-  </div>
-</header>
+  <!-- JS (defer) -->
   <script src="script.js" defer></script>
 
   <!-- 1) Toppbilde -->
@@ -77,165 +92,162 @@
         <span>Profesjonelt.</span>
         <span>Tilgjengelig.</span>
         <span>Godkjent.</span>
-        <span>Støtte.</span>
-        <span>Like muligheter.</span>
-        <span>Riktig tilpasning.</span>
-        <span>Trening for alle.</span>
-      </div>
-    </div>
-  </div>
-<section class="hero">
-  <h1>
-    Mennesker i fokus<span class="dot">.</span><br />
-    Trening som tilpasses<span class="dot">.</span><br />
-    Fellesskap som vokser<span class="dot">.</span>
-  </h1>
-</section>
-
-<!-- Filter-knapper -->
-<nav class="news-filters">
-  <button class="filter active">Deltager</button>
-  <button class="filter">Student</button>
-</nav>
-
-<section class="news-section">
-  <header class="news-header">
-    <h2>Aktiviteter denne høsten<span class="dot">.</span></h2>
-    <p>Treningsgrupper, veiledning og kurs – tilpasset ulike behov. Finn din gruppe under.</p>
-  </header>
-
-  <!-- ÉN grid-container -->
-  <div class="news-grid">
-
-    <!-- Kort 1 -->
-    <article class="news-card">
-      <div class="date-badge">
-        <span class="date-month">SEP.</span>
-        <span class="date-day">25.</span>
-        <span class="date-line" aria-hidden="true"></span>
-        <span class="date-range">TIL 29. JAN.</span>
-      </div>
-
-      <img src="bilde01.jpg" alt="mennesker med lett" class="news-media" />
-      <div class="news-body">
-        <h3 class="news-title">Styrketrening for voksne med lett funksjonsvariasjon</h3>
-        <p class="news-text">Opplev mestring, fellesskap og trening tilpasset dine behov.</p>
-        <a href="https://event.checkin.no/155377/styrketrening-for-voksne-med-lett-mild-funksjonsvariasjon-fra-19-aar-og-oppover" class="news-button">Les mer</a>
-      </div>
-    </article>
-
-    <!-- Kort 2 -->
-    <article class="news-card">
-      <div class="date-badge">
-        <span class="date-month">SEP.</span>
-        <span class="date-day">18.</span>
-        <span class="date-line" aria-hidden="true"></span>
-        <span class="date-range">TIL 15. JAN.</span>
-      </div>
-
-      <img src="bilde02.jpg" alt="ønsker tett oppfølging" class="news-media focus-upper-desktop" />
-      <div class="news-body">
-        <h3 class="news-title">Tilrettelagt styrketrening for de som ønsker tett oppfølging</h3>
-        <p class="news-text">Individuell veiledning i en trygg og forutsigbar ramme.</p>
-        <a href="https://event.checkin.no/156159/tilpasset-trening-for-funkiser-som-oensker-tett-oppfoelging" class="news-button">Les mer</a>
-      </div>
-    </article> 
-   
-    <!-- Kort 3 -->
-    <article class="news-card">
-      <div class="date-badge">
-        <span class="date-month">SEP.</span>
-        <span class="date-day">25.</span>
-        <span class="date-line" aria-hidden="true"></span>
-        <span class="date-range">TIL 29.JAN.</span>
-      </div>
-      <img src="bilde03.jpg" alt="eksempel på aktivitet" class="news-media focus-top" />
-      <div class="news-body">
-        <h3 class="news-title">Styrketrening for barn og ungdom</h3>
-        <p class="news-text">Tilpasset styrketrening for barn og unge (12–18 år) i små grupper, med fokus på mestring, trygghet og fellesskap. Tett oppfølging av trener, studenter og fagpersoner.  </p>
-        <a href="https://event.checkin.no/155756/styrketrening-for-barn-og-ungdom-fra-12-aar-til-18-aar" class="news-button">Les mer</a>
-      </div>
-  </div> <!-- /news-grid -->
-</section>
- <!-- FOOTER -->
-<footer class="site-footer">
-
-  <!-- Oransje bånd (samme som toppen) -->
-  <div class="marquee marquee--footer" role="region" aria-label="MyStrongestSide statements nederst">
-    <div class="marquee__wrap">
-      <div class="marquee__row">
-        <span>Tilrettelagt.</span>
-        <span>Fellesskap.</span>
-        <span>Trygt.</span>
-        <span>Kompetanse.</span>
-        <span>Tilhørighet.</span>
-        <span>Mestring.</span>
-        <span>Åpent for alle.</span>
-        <span>Kunnskap.</span>
-        <span>Universelt.</span>
-        <span>Inkluderende.</span>
-        <span>Sertifisert.</span>
-        <span>Standardisert.</span>
-        <span>Enkelt.</span>
-        <span>Profesjonelt.</span>
-        <span>Tilgjengelig.</span>
-        <span>Godkjent.</span>
-      </div>
-      <div class="marquee__row" aria-hidden="true">
-        <span>Tilrettelagt.</span>
-        <span>Fellesskap.</span>
-        <span>Trygt.</span>
-        <span>Kompetanse.</span>
-        <span>Tilhørighet.</span>
-        <span>Mestring.</span>
-        <span>Åpent for alle.</span>
-        <span>Kunnskap.</span>
-        <span>Universelt.</span>
-        <span>Inkluderende.</span>
-        <span>Sertifisert.</span>
-        <span>Standardisert.</span>
-        <span>Enkelt.</span>
-        <span>Profesjonelt.</span>
-        <span>Tilgjengelig.</span>
-        <span>Godkjent.</span>
       </div>
     </div>
   </div>
 
-  <!-- Innhold i footer -->
-  <div class="footer-wrap">
-    <section class="footer-col">
-      <img src="logo-orange.png" alt="My Strongest Side" class="footer-logo"/>
-      <p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p>
-    </section>
+  <section class="hero">
+    <h1>
+      Mennesker i fokus<span class="dot">.</span><br />
+      Trening som tilpasses<span class="dot">.</span><br />
+      Fellesskap som vokser<span class="dot">.</span>
+    </h1>
+  </section>
 
-    <section class="footer-col">
-      <h3 class="footer-title">Kontakt</h3>
-      <p>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></p>
-      <p>Telefon: <a href="tel:+47 41439384">+47 41 43 93 84</a></p>
-      <p>Adresse: Brages veg 3 , 5221 Nesttun</p>
-    </section>
+  <!-- Filter-knapper -->
+  <nav class="news-filters" aria-label="Filtrer nyheter">
+    <button class="filter active" type="button">Deltager</button>
+    <button class="filter" type="button">Student</button>
+  </nav>
 
+  <section class="news-section">
+    <header class="news-header">
+      <h2>Aktiviteter denne høsten<span class="dot">.</span></h2>
+      <p>Treningsgrupper, veiledning og kurs – tilpasset ulike behov. Finn din gruppe under.</p>
+    </header>
 
+    <!-- ÉN grid-container -->
+    <div class="news-grid">
 
-    <section class="footer-col">
-      <h3 class="footer-title">Følg oss</h3>
-      <p>
-        <a href="#" aria-label="Instagram">Instagram</a><br/>
-        <a href="#" aria-label="Facebook">Facebook</a><br/>
-      </p>
-    </section>
-  </div>
+      <!-- Kort 1 -->
+      <article class="news-card">
+        <div class="date-badge">
+          <span class="date-month">SEP.</span>
+          <span class="date-day">25.</span>
+          <span class="date-line" aria-hidden="true"></span>
+          <span class="date-range">TIL 29. JAN.</span>
+        </div>
 
-  <div class="footer-bottom">
-    <p>© <span id="year"></span> My Strongest Side · Alle rettigheter forbeholdt</p>
-  </div>
-</footer>
+        <img src="bilde01.jpg" alt="mennesker med lett" class="news-media" />
+        <div class="news-body">
+          <h3 class="news-title">Styrketrening for voksne med lett funksjonsvariasjon</h3>
+          <p class="news-text">Opplev mestring, fellesskap og trening tilpasset dine behov.</p>
+          <a href="https://event.checkin.no/155377/styrketrening-for-voksne-med-lett-mild-funksjonsvariasjon-fra-19-aar-og-oppover" class="news-button">Les mer</a>
+        </div>
+      </article>
 
-<script>
-  // Setter årstall i bunnlinjen
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+      <!-- Kort 2 -->
+      <article class="news-card">
+        <div class="date-badge">
+          <span class="date-month">SEP.</span>
+          <span class="date-day">18.</span>
+          <span class="date-line" aria-hidden="true"></span>
+          <span class="date-range">TIL 15. JAN.</span>
+        </div>
+
+        <img src="bilde02.jpg" alt="ønsker tett oppfølging" class="news-media focus-upper-desktop" />
+        <div class="news-body">
+          <h3 class="news-title">Tilrettelagt styrketrening for de som ønsker tett oppfølging</h3>
+          <p class="news-text">Individuell veiledning i en trygg og forutsigbar ramme.</p>
+          <a href="https://event.checkin.no/156159/tilpasset-trening-for-funkiser-som-oensker-tett-oppfoelging" class="news-button">Les mer</a>
+        </div>
+      </article> 
+     
+      <!-- Kort 3 -->
+      <article class="news-card">
+        <div class="date-badge">
+          <span class="date-month">SEP.</span>
+          <span class="date-day">25.</span>
+          <span class="date-line" aria-hidden="true"></span>
+          <span class="date-range">TIL 29.JAN.</span>
+        </div>
+        <img src="bilde03.jpg" alt="eksempel på aktivitet" class="news-media focus-top" />
+        <div class="news-body">
+          <h3 class="news-title">Styrketrening for barn og ungdom</h3>
+          <p class="news-text">Tilpasset styrketrening for barn og unge (12–18 år) i små grupper, med fokus på mestring, trygghet og fellesskap. Tett oppfølging av trener, studenter og fagpersoner.</p>
+          <a href="https://event.checkin.no/155756/styrketrening-for-barn-og-ungdom-fra-12-aar-til-18-aar" class="news-button">Les mer</a>
+        </div>
+      </article>
+
+    </div> <!-- /news-grid -->
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <!-- Oransje bånd (samme som toppen) -->
+    <div class="marquee marquee--footer" role="region" aria-label="MyStrongestSide statements nederst">
+      <div class="marquee__wrap">
+        <div class="marquee__row">
+          <span>Tilrettelagt.</span>
+          <span>Fellesskap.</span>
+          <span>Trygt.</span>
+          <span>Kompetanse.</span>
+          <span>Tilhørighet.</span>
+          <span>Mestring.</span>
+          <span>Åpent for alle.</span>
+          <span>Kunnskap.</span>
+          <span>Universelt.</span>
+          <span>Inkluderende.</span>
+          <span>Sertifisert.</span>
+          <span>Standardisert.</span>
+          <span>Enkelt.</span>
+          <span>Profesjonelt.</span>
+          <span>Tilgjengelig.</span>
+          <span>Godkjent.</span>
+        </div>
+        <div class="marquee__row" aria-hidden="true">
+          <span>Tilrettelagt.</span>
+          <span>Fellesskap.</span>
+          <span>Trygt.</span>
+          <span>Kompetanse.</span>
+          <span>Tilhørighet.</span>
+          <span>Mestring.</span>
+          <span>Åpent for alle.</span>
+          <span>Kunnskap.</span>
+          <span>Universelt.</span>
+          <span>Inkluderende.</span>
+          <span>Sertifisert.</span>
+          <span>Standardisert.</span>
+          <span>Enkelt.</span>
+          <span>Profesjonelt.</span>
+          <span>Tilgjengelig.</span>
+          <span>Godkjent.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Innhold i footer -->
+    <div class="footer-wrap">
+      <section class="footer-col">
+        <img src="logo-orange.png" alt="My Strongest Side" class="footer-logo"/>
+        <p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p>
+      </section>
+
+      <section class="footer-col">
+        <h3 class="footer-title">Kontakt</h3>
+        <p>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></p>
+        <p>Telefon: <a href="tel:+47 41439384">+47 41 43 93 84</a></p>
+        <p>Adresse: Brages veg 3 , 5221 Nesttun</p>
+      </section>
+
+      <section class="footer-col">
+        <h3 class="footer-title">Følg oss</h3>
+        <p>
+          <a href="#" aria-label="Instagram">Instagram</a><br/>
+          <a href="#" aria-label="Facebook">Facebook</a><br/>
+        </p>
+      </section>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> My Strongest Side · Alle rettigheter forbeholdt</p>
+    </div>
+  </footer>
+
+  <script>
+    // Setter årstall i bunnlinjen
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
