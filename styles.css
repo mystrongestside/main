@@ -10,9 +10,9 @@
   --text:#000;
   --bg:#E4E8F2;
 
-  --container: 980px;           /* bredde for seksjoner på desktop */
-  --card-img-h: 200px;          /* fast bildehøyde (desktop) */
-  --marquee-speed: 28s;         /* hastighet på rulletekst */
+  --container: 980px;      /* bredde for seksjoner på desktop */
+  --card-img-h: 200px;     /* fast bildehøyde (desktop) */
+  --marquee-speed: 28s;    /* hastighet på rulletekst */
 }
 
 html, body { height: 100%; }
@@ -27,10 +27,7 @@ body {
 /* =========================
    NAVBAR
 ========================= */
-.navbar {
-  position: sticky; top: 0; z-index: 1000;
-  background: #24344d;
-}
+.navbar { position: sticky; top: 0; z-index: 1000; background: #24344d; }
 .navbar-inner{
   max-width:1200px; margin:0 auto; width:100%;
   display:flex; align-items:center; justify-content:space-between; gap:1rem;
@@ -70,9 +67,9 @@ body {
     display:none; background:#24344d; border-top:1px solid rgba(255,255,255,.15);
     padding:.75rem 1rem;
   }
-  .navbar-center.active { display:block; }        /* script kan toggle denne */
+  .navbar-center.active { display:block; }
   .nav-links { flex-direction:column; align-items:flex-start; gap:1rem; display:none; }
-  .nav-links.is-open { display:flex; }            /* alternativ toggle */
+  .nav-links.is-open { display:flex; }
   .navbar-right { margin-left:auto; }
 }
 
@@ -121,132 +118,111 @@ body {
 }
 .marquee__wrap{
   display:flex;
-  width:max-content;                          /* bredde = innholdet (2 rader) */
+  width:max-content;
   animation: mss-marquee var(--marquee-speed) linear infinite;
   will-change: transform;
 }
 .marquee__row{
-  flex-shrink:0;                              /* ikke krymp */
+  flex-shrink:0;
   display:flex; gap:2.4rem;
   padding:.8rem 2.4rem;
   white-space:nowrap;
 }
 @keyframes mss-marquee{
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }       /* flytt én rad-bredde (2 like rader) */
+  100% { transform: translateX(-50%); } /* flytt én rad-bredde (2 like rader) */
 }
-@media (prefers-reduced-motion: reduce){
-  .marquee__wrap{ animation:none; }
+@media (prefers-reduced-motion: reduce){ .marquee__wrap{ animation:none; } }
+
+/* =========================
+   GENERELT / KNAPPER
+========================= */
+.container { max-width: var(--container); margin: 0 auto; padding: 0 1rem; }
+
+.btn-primary{
+  display:inline-block;
+  padding:.6rem 1.2rem;
+  border-radius:999px;
+  background: var(--orange);
+  color:#fff;
+  font-weight:700;
+  text-decoration:none;
+  border:0;
+  cursor:pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,.18);
 }
+.btn-primary:hover{ filter: brightness(1.07); transform: translateY(-1px); }
 
 /* =========================
-   WHITE HERO LINE
+   ABOUT-SIDE
 ========================= */
-.hero { text-align: center; padding: 6rem 1rem; background: #fff; }
-.hero h1 { font-size: 2.5rem; font-weight: 600; line-height: 1.2; max-width: 900px; margin: 0 auto; color: var(--blue); }
-
-/* =========================
-   FILTERS
-========================= */
-.news-filters { display:flex; gap:.5rem; flex-wrap:wrap; padding:1rem; background:var(--bg); }
-.filter { padding:.35rem .75rem; border:1px solid #d0d0d0; background:none; cursor:pointer; }
-.filter.active { background:#000; color:#fff; }
-
-/* =========================
-   NEWS SECTION
-========================= */
-.news-section { background:#eef2fa; padding: 2rem 1rem 3rem; }
-
-.news-header { max-width: var(--container); margin: 0 auto 1.25rem; padding: 0 1rem; text-align: left; }
-.news-header h2 { color: var(--blue); font-size: clamp(1.8rem, 3vw, 2.4rem); line-height:1.1; margin:0 0 .35rem; font-weight:800; }
-.news-header p { color:#24344d; opacity:.9; margin:0; }
-
-/* Grid */
-.news-grid {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 1rem;
-  display: grid;
-  gap: 1rem;
+/* Grid-layout for hovedinnholdet: tekst + portrett */
+.about-wrap{
+  display:grid;
   grid-template-columns: 1fr;
+  gap: 26px;
+  padding: clamp(24px, 3vw, 32px) 0 clamp(44px, 5vw, 64px);
 }
-@media (min-width: 768px){
-  .news-grid { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 900px){
+  .about-wrap{
+    grid-template-columns: 1.6fr .9fr;
+    align-items:start;
+    gap: 40px;
+  }
 }
 
-/* Card */
-.news-card {
-  position: relative;
+/* Tekstkortet */
+.about-card{
   background:#fff;
   border:1px solid #e6e6e6;
+  border-radius:12px;
+  padding: 36px 40px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+.about-card h2{
+  margin-top: 1.6rem;
+  margin-bottom: .8rem;
+  font-size: 1.35rem;
+  color: var(--blue);
+}
+.about-card h2:first-child{ margin-top: 0; }
+.about-card p{ margin-bottom: 1.1rem; }
+
+/* Sidekolonnen */
+.about-aside{ text-align:center; }
+.about-photo{
+  max-width: 280px;
+  width: 100%;
+  height: auto;
   border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform .25s ease, box-shadow .25s ease;
+  display:block;
+  margin: 0 auto 1rem;
 }
-.news-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,.12);
+.about-aside-text h3{
+  margin-bottom:.35rem;
+  font-size:1.1rem;
+  color: var(--blue);
 }
-
-/* Bilde i kort */
-.news-card .news-media,
-.news-card > img{ width:100%; display:block; object-fit:cover; }
-
-@media (max-width: 899px){
-  .news-card .news-media, .news-card > img{
-    height:auto; aspect-ratio: 16/9; object-position: 50% 20%;
-  }
-}
-@media (min-width: 900px){
-  .news-card .news-media, .news-card > img{
-    height: var(--card-img-h); aspect-ratio:auto; object-position: 50% 50%;
-  }
+.about-aside-text p{
+  font-size:.95rem;
+  color:#444;
 }
 
-.news-body { padding: .9rem 1rem 1rem; background:#fff; }
-.news-title { margin:0 0 .35rem; font-size:1.05rem; color: var(--blue); font-weight:700; }
-.news-text  { margin:0 0 .7rem;  color:#333; font-size:.95rem; line-height:1.4; }
-
-.news-button {
-  display:inline-block; padding:.45rem .9rem; border-radius:999px;
-  background: var(--orange); color:#fff; font-weight:600; text-decoration:none;
-  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,.18);
-  font-size: .95rem;
+/* CTA-strip under about */
+.cta-strip{
+  background:#fff;
+  border-top:1px solid rgba(0,0,0,.06);
+  border-bottom:1px solid rgba(0,0,0,.06);
+  margin-top: 2rem;
 }
-.news-button:hover { transform: translateY(-2px); filter: brightness(1.07); box-shadow: 0 8px 18px rgba(0,0,0,.22); }
-
-/* Logo/partner-bilder som ikke skal beskjæres */
-.media--contain{ object-fit: contain; background:#fff; padding: 1rem; }
-
-/* Date badge */
-.date-badge{
-  position:absolute; top:10px; left:10px; z-index:5;
-  display:grid; grid-auto-rows:min-content; align-content:start;
-  padding:10px 12px; width:90px; background:#fff; color:var(--blue);
-  border-radius:10px; box-shadow: 0 6px 16px rgba(0,0,0,.16); pointer-events:none;
+.cta-inner{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 44px) 1rem;
+  text-align: center;
 }
-.date-month{ font-weight:700; letter-spacing:.06em; font-size:.9rem; text-transform:uppercase; line-height:1; }
-.date-day{ font-weight:800; font-size:2.2rem; line-height:.95; margin:6px 0 6px; }
-.date-line{ height:2px; width:100%; background:var(--orange); border-radius:1px; margin:2px 0 8px; }
-.date-range{ font-weight:700; font-size:.85rem; line-height:1.1; color:var(--orange); }
-@media (min-width: 900px){
-  .date-badge{ width:100px; padding:12px 12px; }
-  .date-day{ font-size:2.4rem; }
-}
-
-/* Fokus-utils (valgfritt) */
-.focus-top     { object-position: 50% 15% !important; }
-.focus-upper   { object-position: 50% 25% !important; }
-.focus-center  { object-position: 50% 50% !important; }
-.focus-lower   { object-position: 50% 65% !important; }
-.focus-bottom  { object-position: 50% 80% !important; }
-@media (min-width: 900px){
-  .news-media.focus-upper-desktop  { object-position: 50% 35% !important; }
-  .news-media.focus-top-desktop    { object-position: 50% 25% !important; }
-}
+.cta-kicker{ color: var(--blue-2); margin-bottom: .4rem; }
 
 /* =========================
    FOOTER
@@ -277,108 +253,7 @@ body {
 }
 
 /* =========================
-   PAGE LAYOUT / GENERIC
+   (Valgfritt) Tynnere oransje bånd
 ========================= */
-.container { max-width: var(--container); margin: 0 auto; padding: 0 1rem; }
-
-.page-hero{
-  background:#fff;
-  padding: clamp(32px,5vw,56px) 0;
-  border-bottom: 1px solid rgba(0,0,0,.06);
-}
-.page-hero h1{
-  color: var(--blue);
-  font-size: clamp(1.8rem, 4.2vw, 3rem);
-  line-height: 1.1;
-  margin: 0 0 .4rem;
-}
-.page-hero .lead{ color:#24344d; opacity:.95; max-width: 56ch; }
-.hero-cta{ margin-top: 1rem; }
-
-.btn-primary{
-  display:inline-block;
-  padding:.6rem 1.2rem;
-  border-radius:999px;
-  background: var(--orange);
-  color:#fff;
-  font-weight:700;
-  text-decoration:none;
-  border:0;
-  cursor:pointer;
-  box-shadow: 0 6px 16px rgba(0,0,0,.18);
-}
-.btn-primary:hover{ filter: brightness(1.07); transform: translateY(-1px); }
-
-/* Tynnere oransje bånd (hvis du trenger en smal variant) */
 .marquee--thin{ margin:0; }
 .marquee--thin .marquee__row{ padding:.6rem 1rem; }
-
-/* =========================
-   TO-KOLONNE + BLOKKER (Frivillig)
-========================= */
-.two-col{
-  display:grid; grid-template-columns: 1fr; gap: 22px;
-  padding: clamp(20px, 3vw, 28px) 0 clamp(40px, 5vw, 64px);
-}
-@media (min-width: 900px){
-  .two-col{ grid-template-columns: 1.4fr .9fr; gap: 40px; align-items:start; }
-}
-.block{
-  background:#fff; border:1px solid #e6e6e6; border-radius:12px;
-  padding: 44px 48px; margin-bottom: 0; line-height: 1.8;
-}
-.block h2{ color: var(--blue); font-size: clamp(1.15rem,2.2vw,1.45rem); margin: 34px 0 16px; }
-.block h2:first-child{ margin-top:0; }
-.block h3{ margin: 28px 0 14px; }
-.block p { margin: 12px 0 20px; }
-.block ul{ margin: 6px 0 28px; padding-left: 1.1rem; }
-.block li{ margin: 12px 0; }
-
-/* Sticky aside-kort hvis ønskelig */
-.aside-card{ position: sticky; top: 16px; box-shadow: 0 8px 22px rgba(0,0,0,.08); }
-
-/* =========================
-   CO
-/* =========================
-   ABOUT-SIDE SPESIFIKT
-========================= */
-.about-card {
-  line-height: 1.7;
-  font-size: 1.05rem;
-}
-
-.about-card h2 {
-  margin-top: 1.8rem;
-  margin-bottom: 0.8rem;
-  font-size: 1.4rem;
-  color: var(--blue);
-}
-
-.about-card p {
-  margin-bottom: 1.2rem;
-}
-
-.about-aside {
-  margin-top: 2rem;
-  text-align: center;
-}
-
-.about-photo {
-  max-width: 260px;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-}
-
-.about-aside-text h3 {
-  margin-bottom: 0.3rem;
-  font-size: 1.2rem;
-  color: var(--blue);
-}
-
-.about-aside-text p {
-  font-size: 0.95rem;
-  color: #444;
-}
-
-}
-
