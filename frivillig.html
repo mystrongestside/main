@@ -4,186 +4,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Frivillig | My Strongest Side</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#f2f4f8;
-      --card:#ffffff;
-      --text:#1f2937;
-      --muted:#6b7280;
-      --brand:#f77c37;
-      --brand-ink:#8a4219;
-      --ring: rgba(247,124,55,.35);
-      --shadow: 0 2px 6px rgba(16,24,40,.06), 0 12px 24px rgba(16,24,40,.06);
-      --radius:16px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
-
-    a{color:var(--brand);text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    /* NAVBAR */
-    .navbar{
-      position:sticky; top:0; z-index:50;
-      background:#fff; box-shadow:0 1px 0 rgba(0,0,0,.05);
-    }
-    .nav-inner{
-      max-width:1200px; margin:0 auto; padding:12px 20px;
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
-    }
-    .logo{height:36px; width:auto; display:block}
-    .nav-links{display:flex; gap:18px; align-items:center}
-    .nav-links a{color:var(--text); font-weight:600}
-    .cta{
-      display:inline-block; border-radius:999px; background:var(--brand); color:#fff;
-      padding:10px 16px; font-weight:700; box-shadow:0 6px 16px var(--ring);
-    }
-    .hamburger{
-      display:none; background:none; border:0; width:40px; height:40px; border-radius:8px;
-    }
-    .hamburger span{display:block; height:2px; background:#111; margin:7px 8px}
-
-    @media (max-width: 900px){
-      .nav-links{display:none}
-      .nav-links.open{display:flex; flex-direction:column; align-items:flex-start; padding:12px 0}
-      .hamburger{display:inline-block}
-    }
-
-    /* HERO */
-    .hero{
-      background:#0f172a; color:#fff;
-    }
-    .hero-inner{
-      max-width:1200px; margin:0 auto; padding:36px 20px 14px;
-      display:grid; gap:24px; grid-template-columns: 1.05fr .95fr;
-      align-items:center;
-    }
-    .hero h1{font-size:34px; line-height:1.2; margin:0 0 10px}
-    .hero p{color:#d1d5db; margin:0 0 16px}
-    .hero .cta{box-shadow:0 10px 24px rgba(247,124,55,.45)}
-    .hero-media{
-      position:relative; overflow:hidden; border-radius:20px;
-      box-shadow:0 12px 30px rgba(0,0,0,.35);
-      background:#111;
-    }
-    .hero-media img{display:block; width:100%; height:auto}
-
-    @media (max-width: 980px){
-      .hero-inner{grid-template-columns:1fr}
-      .hero h1{font-size:28px}
-    }
-
-    /* INNHOLD */
-    .container{max-width:1100px;margin:40px auto;padding:0 20px}
-    .two-col{display:grid;gap:24px;grid-template-columns: 1.4fr .9fr}
-    @media (max-width: 980px){ .two-col{grid-template-columns:1fr} }
-    .block{
-      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:28px;
-    }
-    h2{margin:20px 0 10px;font-size:22px;line-height:1.3}
-    h3{margin:24px 0 8px;font-size:18px}
-    ul{padding-left:22px;margin:8px 0 18px}
-    li{margin:8px 0}
-    em{color:var(--muted)}
-
-    .aside .lead{margin-top:2px;margin-bottom:18px;color:var(--muted)}
-    .btn{
-      display:inline-block;border:0;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;
-      padding:10px 18px;box-shadow:0 6px 16px var(--ring);transition:.15s transform ease, .15s box-shadow ease;
-    }
-    .btn:hover{transform:translateY(-1px);text-decoration:none}
-    .faq-head{font-weight:700;user-select:none}
-    .faq-head::before{content:"▼ ";font-weight:700}
-    .qa p{margin:10px 0}
-    .contact p{margin:6px 0}
-
-    /* BILDEGRID */
-    .gallery{max-width:1100px;margin:8px auto 40px;padding:0 20px}
-    .grid{
-      display:grid; gap:14px;
-      grid-template-columns: repeat(6,1fr);
-    }
-    .grid figure{margin:0; overflow:hidden; border-radius:14px; background:#e5e7eb}
-    .grid img{display:block; width:100%; height:100%; object-fit:cover; aspect-ratio: 4/3}
-    @media (max-width: 980px){ .grid{grid-template-columns: repeat(3,1fr)} }
-    @media (max-width: 560px){ .grid{grid-template-columns: repeat(2,1fr)} }
-
-    /* FOOTER */
-    footer{
-      background:#0b1220; color:#cbd5e1; margin-top:40px;
-    }
-    .foot-inner{
-      max-width:1100px; margin:0 auto; padding:24px 20px;
-      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;
-    }
-    .foot-inner a{color:#e5e7eb}
-    .badge{display:inline-flex; align-items:center; gap:8px; color:#fff; background:#111827; border:1px solid #1f2937; padding:6px 10px; border-radius:12px; font-size:12px}
-    .badge .dot{color:var(--brand); font-weight:900}
-  </style>
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
   <!-- NAVBAR -->
   <header class="navbar" role="navigation" aria-label="Hovedmeny">
-    <div class="nav-inner">
-      <!-- Bytt logo-fil: /images/logo.png -->
-      <a href="index.html" class="logo-link" aria-label="Til forsiden">
-        <img src="logo.png" alt="My Strongest Side" class="logo" />
-      </a>
+    <div class="navbar-inner">
+      <div class="navbar-left">
+        <a href="index.html" class="logo-link" aria-label="Til forsiden">
+          <img src="logo.png" alt="My Strongest Side" class="logo" />
+        </a>
+      </div>
 
-      <button class="hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
+      <button class="hamburger" id="hamburger"
+        aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
 
-      <nav id="nav-menu" class="nav-links">
+      <nav class="navbar-center" id="nav-menu">
         <a href="index.html">Hjem</a>
         <a href="trening.html">Kurs</a>
         <a href="om-oss.html">Om oss</a>
-        <a href="frivillig.html" class="cta" target="_blank" rel="noopener">Søk som frivillig</a>
+        <a href="frivillig.html" class="active">Frivillig</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" role="banner">
+  <!-- HERO (valgfritt, kan fjernes hvis du ikke vil ha bilde her) -->
+  <section class="hero">
     <div class="hero-inner">
-      <div>
-        <span class="badge"><span class="dot">●</span> Vi starter opp – høstsesongen</span>
-        <h1>Gjør trening tilgjengelig for flest mulig</h1>
-        <p>Vi bygger trygge, tilpassede treningsgrupper – og lærer bort universell utforming i praksis. Bli med som frivillig og gjør en konkret forskjell.</p>
-        <p>
-          <a class="cta" href="frivillig-skjema.html" target="_blank" rel="noopener">Søk som frivillig</a>
-        </p>
+      <div class="hero-text">
+        <h1>Bli frivillig</h1>
+        <p>Hos oss får du være med på å gjøre trening mer tilgjengelig for alle – og bygge praksisnær erfaring i et trygt fellesskap.</p>
       </div>
-      <div class="hero-media" aria-hidden="true">
-        <!-- Bytt ut hero.jpg med ditt bilde (f.eks. fra Fantoft). Legg filen i samme mappe eller /images/hero.jpg -->
-        <picture>
-          <img src="hero.jpg" alt="Tilrettelagt styrketrening i gruppe" loading="eager">
-        </picture>
+      <div class="hero-img">
+        <img src="hero-frivillig.jpg" alt="Frivillige i trening" />
       </div>
     </div>
   </section>
 
-  <!-- GALLERY (små bilder) -->
-  <section class="gallery" aria-label="Bilder fra trening">
-    <div class="grid">
-      <!-- Bytt ut filnavn (gallery-1.jpg osv.) – legg gjerne inn ekte bilder. -->
-      <figure><img src="gallery-1.jpg" alt="Oppvarming i gruppe" loading="lazy"></figure>
-      <figure><img src="gallery-2.jpg" alt="Veiledning i knebøy" loading="lazy"></figure>
-      <figure><img src="gallery-3.jpg" alt="Tilpasning av utstyr" loading="lazy"></figure>
-      <figure><img src="gallery-4.jpg" alt="Roing med støtte" loading="lazy"></figure>
-      <figure><img src="gallery-5.jpg" alt="Felles nedtrapping" loading="lazy"></figure>
-      <figure><img src="gallery-6.jpg" alt="Trygt fellesskap" loading="lazy"></figure>
-    </div>
-  </section>
-
-  <!-- INNHOLD: Frivillig-seksjonen i to kolonner -->
+  <!-- INNHOLD -->
   <main class="container">
     <div class="two-col">
+      
       <!-- Venstre kolonne -->
       <article class="block">
         <h2>Hvem ser vi etter?</h2>
@@ -220,37 +84,55 @@
       </article>
 
       <!-- Høyre kolonne -->
-      <aside class="block aside">
+      <aside class="block">
         <h2>Klar til å bidra?</h2>
-        <p class="lead">Fyll ut skjemaet – vi tar kontakt fortløpende.</p>
+        <p>Fyll ut skjemaet – vi tar kontakt fortløpende.</p>
         <p>
-          <a href="frivillig-skjema.html" target="_blank" rel="noopener" class="btn">Søk som frivillig</a>
+          <a href="frivillig-skjema.html" target="_blank" class="btn">Søk som frivillig</a>
         </p>
 
-        <h3 class="faq-head">FAQ</h3>
-        <div class="qa">
-          <p><strong>Må jeg ha erfaring?</strong><br>
-            Nei, du får opplæring. Lyst til å lære og være trygg med folk er viktigst.</p>
-          <p><strong>Binder jeg meg til alle økter?</strong><br>
-            Nei – vi avtaler omfanget sammen.</p>
-          <p><strong>Får jeg attest?</strong><br>
-            Ja, etter endt periode.</p>
-        </div>
+        <h3>FAQ</h3>
+        <p><strong>Må jeg ha erfaring?</strong><br>
+          Nei, du får opplæring. Lyst til å lære og være trygg med folk er viktigst.</p>
+
+        <p><strong>Binder jeg meg til alle økter?</strong><br>
+          Nei – vi avtaler omfanget sammen.</p>
+
+        <p><strong>Får jeg attest?</strong><br>
+          Ja, etter endt periode.</p>
 
         <h3>Kontakt</h3>
-        <div class="contact">
-          <p>E-post: <a href="mailto:post@mystrongestside.no" target="_blank" rel="noopener">post@mystrongestside.no</a></p>
-          <p>Tlf: <a href="tel:+4741439384">41 43 93 84</a></p>
-        </div>
+        <p>
+          E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a><br>
+          Tlf: <a href="tel:+4741439384">41 43 93 84</a>
+        </p>
       </aside>
+
     </div>
   </main>
 
   <!-- FOOTER -->
-  <footer role="contentinfo">
-    <div class="foot-inner">
-      <div>© <span id="y"></span> My Strongest Side</div>
-      <div>
-        <a href="personvern.html">Personvern</a> ·
-        <a href="cookies.html">Informasjonskapsler</a> ·
-        <a href="https://www.instagram
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span id="year"></span> My Strongest Side</p>
+      <nav class="footer-nav">
+        <a href="personvern.html">Personvern</a>
+        <a href="cookies.html">Informasjonskapsler</a>
+        <a href="https://www.instagram.com/mystrongestside" target="_blank">Instagram</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // mobilmeny
+    const burger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav-menu');
+    burger?.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', nav.classList.contains('open'));
+    });
+    // år i footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
