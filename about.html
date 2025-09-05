@@ -11,12 +11,12 @@
 
   <style>
     :root{
-      --blue:#192B45;      /* primær bakgrunn */
-      --blue-2:#24344d;    /* mørk blå til header */
-      --orange:#F47F42;    /* aksent/bånd */
-      --text:#0d1117;      /* mørk tekst */
-      --bg:#E4E8F2;        /* lys bakgrunn for seksjoner */
-      --container: 1080px; /* bredde */
+      --blue:#192B45;
+      --blue-2:#24344d;
+      --orange:#F47F42;
+      --text:#0d1117;
+      --bg:#ffffff;          /* matcher forsiden (helt hvit) */
+      --container: 1080px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -24,39 +24,38 @@
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;background:var(--bg);color:var(--text)}
     a{color:inherit;text-decoration:none}
 
-    /* NAVBAR */
-    .navbar{position:sticky;top:0;z-index:1000;background:var(--blue-2);box-shadow:0 2px 8px rgba(0,0,0,.2)}
-    .nav-inner{max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
+    /* NAVBAR — identisk struktur/farger som forsiden */
+    .navbar{position:sticky;top:0;z-index:1000;background:var(--blue-2)}
+    .nav-inner{max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
     .logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;letter-spacing:.3px}
     .logo img{height:32px;width:auto}
     .nav-links{display:flex;gap:18px}
-    .nav-links a{color:#fff;opacity:.9;font-weight:600}
+    .nav-links a{color:#fff;opacity:.92;font-weight:600}
     .nav-links a[aria-current="page"]{opacity:1;text-decoration:underline}
 
-    /* HERO */
-    .hero{background:linear-gradient(180deg, rgba(25,43,69,1) 0%, rgba(25,43,69,.92) 100%), url('hero-about.jpg') center/cover no-repeat;}
-    .hero-wrap{max-width:var(--container);margin:0 auto;padding:64px 16px 56px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
-    .hero h1{color:#fff;font-size:clamp(28px,4vw,44px);line-height:1.1;margin-bottom:12px}
-    .hero p{color:#f2f6ff;opacity:.95;margin-bottom:12px}
-    .hero .tag{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:6px 10px;border-radius:999px;font-size:14px;margin-bottom:10px}
-    .hero .portrait{width:100%;aspect-ratio:1/1.1;object-fit:cover;border-radius:16px;border:3px solid rgba(255,255,255,.2);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    /* HERO — samme typografi/sporingsfølelse som forsiden */
+    .hero{background:#192B45;color:#fff}
+    .hero-wrap{max-width:var(--container);margin:0 auto;padding:64px 16px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.1;margin-bottom:12px}
+    .hero p{color:#f2f6ff;opacity:.95;margin-bottom:10px}
+    .tag{display:inline-block;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);color:#fff;padding:6px 10px;border-radius:999px;font-size:14px;margin-bottom:12px}
+    .portrait{width:100%;aspect-ratio:1/1.1;object-fit:cover;border-radius:14px;border:2px solid rgba(255,255,255,.2)}
 
-    /* TEKST-BÅND */
-    .band{background:var(--orange);color:#111;position:relative;overflow:hidden}
-    .band .band-inner{max-width:var(--container);margin:0 auto;padding:10px 16px;font-weight:700;letter-spacing:.2px;display:flex;gap:16px;align-items:center;justify-content:center;text-align:center}
+    /* ORANSJE BÅND — samme høyde/tydelighet */
+    .band{background:var(--orange);color:#111}
+    .band-inner{max-width:var(--container);margin:0 auto;padding:12px 16px;font-weight:800;letter-spacing:.2px;text-align:center}
 
-    /* INNHOLD */
-    .container{max-width:var(--container);margin:0 auto;padding:32px 16px}
-    .card{background:#fff;border-radius:18px;box-shadow:0 8px 28px rgba(17,23,34,.08);padding:24px}
-    .card h2{font-size:clamp(22px,3vw,28px);margin-bottom:8px}
-    .card p + p{margin-top:10px}
+    /* INNHOLD — enkel, uten skygger for å speile forsiden */
+    .container{max-width:var(--container);margin:0 auto;padding:28px 16px}
+    .section{padding:8px 0}
+    .section h2{font-size:clamp(22px,3vw,28px);margin-bottom:6px}
+    .section p + p{margin-top:10px}
 
-    /* FOOTER */
-    footer{padding:28px 16px;color:#fff;background:var(--blue-2);margin-top:32px}
+    /* FOOTER — samme blå bakgrunn og enkle linjer */
+    footer{padding:28px 16px;color:#fff;background:var(--blue-2);margin-top:16px}
     .foot-inner{max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .small{opacity:.85;font-size:14px}
+    .small{opacity:.9;font-size:14px}
 
-    /* RESPONSIVE */
     @media (max-width:880px){
       .hero-wrap{grid-template-columns:1fr;gap:16px;padding:48px 16px}
     }
@@ -71,10 +70,10 @@
         <span>MY STRONGEST SIDE</span>
       </a>
       <nav class="nav-links" id="nav">
-        <a href="/" >Hjem</a>
-        <a href="/schedule.html">Tider</a>
-        <a href="/volunteer.html">Frivillig</a>
+        <a href="/">Hjem</a>
         <a href="/about.html" aria-current="page">Om oss</a>
+        <a href="/volunteer.html">Frivillig</a>
+        <a href="/calendar.html">Kalender</a>
       </nav>
     </div>
   </header>
@@ -84,18 +83,23 @@
     <div class="hero-wrap">
       <div>
         <span class="tag">Om oss</span>
-        <h1>Vi gjør styrketrening tilgjengelig for flest mulig.</h1>
-        <p>Med trygge rammer, faglig forankring og smarte tilpasninger – i praksis, ikke bare på papiret.</p>
+        <h1>Gjør trening tilgjengelig for flest mulig.</h1>
+        <p>Tilrettelagt. Fellesskap. Trygt. Kompetanse. Tilhørighet. Mestring. Universelt. Inkluderende.</p>
         <p><strong>Startet av Alexander Mjøs Sviggum</strong> – ergoterapeut og styrkeløfter med egen erfaring med CP. Vi jobber for inklusjon i treningshverdagen gjennom universell utforming, veiledning og teknologi (NFC/QR) som senker terskelen.</p>
       </div>
       <div>
-        <!-- Bytt ut bildet under med ditt eget portrett -->
         <img class="portrait" src="/alexander.jpg" alt="Portrett av Alexander Mjøs Sviggum" />
       </div>
     </div>
   </section>
 
   <!-- BÅND MED TEKST -->
+  <div class="band" role="note" aria-label="Hovedbudskap">
+    <div class="band-inner">
+      Universell utforming • Tilpasset veiledning • NFC/QR-instrukser på apparat • Fellesskap og trygghet
+    </div>
+  </div>
+
   <div class="band" role="note" aria-label="Hovedbudskap">
     <div class="band-inner">
       <span>Universell utforming</span>
@@ -110,11 +114,11 @@
 
   <!-- INNHOLD -->
   <main class="container">
-    <article class="card">
+    <section class="section">
       <h2>Hva vi gjør i praksis</h2>
-      <p>MyStrongestSide er både et tilbud og en plattform. Vi arrangerer gruppetrening i mindre, trygge grupper med faglig veiledning – og utvikler samtidig løsninger som gjør at flere kan bruke treningssentre selvstendig. Med QR- og NFC-koder på apparatene får du enkle instruksjoner og tilpasninger der du står.</p>
-      <p>Vi samarbeider med fagmiljøer innen rehabilitering og med treningssentre for å bygge gode rammer rundt aktivitet. Målet er at du skal oppleve mestring, få lyst til å komme tilbake – og finne din sterkeste side.</p>
-    </article>
+      <p>Vi arrangerer gruppetrening i mindre, trygge grupper med faglig veiledning – og utvikler løsninger som gjør at flere kan bruke treningssentre selvstendig. Med QR- og NFC-koder på apparatene får du enkle instruksjoner og tilpasninger der du står.</p>
+      <p>Vi samarbeider med fagmiljøer innen rehabilitering og med treningssentre for å bygge gode rammer. Målet er at du skal oppleve mestring og få lyst til å komme tilbake – og finne din sterkeste side.</p>
+    </section>
   </main>
 
   <!-- FOOTER -->
