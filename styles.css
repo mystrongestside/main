@@ -182,3 +182,31 @@ body {
   position: relative;
   background:#fff;
   border:1px
+/* === Marquee FIX: rull wrapperen, ikke radene === */
+.marquee { overflow: hidden; position: relative; }
+.marquee__wrap {
+  display: flex;
+  width: max-content;                 /* naturlig bredde ut fra innholdet */
+  animation: mss-marquee var(--marquee-speed, 28s) linear infinite;
+  will-change: transform;
+}
+.marquee__row {
+  flex-shrink: 0;                      /* radene må ikke krympe */
+  display: flex;
+  gap: 2.4rem;
+  padding: .8rem 2.4rem;
+  white-space: nowrap;
+  position: static !important;         /* nøytraliser evt. absolute fra før */
+  left: auto !important; top: auto !important;
+}
+
+/* Sømløs rull: to rader med IDENTISK innhold ⇒ flytt en rad-bredde (50%) */
+@keyframes mss-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* (valgfritt) litt mindre avstand på små skjermer */
+@media (max-width: 600px){
+  .marquee__row { gap: 1.6rem; padding: .7rem 1.6rem; }
+}
