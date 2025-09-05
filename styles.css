@@ -530,5 +530,47 @@ details summary{ cursor:pointer; font-weight:700; color:var(--blue); }
   .nav-links{ display:none; flex-direction:column; padding:.5rem 0; }
   .nav-links.is-open{ display:flex; }
 }
+/* === Overstyringer for frivillig-siden (v3) === */
+
+/* Fiks for glippe i rulleteksten */
+.marquee__row {
+  display: inline-flex;
+  gap: 2rem;              /* gir litt avstand mellom ordene */
+  min-width: 100%;        /* sørger for at raden fyller hele bredden */
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee__row[aria-hidden="true"] {
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+
+/* Mer luft i frivillig-blokkene */
+.block {
+  padding: 32px 36px;     /* mer innvendig luft */
+  line-height: 1.7;       /* mer luft mellom linjer */
+}
+
+.block h2 {
+  margin: 28px 0 14px;    /* mer luft over og under overskrifter */
+}
+
+.block ul {
+  margin: 0 0 24px;       /* mer luft under punktlister */
+}
+
+.block li {
+  margin: 10px 0;         /* luft mellom punkter */
+}
+
+/* Litt større og luftigere knapp */
+.btn-primary,
+.block .btn,
+aside .btn-primary {
+  padding: 12px 24px;
+  font-size: 1.05rem;
+}
 
 
