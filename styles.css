@@ -12,7 +12,7 @@
 
   --container: 980px;           /* bredde for seksjoner på desktop */
   --card-img-h: 200px;          /* fast bildehøyde (desktop) */
-  --marquee-speed: 28s;
+  --marquee-speed: 28s;         /* hastighet på rulletekst */
 }
 
 html, body { height: 100%; }
@@ -22,7 +22,6 @@ body {
   color: var(--text);
   background: var(--bg);
 }
-
 .dot { color: var(--orange); }
 
 /* =========================
@@ -38,7 +37,6 @@ body {
   padding: 1rem 2rem;
 }
 .logo { height: 50px; width: auto; display:block; margin: 5px 10px 0 10px; }
-
 .navbar-left, .navbar-right { flex: 0 0 auto; }
 .navbar-center { flex: 1 1 auto; display:flex; justify-content:center; }
 
@@ -72,10 +70,9 @@ body {
     display:none; background:#24344d; border-top:1px solid rgba(255,255,255,.15);
     padding:.75rem 1rem;
   }
-  /* Støtt begge toggler fra script: */
-  .navbar-center.active { display:block; }
+  .navbar-center.active { display:block; }        /* script kan toggle denne */
   .nav-links { flex-direction:column; align-items:flex-start; gap:1rem; display:none; }
-  .nav-links.is-open { display:flex; }        /* alternativ åpning */
+  .nav-links.is-open { display:flex; }            /* alternativ toggle */
   .navbar-right { margin-left:auto; }
 }
 
@@ -122,24 +119,24 @@ body {
   z-index:1;
   margin-bottom: 1.5rem;
 }
-.marquee__wrap { position: relative; height:auto; }
-.marquee__row{
-  position:absolute; top:0; left:0;
-  display:inline-flex; white-space:nowrap;
-  gap: 2.4rem; padding:.8rem 2.4rem;
-  font-weight:700; letter-spacing:.01em;
-  animation: marqueeX var(--marquee-speed) linear infinite;
+.marquee__wrap{
+  display:flex;
+  width:max-content;                          /* bredde = innholdet (2 rader) */
+  animation: mss-marquee var(--marquee-speed) linear infinite;
   will-change: transform;
 }
-.marquee__row[aria-hidden="true"]{ left:100%; } /* kopi-rad starter rett etter rad 1 */
-
-@keyframes marqueeX {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-100%); }
+.marquee__row{
+  flex-shrink:0;                              /* ikke krymp */
+  display:flex; gap:2.4rem;
+  padding:.8rem 2.4rem;
+  white-space:nowrap;
 }
-
+@keyframes mss-marquee{
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }       /* flytt én rad-bredde (2 like rader) */
+}
 @media (prefers-reduced-motion: reduce){
-  .marquee__row{ animation:none; position:static; }
+  .marquee__wrap{ animation:none; }
 }
 
 /* =========================
@@ -181,43 +178,6 @@ body {
 .news-card {
   position: relative;
   background:#fff;
-  border:1px
-/* === Marquee FIX: rull wrapperen, ikke radene === */
-.marquee { overflow: hidden; position: relative; }
-.marquee__wrap {
-  display: flex;
-  width: max-content;                 /* naturlig bredde ut fra innholdet */
-  animation: mss-marquee var(--marquee-speed, 28s) linear infinite;
-  will-change: transform;
-}
-.marquee__row {
-  flex-shrink: 0;                      /* radene må ikke krympe */
-  display: flex;
-  gap: 2.4rem;
-  padding: .8rem 2.4rem;
-  white-space: nowrap;
-  position: static !important;         /* nøytraliser evt. absolute fra før */
-  left: auto !important; top: auto !important;
-}
-
-/* Sømløs rull: to rader med IDENTISK innhold ⇒ flytt en rad-bredde (50%) */
-@keyframes mss-marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* (valgfritt) litt mindre avstand på små skjermer */
-@media (max-width: 600px){
-  .marquee__row { gap: 1.6rem; padding: .7rem 1.6rem; }
-}
-/* =========================
-   FIX: news-card + marquee
-========================= */
-
-/* Fullfør news-card regelen */
-.news-card {
-  position: relative;
-  background:#fff;
   border:1px solid #e6e6e6;
   border-radius: 12px;
   overflow: hidden;
@@ -225,38 +185,154 @@ body {
   flex-direction: column;
   transition: transform .25s ease, box-shadow .25s ease;
 }
-.news-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,.12);
+.news-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12); }
+
+/* Bilde i kort */
+.news-card .news-media,
+.news-card > img{ width:100%; display:block; object-fit:cover; }
+
+@media (max-width: 899px){
+  .news-card .news-media, .news-card > img{
+    height:auto; aspect-ratio: 16/9; object-position: 50% 20%;
+  }
+}
+@media (min-width: 900px){
+  .news-card .news-media, .news-card > img{
+    height: var(--card-img-h); aspect-ratio:auto; object-position: 50% 50%;
+  }
 }
 
-/* === Marquee (sømløs) === */
-.marquee {
+.news-body { padding: .9rem 1rem 1rem; background:#fff; }
+.news-title { margin:0 0 .35rem; font-size:1.05rem; color: var(--blue); font-weight:700; }
+.news-text  { margin:0 0 .7rem;  color:#333; font-size:.95rem; line-height:1.4; }
+
+.news-button {
+  display:inline-block; padding:.45rem .9rem; border-radius:999px;
+  background: var(--orange); color:#fff; font-weight:600; text-decoration:none;
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,.18);
+  font-size: .95rem;
+}
+.news-button:hover { transform: translateY(-2px); filter: brightness(1.07); box-shadow: 0 8px 18px rgba(0,0,0,.22); }
+
+/* Logo/partner-bilder som ikke skal beskjæres */
+.media--contain{ object-fit: contain; background:#fff; padding: 1rem; }
+
+/* Date badge */
+.date-badge{
+  position:absolute; top:10px; left:10px; z-index:5;
+  display:grid; grid-auto-rows:min-content; align-content:start;
+  padding:10px 12px; width:90px; background:#fff; color:var(--blue);
+  border-radius:10px; box-shadow: 0 6px 16px rgba(0,0,0,.16); pointer-events:none;
+}
+.date-month{ font-weight:700; letter-spacing:.06em; font-size:.9rem; text-transform:uppercase; line-height:1; }
+.date-day{ font-weight:800; font-size:2.2rem; line-height:.95; margin:6px 0 6px; }
+.date-line{ height:2px; width:100%; background:var(--orange); border-radius:1px; margin:2px 0 8px; }
+.date-range{ font-weight:700; font-size:.85rem; line-height:1.1; color:var(--orange); }
+@media (min-width: 900px){
+  .date-badge{ width:100px; padding:12px 12px; }
+  .date-day{ font-size:2.4rem; }
+}
+
+/* Fokus-utils (valgfritt) */
+.focus-top     { object-position: 50% 15% !important; }
+.focus-upper   { object-position: 50% 25% !important; }
+.focus-center  { object-position: 50% 50% !important; }
+.focus-lower   { object-position: 50% 65% !important; }
+.focus-bottom  { object-position: 50% 80% !important; }
+@media (min-width: 900px){
+  .news-media.focus-upper-desktop  { object-position: 50% 35% !important; }
+  .news-media.focus-top-desktop    { object-position: 50% 25% !important; }
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer{ background:#fff; margin-top:3rem; color:var(--blue); }
+.marquee--footer{ margin:0; border-top:1px solid rgba(0,0,0,.06); border-bottom:1px solid rgba(0,0,0,.06); }
+
+.footer-wrap{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display:grid; gap:1.25rem; grid-template-columns: 1fr;
+}
+@media (min-width: 800px){
+  .footer-wrap{ grid-template-columns: 2fr 1fr 1fr 1fr; }
+}
+.footer-col{ font-size:.98rem; }
+.footer-title{ font-size:1rem; font-weight:800; color:var(--blue); margin:0 0 .5rem; }
+.footer-logo{ height:42px; width:auto; display:block; margin-bottom:.5rem; }
+.footer-tagline{ color:var(--blue-2); opacity:.9; margin:0; }
+
+.site-footer a{ color:var(--blue); text-decoration:none; border-bottom:1px solid transparent; }
+.site-footer a:hover, .site-footer a:focus{ border-bottom-color: var(--orange); }
+
+.footer-bottom{
+  background: var(--blue); color:#fff; text-align:center;
+  padding:.9rem 1rem; font-size:.9rem;
+}
+
+/* =========================
+   PAGE LAYOUT / GENERIC
+========================= */
+.container { max-width: var(--container); margin: 0 auto; padding: 0 1rem; }
+
+.page-hero{
+  background:#fff;
+  padding: clamp(32px,5vw,56px) 0;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.page-hero h1{
+  color: var(--blue);
+  font-size: clamp(1.8rem, 4.2vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 .4rem;
+}
+.page-hero .lead{ color:#24344d; opacity:.95; max-width: 56ch; }
+.hero-cta{ margin-top: 1rem; }
+
+.btn-primary{
+  display:inline-block;
+  padding:.6rem 1.2rem;
+  border-radius:999px;
   background: var(--orange);
   color:#fff;
-  overflow:hidden;
-  width:100%;
-  position:relative;
-  z-index:1;
-  margin-bottom: 1.5rem;
+  font-weight:700;
+  text-decoration:none;
+  border:0;
+  cursor:pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,.18);
 }
-.marquee__wrap {
-  display:flex;
-  width:max-content; /* bredde = innholdet til begge rader */
-  animation: mss-marquee var(--marquee-speed, 28s) linear infinite;
-  will-change: transform;
+.btn-primary:hover{ filter: brightness(1.07); transform: translateY(-1px); }
+
+/* Tynnere oransje bånd (hvis du trenger en smal variant) */
+.marquee--thin{ margin:0; }
+.marquee--thin .marquee__row{ padding:.6rem 1rem; }
+
+/* =========================
+   TO-KOLONNE + BLOKKER (Frivillig)
+========================= */
+.two-col{
+  display:grid; grid-template-columns: 1fr; gap: 22px;
+  padding: clamp(20px, 3vw, 28px) 0 clamp(40px, 5vw, 64px);
 }
-.marquee__row {
-  flex-shrink:0;
-  display:flex;
-  gap:2.4rem;
-  padding:.8rem 2.4rem;
-  white-space:nowrap;
+@media (min-width: 900px){
+  .two-col{ grid-template-columns: 1.4fr .9fr; gap: 40px; align-items:start; }
 }
-@keyframes mss-marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* flytter én rad-bredde (2 like rader) */
+.block{
+  background:#fff; border:1px solid #e6e6e6; border-radius:12px;
+  padding: 44px 48px; margin-bottom: 0; line-height: 1.8;
 }
-@media (prefers-reduced-motion: reduce){
-  .marquee__wrap{ animation:none; }
-}
+.block h2{ color: var(--blue); font-size: clamp(1.15rem,2.2vw,1.45rem); margin: 34px 0 16px; }
+.block h2:first-child{ margin-top:0; }
+.block h3{ margin: 28px 0 14px; }
+.block p { margin: 12px 0 20px; }
+.block ul{ margin: 6px 0 28px; padding-left: 1.1rem; }
+.block li{ margin: 12px 0; }
+
+/* Sticky aside-kort hvis ønskelig */
+.aside-card{ position: sticky; top: 16px; box-shadow: 0 8px 22px rgba(0,0,0,.08); }
+
+/* =========================
+   CO
