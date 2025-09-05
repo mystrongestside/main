@@ -2,136 +2,214 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Om oss | My Strongest Side</title>
-  <meta name="description" content="MyStrongestSide gjør styrketrening tilgjengelig for flest mulig – med trygge rammer, faglig forankring og smarte tilpasninger i praksis." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --blue:#192B45;
-      --blue-2:#24344d;
-      --orange:#F47F42;
-      --text:#0d1117;
-      --bg:#ffffff;          /* matcher forsiden (helt hvit) */
-      --container: 1080px;
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;background:var(--bg);color:var(--text)}
-    a{color:inherit;text-decoration:none}
-
-    /* NAVBAR — identisk struktur/farger som forsiden */
-    .navbar{position:sticky;top:0;z-index:1000;background:var(--blue-2)}
-    .nav-inner{max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
-    .logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;letter-spacing:.3px}
-    .logo img{height:32px;width:auto}
-    .nav-links{display:flex;gap:18px}
-    .nav-links a{color:#fff;opacity:.92;font-weight:600}
-    .nav-links a[aria-current="page"]{opacity:1;text-decoration:underline}
-
-    /* HERO — samme typografi/sporingsfølelse som forsiden */
-    .hero{background:#192B45;color:#fff}
-    .hero-wrap{max-width:var(--container);margin:0 auto;padding:64px 16px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
-    .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.1;margin-bottom:12px}
-    .hero p{color:#f2f6ff;opacity:.95;margin-bottom:10px}
-    .tag{display:inline-block;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);color:#fff;padding:6px 10px;border-radius:999px;font-size:14px;margin-bottom:12px}
-    .portrait{width:100%;aspect-ratio:1/1.1;object-fit:cover;border-radius:14px;border:2px solid rgba(255,255,255,.2)}
-
-    /* ORANSJE BÅND — samme høyde/tydelighet */
-    .band{background:var(--orange);color:#111}
-    .band-inner{max-width:var(--container);margin:0 auto;padding:12px 16px;font-weight:800;letter-spacing:.2px;text-align:center}
-
-    /* INNHOLD — enkel, uten skygger for å speile forsiden */
-    .container{max-width:var(--container);margin:0 auto;padding:28px 16px}
-    .section{padding:8px 0}
-    .section h2{font-size:clamp(22px,3vw,28px);margin-bottom:6px}
-    .section p + p{margin-top:10px}
-
-    /* FOOTER — samme blå bakgrunn og enkle linjer */
-    footer{padding:28px 16px;color:#fff;background:var(--blue-2);margin-top:16px}
-    .foot-inner{max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .small{opacity:.9;font-size:14px}
-
-    @media (max-width:880px){
-      .hero-wrap{grid-template-columns:1fr;gap:16px;padding:48px 16px}
-    }
-  </style>
+  <!-- Cache-busting på CSS, samme som forsiden -->
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
-  <!-- NAVBAR -->
+
+  <!-- NAVBAR (identisk struktur som forsiden) -->
   <header class="navbar" role="navigation" aria-label="Hovedmeny">
-    <div class="nav-inner">
-      <a href="/" class="logo" aria-label="Til forsiden">
-        <img src="/logo.png" alt="My Strongest Side" />
-        <span>MY STRONGEST SIDE</span>
-      </a>
-      <nav class="nav-links" id="nav">
-        <a href="/">Hjem</a>
-        <a href="/about.html" aria-current="page">Om oss</a>
-        <a href="/volunteer.html">Frivillig</a>
-        <a href="/calendar.html">Kalender</a>
+    <div class="navbar-inner">
+      <div class="navbar-left">
+        <a href="index.html" class="logo-link" aria-label="Til forsiden">
+          <img src="logo.png" alt="My Strongest Side" class="logo" />
+        </a>
+      </div>
+
+      <button class="hamburger" id="hamburger"
+        aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="navbar-center" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="about.html" aria-current="page">Om oss</a></li>
+          <li><a href="frivillig.html">Frivillig</a></li>
+        </ul>
       </nav>
+
+      <div class="navbar-right">
+        <a href="kalender.html" class="btn-book">Kalender</a>
+      </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-wrap">
-      <div>
-        <span class="tag">Om oss</span>
-        <h1>Gjør trening tilgjengelig for flest mulig.</h1>
-        <p>Tilrettelagt. Fellesskap. Trygt. Kompetanse. Tilhørighet. Mestring. Universelt. Inkluderende.</p>
-        <p><strong>Startet av Alexander Mjøs Sviggum</strong> – ergoterapeut og styrkeløfter med egen erfaring med CP. Vi jobber for inklusjon i treningshverdagen gjennom universell utforming, veiledning og teknologi (NFC/QR) som senker terskelen.</p>
+  <!-- JS (defer) -->
+  <script src="script.js" defer></script>
+
+  <!-- 1) Toppbilde (samme høyde/klasse som forsiden for konsekvent look) -->
+  <section class="masthead masthead--about" style="background-image:url('about-hero.jpg');"></section>
+
+  <!-- 2) Blå hero-boks som overlapper masthead -->
+  <section class="hero-card">
+    <h1>Om oss<span class="dot">.</span></h1>
+    <p class="hero-sub">
+      Vi gjør styrketrening tilgjengelig for flest mulig – med trygge rammer,
+      faglig forankring og tilpasninger som faktisk fungerer i praksis.
+    </p>
+  </section>
+
+  <!-- Oransje marquee-bånd (samme som forsiden) -->
+  <div class="marquee" role="region" aria-label="MyStrongestSide statements">
+    <div class="marquee__wrap">
+      <div class="marquee__row">
+        <span>Tilhørighet.</span>
+        <span>Mestring.</span>
+        <span>Åpent for alle.</span>
+        <span>Kunnskap.</span>
+        <span>Universelt.</span>
+        <span>Inkluderende.</span>
+        <span>Sertifisert.</span>
+        <span>Standardisert.</span>
+        <span>Enkelt.</span>
+        <span>Profesjonelt.</span>
+        <span>Tilgjengelig.</span>
+        <span>Godkjent.</span>
+        <span>Tilrettelagt.</span>
+        <span>Fellesskap.</span>
+        <span>Trygt.</span>
+        <span>Kompetanse.</span>
       </div>
-      <div>
-        <img class="portrait" src="/alexander.jpg" alt="Portrett av Alexander Mjøs Sviggum" />
+      <div class="marquee__row" aria-hidden="true">
+        <span>Tilhørighet.</span>
+        <span>Mestring.</span>
+        <span>Åpent for alle.</span>
+        <span>Kunnskap.</span>
+        <span>Universelt.</span>
+        <span>Inkluderende.</span>
+        <span>Sertifisert.</span>
+        <span>Standardisert.</span>
+        <span>Enkelt.</span>
+        <span>Profesjonelt.</span>
+        <span>Tilgjengelig.</span>
+        <span>Godkjent.</span>
+        <span>Tilrettelagt.</span>
+        <span>Fellesskap.</span>
+        <span>Trygt.</span>
+        <span>Kompetanse.</span>
       </div>
+    </div>
+  </div>
+
+  <!-- Hovedinnhold – lys bakgrunn og “kort” som i skjermbildet -->
+  <main class="container about-wrap" role="main">
+    <article class="about-card">
+      <p><strong>MyStrongestSide</strong> gjør styrketrening tilgjengelig for flere.
+      Mange møter hindringer når de vil trene – utstyret passer ikke, kunnskapen mangler,
+      eller man føler seg utenfor. Vi ønsker å fjerne disse barrierene og skape et sted
+      der alle føler seg velkommen.</p>
+
+      <p>Prosjektet er startet av <strong>Alexander Mjøs Sviggum</strong>, ergoterapeut
+      og styrkeløfter med egen erfaring med cerebral parese. Han vet hvor mye riktige
+      tilpasninger kan bety, og ønsker å dele den kunnskapen videre.</p>
+
+      <p>Hos oss handler trening om mestring og fellesskap. Vi tilbyr små grupper,
+      tett oppfølging og løsninger som gjør det mulig å trene på egne premisser.</p>
+
+      <p>I samarbeid med CP-foreningen, HVL Skape og fagmiljøer innen rehabilitering
+      jobber vi for mer inkluderende treningsarenaer. Målet er at flere skal oppleve
+      treningsglede og få lyst til å komme tilbake – gang på gang.</p>
+
+      <p><em>Alle har en sterk side. Vi hjelper deg å finne din.</em></p>
+    </article>
+
+    <!-- Sidebilde / portrettfelt – vises til høyre på desktop, under på mobil -->
+    <aside class="about-aside">
+      <img src="alexander.jpg" alt="Alexander Mjøs Sviggum" class="about-photo">
+      <div class="about-aside-text">
+        <h3>Alexander Mjøs Sviggum</h3>
+        <p>Ergoterapeut og grunnlegger av MyStrongestSide.</p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Teaser-seksjon for frivillige (som i skjermbildet) -->
+  <section class="cta-strip">
+    <div class="cta-inner">
+      <p class="cta-kicker"><em>Alle har en sterk side. Vi hjelper deg å finne din.</em></p>
+      <h2>Bli med som frivillig</h2>
+      <p>Studenter og fagfolk er velkommen – vi gir veiledning og praksisnær erfaring.</p>
+      <a class="btn-primary" href="frivillig.html">Les mer</a>
     </div>
   </section>
 
-  <!-- BÅND MED TEKST -->
-  <div class="band" role="note" aria-label="Hovedbudskap">
-    <div class="band-inner">
-      Universell utforming • Tilpasset veiledning • NFC/QR-instrukser på apparat • Fellesskap og trygghet
+  <!-- FOOTER (identisk som forsiden) -->
+  <footer class="site-footer">
+    <div class="marquee marquee--footer" role="region" aria-label="MyStrongestSide statements nederst">
+      <div class="marquee__wrap">
+        <div class="marquee__row">
+          <span>Tilrettelagt.</span>
+          <span>Fellesskap.</span>
+          <span>Trygt.</span>
+          <span>Kompetanse.</span>
+          <span>Tilhørighet.</span>
+          <span>Mestring.</span>
+          <span>Åpent for alle.</span>
+          <span>Kunnskap.</span>
+          <span>Universelt.</span>
+          <span>Inkluderende.</span>
+          <span>Sertifisert.</span>
+          <span>Standardisert.</span>
+          <span>Enkelt.</span>
+          <span>Profesjonelt.</span>
+          <span>Tilgjengelig.</span>
+          <span>Godkjent.</span>
+        </div>
+        <div class="marquee__row" aria-hidden="true">
+          <span>Tilrettelagt.</span>
+          <span>Fellesskap.</span>
+          <span>Trygt.</span>
+          <span>Kompetanse.</span>
+          <span>Tilhørighet.</span>
+          <span>Mestring.</span>
+          <span>Åpent for alle.</span>
+          <span>Kunnskap.</span>
+          <span>Universelt.</span>
+          <span>Inkluderende.</span>
+          <span>Sertifisert.</span>
+          <span>Standardisert.</span>
+          <span>Enkelt.</span>
+          <span>Profesjonelt.</span>
+          <span>Tilgjengelig.</span>
+          <span>Godkjent.</span>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="band" role="note" aria-label="Hovedbudskap">
-    <div class="band-inner">
-      <span>Universell utforming</span>
-      <span>•</span>
-      <span>Tilpasset veiledning</span>
-      <span>•</span>
-      <span>NFC/QR for enkle instrukser på apparat</span>
-      <span>•</span>
-      <span>Fellesskap og trygghet</span>
+    <div class="footer-wrap">
+      <section class="footer-col">
+        <img src="logo-orange.png" alt="My Strongest Side" class="footer-logo"/>
+        <p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p>
+      </section>
+
+      <section class="footer-col">
+        <h3 class="footer-title">Kontakt</h3>
+        <p>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></p>
+        <p>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></p>
+        <p>Adresse: Brages veg 3, 5221 Nesttun</p>
+      </section>
+
+      <section class="footer-col">
+        <h3 class="footer-title">Følg oss</h3>
+        <p>
+          <a href="#" aria-label="Instagram">Instagram</a><br/>
+          <a href="#" aria-label="Facebook">Facebook</a><br/>
+        </p>
+      </section>
     </div>
-  </div>
 
-  <!-- INNHOLD -->
-  <main class="container">
-    <section class="section">
-      <h2>Hva vi gjør i praksis</h2>
-      <p>Vi arrangerer gruppetrening i mindre, trygge grupper med faglig veiledning – og utvikler løsninger som gjør at flere kan bruke treningssentre selvstendig. Med QR- og NFC-koder på apparatene får du enkle instruksjoner og tilpasninger der du står.</p>
-      <p>Vi samarbeider med fagmiljøer innen rehabilitering og med treningssentre for å bygge gode rammer. Målet er at du skal oppleve mestring og få lyst til å komme tilbake – og finne din sterkeste side.</p>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="foot-inner">
-      <div class="small">© <span id="yr"></span> My Strongest Side</div>
-      <div class="small">Kontakt: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> My Strongest Side · Alle rettigheter forbeholdt</p>
     </div>
   </footer>
 
   <script>
-    // år i footer
-    document.getElementById('yr').textContent = new Date().getFullYear();
+    // Årstall i footer
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
