@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Frivillig | My Strongest Side</title>
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR (identisk som index) -->
   <header class="navbar" role="navigation" aria-label="Hovedmeny">
     <div class="navbar-inner">
       <div class="navbar-left">
@@ -23,31 +23,56 @@
       </button>
 
       <nav class="navbar-center" id="nav-menu">
-        <a href="index.html">Hjem</a>
-        <a href="trening.html">Kurs</a>
-        <a href="om-oss.html">Om oss</a>
-        <a href="frivillig.html" class="active">Frivillig</a>
+        <ul class="nav-links">
+          <li><a href="about.html">Om oss</a></li>
+          <li><a href="frivillig.html" class="active">Frivillig</a></li>
+        </ul>
       </nav>
+
+      <div class="navbar-right">
+        <a href="kalender.html" class="btn-book">Kalender</a>
+      </div>
     </div>
   </header>
 
-  <!-- HERO (valgfritt, kan fjernes hvis du ikke vil ha bilde her) -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <h1>Bli frivillig</h1>
-        <p>Hos oss får du være med på å gjøre trening mer tilgjengelig for alle – og bygge praksisnær erfaring i et trygt fellesskap.</p>
-      </div>
-      <div class="hero-img">
-        <img src="hero-frivillig.jpg" alt="Frivillige i trening" />
-      </div>
+  <!-- JS (defer) -->
+  <script src="script.js" defer></script>
+
+  <!-- MASTHEAD -->
+  <section class="masthead"></section>
+
+  <!-- HERO-CARD -->
+  <section class="hero-card">
+    <h1>Bli frivillig<span class="dot">.</span></h1>
+    <p>Bidra i trygge, tilpassede treningsgrupper – og bygg praksisnær erfaring i et godt fagmiljø.</p>
+    <div class="hero-cta">
+      <a href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide"
+         target="_blank" rel="noopener" class="btn-primary">Søk som frivillig</a>
     </div>
   </section>
+
+  <!-- Marquee (samme linje som index) -->
+  <div class="marquee" role="region" aria-label="MyStrongestSide statements">
+    <div class="marquee__wrap">
+      <div class="marquee__row">
+        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+        <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+        <span>Støtte.</span><span>Like muligheter.</span><span>Riktig tilpasning.</span><span>Trening for alle.</span>
+      </div>
+      <div class="marquee__row" aria-hidden="true">
+        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+        <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+      </div>
+    </div>
+  </div>
 
   <!-- INNHOLD -->
   <main class="container">
     <div class="two-col">
-      
       <!-- Venstre kolonne -->
       <article class="block">
         <h2>Hvem ser vi etter?</h2>
@@ -88,7 +113,8 @@
         <h2>Klar til å bidra?</h2>
         <p>Fyll ut skjemaet – vi tar kontakt fortløpende.</p>
         <p>
-          <a href="frivillig-skjema.html" target="_blank" class="btn">Søk som frivillig</a>
+          <a href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide"
+             target="_blank" rel="noopener" class="btn-primary">Søk som frivillig</a>
         </p>
 
         <h3>FAQ</h3>
@@ -107,32 +133,59 @@
           Tlf: <a href="tel:+4741439384">41 43 93 84</a>
         </p>
       </aside>
-
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <p>© <span id="year"></span> My Strongest Side</p>
-      <nav class="footer-nav">
-        <a href="personvern.html">Personvern</a>
-        <a href="cookies.html">Informasjonskapsler</a>
-        <a href="https://www.instagram.com/mystrongestside" target="_blank">Instagram</a>
-      </nav>
+  <!-- FOOTER (identisk som index) -->
+  <footer class="site-footer">
+    <div class="marquee marquee--footer" role="region" aria-label="MyStrongestSide statements nederst">
+      <div class="marquee__wrap">
+        <div class="marquee__row">
+          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+        </div>
+        <div class="marquee__row" aria-hidden="true">
+          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-wrap">
+      <section class="footer-col">
+        <img src="logo-orange.png" alt="My Strongest Side" class="footer-logo"/>
+        <p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p>
+      </section>
+
+      <section class="footer-col">
+        <h3 class="footer-title">Kontakt</h3>
+        <p>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></p>
+        <p>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></p>
+        <p>Adresse: Brages veg 3, 5221 Nesttun</p>
+      </section>
+
+      <section class="footer-col">
+        <h3 class="footer-title">Følg oss</h3>
+        <p>
+          <a href="#" aria-label="Instagram">Instagram</a><br/>
+          <a href="#" aria-label="Facebook">Facebook</a><br/>
+        </p>
+      </section>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> My Strongest Side · Alle rettigheter forbeholdt</p>
     </div>
   </footer>
 
   <script>
-    // mobilmeny
-    const burger = document.getElementById('hamburger');
-    const nav = document.getElementById('nav-menu');
-    burger?.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      burger.setAttribute('aria-expanded', nav.classList.contains('open'));
-    });
-    // år i footer
+    // årstall i footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
