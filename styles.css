@@ -185,7 +185,10 @@ body {
   flex-direction: column;
   transition: transform .25s ease, box-shadow .25s ease;
 }
-.news-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12); }
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.12);
+}
 
 /* Bilde i kort */
 .news-card .news-media,
