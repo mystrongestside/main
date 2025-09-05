@@ -1,42 +1,29 @@
- 
-<!DOCTYPE html>
-<html lang="no">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Strongest Side</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-
-  <!-- Navbar -->
-  <header class="navbar" role="navigation" aria-label="Hovedmeny">
+<header class="navbar" role="navigation" aria-label="Hovedmeny">
+  <div class="navbar-inner">
     <div class="navbar-left">
       <a href="index.html" class="logo-link" aria-label="Til forsiden">
         <img src="logo.png" alt="My Strongest Side" class="logo" />
       </a>
     </div>
 
-    <!-- Hamburger (mobil) -->
     <button class="hamburger" id="hamburger"
-            aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
+      aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
       <span></span><span></span><span></span>
     </button>
 
-    <!-- Nav links -->
     <nav class="navbar-center" id="nav-menu">
       <ul class="nav-links">
-        <li><a href="about.html"> </a>Om oss</li>
-        <li><a href="kurs.html"> </a>frivillig</li>
-        <li><a href="studenter.html"></a></li>
+        <li><a href="about.html">Om oss</a></li>
+        <li><a href="frivillig.html">Frivillig</a></li>
+        <!-- legg til flere her ved behov -->
       </ul>
     </nav>
 
     <div class="navbar-right">
-      <a href="kalender.html" class="btn-book"></a>
+      <a href="kalender.html" class="btn-book">Kalender</a>
     </div>
-  </header>
-
+  </div>
+</header>
   <script src="script.js" defer></script>
 
   <!-- 1) Toppbilde -->
