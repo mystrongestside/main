@@ -1,0 +1,30 @@
+<section id="about" class="about-section">
+  <!-- Bilde øverst -->
+  <div class="about-image">
+    <img src="gruppebilde.jpg" alt="Gruppebilde fra MyStrongestSide" />
+  </div>
+
+  <!-- Tekst -->
+  <div class="about-content">
+    <h2>Om oss</h2>
+    <p>
+      <strong>MyStrongestSide</strong> finnes for å gjøre trening tilgjengelig for flest mulig. 
+      Vi vet at mange møter barrierer når de vil bruke treningssentre – enten det handler om utstyr, kunnskap eller trygghet. 
+      Vår oppgave er å fjerne disse barrierene.
+    </p>
+    <p>
+      Prosjektet er startet av <strong>Alexander Mjøs Sviggum</strong>, ergoterapeut og styrkeløfter med egen erfaring med cerebral parese. 
+      Gjennom målrettet trening har han oppnådd personlige rekorder i styrkeløft, men for Alexander er dette først og fremst et bevis på hva som er mulig når man får riktige tilpasninger – ikke et krav til andre. 
+      Med MyStrongestSide ønsker han å dele kunnskap og erfaring for å gjøre treningshverdagen mer inkluderende.
+    </p>
+    <p>
+      Hos oss handler trening om mestring og fellesskap, ikke prestasjon. 
+      Vi tilbyr små grupper, tett oppfølging og tilrettelagte løsninger, slik at alle kan finne sin plass.
+    </p>
+    <p>
+      Gjennom samarbeid med CP-foreningen, Høgskulen på Vestlandet og andre fagmiljøer, jobber vi for å utvikle universelt utformede treningsarenaer. 
+      Målet vårt er enkelt: at flere skal oppleve gleden ved styrketrening, og få lyst til å komme tilbake – gang på gang.
+    </p>
+    <p><em>Alle har en sterk side. Vi hjelper deg å finne din.</em></p>
+  </div>
+</section>
