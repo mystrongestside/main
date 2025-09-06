@@ -468,3 +468,109 @@ html, body {
   padding: 0.9rem 1rem;
   font-size: 0.9rem;
 }
+
+/* =========================
+   AKTIVITETSKORT (Høst 2025)
+========================= */
+.section-aktiviteter {
+  padding: 4rem 0;
+  background: var(--bg);
+}
+
+.section-aktiviteter h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--blue);
+}
+
+.section-aktiviteter .intro-text {
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.activity-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-4px);
+}
+
+.card-img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.date-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.date-badge strong {
+  font-size: 0.75rem;
+  color: var(--blue-2);
+  letter-spacing: 0.5px;
+}
+
+.date-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--blue);
+  display: block;
+  line-height: 1.2;
+}
+
+.date-range {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--orange);
+  margin-top: 0.25rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--blue);
+}
+
+.card-body p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.card-body .btn-primary {
+  align-self: flex-start;
+  font-size: 0.95rem;
+  padding: 0.5rem 1.2rem;
+}
