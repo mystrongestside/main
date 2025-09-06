@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
@@ -38,20 +38,16 @@
   <!-- JS (defer) -->
   <script src="script.js" defer></script>
 
-  <!-- MASTHEAD (valgfri bakgrunnsstripe) -->
-  <section class="masthead masthead--subtle" aria-hidden="true"></section>
-<!-- HERO (samme oppsett som de andre sidene) -->
-<section class="hero" style="background-image:url('frivillig-hero.jpg');">
-  <div class="hero-overlay">
-    <h1>Bli frivillig<span class="dot">.</span></h1>
-    <p>Bidra i trygge, tilpassede treningsgrupper – og bygg praksisnær erfaring i et godt fagmiljø.</p>
-    <a href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide"
-       target="_blank" rel="noopener" class="btn-primary">Søk som frivillig</a>
-  </div>
-</section>
-      
+  <!-- 1) Toppbilde (samme komponent som index) -->
+  <!-- Sett bildet via CSS: .masthead--frivillig { background-image:url('frivillig-hero.jpg'); } -->
+  <section class="masthead masthead--frivillig"></section>
 
-  <!-- Marquee -->
+  <!-- 2) Blå hero-boks som overlapper masthead (lik index) -->
+  <section class="hero-card">
+    <h1>Bli frivillig<span class="dot">.</span></h1>
+  </section>
+
+  <!-- 3) Marquee (identisk som index) -->
   <div class="marquee" role="region" aria-label="MyStrongestSide statements">
     <div class="marquee__wrap">
       <div class="marquee__row">
@@ -59,6 +55,7 @@
         <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
         <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
         <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+        <span>Støtte.</span><span>Like muligheter.</span><span>Riktig tilpasning.</span><span>Trening for alle.</span>
       </div>
       <div class="marquee__row" aria-hidden="true">
         <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
