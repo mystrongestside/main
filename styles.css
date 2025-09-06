@@ -247,3 +247,68 @@ a:focus-visible, button:focus-visible {
 .footer-bottom{
   background:var(--blue); color:#fff; text-align:center; padding:.9rem 1rem; font-size:.9rem;
 }
+/* ===== LAYOUT HELPERS ===== */
+.section { padding: 3rem 0; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 1rem; }
+
+/* Lesbarhet */
+.prose {
+  max-width: 68ch;
+  font-size: 1.05rem;
+}
+.prose p + p { margin-top: .8rem; }
+.prose h1, .prose h2, .prose h3 { line-height: 1.25; margin: 1.2rem 0 .6rem; }
+.prose .lead { font-size: 1.2rem; line-height: 1.55; margin-top: .4rem; }
+
+/* To-kolonne (tekst + bilde) */
+.two-col {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .two-col {
+    grid-template-columns: 1.1fr .9fr;  /* mer plass til teksten */
+    gap: 2.5rem;
+  }
+}
+
+/* Bildekort */
+.media {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  overflow: hidden;
+}
+.media img { display:block; width:100%; height:auto; }
+
+/* CTA-blokk nederst */
+.cta {
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+.cta h3 { margin: 0 0 .25rem; }
+.btn {
+  display:inline-block;
+  margin-top:.8rem;
+  padding:.7rem 1.1rem;
+  border-radius:999px;
+  background: var(--orange);
+  color:#fff; text-decoration:none; font-weight:700;
+  transition: transform .06s ease;
+}
+.btn:active { transform: translateY(1px); }
+
+/* Avstand fra venstre kant på store skjermer */
+@media (min-width: 1200px){
+  .section .container { padding-left: 0; padding-right: 0; }
+}
+
+/* Kontrast og linjeavstand litt opp for brødtekst */
+body { line-height: 1.7; color: var(--text); }
+
+
+
