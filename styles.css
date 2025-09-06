@@ -115,7 +115,7 @@ a:focus-visible, button:focus-visible {
 .hero-card h1,
 .hero-card h2,
 .hero-card h3{
-  color:#fff;               /* gjør “Bli frivillig” synlig */
+  color:#ffff;               /* gjør “Bli frivillig” synlig */
   text-shadow: 0 2px 6px rgba(0,0,0,.25); /* valgfritt for ekstra lesbarhet */
 }
 /* =========================
