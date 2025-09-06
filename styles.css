@@ -110,9 +110,14 @@ a:focus-visible, button:focus-visible {
   position:relative; background:var(--blue-2); color:#fff;
   text-align:center; padding:3.5rem 1.5rem; width:100%; z-index:2;
 }
-.hero-card h1{ font-size:2.2rem; font-weight:700; }
-@media (min-width:800px){ .hero-card h1{ font-size:2.6rem; } }
 
+/* OVERRIDE: sørg for lys tekst på mørk bakgrunn */
+.hero-card h1,
+.hero-card h2,
+.hero-card h3{
+  color:#fff;               /* gjør “Bli frivillig” synlig */
+  text-shadow: 0 2px 6px rgba(0,0,0,.25); /* valgfritt for ekstra lesbarhet */
+}
 /* =========================
    MARQUEE
 ========================= */
