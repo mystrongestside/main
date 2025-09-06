@@ -353,5 +353,74 @@ body { line-height: 1.7; color: var(--text); }
   .two-col { grid-template-columns: 1fr; }
   .media-right { justify-self: stretch; margin-top: 1rem; max-width: none; }
 }
+/* ---------- Frivillig: forbedret layout ---------- */
+.section { padding: 3rem 0; }
+.h2 { font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem); margin-bottom: .75rem; color: var(--blue); }
+.h3 { font-size: 1.1rem; margin: 1rem 0 .5rem; color: var(--blue-2); }
+.lead { font-size: clamp(1rem, .95rem + .5vw, 1.25rem); max-width: 52ch; }
+
+.hero-card { padding: 2.5rem 0 1rem; }
+.hero-card__inner {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  gap: 2rem;
+}
+.hero-card__media img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+.hero-cta { margin-top: 1rem; }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 2rem;
+}
+.two-col--gap-xl { gap: clamp(1.25rem, 2vw, 2.5rem); }
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: clamp(1rem, 1rem + 1vw, 1.5rem);
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+.card__stack > * + * { margin-top: 1rem; }
+.divider { height: 1px; background: rgba(0,0,0,.08); margin: .5rem 0; }
+
+.bullets { margin: .5rem 0 1.25rem; padding-left: 1.25rem; }
+.bullets li { margin: .4rem 0; }
+.em { margin-top: 1rem; }
+
+.btn-full { display: inline-block; width: 100%; text-align: center; }
+
+/* Sticky sidekort på større skjermer */
+@media (min-width: 992px) {
+  .sticky { position: sticky; top: 6.5rem; }
+}
+
+/* Masthead – diskret bakgrunn */
+.masthead--subtle { height: clamp(28px, 4vw, 40px); background: var(--blue-2); opacity: .08; }
+
+/* Responsivitet */
+@media (max-width: 960px) {
+  .hero-card__inner { grid-template-columns: 1fr; }
+  .hero-card__media { order: -1; }
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* Små forbedringer på knapp/lenker hvis ikke allerede definert */
+.btn-primary {
+  display: inline-block; padding: .75rem 1rem; border-radius: 12px;
+  background: var(--orange); color: #fff; text-decoration: none; font-weight: 600;
+}
+.btn-primary:hover { filter: brightness(0.95); }
+
+/* Valgfritt: bedre spacing i footer-seksjoner hvis nødvendig */
+.footer-wrap { row-gap: 1.25rem; }
 
 
