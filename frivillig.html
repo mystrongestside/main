@@ -38,20 +38,30 @@
   <!-- JS (defer) -->
   <script src="script.js" defer></script>
 
-  <!-- MASTHEAD -->
-  <section class="masthead"></section>
+  <!-- MASTHEAD (valgfri bakgrunnsstripe) -->
+  <section class="masthead masthead--subtle" aria-hidden="true"></section>
 
   <!-- HERO-CARD -->
-  <section class="hero-card">
-    <h1>Bli frivillig<span class="dot">.</span></h1>
-    <p>Bidra i trygge, tilpassede treningsgrupper – og bygg praksisnær erfaring i et godt fagmiljø.</p>
-    <div class="hero-cta">
-      <a href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide"
-         target="_blank" rel="noopener" class="btn-primary">Søk som frivillig</a>
+  <section class="hero-card container">
+    <div class="hero-card__inner">
+      <div class="hero-card__text">
+        <h1>Bli frivillig<span class="dot">.</span></h1>
+        <p class="lead">
+          Bidra i trygge, tilpassede treningsgrupper – og bygg praksisnær erfaring i et godt fagmiljø.
+        </p>
+        <div class="hero-cta">
+          <a href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide"
+             target="_blank" rel="noopener" class="btn-primary">Søk som frivillig</a>
+        </div>
+      </div>
+      <div class="hero-card__media" aria-hidden="true">
+        <!-- legg inn et relevant bilde hvis ønskelig -->
+        <img src="frivillig-hero.jpg" alt="" loading="lazy">
+      </div>
     </div>
   </section>
 
-  <!-- Marquee (samme linje som index) -->
+  <!-- Marquee -->
   <div class="marquee" role="region" aria-label="MyStrongestSide statements">
     <div class="marquee__wrap">
       <div class="marquee__row">
@@ -59,7 +69,6 @@
         <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
         <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
         <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-        <span>Støtte.</span><span>Like muligheter.</span><span>Riktig tilpasning.</span><span>Trening for alle.</span>
       </div>
       <div class="marquee__row" aria-hidden="true">
         <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
@@ -71,67 +80,74 @@
   </div>
 
   <!-- INNHOLD -->
-  <main class="container">
-    <div class="two-col">
+  <main class="container section">
+    <div class="two-col two-col--gap-xl">
       <!-- Venstre kolonne -->
-      <article class="block">
-        <h2>Hvem ser vi etter?</h2>
-        <ul>
+      <article class="block card">
+        <h2 class="h2">Hvem ser vi etter?</h2>
+        <ul class="bullets">
           <li>Ergoterapi- og fysioterapistudenter (alle nivåer)</li>
           <li>Personlige trenere/instruktører som vil bidra i tilrettelagt styrketrening</li>
           <li>Andre med interesse for inkluderende trening og trygg oppfølging</li>
         </ul>
 
-        <h2>Roller og oppgaver</h2>
-        <ul>
+        <h2 class="h2">Roller og oppgaver</h2>
+        <ul class="bullets">
           <li>Veilede deltakere i basisøvelser (knebøy, press, roing m.m.) med enkle tilpasninger</li>
           <li>Bidra i oppvarming, sikre god flyt mellom stasjoner og følge opp individuelle mål</li>
           <li>Hjelpe til med logistikk: registrering, tilpasning av utstyr, trygghet og trivsel</li>
           <li>Gi korte observasjoner/notater som kan forbedre neste økt</li>
         </ul>
 
-        <h2>Hva får du?</h2>
-        <ul>
+        <h2 class="h2">Hva får du?</h2>
+        <ul class="bullets">
           <li>Praksisnær erfaring i tverrfaglig miljø (ergo/fysio/PT)</li>
-          <li>Veiledning underveis og innføring i universell utforming/tilpasning i styrkerommet</li>
+          <li>Veiledning og innføring i universell utforming/tilpasning i styrkerommet</li>
           <li>Attest etter endt periode – nyttig i videre studier og jobbsøking</li>
           <li>Et varmt fellesskap og mulighet til å gjøre en konkret forskjell</li>
         </ul>
 
-        <h2>Praktisk</h2>
-        <ul>
+        <h2 class="h2">Praktisk</h2>
+        <ul class="bullets">
           <li>Økter arrangeres jevnlig – du kan bidra fast eller ved behov</li>
           <li>Oppmøte i god tid før økt for gjennomgang (ca. 15–20 min)</li>
           <li>Du får opplæring og tydelige forventninger før første økt</li>
         </ul>
 
-        <p><em>Alle har en sterk side. Hos oss får du være med på å finne den – sammen med deltakerne.</em></p>
+        <p class="em"><em>Alle har en sterk side. Hos oss får du være med på å finne den – sammen med deltakerne.</em></p>
       </article>
 
       <!-- Høyre kolonne -->
-      <aside class="block">
-        <h2>Klar til å bidra?</h2>
-        <p>Fyll ut skjemaet – vi tar kontakt fortløpende.</p>
-        <p>
-          <a href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide"
-             target="_blank" rel="noopener" class="btn-primary">Søk som frivillig</a>
-        </p>
+      <aside class="block card sticky">
+        <div class="card__stack">
+          <div>
+            <h2 class="h2">Klar til å bidra?</h2>
+            <p>Fyll ut skjemaet – vi tar kontakt fortløpende.</p>
+            <p>
+              <a href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide"
+                 target="_blank" rel="noopener" class="btn-primary btn-full">Søk som frivillig</a>
+            </p>
+          </div>
 
-        <h3>FAQ</h3>
-        <p><strong>Må jeg ha erfaring?</strong><br>
-          Nei, du får opplæring. Lyst til å lære og være trygg med folk er viktigst.</p>
+          <div class="divider" role="separator" aria-hidden="true"></div>
 
-        <p><strong>Binder jeg meg til alle økter?</strong><br>
-          Nei – vi avtaler omfanget sammen.</p>
+          <div>
+            <h3 class="h3">FAQ</h3>
+            <p><strong>Må jeg ha erfaring?</strong><br>Nei, du får opplæring. Lyst til å lære og trygghet med folk er viktigst.</p>
+            <p><strong>Binder jeg meg til alle økter?</strong><br>Nei – vi avtaler omfanget sammen.</p>
+            <p><strong>Får jeg attest?</strong><br>Ja, etter endt periode.</p>
+          </div>
 
-        <p><strong>Får jeg attest?</strong><br>
-          Ja, etter endt periode.</p>
+          <div class="divider" role="separator" aria-hidden="true"></div>
 
-        <h3>Kontakt</h3>
-        <p>
-          E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a><br>
-          Tlf: <a href="tel:+4741439384">41 43 93 84</a>
-        </p>
+          <div>
+            <h3 class="h3">Kontakt</h3>
+            <p>
+              E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a><br>
+              Tlf: <a href="tel:+4741439384">41 43 93 84</a>
+            </p>
+          </div>
+        </div>
       </aside>
     </div>
   </main>
