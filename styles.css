@@ -469,16 +469,6 @@ body { line-height: 1.7; color: var(--text); }
 .masthead { width:100%; min-height: clamp(320px,45vh,520px); background-size:cover; background-position:center; }
 .masthead--frivillig { background-image: url('frivillig-hero.jpg'); }
 
-/* Hero-kort lik index */
-.hero-card {
-  max-width: var(--container);
-  margin: clamp(-56px,-6vw,-72px) auto 0;
-  padding: 1.25rem 1rem;
-  background: var(--blue-2);
-  color: #fff;
-  text-align: center;
-  border-radius: 16px;
-  box-shadow: 0 12px 28px rgba(0,0,0,.12);
-}
+
 
 
