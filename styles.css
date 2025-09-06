@@ -327,5 +327,31 @@ body { line-height: 1.7; color: var(--text); }
   margin-top: 0.4rem;
   font-style: italic;
 }
+/* IKKE bruk .media her – den gir kort-stil. */
+.media-right {
+  justify-self: end;        /* høyre kolonne i .two-col */
+  max-width: 420px;
+  margin: 0;                /* grid håndterer avstand */
+}
+
+.media-right figure { margin: 0; }
+.media-right img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.media-right figcaption {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.45rem;
+  font-style: italic;
+}
+
+/* Mobil: legg bildet under teksten og strekk til full bredde */
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; }
+  .media-right { justify-self: stretch; margin-top: 1rem; max-width: none; }
+}
 
 
