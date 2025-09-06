@@ -309,6 +309,23 @@ a:focus-visible, button:focus-visible {
 
 /* Kontrast og linjeavstand litt opp for brødtekst */
 body { line-height: 1.7; color: var(--text); }
+.media-right {
+  float: right;
+  max-width: 320px;
+  margin: 0 0 1rem 1.5rem;
+}
 
+.media-right img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.media-right figcaption {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.4rem;
+  font-style: italic;
+}
 
 
