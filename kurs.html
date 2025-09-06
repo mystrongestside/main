@@ -33,25 +33,30 @@
 </head>
 <body>
 
-  <!-- Navbar (samme som på index) -->
+  <!-- NAVBAR -->
   <header class="navbar" role="navigation" aria-label="Hovedmeny">
-    <div class="navbar-left">
+    <div class="navbar-inner">
+      <div class="navbar-left">
+        <a href="index.html" class="logo-link" aria-label="Til forsiden">
+          <img src="logo.png" alt="My Strongest Side" class="logo" />
+        </a>
+      </div>
 
-            aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
-      <span></span><span></span><span></span>
-    </button>
+      <button class="hamburger" id="hamburger"
+        aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
 
-    <nav class="navbar-center" id="nav-menu">
-      <ul class="nav-links">
-        <li><a href="kalender.html">Kurs</a></li>
-        <li><a href="tjenester.html">Tjenester</a></li>
-        <li><a href="om-oss.html">Om oss</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-      </ul>
-    </nav>
+      <nav class="navbar-center" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="about.html">Om oss</a></li>
+          <li><a href="frivillig.html">Frivillig</a></li>
+        </ul>
+      </nav>
 
-    <div class="navbar-right">
-      <a href="kalender.html" class="btn-book">Book nå</a>
+      <div class="navbar-right">
+        <a href="kurs.html" class="btn-book">Kalender</a>
+      </div>
     </div>
   </header>
 
