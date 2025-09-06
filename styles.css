@@ -423,4 +423,46 @@ body { line-height: 1.7; color: var(--text); }
 /* Valgfritt: bedre spacing i footer-seksjoner hvis nødvendig */
 .footer-wrap { row-gap: 1.25rem; }
 
+/* HERO fullbredde med bakgrunnsbilde */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: clamp(320px, 45vh, 480px);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-overlay {
+  width: 100%;
+  background: rgba(25,43,69,0.9); /* mørk stripe */
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.hero-overlay h1 {
+  font-size: clamp(1.8rem, 1.2rem + 1.5vw, 2.5rem);
+  margin-bottom: .5rem;
+}
+
+.hero-overlay p {
+  font-size: clamp(1rem, .95rem + .4vw, 1.25rem);
+  margin-bottom: 1rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-overlay .btn-primary {
+  background: var(--orange);
+  color: #fff;
+  padding: .75rem 1.25rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+}
+.hero-overlay .btn-primary:hover { filter: brightness(0.95); }
 
