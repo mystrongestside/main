@@ -12,7 +12,7 @@
 
   --container: 980px;
   --card-img-h: 220px;    /* høyde for kort-bilde */
-  --marquee-speed: 28s;
+  --marquee-speed: 15s;
 }
 
 html, body{
