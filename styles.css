@@ -597,6 +597,85 @@ body { line-height: 1.7; color: var(--text); }
 /* Masthead høyde og bilde for denne siden */
 .masthead { width:100%; min-height: clamp(320px,45vh,520px); background-size:cover; background-position:center; }
 .masthead--frivillig { background-image: url('frivillig-hero.jpg'); }
+/* ========== PROMO-BAND (marketing) ========== */
+.section--tight { padding: 1.5rem 0 2.25rem; }
+
+.promo-card{
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 12px 28px rgba(0,0,0,.08);
+  padding: clamp(1rem, 1rem + 1.2vw, 1.75rem);
+  display:grid;
+  grid-template-columns: 1.4fr .6fr;
+  gap: clamp(1rem, 2.2vw, 2rem);
+  align-items:center;
+}
+
+.promo-eyebrow{ margin:0 0 .25rem; color:var(--blue); font-weight:800; }
+.promo-lead{ margin:.25rem 0 .5rem; color:#333; max-width: 52ch; }
+
+.ticks{
+  list-style:none; margin:.25rem 0 0; padding:0;
+  display:grid; gap:.35rem;
+}
+.ticks li{
+  position:relative; padding-left:1.25rem; color:#222;
+}
+.ticks li::before{
+  content:""; position:absolute; left:0; top:.35rem;
+  width:.7rem; height:.7rem; border-radius:50%;
+  background: var(--orange);
+  box-shadow:0 0 0 4px rgba(247,124,55,.18);
+}
+
+.promo-right{ justify-self:end; text-align:right; }
+.promo-right .btn-primary{
+  display:inline-block;
+  padding:.85rem 1.25rem;
+  border-radius:12px;
+}
+.micro-hint{ margin:.35rem 0 0; font-size:.9rem; opacity:.75; }
+
+/* Responsiv: stable til én kolonne */
+@media (max-width: 900px){
+  .promo-card{ grid-template-columns:1fr; text-align:left; }
+  .promo-right{ justify-self:start; text-align:left; }
+}
+
+/* ========== STØTTET AV (logos) ========== */
+.eyebrow{
+  text-transform:uppercase; letter-spacing:.08em;
+  font-weight:800; color:var(--blue-2); opacity:.8; margin:0 0 .75rem;
+}
+.logo-row{
+  list-style:none; margin:0; padding:0;
+  display:flex; flex-wrap:wrap; align-items:center;
+  gap: clamp(1rem, 3.5vw, 3rem);
+}
+.logo-row li{ line-height:0; }
+.logo-row img{
+  height: clamp(28px, 6vw, 56px);
+  width:auto;
+  filter: grayscale(100%) contrast(1.05);
+  opacity:.9;
+  transition: filter .2s ease, opacity .2s ease, transform .15s ease;
+}
+.logo-row img:hover{ filter:none; opacity:1; transform: translateY(-1px); }
+
+/* ========== Oppmerksomhets-animasjon på CTA ========== */
+.btn-attn{ animation: gentle-shake 12s ease-in-out infinite; will-change:transform; }
+@keyframes gentle-shake{
+  0%,4%,6%,50%,54%,56%,100% { transform: translateX(0); }
+  5%   { transform: translateX(-2px); }
+  5.5% { transform: translateX( 2px); }
+  55%  { transform: translateX(-2px); }
+  55.5%{ transform: translateX( 2px); }
+}
+@media (prefers-reduced-motion: reduce){ .btn-attn{ animation:none; } }
+
+/* Sikker midtstilling hvis noe annet påvirker knappen */
+.promo-right{ display:flex; flex-direction:column; align-items:flex-end; }
+@media (max-width:900px){ .promo-right{ align-items:flex-start; } }
 
 
 
