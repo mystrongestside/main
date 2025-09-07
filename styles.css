@@ -186,8 +186,28 @@ a:focus-visible, button:focus-visible {
 /* =========================
    HERO (slagord + CTA)
 ========================= */
-.hero{
-  max-width: var(--container); margin: 0 auto; padding: 0 1rem;
+ /* Sørg for at hero-knappen ikke blir 100% bred */
+.hero-card .hero-cta{
+  display: flex;
+  justify-content: center;
+}
+
+.hero-card .btn-primary{
+  width: auto;                 /* <- viktig */
+  max-width: max-content;      /* støtter eldre nettlesere: kan droppe om ønskelig */
+  display: inline-block;       /* sikkerhetsnett */
+  white-space: nowrap;         /* unngå at teksten gjør knappen bred */
+}
+
+/* Hvis ankeret har fått .btn-full et sted: nøytraliser inne i hero */
+.hero-card .btn-full{
+  width: auto;
+}
+@media (max-width: 640px){
+  .btn-full{ width: 100%; }
+}
+@media (min-width: 641px){
+  .btn-full{ width: auto; }
 }
 .hero h1{
   font-size: clamp(1.8rem, 2.6vw + 1rem, 3rem);
