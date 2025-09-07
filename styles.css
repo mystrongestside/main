@@ -144,7 +144,7 @@ a:focus-visible, button:focus-visible {
    HERO (slagord + CTA)
 ========================= */
 .hero{
-  max-width: var(--container); margin: 0 auto; padding: 1.5rem 1rem 0 1rem;
+  max-width: var(--container); margin: 0 auto; padding: 0 1rem;
 }
 .hero h1{
   font-size: clamp(1.8rem, 2.6vw + 1rem, 3rem);
