@@ -99,7 +99,7 @@ a:focus-visible, button:focus-visible {
 .masthead{
   background:url('hero-large.jpg') center/cover no-repeat;
   min-height:48vh; display:flex; align-items:flex-end; justify-content:center;
-  position:relative; z-index:0; border-bottom:1px solid #eaeaea;
+  position:relative; z-index:0; border-bottom:0px solid #eaeaea;
 }
 @media (max-width:600px){ .masthead{ min-height:36vh; } }
 
