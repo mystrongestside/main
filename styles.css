@@ -170,6 +170,49 @@ a:focus-visible, button:focus-visible {
 .hero-card h3{
   color:#ffff;               /* gjør “Bli frivillig” synlig */
   text-shadow: 0 2px 6px rgba(0,0,0,.25); /* valgfritt for ekstra lesbarhet */
+
+   /* Sentrer knappen i hero */
+.hero-card .hero-cta{
+  display: flex;
+  justify-content: center;   /* midtstiller horisontalt */
+}
+
+.hero-card .btn-primary{
+  width: auto;               /* ikke full bredde */
+  display: inline-block;
+  margin: .75rem auto 0;     /* sikkerhetsnett for midtstilling */
+  white-space: nowrap;
+}
+
+/* Hvis knappen noen ganger får .btn-full andre steder: nøytraliser inne i hero */
+.hero-card .btn-full{ width: auto; }
+}
+/* Subtil riste-effekt som skjer 2 korte ganger per 12s-syklus */
+.btn-attn{
+  animation: gentle-shake 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes gentle-shake{
+  /* første lille risting rundt 5% */
+  0%, 4%, 6%, 50%, 54%, 56%, 100% { transform: translateX(0); }
+  5%   { transform: translateX(-2px); }
+  5.5% { transform: translateX( 2px); }
+  /* andre lille risting rundt 55% */
+  55%  { transform: translateX(-2px); }
+  55.5%{ transform: translateX( 2px); }
+}
+
+/* Mer tydelig respons når bruker holder over */
+.hero-card .btn-primary:hover,
+.hero-card .btn-primary:focus-visible{
+  transform: translateY(-1px);   /* eksisterende hover */
+  /* riste-effekten fortsetter, men hover tar prioritet uten å hoppe */
+}
+
+/* Skru av animasjon for de som ønsker redusert bevegelse */
+@media (prefers-reduced-motion: reduce){
+  .btn-attn{ animation: none; }
 }
 /* =========================
    MARQUEE
