@@ -103,6 +103,14 @@ a:focus-visible, button:focus-visible {
 }
 @media (max-width:600px){ .masthead{ min-height:36vh; } }
 
+.wave-cut{
+  height:22px; width:100%;
+  background: linear-gradient(to bottom, transparent 0, transparent 10px, #24344d 10px);
+  mask: radial-gradient(16px 12px at 50% 10px, #000 99%, transparent 100%);
+  -webkit-mask: radial-gradient(16px 12px at 50% 10px, #000 99%, transparent 100%);
+}
+
+
 /* =========================
    HERO-CARD (blå boks)
 ========================= */
