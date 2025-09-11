@@ -415,3 +415,47 @@ a:focus-visible, button:focus-visible {
   transition: filter .2s ease, opacity .2s ease, transform .15s ease;
 }
 .logo-row img:hover{ filter:none; opacity:1; transform: translateY(-1px); }
+
+/* ======= DESKTOP FIX ======= */
+:root{
+  --container: 1200px !important;
+}
+
+/* Navbar og innhold skal matche bredde */
+.navbar-inner{
+  max-width: var(--container) !important;
+}
+
+/* Desktop: vis meny normalt */
+@media (min-width:901px){
+  .navbar-center{
+    position: static !important;
+    display: flex !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-top: 0 !important;
+  }
+}
+
+/* To-kolonne layout */
+@media (min-width:900px){
+  .two-col{
+    display:grid !important;
+    grid-template-columns: 1.1fr .9fr !important;
+    gap: 2.5rem !important;
+    align-items:start !important;
+  }
+}
+
+/* Slå av float på høyrebilde */
+.media-right{
+  float:none !important;
+  justify-self:end !important;
+  max-width:420px !important;
+}
+
+/* Hero og masthead skal ikke dekke innhold */
+.masthead, .hero, .hero-card{
+  z-index:auto !important;
+}
+
