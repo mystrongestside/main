@@ -292,5 +292,36 @@ a:focus-visible, button:focus-visible {
   background:var(--blue); color:#fff; text-align:center; padding:.9rem 1rem; font-size:.9rem;
 }
 
+/* ===== DESKTOP FIX FOR TO-COL ===== */
+@media (min-width: 900px) {
+  .two-col {
+    display: grid !important;
+    grid-template-columns: 1fr 0.9fr !important; /* tekst + bilde */
+    gap: 2.5rem !important;
+    align-items: start !important;
+    max-width: var(--container) !important;
+    margin: 0 auto !important;
+  }
+
+  /* Tekstkolonnen skal få lov til å være bred */
+  .two-col article, 
+  .two-col .prose {
+    max-width: none !important;
+  }
+
+  /* Bildet skal stå i høyrekolonnen, ikke flyte */
+  .media-right {
+    float: none !important;
+    justify-self: end !important;
+    max-width: 420px !important;
+    margin: 0 !important;
+  }
+
+  .media-right img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 12px !important;
+    display: block !important;
+  }
 
 
