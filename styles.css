@@ -10,8 +10,8 @@
   --text:#000;
   --bg:#E4E8F2;
 
-  --container: 980px;
-  --card-img-h: 220px;    /* høyde for kort-bilde */
+  --container: 1200px;       /* match navbar */
+  --card-img-h: 220px;       /* høyde for kort-bilde */
   --marquee-speed: 50s;
 }
 
@@ -35,6 +35,9 @@ a:focus-visible, button:focus-visible {
   border-radius: 6px;
 }
 
+/* Kontrast og linjeavstand litt opp for brødtekst */
+body { line-height: 1.7; color: var(--text); }
+
 /* =========================
    NAVBAR
 ========================= */
@@ -43,7 +46,7 @@ a:focus-visible, button:focus-visible {
   background: var(--blue-2);
 }
 .navbar-inner{
-  max-width: 1200px; margin: 0 auto;
+  max-width: var(--container); margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between;
   padding: 1rem 2rem; gap: 1rem;
 }
@@ -88,9 +91,19 @@ a:focus-visible, button:focus-visible {
     padding:.75rem 1rem;
   }
   .navbar-center.active{ display:block; } /* toggles fra JS */
-
   .nav-links{ flex-direction:column; align-items:flex-start; gap:1rem; }
   .navbar-right{ margin-left:auto; }
+}
+
+/* Desktop-reset for menyen */
+@media (min-width: 901px){
+  .navbar-center{
+    position: static;
+    display: flex;
+    background: transparent;
+    padding: 0;
+    border-top: 0;
+  }
 }
 
 /* =========================
@@ -110,7 +123,6 @@ a:focus-visible, button:focus-visible {
   -webkit-mask: radial-gradient(16px 12px at 50% 10px, #000 99%, transparent 100%);
 }
 
-
 /* =========================
    HERO-CARD (blå boks)
 ========================= */
@@ -125,7 +137,7 @@ a:focus-visible, button:focus-visible {
   display:flex; flex-direction:column; justify-content:center;
   width:100%;
   z-index:2;
-  box-shadow: 0 -10px 28px rgba(0,0,0,.18); /* gir «løft» fra bildet over */
+  box-shadow: 0 -10px 28px rgba(0,0,0,.18);
 }
 .hero-card::before{
   content:"";
@@ -142,14 +154,13 @@ a:focus-visible, button:focus-visible {
   transform: translateY(6px);
   animation: heroIn .5s ease-out .05s forwards;
 }
-
-@keyframes heroIn{ 
-  to { opacity:1; transform:translateY(0); } 
-}
-
+@keyframes heroIn{ to { opacity:1; transform:translateY(0); } }
 @media (prefers-reduced-motion: reduce){
   .hero-card h1{ opacity:1; transform:none; animation:none; }
 }
+
+/* CTA-knapp i hero */
+.hero-card .hero-cta{ display:flex; justify-content:center; }
 .hero-card .btn-primary{
   display:inline-block; padding:.85rem 1.4rem; border-radius:14px;
   background: linear-gradient(180deg, #F77C37, #e46f31);
@@ -163,31 +174,17 @@ a:focus-visible, button:focus-visible {
   transform: translateY(-1px);
   box-shadow: 0 14px 30px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.28);
 }
+/* nøytraliser evt. .btn-full inne i hero */
+.hero-card .btn-full{ width: auto; }
 
-/* OVERRIDE: sørg for lys tekst på mørk bakgrunn */
-.hero-card h1,
-.hero-card h2,
-.hero-card h3{
-  color:#ffff;               /* gjør “Bli frivillig” synlig */
-  text-shadow: 0 2px 6px rgba(0,0,0,.25); /* valgfritt for ekstra lesbarhet */
-}
-/* Sentrer knappen i hero */
-.hero-card .hero-cta{
-  display:flex;
-  justify-content:center;   /* midtstiller knappen */
+/* Lys tekst på mørk bakgrunn */
+.hero-card h1, .hero-card h2, .hero-card h3{
+  color:#fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,.25);
 }
 
-.hero-card .btn-primary{
-  width:auto;
-  display:inline-block;
-  margin:.75rem auto 0;     /* sikkerhetsnett */
-  white-space:nowrap;
-}
-/* Subtil riste-effekt 2 korte ganger per 12s */
-.btn-attn{
-  animation: gentle-shake 12s ease-in-out infinite;
-  will-change: transform;
-}
+/* Oppmerksomhets-animasjon (en definisjon) */
+.btn-attn{ animation: gentle-shake 12s ease-in-out infinite; will-change: transform; }
 @keyframes gentle-shake{
   0%,4%,6%,50%,54%,56%,100% { transform: translateX(0); }
   5%   { transform: translateX(-2px); }
@@ -197,36 +194,6 @@ a:focus-visible, button:focus-visible {
 }
 @media (prefers-reduced-motion: reduce){ .btn-attn{ animation:none; } }
 
-/* Hvis knappen noen ganger får .btn-full andre steder: nøytraliser inne i hero */
-.hero-card .btn-full{ width: auto; }
-}
-/* Subtil riste-effekt som skjer 2 korte ganger per 12s-syklus */
-.btn-attn{
-  animation: gentle-shake 12s ease-in-out infinite;
-  will-change: transform;
-}
-
-@keyframes gentle-shake{
-  /* første lille risting rundt 5% */
-  0%, 4%, 6%, 50%, 54%, 56%, 100% { transform: translateX(0); }
-  5%   { transform: translateX(-2px); }
-  5.5% { transform: translateX( 2px); }
-  /* andre lille risting rundt 55% */
-  55%  { transform: translateX(-2px); }
-  55.5%{ transform: translateX( 2px); }
-}
-
-/* Mer tydelig respons når bruker holder over */
-.hero-card .btn-primary:hover,
-.hero-card .btn-primary:focus-visible{
-  transform: translateY(-1px);   /* eksisterende hover */
-  /* riste-effekten fortsetter, men hover tar prioritet uten å hoppe */
-}
-
-/* Skru av animasjon for de som ønsker redusert bevegelse */
-@media (prefers-reduced-motion: reduce){
-  .btn-attn{ animation: none; }
-}
 /* =========================
    MARQUEE
 ========================= */
@@ -240,36 +207,8 @@ a:focus-visible, button:focus-visible {
 @media (prefers-reduced-motion: reduce){ .marquee__wrap{ animation:none; } }
 
 /* =========================
-   HERO (slagord + CTA)
+   GENERELL CTA-KNAPP
 ========================= */
- /* Sørg for at hero-knappen ikke blir 100% bred */
-.hero-card .hero-cta{
-  display: flex;
-  justify-content: center;
-}
-
-.hero-card .btn-primary{
-  width: auto;                 /* <- viktig */
-  max-width: max-content;      /* støtter eldre nettlesere: kan droppe om ønskelig */
-  display: inline-block;       /* sikkerhetsnett */
-  white-space: nowrap;         /* unngå at teksten gjør knappen bred */
-}
-
-/* Hvis ankeret har fått .btn-full et sted: nøytraliser inne i hero */
-.hero-card .btn-full{
-  width: auto;
-}
-@media (max-width: 640px){
-  .btn-full{ width: 100%; }
-}
-@media (min-width: 641px){
-  .btn-full{ width: auto; }
-}
-.hero h1{
-  font-size: clamp(1.8rem, 2.6vw + 1rem, 3rem);
-  font-weight: 800;
-}
-.hero-cta{ margin-top: 1rem; }
 .btn-primary{
   display:inline-block; padding:.6rem 1.2rem; border-radius:999px;
   background:var(--orange); color:#fff; font-weight:700; text-decoration:none; border:0; cursor:pointer;
@@ -321,29 +260,20 @@ a:focus-visible, button:focus-visible {
 .news-media{
   width:100%; height: var(--card-img-h); display:block; object-fit: cover; object-position:center;
 }
-/* Valg for utsnitt */
 .focus-upper-desktop{ object-position: 50% 35%; }
 .focus-top{ object-position: top; }
 
-/* Dato-badge (flyter over bildet) */
+/* Dato-badge */
 .date-badge{
   position:absolute; top:12px; left:12px; z-index:2;
   background:#fff; border-radius:12px; padding:.45rem .55rem;
   box-shadow:0 2px 6px rgba(0,0,0,.15); text-align:center; line-height:1.1;
   min-width:70px; border: 1px solid rgba(0,0,0,.06);
 }
-.date-month{
-  display:block; font-size:.78rem; font-weight:800; color:var(--blue-2); letter-spacing:.5px;
-}
-.date-day{
-  display:block; font-size:1.6rem; font-weight:800; color:var(--blue); margin-top:.1rem;
-}
-.date-line{
-  display:block; height: 8px; margin: .35rem 0; border-top:3px solid var(--orange);
-}
-.date-range{
-  display:block; font-size:.72rem; font-weight:800; color:var(--orange);
-}
+.date-month{ display:block; font-size:.78rem; font-weight:800; color:var(--blue-2); letter-spacing:.5px; }
+.date-day{ display:block; font-size:1.6rem; font-weight:800; color:var(--blue); margin-top:.1rem; }
+.date-line{ display:block; height: 8px; margin: .35rem 0; border-top:3px solid var(--orange); }
+.date-range{ display:block; font-size:.72rem; font-weight:800; color:var(--orange); }
 
 /* Tekst i kortet */
 .news-body{ padding: 1.2rem 1.2rem 1.4rem; display:flex; flex-direction:column; gap:.65rem; }
@@ -376,13 +306,13 @@ a:focus-visible, button:focus-visible {
 .footer-bottom{
   background:var(--blue); color:#fff; text-align:center; padding:.9rem 1rem; font-size:.9rem;
 }
+
 /* ===== LAYOUT HELPERS ===== */
 .section { padding: 3rem 0; }
-.container { max-width: var(--container); margin: 0 auto; padding: 0 1rem; }
 
 /* Lesbarhet */
 .prose {
-  max-width: 68ch;
+  max-width: 80ch;          /* litt bredere enn før */
   font-size: 1.05rem;
 }
 .prose p + p { margin-top: .8rem; }
@@ -392,77 +322,20 @@ a:focus-visible, button:focus-visible {
 /* To-kolonne (tekst + bilde) */
 .two-col {
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: start;
 }
 @media (min-width: 900px) {
-  .two-col {
-    grid-template-columns: 1.1fr .9fr;  /* mer plass til teksten */
-    gap: 2.5rem;
-  }
+  .two-col { grid-template-columns: 1.1fr .9fr; gap: 2.5rem; }
 }
 
-/* Bildekort */
-.media {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
-  overflow: hidden;
-}
-.media img { display:block; width:100%; height:auto; }
-
-/* CTA-blokk nederst */
-.cta {
-  margin-top: 2.5rem;
-  padding: 1.25rem 1.5rem;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.06);
-}
-.cta h3 { margin: 0 0 .25rem; }
-.btn {
-  display:inline-block;
-  margin-top:.8rem;
-  padding:.7rem 1.1rem;
-  border-radius:999px;
-  background: var(--orange);
-  color:#fff; text-decoration:none; font-weight:700;
-  transition: transform .06s ease;
-}
-.btn:active { transform: translateY(1px); }
-
-/* Avstand fra venstre kant på store skjermer */
-@media (min-width: 1200px){
-  .section .container { padding-left: 0; padding-right: 0; }
-}
-
-/* Kontrast og linjeavstand litt opp for brødtekst */
-body { line-height: 1.7; color: var(--text); }
-.media-right {
-  float: right;
-  max-width: 320px;
-  margin: 0 0 1rem 1.5rem;
-}
-
-.media-right img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.media-right figcaption {
-  font-size: 0.85rem;
-  color: #555;
-  margin-top: 0.4rem;
-  font-style: italic;
-}
-/* IKKE bruk .media her – den gir kort-stil. */
-.media-right {
+/* IKKE bruk .media (kort-stil) på høyrebilde – ren figur */
+.media-right{
   justify-self: end;        /* høyre kolonne i .two-col */
   max-width: 420px;
   margin: 0;                /* grid håndterer avstand */
+  float: none;              /* VIKTIG: ikke flyt på desktop */
 }
-
 .media-right figure { margin: 0; }
 .media-right img {
   display: block;
@@ -482,77 +355,31 @@ body { line-height: 1.7; color: var(--text); }
   .two-col { grid-template-columns: 1fr; }
   .media-right { justify-self: stretch; margin-top: 1rem; max-width: none; }
 }
-/* ---------- Frivillig: forbedret layout ---------- */
-.section { padding: 3rem 0; }
-.h2 { font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem); margin-bottom: .75rem; color: var(--blue); }
-.h3 { font-size: 1.1rem; margin: 1rem 0 .5rem; color: var(--blue-2); }
-.lead { font-size: clamp(1rem, .95rem + .5vw, 1.25rem); max-width: 52ch; }
 
-
-.hero-card__inner {
-  display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  align-items: center;
-  gap: 2rem;
-}
-.hero-card__media img {
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-  display: block;
-  object-fit: cover;
-  box-shadow: 0 8px 24px rgba(0,0,0,.08);
-}
-.hero-cta { margin-top: 1rem; }
-
-.two-col {
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 2rem;
-}
-.two-col--gap-xl { gap: clamp(1.25rem, 2vw, 2.5rem); }
-
-.card {
+/* CTA-blokk */
+.cta {
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.5rem;
   background: #fff;
-  border-radius: 16px;
-  padding: clamp(1rem, 1rem + 1vw, 1.5rem);
+  border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0,0,0,.06);
 }
-.card__stack > * + * { margin-top: 1rem; }
-.divider { height: 1px; background: rgba(0,0,0,.08); margin: .5rem 0; }
-
-.bullets { margin: .5rem 0 1.25rem; padding-left: 1.25rem; }
-.bullets li { margin: .4rem 0; }
-.em { margin-top: 1rem; }
-
-.btn-full { display: inline-block; width: 100%; text-align: center; }
-
-/* Sticky sidekort på større skjermer */
-@media (min-width: 992px) {
-  .sticky { position: sticky; top: 6.5rem; }
+.cta h3 { margin: 0 0 .25rem; }
+.btn {
+  display:inline-block;
+  margin-top:.8rem;
+  padding:.7rem 1.1rem;
+  border-radius:999px;
+  background: var(--orange);
+  color:#fff; text-decoration:none; font-weight:700;
+  transition: transform .06s ease;
 }
+.btn:active { transform: translateY(1px); }
 
-/* Masthead – diskret bakgrunn */
+/* Masthead – diskret bakgrunnsvariant */
 .masthead--subtle { height: clamp(28px, 4vw, 40px); background: var(--blue-2); opacity: .08; }
 
-/* Responsivitet */
-@media (max-width: 960px) {
-  .hero-card__inner { grid-template-columns: 1fr; }
-  .hero-card__media { order: -1; }
-  .two-col { grid-template-columns: 1fr; }
-}
-
-/* Små forbedringer på knapp/lenker hvis ikke allerede definert */
-.btn-primary {
-  display: inline-block; padding: .75rem 1rem; border-radius: 12px;
-  background: var(--orange); color: #fff; text-decoration: none; font-weight: 600;
-}
-.btn-primary:hover { filter: brightness(0.95); }
-
-/* Valgfritt: bedre spacing i footer-seksjoner hvis nødvendig */
-.footer-wrap { row-gap: 1.25rem; }
-
-/* HERO fullbredde med bakgrunnsbilde */
+/* HERO fullbredde med bakgrunnsbilde (alternativ seksjon) */
 .hero {
   position: relative;
   width: 100%;
@@ -562,20 +389,17 @@ body { line-height: 1.7; color: var(--text); }
   display: flex;
   align-items: flex-end;
 }
-
 .hero-overlay {
   width: 100%;
-  background: rgba(25,43,69,0.9); /* mørk stripe */
+  background: rgba(25,43,69,0.9);
   color: #fff;
   padding: 2rem 1rem;
   text-align: center;
 }
-
 .hero-overlay h1 {
   font-size: clamp(1.8rem, 1.2rem + 1.5vw, 2.5rem);
   margin-bottom: .5rem;
 }
-
 .hero-overlay p {
   font-size: clamp(1rem, .95rem + .4vw, 1.25rem);
   margin-bottom: 1rem;
@@ -583,7 +407,6 @@ body { line-height: 1.7; color: var(--text); }
   margin-left: auto;
   margin-right: auto;
 }
-
 .hero-overlay .btn-primary {
   background: var(--orange);
   color: #fff;
@@ -594,12 +417,13 @@ body { line-height: 1.7; color: var(--text); }
   display: inline-block;
 }
 .hero-overlay .btn-primary:hover { filter: brightness(0.95); }
+
 /* Masthead høyde og bilde for denne siden */
 .masthead { width:100%; min-height: clamp(320px,45vh,520px); background-size:cover; background-position:center; }
 .masthead--frivillig { background-image: url('frivillig-hero.jpg'); }
+
 /* ========== PROMO-BAND (marketing) ========== */
 .section--tight { padding: 1.5rem 0 2.25rem; }
-
 .promo-card{
   background:#fff;
   border-radius:16px;
@@ -610,10 +434,8 @@ body { line-height: 1.7; color: var(--text); }
   gap: clamp(1rem, 2.2vw, 2rem);
   align-items:center;
 }
-
 .promo-eyebrow{ margin:0 0 .25rem; color:var(--blue); font-weight:800; }
 .promo-lead{ margin:.25rem 0 .5rem; color:#333; max-width: 52ch; }
-
 .ticks{
   list-style:none; margin:.25rem 0 0; padding:0;
   display:grid; gap:.35rem;
@@ -627,16 +449,9 @@ body { line-height: 1.7; color: var(--text); }
   background: var(--orange);
   box-shadow:0 0 0 4px rgba(247,124,55,.18);
 }
-
 .promo-right{ justify-self:end; text-align:right; }
-.promo-right .btn-primary{
-  display:inline-block;
-  padding:.85rem 1.25rem;
-  border-radius:12px;
-}
+.promo-right .btn-primary{ display:inline-block; padding:.85rem 1.25rem; border-radius:12px; }
 .micro-hint{ margin:.35rem 0 0; font-size:.9rem; opacity:.75; }
-
-/* Responsiv: stable til én kolonne */
 @media (max-width: 900px){
   .promo-card{ grid-template-columns:1fr; text-align:left; }
   .promo-right{ justify-self:start; text-align:left; }
@@ -662,64 +477,5 @@ body { line-height: 1.7; color: var(--text); }
 }
 .logo-row img:hover{ filter:none; opacity:1; transform: translateY(-1px); }
 
-/* ========== Oppmerksomhets-animasjon på CTA ========== */
-.btn-attn{ animation: gentle-shake 12s ease-in-out infinite; will-change:transform; }
-@keyframes gentle-shake{
-  0%,4%,6%,50%,54%,56%,100% { transform: translateX(0); }
-  5%   { transform: translateX(-2px); }
-  5.5% { transform: translateX( 2px); }
-  55%  { transform: translateX(-2px); }
-  55.5%{ transform: translateX( 2px); }
-}
-@media (prefers-reduced-motion: reduce){ .btn-attn{ animation:none; } }
-
-/* Sikker midtstilling hvis noe annet påvirker knappen */
-.promo-right{ display:flex; flex-direction:column; align-items:flex-end; }
-@media (max-width:900px){ .promo-right{ align-items:flex-start; } }
-/* --- PATCH: desktop-rare fikser --- */
-
-/* 1) Fjern den ekstra } etter .hero-card .btn-full.  */
-/* Sørg for at blokka ser slik ut, og uten en ekstra } rett etter: */
-.hero-card .btn-full{ width: auto; }
-
-/* 2) Null ut float når vi bruker grid for .media-right */
-.media-right{
-  float: none;         /* <- viktig for desktop */
-}
-
-/* 3) Samkjør bredde på navbar og innhold */
-:root{
-  --container: 1200px; /* match navbar-inner, eller endre navbar-inner under */
-}
-/* Alternativ: om du vil beholde 980px innholds-bredde, bruk denne istedenfor: */
-/*
-.navbar-inner{ max-width: var(--container); }
-*/
-
-/* 4) Fjern duplikater. Hvis du beholder én definisjon av .btn-attn, la denne stå og slett den andre. */
-.btn-attn{
-  animation: gentle-shake 12s ease-in-out infinite;
-  will-change: transform;
-}
-@keyframes gentle-shake{
-  0%,4%,6%,50%,54%,56%,100% { transform: translateX(0); }
-  5%   { transform: translateX(-2px); }
-  5.5% { transform: translateX( 2px); }
-  55%  { transform: translateX(-2px); }
-  55.5%{ transform: translateX( 2px); }
-}
-
-/* 5) Sørg for at desktop-nav ikke får uventede overrides */
-@media (min-width: 901px){
-  .navbar-center{
-    position: static;
-    display: flex;
-    background: transparent;
-    padding: 0;
-    border-top: 0;
-  }
-}
-
-
-
-
+/* Valgfritt: bedre spacing i footer-seksjoner */
+.footer-wrap { row-gap: 1.25rem; }
