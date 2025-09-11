@@ -676,6 +676,49 @@ body { line-height: 1.7; color: var(--text); }
 /* Sikker midtstilling hvis noe annet påvirker knappen */
 .promo-right{ display:flex; flex-direction:column; align-items:flex-end; }
 @media (max-width:900px){ .promo-right{ align-items:flex-start; } }
+/* --- PATCH: desktop-rare fikser --- */
+
+/* 1) Fjern den ekstra } etter .hero-card .btn-full.  */
+/* Sørg for at blokka ser slik ut, og uten en ekstra } rett etter: */
+.hero-card .btn-full{ width: auto; }
+
+/* 2) Null ut float når vi bruker grid for .media-right */
+.media-right{
+  float: none;         /* <- viktig for desktop */
+}
+
+/* 3) Samkjør bredde på navbar og innhold */
+:root{
+  --container: 1200px; /* match navbar-inner, eller endre navbar-inner under */
+}
+/* Alternativ: om du vil beholde 980px innholds-bredde, bruk denne istedenfor: */
+/*
+.navbar-inner{ max-width: var(--container); }
+*/
+
+/* 4) Fjern duplikater. Hvis du beholder én definisjon av .btn-attn, la denne stå og slett den andre. */
+.btn-attn{
+  animation: gentle-shake 12s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes gentle-shake{
+  0%,4%,6%,50%,54%,56%,100% { transform: translateX(0); }
+  5%   { transform: translateX(-2px); }
+  5.5% { transform: translateX( 2px); }
+  55%  { transform: translateX(-2px); }
+  55.5%{ transform: translateX( 2px); }
+}
+
+/* 5) Sørg for at desktop-nav ikke får uventede overrides */
+@media (min-width: 901px){
+  .navbar-center{
+    position: static;
+    display: flex;
+    background: transparent;
+    padding: 0;
+    border-top: 0;
+  }
+}
 
 
 
