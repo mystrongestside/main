@@ -694,3 +694,24 @@ body { line-height: 1.7; color: var(--text); }
 @media (max-width:900px){
   .promo-right{ align-items:flex-start; }
 }
+/* ===== ABOUT: roligere høyde og bedre utsnitt ===== */
+
+/* Standard desktop-høyde på bilde i to-kolonne */
+@media (min-width: 900px){
+  .media-right img{
+    height: clamp(260px, 32vh, 380px);  /* lavere enn før */
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/* Valgfrie fokus-klasser – sett dem på IMG ved behov */
+.img-focus-top     { object-position: 50% 10% !important; }
+.img-focus-upper   { object-position: 50% 20% !important; }
+.img-focus-shoulders{ object-position: 50% 30% !important; } /* ofte best for portretter */
+
+/* Ekstra: kort variant hvis du vil ha enda lavere høyde på enkelte bilder */
+@media (min-width: 900px){
+  .media--short img{ height: clamp(220px, 28vh, 320px) !important; }
+}
+
