@@ -736,3 +736,40 @@ body { line-height: 1.7; color: var(--text); }
 .img-focus-upper     { object-position: 50% 20% !important; }
 .img-focus-shoulders { object-position: 50% 30% !important; }
 .two-col .media--short img{ height: clamp(220px, 28vh, 320px) !important; }
+/* ===== Stable bildehøyde på desktop via ratio-boks ===== */
+
+/* Null still gamle "stripe"-regler når vi bruker media-box */
+.two-col .media-right img { height: auto; }
+
+/* Wrapper som styrer høyde/formfaktor på desktop */
+.media-box { margin: 0; }
+.media-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* fyll rammen uten strekk */
+  object-position: 50% 30%;    /* litt opp i utsnittet for portrett */
+  border-radius: 12px;
+}
+
+/* Ratio-varianter (bruk én klasse på .media-box) */
+@media (min-width: 900px){
+  .ratio-4-5   { aspect-ratio: 4 / 5;   max-height: clamp(300px, 38vh, 520px); }
+  .ratio-3-4   { aspect-ratio: 3 / 4;   max-height: clamp(300px, 38vh, 520px); }
+  .ratio-1-1   { aspect-ratio: 1 / 1;   max-height: clamp(280px, 36vh, 520px); }
+  .ratio-16-9  { aspect-ratio: 16 / 9;  max-height: clamp(260px, 34vh, 560px); }
+}
+
+/* Mobil: la bildet flyte naturlig (ingen tvungen høyde) */
+@media (max-width: 899.98px){
+  .media-box { aspect-ratio: auto; }
+  .media-box img { height: auto; }
+}
+
+/* Fine-tuning av fokus (kan settes på IMG) */
+.img-focus-top        { object-position: 50% 10% !important; }
+.img-focus-upper      { object-position: 50% 20% !important; }
+.img-focus-shoulders  { object-position: 50% 30% !important; } /* bra for portrett */
+.img-focus-center     { object-position: 50% 50% !important; }
+
+
