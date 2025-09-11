@@ -714,4 +714,25 @@ body { line-height: 1.7; color: var(--text); }
 @media (min-width: 900px){
   .media--short img{ height: clamp(220px, 28vh, 320px) !important; }
 }
+/* Scope regler til two-col slik at bilde ikke blir full bredde uten grid */
+.two-col .media-right{ justify-self:end; max-width:520px; margin:0; }
+.two-col .media-right figure{ margin:0; }
+.two-col .media-right img{
+  display:block;
+  width:100%;
+  height:auto;            /* mobil */
+  border-radius:12px;
+  object-fit:cover;
+}
+@media (min-width:900px){
+  .two-col .media-right img{
+    height: clamp(260px, 32vh, 380px);  /* pen høyde i kolonnen */
+    object-position: 50% 25%;           /* litt opp i utsnittet */
+  }
+}
 
+/* Valgfrie finjusteringer via klasser */
+.img-focus-top       { object-position: 50% 10% !important; }
+.img-focus-upper     { object-position: 50% 20% !important; }
+.img-focus-shoulders { object-position: 50% 30% !important; }
+.two-col .media--short img{ height: clamp(220px, 28vh, 320px) !important; }
