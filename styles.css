@@ -479,3 +479,62 @@ body { line-height: 1.7; color: var(--text); }
 
 /* Valgfritt: bedre spacing i footer-seksjoner */
 .footer-wrap { row-gap: 1.25rem; }
+/* =========================
+   DESKTOP OVERRIDES (force)
+   Lim dette NEDERST i styles.css
+========================= */
+
+/* 0) Sikre felles bredde for alt innhold og navbar */
+:root{ --container: 1200px !important; }
+.navbar-inner{ max-width: var(--container) !important; }
+.container,
+.news-header,
+.news-grid,
+.footer-wrap { max-width: var(--container) !important; margin-left:auto !important; margin-right:auto !important; }
+
+/* 1) Desktop-nav skal ALDRI være absolutt eller skjult */
+@media (min-width: 901px){
+  .navbar-center{
+    position: static !important;
+    display: flex !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-top: 0 !important;
+  }
+}
+
+/* 2) Grid-kolonner på desktop (tekst + bilde) */
+@media (min-width: 900px){
+  .two-col{
+    display: grid !important;
+    grid-template-columns: minmax(0,1.1fr) minmax(0,0.9fr) !important;
+    gap: 2.5rem !important;
+    align-items: start !important;
+  }
+}
+
+/* 3) Slå AV float på høyrebildet – grid håndterer plassering */
+.media-right{ float: none !important; max-width: 420px !important; justify-self: end !important; }
+
+/* 4) Hero/mastead skal ikke dekke innholdet under */
+.masthead,
+.hero,
+.hero-card{ z-index: auto !important; }
+
+/* 5) Lesbar bredde på brødtekst (kan justeres) */
+.prose{ max-width: 80ch !important; }
+
+/* 6) Fjern duplikate animasjons-regler (hold KUN denne definisjonen) */
+.btn-attn{ animation: gentle-shake 12s ease-in-out infinite !important; will-change: transform; }
+@keyframes gentle-shake{
+  0%,4%,6%,50%,54%,56%,100% { transform: translateX(0); }
+  5%   { transform: translateX(-2px); }
+  5.5% { transform: translateX( 2px); }
+  55%  { transform: translateX(-2px); }
+  55.5%{ transform: translateX( 2px); }
+}
+@media (prefers-reduced-motion: reduce){ .btn-attn{ animation:none !important; } }
+
+/* 7) Sikkerhet for knapper i hero */
+.hero-card .btn-full{ width:auto !important; }
+.hero-card .hero-cta{ display:flex !important; justify-content:center !important; }
