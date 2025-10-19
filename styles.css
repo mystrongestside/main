@@ -840,5 +840,84 @@ body { line-height: 1.7; color: var(--text); }
   background:#fff; color:#000; padding:.5rem .75rem; border-radius:8px; z-index:1001;
   box-shadow:0 4px 16px rgba(0,0,0,.15);
 }
+/* ====== HEADER BASICS ====== */
+.header {
+  background:#20324b;             /* mørk blå toppbar */
+  position:sticky; top:0; z-index:1000;
+}
+.header .wrap {
+  max-width:1200px; margin:0 auto; padding:14px 20px;
+  display:flex; align-items:center; gap:24px;
+}
+
+/* ====== LOGO ====== */
+.brand {
+  display:flex; align-items:center; gap:12px;
+}
+.brand img { height:32px; width:auto; display:block; }
+
+/* ====== NAV (reset + layout) ====== */
+.nav { margin-left:auto; display:flex; align-items:center; gap:24px; }
+.nav ul { list-style:none; margin:0; padding:0; display:flex; gap:18px; }
+.nav li { position:relative; }
+.nav a {
+  color:#eaf1ff; text-decoration:none; font-weight:600;
+  padding:10px 8px; border-radius:8px; display:block;
+}
+.nav a:hover, .nav a:focus { background:#2a4266; outline:none; }
+
+/* Fjern punktlister som dukket opp under dropdown */
+.nav .dropdown > a { padding-right:22px; }
+.nav .dropdown > a::after {
+  content:"▾"; margin-left:6px; font-size:12px; opacity:.9;
+}
+
+/* ====== DROPDOWN ====== */
+.dropdown-menu{
+  position:absolute; top:100%; left:0;
+  background:#1b2a45; border:1px solid #2e466b;
+  border-radius:10px; min-width:220px; padding:8px;
+  display:none; box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+.dropdown-menu li { display:block; }
+.dropdown-menu a{
+  color:#eaf1ff; padding:10px 12px; border-radius:8px; font-weight:500;
+}
+.dropdown-menu a:hover{ background:#2a4266; }
+
+/* Vis dropdown on hover (desktop) */
+.dropdown:hover .dropdown-menu { display:block; }
+
+/* Tastatur-tilgjengelighet */
+.dropdown:focus-within .dropdown-menu { display:block; }
+
+/* ====== CTA-KNAPPER TIL HØYRE ====== */
+.header-ctas{ display:flex; gap:12px; margin-left:16px; }
+.btn{
+  display:inline-block; border-radius:999px; padding:12px 18px;
+  font-weight:700; text-decoration:none; white-space:nowrap;
+}
+.btn-primary{ background:#f18733; color:#1d2a40; box-shadow:0 8px 18px rgba(241,135,51,.35); }
+.btn-primary:hover{ filter:brightness(.95); }
+.btn-ghost{
+  background:transparent; color:#cfe0ff; border:2px solid rgba(207,224,255,.25);
+  backdrop-filter:saturate(120%) blur(2px);
+}
+.btn-ghost:hover{ background:rgba(255,255,255,.06); }
+
+/* ====== RESPONSIVT (stack på mobil) ====== */
+@media (max-width: 900px){
+  .nav ul{ display:none; }                 /* skjul full meny */
+  .nav.open ul{ display:flex; flex-direction:column; background:#1b2a45;
+    position:absolute; top:64px; left:0; right:0; padding:12px; border-top:1px solid #2e466b; }
+  .dropdown-menu{ position:static; display:block; border:none; box-shadow:none; padding:0; background:transparent; }
+}
+
+/* Hamburger-knapp (valgfritt) */
+.menu-toggle{
+  display:none; margin-left:auto; color:#eaf1ff; background:#2a4266; border:none;
+  padding:10px 12px; border-radius:8px; font-weight:700;
+}
+@media (max-width: 900px){ .menu-toggle{ display:block; } .header-ctas{ display:none; } }
 
 
