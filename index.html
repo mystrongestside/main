@@ -8,24 +8,19 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-<header class="header">
-  <div class="wrap">
-    <a href="index.html" class="brand">
-      <img src="assets/logo.svg" alt="My Strongest Side-logo" />
-    </a>
-
-    <!-- Hamburger-knapp -->
-    <button id="hamburger" class="hamburger" aria-controls="nav-menu" aria-expanded="false">
-      ☰
+ <!-- NAVBAR -->
+<div class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html"><img src="assets/logo.svg" alt="My Strongest Side-logo" class="logo"/></a>
+    <button id="hamburger" class="hamburger" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
 
-    <!-- Navigasjon -->
-    <nav id="nav-menu" class="nav-menu" aria-label="Hovedmeny">
-      <ul>
-        <li class="dropdown">
-          <a href="#">Våre tilbud</a>
-          <ul class="dropdown-content">
+    <div class="navbar-center" id="nav-menu">
+      <ul class="nav-links">
+        <li>
+          <a href="#">Våre tilbud ▾</a>
+          <ul class="dropdown">
             <li><a href="groups-youth.html">Ungdom</a></li>
             <li><a href="groups-adults.html">Voksen</a></li>
             <li><a href="individual.html">Individuell oppfølging</a></li>
@@ -35,13 +30,13 @@
         <li><a href="volunteer.html">Frivillig</a></li>
       </ul>
 
-      <div class="header-ctas">
-        <a href="groups.html" class="btn-primary">Se våre treningstilbud</a>
-        <a href="volunteer.html" class="btn-secondary">Vi søker nye frivillige</a>
+      <div class="show-desktop">
+        <a href="groups.html" class="btn-pill btn-pill--orange">Se våre treningstilbud</a>
+        <a href="volunteer.html" class="btn-pill btn-pill--light">Vi søker nye frivillige</a>
       </div>
-    </nav>
+    </div>
   </div>
-</header>
+</div>
  
   <!-- JS (defer) -->
   <script src="script.js" defer></script>
