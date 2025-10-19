@@ -91,7 +91,7 @@
     </div>
   </div>
 </div>
- <!-- ✅ Roterende MY STRONGEST SIDE® logo – plassert helt til høyre -->
+<!-- ✅ MY STRONGEST SIDE® – roterende tekst rundt logo (kun desktop) -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 
 <div class="myss-circle">
@@ -102,6 +102,7 @@
       <path id="textCircle"
         d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0" />
     </defs>
+
     <text>
       <textPath href="#textCircle"
         startOffset="0%"
@@ -115,13 +116,10 @@
 
 <style>
   .myss-circle {
-    position: fixed;         /* Fiksert posisjon */
-    right: 3%;               /* avstand fra høyre kant */
-    top: 50%;                /* midt på skjermen */
-    transform: translateY(-50%);
+    position: relative;
     width: 340px;
     aspect-ratio: 1;
-    z-index: 1000;           /* alltid over annet innhold */
+    margin: 0 auto;
     cursor: pointer;
   }
 
@@ -138,6 +136,7 @@
     height: 100%;
     display: block;
     animation: spin 18s linear infinite;
+    transition: fill 0.3s ease;
   }
 
   .myss-ring text {
@@ -156,7 +155,7 @@
 
   /* ✨ Hover-effekt */
   .myss-circle:hover .myss-ring text {
-    fill: #F77C37;
+    fill: #F77C37; /* oransje fra profilen */
   }
 
   .myss-circle:hover .myss-logo {
@@ -166,11 +165,10 @@
 
   /* Skjul på mobil */
   @media (max-width: 768px) {
-    .myss-circle {
-      display: none;
-    }
+    .myss-circle { display: none; }
   }
 </style>
+
 
 <!-- ========================= AKTIVITETER ========================= -->
 <section id="tilbud" class="news-section">
