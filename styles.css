@@ -439,3 +439,68 @@ a:focus-visible, button:focus-visible{
   padding:.9rem 1rem;
   font-size:.9rem;
 }
+/* ========================= NAVBAR FORBEDRING ========================= */
+
+/* Litt mer høyde og luft */
+.navbar-inner {
+  padding: 1.1rem 2.5rem; /* mer horisontal og vertikal luft */
+}
+
+/* Jevn vertikal plassering */
+.nav-links a {
+  padding: 0.6rem 0.4rem;
+  font-size: 0.96rem;
+}
+
+/* Øk avstanden mellom lenkene og CTA-knapper */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Knappene til høyre */
+.btn-pill--light, .btn-pill--orange {
+  padding: 0.65rem 1.15rem;
+  font-size: 0.94rem;
+}
+
+/* Juster avrunding og skygge for mer dybde */
+.btn-pill--orange {
+  border-radius: 999px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+.btn-pill--orange:hover {
+  transform: translateY(-2px);
+}
+
+.btn-pill--light {
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.12);
+}
+
+.btn-pill--light:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
+}
+
+/* Logo-løft – juster for midtstilling */
+.logo {
+  height: 54px; /* litt høyere */
+  margin: 3px 10px 3px 10px; /* balanser luft oppe/nede */
+}
+
+/* For ekstra balanse i hele linjen */
+.navbar {
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  backdrop-filter: saturate(120%) blur(4px);
+}
+
+/* Responsivt justert luft */
+@media (max-width: 900px) {
+  .navbar-inner {
+    padding: 0.9rem 1.25rem;
+  }
+}
+
