@@ -9,33 +9,37 @@
 <body>
 
   <!-- NAVBAR -->
-  <header class="header">
+<header class="header">
   <div class="wrap">
-    <a class="brand" href="index.html" aria-label="Forside">
-      <img src="assets/logo.svg" alt="My Strongest Side">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.svg" alt="My Strongest Side-logo" />
     </a>
 
-    <button class="menu-toggle" aria-expanded="false" aria-controls="mainnav">Meny</button>
+    <!-- Hamburger-knapp -->
+    <button id="hamburger" class="hamburger" aria-controls="nav-menu" aria-expanded="false">
+      ☰
+    </button>
 
-    <nav id="mainnav" class="nav" aria-label="Hovedmeny">
+    <!-- Navigasjon -->
+    <nav id="nav-menu" class="nav-menu" aria-label="Hovedmeny">
       <ul>
         <li class="dropdown">
-          <a href="groups.html">Våre tilbud</a>
-          <ul class="dropdown-menu" aria-label="Under­meny for Våre tilbud">
+          <a href="#">Våre tilbud</a>
+          <ul class="dropdown-content">
             <li><a href="groups-youth.html">Ungdom</a></li>
             <li><a href="groups-adults.html">Voksen</a></li>
             <li><a href="individual.html">Individuell oppfølging</a></li>
           </ul>
         </li>
         <li><a href="about.html">Om oss</a></li>
-        <li><a href="contact.html">Kontakt</a></li>
+        <li><a href="volunteer.html">Frivillig</a></li>
       </ul>
-    </nav>
 
-    <div class="header-ctas">
-      <a class="btn btn-primary" href="groups.html">Se våre treningstilbud</a>
-      <a class="btn btn-ghost" href="volunteer.html">Vi søker nye frivillige</a>
-    </div>
+      <div class="header-ctas">
+        <a href="groups.html" class="btn-primary">Se våre treningstilbud</a>
+        <a href="volunteer.html" class="btn-secondary">Vi søker nye frivillige</a>
+      </div>
+    </nav>
   </div>
 </header>
  
