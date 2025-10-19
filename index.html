@@ -91,67 +91,73 @@
     </div>
   </div>
 </div>
+ <!-- ✅ Roterende sirkeltekst rundt MyStrongestSide-logoen (kun desktop) -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
 <div class="myss-circle">
   <img src="myss-logo.png" alt="MyStrongestSide-logo" class="myss-logo" />
 
   <svg class="myss-ring" viewBox="0 0 200 200" aria-hidden="true">
     <defs>
-      <path id="textCircle" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0" />
+      <!-- Radius 80 = jevn og balansert ring -->
+      <path id="textCircle"
+        d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0" />
     </defs>
+
     <text>
-      <textPath href="#textCircle" startOffset="0%">
-        MY STRONGEST SIDE® MY STRONGEST SIDE® MY STRONGEST SIDE®  
+      <textPath href="#textCircle"
+        startOffset="0%"
+        textLength="503"
+        lengthAdjust="spacingAndGlyphs">
+        MY STRONGEST SIDE® MY STRONGEST SIDE® MY STRONGEST SIDE®
       </textPath>
     </text>
   </svg>
 </div>
 
 <style>
-  .myss-circle{
+  .myss-circle {
     position: relative;
-    width: 320px;
+    width: 340px; /* juster for størrelse */
     aspect-ratio: 1;
     margin: 0 auto;
   }
 
-  .myss-logo{
+  .myss-logo {
     position: absolute;
     inset: 50% auto auto 50%;
-    width: 40%;
+    width: 42%; /* juster hvor stor logoen er */
     transform: translate(-50%, -50%);
-    display: block;
   }
 
-  .myss-ring{
+  .myss-ring {
     width: 100%;
     height: 100%;
     display: block;
-    animation: myss-spin var(--speed, 16s) linear infinite;
+    animation: spin 18s linear infinite;
   }
 
-  .myss-ring text{
-    font-family: Arial, system-ui, sans-serif;
-    font-size: 12px;
+  .myss-ring text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 11.5px;
     letter-spacing: 2px;
+    fill: #192B45; /* MyStrongestSide blå */
     text-transform: uppercase;
   }
 
-  @keyframes myss-spin { 
-    to { transform: rotate(360deg); } 
+  @keyframes spin {
+    to { transform: rotate(360deg); }
   }
 
-  /* Pause ved hover (valgfritt) */
-  .myss-circle:hover .myss-ring{
-    animation-play-state: paused;
-  }
-
-  /* Skjul på mobil og små skjermer */
-  @media (max-width: 768px){
-    .myss-circle{
+  /* Kun synlig på desktop */
+  @media (max-width: 768px) {
+    .myss-circle {
       display: none;
     }
   }
 </style>
+
 <!-- ========================= AKTIVITETER ========================= -->
 <section id="tilbud" class="news-section">
   <header class="news-header">
