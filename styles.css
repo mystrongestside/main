@@ -522,3 +522,20 @@ body.no-scroll { overflow: hidden; }
 
 /* Smooth scroll */
 html { scroll-behavior: smooth; }
+/* Fjern bullets i hele nav, også i dropdown på mobil */
+.nav-links,
+.nav-links ul,
+.nav-links li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Belt & braces for Safari/iOS */
+.nav-links li::marker { content: ""; }
+
+/* Valgfritt: litt innrykk på undermeny-lenker på mobil */
+@media (max-width:900px){
+  .has-sub .dropdown a { padding-left: 1rem; }
+}
+
