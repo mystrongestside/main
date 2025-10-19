@@ -8,37 +8,45 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <div class="navbar-inner">
-      <a href="index.html">
-        <img src="hlogo.png" alt="My Strongest Side-logo" class="logo"/>
+<!-- ========================= NAVBAR ========================= -->
+<nav class="navbar">
+  <div class="navbar-inner">
+
+    <!-- VENSTRE: LOGO -->
+    <div class="navbar-left">
+      <a href="/" aria-label="Hjem">
+        <img src="logo.svg" alt="My Strongest Side" class="logo">
       </a>
-
-      <button id="hamburger" class="hamburger" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <div class="navbar-center" id="nav-menu">
-        <ul class="nav-links">
-          <li>
-            <a href="#">Våre tilbud ▾</a>
-            <ul class="dropdown">
-              <li><a href="groups-youth.html">Ungdom</a></li>
-              <li><a href="groups-adults.html">Voksen</a></li>
-              <li><a href="individual.html">Individuell oppfølging</a></li>
-            </ul>
-          </li>
-          <li><a href="about.html">Om oss</a></li>
-          <li><a href="volunteer.html">Frivillig</a></li>
-        </ul>
-
-        <div class="show-desktop">
-          <a href="volunteer.html" class="btn-pill btn-pill--light">Vi søker nye frivillige</a>
-          <a href="groups.html" class="btn-pill btn-pill--orange">Se våre treningstilbud</a>
-        </div>
-      </div>
     </div>
+
+    <!-- MIDTEN: LENKER -->
+    <div class="navbar-center">
+      <ul class="nav-links">
+        <li><a href="#" aria-current="page">Våre tilbud</a>
+          <ul class="dropdown">
+            <li><a href="#">Gruppetrening</a></li>
+            <li><a href="#">Barn & Ungdom</a></li>
+            <li><a href="#">Tilrettelegging</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Om oss</a></li>
+        <li><a href="#">Frivillig</a></li>
+      </ul>
+    </div>
+
+    <!-- HØYRE: KNAPPER -->
+    <div class="navbar-right show-desktop">
+      <a href="#" class="btn-pill btn-pill--light">Vi søker nye frivillige</a>
+      <a href="#" class="btn-pill btn-pill--orange">Se våre treningstilbud</a>
+    </div>
+
+    <!-- MOBIL: HAMBURGER -->
+    <button class="hamburger show-mobile" aria-expanded="false" aria-controls="navbar-menu">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+</nav>
   </div>
 
   <!-- JS (defer) -->
