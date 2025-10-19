@@ -845,6 +845,8 @@ a:focus-visible, button:focus-visible{
 .navbar .btn-pill--orange {
   color: #112033;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 
 
