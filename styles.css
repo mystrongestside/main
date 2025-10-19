@@ -503,4 +503,47 @@ a:focus-visible, button:focus-visible{
     padding: 0.9rem 1.25rem;
   }
 }
+/* ========================= HERO-KNAPP (LES MER) ========================= */
+.hero-cta {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-cta .btn-primary {
+  display: inline-block;
+  padding: 0.9rem 1.6rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #F77C37 0%, #e46f31 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18),
+              inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero-cta .btn-primary:hover,
+.hero-cta .btn-primary:focus-visible {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+              inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.hero-cta .btn-primary:active {
+  transform: translateY(1px);
+  filter: brightness(0.96);
+}
+
+/* Responsivt justert spacing */
+@media (max-width: 600px) {
+  .hero-cta .btn-primary {
+    padding: 0.8rem 1.3rem;
+    font-size: 0.95rem;
+  }
+}
 
