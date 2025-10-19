@@ -652,6 +652,49 @@ a:focus-visible, button:focus-visible{
     font-size: .95rem;
     letter-spacing: .1px;
   } }
- 
+ /* HERO-KNAPP – roligere, uten glans */
+.hero-cta {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-cta .btn-primary{
+  position: relative;
+  display: inline-block;
+  padding: 0.95rem 1.75rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #F77C37 0%, #E46F31 100%);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .2px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(0,0,0,.22);
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+
+.hero-cta .btn-primary:hover,
+.hero-cta .btn-primary:focus-visible{
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+  box-shadow: 0 16px 36px rgba(0,0,0,.26);
+  outline: none;
+}
+
+.hero-cta .btn-primary:active{
+  transform: translateY(1px);
+  filter: brightness(.96);
+}
+
+@media (max-width: 600px) {
+  .hero-cta .btn-primary {
+    padding: .85rem 1.35rem;
+    font-size: .95rem;
+    letter-spacing: .1px;
+  }
+}
+
 
 
