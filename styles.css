@@ -12,7 +12,10 @@
   --marquee-speed: 50s;
 }
 
-html, body{
+/* Smooth scroll først – fungerer i alle nettlesere */
+html { scroll-behavior: smooth; }
+
+body{
   height:100%;
   font-family: Arial, sans-serif;
   line-height:1.6;
@@ -38,7 +41,7 @@ a:focus-visible, button:focus-visible{
 .navbar{
   position: sticky;
   top: 0;
-  z-index: 1200; /* over overlay */
+  z-index: 1200;
   background: var(--blue-2);
   box-shadow: 0 2px 16px rgba(0,0,0,0.06);
   backdrop-filter: saturate(120%) blur(4px);
@@ -58,7 +61,7 @@ a:focus-visible, button:focus-visible{
   height: 54px;
   width: auto;
   display: block;
-  margin: 3px 10px 3px 10px;
+  margin: 3px 10px;
 }
 
 .navbar-left, .navbar-right{ flex-shrink: 0; }
@@ -170,6 +173,7 @@ a:focus-visible, button:focus-visible{
   outline: none;
 }
 .btn-pill--orange:active { transform: translateY(1px); filter: brightness(0.96); }
+
 @keyframes orangePulse{
   0%,100%{
     box-shadow:
@@ -259,7 +263,7 @@ body.no-scroll { overflow: hidden; }
   margin-inline: auto;
 }
 
-/* HERO – Les mer-knapp (en versjon) */
+/* HERO – Les mer-knapp */
 .hero-cta{
   margin-top: 1.25rem;
   display: flex;
@@ -319,7 +323,7 @@ body.no-scroll { overflow: hidden; }
   flex-shrink:0;
   display:flex;
   gap:2.4rem;
-  padding:.65rem 2.1rem; /* litt slankere */
+  padding:.65rem 2.1rem;
   white-space:nowrap;
 }
 @keyframes mss-marquee{
@@ -331,7 +335,7 @@ body.no-scroll { overflow: hidden; }
 }
 
 /* ========================= NYHETER / AKTIVITETER ========================= */
-.news-section{ padding:2.2rem 0 4rem; }
+.news-section{ padding:2.2rem 0 4rem; scroll-margin-top: 80px; } /* smooth offset */
 .news-header{
   max-width:var(--container);
   margin:0 auto;
@@ -482,7 +486,7 @@ body.no-scroll { overflow: hidden; }
   font-size:.9rem;
 }
 
-/* ========================= MOBIL-MENY (accordion) ========================= */
+/* ========================= MOBIL-MENY ========================= */
 @media (max-width:900px){
   .hamburger{ display:block; }
   .show-desktop{ display:none; }
@@ -497,7 +501,7 @@ body.no-scroll { overflow: hidden; }
     background:var(--blue-2);
     border-top:1px solid rgba(255,255,255,.15);
     padding:.75rem 1rem;
-    z-index: 1100; /* over overlay */
+    z-index: 1100;
   }
   .navbar-center.active{ display:block; }
 
@@ -507,7 +511,6 @@ body.no-scroll { overflow: hidden; }
     gap:1rem;
   }
 
-  /* Accordion: skjul som default, vis når .has-sub .open */
   .nav-links li .dropdown{
     position:static;
     display:none;
@@ -516,11 +519,12 @@ body.no-scroll { overflow: hidden; }
     padding:0;
   }
   .has-sub.open > .dropdown{ display:block; }
+  .has-sub .dropdown a { padding-left: 1rem; }
 
   .btn-pill, .news-button { padding: 14px 18px; }
 }
 
-/* Fjern bullets i hele nav, også i dropdown på mobil */
+/* Fjern bullets i hele nav */
 .nav-links,
 .nav-links ul,
 .nav-links li {
@@ -528,14 +532,4 @@ body.no-scroll { overflow: hidden; }
   margin: 0;
   padding: 0;
 }
-
-/* Belt & braces for Safari/iOS */
 .nav-links li::marker { content: ""; }
-
-/* Valgfritt: litt innrykk på undermeny-lenker på mobil */
-@media (max-width:900px){
-  .has-sub .dropdown a { padding-left: 1rem; }
-}
-
-/* Smooth scroll – må stå utenfor media queries */
-html { scroll-behavior: smooth; }
