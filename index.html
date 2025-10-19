@@ -9,56 +9,35 @@
 <body>
 
   <!-- NAVBAR -->
-  <header class="navbar" role="navigation" aria-label="Hovedmeny">
-    <div class="navbar-inner">
-      <div class="navbar-left">
-        <a href="index.html" class="logo-link" aria-label="Til forsiden">
-          <img src="logo.png" alt="My Strongest Side" class="logo" />
-        </a>
-      </div>
+  <header class="header">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Forside">
+      <img src="assets/logo.svg" alt="My Strongest Side">
+    </a>
 
-      <!-- Hamburger for mobil -->
-      <button class="hamburger" id="hamburger"
-        aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
-        <span></span><span></span><span></span>
-      </button>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mainnav">Meny</button>
 
-<nav class="main-nav">
-  <ul>
-    <li><a href="index.html">Forside</a></li>
-    <li class="dropdown">
-      <a href="groups.html">Våre tilbud ▾</a>
-      <ul class="dropdown-menu">
-        <li><a href="groups.html">Gruppene</a></li>
-        <li><a href="individual.html">Individuell veiledning</a></li>
+    <nav id="mainnav" class="nav" aria-label="Hovedmeny">
+      <ul>
+        <li class="dropdown">
+          <a href="groups.html">Våre tilbud</a>
+          <ul class="dropdown-menu" aria-label="Under­meny for Våre tilbud">
+            <li><a href="groups-youth.html">Ungdom</a></li>
+            <li><a href="groups-adults.html">Voksen</a></li>
+            <li><a href="individual.html">Individuell oppfølging</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">Om oss</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
       </ul>
-    </li>
-    <li><a href="volunteer.html">Frivillig</a></li>
-    <li><a href="about.html">Om oss</a></li>
-  </ul>
-</nav>
+    </nav>
 
-          <!-- Mobilknapper -->
-          <li class="show-mobile">
-            <a href="groups.html" class="btn-pill btn-pill--orange btn-full" ">Se våre treningstilbud</a>
-          </li>
-          <li class="show-mobile">
-            <a href="frivillig.html" class="btn-pill btn-pill--light btn-full">Vi søker nye frivillige</a>
-          </li>
-        </ul>
-      </nav>
-
-      <!-- Høyre hjørne-knapper for desktop -->
-      <div class="navbar-right show-desktop">
-        <a href="grupper.html" class="btn-pill btn-pill--orange"  aria-label="Se våre treningstilbud">
-          Se våre treningstilbud
-        </a>
-        <a href="frivillig.html" class="btn-pill btn-pill--light" aria-label="Vi søker nye frivillige">
-          Vi søker nye frivillige
-        </a>
-      </div>
+    <div class="header-ctas">
+      <a class="btn btn-primary" href="groups.html">Se våre treningstilbud</a>
+      <a class="btn btn-ghost" href="volunteer.html">Vi søker nye frivillige</a>
     </div>
-  </header>
+  </div>
+</header>
  
   <!-- JS (defer) -->
   <script src="script.js" defer></script>
