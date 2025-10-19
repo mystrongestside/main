@@ -7,6 +7,8 @@
   <meta name="description" content="My Strongest Side® gjør trening tilgjengelig for flest mulig. Tilrettelagt styrketrening, fellesskap og mestring for alle aldre og funksjonsvariasjoner.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css?v=8">
+  <!-- Valgfritt: smooth scroll -->
+  <style>html{scroll-behavior:smooth}</style>
 </head>
 <body>
 
@@ -25,10 +27,11 @@
     <div class="navbar-center" id="navbar-menu">
       <ul class="nav-links">
         <li><a href="index.html" aria-current="page">Forside</a></li>
-        <li>
+
+        <!-- RIKTIG: kun én li, med has-sub -->
         <li class="has-sub">
-    <a href="#" class="nav-has-sub" aria-haspopup="true" aria-expanded="false">Våre tilbud</a>
-    <ul class="dropdown">
+          <a href="#" class="nav-has-sub" aria-haspopup="true" aria-expanded="false">Våre tilbud</a>
+          <ul class="dropdown">
             <li><a href="#">Barn</a></li>
             <li><a href="#">Ungdom</a></li>
             <li><a href="#">Voksen</a></li>
@@ -36,6 +39,7 @@
             <li><a href="#">Individuell oppfølging</a></li>
           </ul>
         </li>
+
         <li><a href="about.html">Om oss</a></li>
         <li><a href="frivillig.html">Frivillig</a></li>
       </ul>
@@ -53,8 +57,10 @@
 
   </div>
 </nav>
-<nav class="navbar"> … </nav>
+
+<!-- Behold overlay her (bra for å lukke meny ved trykk utenfor) -->
 <div class="nav-overlay" hidden></div>
+
 <!-- ========================= HERO ========================= -->
 <section class="masthead"></section>
 
@@ -191,16 +197,16 @@
 </footer>
 
 <!-- ========================= SCRIPTS ========================= -->
- <script>
-  // Dynamisk år (hvis du har <span id="year"> i footer)
+<script>
+  // Dynamisk år
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   // Elementer
-  const btn = document.getElementById('hamburger');      // <button id="hamburger">
-  const menu = document.getElementById('navbar-menu');   // VIKTIG: matcher HTML-id
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('navbar-menu');
 
-  // (Valgfritt men anbefalt) overlay for å lukke ved trykk utenfor
+  // Overlay (bruker eksisterende .nav-overlay hvis finnes)
   let overlay = document.querySelector('.nav-overlay');
   if (!overlay) {
     overlay = document.createElement('div');
@@ -253,12 +259,11 @@
     closeMenu();
   });
 
-  // Sikkerhet: lukke ved resize til desktop
+  // Sikkerhet: lukk ved resize til desktop
   window.addEventListener('resize', () => {
     if (window.innerWidth > 1024) closeMenu();
   });
 </script>
- 
 
 </body>
 </html>
