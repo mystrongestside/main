@@ -695,6 +695,83 @@ a:focus-visible, button:focus-visible{
     letter-spacing: .1px;
   }
 }
+/* === PATCH: Lettet topp / roligere hero ============================== */
+/* 1) Hero-card: lysere overlay, mer luft og smalere tekstlinje */
+.hero-card{
+  /* mer transparent og litt mykere */
+  background:
+    radial-gradient(1200px 600px at 50% 0%, rgba(0,0,0,.08), transparent 65%),
+    linear-gradient(180deg, rgba(36,52,77,.78) 0%, rgba(28,44,69,.90) 100%);
+  padding: 6rem 1.5rem 7rem;            /* mer vertikal luft */
+}
+
+.hero-card h1{
+  max-width: 26ch;                      /* kortere linjelengde = bedre lesbarhet */
+  margin-inline: auto;
+}
+
+/* 2) Hero-CTA: én tydelig primærknapp (uten “shine”-sveip) */
+.hero-cta{
+  margin-top: 1.25rem;
+}
+.hero-cta .btn-primary{
+  padding: 0.9rem 1.6rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #F77C37 0%, #E46F31 100%);
+  color:#fff;
+  font-weight: 800;
+  letter-spacing: .2px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(0,0,0,.22);
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+
+/* Hover/focus: subtilt løft – BEHOLDER, men uten glanslag */
+.hero-cta .btn-primary:hover,
+.hero-cta .btn-primary:focus-visible{
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 16px 36px rgba(0,0,0,.26);
+  outline: none;
+}
+.hero-cta .btn-primary:active{
+  transform: translateY(1px);
+  filter: brightness(.96);
+}
+
+/* Fjern “shine”-effekten helt hvis den finnes fra før */
+.hero-cta .btn-primary::after{
+  content: none !important;
+}
+@keyframes mss-glow{ /* finnes kanskje fra før – gjør den inert */
+  from { box-shadow: none; }
+  to   { box-shadow: none; }
+}
+
+/* 3) Navbar: litt mer luft, men uten å bli “tyngre” */
+.navbar-inner{
+  padding: 1.15rem 2.25rem;
+}
+.nav-links a{
+  padding: .62rem .45rem;
+  font-size: .96rem;
+}
+
+/* 4) Oransje bånd (marquee): litt slankere så det ikke tar fokus */
+.marquee__row{
+  padding: .65rem 2.1rem;               /* ned fra .8rem */
+}
+
+/* 5) Småskjermer: litt strammere spacing på hero-knappen */
+@media (max-width: 600px){
+  .hero-cta .btn-primary{
+    padding: .85rem 1.35rem;
+    font-size: .95rem;
+    letter-spacing: .1px;
+  }
+}
 
 
 
