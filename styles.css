@@ -1,4 +1,4 @@
- /* ========================= RESET & BASE ========================= */
+/* ========================= RESET & BASE ========================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root{
@@ -8,7 +8,7 @@
   --text:#000;
   --bg:#E4E8F2;
   --container: 980px;
-  --card-img-h: 220px; /* høyde for kort-bilde */
+  --card-img-h: 220px;
   --marquee-speed: 50s;
 }
 
@@ -18,6 +18,8 @@ html, body{
   line-height:1.6;
   color:var(--text);
   background:var(--bg);
+  max-width: 100%;
+  overflow-x: hidden; /* unngå horisontal scroll */
 }
 
 .container{ max-width:var(--container); margin:0 auto; padding:0 1rem; }
@@ -36,9 +38,10 @@ a:focus-visible, button:focus-visible{
 .navbar{
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1200; /* over overlay */
   background: var(--blue-2);
-  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  backdrop-filter: saturate(120%) blur(4px);
 }
 
 .navbar-inner{
@@ -47,15 +50,15 @@ a:focus-visible, button:focus-visible{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 1.15rem 2.25rem;
   gap: 1rem;
 }
 
 .logo{
-  height: 50px;
+  height: 54px;
   width: auto;
   display: block;
-  margin: 5px 10px 0 10px;
+  margin: 3px 10px 3px 10px;
 }
 
 .navbar-left, .navbar-right{ flex-shrink: 0; }
@@ -73,7 +76,8 @@ a:focus-visible, button:focus-visible{
   color:#fff;
   text-decoration:none;
   font-weight:600;
-  padding:.5rem .25rem;
+  padding:.62rem .45rem;
+  font-size:.96rem;
 }
 
 .nav-links a:hover,
@@ -81,7 +85,7 @@ a:focus-visible, button:focus-visible{
   color:var(--orange);
 }
 
-/* Dropdown */
+/* Dropdown (desktop) */
 .nav-links li { position: relative; }
 .nav-links li .dropdown{
   display:none;
@@ -101,9 +105,11 @@ a:focus-visible, button:focus-visible{
 }
 .nav-links li .dropdown a:hover{ background:#2e4d77; }
 
-.nav-links li:hover > .dropdown,
-.nav-links li:focus-within > .dropdown{
-  display:block;
+@media (hover:hover){
+  .nav-links li:hover > .dropdown,
+  .nav-links li:focus-within > .dropdown{
+    display:block;
+  }
 }
 
 /* CTA-knapper */
@@ -131,15 +137,54 @@ a:focus-visible, button:focus-visible{
 }
 
 .btn-pill--orange{
-  background:var(--orange);
-  color:#112033;
-  border-color:transparent;
-  box-shadow:0 6px 16px rgba(0,0,0,.18);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.8rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f77c37 0%, #f8923f 100%);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 4px 14px rgba(247,124,55,0.35),
+    inset 0 1px 1px rgba(255,255,255,0.25),
+    inset 0 -2px 6px rgba(0,0,0,0.08);
+  backdrop-filter: saturate(160%) blur(2px);
+  transform: translateY(0);
+  transition: transform 0.25s cubic-bezier(.25,.8,.25,1), box-shadow 0.25s ease, filter 0.25s ease;
+  animation: orangePulse 6s ease-in-out infinite;
 }
-.btn-pill--orange:hover{
-  filter:brightness(1.05);
-  transform:translateY(-1px);
+.btn-pill--orange:hover,
+.btn-pill--orange:focus-visible {
+  transform: translateY(-3px);
+  filter: brightness(1.08);
+  box-shadow:
+    0 8px 22px rgba(247,124,55,0.45),
+    inset 0 1px 1px rgba(255,255,255,0.25),
+    inset 0 -3px 8px rgba(0,0,0,0.08);
+  outline: none;
 }
+.btn-pill--orange:active { transform: translateY(1px); filter: brightness(0.96); }
+@keyframes orangePulse{
+  0%,100%{
+    box-shadow:
+      0 4px 14px rgba(247,124,55,0.35),
+      inset 0 1px 1px rgba(255,255,255,0.25),
+      inset 0 -2px 6px rgba(0,0,0,0.08);
+  }
+  50%{
+    box-shadow:
+      0 6px 20px rgba(247,124,55,0.45),
+      inset 0 1px 1px rgba(255,255,255,0.25),
+      inset 0 -2px 6px rgba(0,0,0,0.08);
+  }
+}
+.navbar .btn-pill--orange { color: #112033; }
 
 .show-desktop { display:flex; gap:.5rem; align-items:center; }
 .show-mobile { display:none; }
@@ -167,49 +212,16 @@ a:focus-visible, button:focus-visible{
   transform:translateY(-7px) rotate(-45deg);
 }
 
-/* Mobil */
-@media (max-width:900px){
-  .hamburger{ display:block; }
-  .show-desktop{ display:none; }
-  .show-mobile{ display:block; }
-
-  .navbar-center{
-    position:absolute;
-    top:100%;
-    left:0;
-    right:0;
-    display:none;
-    background:var(--blue-2);
-    border-top:1px solid rgba(255,255,255,.15);
-    padding:.75rem 1rem;
-  }
-  .navbar-center.active{ display:block; }
-
-  .nav-links{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:1rem;
-  }
-
-  .nav-links li .dropdown{
-    position:static;
-    display:block;
-    background:transparent;
-    box-shadow:none;
-    padding:0;
-  }
-
+/* Overlay + scroll-lock */
+body.no-scroll { overflow: hidden; }
+.nav-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.38);
+  z-index: 1000;
+}
 
 /* ========================= MASTHEAD ========================= */
- .nav-links li .dropdown{
-    position:static;
-    display:block;
-    background:transparent;
-    box-shadow:none;
-    padding:0;
-  }
- } /* lukker @media (max-width:900px) */
-
 .masthead{
   background:url('hero-large.jpg') center/cover no-repeat;
   min-height:48vh;
@@ -226,24 +238,65 @@ a:focus-visible, button:focus-visible{
 
 /* ========================= HERO-CARD ========================= */
 .hero-card{
-  position:relative;
-  background:radial-gradient(1200px 600px at 50% 0%, rgba(0,0,0,.14), transparent 65%),
-             linear-gradient(180deg,#24344d 0%,#1c2c45 100%);
+  background:
+    radial-gradient(1200px 600px at 50% 0%, rgba(0,0,0,.08), transparent 65%),
+    linear-gradient(180deg, rgba(36,52,77,.78) 0%, rgba(28,44,69,.90) 100%);
   color:#fff;
   text-align:center;
-  padding:5rem 1.5rem;
+  padding: 6rem 1.5rem 7rem;
   min-height:260px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   width:100%;
-  z-index:2;
   box-shadow:0 -10px 28px rgba(0,0,0,.18);
 }
 .hero-card h1{
   color:#fff;
   text-shadow:0 2px 10px rgba(0,0,0,.25);
   margin:0;
+  max-width: 26ch;
+  margin-inline: auto;
+}
+
+/* HERO – Les mer-knapp (en versjon) */
+.hero-cta{
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+}
+.hero-cta .btn-primary{
+  position: relative;
+  display: inline-block;
+  padding: 0.9rem 1.6rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #F77C37 0%, #E46F31 100%);
+  color:#fff;
+  font-weight: 800;
+  letter-spacing: .2px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(0,0,0,.22);
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+.hero-cta .btn-primary:hover,
+.hero-cta .btn-primary:focus-visible{
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 16px 36px rgba(0,0,0,.26);
+  outline: none;
+}
+.hero-cta .btn-primary:active{
+  transform: translateY(1px);
+  filter: brightness(.96);
+}
+@media (max-width: 600px) {
+  .hero-cta .btn-primary {
+    padding: .85rem 1.35rem;
+    font-size: .95rem;
+    letter-spacing: .1px;
+  }
 }
 
 /* ========================= MARQUEE ========================= */
@@ -266,7 +319,7 @@ a:focus-visible, button:focus-visible{
   flex-shrink:0;
   display:flex;
   gap:2.4rem;
-  padding:.8rem 2.4rem;
+  padding:.65rem 2.1rem; /* litt slankere */
   white-space:nowrap;
 }
 @keyframes mss-marquee{
@@ -275,31 +328,6 @@ a:focus-visible, button:focus-visible{
 }
 @media (prefers-reduced-motion:reduce){
   .marquee__wrap{ animation:none; }
-}
-
-/* ========================= FILTER-KNAPPER ========================= */
-.news-filters{
-  max-width:var(--container);
-  margin:.75rem auto 0;
-  padding:0 1rem;
-  display:flex;
-  gap:.5rem;
-  flex-wrap:wrap;
-}
-.filter{
-  border:0;
-  background:#fff;
-  color:var(--blue-2);
-  padding:.4rem .75rem;
-  border-radius:999px;
-  cursor:pointer;
-  font-weight:700;
-  font-size:.92rem;
-  box-shadow:0 2px 10px rgba(0,0,0,.06);
-}
-.filter.active{
-  background:var(--orange);
-  color:#112033;
 }
 
 /* ========================= NYHETER / AKTIVITETER ========================= */
@@ -335,9 +363,14 @@ a:focus-visible, button:focus-visible{
   box-shadow:0 6px 20px rgba(0,0,0,.07);
   display:flex;
   flex-direction:column;
-  transition:transform .3s ease;
+  transition:transform .3s ease, box-shadow .3s ease;
 }
-.news-card:hover{ transform:translateY(-4px); }
+@media (hover:hover) and (pointer:fine){
+  .news-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 30px rgba(0,0,0,.10);
+  }
+}
 
 /* Bilde */
 .news-media{
@@ -448,405 +481,44 @@ a:focus-visible, button:focus-visible{
   padding:.9rem 1rem;
   font-size:.9rem;
 }
-/* ========================= NAVBAR FORBEDRING ========================= */
 
-/* Litt mer høyde og luft */
-.navbar-inner {
-  padding: 1.1rem 2.5rem; /* mer horisontal og vertikal luft */
-}
+/* ========================= MOBIL-MENY (accordion) ========================= */
+@media (max-width:900px){
+  .hamburger{ display:block; }
+  .show-desktop{ display:none; }
+  .show-mobile{ display:block; }
 
-/* Jevn vertikal plassering */
-.nav-links a {
-  padding: 0.6rem 0.4rem;
-  font-size: 0.96rem;
-}
-
-/* Øk avstanden mellom lenkene og CTA-knapper */
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-/* Knappene til høyre */
-.btn-pill--light, .btn-pill--orange {
-  padding: 0.65rem 1.15rem;
-  font-size: 0.94rem;
-}
-
-/* Juster avrunding og skygge for mer dybde */
-.btn-pill--orange {
-  border-radius: 999px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-}
-
-.btn-pill--orange:hover {
-  transform: translateY(-2px);
-}
-
-.btn-pill--light {
-  border: 1px solid rgba(255,255,255,0.25);
-  background: rgba(255,255,255,0.12);
-}
-
-.btn-pill--light:hover {
-  background: rgba(255,255,255,0.18);
-  transform: translateY(-2px);
-}
-
-/* Logo-løft – juster for midtstilling */
-.logo {
-  height: 54px; /* litt høyere */
-  margin: 3px 10px 3px 10px; /* balanser luft oppe/nede */
-}
-
-/* For ekstra balanse i hele linjen */
-.navbar {
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-  backdrop-filter: saturate(120%) blur(4px);
-}
-
-/* Responsivt justert luft */
-@media (max-width: 900px) {
-  .navbar-inner {
-    padding: 0.9rem 1.25rem;
+  .navbar-center{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    display:none;
+    background:var(--blue-2);
+    border-top:1px solid rgba(255,255,255,.15);
+    padding:.75rem 1rem;
+    z-index: 1100; /* over overlay */
   }
-}
-/* ========================= HERO-KNAPP (LES MER) ========================= */
-.hero-cta {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-}
+  .navbar-center.active{ display:block; }
 
-.hero-cta .btn-primary {
-  display: inline-block;
-  padding: 0.9rem 1.6rem;
-  border-radius: 14px;
-  background: linear-gradient(180deg, #F77C37 0%, #e46f31 100%);
-  color: #fff;
-  font-weight: 700;
-  font-size: 1rem;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18),
-              inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
-}
-
-.hero-cta .btn-primary:hover,
-.hero-cta .btn-primary:focus-visible {
-  filter: brightness(1.08);
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-              inset 0 1px 0 rgba(255, 255, 255, 0.28);
-}
-
-.hero-cta .btn-primary:active {
-  transform: translateY(1px);
-  filter: brightness(0.96);
-}
-
-/* Responsivt justert spacing */
-@media (max-width: 600px) {
-  .hero-cta .btn-primary {
-    padding: 0.8rem 1.3rem;
-    font-size: 0.95rem;
-  }}
-/* ========================= HERO-KNAPP – PREMIUM ========================= */
-
-/* 1) Base (overstyrer eksisterende btn-primary i hero) */
-.hero-cta .btn-primary{
-  position: relative;
-  display: inline-block;
-  padding: 0.95rem 1.75rem;
-  border-radius: 14px;
-  background: linear-gradient(180deg, #F77C37 0%, #E46F31 100%);
-  color:#fff;
-  font-weight: 800;
-  letter-spacing: .2px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-
-  /* myk skygge + subtil glød */
-  box-shadow:
-    0 12px 28px rgba(0,0,0,.22),
-    0 0 0 0 rgba(247,124,55,.0);
-
-  transition:
-    transform .18s ease,
-    filter .18s ease,
-    box-shadow .18s ease;
-  
-  /* rolig puls (glød) */
-  animation: mss-glow 6.5s ease-in-out infinite;
-}
-
-/* 2) Hover/focus – litt mer løft og glød */
-.hero-cta .btn-primary:hover,
-.hero-cta .btn-primary:focus-visible{
-  transform: translateY(-2px);
-  filter: brightness(1.06);
-  box-shadow:
-    0 16px 36px rgba(0,0,0,.26),
-    0 0 18px 0 rgba(247,124,55,.28);
-  outline: none;
-}
-
-/* 3) Active – trykkrespons */
-.hero-cta .btn-primary:active{
-  transform: translateY(1px);
-  filter: brightness(.96);
-}
-
-/* 4) Shine-effekt (diskré highlight som sveiper) */
-.hero-cta .btn-primary::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius: inherit;
-  background:
-    linear-gradient(110deg,
-      transparent 20%,
-      rgba(255,255,255,.18) 45%,
-      rgba(255,255,255,.0) 55%);
-  transform: translateX(-120%);
-  transition: transform .7s ease;
-  pointer-events:none;
-  mix-blend-mode: screen;   /* subtilt */
-}
-.hero-cta .btn-primary:hover::after{
-  transform: translateX(0%); /* sveip fra venstre */
-}
-
-/* 5) Puls-animasjon (svært rolig) */
-@keyframes mss-glow{
-  0%, 60%, 100%{
-    box-shadow:
-      0 12px 28px rgba(0,0,0,.22),
-      0 0 0 0 rgba(247,124,55,.0);
+  .nav-links{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:1rem;
   }
-  30%{
-    box-shadow:
-      0 14px 30px rgba(0,0,0,.24),
-      0 0 16px 0 rgba(247,124,55,.18);
+
+  /* Accordion: skjul som default, vis når .has-sub .open */
+  .nav-links li .dropdown{
+    position:static;
+    display:none;
+    background:transparent;
+    box-shadow:none;
+    padding:0;
   }
+  .has-sub.open > .dropdown{ display:block; }
+
+  .btn-pill, .news-button { padding: 14px 18px; }
 }
 
-/* 6) Tilgjengelighet – slå av bevegelse hvis brukeren ønsker det */
-@media (prefers-reduced-motion: reduce){
-  .hero-cta .btn-primary{
-    animation: none;
-  }
-  .hero-cta .btn-primary::after{
-    transition: none;
-  }
-}
-
-/* 7) Mobil finjustering */
-@media (max-width:600px){
-  .hero-cta .btn-primary{
-    padding: .85rem 1.35rem;
-    font-size: .95rem;
-    letter-spacing: .1px;
-  } }
- /* HERO-KNAPP – roligere, uten glans */
-.hero-cta {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-cta .btn-primary{
-  position: relative;
-  display: inline-block;
-  padding: 0.95rem 1.75rem;
-  border-radius: 14px;
-  background: linear-gradient(180deg, #F77C37 0%, #E46F31 100%);
-  color: #fff;
-  font-weight: 800;
-  letter-spacing: .2px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 12px 28px rgba(0,0,0,.22);
-  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
-}
-
-.hero-cta .btn-primary:hover,
-.hero-cta .btn-primary:focus-visible{
-  transform: translateY(-2px);
-  filter: brightness(1.04);
-  box-shadow: 0 16px 36px rgba(0,0,0,.26);
-  outline: none;
-}
-
-.hero-cta .btn-primary:active{
-  transform: translateY(1px);
-  filter: brightness(.96);
-}
-
-@media (max-width: 600px) {
-  .hero-cta .btn-primary {
-    padding: .85rem 1.35rem;
-    font-size: .95rem;
-    letter-spacing: .1px;
-  }
-}
-/* === PATCH: Lettet topp / roligere hero ============================== */
-/* 1) Hero-card: lysere overlay, mer luft og smalere tekstlinje */
-.hero-card{
-  /* mer transparent og litt mykere */
-  background:
-    radial-gradient(1200px 600px at 50% 0%, rgba(0,0,0,.08), transparent 65%),
-    linear-gradient(180deg, rgba(36,52,77,.78) 0%, rgba(28,44,69,.90) 100%);
-  padding: 6rem 1.5rem 7rem;            /* mer vertikal luft */
-}
-
-.hero-card h1{
-  max-width: 26ch;                      /* kortere linjelengde = bedre lesbarhet */
-  margin-inline: auto;
-}
-
-/* 2) Hero-CTA: én tydelig primærknapp (uten “shine”-sveip) */
-.hero-cta{
-  margin-top: 1.25rem;
-}
-.hero-cta .btn-primary{
-  padding: 0.9rem 1.6rem;
-  border-radius: 14px;
-  background: linear-gradient(180deg, #F77C37 0%, #E46F31 100%);
-  color:#fff;
-  font-weight: 800;
-  letter-spacing: .2px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 12px 28px rgba(0,0,0,.22);
-  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
-}
-
-/* Hover/focus: subtilt løft – BEHOLDER, men uten glanslag */
-.hero-cta .btn-primary:hover,
-.hero-cta .btn-primary:focus-visible{
-  transform: translateY(-2px);
-  filter: brightness(1.06);
-  box-shadow: 0 16px 36px rgba(0,0,0,.26);
-  outline: none;
-}
-.hero-cta .btn-primary:active{
-  transform: translateY(1px);
-  filter: brightness(.96);
-}
-
-/* Fjern “shine”-effekten helt hvis den finnes fra før */
-.hero-cta .btn-primary::after{
-  content: none !important;
-}
-@keyframes mss-glow{ /* finnes kanskje fra før – gjør den inert */
-  from { box-shadow: none; }
-  to   { box-shadow: none; }
-}
-
-/* 3) Navbar: litt mer luft, men uten å bli “tyngre” */
-.navbar-inner{
-  padding: 1.15rem 2.25rem;
-}
-.nav-links a{
-  padding: .62rem .45rem;
-  font-size: .96rem;
-}
-
-/* 4) Oransje bånd (marquee): litt slankere så det ikke tar fokus */
-.marquee__row{
-  padding: .65rem 2.1rem;               /* ned fra .8rem */
-}
-
-/* 5) Småskjermer: litt strammere spacing på hero-knappen */
-@media (max-width: 600px){
-  .hero-cta .btn-primary{
-    padding: .85rem 1.35rem;
-    font-size: .95rem;
-    letter-spacing: .1px;
-  }
-}
-/* === 2025 refresh: Se våre treningstilbud-knapp ===================== */
-.btn-pill--orange {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0.85rem 1.8rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #f77c37 0%, #f8923f 100%);
-  color: #fff;
-  font-weight: 800;
-  font-size: 1rem;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-
-  /* moderne “glass shadow” + dybde */
-  box-shadow:
-    0 4px 14px rgba(247,124,55,0.35),
-    inset 0 1px 1px rgba(255,255,255,0.25),
-    inset 0 -2px 6px rgba(0,0,0,0.08);
-
-  backdrop-filter: saturate(160%) blur(2px);
-  transform: translateY(0);
-  transition: 
-    transform 0.25s cubic-bezier(.25,.8,.25,1),
-    box-shadow 0.25s ease,
-    filter 0.25s ease;
-}
-
-/* Hover – myk løft + diskret glød */
-.btn-pill--orange:hover,
-.btn-pill--orange:focus-visible {
-  transform: translateY(-3px);
-  filter: brightness(1.08);
-  box-shadow:
-    0 8px 22px rgba(247,124,55,0.45),
-    inset 0 1px 1px rgba(255,255,255,0.25),
-    inset 0 -3px 8px rgba(0,0,0,0.08);
-  outline: none;
-}
-
-/* Trykkrespons */
-.btn-pill--orange:active {
-  transform: translateY(1px);
-  filter: brightness(0.96);
-}
-
-/* Diskré glød-puls for 2025-look */
-@keyframes orangePulse {
-  0%, 100% {
-    box-shadow:
-      0 4px 14px rgba(247,124,55,0.35),
-      inset 0 1px 1px rgba(255,255,255,0.25),
-      inset 0 -2px 6px rgba(0,0,0,0.08);
-  }
-  50% {
-    box-shadow:
-      0 6px 20px rgba(247,124,55,0.45),
-      inset 0 1px 1px rgba(255,255,255,0.25),
-      inset 0 -2px 6px rgba(0,0,0,0.08);
-  }
-}
-
-.btn-pill--orange {
-  animation: orangePulse 6s ease-in-out infinite;
-}
-
-/* Mørk bakgrunnsjustering (navbar) */
-.navbar .btn-pill--orange {
-  color: #112033;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
