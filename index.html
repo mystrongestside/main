@@ -243,10 +243,14 @@
     </div>
   </footer>
 
-  <script>
-    // Setter årstall i bunnlinjen
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
+<script>
+const btn = document.getElementById('hamburger');
+const menu = document.querySelector('.navbar-center');
+btn?.addEventListener('click', () => {
+  const open = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!open));
+  menu.classList.toggle('active', !open);
+});
+</script>
 </body>
 </html>
