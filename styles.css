@@ -201,6 +201,15 @@ a:focus-visible, button:focus-visible{
 
 
 /* ========================= MASTHEAD ========================= */
+ .nav-links li .dropdown{
+    position:static;
+    display:block;
+    background:transparent;
+    box-shadow:none;
+    padding:0;
+  }
++ } /* lukker @media (max-width:900px) */
+
 .masthead{
   background:url('hero-large.jpg') center/cover no-repeat;
   min-height:48vh;
