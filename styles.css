@@ -772,6 +772,79 @@ a:focus-visible, button:focus-visible{
     letter-spacing: .1px;
   }
 }
+/* === 2025 refresh: Se våre treningstilbud-knapp ===================== */
+.btn-pill--orange {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.85rem 1.8rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f77c37 0%, #f8923f 100%);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+
+  /* moderne “glass shadow” + dybde */
+  box-shadow:
+    0 4px 14px rgba(247,124,55,0.35),
+    inset 0 1px 1px rgba(255,255,255,0.25),
+    inset 0 -2px 6px rgba(0,0,0,0.08);
+
+  backdrop-filter: saturate(160%) blur(2px);
+  transform: translateY(0);
+  transition: 
+    transform 0.25s cubic-bezier(.25,.8,.25,1),
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* Hover – myk løft + diskret glød */
+.btn-pill--orange:hover,
+.btn-pill--orange:focus-visible {
+  transform: translateY(-3px);
+  filter: brightness(1.08);
+  box-shadow:
+    0 8px 22px rgba(247,124,55,0.45),
+    inset 0 1px 1px rgba(255,255,255,0.25),
+    inset 0 -3px 8px rgba(0,0,0,0.08);
+  outline: none;
+}
+
+/* Trykkrespons */
+.btn-pill--orange:active {
+  transform: translateY(1px);
+  filter: brightness(0.96);
+}
+
+/* Diskré glød-puls for 2025-look */
+@keyframes orangePulse {
+  0%, 100% {
+    box-shadow:
+      0 4px 14px rgba(247,124,55,0.35),
+      inset 0 1px 1px rgba(255,255,255,0.25),
+      inset 0 -2px 6px rgba(0,0,0,0.08);
+  }
+  50% {
+    box-shadow:
+      0 6px 20px rgba(247,124,55,0.45),
+      inset 0 1px 1px rgba(255,255,255,0.25),
+      inset 0 -2px 6px rgba(0,0,0,0.08);
+  }
+}
+
+.btn-pill--orange {
+  animation: orangePulse 6s ease-in-out infinite;
+}
+
+/* Mørk bakgrunnsjustering (navbar) */
+.navbar .btn-pill--orange {
+  color: #112033;
+}
 
 
 
