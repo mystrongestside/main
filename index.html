@@ -191,19 +191,74 @@
 </footer>
 
 <!-- ========================= SCRIPTS ========================= -->
-<script>
-  // Dynamisk år
-  document.getElementById('year').textContent = new Date().getFullYear();
+ <script>
+  // Dynamisk år (hvis du har <span id="year"> i footer)
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Hamburger
-  const btn = document.getElementById('hamburger');
-  const menu = document.getElementById('navbar-menu');
+  // Elementer
+  const btn = document.getElementById('hamburger');      // <button id="hamburger">
+  const menu = document.getElementById('navbar-menu');   // VIKTIG: matcher HTML-id
+
+  // (Valgfritt men anbefalt) overlay for å lukke ved trykk utenfor
+  let overlay = document.querySelector('.nav-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    overlay.hidden = true;
+    document.body.appendChild(overlay);
+  }
+
+  function openMenu() {
+    btn?.setAttribute('aria-expanded', 'true');
+    menu?.classList.add('active');
+    document.body.classList.add('no-scroll');
+    overlay.hidden = false;
+  }
+
+  function closeMenu() {
+    btn?.setAttribute('aria-expanded', 'false');
+    menu?.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+    overlay.hidden = true;
+    // Lukk evt. åpen sub
+    const t = document.querySelector('.nav-has-sub');
+    t?.setAttribute('aria-expanded','false');
+    document.querySelector('.has-sub')?.classList.remove('open');
+  }
+
   btn?.addEventListener('click', () => {
     const open = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!open));
-    menu.classList.toggle('active', !open);
+    open ? closeMenu() : openMenu();
+  });
+
+  overlay.addEventListener('click', closeMenu);
+
+  // ESC lukker meny
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Lukk når man klikker en lenke (unntatt sub-trigger)
+  menu?.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    if (a.classList.contains('nav-has-sub')) {
+      e.preventDefault();
+      const li = a.closest('.has-sub');
+      const isOpen = li.classList.toggle('open');
+      a.setAttribute('aria-expanded', String(isOpen));
+      return;
+    }
+    closeMenu();
+  });
+
+  // Sikkerhet: lukke ved resize til desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024) closeMenu();
   });
 </script>
+ 
 
 </body>
 </html>
