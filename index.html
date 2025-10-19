@@ -91,7 +91,67 @@
     </div>
   </div>
 </div>
+<div class="myss-circle">
+  <img src="myss-logo.png" alt="MyStrongestSide-logo" class="myss-logo" />
 
+  <svg class="myss-ring" viewBox="0 0 200 200" aria-hidden="true">
+    <defs>
+      <path id="textCircle" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0" />
+    </defs>
+    <text>
+      <textPath href="#textCircle" startOffset="0%">
+        MY STRONGEST SIDE® MY STRONGEST SIDE® MY STRONGEST SIDE® MY STRONGEST SIDE®
+      </textPath>
+    </text>
+  </svg>
+</div>
+
+<style>
+  .myss-circle{
+    position: relative;
+    width: 320px;
+    aspect-ratio: 1;
+    margin: 0 auto;
+  }
+
+  .myss-logo{
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 40%;
+    transform: translate(-50%, -50%);
+    display: block;
+  }
+
+  .myss-ring{
+    width: 100%;
+    height: 100%;
+    display: block;
+    animation: myss-spin var(--speed, 16s) linear infinite;
+  }
+
+  .myss-ring text{
+    font-family: Arial, system-ui, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  @keyframes myss-spin { 
+    to { transform: rotate(360deg); } 
+  }
+
+  /* Pause ved hover (valgfritt) */
+  .myss-circle:hover .myss-ring{
+    animation-play-state: paused;
+  }
+
+  /* Skjul på mobil og små skjermer */
+  @media (max-width: 768px){
+    .myss-circle{
+      display: none;
+    }
+  }
+</style>
 <!-- ========================= AKTIVITETER ========================= -->
 <section id="tilbud" class="news-section">
   <header class="news-header">
