@@ -208,7 +208,7 @@ a:focus-visible, button:focus-visible{
     box-shadow:none;
     padding:0;
   }
-+ } /* lukker @media (max-width:900px) */
+ } /* lukker @media (max-width:900px) */
 
 .masthead{
   background:url('hero-large.jpg') center/cover no-repeat;
