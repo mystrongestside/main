@@ -582,5 +582,23 @@ body.no-scroll { overflow: hidden; }
   width: auto;
   object-fit: contain;
 }
+#om-myss h3 {
+  color: var(--blue);
+  margin-top: 2.5rem;
+  font-size: 1.3rem;
+}
+
+#om-myss p {
+  margin-bottom: 1.2rem;
+}
+
+#om-myss ul {
+  margin-left: 1.2rem;
+  list-style-type: disc;
+}
+
+#om-myss li {
+  margin-bottom: 0.5rem;
+}
 
 
