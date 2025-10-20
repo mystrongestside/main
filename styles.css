@@ -533,3 +533,9 @@ body.no-scroll { overflow: hidden; }
   padding: 0;
 }
 .nav-links li::marker { content: ""; }
+.masthead--about {
+  background:url('gruppebilde.jpg') center/cover no-repeat;
+  min-height:48vh;
+}
+
+
