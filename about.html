@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
@@ -7,7 +7,7 @@
   <meta name="description" content="My Strongest Side® gjør styrketrening tilgjengelig for flest mulig – med faglig forankring, trygghet og fellesskap i sentrum.">
 
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
   <style>html{scroll-behavior:smooth}</style>
 </head>
 <body>
@@ -36,7 +36,7 @@
         </li>
         <li><a href="about.html" aria-current="page">Om oss</a></li>
         <li><a href="frivillig.html">Frivillig</a></li>
-        <li><a href="frivillig.html">Kontakt</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
       </ul>
     </div>
 
@@ -82,35 +82,33 @@
   </div>
 </div>
 
+<!-- ========================= ABOUT CONTENT ========================= -->
 <section id="om-myss" class="section">
   <div class="container">
     <h2>Om My Strongest Side®</h2>
+
     <section>
       <h2>Et inkluderende treningsmiljø</h2>
       <p>My Strongest Side® er et norsk initiativ som gjør styrketrening mer tilgjengelig for personer med funksjonsvariasjoner. Vi tilbyr små grupper, tett oppfølging og trening i trygge omgivelser – på kommersielle treningssentre.</p>
       <p>Hos oss handler trening ikke om prestasjon, men om mestring, trygghet og fellesskap.</p>
     </section>
 
+    <!-- ========================= CIRCULAR TEXT BADGE ========================= -->
+    <div class="myss-circle-badge">
+      <img src="logo-orange.png" alt="My Strongest Side" class="badge-logo" />
+      <svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <path id="badgeCirclePath" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" />
+        </defs>
+        <text class="badge-text">
+          <textPath href="#badgeCirclePath" startOffset="0%">
+            MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • 
+          </textPath>
+        </text>
+      </svg>
+    </div>
 
-      
-<div class="myss-circle-badge">
-  <!-- Midtlogo -->
-  <img src="logo-orange.png" alt="My Strongest Side" class="badge-logo" />
-
-  <!-- Sirkulær tekst (SVG i HTML) -->
-  <svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true">
-    <defs>
-      <!-- Sirkelbane teksten følger -->
-      <path id="badgeCirclePath" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" />
-    </defs>
-    <text class="badge-text">
-      <textPath href="#badgeCirclePath" startOffset="0%">
-        MY STRONGEST SIDE®  MY STRONGEST SIDE®  MY STRONGEST SIDE®  
-      </textPath>
-    </text>
-  </svg>
-</div>
-   <section>
+    <section>
       <h2>Navnet</h2>
       <p>Navnet symboliserer troen på at alle har en sterk side – og at riktige tilpasninger kan bidra til bedre helse og økt selvstendighet.</p>
       <p>Det handler ikke bare om fysisk styrke, men også om å finne det som gir motivasjon, mening og mestring i hverdagen.</p>
@@ -131,8 +129,8 @@
       </ul>
       <p>Målet vårt er å gjøre trening tilgjengelig for flest mulig – uavhengig av funksjonsnivå.</p>
     </section>
-  </main>
-
+  </div>
+</section>
 
 <!-- ========================= FOOTER ========================= -->
 <footer class="site-footer">
@@ -182,7 +180,7 @@
 
 <!-- ========================= SCRIPTS ========================= -->
 <script>
-  // dynamisk år
+  // Dynamisk år
   document.getElementById('year').textContent = new Date().getFullYear();
 
   const btn = document.getElementById('hamburger');
