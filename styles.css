@@ -600,5 +600,62 @@ body.no-scroll { overflow: hidden; }
 #om-myss li {
   margin-bottom: 0.5rem;
 }
+/* ===== Circle text badge styles ===== */
+.myss-circle-badge{
+  --size: 320px;           /* justér total størrelse */
+  --speed: 28s;            /* hastighet på rotasjon */
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  margin: 0 auto;
+  /* Plassering til høyre – flytt/overstyr etter behov */
+  float: right;
+  margin-inline-start: 2rem;
+  margin-block-end: 2rem;
+  z-index: 2;
+  pointer-events: none;    /* unngå å blokkere klikk under */
+}
+
+/* Skjul på mobil */
+@media (max-width: 768px){
+  .myss-circle-badge{ display: none; }
+}
+
+/* Midtlogoen */
+.myss-circle-badge .badge-logo{
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: 46%;
+  height: auto;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.08));
+  pointer-events: none;
+}
+
+/* Ringen (SVG) fyller hele boksen */
+.myss-circle-badge .badge-ring{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Typografi og animasjon for teksten */
+.myss-circle-badge .badge-text{
+  font: 700 6px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  fill: #192B45;          /* bytt til dine merkevarefarger ved behov */
+  animation: spin var(--speed) linear infinite;
+  transform-origin: 50% 50%;
+}
+
+/* Bevegelsesreduksjon respekteres */
+@media (prefers-reduced-motion: reduce){
+  .myss-circle-badge .badge-text{ animation: none; }
+}
+
+@keyframes spin{
+  to{ transform: rotate(360deg); }
+}
 
 
