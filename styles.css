@@ -657,5 +657,13 @@ body.no-scroll { overflow: hidden; }
 @keyframes spin{
   to{ transform: rotate(360deg); }
 }
+.myss-circle-badge {
+  animation: fadeIn 1.6s ease 0.3s both;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 
