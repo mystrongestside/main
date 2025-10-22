@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt | My Strongest Side®</title>
+  <meta name="description" content="Kontakt My Strongest Side® – vi gjør styrketrening tilgjengelig for flest mulig, med trygghet, fellesskap og tilpasning i sentrum.">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css?v=8">
+  <style>html{scroll-behavior:smooth}</style>
+</head>
+<body>
+
+<!-- ========================= NAVBAR ========================= -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-left">
+      <a href="index.html" aria-label="Hjem">
+        <img src="hlogo.png" alt="My Strongest Side" class="logo">
+      </a>
+    </div>
+
+    <div class="navbar-center" id="navbar-menu">
+      <ul class="nav-links">
+        <li><a href="index.html">Forside</a></li>
+        <li><a href="about.html">Om oss</a></li>
+        <li><a href="frivillig.html">Frivillig</a></li>
+        <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+      </ul>
+    </div>
+
+    <div class="navbar-right show-desktop">
+      <a href="index.html#tilbud" class="btn-pill btn-pill--orange">Se våre treningstilbud</a>
+    </div>
+
+    <button id="hamburger" class="hamburger show-mobile" aria-expanded="false" aria-controls="navbar-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-overlay" hidden></div>
+
+<!-- ========================= HERO ========================= -->
+<section class="masthead masthead--contact"></section>
+
+<section class="hero-card">
+  <h1>Kontakt oss<span class="dot">.</span></h1>
+  <p class="hero-sub">
+    Har du spørsmål om våre tilbud eller ønsker samarbeid? Vi vil gjerne høre fra deg.
+  </p>
+</section>
+
+<!-- ========================= CONTACT FORM ========================= -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-card">
+      <h2>Send oss en melding</h2>
+      <form id="contactForm" action="/send-contact" method="post" novalidate>
+        <div class="form-group">
+          <label for="name">Navn</label>
+          <input type="text" id="name" name="name" required placeholder="Ditt navn" />
+        </div>
+        <div class="form-group">
+          <label for="email">E-post</label>
+          <input type="email" id="email" name="email" required placeholder="din@epost.no" />
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefon (valgfritt)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+47 ..." />
+        </div>
+        <div class="form-group">
+          <label for="message">Melding</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Skriv meldingen din her..."></textarea>
+        </div>
+        <button type="submit" class="btn-pill btn-pill--orange">Send melding</button>
+        <div id="formFeedback" class="form-feedback" hidden></div>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <h3>Kontaktinformasjon</h3>
+      <p><strong>My Strongest Side AS</strong></p>
+      <p>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></p>
+      <p>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></p>
+      <p>Adresse: Brages veg 3, 5221 Nesttun</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="site-footer">
+  <div class="footer-bottom">
+    <p>© <span id="year"></span> My Strongest Side® · Alle rettigheter forbeholdt</p>
+  </div>
+</footer>
+
+<!-- ========================= SCRIPT ========================= -->
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const form = document.getElementById('contactForm');
+  const feedback = document.getElementById('formFeedback');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    feedback.hidden = true;
+    feedback.textContent = '';
+
+    const data = Object.fromEntries(new FormData(form));
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        feedback.textContent = 'Takk! Vi har mottatt meldingen din.';
+        feedback.className = 'form-feedback success';
+        form.reset();
+      } else throw new Error();
+    } catch {
+      feedback.textContent = 'Noe gikk galt. Prøv igjen senere.';
+      feedback.className = 'form-feedback error';
+    } finally {
+      feedback.hidden = false;
+    }
+  });
+</script>
+
+</body>
+</html>
