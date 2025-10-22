@@ -723,6 +723,65 @@ body.no-scroll { overflow: hidden; }
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  background: var(--bg);
+  padding: 4rem 1rem 6rem;
+}
+.contact-section .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.contact-card, .contact-info {
+  flex: 1 1 45%;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.contact-info {
+  background: var(--blue-2);
+  color: #fff;
+}
+.contact-info a { color: #fff; text-decoration: underline; }
+.contact-card h2 {
+  color: var(--blue);
+  margin-bottom: 1.5rem;
+}
+.form-group {
+  margin-bottom: 1.2rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: .4rem;
+  font-weight: bold;
+  color: var(--blue);
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: .8rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+textarea { resize: vertical; }
+.form-feedback {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+.form-feedback.success { color: green; }
+.form-feedback.error { color: red; }
+
+/* Responsivt */
+@media (max-width: 768px) {
+  .contact-section .container {
+    flex-direction: column;
+  }
+}
 
 
 
