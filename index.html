@@ -1,35 +1,74 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Strongest Side®</title>
-  <meta name="description" content="Tilrettelagt styrketrening i Bergen. My Strongest Side® gjør trening tilgjengelig for flest mulig – med mestring, trygghet og fellesskap i sentrum." />
+  <title>Om oss | My Strongest Side®</title>
+  <meta name="description" content="My Strongest Side® gjør styrketrening tilgjengelig for flest mulig – med faglig forankring, trygghet og fellesskap i sentrum.">
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css?v=8">
-  <!-- Valgfritt: smooth scroll -->
-  <style>html{scroll-behavior:smooth}</style>
+  <style>
+    html{scroll-behavior:smooth}
+
+    /* ===== TEAM SECTION ===== */
+    .team-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .team-text {
+      flex: 1 1 55%;
+    }
+
+    .team-image {
+      flex: 1 1 40%;
+      text-align: right;
+    }
+
+    .team-image img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 768px) {
+      .team-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .team-image {
+        text-align: center;
+      }
+
+      .team-image img {
+        max-width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <!-- ========================= NAVBAR ========================= -->
 <nav class="navbar">
   <div class="navbar-inner">
-
-    <!-- VENSTRE: LOGO -->
     <div class="navbar-left">
-      <a href="/" aria-label="Hjem">
+      <a href="index.html" aria-label="Hjem">
         <img src="hlogo.png" alt="My Strongest Side" class="logo">
       </a>
     </div>
 
-    <!-- MIDTEN: LENKER -->
     <div class="navbar-center" id="navbar-menu">
       <ul class="nav-links">
-        <li><a href="index.html" aria-current="page">Forside</a></li>
-
-        <!-- RIKTIG: kun én li, med has-sub -->
+        <li><a href="index.html">Forside</a></li>
         <li class="has-sub">
           <a href="#" class="nav-has-sub" aria-haspopup="true" aria-expanded="false">Våre tilbud</a>
           <ul class="dropdown">
@@ -40,36 +79,33 @@
             <li><a href="#">Individuell oppfølging</a></li>
           </ul>
         </li>
-
-        <li><a href="about.html">Om oss</a></li>
+        <li><a href="about.html" aria-current="page">Om oss</a></li>
         <li><a href="frivillig.html">Frivillig</a></li>
-         <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
       </ul>
     </div>
 
-    <!-- HØYRE: KNAPP -->
     <div class="navbar-right show-desktop">
-      <a href="#tilbud" class="btn-pill btn-pill--orange">Se våre treningstilbud</a>
+      <a href="index.html#tilbud" class="btn-pill btn-pill--orange">Se våre treningstilbud</a>
     </div>
 
-    <!-- MOBIL: HAMBURGER -->
     <button id="hamburger" class="hamburger show-mobile" aria-expanded="false" aria-controls="navbar-menu">
       <span></span><span></span><span></span>
     </button>
-
   </div>
 </nav>
-
-<!-- Behold overlay her (bra for å lukke meny ved trykk utenfor) -->
 <div class="nav-overlay" hidden></div>
 
 <!-- ========================= HERO ========================= -->
-<section class="masthead"></section>
+<section class="masthead masthead--about"></section>
 
 <section class="hero-card">
-  <h1>Gjør trening tilgjengelig for flest mulig<span class="dot">.</span></h1>
+  <h1>Om oss<span class="dot">.</span></h1>
+  <p class="hero-sub">
+    Vi gjør styrketrening tilgjengelig for flest mulig – med trygge rammer, faglig forankring og tilpasninger som fungerer i praksis.
+  </p>
   <div class="hero-cta">
-    <a href="about.html" class="btn-primary">Les mer</a>
+    <a href="frivillig.html" class="btn-primary">Bli frivillig</a>
   </div>
 </section>
 
@@ -81,7 +117,6 @@
       <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
       <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
       <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-      <span>Like muligheter.</span><span>Riktig tilpasning.</span><span>Trening for alle.</span>
     </div>
     <div class="marquee__row" aria-hidden="true">
       <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
@@ -92,90 +127,49 @@
   </div>
 </div>
 
+<section id="om-myss" class="section">
+  <div class="container">
+    <div class="team-section">
+      <div class="team-text">
+        <h2>Om My Strongest Side®</h2>
 
-<!-- ========================= AKTIVITETER ========================= -->
-<section id="tilbud" class="news-section">
-  <header class="news-header">
-   <section id="aktiviteter" class="container" style="position: relative;">
-   <h2>Aktiviteter denne høsten<span class="dot">.</span></h2>
-    <p>Treningsgrupper, veiledning og kurs – tilpasset ulike behov. Finn din gruppe under.</p>
-  </header>
+        <h3>Et inkluderende treningsmiljø</h3>
+        <p><strong>My Strongest Side®</strong> er et norsk initiativ som arbeider for å gjøre styrketrening mer tilgjengelig for personer med funksjonsvariasjoner. Vi tilbyr små grupper, tett oppfølging og trening i trygge omgivelser – på kommersielle treningssentre.</p>
 
-  <div class="news-grid">
+        <p>Hos oss handler trening ikke om prestasjon, men om <strong>mestring, trygghet og fellesskap</strong>.</p>
 
-    <!-- Kort 1 -->
-    <article class="news-card">
-      <div class="date-badge">
-        <span class="date-month">SEP.</span>
-        <span class="date-day">25.</span>
-        <span class="date-line" aria-hidden="true"></span>
-        <span class="date-range">TIL 29. JAN.</span>
-      </div>
-      <img src="bilde01.jpg" alt="mennesker med lett funksjonsvariasjon" class="news-media" />
-      <div class="news-body">
-        <h3 class="news-title">Styrketrening for voksne med lett funksjonsvariasjon</h3>
-        <p class="news-text">Opplev mestring, fellesskap og trening tilpasset dine behov – i trygge rammer med fagpersoner, for deg som trener selvstendig men ønsker veiledning ved behov.</p>
-        <a href="https://event.checkin.no/155377/styrketrening-for-voksne-med-lett-mild-funksjonsvariasjon-fra-19-aar-og-oppover" class="news-button">Påmelding</a>
-      </div>
-    </article>
+        <h3>Navnet</h3>
+        <p>Navnet <em>My Strongest Side</em> symboliserer troen på at alle har en sterk side – og at riktige tilpasninger kan bidra til bedre helse og økt selvstendighet.</p>
 
-    <!-- Kort 2 -->
-    <article class="news-card">
-      <div class="date-badge">
-        <span class="date-month">SEP.</span>
-        <span class="date-day">18.</span>
-        <span class="date-line" aria-hidden="true"></span>
-        <span class="date-range">TIL 15. JAN.</span>
-      </div>
-      <img src="bilde02.jpg" alt="tilrettelagt trening med tett oppfølging" class="news-media focus-upper-desktop" />
-      <div class="news-body">
-        <h3 class="news-title">Tilrettelagt styrketrening med tett oppfølging</h3>
-        <p class="news-text">Trygg og tilrettelagt styrketrening med tett oppfølging – for deg som trenger ekstra støtte og tilpasninger i treningen.</p>
-        <a href="https://event.checkin.no/156159/tilpasset-trening-for-funkiser-som-oensker-tett-oppfoelging" class="news-button">Påmelding</a>
-      </div>
-    </article>
+        <p>Det handler ikke bare om styrke i kroppen, men også om å finne det som gir deg motivasjon, mening og mestring i hverdagen.</p>
 
-    <!-- Kort 3 -->
-    <article class="news-card">
-      <div class="date-badge">
-        <span class="date-month">SEP.</span>
-        <span class="date-day">25.</span>
-        <span class="date-line" aria-hidden="true"></span>
-        <span class="date-range">TIL 29. JAN.</span>
-      </div>
-      <img src="bilde03.jpg" alt="styrketrening for barn og ungdom" class="news-media focus-top" />
-      <div class="news-body">
-        <h3 class="news-title">Styrketrening ungdom</h3>
-        <p class="news-text">Tilpasset styrketrening for barn og unge (12–15 år) i små grupper – med fokus på trygghet, mestring og fellesskap under tett oppfølging av fagpersoner og trenere.</p>
-        <a href="https://event.checkin.no/155756/styrketrening-for-barn-og-ungdom-fra-12-aar-til-18-aar" class="news-button">Påmelding</a>
-      </div>
-    </article>
+        <h3>Bak initiativet</h3>
+        <p><strong>MyStrongestSide®</strong> ble startet av <strong>Alexander Mjøs Sviggum</strong>, ergoterapeut og styrkeløfter med cerebral parese. Med erfaring fra både helsefeltet og treningsmiljøet så han behovet for et inkluderende treningstilbud – der deltakerne blir sett, og der tilrettelegging er en selvfølge.</p>
 
+        <h3>Samarbeid og samfunnsoppdrag</h3>
+        <p><strong>MyStrongestSide AS</strong> er et registrert aksjeselskap som samarbeider med <strong>CP-foreningen Vestland</strong>, <strong>Trene Sammen</strong>, <strong>Atterås Ortopedi</strong> og <strong>Høgskulen på Vestlandet (HVL Skape)</strong>.</p>
+
+        <p>Vi støtter opp om <strong>FNs bærekraftsmål</strong>, særlig:</p>
+        <ul>
+          <li><strong>Mål 3</strong> – God helse og livskvalitet</li>
+          <li><strong>Mål 10</strong> – Mindre ulikhet</li>
+        </ul>
+
+        <p>Vi jobber for å gjøre trening tilgjengelig for <strong>flest mulig</strong>.</p>
+      </div>
+
+      <div class="team-image">
+        <img src="team.jpg" alt="Teamet bak My Strongest Side" />
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ========================= FOOTER ========================= -->
 <footer class="site-footer">
-  <div class="marquee marquee--footer" role="region" aria-label="MyStrongestSide statements nederst">
-    <div class="marquee__wrap">
-      <div class="marquee__row">
-        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-        <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-      </div>
-      <div class="marquee__row" aria-hidden="true">
-        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-        <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-      </div>
-    </div>
-  </div>
-
   <div class="footer-wrap">
     <section class="footer-col">
-      <img src="logo-orange.png" alt="My Strongest Side" class="footer-logo"/>
+      <img src="logo-orange.png" alt="My Strongest Side-logo" class="footer-logo"/>
       <p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p>
     </section>
 
@@ -200,73 +194,42 @@
   </div>
 </footer>
 
-<!-- ========================= SCRIPTS ========================= -->
 <script>
-  // Dynamisk år
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Elementer
   const btn = document.getElementById('hamburger');
   const menu = document.getElementById('navbar-menu');
+  const overlay = document.querySelector('.nav-overlay');
 
-  // Overlay (bruker eksisterende .nav-overlay hvis finnes)
-  let overlay = document.querySelector('.nav-overlay');
-  if (!overlay) {
-    overlay = document.createElement('div');
-    overlay.className = 'nav-overlay';
-    overlay.hidden = true;
-    document.body.appendChild(overlay);
-  }
-
-  function openMenu() {
-    btn?.setAttribute('aria-expanded', 'true');
-    menu?.classList.add('active');
+  function openMenu(){
+    btn.setAttribute('aria-expanded','true');
+    menu.classList.add('active');
     document.body.classList.add('no-scroll');
-    overlay.hidden = false;
+    overlay.hidden=false;
   }
-
-  function closeMenu() {
-    btn?.setAttribute('aria-expanded', 'false');
-    menu?.classList.remove('active');
+  function closeMenu(){
+    btn.setAttribute('aria-expanded','false');
+    menu.classList.remove('active');
     document.body.classList.remove('no-scroll');
-    overlay.hidden = true;
-    // Lukk evt. åpen sub
-    const t = document.querySelector('.nav-has-sub');
-    t?.setAttribute('aria-expanded','false');
+    overlay.hidden=true;
     document.querySelector('.has-sub')?.classList.remove('open');
   }
-
-  btn?.addEventListener('click', () => {
-    const open = btn.getAttribute('aria-expanded') === 'true';
-    open ? closeMenu() : openMenu();
-  });
-
-  overlay.addEventListener('click', closeMenu);
-
-  // ESC lukker meny
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
-  });
-
-  // Lukk når man klikker en lenke (unntatt sub-trigger)
-  menu?.addEventListener('click', (e) => {
-    const a = e.target.closest('a');
-    if (!a) return;
-    if (a.classList.contains('nav-has-sub')) {
+  btn.addEventListener('click',()=>btn.getAttribute('aria-expanded')==='true'?closeMenu():openMenu());
+  overlay.addEventListener('click',closeMenu);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+  menu.addEventListener('click',e=>{
+    const a=e.target.closest('a');
+    if(!a)return;
+    if(a.classList.contains('nav-has-sub')){
       e.preventDefault();
-      const li = a.closest('.has-sub');
-      const isOpen = li.classList.toggle('open');
-      a.setAttribute('aria-expanded', String(isOpen));
+      const li=a.closest('.has-sub');
+      const isOpen=li.classList.toggle('open');
+      a.setAttribute('aria-expanded',isOpen);
       return;
     }
     closeMenu();
   });
-
-  // Sikkerhet: lukk ved resize til desktop
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 1024) closeMenu();
-  });
+  window.addEventListener('resize',()=>{if(window.innerWidth>1024)closeMenu();});
 </script>
 
 </body>
