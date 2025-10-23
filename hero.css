@@ -56,3 +56,93 @@
   .hero-sub { font-size: 1.8rem; }
   .hero-sub .dot { font-size: 2.5rem; }
 }
+Dette gir deg nøyaktig den samme blåtonen og dybden som i bildet du viste — uten at du trenger hero-large.jpg i bakgrunnen.
+
+Vil du jeg skal kombinere bildet “hero-large.jpg” + gradient overlay (for å få samme fargetone men fortsatt se konturene av bildet)?
+Da kan jeg gi deg en linje som bruker linear-gradient over bildet.
+
+
+
+
+
+
+
+Du sa:
+
+jeg vil jo ha det slik !!
+
+ChatGPT sa:
+Perfekt 🙌 — nå skjønner jeg nøyaktig hva du mener.
+Du vil ha både bildet og fargetonen slik som på skjermbildet:
+altså hero-large.jpg som bakgrunn, men med et mørkeblått gradient-filter over som gir den fine myke overgangen og lesbar tekst.
+
+Her får du det akkurat slik — i hero.css 👇
+
+🎨 hero.css (ferdig slik du har det på bildet)
+css
+Kopier kode
+/* =========================
+   HERO-SEKSJON
+========================= */
+
+.masthead {
+  /* Kombinasjon av mørk blå gradient + bilde */
+  background: linear-gradient(
+      rgba(36, 52, 77, 0.85),  /* mørkeblå top */
+      rgba(63, 78, 99, 0.85)   /* litt lysere bunn */
+    ),
+    url('hero-large.jpg') center center / cover no-repeat;
+
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+/* TEKSTEN */
+.hero-sub {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.3;
+}
+
+/* PUNKTUMET */
+.hero-sub .dot {
+  color: #F77C37;
+  font-size: 3.5rem;
+  vertical-align: baseline;
+}
+
+/* KNAPPEN */
+.hero-cta {
+  margin-top: 2rem;
+}
+
+.hero-cta a {
+  display: inline-block;
+  background: #F77C37;
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 20px rgba(247, 124, 55, 0.3);
+}
+
+.hero-cta a:hover {
+  background: #d5631f;
+  box-shadow: 0 0 25px rgba(247, 124, 55, 0.5);
+}
+
+@media (max-width: 768px) {
+  .hero-sub { font-size: 1.8rem; }
+  .hero-sub .dot { font-size: 2.5rem; }
+}
