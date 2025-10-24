@@ -1021,15 +1021,6 @@ textarea { resize: vertical; }
 .info-period { background-image: url('icons/info-period.svg'); }
 .info-time   { background-image: url('icons/info-time.svg'); }
 
-.fit-hint {
-  font-size: .9rem;
-  color: var(--blue-2);
-  margin: .4rem 0 .9rem;
-  line-height: 1.4;
-  opacity: 0.9;
-  font-style: italic;
-}
-
 .section-subtitle {
   font-size: 1rem;
   color: var(--blue-2);
@@ -1042,5 +1033,20 @@ textarea { resize: vertical; }
   color: var(--blue-2);
   font-size: .95rem;
   line-height: 1.5;
+}
+
+.section-header h1,
+.section-header h2 {
+  margin-bottom: .3rem;
+}
+
+.fit-hint {
+  font-size: .95rem;
+  color: var(--blue-2);
+  margin: .6rem 0 1rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  font-style: italic;
+  max-width: 700px;
 }
 
