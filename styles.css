@@ -414,6 +414,29 @@ body.no-scroll { overflow: hidden; }
   flex-direction:column;
   gap:.65rem;
 }
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: .5rem;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--blue-2);
+}
+
+.meta-location {
+  flex: 1;
+  min-width: 140px;
+}
+
+.gmfcs-icon {
+  height: 28px;
+  width: auto;
+  margin-left: 8px;
+  vertical-align: middle;
+}
 .news-meta,
 .news-time{
   font-size:.92rem;
