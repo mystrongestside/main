@@ -335,7 +335,7 @@ body.no-scroll { overflow: hidden; }
 }
 
 /* ========================= NYHETER / AKTIVITETER ========================= */
-.news-section{ padding:2.2rem 0 0; scroll-margin-top: 80px; } /* smooth offset */
+.news-section{ padding:2.2rem 0 4rem; scroll-margin-top: 80px; } /* smooth offset */
 .news-header{
   max-width:var(--container);
   margin:0 auto;
