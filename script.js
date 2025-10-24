@@ -269,13 +269,13 @@ const initContactForm = () => {
       feedback.className = 'form-feedback';
     }
 
-    const data = Object.fromEntries(new FormData(form));
+    const formData = new FormData(form);
 
     try {
       const response = await fetch(form.action, {
         method: form.method || 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        headers: { Accept: 'application/json' },
+        body: formData,
       });
 
       if (!response.ok) {
