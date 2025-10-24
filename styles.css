@@ -523,11 +523,30 @@ body.no-scroll { overflow: hidden; }
 .date-range{ display:block; font-size:.72rem; font-weight:800; color:var(--orange); }
 
 /* Tekst i kort */
+.news-location{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  padding:1.25rem 1.5rem 0;
+  font-size:.95rem;
+  font-weight:600;
+  color:var(--blue-2);
+}
+
+.location-icon{
+  width:1.5rem;
+  height:1.5rem;
+  display:inline-block;
+  flex-shrink:0;
+}
+
+.location-text{ line-height:1.2; }
+
 .news-body{
-  padding:1.5rem;
+  padding:1.25rem 1.5rem 1.5rem;
   display:flex;
   flex-direction:column;
-  gap:.75rem;
+  gap:1rem;
 }
 .card-meta {
   display: flex;
@@ -590,8 +609,20 @@ body.no-scroll { overflow: hidden; }
   color:var(--blue-2);
   font-weight:600;
 }
+.news-lead{
+  font-size:1rem;
+  color:var(--blue-2);
+  font-weight:600;
+}
 .news-title{ font-size:1.1rem; color:var(--blue); }
 .news-text{ color:#333; font-size:.98rem; }
+.card-actions{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  margin-top:1.25rem;
+}
+
 .button-row{
   margin-top:1rem;
   display:flex;
