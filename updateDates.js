@@ -179,7 +179,7 @@ const ikonKonfigurasjon = [
   },
   {
     matcher: ['ungdom', 'barn'],
-    src: 'gmfcs_all_myss.png',
+    src: 'gmfcs-all.png',
     alt: 'Alle GMFCS-nivåer – Barn og ungdom',
   },
   {
@@ -198,7 +198,7 @@ const hentIkonForTittel = (tittel) => {
     }
   }
 
-  return { src: 'gmfcs_all_myss.png', alt: 'Tilrettelagt trening' };
+  return { src: 'gmfcs-all.png', alt: 'Tilrettelagt trening' };
 };
 
 document.querySelectorAll('.news-card').forEach((card) => {
