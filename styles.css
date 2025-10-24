@@ -789,5 +789,14 @@ textarea { resize: vertical; }
   font-size: clamp(1.05rem, 1vw + 1rem, 1.55rem);
   color: rgba(255,255,255,.9);
 }
+.orange-bar {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.next-section {
+  margin-top: 0;
+  padding-top: 0;
+}
 
 
