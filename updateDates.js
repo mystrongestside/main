@@ -163,3 +163,69 @@ const oppdaterKort = ({ gruppe, datoer }) => {
 console.log(logPrefix, 'Starter oppdatering av treningdatoer');
 treninger.forEach(oppdaterKort);
 console.log(logPrefix, 'Ferdig med oppdatering av treningdatoer');
+
+const LOCATION_LABEL = '📍 Bergen – Fantoft';
+
+const ikonKonfigurasjon = [
+  {
+    matcher: ['lett'],
+    src: 'gmfcs1-2_myss.png',
+    alt: 'GMFCS nivå I–II – Lett funksjonsnivå',
+  },
+  {
+    matcher: ['tett'],
+    src: 'gmfcs3-5_myss.png',
+    alt: 'GMFCS nivå III–V – Tett oppfølging',
+  },
+  {
+    matcher: ['ungdom', 'barn'],
+    src: 'gmfcs_all_myss.png',
+    alt: 'Alle GMFCS-nivåer – Barn og ungdom',
+  },
+  {
+    matcher: ['kognitiv', 'lærevansker', 'pu'],
+    src: 'kognitivstøtte_myss.png',
+    alt: 'Kognitiv støtte – Tilpasset læring og veiledning',
+  },
+];
+
+const hentIkonForTittel = (tittel) => {
+  const normalized = tittel.toLowerCase();
+
+  for (const { matcher, src, alt } of ikonKonfigurasjon) {
+    if (matcher.some((ord) => normalized.includes(ord))) {
+      return { src, alt };
+    }
+  }
+
+  return { src: 'gmfcs_all_myss.png', alt: 'Tilrettelagt trening' };
+};
+
+document.querySelectorAll('.news-card').forEach((card) => {
+  if (card.querySelector('.card-meta')) {
+    return;
+  }
+
+  const title = card.querySelector('.news-title')?.textContent?.trim();
+  if (!title) {
+    return;
+  }
+
+  const meta = document.createElement('div');
+  meta.classList.add('card-meta');
+
+  const location = document.createElement('span');
+  location.classList.add('meta-location');
+  location.textContent = LOCATION_LABEL;
+  meta.appendChild(location);
+
+  const ikon = document.createElement('img');
+  ikon.classList.add('gmfcs-icon');
+
+  const { src, alt } = hentIkonForTittel(title);
+  ikon.src = src;
+  ikon.alt = alt;
+
+  meta.appendChild(ikon);
+  card.appendChild(meta);
+});
