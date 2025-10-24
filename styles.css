@@ -1024,9 +1024,17 @@ textarea { resize: vertical; }
 .fit-hint {
   font-size: .9rem;
   color: var(--blue-2);
-  margin: .25rem 0 .6rem;
-  opacity: 0.85;
+  margin: .4rem 0 .9rem;
+  line-height: 1.4;
+  opacity: 0.9;
   font-style: italic;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--blue-2);
+  margin-top: .4rem;
+  opacity: 0.9;
 }
 
 .news-text {
