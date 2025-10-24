@@ -1048,9 +1048,9 @@ textarea { resize: vertical; }
   background-size: 55%;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: rgba(25, 43, 69, 0.08);
-  border: 1px solid rgba(25, 43, 69, 0.1);
-  box-shadow: 0 6px 14px rgba(25, 43, 69, 0.08);
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 /* Kobling mellom klasser og SVG-filene */
