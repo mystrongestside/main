@@ -1088,3 +1088,27 @@ textarea { resize: vertical; }
   max-width: 700px;
 }
 
+/* ===== PIKTOGRAM I KORT ===== */
+.card-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 42px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.95;
+  transition: transform 0.2s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  .card-icon {
+    width: 34px;
+    top: 8px;
+    right: 8px;
+  }
+}
+
+.card-icon:hover {
+  transform: scale(1.05);
+}
+
