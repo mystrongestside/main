@@ -2,106 +2,63 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kalender – My Strongest Side</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
-  <style>
-    /* Lett wrapper-stil for å matche temaet ditt */
-    .kalender {
-      padding: 4rem 2rem;
-      background: #f7f8fb;
-      min-height: 70vh;
-    }
-    .kalender .intro {
-      text-align: center;
-      max-width: 860px;
-      margin: 0 auto 1.5rem;
-      color: #24344d;
-    }
-    .kalender .intro p { color: #334155; }
-    /* Selve Checkin-containeren */
-    #checkin_event_index {
-      max-width: 1100px;
-      margin: 0 auto;
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 1rem;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kurs og kalender | My Strongest Side®</title>
+  <meta name="description" content="Finn kurs og arrangementer fra My Strongest Side®. Meld deg på våre tilrettelagte tilbud.">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css?v=11" />
 </head>
 <body>
+  <header data-component="site-header"></header>
 
-  <!-- NAVBAR -->
-  <header class="navbar" role="navigation" aria-label="Hovedmeny">
-    <div class="navbar-inner">
-      <div class="navbar-left">
-        <a href="index.html" class="logo-link" aria-label="Til forsiden">
-          <img src="logo.png" alt="My Strongest Side" class="logo" />
-        </a>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Kurs og kalender<span class="dot">.</span></h1>
+        <p class="lead">Her finner du kommende arrangementer, kurs og påmeldinger samlet i én oversikt.</p>
       </div>
+    </section>
 
-      <button class="hamburger" id="hamburger"
-        aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="navbar-center" id="nav-menu">
-        <ul class="nav-links">
-          <li><a href="about.html">Om oss</a></li>
-          <li><a href="frivillig.html">Frivillig</a></li>
-        </ul>
-      </nav>
-
-      <div class="navbar-right">
-        <a href="kurs.html" class="btn-book">Kalender</a>
+    <section class="kalender">
+      <div class="container">
+        <div class="intro">
+          <h2>Påmelding &amp; kurskalender</h2>
+          <p>Utforsk planlagte kurs, workshops og arrangementer. Klikk på et arrangement for detaljer og påmelding.</p>
+        </div>
+        <div id="checkin_event_index" class="kalender-frame"></div>
+        <script>
+          document.customerId = 16927;
+          document.calendarConfig = {
+            openRegistrationModal: false,
+            view: 'TILE',
+            showSearch: true,
+            showTopics: true,
+            showViewToggle: true,
+            showOnlyForm: false,
+            language: 'nb',
+            topics: null,
+            style: {
+              searchButtonBgColor: 'rgba(28, 43, 57, 1)',
+              searchButtonTextColor:  'rgba(255, 255, 255, 1)',
+              searchButtonBorderRadius:  3,
+              topicBadgeBgColor: 'rgba(85, 96, 106, 1)',
+              topicBadgeTextColor: 'rgba(255, 255, 255, 1)',
+              topicBadgeBorderRadius: 3,
+              headerTextColor: 'rgba(28, 43, 57, 1)',
+              bodyTextColor: 'rgba(28, 43, 57, 1)',
+              backgroundColor: 'rgba(255, 255, 255, 1)',
+              eventTileColor: 'rgba(28, 43, 57, 0)'
+            }
+          };
+        </script>
+        <script async src="https://static.checkin.no/loaders/eventindex/loader.js"></script>
+        <noscript>Aktiver JavaScript for å se kurskalenderen.</noscript>
       </div>
-    </div>
-  </header>
+    </section>
+  </main>
 
-  <!-- Kalender -->
-  <section class="kalender">
-    <div class="intro">
-      <h2>Påmelding & kurskalender</h2>
-      <p>Finn kommende arrangementer og meld deg på direkte i oversikten under.</p>
-    </div>
-
-    <!-- Checkin Event Index -->
-    <div id="checkin_event_index"></div>
-    <script>
-      // Kunde-ID og konfig fra deg
-      document.customerId = 16927;
-      document.calendarConfig = {
-        openRegistrationModal: false, // sett true hvis du ønsker popup-registrering
-        view: 'TILE',                 // 'TILE' | 'LIST' | 'CALENDAR'
-        showSearch: true,
-        showTopics: true,
-        showViewToggle: true,
-        showOnlyForm: false,
-        language: 'nb',
-        topics: null,
-        style: {
-          searchButtonBgColor: 'rgba(28, 43, 57, 1)',
-          searchButtonTextColor:  'rgba(255, 255, 255, 1)',
-          searchButtonBorderRadius:  3,
-          topicBadgeBgColor: 'rgba(85, 96, 106, 1)',
-          topicBadgeTextColor: 'rgba(255, 255, 255, 1)',
-          topicBadgeBorderRadius: 3,
-          headerTextColor: 'rgba(28, 43, 57, 1)',
-          bodyTextColor: 'rgba(28, 43, 57, 1)',
-          backgroundColor: 'rgba(255, 255, 255, 1)',
-          eventTileColor: 'rgba(28, 43, 57, 0)'
-        }
-      };
-    </script>
-    <script async src="https://static.checkin.no/loaders/eventindex/loader.js"></script>
-
-    <noscript>
-      Aktiver JavaScript for å se kurskalenderen.
-    </noscript>
-  </section>
-
-
+  <footer data-component="site-footer"></footer>
+  <script src="script.js" defer></script>
 </body>
 </html>

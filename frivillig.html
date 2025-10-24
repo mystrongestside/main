@@ -1,143 +1,26 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Frivillig | My Strongest Side</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frivillig | My Strongest Side®</title>
+  <meta name="description" content="Bli frivillig hos My Strongest Side® og bidra til inkluderende styrketrening for alle.">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
+  <header data-component="site-header"></header>
 
-  <!-- NAVBAR (identisk som index) -->
-  <header class="navbar" role="navigation" aria-label="Hovedmeny">
-    <div class="navbar-inner">
-      <div class="navbar-left">
-        <a href="index.html" class="logo-link" aria-label="Til forsiden">
-          <img src="logo.png" alt="My Strongest Side" class="logo" />
-        </a>
-      </div>
+  <main>
+    <section class="masthead masthead--frivillig"></section>
 
-      <button class="hamburger" id="hamburger"
-        aria-label="Åpne meny" aria-expanded="false" aria-controls="nav-menu">
-        <span></span><span></span><span></span>
-      </button>
+    <section class="hero-card">
+      <h1>Bli frivillig<span class="dot">.</span></h1>
+      <p class="hero-sub">Vil du gjøre en forskjell i styrkerommet? Hos oss får du opplæring, fellesskap og praksisnær erfaring.</p>
+    </section>
 
-      <nav class="navbar-center" id="nav-menu">
-        <ul class="nav-links">
-          <li><a href="about.html">Om oss</a></li>
-          <li><a href="frivillig.html" class="active">Frivillig</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- JS (defer) -->
-  <script src="script.js" defer></script>
-
-  <!-- 1) Toppbilde (samme komponent som index) -->
-  <!-- Sett bildet via CSS: .masthead--frivillig { background-image:url('frivillig-hero.jpg'); } -->
-  <section class="masthead masthead--frivillig"></section>
-
-  <!-- 2) Blå hero-boks som overlapper masthead (lik index) -->
-  <section class="hero-card">
-    <h1>Bli frivillig<span class="dot">.</span></h1>
-  </section>
-
-  <!-- 3) Marquee (identisk som index) -->
-  <div class="marquee" role="region" aria-label="MyStrongestSide statements">
-    <div class="marquee__wrap">
-      <div class="marquee__row">
-        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-        <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-        <span>Støtte.</span><span>Like muligheter.</span><span>Riktig tilpasning.</span><span>Trening for alle.</span>
-      </div>
-      <div class="marquee__row" aria-hidden="true">
-        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-        <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- INNHOLD -->
-  <main class="container section">
-    <div class="two-col two-col--gap-xl">
-      <!-- Venstre kolonne -->
-      <article class="block card">
-        <h2 class="h2">Hvem ser vi etter?</h2>
-        <ul class="bullets">
-          <li>Ergoterapi- og fysioterapistudenter (alle nivåer)</li>
-          <li>Personlige trenere/instruktører som vil bidra i tilrettelagt styrketrening</li>
-          <li>Andre med interesse for inkluderende trening og trygg oppfølging</li>
-        </ul>
-
-        <h2 class="h2">Roller og oppgaver</h2>
-        <ul class="bullets">
-          <li>Veilede deltakere i basisøvelser (knebøy, press, roing m.m.) med enkle tilpasninger</li>
-          <li>Bidra i oppvarming, sikre god flyt mellom stasjoner og følge opp individuelle mål</li>
-          <li>Hjelpe til med logistikk: registrering, tilpasning av utstyr, trygghet og trivsel</li>
-          <li>Gi korte observasjoner/notater som kan forbedre neste økt</li>
-        </ul>
-
-        <h2 class="h2">Hva får du?</h2>
-        <ul class="bullets">
-          <li>Praksisnær erfaring i tverrfaglig miljø (ergo/fysio/PT)</li>
-          <li>Veiledning og innføring i universell utforming/tilpasning i styrkerommet</li>
-          <li>Attest etter endt periode – nyttig i videre studier og jobbsøking</li>
-          <li>Et varmt fellesskap og mulighet til å gjøre en konkret forskjell</li>
-        </ul>
-
-        <h2 class="h2">Praktisk</h2>
-        <ul class="bullets">
-          <li>Økter arrangeres jevnlig – du kan bidra fast eller ved behov</li>
-          <li>Oppmøte i god tid før økt for gjennomgang (ca. 15–20 min)</li>
-          <li>Du får opplæring og tydelige forventninger før første økt</li>
-        </ul>
-
-        <p class="em"><em>Alle har en sterk side. Hos oss får du være med på å finne den – sammen med deltakerne.</em></p>
-      </article>
-
-      <!-- Høyre kolonne -->
-      <aside class="block card sticky">
-        <div class="card__stack">
-          <div>
-            <h2 class="h2">Klar til å bidra?</h2>
-            <p>Fyll ut skjemaet – vi tar kontakt fortløpende.</p>
-            <p>
-              <a href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide"
-                 target="_blank" rel="noopener" class="btn-primary btn-full">Søk som frivillig</a>
-            </p>
-          </div>
-
-          <div class="divider" role="separator" aria-hidden="true"></div>
-
-          <div>
-            <h3 class="h3">FAQ</h3>
-            <p><strong>Må jeg ha erfaring?</strong><br>Nei, du får opplæring. Lyst til å lære og trygghet med folk er viktigst.</p>
-            <p><strong>Binder jeg meg til alle økter?</strong><br>Nei – vi avtaler omfanget sammen.</p>
-            <p><strong>Får jeg attest?</strong><br>Ja, etter endt periode.</p>
-          </div>
-
-          <div class="divider" role="separator" aria-hidden="true"></div>
-
-          <div>
-            <h3 class="h3">Kontakt</h3>
-            <p>
-              E-post: <a href="mailto:alexander@mystrongestside.no">alexander@mystrongestside.no</a><br>
-              Tlf: <a href="tel:+4741439384">41 43 93 84</a>
-            </p>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </main>
-
-  <!-- FOOTER (identisk som index) -->
-  <footer class="site-footer">
-    <div class="marquee marquee--footer" role="region" aria-label="MyStrongestSide statements nederst">
+    <div class="marquee" role="region" aria-label="MyStrongestSide statements">
       <div class="marquee__wrap">
         <div class="marquee__row">
           <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
@@ -154,37 +37,68 @@
       </div>
     </div>
 
-    <div class="footer-wrap">
-      <section class="footer-col">
-        <img src="logo-orange.png" alt="My Strongest Side" class="footer-logo"/>
-        <p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p>
-      </section>
+    <section class="section">
+      <div class="container two-column">
+        <article class="surface-card stack">
+          <div class="stack">
+            <div>
+              <h2>Hvem ser vi etter?</h2>
+              <ul class="bullets">
+                <li>Ergoterapi- og fysioterapistudenter</li>
+                <li>Personlige trenere og instruktører som ønsker å bidra</li>
+                <li>Andre som brenner for tilrettelagt og trygg trening</li>
+              </ul>
+            </div>
 
-      <section class="footer-col">
-        <h3 class="footer-title">Kontakt</h3>
-        <p>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></p>
-        <p>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></p>
-        <p>Adresse: Brages veg 3, 5221 Nesttun</p>
-      </section>
+            <div>
+              <h2>Hva gjør du som frivillig?</h2>
+              <ul class="bullets">
+                <li>Veileder deltakere i basisøvelser og hjelper med enkle tilpasninger</li>
+                <li>Skaper trygghet og flyt mellom stasjoner</li>
+                <li>Støtter med logistikk, registrering og tilrettelegging av utstyr</li>
+              </ul>
+            </div>
 
-      <section class="footer-col">
-        <h3 class="footer-title">Følg oss</h3>
-        <p>
-          <a href="#" aria-label="Instagram">Instagram</a><br/>
-          <a href="#" aria-label="Facebook">Facebook</a><br/>
-        </p>
-      </section>
-    </div>
+            <div>
+              <h2>Dette får du</h2>
+              <ul class="bullets">
+                <li>Opplæring i universell utforming og tilpasning i styrkerommet</li>
+                <li>Tverrfaglig fellesskap med studenter og fagpersoner</li>
+                <li>Attest og verdifull praksiserfaring</li>
+              </ul>
+            </div>
+          </div>
+        </article>
 
-    <div class="footer-bottom">
-      <p>© <span id="year"></span> My Strongest Side · Alle rettigheter forbeholdt</p>
-    </div>
-  </footer>
+        <aside class="surface-card stack">
+          <div class="stack">
+            <div>
+              <h2>Klart for å bidra?</h2>
+              <p>Fyll ut skjemaet vårt – vi tar kontakt fortløpende.</p>
+              <p>
+                <a href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide" class="btn-primary btn-full" target="_blank" rel="noopener">Søk som frivillig</a>
+              </p>
+            </div>
 
-  <script>
-    // årstall i footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+            <div>
+              <h3>Kontakt</h3>
+              <p>
+                E-post: <a href="mailto:alexander@mystrongestside.no">alexander@mystrongestside.no</a><br>
+                Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a>
+              </p>
+            </div>
 
+            <div>
+              <h3>Spørsmål?</h3>
+              <p>Ta gjerne kontakt – vi hjelper deg å finne riktig rolle.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer data-component="site-footer"></footer>
+  <script src="script.js" defer></script>
 </body>
 </html>
