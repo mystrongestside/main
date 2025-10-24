@@ -350,6 +350,79 @@ const oppdaterTreningskort = () => {
   });
 };
 
+const getGmfcsMetaForTitle = (titleText = '') => {
+  const normalized = titleText.toLowerCase();
+
+  if (normalized.includes('lett')) {
+    return {
+      src: 'gmfcs1-2_myss.png',
+      alt: 'GMFCS nivå I–II – Lett funksjonsnivå',
+    };
+  }
+
+  if (normalized.includes('tett')) {
+    return {
+      src: 'gmfcs3-5_myss.png',
+      alt: 'GMFCS nivå III–V – Tett oppfølging',
+    };
+  }
+
+  if (normalized.includes('ungdom') || normalized.includes('barn')) {
+    return {
+      src: 'gmfcs-all.png',
+      alt: 'Alle GMFCS-nivåer – Barn og ungdom',
+    };
+  }
+
+  if (
+    normalized.includes('kognitiv') ||
+    normalized.includes('lærevansker') ||
+    normalized.includes('pu')
+  ) {
+    return {
+      src: 'kognitivstøtte_myss.png',
+      alt: 'Kognitiv støtte – Tilpasset læring og veiledning',
+    };
+  }
+
+  return {
+    src: 'gmfcs-all.png',
+    alt: 'Tilrettelagt trening',
+  };
+};
+
+const initNewsCardMeta = () => {
+  document.querySelectorAll('.news-card').forEach((card) => {
+    if (card.querySelector('.card-meta')) {
+      return;
+    }
+
+    const titleText = card.querySelector('.news-title')?.textContent ?? '';
+    const { src, alt } = getGmfcsMetaForTitle(titleText);
+
+    const meta = document.createElement('div');
+    meta.classList.add('card-meta');
+
+    const location = document.createElement('span');
+    location.classList.add('meta-location');
+    location.textContent = '📍 Bergen – Fantoft';
+    meta.appendChild(location);
+
+    const icon = document.createElement('img');
+    icon.classList.add('gmfcs-icon');
+    icon.src = src;
+    icon.alt = alt;
+    meta.appendChild(icon);
+
+    const image = card.querySelector('img');
+    if (image) {
+      image.insertAdjacentElement('afterend', meta);
+    } else {
+      card.prepend(meta);
+    }
+  });
+};
+
 window.addEventListener('DOMContentLoaded', () => {
   injectLayout();
   initNavigation();
@@ -357,4 +430,5 @@ window.addEventListener('DOMContentLoaded', () => {
   initFooterYear();
   initContactForm();
   oppdaterTreningskort();
+  initNewsCardMeta();
 });
