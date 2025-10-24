@@ -414,6 +414,11 @@ body.no-scroll { overflow: hidden; }
   flex-direction:column;
   gap:.65rem;
 }
+.news-meta{
+  font-size:.92rem;
+  color:var(--blue-2);
+  font-weight:600;
+}
 .news-title{ font-size:1.1rem; color:var(--blue); }
 .news-text{ color:#333; font-size:.98rem; }
 .news-button{
