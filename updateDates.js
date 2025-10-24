@@ -243,7 +243,7 @@ document.querySelectorAll('.news-card').forEach((card) => {
 
   meta.appendChild(ikon);
 
-  const image = card.querySelector('img');
+  const image = card.querySelector('.news-media') ?? card.querySelector('img');
   if (image) {
     image.insertAdjacentElement('afterend', meta);
   } else {

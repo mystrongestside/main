@@ -434,7 +434,7 @@ const initNewsCardMeta = () => {
     icon.alt = alt;
     meta.appendChild(icon);
 
-    const image = card.querySelector('img');
+    const image = card.querySelector('.news-media') ?? card.querySelector('img');
     if (image) {
       image.insertAdjacentElement('afterend', meta);
     } else {
