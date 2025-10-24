@@ -1004,10 +1004,11 @@ textarea { resize: vertical; }
 
 .icon {
   display: inline-block;
-  width: 1.25em;
-  height: 1.25em;
-  min-width: 1.25em;
-  min-height: 1.25em;
+  width: 1.5rem;
+  height: 1.5rem;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  aspect-ratio: 1 / 1;
   flex-shrink: 0;
   background-size: contain;
   background-repeat: no-repeat;
