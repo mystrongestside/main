@@ -530,11 +530,25 @@ body.no-scroll { overflow: hidden; }
 
 .meta-location {
   flex: 1;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
   font-weight: 500;
 }
 
+.meta-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.meta-location-text {
+  line-height: 1.2;
+}
+
 .gmfcs-icon {
-  height: 28px;
+  height: 32px;
+  min-width: 32px;
   width: auto;
   filter: brightness(0) saturate(100%) invert(12%) sepia(25%) saturate(872%) hue-rotate(175deg) brightness(95%) contrast(88%);
   transition: transform 0.2s ease, opacity 0.3s ease;

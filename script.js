@@ -350,7 +350,10 @@ const oppdaterTreningskort = () => {
   });
 };
 
-const LOCATION_LABEL = '📍 Bergen – Fantoft';
+const LOCATION_META = {
+  text: 'Bergen – Fantoft',
+  iconSrc: 'icons/location.svg',
+};
 
 const getGmfcsMetaForTitle = (titleText = '') => {
   const normalized = titleText.toLowerCase();
@@ -407,7 +410,19 @@ const initNewsCardMeta = () => {
 
     const location = document.createElement('span');
     location.classList.add('meta-location');
-    location.textContent = LOCATION_LABEL;
+
+    const locationIcon = document.createElement('img');
+    locationIcon.classList.add('meta-icon');
+    locationIcon.src = LOCATION_META.iconSrc;
+    locationIcon.alt = '';
+    locationIcon.setAttribute('aria-hidden', 'true');
+    location.appendChild(locationIcon);
+
+    const locationText = document.createElement('span');
+    locationText.classList.add('meta-location-text');
+    locationText.textContent = LOCATION_META.text;
+    location.appendChild(locationText);
+
     meta.appendChild(location);
 
     const icon = document.createElement('img');
