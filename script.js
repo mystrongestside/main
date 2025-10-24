@@ -1,35 +1,35 @@
-const headerTemplate = `
+const buildHeaderTemplate = (prefix = '') => `
 <header class="site-header" data-component="site-header">
   <nav class="navbar" role="navigation" aria-label="Hovedmeny">
     <div class="navbar-inner">
       <div class="navbar-left">
-        <a href="index.html" aria-label="Hjem">
-          <img src="hlogo.png" alt="My Strongest Side" class="logo">
+        <a href="${prefix}index.html" aria-label="Hjem">
+          <img src="${prefix}hlogo.png" alt="My Strongest Side" class="logo">
         </a>
       </div>
 
       <div class="navbar-center" id="navbar-menu">
         <ul class="nav-links">
-          <li><a href="index.html" data-page="index.html">Forside</a></li>
+          <li><a href="${prefix}index.html" data-page="index.html">Forside</a></li>
           <li class="has-sub">
             <a href="#" class="nav-has-sub" aria-haspopup="true" aria-expanded="false">Tilbud</a>
             <ul class="dropdown">
-              <li><a href="voksne-lett.html" data-page="voksne-lett.html">Voksne – lett tilpasning</a></li>
-              <li><a href="voksne-tett.html" data-page="voksne-tett.html">Voksne – tett oppfølging</a></li>
-              <li><a href="ungdom.html" data-page="ungdom.html">Ungdom</a></li>
-              <li><a href="foresatte.html" data-page="foresatte.html">Foresatte</a></li>
+              <li><a href="${prefix}treningstilbud/voksne-lett.html" data-page="voksne-lett.html">Styrketrening for voksne – lett nivå</a></li>
+              <li><a href="${prefix}treningstilbud/tett-oppfolging.html" data-page="tett-oppfolging.html">Tilrettelagt styrketrening – tett oppfølging</a></li>
+              <li><a href="${prefix}treningstilbud/barn-ungdom.html" data-page="barn-ungdom.html">Styrketrening for barn og ungdom</a></li>
+              <li><a href="${prefix}foresatte.html" data-page="foresatte.html">Foresatte</a></li>
             </ul>
           </li>
-          <li><a href="om-oss.html" data-page="om-oss.html">Om oss</a></li>
-          <li><a href="aktiviteter.html" data-page="aktiviteter.html">Aktiviteter</a></li>
-          <li><a href="kurs.html" data-page="kurs.html">Kurs</a></li>
-          <li><a href="frivillig.html" data-page="frivillig.html">Frivillig</a></li>
-          <li><a href="kontakt.html" data-page="kontakt.html">Kontakt</a></li>
+          <li><a href="${prefix}om-oss.html" data-page="om-oss.html">Om oss</a></li>
+          <li><a href="${prefix}treningstilbud.html" data-page="treningstilbud.html,voksne-lett.html,tett-oppfolging.html,barn-ungdom.html">Treningstilbud</a></li>
+          <li><a href="${prefix}kurs.html" data-page="kurs.html">Kurs</a></li>
+          <li><a href="${prefix}frivillig.html" data-page="frivillig.html">Frivillig</a></li>
+          <li><a href="${prefix}kontakt.html" data-page="kontakt.html">Kontakt</a></li>
         </ul>
       </div>
 
       <div class="navbar-right show-desktop">
-        <a href="index.html#aktiviteter" class="btn-pill btn-pill--orange">Se våre treningstilbud</a>
+        <a href="${prefix}index.html#treningstilbud" class="btn-pill btn-pill--orange">Se våre treningstilbud</a>
       </div>
 
       <button id="hamburger" class="hamburger show-mobile" aria-expanded="false" aria-controls="navbar-menu">
@@ -41,7 +41,7 @@ const headerTemplate = `
 </header>
 `;
 
-const footerTemplate = `
+const buildFooterTemplate = (prefix = '') => `
 <footer class="site-footer" data-component="site-footer">
   <div class="marquee marquee--footer" role="region" aria-label="MyStrongestSide statements nederst">
     <div class="marquee__wrap">
@@ -62,7 +62,7 @@ const footerTemplate = `
 
   <div class="footer-wrap">
     <section class="footer-col">
-      <img src="logo-orange.png" alt="My Strongest Side" class="footer-logo" />
+      <img src="${prefix}logo-orange.png" alt="My Strongest Side" class="footer-logo" />
       <p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p>
     </section>
 
@@ -87,6 +87,8 @@ const footerTemplate = `
   </div>
 </footer>
 `;
+
+const resolvePathPrefix = () => (window.location.pathname.includes('/treningstilbud/') ? '../' : '');
 
 const treninger = [
   {
@@ -131,18 +133,19 @@ const treninger = [
 ];
 
 const injectLayout = () => {
+  const prefix = resolvePathPrefix();
   const headerTarget = document.querySelector('[data-component="site-header"]');
   if (headerTarget) {
-    headerTarget.outerHTML = headerTemplate;
+    headerTarget.outerHTML = buildHeaderTemplate(prefix);
   } else if (!document.querySelector('.site-header')) {
-    document.body.insertAdjacentHTML('afterbegin', headerTemplate);
+    document.body.insertAdjacentHTML('afterbegin', buildHeaderTemplate(prefix));
   }
 
   const footerTarget = document.querySelector('[data-component="site-footer"]');
   if (footerTarget) {
-    footerTarget.outerHTML = footerTemplate;
+    footerTarget.outerHTML = buildFooterTemplate(prefix);
   } else if (!document.querySelector('.site-footer')) {
-    document.body.insertAdjacentHTML('beforeend', footerTemplate);
+    document.body.insertAdjacentHTML('beforeend', buildFooterTemplate(prefix));
   }
 };
 
