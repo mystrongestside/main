@@ -227,5 +227,11 @@ document.querySelectorAll('.news-card').forEach((card) => {
   ikon.alt = alt;
 
   meta.appendChild(ikon);
-  card.appendChild(meta);
+
+  const dateBadge = card.querySelector('.date-badge');
+  if (dateBadge) {
+    dateBadge.insertAdjacentElement('afterend', meta);
+  } else {
+    card.insertBefore(meta, card.firstChild);
+  }
 });
