@@ -169,48 +169,8 @@ const LOCATION_META = {
   iconSrc: 'icons/location.svg',
 };
 
-const ikonKonfigurasjon = [
-  {
-    matcher: ['lett'],
-    src: 'gmfcs1-2_myss.png',
-    alt: 'GMFCS nivå I–II – Lett funksjonsnivå',
-  },
-  {
-    matcher: ['tett'],
-    src: 'gmfcs3-5_myss.png',
-    alt: 'GMFCS nivå III–V – Tett oppfølging',
-  },
-  {
-    matcher: ['ungdom', 'barn'],
-    src: 'gmfcs-all.png',
-    alt: 'Alle GMFCS-nivåer – Barn og ungdom',
-  },
-  {
-    matcher: ['kognitiv', 'lærevansker', 'pu'],
-    src: 'kognitivstøtte_myss.png',
-    alt: 'Kognitiv støtte – Tilpasset læring og veiledning',
-  },
-];
-
-const hentIkonForTittel = (tittel) => {
-  const normalized = tittel.toLowerCase();
-
-  for (const { matcher, src, alt } of ikonKonfigurasjon) {
-    if (matcher.some((ord) => normalized.includes(ord))) {
-      return { src, alt };
-    }
-  }
-
-  return { src: 'gmfcs-all.png', alt: 'Tilrettelagt trening' };
-};
-
 document.querySelectorAll('.news-card').forEach((card) => {
   if (card.querySelector('.card-meta')) {
-    return;
-  }
-
-  const title = card.querySelector('.news-title')?.textContent?.trim();
-  if (!title) {
     return;
   }
 
@@ -233,15 +193,6 @@ document.querySelectorAll('.news-card').forEach((card) => {
   location.appendChild(locationText);
 
   meta.appendChild(location);
-
-  const ikon = document.createElement('img');
-  ikon.classList.add('gmfcs-icon');
-
-  const { src, alt } = hentIkonForTittel(title);
-  ikon.src = src;
-  ikon.alt = alt;
-
-  meta.appendChild(ikon);
 
   const image = card.querySelector('.news-media') ?? card.querySelector('img');
   if (image) {
