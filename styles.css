@@ -783,4 +783,11 @@ textarea { resize: vertical; }
   }
 }
 
+.hero-card .hero-sub{
+  margin: 1.1rem auto 0;
+  max-width: 40ch;
+  font-size: clamp(1.05rem, 1vw + 1rem, 1.55rem);
+  color: rgba(255,255,255,.9);
+}
+
 
