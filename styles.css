@@ -418,25 +418,30 @@ body.no-scroll { overflow: hidden; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: .5rem;
-  padding: 0 1rem;
+  padding: .6rem 1rem;
   font-size: .85rem;
   font-weight: 600;
   color: var(--blue-2);
+  border-top: 1px solid #E4E8F2;
+  background: linear-gradient(90deg, #F5F7FA 0%, #EAF0FA 100%);
+  border-radius: 0 0 8px 8px;
 }
 
 .meta-location {
   flex: 1;
-  min-width: 140px;
+  font-weight: 500;
 }
 
 .gmfcs-icon {
-  height: 26px;
+  height: 28px;
   width: auto;
-  margin-left: 8px;
-  vertical-align: middle;
+  filter: brightness(0) saturate(100%) invert(12%) sepia(25%) saturate(872%) hue-rotate(175deg) brightness(95%) contrast(88%);
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.gmfcs-icon:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 .news-meta,
 .news-time{

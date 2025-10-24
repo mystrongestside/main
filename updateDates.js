@@ -228,9 +228,9 @@ document.querySelectorAll('.news-card').forEach((card) => {
 
   meta.appendChild(ikon);
 
-  const dateBadge = card.querySelector('.date-badge');
-  if (dateBadge) {
-    dateBadge.insertAdjacentElement('afterend', meta);
+  const image = card.querySelector('img');
+  if (image) {
+    image.insertAdjacentElement('afterend', meta);
   } else {
     card.insertBefore(meta, card.firstChild);
   }
