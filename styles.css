@@ -9,7 +9,19 @@
   --bg:#E4E8F2;
   --container: 980px;
   --card-img-h: 220px;
+  --section-padding-block: clamp(2.75rem, 4vw, 4rem);
+  --media-radius: 18px;
+  --icon-size: 48px;
+  --icon-radius: 16px;
+  --icon-padding: 0.4rem;
   --marquee-speed: 50s;
+}
+
+@media (max-width: 600px) {
+  :root{
+    --icon-size: 40px;
+    --icon-padding: 0.3rem;
+  }
 }
 
 /* Smooth scroll først – fungerer i alle nettlesere */
@@ -31,12 +43,13 @@ body{
 main { display: block; }
 
 .section {
-  padding: 2.5rem 0 4rem;
+  padding-block: var(--section-padding-block);
 }
 
 .two-column {
   display: grid;
   gap: 2rem;
+  align-items: center;
 }
 
 @media (min-width: 980px) {
@@ -436,7 +449,7 @@ body.no-scroll { overflow: hidden; }
 }
 
 /* ========================= NYHETER / AKTIVITETER ========================= */
-.news-section{ padding:2.2rem 0 4rem; scroll-margin-top: 80px; } /* smooth offset */
+.news-section{ padding-block: var(--section-padding-block); scroll-margin-top: 80px; } /* smooth offset */
 .news-header{
   max-width:var(--container);
   margin:0 auto;
@@ -462,7 +475,7 @@ body.no-scroll { overflow: hidden; }
 /* Kort */
 .news-card{
   background:#fff;
-  border-radius:14px;
+  border-radius:var(--media-radius);
   overflow:hidden;
   position:relative;
   box-shadow:0 6px 20px rgba(0,0,0,.07);
@@ -484,6 +497,7 @@ body.no-scroll { overflow: hidden; }
   display:block;
   object-fit:cover;
   object-position:center;
+  border-radius: var(--media-radius) var(--media-radius) 0 0;
 }
 .focus-upper-desktop{ object-position:50% 35%; }
 .focus-top{ object-position:top; }
@@ -510,35 +524,51 @@ body.no-scroll { overflow: hidden; }
 
 /* Tekst i kort */
 .news-body{
-  padding:1.2rem 1.2rem 1.4rem;
+  padding:1.5rem;
   display:flex;
   flex-direction:column;
-  gap:.65rem;
+  gap:.75rem;
 }
 .card-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .6rem 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: .75rem 1.25rem;
   font-size: .85rem;
   font-weight: 600;
   color: var(--blue-2);
   border-top: 1px solid #E4E8F2;
   background: linear-gradient(90deg, #F5F7FA 0%, #EAF0FA 100%);
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 var(--media-radius) var(--media-radius);
 }
 
 .meta-location {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: .75rem;
   font-weight: 500;
 }
 
+.meta-icon,
+.gmfcs-icon {
+  display: block;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  min-width: var(--icon-size);
+  min-height: var(--icon-size);
+  border-radius: var(--icon-radius);
+  padding: var(--icon-padding);
+  background: #fff;
+  border: 1px solid rgba(25, 43, 69, 0.12);
+  box-shadow: 0 6px 16px rgba(25, 43, 69, 0.08);
+  object-fit: contain;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
 .meta-icon {
-  width: 22px;
-  height: 22px;
   flex-shrink: 0;
 }
 
@@ -547,11 +577,7 @@ body.no-scroll { overflow: hidden; }
 }
 
 .gmfcs-icon {
-  height: 32px;
-  min-width: 32px;
-  width: auto;
   filter: brightness(0) saturate(100%) invert(12%) sepia(25%) saturate(872%) hue-rotate(175deg) brightness(95%) contrast(88%);
-  transition: transform 0.2s ease, opacity 0.3s ease;
 }
 
 .gmfcs-icon:hover {
@@ -990,12 +1016,18 @@ textarea { resize: vertical; }
 }
 .info-list li {
   display: flex;
-  align-items: flex-start;
-  gap: .6rem;
+  align-items: center;
+  gap: 1rem;
   line-height: 1.5;
   margin-bottom: .8rem;
   color: #000; /* brødtekst */
   font-size: 1rem;
+  padding: .75rem 1rem;
+  border-radius: var(--media-radius);
+  background: rgba(228, 232, 242, 0.35);
+}
+.info-list li:last-child {
+  margin-bottom: 0;
 }
 .info-list li strong {
   color: #000;
@@ -1003,16 +1035,22 @@ textarea { resize: vertical; }
 }
 
 .icon {
-  display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
-  min-width: 1.5rem;
-  min-height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  min-width: var(--icon-size);
+  min-height: var(--icon-size);
   aspect-ratio: 1 / 1;
   flex-shrink: 0;
-  background-size: contain;
+  border-radius: var(--icon-radius);
+  background-size: 55%;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: rgba(25, 43, 69, 0.08);
+  border: 1px solid rgba(25, 43, 69, 0.1);
+  box-shadow: 0 6px 14px rgba(25, 43, 69, 0.08);
 }
 
 /* Kobling mellom klasser og SVG-filene */
