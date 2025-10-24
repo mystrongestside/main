@@ -350,123 +350,47 @@ const oppdaterTreningskort = () => {
   });
 };
 
-const LOCATION_DETAILS = {
-  text: 'Bergen – Fantoft',
-  icon: {
-    src: 'icons/location.svg',
-    alt: 'Lokasjon',
-  },
-};
+const LOCATION_LABEL = '📍 Bergen – Fantoft';
 
-const GROUP_META = {
-  voksne: {
-    icons: [{ src: 'icons/walk.svg', alt: 'Gående person' }],
-    passerFor:
-      'Deg som går selvstendig og ønsker veiledning til å tilpasse styrketrening etter egne behov.',
-  },
-  tett: {
-    icons: [
-      { src: 'icons/wheelchair.svg', alt: 'Rullestolbruker' },
-      { src: 'icons/assist.svg', alt: 'Assistent' },
-    ],
-    passerFor:
-      'Deg som bruker rullestol eller trenger forutsigbar og tett oppfølging gjennom hele treningsøkten.',
-  },
-  barn: {
-    icons: [
-      { src: 'icons/child.svg', alt: 'Barn' },
-      { src: 'icons/child2.svg', alt: 'Ungdom' },
-    ],
-    passerFor:
-      'Barn og ungdom som vil trene styrke i trygge omgivelser med støtte fra fagpersoner og frivillige.',
-  },
-};
+const getGmfcsMetaForTitle = (titleText = '') => {
+  const normalized = titleText.toLowerCase();
 
-const GROUP_KEYWORDS = [
-  { key: 'voksne', keywords: ['voksne', 'lett'] },
-  { key: 'tett', keywords: ['tett', 'oppfølging'] },
-  { key: 'barn', keywords: ['barn', 'ungdom'] },
-];
-
-const DEFAULT_GROUP_META = {
-  icons: [
-    { src: 'icons/walk.svg', alt: 'Gående person' },
-    { src: 'icons/wheelchair.svg', alt: 'Rullestolbruker' },
-    { src: 'icons/assist.svg', alt: 'Assistent' },
-    { src: 'icons/child.svg', alt: 'Barn' },
-    { src: 'icons/child2.svg', alt: 'Ungdom' },
-  ],
-  passerFor: 'Deltakere med ulike behov som ønsker trygg og tilrettelagt trening.',
-};
-
-const getGroupMeta = (card) => {
-  const dataKey = card.dataset.gruppe;
-  if (dataKey && GROUP_META[dataKey]) {
-    return GROUP_META[dataKey];
+  if (normalized.includes('lett')) {
+    return {
+      src: 'gmfcs1-2_myss.png',
+      alt: 'GMFCS nivå I–II – Lett funksjonsnivå',
+    };
   }
 
-  const titleText = card.querySelector('.news-title')?.textContent?.toLowerCase() ?? '';
-  const keywordMatch = GROUP_KEYWORDS.find(({ keywords }) =>
-    keywords.some((keyword) => titleText.includes(keyword))
-  );
-
-  if (keywordMatch?.key && GROUP_META[keywordMatch.key]) {
-    return GROUP_META[keywordMatch.key];
+  if (normalized.includes('tett')) {
+    return {
+      src: 'gmfcs3-5_myss.png',
+      alt: 'GMFCS nivå III–V – Tett oppfølging',
+    };
   }
 
-  return DEFAULT_GROUP_META;
-};
-
-const createLocationInfo = () => {
-  const container = document.createElement('div');
-  container.classList.add('location-info');
-
-  const icon = document.createElement('img');
-  icon.classList.add('icon');
-  icon.src = LOCATION_DETAILS.icon.src;
-  icon.alt = LOCATION_DETAILS.icon.alt;
-  container.appendChild(icon);
-
-  const text = document.createElement('span');
-  text.textContent = LOCATION_DETAILS.text;
-  container.appendChild(text);
-
-  return container;
-};
-
-const createGroupIcons = (icons = []) => {
-  if (!icons.length) {
-    return null;
+  if (normalized.includes('ungdom') || normalized.includes('barn')) {
+    return {
+      src: 'gmfcs-all.png',
+      alt: 'Alle GMFCS-nivåer – Barn og ungdom',
+    };
   }
 
-  const container = document.createElement('div');
-  container.classList.add('group-icons');
-
-  icons.forEach(({ src, alt }) => {
-    const icon = document.createElement('img');
-    icon.classList.add('icon');
-    icon.src = src;
-    icon.alt = alt;
-    container.appendChild(icon);
-  });
-
-  return container;
-};
-
-const createGroupFit = (passerFor) => {
-  if (!passerFor) {
-    return null;
+  if (
+    normalized.includes('kognitiv') ||
+    normalized.includes('lærevansker') ||
+    normalized.includes('pu')
+  ) {
+    return {
+      src: 'kognitivstøtte_myss.png',
+      alt: 'Kognitiv støtte – Tilpasset læring og veiledning',
+    };
   }
 
-  const paragraph = document.createElement('p');
-  paragraph.classList.add('group-fit');
-
-  const label = document.createElement('strong');
-  label.textContent = 'Passer for:';
-  paragraph.appendChild(label);
-  paragraph.appendChild(document.createTextNode(` ${passerFor}`));
-
-  return paragraph;
+  return {
+    src: 'gmfcs-all.png',
+    alt: 'Tilrettelagt trening',
+  };
 };
 
 const initNewsCardMeta = () => {
@@ -475,22 +399,22 @@ const initNewsCardMeta = () => {
       return;
     }
 
-    const { icons, passerFor } = getGroupMeta(card);
+    const titleText = card.querySelector('.news-title')?.textContent ?? '';
+    const { src, alt } = getGmfcsMetaForTitle(titleText);
 
     const meta = document.createElement('div');
     meta.classList.add('card-meta');
 
-    meta.appendChild(createLocationInfo());
+    const location = document.createElement('span');
+    location.classList.add('meta-location');
+    location.textContent = LOCATION_LABEL;
+    meta.appendChild(location);
 
-    const iconRow = createGroupIcons(icons);
-    if (iconRow) {
-      meta.appendChild(iconRow);
-    }
-
-    const fitText = createGroupFit(passerFor);
-    if (fitText) {
-      meta.appendChild(fitText);
-    }
+    const icon = document.createElement('img');
+    icon.classList.add('gmfcs-icon');
+    icon.src = src;
+    icon.alt = alt;
+    meta.appendChild(icon);
 
     const image = card.querySelector('img');
     if (image) {

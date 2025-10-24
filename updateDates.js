@@ -164,123 +164,41 @@ console.log(logPrefix, 'Starter oppdatering av treningdatoer');
 treninger.forEach(oppdaterKort);
 console.log(logPrefix, 'Ferdig med oppdatering av treningdatoer');
 
-const LOCATION_DETAILS = {
-  text: 'Bergen – Fantoft',
-  icon: {
-    src: 'icons/location.svg',
-    alt: 'Lokasjon',
-  },
-};
+const LOCATION_LABEL = '📍 Bergen – Fantoft';
 
-const GROUP_META = {
-  voksne: {
-    icons: [{ src: 'icons/walk.svg', alt: 'Gående person' }],
-    passerFor:
-      'Deg som går selvstendig og ønsker veiledning til å tilpasse styrketrening etter egne behov.',
+const ikonKonfigurasjon = [
+  {
+    matcher: ['lett'],
+    src: 'gmfcs1-2_myss.png',
+    alt: 'GMFCS nivå I–II – Lett funksjonsnivå',
   },
-  tett: {
-    icons: [
-      { src: 'icons/wheelchair.svg', alt: 'Rullestolbruker' },
-      { src: 'icons/assist.svg', alt: 'Assistent' },
-    ],
-    passerFor:
-      'Deg som bruker rullestol eller trenger forutsigbar og tett oppfølging gjennom hele treningsøkten.',
+  {
+    matcher: ['tett'],
+    src: 'gmfcs3-5_myss.png',
+    alt: 'GMFCS nivå III–V – Tett oppfølging',
   },
-  barn: {
-    icons: [
-      { src: 'icons/child.svg', alt: 'Barn' },
-      { src: 'icons/child2.svg', alt: 'Ungdom' },
-    ],
-    passerFor:
-      'Barn og ungdom som vil trene styrke i trygge omgivelser med støtte fra fagpersoner og frivillige.',
+  {
+    matcher: ['ungdom', 'barn'],
+    src: 'gmfcs-all.png',
+    alt: 'Alle GMFCS-nivåer – Barn og ungdom',
   },
-};
-
-const GROUP_KEYWORDS = [
-  { key: 'voksne', keywords: ['voksne', 'lett'] },
-  { key: 'tett', keywords: ['tett', 'oppfølging'] },
-  { key: 'barn', keywords: ['barn', 'ungdom'] },
+  {
+    matcher: ['kognitiv', 'lærevansker', 'pu'],
+    src: 'kognitivstøtte_myss.png',
+    alt: 'Kognitiv støtte – Tilpasset læring og veiledning',
+  },
 ];
 
-const DEFAULT_GROUP_META = {
-  icons: [
-    { src: 'icons/walk.svg', alt: 'Gående person' },
-    { src: 'icons/wheelchair.svg', alt: 'Rullestolbruker' },
-    { src: 'icons/assist.svg', alt: 'Assistent' },
-    { src: 'icons/child.svg', alt: 'Barn' },
-    { src: 'icons/child2.svg', alt: 'Ungdom' },
-  ],
-  passerFor: 'Deltakere med ulike behov som ønsker trygg og tilrettelagt trening.',
-};
+const hentIkonForTittel = (tittel) => {
+  const normalized = tittel.toLowerCase();
 
-const hentGruppeMeta = (card) => {
-  const dataKey = card.dataset.gruppe;
-  if (dataKey && GROUP_META[dataKey]) {
-    return GROUP_META[dataKey];
+  for (const { matcher, src, alt } of ikonKonfigurasjon) {
+    if (matcher.some((ord) => normalized.includes(ord))) {
+      return { src, alt };
+    }
   }
 
-  const title = card.querySelector('.news-title')?.textContent?.toLowerCase() ?? '';
-  const keywordMatch = GROUP_KEYWORDS.find(({ keywords }) =>
-    keywords.some((keyword) => title.includes(keyword))
-  );
-
-  if (keywordMatch?.key && GROUP_META[keywordMatch.key]) {
-    return GROUP_META[keywordMatch.key];
-  }
-
-  return DEFAULT_GROUP_META;
-};
-
-const lagLokasjonsInfo = () => {
-  const container = document.createElement('div');
-  container.classList.add('location-info');
-
-  const icon = document.createElement('img');
-  icon.classList.add('icon');
-  icon.src = LOCATION_DETAILS.icon.src;
-  icon.alt = LOCATION_DETAILS.icon.alt;
-  container.appendChild(icon);
-
-  const tekst = document.createElement('span');
-  tekst.textContent = LOCATION_DETAILS.text;
-  container.appendChild(tekst);
-
-  return container;
-};
-
-const lagGruppeIkoner = (icons = []) => {
-  if (!icons.length) {
-    return null;
-  }
-
-  const container = document.createElement('div');
-  container.classList.add('group-icons');
-
-  icons.forEach(({ src, alt }) => {
-    const icon = document.createElement('img');
-    icon.classList.add('icon');
-    icon.src = src;
-    icon.alt = alt;
-    container.appendChild(icon);
-  });
-
-  return container;
-};
-
-const lagGruppeTilpasning = (passerFor) => {
-  if (!passerFor) {
-    return null;
-  }
-
-  const paragraph = document.createElement('p');
-  paragraph.classList.add('group-fit');
-
-  const label = document.createElement('strong');
-  label.textContent = 'Passer for:';
-  paragraph.appendChild(label);
-  paragraph.appendChild(document.createTextNode(` ${passerFor}`));
-
-  return paragraph;
+  return { src: 'gmfcs-all.png', alt: 'Tilrettelagt trening' };
 };
 
 document.querySelectorAll('.news-card').forEach((card) => {
@@ -288,22 +206,27 @@ document.querySelectorAll('.news-card').forEach((card) => {
     return;
   }
 
+  const title = card.querySelector('.news-title')?.textContent?.trim();
+  if (!title) {
+    return;
+  }
+
   const meta = document.createElement('div');
   meta.classList.add('card-meta');
 
-  meta.appendChild(lagLokasjonsInfo());
+  const location = document.createElement('span');
+  location.classList.add('meta-location');
+  location.textContent = LOCATION_LABEL;
+  meta.appendChild(location);
 
-  const { icons, passerFor } = hentGruppeMeta(card);
+  const ikon = document.createElement('img');
+  ikon.classList.add('gmfcs-icon');
 
-  const ikonRad = lagGruppeIkoner(icons);
-  if (ikonRad) {
-    meta.appendChild(ikonRad);
-  }
+  const { src, alt } = hentIkonForTittel(title);
+  ikon.src = src;
+  ikon.alt = alt;
 
-  const passerForTekst = lagGruppeTilpasning(passerFor);
-  if (passerForTekst) {
-    meta.appendChild(passerForTekst);
-  }
+  meta.appendChild(ikon);
 
   const image = card.querySelector('img');
   if (image) {
