@@ -414,17 +414,25 @@ body.no-scroll { overflow: hidden; }
   flex-direction:column;
   gap:.65rem;
 }
-.news-meta{
+.news-meta,
+.news-time{
   font-size:.92rem;
   color:var(--blue-2);
   font-weight:600;
 }
 .news-title{ font-size:1.1rem; color:var(--blue); }
 .news-text{ color:#333; font-size:.98rem; }
-.news-button{
+.button-row{
+  margin-top:1rem;
+  display:flex;
+  gap:.75rem;
+  flex-wrap:wrap;
+}
+.btn-primary{
   align-self:flex-start;
-  margin-top:.1rem;
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding:.5rem 1.1rem;
   border-radius:999px;
   background:var(--orange);
@@ -432,12 +440,36 @@ body.no-scroll { overflow: hidden; }
   font-weight:700;
   text-decoration:none;
   box-shadow:0 6px 16px rgba(0,0,0,.12);
+  cursor:pointer;
   transition:transform .15s ease, filter .15s ease;
 }
-.news-button:hover,
-.news-button:focus-visible{
+.btn-primary:hover,
+.btn-primary:focus-visible{
   filter:brightness(1.06);
   transform:translateY(-1px);
+}
+.btn-secondary{
+  align-self:flex-start;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:.5rem 1.1rem;
+  border-radius:999px;
+  background:#fff;
+  color:var(--blue);
+  font-weight:700;
+  text-decoration:none;
+  border:1px solid rgba(36,52,77,.25);
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn-secondary:hover,
+.btn-secondary:focus-visible{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.92);
+  border-color:rgba(36,52,77,.35);
+  color:var(--blue);
 }
 
 /* ========================= FOOTER ========================= */
@@ -526,7 +558,7 @@ body.no-scroll { overflow: hidden; }
   .has-sub.open > .dropdown{ display:block; }
   .has-sub .dropdown a { padding-left: 1rem; }
 
-  .btn-pill, .news-button { padding: 14px 18px; }
+  .btn-pill, .btn-primary { padding: 14px 18px; }
 }
 
 /* Fjern bullets i hele nav */
