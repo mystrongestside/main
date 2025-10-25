@@ -14,14 +14,14 @@ const buildHeaderTemplate = (prefix = '') => `
           <li class="has-sub">
             <a href="#" class="nav-has-sub" aria-haspopup="true" aria-expanded="false">Tilbud</a>
             <ul class="dropdown">
-              <li><a href="${prefix}treningstilbud/voksne-lett.html" data-page="voksne-lett.html">Styrketrening for voksne med lett funksjonsvariasjon</a></li>
-              <li><a href="${prefix}treningstilbud/tett-oppfolging.html" data-page="tett-oppfolging.html">Tilrettelagt styrketrening – tett oppfølging</a></li>
-              <li><a href="${prefix}treningstilbud/barn-ungdom.html" data-page="barn-ungdom.html">Styrketrening for barn og ungdom</a></li>
+              <li><a href="${prefix}treningstilbud/voksne-lett.html" data-page="voksne-lett.html">Voksne – lett oppfølging</a></li>
+              <li><a href="${prefix}treningstilbud/voksne-middels.html" data-page="voksne-middels.html">Voksne – moderat oppfølging</a></li>
+              <li><a href="${prefix}treningstilbud/voksne-tett.html" data-page="voksne-tett.html">Voksne – tett oppfølging</a></li>
+              <li><a href="${prefix}treningstilbud/barn-ungdom.html" data-page="barn-ungdom.html">Barn og ungdom</a></li>
               <li><a href="${prefix}foresatte.html" data-page="foresatte.html">Foresatte</a></li>
             </ul>
           </li>
           <li><a href="${prefix}om-oss.html" data-page="om-oss.html">Om oss</a></li>
-          <li><a href="${prefix}treningstilbud.html" data-page="treningstilbud.html,voksne-lett.html,tett-oppfolging.html,barn-ungdom.html">Treningstilbud</a></li>
           <li><a href="${prefix}kurs.html" data-page="kurs.html">Kurs</a></li>
           <li><a href="${prefix}frivillig.html" data-page="frivillig.html">Frivillig</a></li>
           <li><a href="${prefix}kontakt.html" data-page="kontakt.html">Kontakt</a></li>
@@ -92,7 +92,7 @@ const resolvePathPrefix = () => (window.location.pathname.includes('/treningstil
 
 const treninger = [
   {
-    gruppe: 'voksne',
+    gruppe: 'lett',
     datoer: [
       '2025-09-25',
       '2025-10-09',
@@ -105,7 +105,7 @@ const treninger = [
     ],
   },
   {
-    gruppe: 'tett',
+    gruppe: 'middels',
     datoer: [
       '2025-09-18',
       '2025-10-02',
@@ -118,7 +118,7 @@ const treninger = [
     ],
   },
   {
-    gruppe: 'barn',
+    gruppe: 'tett',
     datoer: [
       '2025-09-25',
       '2025-10-09',
