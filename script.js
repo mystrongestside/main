@@ -14,7 +14,7 @@ const buildHeaderTemplate = (prefix = '') => `
           <li class="has-sub">
             <a href="#" class="nav-has-sub" aria-haspopup="true" aria-expanded="false">Tilbud</a>
             <ul class="dropdown">
-              <li><a href="${prefix}treningstilbud/voksne-lett.html" data-page="voksne-lett.html">Styrketrening for voksne – lett nivå</a></li>
+              <li><a href="${prefix}treningstilbud/voksne-lett.html" data-page="voksne-lett.html">Styrketrening for voksne med lett funksjonsvariasjon</a></li>
               <li><a href="${prefix}treningstilbud/tett-oppfolging.html" data-page="tett-oppfolging.html">Tilrettelagt styrketrening – tett oppfølging</a></li>
               <li><a href="${prefix}treningstilbud/barn-ungdom.html" data-page="barn-ungdom.html">Styrketrening for barn og ungdom</a></li>
               <li><a href="${prefix}foresatte.html" data-page="foresatte.html">Foresatte</a></li>
