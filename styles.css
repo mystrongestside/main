@@ -1131,6 +1131,41 @@ textarea { resize: vertical; }
 .info-list li strong {
   color: #000;
   font-weight: 600;
+  display: block;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.info-meta {
+  color: var(--blue-2);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.date-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.date-grid li {
+  background: rgba(228, 232, 242, 0.7);
+  border-radius: 12px;
+  padding: 0.45rem 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--blue-2);
+}
+
+.date-grid time {
+  display: block;
 }
 
 .icon {
