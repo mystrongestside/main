@@ -417,6 +417,25 @@ body.no-scroll { overflow: hidden; }
   }
 }
 
+/* ========================= HERO OVERLAY ========================= */
+.hero {
+  background: var(--blue);
+  color: #fff;
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+.hero-overlay h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.hero-overlay p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 1rem auto 0;
+}
+
 /* ========================= MARQUEE ========================= */
 .marquee{
   background:var(--orange);
