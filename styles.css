@@ -1210,4 +1210,27 @@ textarea { resize: vertical; }
 .card-icon:hover {
   transform: scale(1.05);
 }
+.info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.info-list li {
+  margin-bottom: .75rem;
+  line-height: 1.5;
+}
+
+.date-list.nested {
+  list-style: disc;
+  margin: .25rem 0 0 1.5rem;
+  padding: 0;
+  color: #000;
+  font-size: 0.95rem;
+}
+
+.date-list.nested li {
+  border: none;
+  padding: .1rem 0;
+}
 
