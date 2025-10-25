@@ -1257,3 +1257,52 @@ textarea { resize: vertical; }
   transform: scale(1.05);
 }
  
+
+/* ===== SDG BLOCK ON OM-OSS ===== */
+.sdg-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.sdg-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.sdg-icon {
+  width: 56px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 0.25rem;
+}
+
+.sdg-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.sdg-text strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.sdg-footnote {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #555;
+  margin-top: -0.5rem;
+}
+
+/* To-kolonne layout på større skjermer */
+@media (min-width: 600px) {
+  .sdg-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
