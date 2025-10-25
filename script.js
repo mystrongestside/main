@@ -21,7 +21,6 @@ const buildHeaderTemplate = (prefix = '') => `
             </ul>
           </li>
           <li><a href="${prefix}om-oss.html" data-page="om-oss.html">Om oss</a></li>
-          <li><a href="${prefix}treningstilbud.html" data-page="treningstilbud.html,voksne-lett.html,tett-oppfolging.html,barn-ungdom.html">Treningstilbud</a></li>
           <li><a href="${prefix}kurs.html" data-page="kurs.html">Kurs</a></li>
           <li><a href="${prefix}frivillig.html" data-page="frivillig.html">Frivillig</a></li>
           <li><a href="${prefix}kontakt.html" data-page="kontakt.html">Kontakt</a></li>
