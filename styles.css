@@ -417,23 +417,29 @@ body.no-scroll { overflow: hidden; }
   }
 }
 
-/* ========================= HERO OVERLAY ========================= */
-.hero {
-  background: var(--blue);
-  color: #fff;
-  text-align: center;
-  padding: 6rem 1rem;
+/* ========================= PAGE HEADER ========================= */
+.page-header {
+  background: #f4f4f4;
+  color: #000;
+  text-align: left;
+  padding: 4rem 2rem;
 }
 
-.hero-overlay h1 {
-  font-size: 2rem;
-  font-weight: 700;
+.page-header .header-overlay {
+  max-width: var(--container);
+  margin: 0 auto;
 }
 
-.hero-overlay p {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 1rem auto 0;
+.hero-subtext {
+  color: #666;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.header-subtext {
+  margin-top: 1rem;
+  max-width: 720px;
+  line-height: 1.6;
 }
 
 /* ========================= MARQUEE ========================= */
