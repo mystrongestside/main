@@ -46,15 +46,6 @@ main { display: block; }
   padding-block: var(--section-padding-block);
 }
 
-.section-faglig-grunnlag {
-  margin-top: 3rem;
-}
-
-.section-faglig-grunnlag .surface-card {
-  background: #fff;
-  color: var(--text);
-}
-
 .two-column {
   display: grid;
   gap: 2rem;
@@ -86,6 +77,17 @@ main { display: block; }
 
 .stack-sm > * + * {
   margin-top: 0.75rem;
+}
+
+.icon-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-faglig {
+  width: 32px;
+  height: 32px;
 }
 
 ul.bullets {

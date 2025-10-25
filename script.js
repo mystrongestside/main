@@ -148,6 +148,16 @@ const injectLayout = () => {
   }
 };
 
+const applyPrefixPlaceholders = () => {
+  const prefix = resolvePathPrefix();
+  document.querySelectorAll('img[src*="${prefix}"]').forEach((img) => {
+    const rawSrc = img.getAttribute('src');
+    if (rawSrc) {
+      img.setAttribute('src', rawSrc.replace('${prefix}', prefix));
+    }
+  });
+};
+
 const initNavigation = () => {
   const btn = document.getElementById('hamburger');
   const menu = document.getElementById('navbar-menu');
@@ -394,6 +404,7 @@ const initNewsCardMeta = () => {
 
 window.addEventListener('DOMContentLoaded', () => {
   injectLayout();
+  applyPrefixPlaceholders();
   initNavigation();
   highlightNavigation();
   initFooterYear();
