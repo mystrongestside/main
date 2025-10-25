@@ -46,6 +46,15 @@ main { display: block; }
   padding-block: var(--section-padding-block);
 }
 
+.section-faglig-grunnlag {
+  margin-top: 3rem;
+}
+
+.section-faglig-grunnlag .surface-card {
+  background: #fff;
+  color: var(--text);
+}
+
 .two-column {
   display: grid;
   gap: 2rem;
