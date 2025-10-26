@@ -790,28 +790,47 @@ body.no-scroll { overflow: hidden; }
 
 .footer-logo {
   text-align: center;
+  position: relative;
+}
+
+.footer-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  text-align: center;
+  gap: 0.5rem;
 }
 
 .myss-circle-badge {
   position: relative;
   width: 120px;
   height: 120px;
-  margin: 0 auto 0.5rem;
-}
-
-.badge-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
+  margin: 0;
 }
 
 .badge-ring {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 120px;
-  height: 120px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: myss-spin 20s linear infinite;
+  z-index: 1;
+}
+
+.badge-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  display: block;
+  opacity: 1;
+  filter: none;
+  z-index: 2;
 }
 
 .badge-text {
@@ -823,10 +842,27 @@ body.no-scroll { overflow: hidden; }
 }
 
 .footer-tagline {
+  margin: 0;
   font-style: italic;
   font-weight: 400;
-  margin-top: 0.5rem;
   color: #333;
+}
+
+@media (min-width: 1024px) {
+  .myss-circle-badge {
+    width: 140px;
+    height: 140px;
+  }
+
+  .badge-ring {
+    width: 140px;
+    height: 140px;
+  }
+
+  .badge-logo {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 .footer-contact,
@@ -1392,37 +1428,10 @@ footer {
 }
 
 /* Logo + sirkel */
-.footer-logo { text-align: center; position: relative; }
-.myss-circle-badge {
-  position: relative;
-  width: 120px; height: 120px;
-  margin: 0 auto;
-}
-.badge-ring {
-  position: absolute; inset: 0;
-  width: 120px; height: 120px;
-  transform-box: fill-box;          /* kritisk for Safari/Firefox */
-  transform-origin: 50% 50%;
-  animation: myss-spin 20s linear infinite;
-  z-index: 1;
-}
 .badge-text {
   font-size: 5px; font-weight: 600;
   letter-spacing: 1.2px; text-transform: uppercase;
   fill: var(--orange);
-}
-.badge-logo {
-  position: absolute; top: 50%; left: 50%;
-  width: 60px; height: 60px;
-  transform: translate(-50%, -50%);
-  display: block;
-  opacity: 1; filter: none;         /* 100% – ingen fade */
-  z-index: 2;
-}
-
-.footer-tagline {
-  margin-top: 7.5rem;               /* plass under sirkelen */
-  font-style: italic; color: #333;
 }
 
 .footer-copy {
@@ -1446,6 +1455,6 @@ footer {
 @media (max-width: 768px) {
   .footer-container { flex-direction: column; text-align: center; }
   .footer-contact, .footer-social { text-align: center; }
-  .footer-tagline { margin-top: 7rem; }
+  .footer-tagline { margin: 0; }
 }
 
