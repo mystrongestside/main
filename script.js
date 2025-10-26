@@ -44,21 +44,6 @@ const buildFooterTemplate = (prefix = '') => `
 <footer class="site-footer">
   <div class="footer-wrap">
     <section class="footer-col footer-brand">
-      <div class="myss-circle-badge">
-        <div class="badge-center">
-          <img src="${prefix}logo-orange.png" alt="My Strongest Side" class="badge-logo" />
-        </div>
-        <svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true">
-          <defs>
-            <path id="badgeCirclePath" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" />
-          </defs>
-          <text class="badge-text">
-            <textPath href="#badgeCirclePath" startOffset="0%">
-              • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®
-            </textPath>
-          </text>
-        </svg>
-      </div>
       <p class="footer-tagline"><em>Gjør trening tilgjengelig for flest mulig.</em></p>
     </section>
 
@@ -118,6 +103,36 @@ const injectBottomMarquee = () => {
   }
 
   mainElement.insertAdjacentHTML('afterend', bottomMarqueeTemplate);
+};
+
+const injectFooterBadge = () => {
+  const footer = document.querySelector('footer');
+  if (!footer) {
+    return;
+  }
+
+  if (footer.querySelector('.myss-circle-badge')) {
+    return;
+  }
+
+  const prefix = resolvePathPrefix();
+  const badge = document.createElement('div');
+  badge.classList.add('myss-circle-badge');
+  badge.innerHTML = `
+    <img src="${prefix}logo.png" alt="My Strongest Side" class="badge-icon" />
+    <svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true">
+      <defs>
+        <path id="badgeCirclePath" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" />
+      </defs>
+      <text class="badge-text">
+        <textPath href="#badgeCirclePath" startOffset="0%">
+          • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®
+        </textPath>
+      </text>
+    </svg>
+  `;
+
+  footer.appendChild(badge);
 };
 
 const treninger = [
@@ -436,6 +451,7 @@ const initNewsCardMeta = () => {
 window.addEventListener('DOMContentLoaded', () => {
   injectLayout();
   injectBottomMarquee();
+  injectFooterBadge();
   applyPrefixPlaceholders();
   initNavigation();
   highlightNavigation();
