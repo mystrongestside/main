@@ -41,33 +41,39 @@ const buildHeaderTemplate = (prefix = '') => `
 `;
 
 const buildFooterTemplate = (prefix = '') => `
-<footer class="site-footer">
-  <div class="footer-wrap">
-    <section class="footer-col footer-brand">
-      <p class="footer-tagline"><em>Gjør trening tilgjengelig for flest mulig.</em></p>
-    </section>
+<footer class="site-footer myss-footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <div class="myss-circle-badge">
+        <img src="${prefix}logo-orange.png" alt="My Strongest Side" class="badge-logo" />
+        <svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true">
+          <defs>
+            <path id="footerCirclePath" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" />
+          </defs>
+          <text class="badge-text">
+            <textPath href="#footerCirclePath" startOffset="0%">
+              • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®
+            </textPath>
+          </text>
+        </svg>
+      </div>
+      <p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p>
+    </div>
 
-    <section class="footer-col">
+    <div class="footer-contact">
       <h4>Kontakt</h4>
-      <p>
-        E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a><br>
-        Telefon: +47 41 43 93 84<br>
-        Adresse: Brages veg 3, 5221 Nesttun
-      </p>
-    </section>
+      <p>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></p>
+      <p>Telefon: +47 41 43 93 84</p>
+      <p>Adresse: Brages veg 3, 5221 Nesttun</p>
+    </div>
 
-    <section class="footer-col">
+    <div class="footer-social">
       <h4>Følg oss</h4>
-      <p>
-        <a href="https://instagram.com/mystrongestside" target="_blank">Instagram</a><br>
-        <a href="https://facebook.com/mystrongestside" target="_blank">Facebook</a>
-      </p>
-    </section>
+      <p><a href="https://instagram.com/mystrongestside" target="_blank">Instagram</a></p>
+      <p><a href="https://facebook.com/mystrongestside" target="_blank">Facebook</a></p>
+    </div>
   </div>
-
-  <div class="footer-bottom">
-    © 2025 My Strongest Side® · Alle rettigheter forbeholdt
-  </div>
+  <p class="footer-copy">© <span data-js="current-year">2025</span> My Strongest Side® – Alle rettigheter forbeholdt</p>
 </footer>
 `;
 
@@ -103,36 +109,6 @@ const injectBottomMarquee = () => {
   }
 
   mainElement.insertAdjacentHTML('afterend', bottomMarqueeTemplate);
-};
-
-const injectFooterBadge = () => {
-  const footer = document.querySelector('footer');
-  if (!footer) {
-    return;
-  }
-
-  if (footer.querySelector('.myss-circle-badge')) {
-    return;
-  }
-
-  const prefix = resolvePathPrefix();
-  const badge = document.createElement('div');
-  badge.classList.add('myss-circle-badge');
-  badge.innerHTML = `
-    <img src="${prefix}logo.png" alt="My Strongest Side" class="badge-icon" />
-    <svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true">
-      <defs>
-        <path id="badgeCirclePath" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" />
-      </defs>
-      <text class="badge-text">
-        <textPath href="#badgeCirclePath" startOffset="0%">
-          • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®
-        </textPath>
-      </text>
-    </svg>
-  `;
-
-  footer.appendChild(badge);
 };
 
 const treninger = [
@@ -451,7 +427,6 @@ const initNewsCardMeta = () => {
 window.addEventListener('DOMContentLoaded', () => {
   injectLayout();
   injectBottomMarquee();
-  injectFooterBadge();
   applyPrefixPlaceholders();
   initNavigation();
   highlightNavigation();
