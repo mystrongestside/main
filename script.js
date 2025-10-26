@@ -88,6 +88,38 @@ const buildFooterTemplate = (prefix = '') => `
 
 const resolvePathPrefix = () => (window.location.pathname.includes('/treningstilbud/') ? '../' : '');
 
+const bottomMarqueeTemplate = `
+  <div class="marquee marquee--bottom" role="region" aria-label="MyStrongestSide statements">
+    <div class="marquee__wrap">
+      <div class="marquee__row">
+        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+        <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+      </div>
+      <div class="marquee__row" aria-hidden="true">
+        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+        <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+      </div>
+    </div>
+  </div>
+`;
+
+const injectBottomMarquee = () => {
+  const mainElement = document.querySelector('main');
+  if (!mainElement) {
+    return;
+  }
+
+  if (document.querySelector('.marquee--bottom')) {
+    return;
+  }
+
+  mainElement.insertAdjacentHTML('afterend', bottomMarqueeTemplate);
+};
+
 const treninger = [
   {
     gruppe: 'voksne',
@@ -403,6 +435,7 @@ const initNewsCardMeta = () => {
 
 window.addEventListener('DOMContentLoaded', () => {
   injectLayout();
+  injectBottomMarquee();
   applyPrefixPlaceholders();
   initNavigation();
   highlightNavigation();
