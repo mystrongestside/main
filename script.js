@@ -44,8 +44,22 @@ const buildFooterTemplate = (prefix = '') => `
 <footer class="site-footer">
   <div class="footer-wrap">
     <section class="footer-col">
-      <img src="${prefix}logo-orange.png" alt="My Strongest Side" class="footer-logo" />
-      <p class="footer-tagline"><em>Gjør trening tilgjengelig for flest mulig.</em></p>
+      <div class="footer-brand">
+        <div class="myss-circle-badge">
+          <img src="${prefix}logo-orange.png" alt="My Strongest Side" class="badge-logo" />
+          <svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <path id="badgeCirclePath" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" />
+            </defs>
+            <text class="badge-text">
+              <textPath href="#badgeCirclePath" startOffset="0%">
+                • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®
+              </textPath>
+            </text>
+          </svg>
+        </div>
+        <p class="footer-tagline"><em>Gjør trening tilgjengelig for flest mulig.</em></p>
+      </div>
     </section>
 
     <section class="footer-col">
