@@ -1357,3 +1357,95 @@ footer {
   }
 }
 
+/* ==== MYSS Footer (felles) ==== */
+.myss-footer {
+  background: #fff;
+  color: #000;
+  border-top: 3px solid var(--orange);
+  padding: 2rem 1rem;
+  text-align: center;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-contact, .footer-social { text-align: left; }
+.footer-contact h4, .footer-social h4 {
+  margin: 0 0 .4rem 0;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.footer-contact a, .footer-social a {
+  color: #000; text-decoration: none;
+}
+.footer-contact a:hover, .footer-social a:hover {
+  color: var(--orange); text-decoration: underline;
+}
+
+/* Logo + sirkel */
+.footer-logo { text-align: center; position: relative; }
+.myss-circle-badge {
+  position: relative;
+  width: 120px; height: 120px;
+  margin: 0 auto;
+}
+.badge-ring {
+  position: absolute; inset: 0;
+  width: 120px; height: 120px;
+  transform-box: fill-box;          /* kritisk for Safari/Firefox */
+  transform-origin: 50% 50%;
+  animation: myss-spin 20s linear infinite;
+  z-index: 1;
+}
+.badge-text {
+  font-size: 5px; font-weight: 600;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  fill: var(--orange);
+}
+.badge-logo {
+  position: absolute; top: 50%; left: 50%;
+  width: 60px; height: 60px;
+  transform: translate(-50%, -50%);
+  display: block;
+  opacity: 1; filter: none;         /* 100% – ingen fade */
+  z-index: 2;
+}
+
+.footer-tagline {
+  margin-top: 7.5rem;               /* plass under sirkelen */
+  font-style: italic; color: #333;
+}
+
+.footer-copy {
+  margin-top: 1.5rem;
+  font-size: .9rem; color: #555;
+}
+
+.myss-footer img { opacity: 1 !important; filter: none !important; }
+
+/* Bevegelsespreferanse */
+@media (prefers-reduced-motion: reduce) {
+  .badge-ring { animation: none !important; }
+}
+
+@keyframes myss-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Responsiv */
+@media (max-width: 768px) {
+  .footer-container { flex-direction: column; text-align: center; }
+  .footer-contact, .footer-social { text-align: center; }
+  .footer-tagline { margin-top: 7rem; }
+}
+

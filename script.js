@@ -40,43 +40,6 @@ const buildHeaderTemplate = (prefix = '') => `
 </header>
 `;
 
-const buildFooterTemplate = (prefix = '') => `
-<footer class="site-footer myss-footer">
-  <div class="footer-container">
-    <div class="footer-logo">
-      <div class="myss-circle-badge">
-        <img src="${prefix}logo-orange.png" alt="My Strongest Side" class="badge-logo" />
-        <svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true">
-          <defs>
-            <path id="footerCirclePath" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" />
-          </defs>
-          <text class="badge-text">
-            <textPath href="#footerCirclePath" startOffset="0%">
-              • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®
-            </textPath>
-          </text>
-        </svg>
-      </div>
-      <p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p>
-    </div>
-
-    <div class="footer-contact">
-      <h4>Kontakt</h4>
-      <p>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></p>
-      <p>Telefon: +47 41 43 93 84</p>
-      <p>Adresse: Brages veg 3, 5221 Nesttun</p>
-    </div>
-
-    <div class="footer-social">
-      <h4>Følg oss</h4>
-      <p><a href="https://instagram.com/mystrongestside" target="_blank">Instagram</a></p>
-      <p><a href="https://facebook.com/mystrongestside" target="_blank">Facebook</a></p>
-    </div>
-  </div>
-  <p class="footer-copy">© <span data-js="current-year">2025</span> My Strongest Side® – Alle rettigheter forbeholdt</p>
-</footer>
-`;
-
 const resolvePathPrefix = () => (window.location.pathname.includes('/treningstilbud/') ? '../' : '');
 
 const bottomMarqueeTemplate = `
@@ -155,18 +118,13 @@ const treninger = [
 
 const injectLayout = () => {
   const prefix = resolvePathPrefix();
+  window.MYSS_PREFIX = prefix;
+  window.__prefix = prefix;
   const headerTarget = document.querySelector('[data-component="site-header"]');
   if (headerTarget) {
     headerTarget.outerHTML = buildHeaderTemplate(prefix);
   } else if (!document.querySelector('.site-header')) {
     document.body.insertAdjacentHTML('afterbegin', buildHeaderTemplate(prefix));
-  }
-
-  const footerTarget = document.querySelector('[data-component="site-footer"]');
-  if (footerTarget) {
-    footerTarget.outerHTML = buildFooterTemplate(prefix);
-  } else if (!document.querySelector('.site-footer')) {
-    document.body.insertAdjacentHTML('beforeend', buildFooterTemplate(prefix));
   }
 };
 
