@@ -1426,3 +1426,38 @@ footer {
     align-items: center;
   }
 }
+
+/* ===== MARQUEE TOP & BOTTOM ===== */
+.marquee {
+  background: var(--orange);
+  overflow: hidden;
+  white-space: nowrap;
+  color: #fff;
+  padding: 0.6rem 0;
+  font-weight: 600;
+  text-transform: capitalize;
+  border-top: none;
+  border-bottom: none;
+}
+
+/* Nederste variant får litt mer luft over */
+.marquee--bottom {
+  margin-top: 1.5rem;
+  border-top: 3px solid var(--orange);
+}
+
+.marquee__wrap {
+  display: flex;
+  animation: marquee-scroll var(--marquee-speed, 28s) linear infinite;
+}
+
+.marquee__row {
+  display: inline-flex;
+  gap: 2rem;
+  margin-right: 2rem;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
