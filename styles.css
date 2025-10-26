@@ -1458,3 +1458,90 @@ footer {
   .footer-tagline { margin: 0; }
 }
 
+.partner-quote {
+  background: var(--orange);
+  color: #fff;
+  padding: 2rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 700px;
+}
+.partner-quote footer {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+.partner-intro .tagline {
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center;
+  margin: 0 auto 2rem auto;
+  max-width: 700px;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.partner-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+.partner-card:hover {
+  transform: translateY(-4px);
+}
+.partner-logo {
+  max-height: 60px;
+  margin-bottom: 1rem;
+}
+.partner-label {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+.partner-label.innovasjon { background: #446ccf; }
+
+.partner-contact {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: var(--blue);
+  color: #fff;
+}
+.partner-contact form {
+  max-width: 500px;
+  margin: 1.5rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.partner-contact input,
+.partner-contact textarea {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+}
+.partner-contact .btn-primary {
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
