@@ -41,48 +41,33 @@ const buildHeaderTemplate = (prefix = '') => `
 `;
 
 const buildFooterTemplate = (prefix = '') => `
-<footer class="site-footer" data-component="site-footer">
-  <div class="marquee marquee--footer" role="region" aria-label="MyStrongestSide statements nederst">
-    <div class="marquee__wrap">
-      <div class="marquee__row">
-        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-        <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-      </div>
-      <div class="marquee__row" aria-hidden="true">
-        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-        <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-      </div>
-    </div>
-  </div>
-
+<footer class="site-footer">
   <div class="footer-wrap">
     <section class="footer-col">
       <img src="${prefix}logo-orange.png" alt="My Strongest Side" class="footer-logo" />
-      <p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p>
+      <p class="footer-tagline"><em>Gjør trening tilgjengelig for flest mulig.</em></p>
     </section>
 
     <section class="footer-col">
-      <h3 class="footer-title">Kontakt</h3>
-      <p>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></p>
-      <p>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></p>
-      <p>Adresse: Brages veg 3, 5221 Nesttun</p>
-    </section>
-
-    <section class="footer-col">
-      <h3 class="footer-title">Følg oss</h3>
+      <h4>Kontakt</h4>
       <p>
-        <a href="#" aria-label="Instagram">Instagram</a><br />
-        <a href="#" aria-label="Facebook">Facebook</a>
+        E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a><br>
+        Telefon: +47 41 43 93 84<br>
+        Adresse: Brages veg 3, 5221 Nesttun
+      </p>
+    </section>
+
+    <section class="footer-col">
+      <h4>Følg oss</h4>
+      <p>
+        <a href="https://instagram.com/mystrongestside" target="_blank">Instagram</a><br>
+        <a href="https://facebook.com/mystrongestside" target="_blank">Facebook</a>
       </p>
     </section>
   </div>
 
   <div class="footer-bottom">
-    <p>© <span data-js="current-year"></span> My Strongest Side® · Alle rettigheter forbeholdt</p>
+    © 2025 My Strongest Side® · Alle rettigheter forbeholdt
   </div>
 </footer>
 `;
