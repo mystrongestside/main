@@ -771,15 +771,64 @@ body.no-scroll { overflow: hidden; }
   margin-bottom:.4rem;
   color:var(--blue);
 }
-.footer-logo{
-  width:70px;
-  margin-bottom:.4rem;
-  transform:rotate(-12deg);
+
+/* ===== MYSS CIRCLE IN FOOTER ===== */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
-.footer-tagline{
-  font-size:1rem;
-  color:var(--blue-2);
-  font-style:italic;
+
+.footer-brand .myss-circle-badge {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 0.3rem;
+}
+
+.footer-brand .badge-logo {
+  width: 45%;
+  position: absolute;
+  top: 27%;
+  left: 27%;
+}
+
+.footer-brand .badge-ring {
+  width: 100%;
+  height: auto;
+}
+
+.footer-brand .badge-text {
+  font-size: 4px;
+  fill: var(--blue);
+  letter-spacing: 1px;
+}
+
+/* Subtil rotasjon for liv i logoen */
+@keyframes slowRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.footer-brand .myss-circle-badge {
+  animation: slowRotate 30s linear infinite;
+}
+
+.footer-tagline {
+  font-size: 1rem;
+  color: var(--blue-2);
+  font-style: italic;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .footer-brand .myss-circle-badge {
+    width: 60px;
+    height: 60px;
+  }
+  .footer-tagline {
+    font-size: 0.9rem;
+  }
 }
 .footer-bottom{
   text-align:center;
@@ -796,7 +845,6 @@ body.no-scroll { overflow: hidden; }
     gap:1rem;
   }
 
-  .footer-logo{ margin:0 auto; }
 }
 
 /* ========================= MOBIL-MENY ========================= */
