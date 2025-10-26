@@ -765,98 +765,112 @@ body.no-scroll { overflow: hidden; }
 }
 
 /* ========================= FOOTER ========================= */
-.site-footer{
-  background:#fff;
-  padding:2rem 2rem 1rem;
-  color:var(--blue);
-}
-.footer-wrap{
-  max-width:var(--container);
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  align-items:start;
-  gap:2rem;
-}
-.footer-col h4{
-  font-size:1rem;
-  margin-bottom:.4rem;
-  color:var(--blue);
+.site-footer {
+  background: #fff;
+  padding: 2rem 2rem 1rem;
+  color: var(--blue);
 }
 
-/* ===== MYSS CIRCLE IN FOOTER ===== */
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.footer-wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
 }
 
-.footer-brand .myss-circle-badge {
-  position: relative;
-  width: 70px;
-  height: 70px;
-  margin-bottom: 0.3rem;
+.footer-col {
+  text-align: left;
 }
 
-.footer-brand .badge-logo {
-  width: 45%;
-  position: absolute;
-  top: 27%;
-  left: 27%;
-}
-
-.footer-brand .badge-ring {
-  width: 100%;
-  height: auto;
-}
-
-.footer-brand .badge-text {
-  font-size: 4px;
-  fill: var(--blue);
-  letter-spacing: 1px;
-}
-
-/* Subtil rotasjon for liv i logoen */
-@keyframes slowRotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-.footer-brand .myss-circle-badge {
-  animation: slowRotate 30s linear infinite;
+.footer-col h4 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: var(--blue);
 }
 
 .footer-tagline {
   font-size: 1rem;
   color: var(--blue-2);
   font-style: italic;
-  margin-top: 0.2rem;
+  text-align: center;
+  margin-top: 0.3rem;
 }
 
-@media (max-width: 768px) {
-  .footer-brand .myss-circle-badge {
-    width: 60px;
-    height: 60px;
-  }
-  .footer-tagline {
-    font-size: 0.9rem;
-  }
+.footer-bottom {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--blue-2);
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 0.8rem;
 }
-.footer-bottom{
-  text-align:center;
-  margin-top:1.5rem;
-  font-size:.85rem;
-  color:var(--blue-2);
-  border-top:1px solid rgba(0,0,0,.1);
-  padding-top:.8rem;
+
+/* ===== MYSS CIRCLE BADGE ===== */
+.footer-brand {
+  text-align: center;
 }
-@media (max-width:900px){
-  .footer-wrap{
-    grid-template-columns:1fr;
-    text-align:center;
-    gap:1rem;
+
+.myss-circle-badge {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.3rem;
+}
+
+.badge-center {
+  position: absolute;
+  z-index: 2;
+}
+
+.badge-logo {
+  width: 45px;
+  height: auto;
+}
+
+.badge-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: spin 20s linear infinite;
+  z-index: 1;
+}
+
+.myss-circle-badge:hover .badge-ring {
+  animation-play-state: paused;
+}
+
+.badge-text {
+  font-size: 5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  fill: var(--blue);
+  font-weight: 600;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* RESPONSIVT */
+@media (max-width: 900px) {
+  .footer-wrap {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
+  .footer-col {
+    text-align: center;
+  }
+
+  .badge-logo {
+    width: 40px;
+  }
 }
 
 /* ========================= MOBIL-MENY ========================= */
