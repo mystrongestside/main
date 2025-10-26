@@ -769,6 +769,7 @@ body.no-scroll { overflow: hidden; }
   background: #fff;
   padding: 2rem 2rem 1rem;
   color: var(--blue);
+  position: relative;
 }
 
 .footer-wrap {
@@ -808,55 +809,6 @@ body.no-scroll { overflow: hidden; }
 }
 
 /* ===== MYSS CIRCLE BADGE ===== */
-.footer-brand {
-  text-align: center;
-}
-
-.myss-circle-badge {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 0.3rem;
-}
-
-.badge-center {
-  position: absolute;
-  z-index: 2;
-}
-
-.badge-logo {
-  width: 45px;
-  height: auto;
-}
-
-.badge-ring {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  animation: spin 20s linear infinite;
-  z-index: 1;
-}
-
-.myss-circle-badge:hover .badge-ring {
-  animation-play-state: paused;
-}
-
-.badge-text {
-  font-size: 5px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  fill: var(--blue);
-  font-weight: 600;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 /* RESPONSIVT */
 @media (max-width: 900px) {
   .footer-wrap {
@@ -867,9 +819,73 @@ body.no-scroll { overflow: hidden; }
   .footer-col {
     text-align: center;
   }
+}
 
-  .badge-logo {
-    width: 40px;
+/* ============================================
+   CODEX: MYSS FOOTER BADGE
+   Purpose: Floating circular logo with rotation
+   ============================================ */
+
+.myss-circle-badge {
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+  width: 130px;
+  height: 130px;
+  opacity: 0.35;
+  pointer-events: none;
+  animation: badge-rotate 60s linear infinite;
+  transform-origin: center;
+  z-index: 0;
+}
+
+.badge-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  opacity: 0.75;
+}
+
+.badge-ring {
+  width: 130px;
+  height: 130px;
+  fill: none;
+  stroke: none;
+}
+
+.badge-text {
+  font-size: 5px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  fill: var(--orange);
+  font-weight: 600;
+}
+
+@keyframes badge-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* === Responsivitet === */
+@media (max-width: 768px) {
+  .myss-circle-badge {
+    left: 50%;
+    bottom: 1rem;
+    transform: translateX(-50%) scale(0.7);
+    opacity: 0.2;
+    animation-duration: 90s;
+  }
+
+  .badge-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .badge-text {
+    font-size: 3.8px;
   }
 }
 
@@ -990,70 +1006,6 @@ body.no-scroll { overflow: hidden; }
 #om-myss li {
   margin-bottom: 0.5rem;
 }
-/* ===== Circle text badge styles ===== */
-.myss-circle-badge{
-  --size: 320px;           /* justér total størrelse */
-  --speed: 28s;            /* hastighet på rotasjon */
-  position: relative;
-  width: var(--size);
-  height: var(--size);
-  margin: 0 auto;
-  /* Plassering til høyre – flytt/overstyr etter behov */
-  float: right;
-  margin-inline-start: 2rem;
-  margin-block-end: 2rem;
-  z-index: 2;
-  pointer-events: none;    /* unngå å blokkere klikk under */
-}
-
-/* Skjul på mobil */
-@media (max-width: 768px){
-  .myss-circle-badge{ display: none; }
-}
-
-/* Midtlogoen */
-.myss-circle-badge .badge-logo{
-  position: absolute;
-  inset: 50% auto auto 50%;
-  transform: translate(-50%, -50%);
-  width: 46%;
-  height: auto;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,.08));
-  pointer-events: none;
-}
-
-/* Ringen (SVG) fyller hele boksen */
-.myss-circle-badge .badge-ring{
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* Typografi og animasjon for teksten */
-.myss-circle-badge .badge-text{
-  font: 700 6px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  fill: #192B45;          /* bytt til dine merkevarefarger ved behov */
-  animation: spin var(--speed) linear infinite;
-  transform-origin: 50% 50%;
-}
-
-/* Bevegelsesreduksjon respekteres */
-@media (prefers-reduced-motion: reduce){
-  .myss-circle-badge .badge-text{ animation: none; }
-}
-
-@keyframes spin{
-  to{ transform: rotate(360deg); }
-}
-.myss-circle-badge {
-  animation: fadeIn 1.6s ease 0.3s both;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 /* ====== GRID-OPPSETT ====== */
 .about-layout {
   display: grid;
@@ -1068,51 +1020,7 @@ body.no-scroll { overflow: hidden; }
   }
 }
 
-/* ====== SIRKULÆR LOGO ====== */
-.myss-circle-badge {
-  --size: 260px;
-  --speed: 28s;
-  position: relative;
-  width: var(--size);
-  height: var(--size);
-  margin-top: 2rem;
-  justify-self: center;
-}
-
-@media (max-width: 900px) {
-  .myss-circle-badge {
-    margin-top: 3rem;
-  }
-}
-
-.badge-logo {
-  position: absolute;
-  inset: 50% auto auto 50%;
-  transform: translate(-50%, -50%);
-  width: 45%;
-  height: auto;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
-}
-
-.badge-ring {
-  width: 100%;
-  height: 100%;
-  display: block;
-  transform: rotate(-8deg); /* lett vinkel for visuell balanse */
-}
-
-.badge-text {
-  font: 700 6px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  fill: #192B45;
-  animation: spin var(--speed) linear infinite;
-  transform-origin: 50% 50%;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+/* ===== CONTACT SECTION ===== */
 /* ===== CONTACT SECTION ===== */
 .contact-section {
   background: var(--bg);
@@ -1374,41 +1282,6 @@ textarea { resize: vertical; }
 @media (min-width: 600px) {
   .sdg-wrapper {
     grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* ===== MYSS CIRCLE BADGE — BOTTOM LEFT ===== */
-.myss-circle-badge {
-  position: fixed;
-  bottom: 1.8rem;
-  left: 2rem;
-  width: 95px;
-  opacity: 0.6;
-  z-index: 10;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.myss-circle-badge:hover {
-  opacity: 0.9;
-}
-
-/* Lett bevegelse for liv i siden */
-@keyframes subtleFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-.myss-circle-badge {
-  animation: subtleFloat 8s ease-in-out infinite;
-}
-
-/* Responsivt – litt mindre og høyere på små skjermer */
-@media (max-width: 600px) {
-  .myss-circle-badge {
-    width: 75px;
-    bottom: 1rem;
-    left: 1rem;
-    opacity: 0.45;
   }
 }
 
