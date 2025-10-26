@@ -4,308 +4,128 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Samarbeid | My Strongest Side®</title>
-  <meta name="description" content="Sammen gjør vi trening mulig for flere gjennom sterke samarbeid og støttespillere." />
+  <meta name="description" content="Sammen gjør vi trening mulig for flere gjennom samarbeid med organisasjoner, fagmiljøer og støttespillere." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=25" />
-  <style>
-    .page-hero--simple {
-      background: var(--blue, #192b45);
-      color: #fff;
-      padding: clamp(3.5rem, 8vw, 6rem) 0;
-    }
-
-    .page-hero--simple h1 {
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-      font-size: clamp(1.75rem, 4.2vw, 3rem);
-      margin: 0 0 0.75rem;
-      color: #fff;
-    }
-
-    .page-hero--simple p {
-      max-width: 65ch;
-      font-size: clamp(1rem, 1.6vw, 1.25rem);
-      opacity: 0.95;
-      margin: 0;
-      color: #fff;
-    }
-
-    .breadcrumbs {
-      background: var(--bg, #e4e8f2);
-      font-size: 0.875rem;
-      padding: 0.75rem 0;
-    }
-
-    .breadcrumbs a {
-      color: inherit;
-      text-underline-offset: 2px;
-    }
-
-    .breadcrumbs nav {
-      display: inline-flex;
-      gap: 0.35rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .partner-section {
-      padding: clamp(2.25rem, 5vw, 3.5rem) 0;
-    }
-
-    .partner-section h2 {
-      font-size: clamp(1.5rem, 2.6vw, 1.75rem);
-      margin: 0 0 0.5rem;
-      letter-spacing: -0.01em;
-    }
-
-    .partner-section .lead {
-      margin: 0 0 1.75rem;
-      color: var(--blue-2, #24344d);
-      max-width: 70ch;
-    }
-
-    .partner-grid {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(12, 1fr);
-    }
-
-    .partner-card {
-      grid-column: span 12;
-      background: #fff;
-      border-radius: 1rem;
-      padding: 1rem;
-      box-shadow: 0 1px 0 rgba(16, 24, 40, 0.04), 0 1px 2px rgba(16, 24, 40, 0.06);
-      display: grid;
-      gap: 0.75rem;
-      align-items: start;
-    }
-
-    @media (min-width: 680px) {
-      .partner-card {
-        grid-template-columns: 112px 1fr;
-        padding: 1.125rem;
-      }
-    }
-
-    @media (min-width: 960px) {
-      .partner-card {
-        grid-column: span 6;
-      }
-    }
-
-    .partner-logo-wrap {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      background: var(--bg, #e4e8f2);
-      border-radius: 0.75rem;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-    }
-
-    .partner-logo {
-      width: 72%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .partner-meta h3 {
-      font-size: 1.125rem;
-      margin: 0 0 0.35rem;
-      letter-spacing: -0.01em;
-    }
-
-    .partner-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-radius: 999px;
-      font-size: 0.8125rem;
-      padding: 0.35rem 0.625rem;
-      background: rgba(247, 124, 55, 0.12);
-      color: var(--orange, #f77c37);
-      font-weight: 600;
-    }
-
-    .partner-desc {
-      margin: 0.5rem 0 0.75rem;
-      color: var(--blue-2, #24344d);
-    }
-
-    .partner-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.625rem;
-    }
-
-    .btn-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.875rem;
-      color: var(--blue, #192b45);
-      padding: 0.5rem 0;
-    }
-
-    .btn-link svg {
-      width: 1rem;
-      height: 1rem;
-    }
-
-    .quote-section {
-      background: var(--bg, #e4e8f2);
-      padding: clamp(1.75rem, 4vw, 2.5rem) 0;
-      border-block: 1px solid rgba(0, 0, 0, 0.04);
-    }
-
-    .quote-section blockquote {
-      margin: 0;
-      font-size: clamp(1.125rem, 2vw, 1.375rem);
-      line-height: 1.4;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-
-    .cta-section {
-      padding: clamp(2.25rem, 5vw, 3.5rem) 0;
-    }
-
-    .cta-card {
-      background: radial-gradient(1200px 1200px at 90% -10%, rgba(247, 124, 55, 0.16), transparent 40%) var(--blue, #192b45);
-      color: #fff;
-      border-radius: 1rem;
-      padding: clamp(1.5rem, 4vw, 2.25rem);
-      display: grid;
-      gap: 0.5rem;
-    }
-
-    .cta-card h3 {
-      margin: 0;
-      font-size: clamp(1.25rem, 2.4vw, 1.625rem);
-      letter-spacing: -0.01em;
-    }
-
-    .cta-card p {
-      margin: 0;
-      max-width: 55ch;
-    }
-
-    .cta-actions {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      margin-top: 0.5rem;
-    }
-
-    .partner-vision {
-      background: var(--blue, #192b45);
-      color: #fff;
-      padding: clamp(2rem, 5vw, 3rem) 0;
-    }
-
-    .partner-vision p {
-      margin: 0;
-      color: #fff;
-      line-height: 1.6;
-      max-width: 70ch;
-      margin-inline: auto;
-      text-align: center;
-    }
-
-    .cta-actions .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.625rem;
-      background: #fff;
-      color: var(--blue, #192b45);
-      padding: 0.625rem 0.875rem;
-      border-radius: 0.75rem;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 1px 0 rgba(16, 24, 40, 0.04), 0 1px 2px rgba(16, 24, 40, 0.08);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=26" />
 </head>
 <body>
   <header data-component="site-header"></header>
 
   <main>
-    <section class="hero partner-hero">
-      <div class="hero-overlay">
+    <section class="hero hero--simple">
+      <div class="container hero__content">
         <h1>Sammen gjør vi trening mulig for flere<span class="dot">.</span></h1>
         <p>
-          Våre samarbeidspartnere bidrar til å bygge et mer inkluderende treningsmiljø.
-          Sammen utvikler vi løsninger som gjør styrketrening mulig for flere – på en trygg og inspirerende måte.
+          Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluderende treningsmiljø.
+          Sammen utvikler vi løsninger som gir trygghet, mestring og tilgjengelighet i styrketrening for flere målgrupper.
         </p>
       </div>
     </section>
 
-    <section class="partner-quote surface-card center-text">
-      <blockquote>
-        “Små tilpasninger kan utgjøre stor forskjell.”
-        <footer>– Deltaker, My Strongest Side</footer>
-      </blockquote>
-    </section>
-
-    <section class="partner-intro container">
-      <h2>Våre samarbeidspartnere</h2>
-      <p class="tagline">
-        Sammen skaper vi et inkluderende treningsmiljø – med fagmiljøer, organisasjoner og treningssentre som deler vår visjon.
-      </p>
-    </section>
-
-    <section class="partners-grid container">
-      <div class="partner-card">
-        <span class="partner-label hovedpartner">Hovedpartner</span>
-        <img src="logoer/cpforeningen.png" alt="CP-foreningen Vestland" class="partner-logo">
-        <h3>CP-foreningen Vestland</h3>
-        <p>
-          CP-foreningen Vestland bidrar til at flere medlemmer kan delta i treningene våre.
-          Gjennom samarbeid om rekruttering, informasjon og likepersonarbeid gjør vi trening tilgjengelig for flere.
-        </p>
+    <div class="marquee" role="region" aria-label="MyStrongestSide statements">
+      <div class="marquee__wrap">
+        <div class="marquee__row">
+          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+        </div>
+        <div class="marquee__row" aria-hidden="true">
+          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+        </div>
       </div>
+    </div>
 
-      <div class="partner-card">
-        <span class="partner-label innovasjon">Innovasjonsstøtte</span>
-        <img src="logoer/hvl.png" alt="Høgskulen på Vestlandet" class="partner-logo">
-        <h3>Høgskulen på Vestlandet</h3>
-        <p>
-          Støtten fra HVL Skape brukes til å videreutvikle vår digitale løsning som gjør treningsapparater mer forståelige og tilgjengelige.
-          Målet er at alle skal kunne trene trygt – uavhengig av funksjonsevne.
+    <section class="partners-overview container">
+      <header class="section-header">
+        <h2>Våre samarbeidspartnere og støttespillere</h2>
+        <p class="lead">
+          My Strongest Side utvikler løsninger som gjør trening mer tilgjengelig og inkluderende.
+          Gjennom samarbeid med organisasjoner, fagmiljøer og støttespillere senker vi terskler for deltakelse –
+          og gjør det enklere å komme i gang med trygg og tilrettelagt trening.
+          Løsningen er utviklet og eid av My Strongest Side® AS.
         </p>
+      </header>
+    </section>
+
+    <section class="partners-list container" aria-label="Partnere">
+      <div class="partner-grid" role="list">
+        <article class="partner-card" role="listitem">
+          <div class="partner-logo-wrap">
+            <img src="cp.jpg" alt="CP-foreningen Vestland" class="partner-logo" />
+          </div>
+          <div class="partner-meta">
+            <span class="partner-label">Hovedpartner</span>
+            <h3>CP-foreningen Vestland</h3>
+            <p class="partner-desc">
+              CP-foreningen Vestland bidrar til at flere medlemmer blir med på trening.
+              Vi samarbeider om rekruttering, informasjon og likepersonsarbeid –
+              slik at deltakerne møter et trygt, kjent og inkluderende miljø allerede før de kommer på treningssenteret.
+            </p>
+            <div class="partner-links">
+              <a class="btn-link" href="https://www.cp.no/om-oss/fylkeslag/vestland/" target="_blank" rel="noopener">
+                Besøk nettside
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5V3H3v7h2V5zM5 19v-5H3v7h7v-2H5z"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="partner-card" role="listitem">
+          <div class="partner-logo-wrap">
+            <img src="hvl.jpg" alt="Høgskulen på Vestlandet" class="partner-logo" />
+          </div>
+          <div class="partner-meta">
+            <span class="partner-label partner-label--support">Innovasjonstøtte</span>
+            <h3>Høgskulen på Vestlandet</h3>
+            <p class="partner-desc">
+              Med støtte fra HVL Skape videreutvikler vi en QR-basert løsning som gjør treningsapparater mer tilgjengelige for personer
+              med funksjonsvariasjon. Pilotarbeidet sammen med deltakere med cerebral parese gir verdifull innsikt i hvordan vi kan
+              øke trygghet, mestring og selvstendighet i styrketreningen.
+            </p>
+            <div class="partner-links">
+              <a class="btn-link" href="https://hvlskape.no" target="_blank" rel="noopener">
+                Besøk nettside
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5V3H3v7h2V5zM5 19v-5H3v7h7v-2H5z"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="partner-contact">
-      <h3>Bli partner</h3>
-      <p>
-        Ønsker du å bidra til et mer inkluderende treningsmiljø?
-        Ta kontakt for en uforpliktende prat om hvordan vi kan skape endring sammen.
-      </p>
+    <section class="partners-quote" aria-label="Sitat fra My Strongest Side">
+      <div class="container">
+        <blockquote>
+          «Når vi deler kompetanse og ressurser, senker vi terskler og øker deltakelse. Slik blir trening mulig for flere.»
+          <footer>My Strongest Side®</footer>
+        </blockquote>
+      </div>
+    </section>
 
-      <form action="https://formspree.io/f/mldpqkrg" method="POST" class="contact-form">
-        <label for="email">E-postadresse</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Melding</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-
-        <button type="submit" class="btn-primary">Send melding</button>
-      </form>
+    <section class="partners-cta" id="bli-partner">
+      <div class="container">
+        <div class="cta-card">
+          <h3>Bli partner</h3>
+          <p>
+            Vil du bidra til universell utforming i treningshverdagen?
+            Ta kontakt for en uforpliktende kartlegging av ditt treningssenter – vi deler gjerne erfaringer og muligheter for samarbeid.
+          </p>
+          <div class="cta-actions">
+            <a class="cta-btn" href="kontakt.html#partner" aria-label="Kontakt oss om partnerskap">
+              Kontakt oss
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5V3H3v7h2V5zM5 19v-5H3v7h7v-2H5z"/></svg>
+            </a>
+            <a class="cta-btn cta-btn--outline" href="mailto:post@mystrongestside.no">
+              post@mystrongestside.no
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
