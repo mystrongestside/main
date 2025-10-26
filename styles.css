@@ -1307,38 +1307,37 @@ textarea { resize: vertical; }
   }
 }
 
-/* ===== MYSS CIRCLE BADGE — HERO PLACEMENT ===== */
-.hero-card {
-  position: relative;
-}
-
+/* ===== MYSS CIRCLE BADGE — BOTTOM LEFT ===== */
 .myss-circle-badge {
-  position: absolute;
-  top: 6rem;
-  right: 2rem;
-  width: 120px;
-  opacity: 0.9;
+  position: fixed;
+  bottom: 1.8rem;
+  left: 2rem;
+  width: 95px;
+  opacity: 0.6;
   z-index: 10;
-  animation: floatBadge 8s ease-in-out infinite;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-/* Lett “pust” for premium-følelse */
-@keyframes floatBadge {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
+.myss-circle-badge:hover {
+  opacity: 0.9;
 }
 
-/* Responsivt — flytt den lenger ned på mobil */
+/* Lett bevegelse for liv i siden */
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.myss-circle-badge {
+  animation: subtleFloat 8s ease-in-out infinite;
+}
+
+/* Responsivt – litt mindre og høyere på små skjermer */
 @media (max-width: 600px) {
   .myss-circle-badge {
-    top: auto;
-    bottom: -1.5rem;
-    right: 1rem;
-    width: 90px;
-    opacity: 0.8;
+    width: 75px;
+    bottom: 1rem;
+    left: 1rem;
+    opacity: 0.45;
   }
 }
