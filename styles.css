@@ -1518,13 +1518,13 @@ footer {
 
 @media (min-width: 640px) {
   .partner-card {
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: minmax(170px, 220px) 1fr;
   }
 }
 
 @media (min-width: 960px) {
   .partner-card {
-    grid-template-columns: 140px 1fr;
+    grid-template-columns: minmax(220px, 280px) 1fr;
   }
 }
 
@@ -1822,11 +1822,12 @@ footer {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  max-width: min(280px, calc(100% - 3rem)) !important;
+  width: 100% !important;
+  max-width: 320px !important;
   margin: 0 auto 1.5rem auto !important;
 }
 .partner-logo.partner-logo--framed {
-  max-height: 150px !important;
+  max-height: 190px !important;
   width: 100% !important;
   height: auto !important;
 }
