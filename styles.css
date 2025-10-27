@@ -1778,3 +1778,93 @@ footer {
   text-decoration: underline;
 }
 
+/* === MY STRONGEST SIDE – PARTNERKORT OPPDATERING (v27) === */
+
+.partner-card {
+  position: relative !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  border-radius: 20px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+.partner-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1) !important;
+}
+
+/* logo-seksjon */
+.partner-meta {
+  background: transparent !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding-top: 2.5rem !important;
+  min-height: 100px !important;
+}
+
+/* jevn logo-skala */
+.partner-logo {
+  max-height: 60px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  filter: none !important;
+  transition: transform 0.25s ease !important;
+}
+.partner-logo:hover {
+  transform: scale(1.05) !important;
+}
+
+/* etiketter – flytende badges */
+.partner-label {
+  position: absolute !important;
+  top: 1rem !important;
+  left: 1rem !important;
+  background: var(--orange) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  font-size: 0.8rem !important;
+  padding: 0.4rem 0.8rem !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+  z-index: 3 !important;
+}
+.partner-label.innovasjon { background: #446ccf !important; }
+
+/* tekstseksjon */
+.partner-content {
+  padding: 1.8rem !important;
+}
+.partner-content h3 {
+  color: var(--blue) !important;
+  font-size: 1.3rem !important;
+  margin-bottom: 0.5rem !important;
+}
+.partner-content p {
+  color: #333 !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1rem !important;
+}
+.partner-link {
+  color: var(--orange) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+.partner-link:hover {
+  text-decoration: underline !important;
+}
+
+/* mobiltilpasning */
+@media (max-width: 600px) {
+  .partner-meta {
+    padding-top: 2rem !important;
+    min-height: 80px !important;
+  }
+  .partner-logo {
+    max-height: 50px !important;
+  }
+  .partner-label {
+    font-size: 0.75rem !important;
+    padding: 0.3rem 0.6rem !important;
+  }
+}
