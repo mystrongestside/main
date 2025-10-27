@@ -1528,6 +1528,65 @@ footer {
   }
 }
 
+.partner-card {
+  position: relative;
+}
+
+/* logo-seksjon */
+.partner-meta {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2.5rem;
+  min-height: 100px; /* sikrer jevn høyde */
+}
+
+/* logoen skaleres automatisk */
+.partner-logo {
+  max-height: 60px;
+  width: auto;
+  object-fit: contain;
+  filter: none; /* behold naturlige farger */
+  transition: transform 0.2s ease;
+}
+.partner-logo:hover {
+  transform: scale(1.03);
+}
+
+/* etikett som flytende badge */
+.partner-label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 3;
+}
+.partner-label.innovasjon {
+  background: #446ccf;
+}
+
+/* små skjermer */
+@media (max-width: 600px) {
+  .partner-meta {
+    padding-top: 2rem;
+    min-height: 80px;
+  }
+  .partner-logo {
+    max-height: 50px;
+  }
+  .partner-label {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
 .partner-logo-wrap {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -1695,65 +1754,6 @@ footer {
 .partner-card.smooth:hover {
   transform: translateY(-6px);
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-}
-
-.partner-card {
-  position: relative;
-}
-
-/* logo-seksjon */
-.partner-meta {
-  background: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 2.5rem;
-  min-height: 100px; /* sikrer jevn høyde */
-}
-
-/* logoen skaleres automatisk */
-.partner-logo {
-  max-height: 60px;
-  width: auto;
-  object-fit: contain;
-  filter: none; /* behold naturlige farger */
-  transition: transform 0.2s ease;
-}
-.partner-logo:hover {
-  transform: scale(1.03);
-}
-
-/* etikett som flytende badge */
-.partner-label {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background: var(--orange);
-  color: #fff;
-  font-weight: 600;
-  font-size: 0.8rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  z-index: 3;
-}
-.partner-label.innovasjon {
-  background: #446ccf;
-}
-
-/* små skjermer */
-@media (max-width: 600px) {
-  .partner-meta {
-    padding-top: 2rem;
-    min-height: 80px;
-  }
-  .partner-logo {
-    max-height: 50px;
-  }
-  .partner-label {
-    font-size: 0.75rem;
-    padding: 0.3rem 0.6rem;
-  }
 }
 
 .partner-content {
