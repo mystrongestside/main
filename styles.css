@@ -1569,7 +1569,7 @@ footer {
   z-index: 3;
 }
 .partner-label.innovasjon {
-  background: #446ccf;
+  background: var(--blue-2);
 }
 
 /* små skjermer */
@@ -1799,7 +1799,10 @@ footer {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
   padding-top: 2.5rem !important;
+  padding-bottom: 1.5rem !important;
   min-height: 100px !important;
 }
 
@@ -1810,6 +1813,22 @@ footer {
   object-fit: contain !important;
   filter: none !important;
   transition: transform 0.25s ease !important;
+}
+.partner-logo-frame {
+  background: var(--bg) !important;
+  border-radius: 16px !important;
+  padding: 0.85rem 1.5rem !important;
+  box-shadow: inset 0 0 0 1px rgba(25, 43, 69, 0.1), 0 8px 18px rgba(17, 32, 51, 0.08) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  max-width: min(280px, calc(100% - 3rem)) !important;
+  margin: 0 auto 1.5rem auto !important;
+}
+.partner-logo.partner-logo--framed {
+  max-height: 80px !important;
+  width: 100% !important;
+  height: auto !important;
 }
 .partner-logo:hover {
   transform: scale(1.05) !important;
@@ -1829,7 +1848,7 @@ footer {
   box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
   z-index: 3 !important;
 }
-.partner-label.innovasjon { background: #446ccf !important; }
+.partner-label.innovasjon { background: var(--blue-2) !important; }
 
 /* tekstseksjon */
 .partner-content {
@@ -1917,7 +1936,7 @@ footer {
   box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
   z-index: 3 !important;
 }
-.partner-label.innovasjon { background: #446ccf !important; }
+.partner-label.innovasjon { background: var(--blue-2) !important; }
 
 /* tekst-del */
 .partner-content {
