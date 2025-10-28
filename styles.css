@@ -388,8 +388,14 @@ body.no-scroll { overflow: hidden; }
   z-index:0;
   border-bottom:0;
 }
+@media (max-width:900px){
+  .masthead{ background-position:center 18%; }
+}
 @media (max-width:600px){
-  .masthead{ min-height:36vh; }
+  .masthead{
+    min-height:36vh;
+    background-position:center 14%;
+  }
 }
 
 /* ========================= HERO-CARD ========================= */
