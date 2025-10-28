@@ -473,6 +473,19 @@ body.no-scroll { overflow: hidden; }
   overflow: hidden;
 }
 
+/* === MYSS CODEX: HERO BILDE JUSTERING === */
+.hero {
+  background-position: center top !important;
+}
+
+/* Mobiljustering – sørger for at mer av bildet vises på små skjermer */
+@media (max-width: 768px) {
+  .hero {
+    background-position: center 15% !important;
+    background-size: cover;
+  }
+}
+
 .hero-image {
   width: 100%;
   height: clamp(220px, 48vw, 360px);
