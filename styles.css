@@ -1916,6 +1916,8 @@ footer {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
   transition: transform 0.25s ease, box-shadow 0.25s ease !important;
   overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 .partner-card:hover {
   transform: translateY(-6px) !important;
