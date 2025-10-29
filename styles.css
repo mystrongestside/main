@@ -1246,6 +1246,129 @@ textarea { resize: vertical; }
 .info-place  { background-image: url('icons/info-place.svg'); }
 .info-period { background-image: url('icons/info-period.svg'); }
 .info-time   { background-image: url('icons/info-time.svg'); }
+.info-map    { background-image: url('icons/location.svg'); }
+
+.accessibility-info {
+  border-top: 1px solid var(--surface-border, rgba(12, 20, 48, 0.08));
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.accessibility-info h3 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.accessibility-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.accessibility-info li {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.accessibility-info li strong {
+  font-weight: 600;
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--link-color, #0b63ce);
+  text-decoration: none;
+}
+
+.map-link:hover,
+.map-link:focus {
+  text-decoration: underline;
+}
+
+.map-link .icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.faq {
+  padding-top: 0;
+}
+
+.faq .surface-card {
+  padding: 2.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.faq h2 {
+  font-size: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+  margin: 0;
+}
+
+.faq .dot {
+  color: var(--brand-orange, #ff6b2c);
+}
+
+.faq details {
+  border: 1px solid var(--surface-border, rgba(12, 20, 48, 0.1));
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.9);
+  transition: box-shadow 0.2s ease;
+}
+
+.faq details[open] {
+  box-shadow: 0 10px 25px rgba(12, 20, 48, 0.08);
+}
+
+.faq summary {
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq details p {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  color: rgba(12, 20, 48, 0.78);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .accessibility-info ul {
+    gap: 0.5rem;
+  }
+
+  .faq .surface-card {
+    padding: 2rem;
+  }
+}
 
 .section-subtitle {
   font-size: 1rem;
