@@ -1922,15 +1922,33 @@ footer {
   box-shadow: 0 6px 18px rgba(0,0,0,0.1) !important;
 }
 
+.partners-grid.refined .partner-card {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-auto-rows: auto !important;
+}
+
+.partners-grid.refined .partner-meta,
+.partners-grid.refined .partner-content {
+  grid-column: 1 / -1 !important;
+}
+
 /* logo-felt */
-.partner-meta {
+.partners-grid.refined .partner-meta {
   background: transparent !important;
   display: flex !important;
-  justify-content: center !important;
+  flex-direction: column !important;
   align-items: center !important;
-  padding-top: 2.5rem !important;
+  gap: 1.25rem !important;
+  padding: clamp(2rem, 4vw, 2.75rem) 1.8rem 0 !important;
   min-height: 100px !important;
 }
+
+.partners-grid.refined .partner-logo-frame,
+.partners-grid.refined .partner-logo {
+  margin: 0 auto !important;
+}
+
 .partner-logo {
   max-height: 60px !important;
   width: auto !important;
@@ -1959,13 +1977,14 @@ footer {
 .partner-label.innovasjon { background: var(--blue-2) !important; }
 
 /* tekst-del */
-.partner-content {
-  padding: 1.8rem !important;
+.partners-grid.refined .partner-content {
+  width: 100% !important;
+  padding: 1.25rem 1.8rem 2rem !important;
 }
 .partner-content h3 {
   color: var(--blue) !important;
   font-size: 1.3rem !important;
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.6rem !important;
 }
 .partner-content p {
   color: #333 !important;
@@ -1981,8 +2000,8 @@ footer {
 
 /* mobil */
 @media (max-width: 600px) {
-  .partner-meta {
-    padding-top: 2rem !important;
+  .partners-grid.refined .partner-meta {
+    padding: 2rem 1.5rem 0 !important;
     min-height: 80px !important;
   }
   .partner-logo { max-height: 50px !important; }
