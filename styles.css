@@ -781,7 +781,7 @@ body.no-scroll { overflow: hidden; }
   min-height:44px;
   padding:.75rem 1.3rem;
   border-radius:999px;
-  background:var(--orange);
+  background:#1e2033;
   color:#fff;
   font-weight:700;
   text-decoration:none;
@@ -1270,7 +1270,11 @@ textarea { resize: vertical; }
 .icon.info-time      { background-image: url("assets/icons/clock.svg"); }
 .icon.info-map       { background-image: url("assets/icons/map.svg"); }
 .icon.info-access    { background-image: url("assets/icons/wheelchair.svg"); }
-.icon.info-parking   { background-image: url("assets/icons/parking.svg"); }
+.icon.info-parking   {
+  background-image: url("assets/icons/parking.svg");
+  width: 1.5rem;
+  height: 1.5rem;
+}
 .icon.info-transport { background-image: url("assets/icons/bus.svg"); }
 .icon.info-signup    { background-image: url("assets/icons/signup.svg"); }
 
