@@ -1,0 +1,65 @@
+diff --git a/presse/faktaark.pdf b/presse/faktaark.pdf
+new file mode 100644
+index 0000000000000000000000000000000000000000..1c933ac7232fc160c8edb5e0dab7fb520421e4b8
+--- /dev/null
++++ b/presse/faktaark.pdf
+@@ -0,0 +1,58 @@
++%PDF-1.4
++1 0 obj
++<< /Type /Catalog /Pages 2 0 R >>
++endobj
++2 0 obj
++<< /Type /Pages /Kids [3 0 R] /Count 1 >>
++endobj
++3 0 obj
++<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
++endobj
++4 0 obj
++<< /Length 716 >>
++stream
++BT
++/F1 18 Tf
++72 750 Td
++(My Strongest Side (R) - Faktaark) Tj
++/F1 12 Tf
++0 -24 Td
++(Organisasjon: My Strongest Side AS) Tj
++0 -24 Td
++(Etablert: 2023) Tj
++0 -24 Td
++(Grunnlegger: Alexander Mjos Sviggum) Tj
++0 -24 Td
++(Bransje: Tilrettelagt styrketrening og inkludering) Tj
++0 -24 Td
++(Kort om prosjektet:) Tj
++0 -24 Td
++(My Strongest Side utvikler losninger som gor styrketrening mer tilgjengelig for personer med funksjonsvariasjoner.) Tj
++0 -24 Td
++(Vi samarbeider med fagmiljoer, organisasjoner og treningssentre for a tilby universelt utformede kurs og treningsopplegg.) Tj
++0 -24 Td
++(Kontakt:) Tj
++0 -24 Td
++(E-post: post@mystrongestside.no) Tj
++0 -24 Td
++(Telefon: +47 41 43 93 84) Tj
++0 -24 Td
++(Nettside: mystrongestside.no) Tj
++ET
++endstream
++endobj
++5 0 obj
++<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
++endobj
++xref
++0 6
++0000000000 65535 f 
++0000000009 00000 n 
++0000000058 00000 n 
++0000000115 00000 n 
++0000000241 00000 n 
++0000001008 00000 n 
++trailer<< /Size 6 /Root 1 0 R >>
++startxref
++1078
++%%EOF
+\ No newline at end of file
