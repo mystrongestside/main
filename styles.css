@@ -1197,6 +1197,22 @@ textarea { resize: vertical; }
   display: block;
 }
 
+.course-info .info-list li {
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.course-info .info-list li strong {
+  display: inline;
+  margin-right: 0.25rem;
+}
+
+.course-info .info-list .date-grid {
+  flex-basis: 100%;
+  margin: 0.5rem 0 0 calc(1.25rem + 0.5rem);
+}
+
 .info-content {
   display: flex;
   flex-direction: column;
@@ -1232,30 +1248,31 @@ textarea { resize: vertical; }
 }
 
 .icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--icon-size);
-  height: var(--icon-size);
-  min-width: var(--icon-size);
-  min-height: var(--icon-size);
-  aspect-ratio: 1 / 1;
-  flex-shrink: 0;
-  border-radius: var(--icon-radius);
-  background-size: 55%;
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  vertical-align: middle;
+  margin-right: 0.5rem;
   background-repeat: no-repeat;
+  background-size: contain;
   background-position: center;
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
+  filter: brightness(0) saturate(100%) invert(14%) sepia(9%) saturate(1566%) hue-rotate(178deg) brightness(95%) contrast(90%);
+}
+
+.icon--orange {
+  filter: brightness(0) saturate(100%) invert(66%) sepia(55%) saturate(2728%) hue-rotate(341deg) brightness(100%) contrast(96%);
 }
 
 /* Kobling mellom klasser og SVG-filene */
-.info-price  { background-image: url('icons/info-price.svg'); }
-.info-place  { background-image: url('icons/info-place.svg'); }
-.info-period { background-image: url('icons/info-period.svg'); }
-.info-time   { background-image: url('icons/info-time.svg'); }
-.info-map    { background-image: url('icons/location.svg'); }
+.icon.info-price     { background-image: url("assets/icons/price.svg"); }
+.icon.info-place     { background-image: url("assets/icons/place.svg"); }
+.icon.info-period    { background-image: url("assets/icons/calendar.svg"); }
+.icon.info-time      { background-image: url("assets/icons/clock.svg"); }
+.icon.info-map       { background-image: url("assets/icons/map.svg"); }
+.icon.info-access    { background-image: url("assets/icons/wheelchair.svg"); }
+.icon.info-parking   { background-image: url("assets/icons/parking.svg"); }
+.icon.info-transport { background-image: url("assets/icons/bus.svg"); }
+.icon.info-signup    { background-image: url("assets/icons/signup.svg"); }
 
 .accessibility-info {
   border-top: 1px solid var(--surface-border, rgba(12, 20, 48, 0.08));
@@ -1272,13 +1289,15 @@ textarea { resize: vertical; }
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0.75rem;
 }
 
 .accessibility-info li {
-  display: grid;
-  gap: 0.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
   font-size: 0.95rem;
   line-height: 1.5;
 }
