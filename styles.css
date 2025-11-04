@@ -2477,3 +2477,41 @@ footer {
 .btn-primary:hover {
   background-color: #0d4260;
 }
+/* === FIKS FOR INFOSEKSJON MED IKONER OG TEKST === */
+.accessibility-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.accessibility-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.accessibility-info li .icon,
+.accessibility-info li [class^="info-"],
+.accessibility-info li [class*=" info-"] {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin: 4px 0 0 0;
+  color: #105277;
+  opacity: 1;
+  filter: none;
+  box-shadow: none;
+}
+
+.accessibility-info li span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.accessibility-info {
+  font-size: 0.95rem;
+  color: #1a1a1a;
+}
+
