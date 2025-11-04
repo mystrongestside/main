@@ -2527,4 +2527,36 @@ footer {
   box-shadow: none !important;
   transition: none !important;
 }
+/* === MySS: lite løft for info-kort i sidekolonnen (nov 2025) === */
+
+/* Myk hover-effekt og glød rundt hele kortet */
+.info-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 0 0 3px rgba(16, 82, 119, 0.12); /* MySS-blå glød */
+}
+
+/* Markér overskriftene med blå strek på venstre side */
+.info-card h3 {
+  position: relative;
+  padding-left: 0.55rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-card h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  bottom: 0.1rem;
+  width: 3px;
+  border-radius: 999px;
+  background: #105277; /* MyStrongestSide-blå */
+}
+
 
