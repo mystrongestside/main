@@ -130,9 +130,9 @@ const injectLayout = () => {
 
 const applyPrefixPlaceholders = () => {
   const prefix = resolvePathPrefix();
-  document.querySelectorAll('img[src*="${prefix}"]').forEach((img) => {
+  document.querySelectorAll('img').forEach((img) => {
     const rawSrc = img.getAttribute('src');
-    if (rawSrc) {
+    if (rawSrc?.includes('${prefix}')) {
       img.setAttribute('src', rawSrc.replace('${prefix}', prefix));
     }
   });
