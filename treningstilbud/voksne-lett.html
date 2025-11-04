@@ -144,71 +144,200 @@
           </section>
         </article>
 
-        <aside class="info-card">
-          <h3>Nyttig informasjon</h3>
-          <ul class="info-list">
-            <li>
-              <span class="icon info-price" aria-hidden="true"><img src="/assets/icons/price.svg" alt=""></span>
-              <div>
-                <strong>Pris:</strong><br>
-                400 kr for medlemmer / 600 kr for ikke-medlemmer
-              </div>
-            </li>
-            <li>
-              <span class="icon info-place" aria-hidden="true"><img src="/assets/icons/place.svg" alt=""></span>
-              <div>
-                <strong>Sted:</strong><br>
-                Trene Sammen Fantoft, Fantoftvegen 14, Bergen
-              </div>
-            </li>
-            <li>
-              <span class="icon info-period" aria-hidden="true"><img src="/assets/icons/period.svg" alt=""></span>
-              <div>
-                <strong>Periode:</strong><br>
-                Torsdager – 6. nov, 20. nov, 4. des, 15. jan, 29. jan
-              </div>
-            </li>
-            <li>
-              <span class="icon info-time" aria-hidden="true"><img src="/assets/icons/time.svg" alt=""></span>
-              <div>
-                <strong>Varighet:</strong><br>
-                1 time (17:45–18:45)
-              </div>
-            </li>
-          </ul>
+       <aside class="info-card">
+  <style>
+    .info-card {
+      background: #ffffff;
+      border: 2px solid #105277;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 650px;
+      margin: 2rem auto;
+      box-shadow: 0 4px 14px rgba(16, 82, 119, 0.12);
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    }
 
-          <h3>Tilgjengelighet og praktisk info</h3>
-          <ul class="info-list">
-            <li>
-              <span class="icon info-access" aria-hidden="true"><img src="/assets/icons/access.svg" alt=""></span>
-              <div>Trinnfri inngang, heis og HC-toalett</div>
-            </li>
-            <li>
-              <span class="icon info-transport" aria-hidden="true"><img src="/assets/icons/transport.svg" alt=""></span>
-              <div>Buss nr. 2 og 3 (holdeplass Fantoft Studentby)</div>
-            </li>
-            <li>
-              <span class="icon info-parking" aria-hidden="true"><img src="/assets/icons/parking.svg" alt=""></span>
-              <div>HC-parkering: 3 plasser ved MENY Fantoft (70–90 m, 2–3 min i manuell rullestol uten assistanse)</div>
-            </li>
-            <li>
-              <span class="icon info-map" aria-hidden="true"><img src="/assets/icons/map.svg" alt=""></span>
-              <div>
-                <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" class="map-link" target="_blank" rel="noopener">
-                  Se kart
-                </a>
-              </div>
-            </li>
-          </ul>
+    .info-card h3.section-title {
+      color: #105277;
+      font-size: 1.4rem;
+      border-bottom: 2px solid #f57f43;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
 
-          <div class="signup">
-            <h3>Meld deg på</h3>
-            <p>Plasser fordeles fortløpende. Sikre deg plass via påmeldingsskjemaet.</p>
-            <a href="../paamelding.html" class="btn-primary">Gå til påmelding</a>
-          </div>
-        </aside>
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      transition: background 0.2s ease;
+    }
+
+    .info-list li:hover {
+      background: #f1f5f9;
+    }
+
+    .icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon img {
+      width: 100%;
+      height: auto;
+      filter: invert(20%) sepia(90%) saturate(400%) hue-rotate(180deg);
+    }
+
+    .date-list {
+      list-style: none;
+      padding: 0.5rem 0 0 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .date-list li {
+      background: #f9fafb;
+      padding: 0.4rem 0.75rem;
+      border-left: 4px solid #f57f43;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      color: #105277;
+      transition: background 0.2s ease;
+    }
+
+    .date-list li:hover {
+      background: #f1f5f9;
+    }
+
+    .map-link {
+      color: #105277;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    .map-link:hover {
+      color: #f57f43;
+    }
+
+    .signup {
+      background: #105277;
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .signup h3 {
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .signup p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary {
+      background: #f57f43;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: #e36c2f;
+    }
+  </style>
+
+  <h3 class="section-title">Nyttig informasjon</h3>
+  <ul class="info-list">
+    <li>
+      <span class="icon"><img src="/assets/icons/price.svg" alt=""></span>
+      <div>
+        <strong>Pris:</strong><br>
+        400 kr for medlemmer / 600 kr for ikke-medlemmer
       </div>
-    </section>
+    </li>
+    <li>
+      <span class="icon"><img src="/assets/icons/place.svg" alt=""></span>
+      <div>
+        <strong>Sted:</strong><br>
+        Trene Sammen Fantoft, Fantoftvegen 14, Bergen
+      </div>
+    </li>
+    <li>
+      <span class="icon"><img src="/assets/icons/period.svg" alt=""></span>
+      <div>
+        <strong>Periode:</strong>
+        <ul class="date-list">
+          <li>Torsdag 6. november</li>
+          <li>Torsdag 20. november</li>
+          <li>Torsdag 4. desember</li>
+          <li>Torsdag 15. januar</li>
+          <li>Torsdag 29. januar</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <span class="icon"><img src="/assets/icons/time.svg" alt=""></span>
+      <div>
+        <strong>Varighet:</strong><br>
+        1 time (17:45–18:45)
+      </div>
+    </li>
+  </ul>
+
+  <h3 class="section-title">Tilgjengelighet og praktisk info</h3>
+  <ul class="info-list">
+    <li>
+      <span class="icon"><img src="/assets/icons/access.svg" alt=""></span>
+      <div>Trinnfri inngang, heis og HC-toalett</div>
+    </li>
+    <li>
+      <span class="icon"><img src="/assets/icons/transport.svg" alt=""></span>
+      <div>Buss nr. 2 og 3 (holdeplass Fantoft Studentby)</div>
+    </li>
+    <li>
+      <span class="icon"><img src="/assets/icons/parking.svg" alt=""></span>
+      <div>HC-parkering: 3 plasser ved MENY Fantoft (70–90 m, 2–3 min i manuell rullestol uten assistanse)</div>
+    </li>
+    <li>
+      <span class="icon"><img src="/assets/icons/map.svg" alt=""></span>
+      <div>
+        <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" class="map-link" target="_blank" rel="noopener">
+          Se kart
+        </a>
+      </div>
+    </li>
+  </ul>
+
+  <div class="signup">
+    <h3>Meld deg på</h3>
+    <p>Plasser fordeles fortløpende. Sikre deg plass via påmeldingsskjemaet.</p>
+    <a href="../paamelding.html" class="btn-primary">Gå til påmelding</a>
+  </div>
+</aside>
 
     <section class="section faq">
       <div class="container surface-card stack">
