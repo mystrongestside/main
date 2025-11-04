@@ -2514,4 +2514,17 @@ footer {
   font-size: 0.95rem;
   color: #1a1a1a;
 }
+/* Tving bort alle hover-effekter for ikoner i info-seksjonen */
+.accessibility-info .icon:hover,
+.accessibility-info [class^="info-"]:hover,
+.accessibility-info [class*=" info-"]:hover,
+.accessibility-info .icon:hover img,
+.accessibility-info [class^="info-"]:hover img,
+.accessibility-info [class*=" info-"]:hover img {
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
 
