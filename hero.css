@@ -1,9 +1,9 @@
-/* Ryddet og formatert av Codex – ingen visuelle endringer */
-/* =========================
-   HERO-SEKSJON
-========================= */
+/* =====================================================
+   HERO-SEKSJON (My Strongest Side)
+   Ryddet og formatert av Codex – ingen visuelle endringer
+===================================================== */
 
-/* --- GLOBAL IKONSTIL (My Strongest Side) --- */
+/* --- GLOBAL IKONSTIL --- */
 .icon,
 [class^="info-"],
 [class*=" info-"] {
@@ -19,7 +19,7 @@
   color: #105277; /* MyStrongestSide-blå */
 }
 
-/* Fjern ALLE hover-, lys- og skyggeeffekter */
+/* Fjern alle hover-, lys- og skyggeeffekter */
 .icon:hover,
 [class^="info-"]:hover,
 [class*=" info-"]:hover {
@@ -40,104 +40,23 @@
   vertical-align: middle;
 }
 
+/* --- HERO-SEKSJON --- */
 .masthead {
-  align-items: center;
-  /* erstatter bilde med gradient */
-  background: linear-gradient(180deg, #24344d 0%, #3f4e63 100%);
-  color: white;
   display: flex;
-  height: 80vh;
+  align-items: center;
   justify-content: center;
   position: relative;
   text-align: center;
-}
-
-/* TEKSTEN */
-.hero-sub {
+  height: 80vh;
   color: #fff;
-  font-size: 2.4rem;
-  font-weight: 800;
-  line-height: 1.3;
-  margin: 0 auto;
-  max-width: 900px;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-}
-
-/* PUNKTUMET */
-.hero-sub .dot {
-  color: #F77C37;
-  font-size: 3.5rem;
-  vertical-align: baseline;
-}
-
-/* KNAPPEN */
-.hero-cta {
-  margin-top: 2rem;
-}
-.hero-cta a {
-  align-items: center;
-  background: #F77C37;
-  border-radius: 9999px;
-  color: white;
-  display: inline-flex;
-  font-weight: 700;
-  justify-content: center;
-  min-height: 44px;
-  padding: 1rem 2.4rem;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-.hero-cta a:hover {
-  background: #d5631f;
-}
-@media (max-width: 768px) {
-  .hero-sub {
-    font-size: 1.8rem;
-  }
-  .hero-sub .dot {
-    font-size: 2.5rem;
-  }
-}
-
-Dette gir deg nøyaktig den samme blåtonen og dybden som i bildet du viste — uten at du trenger hero-large.jpg i bakgrunnen.
-
-Vil du jeg skal kombinere bildet “hero-large.jpg” + gradient overlay (for å få samme fargetone men fortsatt se konturene av bildet)?
-Da kan jeg gi deg en linje som bruker linear-gradient over bildet.
-
-Du sa:
-
-jeg vil jo ha det slik !!
-
-ChatGPT sa:
-Perfekt 🙌 — nå skjønner jeg nøyaktig hva du mener.
-Du vil ha både bildet og fargetonen slik som på skjermbildet:
-altså hero-large.jpg som bakgrunn, men med et mørkeblått gradient-filter over som gir den fine myke overgangen og lesbar tekst.
-
-Her får du det akkurat slik — i hero.css 👇
-
-🎨 hero.css (ferdig slik du har det på bildet)
-css
-Kopier kode
-/* =========================
-   HERO-SEKSJON
-========================= */
-.masthead {
-  align-items: center;
-  /* Kombinasjon av mørk blå gradient + bilde */
   background: linear-gradient(
-    rgba(36, 52, 77, 0.85),  /* mørkeblå top */
-    rgba(63, 78, 99, 0.85)   /* litt lysere bunn */
+      rgba(36, 52, 77, 0.85),  /* mørk blå topp */
+      rgba(63, 78, 99, 0.85)   /* lysere blå bunn */
     ),
-    url('hero-large.jpg') center center / cover no-repeat;
-  color: white;
-  display: flex;
-  height: 80vh;
-  justify-content: center;
-  position: relative;
-  text-align: center;
+    url("hero-large.jpg") center center / cover no-repeat;
 }
 
-/* TEKSTEN */
+/* --- HERO-TEKST --- */
 .hero-sub {
   color: #fff;
   font-size: 2.4rem;
@@ -145,39 +64,43 @@ Kopier kode
   line-height: 1.3;
   margin: 0 auto;
   max-width: 900px;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* PUNKTUMET */
 .hero-sub .dot {
-  color: #F77C37;
+  color: #f77c37;
   font-size: 3.5rem;
   vertical-align: baseline;
 }
 
-/* KNAPPEN */
+/* --- HERO-KNAPP --- */
 .hero-cta {
   margin-top: 2rem;
 }
+
 .hero-cta a {
-  background: #F77C37;
+  display: inline-block;
+  background: #f77c37;
   border-radius: 9999px;
   box-shadow: 0 0 20px rgba(247, 124, 55, 0.3);
-  color: white;
-  display: inline-block;
+  color: #fff;
   font-weight: 700;
   padding: 1rem 2rem;
   text-decoration: none;
   transition: background 0.3s, box-shadow 0.3s;
 }
+
 .hero-cta a:hover {
   background: #d5631f;
   box-shadow: 0 0 25px rgba(247, 124, 55, 0.5);
 }
+
+/* --- RESPONSIV JUSTERING --- */
 @media (max-width: 768px) {
   .hero-sub {
     font-size: 1.8rem;
   }
+
   .hero-sub .dot {
     font-size: 2.5rem;
   }
