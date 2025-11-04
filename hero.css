@@ -1,44 +1,7 @@
 /* =====================================================
-   HERO-SEKSJON (My Strongest Side)
-   Ryddet og formatert av Codex – ingen visuelle endringer
+   HERO-SEKSJON (My Strongest Side) – Ferdig revidert
+   Info-kort med jevn spacing, luft og MySS-blå glød
 ===================================================== */
-
-/* --- GLOBAL IKONSTIL --- */
-.icon,
-[class^="info-"],
-[class*=" info-"] {
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  margin-right: 8px;
-  vertical-align: middle;
-  opacity: 1;
-  filter: none;
-  box-shadow: none;
-  transition: none;
-  color: #105277; /* MyStrongestSide-blå */
-}
-
-/* Fjern alle hover-, lys- og skyggeeffekter */
-.icon:hover,
-[class^="info-"]:hover,
-[class*=" info-"]:hover {
-  opacity: 1 !important;
-  filter: none !important;
-  transform: none !important;
-  box-shadow: none !important;
-  color: #105277 !important;
-}
-
-/* Sørg for at bildefiler som brukes som ikoner ikke deformeres */
-.icon img,
-[class^="info-"] img,
-[class*=" info-"] img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  vertical-align: middle;
-}
 
 /* --- HERO-SEKSJON --- */
 .masthead {
@@ -50,8 +13,8 @@
   height: 80vh;
   color: #fff;
   background: linear-gradient(
-      rgba(36, 52, 77, 0.85),  /* mørk blå topp */
-      rgba(63, 78, 99, 0.85)   /* lysere blå bunn */
+      rgba(36, 52, 77, 0.85),
+      rgba(63, 78, 99, 0.85)
     ),
     url("hero-large.jpg") center center / cover no-repeat;
 }
@@ -66,7 +29,6 @@
   max-width: 900px;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
-
 .hero-sub .dot {
   color: #f77c37;
   font-size: 3.5rem;
@@ -77,7 +39,6 @@
 .hero-cta {
   margin-top: 2rem;
 }
-
 .hero-cta a {
   display: inline-block;
   background: #f77c37;
@@ -89,19 +50,122 @@
   text-decoration: none;
   transition: background 0.3s, box-shadow 0.3s;
 }
-
 .hero-cta a:hover {
   background: #d5631f;
   box-shadow: 0 0 25px rgba(247, 124, 55, 0.5);
 }
 
-/* --- RESPONSIV JUSTERING --- */
+/* --- RESPONSIV --- */
 @media (max-width: 768px) {
   .hero-sub {
     font-size: 1.8rem;
   }
-
   .hero-sub .dot {
     font-size: 2.5rem;
+  }
+}
+
+/* =====================================================
+   INFO-KORT & SIDEKOLONNE (voksne-lett.html)
+===================================================== */
+.info-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  padding: 1.75rem 1.75rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  border-left: 5px solid #10527710; /* lett blå markering */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08),
+              0 0 0 3px rgba(16,82,119,0.12); /* MySS-blå glød */
+}
+
+/* Overskrifter i sidekort */
+.info-card h3 {
+  font-size: 1.15rem;
+  color: #105277;
+  margin: 0 0 0.5rem 0;
+  padding-left: 0.5rem;
+  border-left: 4px solid #105277;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+/* --- INFO-LISTE --- */
+.info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  line-height: 1.5;
+  background: rgba(228,232,242,0.4);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  transition: background 0.2s ease;
+}
+.info-list li:hover {
+  background: rgba(228,232,242,0.65);
+}
+.info-list li .icon img {
+  width: 24px;
+  height: 24px;
+}
+.info-list li a {
+  color: #0b63ce;
+  text-decoration: none;
+}
+.info-list li a:hover {
+  text-decoration: underline;
+}
+
+/* --- SIGNUP-SEKSJON --- */
+.signup {
+  border-top: 1px solid #e4e8f0;
+  padding-top: 1rem;
+}
+.signup h3 {
+  margin-bottom: 0.3rem;
+}
+.signup p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* --- KNAPPER --- */
+.btn-primary {
+  background-color: #105277;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.btn-primary:hover {
+  background-color: #f57f43;
+}
+
+/* --- LAYOUT --- */
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2.25rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .two-column {
+    grid-template-columns: 1fr;
   }
 }
