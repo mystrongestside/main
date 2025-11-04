@@ -8,6 +8,44 @@
 
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../styles.css?v=27">
+  <style>
+  /* === MyStrongestSide ikonjusteringer (nov 2025) === */
+  .icon {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+    filter: brightness(0.8) grayscale(100%);
+    opacity: 0.7;
+  }
+
+  .icon:hover {
+    filter: brightness(1) grayscale(0%);
+    opacity: 1;
+  }
+
+  /* Hindrer at ikon eller skygge kuttes */
+  li, .accessibility-info, .icon {
+    overflow: visible !important;
+  }
+
+  /* Jevn størrelse for pseudo-ikoner */
+  .icon::before {
+    width: 1.5em;
+    height: 1.5em;
+    display: block;
+  }
+
+  /* For ekstra kontrast og tydelighet */
+  .icon.info-access::before,
+  .icon.info-parking::before,
+  .icon.info-transport::before {
+    filter: drop-shadow(0 0 1px rgba(0,0,0,0.25));
+  }
+  </style>
 </head>
 <body>
   <header data-component="site-header"></header>
