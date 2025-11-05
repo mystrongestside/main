@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Styrketrening for ungdom (11–15 år) | My Strongest Side®</title>
-  <meta name="description" content="Tilrettelagt styrketrening for ungdom (11–15 år) med funksjonsvariasjon som ønsker trygg og morsom trening med faglig støtte.">
+  <title>Styrketrening for ungdom (12–15 år) | My Strongest Side®</title>
+  <meta name="description" content="Tilrettelagt styrketrening for ungdom (12–15 år) med funksjonsvariasjon som ønsker trygg og morsom trening med faglig støtte.">
 
   <link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="stylesheet" href="../styles.css?v=32">
+  <link rel="stylesheet" href="../styles.css?v=34">
   <style>
     /* --- Ikonstil --- */
     .icon {
@@ -28,15 +28,41 @@
     li, .accessibility-info, .icon {
       overflow: visible !important;
     }
-    .icon::before {
-      width: 1.5em;
-      height: 1.5em;
-      display: block;
+
+    /* --- Hero-seksjon som voksensiden --- */
+    .hero {
+      text-align: center;
+      color: #fff;
     }
-    .icon.info-access::before,
-    .icon.info-parking::before,
-    .icon.info-transport::before {
-      filter: drop-shadow(0 0 1px rgba(0,0,0,0.25));
+
+    .hero-textblock {
+      background-color: #105277;
+      padding: 3rem 1.5rem;
+    }
+
+    .hero-textblock h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .hero-textblock .dot {
+      color: #f57f43;
+    }
+
+    .hero-textblock p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 50vh;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
 
     /* --- Info-card design --- */
@@ -51,12 +77,6 @@
       margin: 2rem auto;
       box-shadow: 0 4px 14px rgba(16, 82, 119, 0.12);
       font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-    }
-
-    .info-card * {
-      all: unset;
-      display: revert;
-      box-sizing: border-box;
     }
 
     .info-card h3 {
@@ -147,29 +167,21 @@
   </style>
 </head>
 <body>
- <header data-component="site-header"></header>
+  <header data-component="site-header"></header>
 
-<main>
-  <section class="hero">
-    <img 
-      src="../bilde03.jpg" 
-      alt="Ungdom som trener sammen på styrkerom" 
-      class="hero-image"
-      style="object-fit: cover; object-position: center 25%; width: 100%; height: 100%;"
-    >
-    <div class="hero-overlay">
-      <h1>Styrketrening for ungdom (12–15 år)<span class="dot">.</span></h1>
-      <p class="hero-subtext">
-        Tilrettelagt trening i trygge omgivelser – for ungdom med funksjonsvariasjon som vil ha det gøy og bygge styrke sammen.
-      </p>
-    </div>
-  </section>
-</main>
-  
+  <main>
+    <section class="hero">
+      <div class="hero-textblock">
+        <h1>Styrketrening for ungdom (12–15 år)<span class="dot">.</span></h1>
+        <p>Tilrettelagt trening i trygge omgivelser – for ungdom med funksjonsvariasjon som vil ha det gøy og bygge styrke sammen.</p>
+      </div>
+      <img src="../bilde03.jpg" alt="Ungdom som trener sammen på styrkerom" class="hero-image">
+    </section>
+
     <section class="section">
       <div class="container two-column">
         <article class="surface-card stack">
-          <h2>Kurs: Styrketrening for ungdom (11–15 år)</h2>
+          <h2>Kurs: Styrketrening for ungdom (12–15 år)</h2>
           <h3>Hvem passer kurset for?</h3>
           <p>Kurset passer for ungdom med <strong>lette funksjonsvariasjoner</strong> som ønsker å trene styrke i trygge omgivelser.  
           Her legges det vekt på mestring, sosialt fellesskap og å lære riktig teknikk – uavhengig av utgangspunkt.</p>
@@ -195,17 +207,6 @@
           <h3>Hvorfor</h3>
           <p>Styrketrening bidrar til bedre balanse, koordinasjon og selvtillit.  
           Når ungdom får positive treningsopplevelser tidlig, bygger de et godt grunnlag for livslang aktivitet.</p>
-
-          <section class="section">
-            <div class="container surface-card stack">
-              <div class="icon-header">
-                <img src="../icons/icon-faglig.svg" alt="Faglig grunnlag ikon" class="icon-faglig">
-                <h3>Faglig grunnlag</h3>
-              </div>
-              <p>Kurset bygger på kunnskap fra norske fagmiljøer innen barn, ungdom og nevrorehabilitering.  
-              Vi følger prinsippene i <strong>Norsk kvalitets- og oppfølgingsregister for cerebral parese (NorCP)</strong> og anbefalingene fra Høgskulen på Vestlandet.</p>
-            </div>
-          </section>
         </article>
 
         <aside class="info-card">
@@ -249,30 +250,6 @@
             </ul>
           </div>
 
-          <div class="info-card__section">
-            <h3>Tilgjengelighet og praktisk info</h3>
-            <ul class="info-list">
-              <li>
-                <span class="icon"><img src="../icons/wheelchair.svg" alt="Tilgjengelighet ikon"></span>
-                <div class="info-content">Trinnfri inngang, heis og HC-toalett</div>
-              </li>
-              <li>
-                <span class="icon"><img src="../icons/bus.svg" alt="Transport ikon"></span>
-                <div class="info-content">Buss nr. 2 og 3 (holdeplass Fantoft Studentby)</div>
-              </li>
-              <li>
-                <span class="icon"><img src="../icons/parking.svg" alt="Parkering ikon"></span>
-                <div class="info-content">HC-parkering: 3 plasser ved MENY Fantoft (70–90 m, 2–3 min i manuell rullestol uten assistanse)</div>
-              </li>
-              <li>
-                <span class="icon"><img src="/assets/icons/map.svg" alt="Kart ikon"></span>
-                <div class="info-content">
-                  <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" class="map-link" target="_blank" rel="noopener">Se kart</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-
           <div class="signup">
             <h3>Meld deg på</h3>
             <p>Det er få plasser tilgjengelig. Sikre deg plass via påmeldingsskjemaet for sesong 5 2026.</p>
@@ -280,24 +257,6 @@
           </div>
         </aside>
       </div>
-
-      <section class="section faq">
-        <div class="container surface-card stack">
-          <h2>Ofte stilte spørsmål<span class="dot">.</span></h2>
-          <details>
-            <summary>Kan jeg delta hvis jeg bruker hjelpemidler?</summary>
-            <p>Ja! Vi tilpasser øvelser etter behov, og lokalet er universelt utformet med god plass til rullestol og utstyr.</p>
-          </details>
-          <details>
-            <summary>Kan foresatte være med under treningen?</summary>
-            <p>Foresatte og ledsagere kan være til stede under økten, men vi oppfordrer til at ungdommen får prøve selvstendig.</p>
-          </details>
-          <details>
-            <summary>Trenger jeg erfaring med styrketrening fra før?</summary>
-            <p>Nei, du trenger ingen erfaring. Vi lærer deg alt du trenger å vite og hjelper deg trygt i gang.</p>
-          </details>
-        </div>
-      </section>
     </section>
   </main>
 
@@ -305,24 +264,15 @@
   <div id="myss-footer"></div>
   <script>
     (function() {
-      var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
-      if (!prefix) {
-        prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
-      }
-      window.MYSS_PREFIX = prefix;
-      window.__prefix = prefix;
-      var target = document.getElementById("myss-footer");
-      if (!target) { return; }
+      var prefix = window.location.pathname.includes("/treningstilbud/") ? "../" : "";
       fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-        .then(function(r){ return r.text(); })
-        .then(function(html){
-          target.innerHTML = html;
-          target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img){
-            var raw = img.getAttribute("src");
-            if (raw) {
-              img.setAttribute("src", raw.replace("${prefix}", prefix));
-            }
-          });
-        })
-        .catch(function(){
-          target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt
+        .then(r => r.text())
+        .then(html => document.getElementById("myss-footer").innerHTML = html)
+        .catch(() => {
+          document.getElementById("myss-footer").innerHTML =
+            '<footer class="myss-footer"><p>© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
+        });
+    })();
+  </script>
+</body>
+</html>
