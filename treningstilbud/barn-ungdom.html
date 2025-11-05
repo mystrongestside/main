@@ -3,69 +3,210 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Styrketrening for ungdom (12–15 år) | My Strongest Side®</title>
-  <meta name="description" content="Tilrettelagt styrketrening for ungdom (12–15 år) med funksjonsvariasjon som ønsker trygg og morsom trening med faglig støtte.">
-
+  <title>Styrketrening for ungdom (11–15 år) | My Strongest Side®</title>
+  <meta name="description" content="Tilrettelagt styrketrening for ungdom (11–15 år) med funksjonsvariasjon som ønsker trygg og morsom trening med faglig støtte.">
   <link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="stylesheet" href="../styles.css?v=34">
+  <link rel="stylesheet" href="../styles.css?v=32">
+  <style>
+    /* --- Ikonstil --- */
+    .icon {
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      transition: filter 0.2s ease, opacity 0.2s ease;
+      filter: brightness(0.8) grayscale(100%);
+      opacity: 0.7;
+    }
+
+    .icon:hover {
+      filter: brightness(1) grayscale(0%);
+      opacity: 1;
+    }
+
+    li,
+    .accessibility-info,
+    .icon {
+      overflow: visible !important;
+    }
+
+    .icon::before {
+      width: 1.5em;
+      height: 1.5em;
+      display: block;
+    }
+
+    .icon.info-access::before,
+    .icon.info-parking::before,
+    .icon.info-transport::before {
+      filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.25));
+    }
+
+    /* --- Info-card design --- */
+    .info-card {
+      all: unset;
+      display: block;
+      background: #fff;
+      border: 2px solid #105277;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 650px;
+      margin: 2rem auto;
+      box-shadow: 0 4px 14px rgba(16, 82, 119, 0.12);
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .info-card * {
+      all: unset;
+      display: revert;
+      box-sizing: border-box;
+    }
+
+    .info-card h3 {
+      color: #105277;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #f57f43;
+      padding-bottom: 0.3rem;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.8rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .info-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 0.8rem 1rem;
+    }
+
+    .info-card li:hover {
+      background: #f1f5f9;
+    }
+
+    .info-card .icon img {
+      width: 28px;
+      height: 28px;
+      filter: invert(20%) sepia(90%) saturate(400%) hue-rotate(180deg);
+    }
+
+    .info-card strong {
+      font-weight: 700;
+    }
+
+    .date-list {
+      list-style: none;
+      padding: 0.5rem 0 0 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .date-list li {
+      background: #f9fafb;
+      padding: 0.4rem 0.75rem;
+      border-left: 4px solid #f57f43;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      color: #105277;
+    }
+
+    .signup {
+      background: #105277;
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .signup h3 {
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .signup a {
+      display: inline-block;
+      background: #f57f43;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .signup a:hover {
+      background: #e36c2f;
+    }
+  </style>
 </head>
 <body>
   <header data-component="site-header"></header>
-
   <main>
     <section class="hero">
-      <img src="../bilde03.jpg" alt="Ungdom som trener sammen på styrkerom" class="hero-image">
+      <img src="../bilde03.jpg" alt="Ungdom som trener sammen på styrkerom" class="hero-image" style="object-fit: cover; object-position: center 25%; width: 100%; height: 100%;">
       <div class="hero-overlay">
         <h1>Styrketrening for ungdom (12–15 år)<span class="dot">.</span></h1>
-        <p class="hero-subtext">Tilrettelagt trening i trygge omgivelser – for ungdom med funksjonsvariasjon som vil ha det gøy og bygge styrke sammen.</p>
+        <p class="hero-subtext">
+          Tilrettelagt trening i trygge omgivelser – for ungdom med funksjonsvariasjon som vil ha det gøy og bygge styrke sammen.
+        </p>
       </div>
     </section>
-
     <section class="section">
       <div class="container two-column">
         <article class="surface-card stack">
-          <h2>Kurs: Styrketrening for ungdom (12–15 år)</h2>
+          <h2>Kurs: Styrketrening for ungdom (11–15 år)</h2>
           <h3>Hvem passer kurset for?</h3>
-          <p>Kurset passer for ungdom med ulike funksjonsvariasjoner som ønsker å trene styrke i trygge og tilrettelagte omgivelser.</p>
-          <p>Vi legger vekt på mestring, glede og sosialt fellesskap – uavhengig av utgangspunkt, behov eller erfaring.</p>
-
+          <p>Kurset passer for ungdom med <strong>lette funksjonsvariasjoner</strong> som ønsker å trene styrke i trygge omgivelser. Her legges det vekt på mestring, sosialt fellesskap og å lære riktig teknikk – uavhengig av utgangspunkt.</p>
           <h3>Hva</h3>
-          <p>Et kurs der ungdom får trygg og motiverende innføring i styrketrening.</p>
-          <p>Øktene tilpasses individuelt, slik at alle får oppleve mestring og fremgang – enten målet er å bli sterkere, få bedre balanse eller bare ha det gøy sammen med andre.</p>
-
+          <p>Et kurs der ungdom får <strong>trygg og morsom innføring i styrketrening</strong>. Øktene tilpasses individuelt, slik at alle får oppleve fremgang og glede ved fysisk aktivitet.</p>
           <h3>Hvordan</h3>
-          <p>Treningen foregår på Trene Sammen Fantoft, i små grupper med maks åtte deltakere.</p>
-          <p>Øktene ledes av ergoterapi- og fysioterapistudenter fra Høgskulen på Vestlandet, sammen med personlige trenere og frivillige fra My Strongest Side.</p>
-
-          <p>Teamet får opplæring gjennom My Strongest Side AS, i samarbeid med fagmiljøer innen trening og rehabilitering, samt Atterås Ortopedi.</p>
-
+          <p>Treningen foregår på <strong>Trene Sammen Fantoft</strong> i grupper med maks åtte deltakere. Øktene ledes av <strong>ergoterapi- og fysioterapistudenter fra Høgskulen på Vestlandet</strong> sammen med personlige trenere og frivillige fra My Strongest Side.</p>
+          <p>Teamet får opplæring gjennom <strong>My Strongest Side AS</strong>, i samarbeid med fagmiljøer innen trening og rehabilitering, samt <strong>Atterås Ortopedi</strong>.</p>
           <h3>Gjennom kurset får du</h3>
           <ul>
-            <li>Trygg og tett oppfølging av faste veiledere</li>
-            <li>Individuelt tilrettelagt styrketrening med fokus på glede og mestring</li>
+            <li>Trygg oppfølging av faste veiledere</li>
+            <li>Tilrettelagt styrketrening med fokus på glede og mestring</li>
             <li>Et inkluderende og sosialt treningsmiljø</li>
-            <li>Råd og støtte innen teknikk, balanse og kroppsbevissthet</li>
+            <li>Råd om teknikk, balanse og kroppsbevissthet</li>
           </ul>
-
           <h3>Hvorfor</h3>
-          <p>Styrketrening gir økt trygghet, bedre balanse og styrker selvtilliten.</p>
-          <p>Når ungdom får gode opplevelser med fysisk aktivitet tidlig, legger de grunnlaget for livslang bevegelsesglede.</p>
+          <p>Styrketrening bidrar til bedre balanse, koordinasjon og selvtillit. Når ungdom får positive treningsopplevelser tidlig, bygger de et godt grunnlag for livslang aktivitet.</p>
+          <section class="section">
+            <div class="container surface-card stack">
+              <div class="icon-header">
+                <img src="../icons/icon-faglig.svg" alt="Faglig grunnlag ikon" class="icon-faglig">
+                <h3>Faglig grunnlag</h3>
+              </div>
+              <p>Kurset bygger på kunnskap fra norske fagmiljøer innen barn, ungdom og nevrorehabilitering. Vi følger prinsippene i <strong>Norsk kvalitets- og oppfølgingsregister for cerebral parese (NorCP)</strong> og anbefalingene fra Høgskulen på Vestlandet.</p>
+            </div>
+          </section>
         </article>
-
         <aside class="info-card">
           <div class="info-card__section">
             <h3>Nyttig informasjon</h3>
             <ul class="info-list">
               <li>
-                <span class="icon info-price" aria-hidden="true"></span>
+                <span class="icon"><img src="../icons/price.svg" alt="Pris ikon"></span>
                 <div class="info-content"><strong>Pris:</strong> 400 kr for medlemmer / 600 kr for ikke-medlemmer</div>
               </li>
               <li>
-                <span class="icon info-place" aria-hidden="true"></span>
+                <span class="icon"><img src="../icons/place.svg" alt="Sted ikon"></span>
                 <div class="info-content"><strong>Sted:</strong> Trene Sammen Fantoft, Fantoftvegen 14, Bergen</div>
               </li>
               <li>
-                <span class="icon info-period" aria-hidden="true"></span>
+                <span class="icon"><img src="../icons/calendar.svg" alt="Kalender ikon"></span>
                 <div class="info-content">
                   <strong>Periode:</strong> Hele sesongen<br><br>
                   <ul class="date-list">
@@ -81,7 +222,7 @@
                 </div>
               </li>
               <li>
-                <span class="icon info-time" aria-hidden="true"></span>
+                <span class="icon"><img src="../icons/clock.svg" alt="Tid ikon"></span>
                 <div class="info-content">
                   <strong>Tid:</strong> 16:30–17:30<br>
                   <strong>Oppmøte:</strong> kl. 16:15<br><br>
@@ -92,7 +233,29 @@
               </li>
             </ul>
           </div>
-
+          <div class="info-card__section">
+            <h3>Tilgjengelighet og praktisk info</h3>
+            <ul class="info-list">
+              <li>
+                <span class="icon"><img src="../icons/wheelchair.svg" alt="Tilgjengelighet ikon"></span>
+                <div class="info-content">Trinnfri inngang, heis og HC-toalett</div>
+              </li>
+              <li>
+                <span class="icon"><img src="../icons/bus.svg" alt="Transport ikon"></span>
+                <div class="info-content">Buss nr. 2 og 3 (holdeplass Fantoft Studentby)</div>
+              </li>
+              <li>
+                <span class="icon"><img src="../icons/parking.svg" alt="Parkering ikon"></span>
+                <div class="info-content">HC-parkering: 3 plasser ved MENY Fantoft (70–90 m, 2–3 min i manuell rullestol uten assistanse)</div>
+              </li>
+              <li>
+                <span class="icon"><img src="/assets/icons/map.svg" alt="Kart ikon"></span>
+                <div class="info-content">
+                  <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" class="map-link" target="_blank" rel="noopener">Se kart</a>
+                </div>
+              </li>
+            </ul>
+          </div>
           <div class="signup">
             <h3>Meld deg på</h3>
             <p>Det er få plasser tilgjengelig. Sikre deg plass via påmeldingsskjemaet for sesong 5 2026.</p>
@@ -100,27 +263,25 @@
           </div>
         </aside>
       </div>
-    </section>
-
-    <section class="section faq">
-      <div class="container surface-card stack">
-        <h2>Ofte stilte spørsmål<span class="dot">.</span></h2>
-        <details>
-          <summary>Hva hvis jeg bruker hjelpemidler eller rullestol?</summary>
-          <p>Det går helt fint! Lokalet er universelt utformet, og vi tilpasser både øvelser og apparater etter behov.</p>
-        </details>
-        <details>
-          <summary>Kan jeg ta med ledsager eller assistent?</summary>
-          <p>Ja. Assistent, ledsager eller verge er alltid velkommen – uten ekstra kostnad.</p>
-        </details>
-        <details>
-          <summary>Hvordan tilpasses øvelsene?</summary>
-          <p>Instruktørene vurderer sammen med deg hvilke øvelser som fungerer best ut fra funksjon og målsetting.</p>
-        </details>
-      </div>
+      <section class="section faq">
+        <div class="container surface-card stack">
+          <h2>Ofte stilte spørsmål<span class="dot">.</span></h2>
+          <details>
+            <summary>Kan jeg delta hvis jeg bruker hjelpemidler?</summary>
+            <p>Ja! Vi tilpasser øvelser etter behov, og lokalet er universelt utformet med god plass til rullestol og utstyr.</p>
+          </details>
+          <details>
+            <summary>Kan foresatte være med under treningen?</summary>
+            <p>Foresatte og ledsagere kan være til stede under økten, men vi oppfordrer til at ungdommen får prøve selvstendig.</p>
+          </details>
+          <details>
+            <summary>Trenger jeg erfaring med styrketrening fra før?</summary>
+            <p>Nei, du trenger ingen erfaring. Vi lærer deg alt du trenger å vite og hjelper deg trygt i gang.</p>
+          </details>
+        </div>
+      </section>
     </section>
   </main>
-
   <script src="../script.js" defer></script>
   <div id="myss-footer"></div>
   <script>
@@ -132,20 +293,23 @@
       window.MYSS_PREFIX = prefix;
       window.__prefix = prefix;
       var target = document.getElementById("myss-footer");
-      if (!target) { return; }
+      if (!target) {
+        return;
+      }
       fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-        .then(function(r){ return r.text(); })
-        .then(function(html){
+        .then(function(r) {
+          return r.text();
+        })
+        .then(function(html) {
           target.innerHTML = html;
-          target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img){
+          target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img) {
             var raw = img.getAttribute("src");
             if (raw) {
               img.setAttribute("src", raw.replace("${prefix}", prefix));
             }
           });
         })
-        .catch(function(){
-          // Minimal fallback hvis fetch feiler
+        .catch(function() {
           target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
         });
     })();
