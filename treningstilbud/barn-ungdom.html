@@ -39,46 +39,6 @@
       filter: drop-shadow(0 0 1px rgba(0,0,0,0.25));
     }
 
-    /* --- Hero-seksjon som voksensiden --- */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      color: #fff;
-    }
-
-    .hero-textblock {
-      background-color: #105277; /* Helblå bakgrunn uten transparens */
-      color: #fff;
-      text-align: center;
-      padding: 3rem 1.5rem;
-    }
-
-    .hero-textblock h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .hero-textblock p {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .hero-textblock .dot {
-      color: #f57f43;
-    }
-
-    .hero-image {
-      width: 100%;
-      height: 50vh;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-
     /* --- Info-card design --- */
     .info-card {
       all: unset;
@@ -191,11 +151,11 @@
 
   <main>
     <section class="hero">
-      <div class="hero-textblock">
-        <h1>Styrketrening for ungdom (11–15 år)<span class="dot">.</span></h1>
-        <p>Tilrettelagt trening i trygge omgivelser – for ungdom med funksjonsvariasjon som vil ha det gøy og bygge styrke sammen.</p>
-      </div>
       <img src="../bilde03.jpg" alt="Ungdom som trener sammen på styrkerom" class="hero-image">
+      <div class="hero-overlay">
+        <h1>Styrketrening for ungdom (11–15 år)<span class="dot">.</span></h1>
+        <p class="hero-subtext">Tilrettelagt trening i trygge omgivelser – for ungdom med funksjonsvariasjon som vil ha det gøy og bygge styrke sammen.</p>
+      </div>
     </section>
 
     <div class="marquee" role="region" aria-label="MyStrongestSide statements">
