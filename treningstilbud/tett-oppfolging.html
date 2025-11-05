@@ -8,36 +8,6 @@
 
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../styles.css?v=30">
-  <style>
-    .icon {
-      width: 28px;
-      height: 28px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      vertical-align: middle;
-      transition: filter 0.2s ease, opacity 0.2s ease;
-      filter: brightness(0.8) grayscale(100%);
-      opacity: 0.7;
-    }
-    .icon:hover {
-      filter: brightness(1) grayscale(0%);
-      opacity: 1;
-    }
-    li, .accessibility-info, .icon {
-      overflow: visible !important;
-    }
-    .icon::before {
-      width: 1.5em;
-      height: 1.5em;
-      display: block;
-    }
-    .icon.info-access::before,
-    .icon.info-parking::before,
-    .icon.info-transport::before {
-      filter: drop-shadow(0 0 1px rgba(0,0,0,0.25));
-    }
-  </style>
 </head>
 <body>
   <header data-component="site-header"></header>
@@ -116,15 +86,15 @@
             <h3>Nyttig informasjon</h3>
             <ul class="info-list">
               <li>
-                <span class="icon"><img src="../icons/price.svg" alt="Pris ikon"></span>
+                <span class="icon info-price" aria-hidden="true"></span>
                 <div class="info-content"><strong>Pris:</strong> 400 kr for medlemmer / 600 kr for ikke-medlemmer</div>
               </li>
               <li>
-                <span class="icon"><img src="../icons/place.svg" alt="Sted ikon"></span>
+                <span class="icon info-place" aria-hidden="true"></span>
                 <div class="info-content"><strong>Sted:</strong> Trene Sammen Fantoft, Fantoftvegen 14, Bergen</div>
               </li>
               <li>
-                <span class="icon"><img src="../icons/calendar.svg" alt="Kalender ikon"></span>
+                <span class="icon info-period" aria-hidden="true"></span>
                 <div class="info-content">
                   <strong>Periode:</strong> Hele sesongen<br><br>
                   <ul class="date-list">
@@ -140,7 +110,7 @@
                 </div>
               </li>
               <li>
-                <span class="icon"><img src="../icons/clock.svg" alt="Tid ikon"></span>
+                <span class="icon info-time" aria-hidden="true"></span>
                 <div class="info-content">
                   <strong>Tid:</strong> 16:30–17:30<br>
                   <strong>Oppmøte:</strong> kl. 16:15<br><br>
@@ -156,35 +126,35 @@
             <h3>Tilgjengelighet og praktisk info</h3>
             <ul class="info-list">
               <li>
-                <span class="icon"><img src="../icons/wheelchair.svg" alt="Tilgjengelighet ikon"></span>
+                <span class="icon info-access" aria-hidden="true"></span>
                 <div class="info-content">Trinnfri inngang, heis og HC-toalett</div>
               </li>
               <li>
-                <span class="icon"><img src="../icons/bus.svg" alt="Transport ikon"></span>
+                <span class="icon info-transport" aria-hidden="true"></span>
                 <div class="info-content">Buss nr. 2 og 3 (holdeplass Fantoft Studentby)</div>
               </li>
               <li>
-                <span class="icon"><img src="../icons/parking.svg" alt="Parkering ikon"></span>
+                <span class="icon info-parking" aria-hidden="true"></span>
                 <div class="info-content">HC-parkering: 3 plasser ved MENY Fantoft (70–90 m, 2–3 min i manuell rullestol uten assistanse)</div>
               </li>
               <li>
-                <span class="icon"><img src="/assets/icons/map.svg" alt="Kart ikon"></span>
-      <div class="info-content">
-        <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" class="map-link" target="_blank" rel="noopener">
-          Se kart
-        </a>
-      </div>
-    </li>
-  </ul>
-</div> 
+                <span class="icon info-map" aria-hidden="true"></span>
+                <div class="info-content">
+                  <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" class="map-link" target="_blank" rel="noopener">
+                    Se kart
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
 
-  <div class="signup">
-    <h3>Meld deg på</h3>
-    <p> 8 Plasser er fordelt. Sikre deg plass via påmeldingsskjemaet for sesong 5 2026.</p>
-    <a href="../paamelding.html" class="btn-primary">Gå til påmelding</a>
-  </div>
+          <div class="signup">
+            <h3>Meld deg på</h3>
+            <p> 8 Plasser er fordelt. Sikre deg plass via påmeldingsskjemaet for sesong 5 2026.</p>
+            <a href="../paamelding.html" class="btn-primary">Gå til påmelding</a>
+          </div>
 
-</aside>
+        </aside>
 
     <section class="section faq">
       <div class="container surface-card stack">
@@ -234,115 +204,6 @@
         });
     })();
   </script>
-
-        <style>
-/* --- Fiks for nytt info-card design --- */
-.info-card {
-  all: unset;
-  display: block;
-  background: #fff;
-  border: 2px solid #105277;
-  border-radius: 16px;
-  padding: 2rem;
-  max-width: 650px;
-  margin: 2rem auto;
-  box-shadow: 0 4px 14px rgba(16, 82, 119, 0.12);
-  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-}
-
-.info-card * {
-  all: unset;
-  display: revert;
-  box-sizing: border-box;
-}
-
-/* Reaktiver nytt design */
-.info-card h3 {
-  color: #105277;
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #f57f43;
-  padding-bottom: 0.3rem;
-}
-
-.info-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.8rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.info-card li {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  background: #f9fafb;
-  border-radius: 12px;
-  padding: 0.8rem 1rem;
-}
-
-.info-card li:hover {
-  background: #f1f5f9;
-}
-
-.info-card .icon img {
-  width: 28px;
-  height: 28px;
-  filter: invert(20%) sepia(90%) saturate(400%) hue-rotate(180deg);
-}
-
-.info-card strong {
-  font-weight: 700;
-}
-
-.date-list {
-  list-style: none;
-  padding: 0.5rem 0 0 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.date-list li {
-  background: #f9fafb;
-  padding: 0.4rem 0.75rem;
-  border-left: 4px solid #f57f43;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  color: #105277;
-}
-
-.signup {
-  background: #105277;
-  color: #fff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.signup h3 {
-  color: #fff;
-  margin-bottom: 0.5rem;
-}
-
-.signup a {
-  display: inline-block;
-  background: #f57f43;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.signup a:hover {
-  background: #e36c2f;
-}
-</style>
 
 </body>
 </html>

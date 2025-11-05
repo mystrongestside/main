@@ -8,127 +8,6 @@
 
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../styles.css?v=34">
-  <style>
-    /* --- Ikonstil --- */
-    .icon {
-      width: 28px;
-      height: 28px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      vertical-align: middle;
-      transition: filter 0.2s ease, opacity 0.2s ease;
-      filter: brightness(0.8) grayscale(100%);
-      opacity: 0.7;
-    }
-    .icon:hover {
-      filter: brightness(1) grayscale(0%);
-      opacity: 1;
-    }
-    li, .accessibility-info, .icon {
-      overflow: visible !important;
-    }
-
-    /* --- Info-card design --- */
-    .info-card {
-      all: unset;
-      display: block;
-      background: #fff;
-      border: 2px solid #105277;
-      border-radius: 16px;
-      padding: 2rem;
-      max-width: 650px;
-      margin: 2rem auto;
-      box-shadow: 0 4px 14px rgba(16, 82, 119, 0.12);
-      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-    }
-
-    .info-card h3 {
-      color: #105277;
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #f57f43;
-      padding-bottom: 0.3rem;
-    }
-
-    .info-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 1.8rem 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .info-card li {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      background: #f9fafb;
-      border-radius: 12px;
-      padding: 0.8rem 1rem;
-    }
-
-    .info-card li:hover {
-      background: #f1f5f9;
-    }
-
-    .info-card .icon img {
-      width: 28px;
-      height: 28px;
-      filter: invert(20%) sepia(90%) saturate(400%) hue-rotate(180deg);
-    }
-
-    .info-card strong {
-      font-weight: 700;
-    }
-
-    .date-list {
-      list-style: none;
-      padding: 0.5rem 0 0 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .date-list li {
-      background: #f9fafb;
-      padding: 0.4rem 0.75rem;
-      border-left: 4px solid #f57f43;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      color: #105277;
-    }
-
-    .signup {
-      background: #105277;
-      color: #fff;
-      padding: 1.5rem;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    .signup h3 {
-      color: #fff;
-      margin-bottom: 0.5rem;
-    }
-
-    .signup a {
-      display: inline-block;
-      background: #f57f43;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .signup a:hover {
-      background: #e36c2f;
-    }
-  </style>
 </head>
 <body>
   <header data-component="site-header"></header>
@@ -178,15 +57,15 @@
             <h3>Nyttig informasjon</h3>
             <ul class="info-list">
               <li>
-                <span class="icon"><img src="../icons/price.svg" alt="Pris ikon"></span>
+                <span class="icon info-price" aria-hidden="true"></span>
                 <div class="info-content"><strong>Pris:</strong> 400 kr for medlemmer / 600 kr for ikke-medlemmer</div>
               </li>
               <li>
-                <span class="icon"><img src="../icons/place.svg" alt="Sted ikon"></span>
+                <span class="icon info-place" aria-hidden="true"></span>
                 <div class="info-content"><strong>Sted:</strong> Trene Sammen Fantoft, Fantoftvegen 14, Bergen</div>
               </li>
               <li>
-                <span class="icon"><img src="../icons/calendar.svg" alt="Kalender ikon"></span>
+                <span class="icon info-period" aria-hidden="true"></span>
                 <div class="info-content">
                   <strong>Periode:</strong> Hele sesongen<br><br>
                   <ul class="date-list">
@@ -202,7 +81,7 @@
                 </div>
               </li>
               <li>
-                <span class="icon"><img src="../icons/clock.svg" alt="Tid ikon"></span>
+                <span class="icon info-time" aria-hidden="true"></span>
                 <div class="info-content">
                   <strong>Tid:</strong> 16:30–17:30<br>
                   <strong>Oppmøte:</strong> kl. 16:15<br><br>
