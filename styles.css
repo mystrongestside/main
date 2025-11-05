@@ -8,12 +8,8 @@
 }
 
 /* --- GLOBAL IKONSTIL (My Strongest Side) --- */
-.icon,
-[class^="info-"],
-[class*=" info-"] {
+.icon {
   display: inline-block;
-  width: 22px;
-  height: 22px;
   margin-right: 8px;
   vertical-align: middle;
   opacity: 1;
@@ -24,9 +20,7 @@
 }
 
 /* Fjern ALLE hover-, lys- og skyggeeffekter */
-.icon:hover,
-[class^="info-"]:hover,
-[class*=" info-"]:hover {
+.icon:hover {
   opacity: 1 !important;
   filter: none !important;
   transform: none !important;
@@ -35,9 +29,7 @@
 }
 
 /* Sørg for at bildefiler som brukes som ikoner ikke deformeres */
-.icon img,
-[class^="info-"] img,
-[class*=" info-"] img {
+.icon img {
   width: 100%;
   height: auto;
   object-fit: contain;
