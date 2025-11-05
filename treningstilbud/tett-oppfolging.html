@@ -45,6 +45,83 @@
   .icon.info-transport::before {
     filter: drop-shadow(0 0 1px rgba(0,0,0,0.25));
   }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(245, 127, 67, 0.95);
+    color: #fff;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 10px 20px -16px rgba(0, 0, 0, 0.65);
+  }
+
+  .hero-badge::before {
+    content: "\2728";
+    font-size: 1.05rem;
+  }
+
+  .hero-badge--sold-out::before {
+    content: "\26A0";
+  }
+
+  .status-card {
+    position: relative;
+    padding: 1.75rem 1.5rem 1.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #fff1e7 0%, #ffe3d1 100%);
+    box-shadow: 0 12px 30px -18px rgba(245, 127, 67, 0.8);
+    margin-bottom: 2rem;
+  }
+
+  .status-card__ribbon {
+    position: absolute;
+    inset: 16px auto auto -52px;
+    transform: rotate(-45deg);
+    background: #f57f43;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    padding: 0.35rem 3.5rem;
+    box-shadow: 0 8px 16px -12px rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+  }
+
+  .status-card__title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: #5f341f;
+  }
+
+  .status-card__text {
+    margin: 0;
+    color: #6a4431;
+  }
+
+  .signup.signup--waitlist .btn-primary {
+    background: #1f2933;
+    border-color: #1f2933;
+  }
+
+  .signup.signup--waitlist .btn-primary:hover,
+  .signup.signup--waitlist .btn-primary:focus {
+    background: #10161d;
+    border-color: #10161d;
+  }
+
+  .signup.signup--waitlist .btn-primary[aria-disabled="true"] {
+    opacity: 0.6;
+    pointer-events: none;
+  }
   </style>
 </head>
 <body>
@@ -54,7 +131,8 @@
     <section class="hero">
       <img src="../bilde02.jpg" alt="Veileder som gir støtte under styrkeøvelse på Trene Sammen Fantoft" class="hero-image">
       <div class="hero-overlay">
-        <h1>Tilrettelagt styrketrening som ønsker tett oppfølging<span class="dot">.</span></h1>
+        <p class="hero-badge hero-badge--sold-out">UTSOLGT – nye plasser fra februar</p>
+        <h1>Tilrettelagt styrketrening med tett oppfølging<span class="dot">.</span></h1>
         <p class="hero-subtext">
         For deg som ønsker tett oppfølging, trygghet og forutsigbarhet i treningen – med veiledere som blir godt kjent med deg og dine mål.</p>
       </div>
@@ -140,6 +218,12 @@
     </article>
 
         <aside class="info-card">
+          <div class="status-card" role="status" aria-live="polite">
+            <div class="status-card__ribbon" aria-hidden="true">UTSOLGT</div>
+            <p class="status-card__title">Nye plasser fra februar</p>
+            <p class="status-card__text">Kurset er fullbooket denne sesongen, men du kan sikre deg plass til neste oppstart ved å registrere deg nå.</p>
+          </div>
+
           <div class="info-card__section">
             <h3>Nyttig informasjon</h3>
             <ul class="info-list">
@@ -196,10 +280,10 @@
             </ul>
           </div>
 
-          <div class="signup">
-            <h3>Meld deg på</h3>
-            <p>Plasser fordeles fortløpende. Sikre deg plass via påmeldingsskjemaet.</p>
-            <a href="#" class="btn-primary">Gå til påmelding</a>
+          <div class="signup signup--waitlist">
+            <h3>Sett deg på venteliste</h3>
+            <p>Gi oss beskjed via påmeldingsskjemaet, så kontakter vi deg straks de nye plassene åpner.</p>
+            <a href="../paamelding.html" class="btn-primary">Gå til påmelding</a>
           </div>
         </aside>
 </div>
