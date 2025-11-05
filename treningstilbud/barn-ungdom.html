@@ -7,7 +7,7 @@
   <meta name="description" content="Tilrettelagt styrketrening for ungdom mellom 12 og 15 år – med mestring, fellesskap og trygg veiledning.">
 
   <link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="stylesheet" href="../styles.css?v=27">
+  <link rel="stylesheet" href="../styles.css?v=30">
   <style>
   /* === MyStrongestSide ikonjusteringer (nov 2025) === */
   .icon {
@@ -39,7 +39,7 @@
     display: block;
   }
 
-  /* For ekstra kontrast og tydelighet */
+  /* For ekstra kontrast og tydelighet på enkelte ikon-typer */
   .icon.info-access::before,
   .icon.info-parking::before,
   .icon.info-transport::before {
@@ -52,7 +52,7 @@
 
   <main>
     <section class="hero">
-      <img src="../bilde03.jpg" alt="ungdom i felles styrkeøkt hos My Strongest Side" class="hero-image" style="object-position: center 75%;">
+      <img src="../bilde03.jpg" alt="Ungdom i felles styrkeøkt hos My Strongest Side" class="hero-image" style="object-position: center 75%;">
       <div class="hero-overlay">
         <h1>Styrketrening for ungdom<span class="dot">.</span></h1>
         <p class="hero-subtext">
@@ -151,31 +151,43 @@
             <h3>Nyttig informasjon</h3>
             <ul class="info-list">
               <li>
-                <span class="icon info-price" aria-hidden="true"></span>
+                <span class="icon"><img src="../icons/price.svg" alt="Pris ikon"></span>
                 <div class="info-content">
                   <strong>Pris:</strong>
                   400 kr for medlemmer / 600 kr for ikke-medlemmer
                 </div>
               </li>
               <li>
-                <span class="icon info-place" aria-hidden="true"></span>
+                <span class="icon"><img src="../icons/place.svg" alt="Sted ikon"></span>
                 <div class="info-content">
                   <strong>Sted:</strong>
                   Trene Sammen Fantoft, Fantoftvegen 14, Bergen
                 </div>
               </li>
               <li>
-                <span class="icon info-period" aria-hidden="true"></span>
+                <span class="icon"><img src="../icons/calendar.svg" alt="Kalender ikon"></span>
                 <div class="info-content">
-                  <strong>Periode:</strong>
-                  Torsdager – 6. nov, 20. nov, 4. des, 15. jan, 29. jan
+                  <strong>Periode:</strong> Hele sesongen
+                  <ul class="date-list">
+                    <li>Torsdag 18. september 2025</li>
+                    <li>Torsdag 2. oktober 2025</li>
+                    <li>Torsdag 16. oktober 2025</li>
+                    <li>Torsdag 30. oktober 2025</li>
+                    <li>Torsdag 13. november 2025</li>
+                    <li>Torsdag 27. november 2025</li>
+                    <li>Torsdag 11. desember 2025</li>
+                    <li>Torsdag 8. januar 2026</li>
+                  </ul>
                 </div>
               </li>
               <li>
-                <span class="icon info-time" aria-hidden="true"></span>
+                <span class="icon"><img src="../icons/clock.svg" alt="Tid ikon"></span>
                 <div class="info-content">
-                  <strong>Varighet:</strong>
-                  1 time (17:45–18:45)
+                  <strong>Tid:</strong> 17:45–18:45<br>
+                  <strong>Oppmøte:</strong> kl. 17:30<br><br>
+                  • Felles oppvarming<br>
+                  • Individuelt tilpasset trening<br>
+                  • Felles nedtrapping
                 </div>
               </li>
             </ul>
@@ -185,20 +197,24 @@
             <h3>Tilgjengelighet og praktisk info</h3>
             <ul class="info-list">
               <li>
-                <span class="icon info-access" aria-hidden="true"></span>
+                <span class="icon"><img src="../icons/wheelchair.svg" alt="Tilgjengelighet ikon"></span>
                 <div class="info-content">Trinnfri inngang, heis og HC-toalett</div>
               </li>
               <li>
-                <span class="icon info-transport" aria-hidden="true"></span>
+                <span class="icon"><img src="../icons/bus.svg" alt="Transport ikon"></span>
                 <div class="info-content">Buss nr. 2 og 3 (holdeplass Fantoft Studentby)</div>
               </li>
               <li>
-                <span class="icon info-parking" aria-hidden="true"></span>
+                <span class="icon"><img src="../icons/parking.svg" alt="Parkering ikon"></span>
                 <div class="info-content">HC-parkering: 3 plasser ved MENY Fantoft (70–90 m, 2–3 min i manuell rullestol uten assistanse)</div>
               </li>
               <li>
-                <span class="icon info-map" aria-hidden="true"></span>
-                <div class="info-content"><a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" class="map-link" target="_blank" rel="noopener">Se kart</a></div>
+                <span class="icon"><img src="../icons/map.svg" alt="Kart ikon"></span>
+                <div class="info-content">
+                  <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" class="map-link" target="_blank" rel="noopener">
+                    Se kart
+                  </a>
+                </div>
               </li>
             </ul>
           </div>
@@ -206,7 +222,7 @@
           <div class="signup">
             <h3>Meld deg på</h3>
             <p>Plasser fordeles fortløpende. Sikre deg plass via påmeldingsskjemaet.</p>
-            <a href="#" class="btn-primary">Gå til påmelding</a>
+            <a href="../paamelding.html" class="btn-primary">Gå til påmelding</a>
           </div>
         </aside>
       </div>
