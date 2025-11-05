@@ -646,8 +646,11 @@ body.no-scroll {
 }
 .hero-image {
   display: block;
-  height: clamp(220px, 48vw, 360px);
+  height: 55vh;
+  max-height: 420px;
+  min-height: 280px;
   object-fit: cover;
+  object-position: center top;
   width: 100%;
 }
 .hero-overlay {
