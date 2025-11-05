@@ -7,7 +7,7 @@
   <meta name="description" content="Tilrettelagt styrketrening for ungdom (11–15 år) med funksjonsvariasjon som ønsker trygg og morsom trening med faglig støtte.">
 
   <link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="stylesheet" href="../styles.css?v=31">
+  <link rel="stylesheet" href="../styles.css?v=32">
   <style>
     /* --- Ikonstil --- */
     .icon {
@@ -39,12 +39,36 @@
       filter: drop-shadow(0 0 1px rgba(0,0,0,0.25));
     }
 
-    /* --- Hero-seksjon identisk med voksensiden --- */
+    /* --- Hero-seksjon som voksensiden --- */
     .hero {
       position: relative;
       overflow: hidden;
       text-align: center;
       color: #fff;
+    }
+
+    .hero-textblock {
+      background-color: #105277; /* Helblå bakgrunn uten transparens */
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .hero-textblock h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .hero-textblock p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-textblock .dot {
+      color: #f57f43;
     }
 
     .hero-image {
@@ -53,29 +77,6 @@
       object-fit: cover;
       object-position: center top;
       display: block;
-    }
-
-    .hero-overlay {
-      background-color: #105277; /* helblå bakgrunn uten transparens */
-      color: #fff;
-      padding: 3rem 1.5rem;
-    }
-
-    .hero-overlay h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .hero-overlay .dot {
-      color: #f57f43;
-    }
-
-    .hero-subtext {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      max-width: 700px;
-      margin: 0 auto;
     }
 
     /* --- Info-card design --- */
@@ -190,9 +191,9 @@
 
   <main>
     <section class="hero">
-      <div class="hero-overlay">
+      <div class="hero-textblock">
         <h1>Styrketrening for ungdom (11–15 år)<span class="dot">.</span></h1>
-        <p class="hero-subtext">Tilrettelagt trening i trygge omgivelser – for ungdom med funksjonsvariasjon som vil ha det gøy og bygge styrke sammen.</p>
+        <p>Tilrettelagt trening i trygge omgivelser – for ungdom med funksjonsvariasjon som vil ha det gøy og bygge styrke sammen.</p>
       </div>
       <img src="../bilde03.jpg" alt="Ungdom som trener sammen på styrkerom" class="hero-image">
     </section>
@@ -218,7 +219,6 @@
       <div class="container two-column">
         <article class="surface-card stack">
           <h2>Kurs: Styrketrening for ungdom (11–15 år)</h2>
-
           <h3>Hvem passer kurset for?</h3>
           <p>Kurset passer for ungdom med <strong>lette funksjonsvariasjoner</strong> som ønsker å trene styrke i trygge omgivelser.  
           Her legges det vekt på mestring, sosialt fellesskap og å lære riktig teknikk – uavhengig av utgangspunkt.</p>
@@ -324,7 +324,7 @@
 
           <div class="signup">
             <h3>Meld deg på</h3>
-            <p> Det er få plasser tilgjengelig. Sikre deg plass via påmeldingsskjemaet for sesong 5 2026.</p>
+            <p>Det er få plasser tilgjengelig. Sikre deg plass via påmeldingsskjemaet for sesong 5 2026.</p>
             <a href="../paamelding.html" class="btn-primary">Gå til påmelding</a>
           </div>
         </aside>
@@ -374,9 +374,4 @@
           });
         })
         .catch(function(){
-          target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
-        });
-    })();
-  </script>
-</body>
-</html>
+          target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt
