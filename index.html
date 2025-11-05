@@ -141,66 +141,7 @@
   </div>
 </section>
 
-<!-- Sløyfe-stil -->
-<style>
-.card-image {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-/* --- Sløyfe øverst til høyre med glans og innbrett --- */
-.corner-ribbon {
-  position: absolute;
-  top: 20px;
-  right: -45px;
-  width: 220px;
-  text-align: center;
-  line-height: 2;
-  font-weight: 700;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #fff;
-  background: linear-gradient(
-    135deg,
-    #f57f43 0%,
-    #ff9955 35%,
-    #ffb57a 50%,
-    #ff9955 65%,
-    #f57f43 100%
-  );
-  transform: rotate(45deg);
-  box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.25),
-    inset 0 -3px 5px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-/* --- Innbrett-skygge i hjørnet --- */
-.corner-ribbon::before,
-.corner-ribbon::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  z-index: -1;
-}
-.corner-ribbon::before {
-  left: 0;
-  border-width: 10px 0 0 10px;
-  border-color: transparent transparent transparent rgba(0, 0, 0, 0.25);
-}
-.corner-ribbon::after {
-  right: 0;
-  border-width: 0 10px 10px 0;
-  border-color: transparent rgba(0, 0, 0, 0.25) transparent transparent;
-}
-</style>
+  </main>
 
   <script src="script.js" defer></script>
   <div id="myss-footer"></div>
