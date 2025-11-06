@@ -548,136 +548,6 @@ body.no-scroll {
   }
 }
 
-/* ========================= HERO-CARD ========================= */
-.hero-card {
-  background: radial-gradient(1200px 600px at 50% 0%, rgba(0,0,0,.08), transparent 65%),
-    linear-gradient(180deg, rgba(36,52,77,.78) 0%, rgba(28,44,69,.90) 100%);
-  box-shadow: 0 -10px 28px rgba(0,0,0,.18);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 260px;
-  padding: 6rem 1.5rem 7rem;
-  text-align: center;
-  width: 100%;
-}
-.hero-card h1 {
-  color: #fff;
-  margin: 0;
-  margin-inline: auto;
-  max-width: 26ch;
-  text-shadow: 0 2px 10px rgba(0,0,0,.25);
-}
-
-/* HERO – Les mer-knapp */
-.hero-cta {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.25rem;
-}
-.hero-cta .btn-primary {
-  align-items: center;
-  background: linear-gradient(180deg, #F77C37 0%, #E46F31 100%);
-  border: none;
-  border-radius: 14px;
-  box-shadow: 0 12px 28px rgba(0,0,0,.22);
-  color: #fff;
-  cursor: pointer;
-  display: inline-flex;
-  font-weight: 800;
-  justify-content: center;
-  letter-spacing: .2px;
-  min-height: 48px;
-  padding: 1rem 1.8rem;
-  position: relative;
-  text-decoration: none;
-  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
-}
-
-.hero-cta .btn-primary:hover,
-.hero-cta .btn-primary:focus-visible {
-  box-shadow: 0 16px 36px rgba(0,0,0,.26);
-  filter: brightness(1.06);
-  outline: none;
-  transform: translateY(-2px);
-}
-.hero-cta .btn-primary:active {
-  filter: brightness(.96);
-  transform: translateY(1px);
-}
-@media (max-width: 600px) {
-  .hero-cta .btn-primary {
-    font-size: .95rem;
-    letter-spacing: .1px;
-    padding: .85rem 1.35rem;
-  }
-}
-
-/* ========================= INNER PAGE HERO ========================= */
-.hero {
-  align-items: center;
-  background: var(--blue);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  padding-bottom: clamp(3rem, 6vw, 4.75rem);
-  text-align: center;
-}
-
-/* === MYSS CODEX: HERO BILDE JUSTERING === */
-.hero {
-  background-position: center top !important;
-}
-
-/* Mobiljustering – sørger for at mer av bildet vises på små skjermer */
-@media (max-width: 768px) {
-  .hero {
-    background-position: center 15% !important;
-    background-size: cover;
-  }
-}
-.hero-image {
-  display: block;
-  height: 55vh;
-  max-height: 420px;
-  min-height: 280px;
-  object-fit: cover;
-  object-position: center top;
-  width: 100%;
-}
-.hero-overlay {
-  max-width: var(--container);
-  padding: clamp(2.75rem, 7vw, 4.5rem) 1.5rem 0;
-  width: 100%;
-}
-.hero h1 {
-  color: #fff;
-  font-size: clamp(1.95rem, 2.4vw + 1.1rem, 2.9rem);
-  line-height: 1.15;
-  margin: 0;
-  text-wrap: balance;
-}
-.hero .dot {
-  color: var(--orange);
-}
-.hero-subtext {
-  color: #fff;
-  font-size: clamp(1.05rem, 1.1vw + 0.9rem, 1.25rem);
-  line-height: 1.6;
-  margin: 1.25rem auto 0;
-  max-width: 58ch;
-}
-@media (max-width: 600px) {
-  .hero-overlay {
-    padding: 2rem 1.25rem 0;
-  }
-  .hero-subtext {
-    margin-top: 1rem;
-  }
-}
-
 /* ========================= MARQUEE ========================= */
 .marquee {
   background: var(--orange);
@@ -2777,72 +2647,49 @@ footer {
   background-color: #105277;
 }
 
-/* === Fast hero-bildehøyde (Codex sync 2025-11) === */
+/* === HERO-SEKSJON GLOBAL FIX (MySS – november 2025) === */
+section.hero,
 .hero {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-.hero-image {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  background: rgba(16, 82, 119, 0.8);
+  position: relative !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
- 
-/* === Justert hero-stil (for alle sider, november 2025) === */
-.hero {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
+.hero img,
 .hero-image {
-  width: 100%;
-  height: 420px; /* fast høyde */
-  object-fit: cover;
-  object-position: center 30%; /* løfter fokus litt opp */
-  display: block;
-  filter: brightness(0.9); /* gjør bildet litt lysere og renere */
+  width: 100% !important;
+  height: 420px !important; /* fast høyde */
+  object-fit: cover !important;
+  object-position: center 35% !important; /* løfter fokus */
+  display: block !important;
+  filter: brightness(0.95) !important;
 }
 
 .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(16, 82, 119, 0.55) 0%, rgba(16, 82, 119, 0.75) 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  padding: 0 1rem;
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  color: #fff !important;
+  background: rgba(16, 82, 119, 0.55) !important;
+  padding: 0 1.5rem !important;
 }
 
 .hero-overlay h1 {
-  font-size: 2rem;
-  line-height: 1.3;
-  font-weight: 700;
-  margin-bottom: 0.6rem;
+  font-size: 2rem !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.6rem !important;
 }
 
 .hero-overlay p {
-  font-size: 1.1rem;
-  max-width: 680px;
-  margin: 0 auto;
-  font-weight: 400;
+  font-size: 1.1rem !important;
+  font-weight: 400 !important;
+  max-width: 700px !important;
+  margin: 0 auto !important;
 }
-</style>
