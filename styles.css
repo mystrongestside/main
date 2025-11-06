@@ -10,6 +10,7 @@
 /* --- GLOBAL IKONSTIL (My Strongest Side) --- */
 .icon {
   display: inline-block;
+  height: 28px;
   margin-right: 8px;
   vertical-align: middle;
   opacity: 1;
@@ -17,6 +18,7 @@
   box-shadow: none;
   transition: none;
   color: #105277; /* MyStrongestSide-blå */
+  width: 28px;
 }
 
 /* Fjern ALLE hover-, lys- og skyggeeffekter */
@@ -751,6 +753,137 @@ body.no-scroll {
 }
 
 /* Kort */
+/* Treningskort på forside */
+.training-card {
+  background: #fff;
+  border-radius: var(--media-radius);
+  box-shadow: 0 6px 20px rgba(0,0,0,.07);
+  overflow: visible;
+  position: relative;
+}
+
+.card,
+.training-card {
+  min-height: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-img,
+.training-card img {
+  border-radius: var(--media-radius) var(--media-radius) 0 0;
+  display: block;
+  height: 420px;
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+}
+
+.training-card .card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.75rem;
+}
+
+.training-card .card-actions {
+  margin-top: auto;
+}
+
+.training-card h3 {
+  color: var(--blue);
+  font-size: 1.15rem;
+}
+
+.card-lead {
+  color: var(--blue-2);
+  font-weight: 600;
+}
+
+.icon-box {
+  align-items: center;
+  color: var(--blue-2);
+  display: flex;
+  font-weight: 600;
+  gap: 0.75rem;
+}
+
+.icon-box span:last-child {
+  line-height: 1.4;
+}
+
+.icon,
+[class^='info-'] {
+  color: #105277;
+  height: 28px;
+  width: 28px;
+}
+
+[class^='info-']:not(.icon) {
+  color: inherit;
+  height: auto;
+  width: auto;
+}
+
+.training-card .date-badge {
+  align-items: center;
+  background: rgba(255,255,255,0.96);
+  border-radius: 999px;
+  box-shadow: 0 10px 26px rgba(25,43,69,0.12);
+  color: var(--blue);
+  display: inline-flex;
+  font-size: 0.88rem;
+  font-weight: 700;
+  gap: 0.4rem;
+  left: 1.5rem;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1.1rem;
+  position: absolute;
+  text-transform: uppercase;
+  top: 1.5rem;
+  z-index: 2;
+}
+
+.training-card .date-start,
+.training-card .date-end {
+  display: inline-block;
+}
+
+.training-card .date-divider {
+  color: var(--orange);
+}
+
+.training-card .ribbon {
+  background: linear-gradient(135deg,#f57f43 0%,#ff9955 35%,#ffb57a 50%,#ff9955 65%,#f57f43 100%);
+  border-bottom: 1px solid rgba(0,0,0,.15);
+  border-top: 1px solid rgba(255,255,255,.25);
+  box-shadow:
+    0 4px 10px rgba(0,0,0,.25),
+    inset 0 -3px 5px rgba(0,0,0,.2);
+  color: #fff;
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  line-height: 2.2;
+  padding: .1rem 0;
+  position: absolute;
+  right: -4.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  top: 1.5rem;
+  transform: rotate(45deg);
+  width: 220px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.training-card .news-time {
+  color: var(--blue-2);
+  font-weight: 600;
+}
+
 .news-card {
   background: #fff;
   border-radius: var(--media-radius);
@@ -784,65 +917,6 @@ body.no-scroll {
 }
 .focus-top {
   object-position: top;
-}
-
-.news-card .card-image {
-  border-radius: var(--media-radius);
-  overflow: hidden;
-  position: relative;
-}
-
-.news-card .card-image img {
-  display: block;
-  height: auto;
-  width: 100%;
-}
-
-.corner-ribbon {
-  background: linear-gradient(135deg,#f57f43 0%,#ff9955 35%,#ffb57a 50%,#ff9955 65%,#f57f43 100%);
-  border-bottom: 1px solid rgba(0,0,0,.15);
-  border-top: 1px solid rgba(255,255,255,.25);
-  box-shadow:
-    0 4px 10px rgba(0,0,0,.25),
-    inset 0 -3px 5px rgba(0,0,0,.2);
-  color: #fff;
-  font-size: .9rem;
-  font-weight: 700;
-  letter-spacing: .5px;
-  line-height: 2;
-  padding: .1rem 0;
-  position: absolute;
-  right: -45px;
-  text-align: center;
-  text-transform: uppercase;
-  top: 20px;
-  transform: rotate(45deg);
-  width: 220px;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.corner-ribbon::before,
-.corner-ribbon::after {
-  border-style: solid;
-  bottom: -1px;
-  content: "";
-  height: 0;
-  position: absolute;
-  width: 0;
-  z-index: -1;
-}
-
-.corner-ribbon::before {
-  border-color: transparent transparent transparent rgba(0,0,0,.25);
-  border-width: 10px 0 0 10px;
-  left: 0;
-}
-
-.corner-ribbon::after {
-  border-color: transparent rgba(0,0,0,.25) transparent transparent;
-  border-width: 0 10px 10px 0;
-  right: 0;
 }
 
 /* Dato */
@@ -1499,10 +1573,10 @@ textarea {
   background-size: contain;
   display: inline-block;
   filter: brightness(0) saturate(100%) invert(14%) sepia(9%) saturate(1566%) hue-rotate(178deg) brightness(95%) contrast(90%);
-  height: 1.25rem;
+  height: 28px;
   margin-right: 0.5rem;
   vertical-align: middle;
-  width: 1.25rem;
+  width: 28px;
 }
 .icon--orange {
   filter: brightness(0) saturate(100%) invert(66%) sepia(55%) saturate(2728%) hue-rotate(341deg) brightness(100%) contrast(96%);
@@ -1529,11 +1603,12 @@ textarea {
 }
 .icon.info-parking {
   background-image: url("assets/icons/parking.svg");
-  height: 1.5rem;
-  width: 1.5rem;
 }
 .icon.info-transport {
   background-image: url("assets/icons/bus.svg");
+}
+.icon.info-location {
+  background-image: url("assets/icons/place.svg");
 }
 .icon.info-signup {
   background-image: url("assets/icons/signup.svg");
