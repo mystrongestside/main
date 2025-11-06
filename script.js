@@ -326,9 +326,9 @@ const oppdaterTreningskort = () => {
     const card = document.querySelector(`[data-gruppe="${gruppe}"]`);
     if (!card) return;
 
-    const monthEl = card.querySelector('.date-month');
-    const dayEl = card.querySelector('.date-day');
-    const rangeEl = card.querySelector('.date-range');
+    const monthEl = card.querySelector('.date-start');
+const dayEl = card.querySelector('.date-divider');
+const rangeEl = card.querySelector('.date-end');
 
     if (monthEl && dayEl && neste) {
       const [måned, dag] = formatDatoKort(neste).split(' ');
