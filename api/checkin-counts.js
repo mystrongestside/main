@@ -1,0 +1,70 @@
+import express from 'express';
+import fetch from 'node-fetch';
+import dotenv from 'dotenv';
+dotenv.config();
+
+const app = express();
+const API_KEY = process.env.CHECKIN_API_KEY;
+const CUSTOMER_ID = parseInt(process.env.CHECKIN_CUSTOMER_ID, 10);
+const PORT = process.env.PORT || 3000;
+
+// Dine tre MyStrongestSide-eventer
+const EVENTS = {
+  156159: 'Tett oppfølging',
+  155756: 'Barn og ungdom',
+  155377: 'Voksne lett'
+};
+
+// Cache for å redusere API-kall
+let cache = { data: null, expires: 0 };
+
+async function getCheckinCounts() {
+  if (cache.data && Date.now() < cache.expires) return cache.data;
+
+  const results = {};
+  for (const id of Object.keys(EVENTS)) {
+    const query = `
+      query allEventOrderUsers($customerId: Int, $reportFilters: [EventOrderUserReportFilterInput!]) {
+        allEventOrderUsers(customerId: $customerId, reportFilters: $reportFilters) {
+          records
+        }
+      }
+    `;
+    const variables = {
+      customerId: CUSTOMER_ID,
+      reportFilters: [
+        {
+          rule: "AND",
+          conditions: [
+            { rule: "AND", field: "EVENT_ID", operator: "EQUALS", value: id },
+            { rule: "AND", field: "CANCELLED_AT", operator: "IS_EMPTY", value: "" }
+          ]
+        }
+      ]
+    };
+    try {
+      const res = await fetch('https://api.checkin.no/graphql', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${API_KEY}`
+        },
+        body: JSON.stringify({ query, variables })
+      });
+      const json = await res.json();
+      results[id] = Number(json?.data?.allEventOrderUsers?.records) || 0;
+    } catch (e) {
+      console.error('Feil for event', id, e);
+      results[id] = 0;
+    }
+  }
+  cache = { data: results, expires: Date.now() + 60000 }; // cache 1 minutt
+  return results;
+}
+
+app.get('/api/checkin-counts', async (req, res) => {
+  const data = await getCheckinCounts();
+  res.json(data);
+});
+
+app.listen(PORT, () => console.log(`✅ Checkin-integrasjon aktiv (kunde ${CUSTOMER_ID}) på port ${PORT}`));
