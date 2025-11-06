@@ -770,6 +770,12 @@ body.no-scroll {
   justify-content: space-between;
 }
 
+
+.ribbon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .card-img,
 .training-card img {
   border-radius: var(--media-radius) var(--media-radius) 0 0;
@@ -777,6 +783,11 @@ body.no-scroll {
   height: 420px;
   object-fit: cover;
   object-position: top;
+  width: 100%;
+}
+
+.ribbon-wrapper .card-img {
+  display: block;
   width: 100%;
 }
 
@@ -856,28 +867,32 @@ body.no-scroll {
 }
 
 .training-card .ribbon {
-  background: linear-gradient(135deg,#f57f43 0%,#ff9955 35%,#ffb57a 50%,#ff9955 65%,#f57f43 100%);
-  border-bottom: 1px solid rgba(0,0,0,.15);
-  border-top: 1px solid rgba(255,255,255,.25);
-  box-shadow:
-    0 4px 10px rgba(0,0,0,.25),
-    inset 0 -3px 5px rgba(0,0,0,.2);
-  color: #fff;
-  font-size: .9rem;
-  font-weight: 700;
-  letter-spacing: .5px;
-  line-height: 2.2;
-  padding: .1rem 0;
   position: absolute;
-  right: -4.5rem;
-  text-align: center;
-  text-transform: uppercase;
-  top: 1.5rem;
+  top: 12px;
+  right: -40px;
   transform: rotate(45deg);
-  width: 220px;
-  z-index: 3;
-  pointer-events: none;
+  background: #f57f43;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 6px 60px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  z-index: 2;
 }
+
+.training-card .ribbon::before,
+.training-card .ribbon::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  border-top: 3px solid #c55d28;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+
+.training-card .ribbon::before { left: 0; }
+.training-card .ribbon::after  { right: 0; }
 
 .training-card .news-time {
   color: var(--blue-2);
