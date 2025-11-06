@@ -5,8 +5,14 @@ import { resolve } from 'path';
 
 // Minimal .env loader to avoid external dependencies
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
-const envPath = resolve(__dirname, '../.env');
-if (existsSync(envPath)) {
+const ENV_LOCATIONS = [
+  resolve(__dirname, '../myss_secure_env/.env'),
+  resolve(__dirname, '../.env')
+];
+
+for (const envPath of ENV_LOCATIONS) {
+  if (!existsSync(envPath)) continue;
+
   const lines = readFileSync(envPath, 'utf8').split(/\r?\n/);
   for (const line of lines) {
     const trimmed = line.trim();
@@ -19,6 +25,8 @@ if (existsSync(envPath)) {
       process.env[key] = value;
     }
   }
+
+  break;
 }
 
 const API_KEY = process.env.CHECKIN_API_KEY;
