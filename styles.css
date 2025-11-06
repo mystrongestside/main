@@ -2803,3 +2803,46 @@ footer {
 }
 
 </style>
+/* === Justert hero-stil (for alle sider, november 2025) === */
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 420px; /* fast høyde */
+  object-fit: cover;
+  object-position: center 30%; /* løfter fokus litt opp */
+  display: block;
+  filter: brightness(0.9); /* gjør bildet litt lysere og renere */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(16, 82, 119, 0.55) 0%, rgba(16, 82, 119, 0.75) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+
+.hero-overlay h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.hero-overlay p {
+  font-size: 1.1rem;
+  max-width: 680px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
