@@ -781,43 +781,6 @@ body.no-scroll {
   width: 100%;
 }
 
-.course-card__media {
-  position: relative;
-  overflow: hidden;
-}
-
-.course-card__media img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.course-card__ribbon {
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-4deg);
-  padding: 0.35rem 2.5rem;
-  background-color: #f57f43;
-  color: #fff;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  border-radius: 999px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
-  z-index: 2;
-}
-
-.course-card__ribbon--few {
-  background-color: #f57f43;
-}
-
-.course-card__ribbon--soldout {
-  background-color: #105277;
-}
-
 .training-card .card-body {
   display: flex;
   flex: 1;
@@ -2774,6 +2737,44 @@ footer {
 
 .signup a:hover {
   background: #e36c2f;
+}
+
+/* === SLØYFE/BÅND FOR KURS === */
+.course-card__media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.course-card__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+
+.ribbon-diagonal {
+  position: absolute;
+  top: 20px;
+  right: -50px;
+  width: 180px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #fff;
+  padding: 6px 0;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ribbon--few {
+  background-color: #f57f43;
+}
+
+.ribbon--soldout {
+  background-color: #105277;
 }
 </style>
 
