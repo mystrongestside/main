@@ -2719,10 +2719,10 @@ section.hero-card,
 }
 
 .hero-image {
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
   object-fit: cover;
-  object-position: 50% 35%;   /* Viser både øvre og nedre del */
+  object-position: 50% 50%;   /* Viser både øvre og nedre del */
   display: block;
 }
 
