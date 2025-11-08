@@ -528,7 +528,7 @@ body.no-scroll {
 /* ========================= MASTHEAD ========================= */
 .masthead {
   align-items: flex-end;
-  background: url('hero-large.jpg') center/cover no-repeat;
+  background: url('bilder/hero-large.jpg') center/cover no-repeat;
   border-bottom: 0;
   display: flex;
   justify-content: center;
@@ -1168,7 +1168,7 @@ body.no-scroll {
   background: url('frivillig-hero.jpg') center/cover no-repeat;
 }
 .masthead--contact {
-  background: url('hero-large.jpg') center/cover no-repeat;
+  background: url('bilder/hero-large.jpg') center/cover no-repeat;
 }
 .container.two-col {
   align-items: start;
