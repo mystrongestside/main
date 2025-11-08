@@ -3,24 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Foresatte | My Strongest Side®</title>
-  <meta name="description" content="Støtte og veiledning for foresatte som ønsker trygg og tilrettelagt trening for sine barn.">
+  <title>Frivillig | My Strongest Side®</title>
+  <meta name="description" content="Bli frivillig hos My Strongest Side® og bidra til inkluderende styrketrening for alle.">
 
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="styles.css?v=26">
+  <link rel="stylesheet" href="styles.css?v=27">
+  <style>
+    /* =========================
+       HERO-SEKSJON
+       ========================= */
+    .hero {
+      width: 100%;
+      height: 380px;              /* Juster høyden etter ønske */
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;       /* Viser øvre del av bildet (hode/overkropp) */
+      display: block;
+    }
+
+    .hero-text {
+      background-color: #1d2b43;
+      color: #ffffff;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .hero-text .dot {
+      color: #e88249;
+    }
+  </style>
 </head>
 <body>
   <header data-component="site-header"></header>
 
   <main>
-    <section class="masthead"></section>
-
     <section class="hero">
       <img src="bilder/hero.jpg" alt="Beskrivende tekst" class="hero-image">
     </section>
+
     <section class="hero-text">
-      <h1>Foresatte<span class="dot">.</span></h1>
-      <p class="hero-sub">Rådgivning, erfaringsutveksling og trygge rammer som gjør det enklere å støtte ungdom i trening.</p>
+      <h1>Bli frivillig<span class="dot">.</span></h1>
+      <p class="hero-subtext">Vil du gjøre en forskjell i styrkerommet? Hos oss får du opplæring, fellesskap og praksisnær erfaring.</p>
     </section>
 
     <div class="marquee" role="region" aria-label="MyStrongestSide statements">
@@ -43,7 +72,9 @@
     <section class="section">
       <div class="container two-column">
         <article class="surface-card stack">
-          <h2>Hva tilbyr vi foresatte?</h2>
+          <div class="stack">
+            <div>
+              <h2>Hvem ser vi etter?</h2>
           <p>Som foresatt får du støtte til å følge opp barnets treningsreise, dele erfaringer og få faglige råd.</p>
           <ul class="bullets">
             <li>Informasjonskvelder og temamøter gjennom året.</li>
