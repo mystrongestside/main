@@ -2712,8 +2712,8 @@ section.hero-card,
    HERO – STANDARD OPPSETT
    ========================= */
 .hero {
-  width: 100%;
-  height: 380px;              /* Du kan justere høyden her */
+  width: 50%;
+  height: 190px;              /* Du kan justere høyden her */
   overflow: hidden;
   position: relative;
 }
