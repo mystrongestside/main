@@ -32,6 +32,7 @@ for (const envPath of ENV_LOCATIONS) {
 const API_KEY = process.env.CHECKIN_API_KEY;
 const CUSTOMER_ID = parseInt(process.env.CHECKIN_CUSTOMER_ID, 10);
 const PORT = Number(process.env.PORT) || 3000;
+const FETCH_TIMEOUT_MS = Number(process.env.CHECKIN_TIMEOUT_MS) || 5000;
 
 // Dine tre MyStrongestSide-eventer
 const EVENTS = {
@@ -43,11 +44,11 @@ const EVENTS = {
 // Cache for å redusere API-kall
 let cache = { data: null, expires: 0 };
 
-async function getCheckinCounts() {
-  if (cache.data && Date.now() < cache.expires) return cache.data;
+async function fetchEventRecords(eventId) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
 
-  const results = {};
-  for (const id of Object.keys(EVENTS)) {
+  try {
     const query = `
       query allEventOrderUsers($customerId: Int, $reportFilters: [EventOrderUserReportFilterInput!]) {
         allEventOrderUsers(customerId: $customerId, reportFilters: $reportFilters) {
@@ -61,28 +62,48 @@ async function getCheckinCounts() {
         {
           rule: "AND",
           conditions: [
-            { rule: "AND", field: "EVENT_ID", operator: "EQUALS", value: id },
+            { rule: "AND", field: "EVENT_ID", operator: "EQUALS", value: eventId },
             { rule: "AND", field: "CANCELLED_AT", operator: "IS_EMPTY", value: "" }
           ]
         }
       ]
     };
-    try {
-      const res = await fetch('https://api.checkin.no/graphql', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${API_KEY}`
-        },
-        body: JSON.stringify({ query, variables })
-      });
-      const json = await res.json();
-      results[id] = Number(json?.data?.allEventOrderUsers?.records) || 0;
-    } catch (e) {
-      console.error('Feil for event', id, e);
-      results[id] = 0;
+
+    const response = await fetch('https://api.checkin.no/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_KEY}`
+      },
+      body: JSON.stringify({ query, variables }),
+      signal: controller.signal
+    });
+
+    if (!response.ok) {
+      throw new Error(`Checkin API svarte med ${response.status}`);
     }
+
+    const json = await response.json();
+    return Number(json?.data?.allEventOrderUsers?.records) || 0;
+  } finally {
+    clearTimeout(timeoutId);
   }
+}
+
+async function getCheckinCounts() {
+  if (cache.data && Date.now() < cache.expires) return cache.data;
+
+  const results = {};
+  await Promise.all(
+    Object.keys(EVENTS).map(async (id) => {
+      try {
+        results[id] = await fetchEventRecords(id);
+      } catch (error) {
+        console.error('Feil for event', id, error);
+        results[id] = 0;
+      }
+    })
+  );
   cache = { data: results, expires: Date.now() + 60000 }; // cache 1 minutt
   return results;
 }
