@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
@@ -30,6 +30,13 @@
       color: #fff;
       text-align: center;
       padding: 3rem 1.5rem;
+      transition: background 0.4s ease;
+    }
+
+    /* 🔵 Hover-farge #24344d (tekst forblir hvit) */
+    .hero--simple:hover {
+      background: #24344d;
+      color: #fff;
     }
 
     .hero--simple h1 {
@@ -166,14 +173,14 @@
       </div>
     </div>
 
-  <section class="news-section container" id="treningstilbud">
-  <header class="news-header">
-    <h2>Treningstilbud denne høsten<span class="dot">.</span></h2>
-    <p class="section-subtitle">Treningsgrupper for alle – tilpasset ulike behov og nivåer. Finn gruppen som passer for deg.</p>
-  </header>
-
-  <div class="news-grid">
-
+    <!-- INNHOLDSEKSJON -->
+    <section class="section">
+      <div class="container">
+        <h2>Treningstilbud denne sesongen<span class="dot">.</span></h2>
+        <p>Finn gruppen som passer deg – fra ungdom til tett oppfølging.</p>
+      </div>
+    </section>
+  </main>
     <!-- Kort 1 – Voksne -->
     <article class="training-card card course-card" data-gruppe="voksne">
       <div class="date-badge" aria-label="Periode 25. september til 29. januar">
