@@ -2737,3 +2737,31 @@ section.hero-card,
 .hero-text .dot {
   color: #e88249;
 }
+
+/* ============================================================
+   HERO-FIX v34 – Bilde øverst, blå boks under
+   ============================================================ */
+.hero {
+  margin-top: 100px; /* flytter bildet under den faste menyen */
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: top center; /* viser mer av toppen av bildet */
+}
+
+.hero--simple {
+  background-color: #105277; /* MyStrongestSide-blå */
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero--simple .dot {
+  color: #F77C37; /* oransje punktum */
+}
