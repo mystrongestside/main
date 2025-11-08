@@ -2712,6 +2712,7 @@ section.hero-card,
    HERO – STANDARD OPPSETT
    ========================= */
 .hero {
+  margin-top: 90px;             /* Juster høyden etter hvor høy menyen er */
   width: 50%;
   height: 190px;              /* Du kan justere høyden her */
   overflow: hidden;
