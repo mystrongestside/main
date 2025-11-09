@@ -1,6 +1,6 @@
 /* ===========================================================
-   My Strongest Side® — Clean Base Styles v40
-   Ryddet og optimalisert 09.11.2025
+   My Strongest Side® — Clean Unified Styles v42
+   Ryddet, sammenslått og optimalisert 09.11.2025
    =========================================================== */
 
 /* ---------- ROOT VARIABLES ---------- */
@@ -33,42 +33,80 @@ body {
   max-width: var(--container);
   padding: 0 1rem;
 }
-
 h1, h2, h3 { color: var(--blue); line-height: 1.2; }
 p + p { margin-top: .6rem; }
 .dot { color: var(--orange); }
 
 /* ===========================================================
-   NAVIGATION
+   NAVIGATION / HEADER
    =========================================================== */
 .navbar {
   background: var(--blue);
-  position: sticky; top: 0; z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  height: auto;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 .navbar-inner {
-  display: flex; justify-content: space-between;
-  align-items: center; max-width: 1200px;
-  margin: 0 auto; padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.logo { height: 52px; }
+.logo {
+  height: 46px;
+  flex-shrink: 0;
+}
 .nav-links {
-  display: flex; gap: 1.25rem; list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
 }
 .nav-links a {
-  color: #fff; font-weight: 600; text-decoration: none;
-  font-size: .95rem; padding: .5rem .25rem;
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.6rem;
+  transition: color 0.25s ease;
 }
-.nav-links a:hover, .nav-links a.is-active { color: var(--orange); }
-
-/* CTA knapp i header */
+.nav-links a:hover,
+.nav-links a.is-active { color: var(--orange); }
+/* Dropdown */
+.nav-links li ul {
+  background: #2e4160;
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  margin-top: 0.25rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.nav-links li ul li a {
+  display: block;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+.nav-links li ul li a:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--orange);
+}
+/* CTA knapp */
 .btn-pill--orange {
   background: linear-gradient(135deg, #f77c37 0%, #f8923f 100%);
-  border-radius: 999px; color: #fff; font-weight: 800;
-  padding: .85rem 1.8rem; text-decoration: none;
-  box-shadow: 0 4px 14px rgba(247,124,55,0.35);
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 800;
+  padding: 0.7rem 1.6rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 3px 10px rgba(247,124,55,0.3);
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .btn-pill--orange:hover { transform: translateY(-3px); }
+header .dot { display: none !important; }
 
 /* ===========================================================
    HERO — BLÅ BOKS MED HVIT TEKST
@@ -77,16 +115,26 @@ p + p { margin-top: .6rem; }
   background: var(--blue);
   color: #fff;
   text-align: center;
-  padding: clamp(4rem, 6vw, 6rem) 1rem;
+  padding: clamp(3rem, 6vw, 5rem) 1.25rem;
+  min-height: 45vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 .hero h1 {
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
-  font-weight: 800; line-height: 1.2;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
 }
 .hero p {
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  max-width: 48ch; margin: 1rem auto 0;
-  color: rgba(255,255,255,0.92);
+  font-size: 1.15rem;
+  max-width: 650px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.9);
 }
 
 /* ===========================================================
@@ -98,22 +146,34 @@ p + p { margin-top: .6rem; }
   font-weight: 600;
   overflow: hidden;
   white-space: nowrap;
-  padding: .75rem 0;
-  border-block: 1px solid rgba(0,0,0,0.05);
+  padding: 0.8rem 0;
+  border-block: 1px solid rgba(0,0,0,0.07);
+  text-align: center;
 }
 .marquee__wrap {
   display: inline-flex;
-  gap: 2rem;
+  gap: 2.2rem;
   animation: marquee-scroll var(--marquee-speed) linear infinite;
 }
-.marquee__row { display: inline-flex; gap: 2rem; }
+.marquee__row { display: inline-flex; gap: 2.2rem; }
 @keyframes marquee-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 /* ===========================================================
-   INFO-CARD — REN NY STIL
+   HOVEDINNHOLD OG SEKSJONER
+   =========================================================== */
+main {
+  background: #f5f6f9;
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+.section,
+.content-block { background: #f5f6f9; }
+
+/* ===========================================================
+   INFO-CARD — REN STIL
    =========================================================== */
 .info-card {
   background: #fff;
@@ -201,7 +261,7 @@ p + p { margin-top: .6rem; }
    =========================================================== */
 .myss-footer {
   background: #fff;
-  border-top: 3px solid var(--orange);
+  border-top: 1px solid var(--orange);
   color: #000;
   padding: 2rem 1rem;
   text-align: center;
@@ -211,7 +271,7 @@ p + p { margin-top: .6rem; }
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
   margin: 0 auto;
   max-width: 1100px;
 }
@@ -229,19 +289,11 @@ p + p { margin-top: .6rem; }
 .footer-social a:hover { color: var(--orange); text-decoration: underline; }
 .footer-tagline { font-style: italic; color: #333; }
 .footer-copy {
-  color: #555; font-size: 0.85rem; margin-top: 1.5rem;
-}
-
-/* Responsiv */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
+  color: #555; font-size: 0.85rem; margin-top: 1.2rem;
 }
 
 /* ===========================================================
-   UTVALGTE NYHETER / TILBUDSKORT (beholdes)
+   NYHETER / TILBUDSKORT
    =========================================================== */
 .training-card {
   background: #fff;
@@ -279,4 +331,5 @@ p + p { margin-top: .6rem; }
 @media (max-width: 900px) {
   .navbar-inner { flex-wrap: wrap; gap: 1rem; }
   .nav-links { flex-wrap: wrap; justify-content: center; }
+  .footer-container { flex-direction: column; text-align: center; }
 }
