@@ -1,4 +1,4 @@
- 
+a 
 /* Ryddet og formatert av Codex – ingen visuelle endringer */
 /* ========================= RESET & BASE ========================= */
 * {
@@ -2764,4 +2764,33 @@ section.hero-card,
 
 .hero--simple .dot {
   color: #F77C37; /* oransje punktum */
+}
+/* ===== MySS hotfix v34.2 — iOS hero + marquee ===== */
+.hero { margin-top: 0 !important; }            /* fjern tvungen luft over hero */
+body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, valgfritt */
+
+/* Gjør marquee 100% énlinje og stabil på iOS/Safari */
+.marquee {
+  background: #F77C37 !important;
+  color: #fff !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;              /* fallback for ikke-flex innhold */
+}
+.marquee__wrap {
+  display: inline-flex !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  width: auto !important;                      /* unngå width:max-content-trøbbel */
+  animation: marquee var(--marquee-speed, 28s) linear infinite !important;
+  will-change: transform;
+}
+.marquee__row {
+  display: inline-flex !important;
+  gap: 2rem !important;
+  flex: 0 0 auto !important;
+  padding: 0 2rem !important;
+  margin-right: 2rem !important;
+}
+@supports not (width:max-content) {
+  .marquee__wrap { width: auto !important; }
 }
