@@ -2794,32 +2794,46 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 @supports not (width:max-content) {
   .marquee__wrap { width: auto !important; }
 }
-/* Codex: Marquee v36 — hvit banner globalt + blå tekst */
-:root { --myss-blue: #24344d; --myss-marquee-bg: #ffffff; }
+/* Codex: Lås farger – header og marquee */
+:root {
+  --myss-blue: #24344d;
+  --myss-marquee-bg: #ffffff;
+}
 
+/* Header/hero = #24344d med hvit tekst */
+.site-header,
+.hero--simple {
+  background: var(--myss-blue) !important;
+  color: #fff !important;
+}
+
+/* Marquee-bakgrunn = hvit, fjern kanter/effekter */
 .marquee,
 .marquee--top,
 .marquee--bottom,
 .marquee__wrap {
   background: var(--myss-marquee-bg) !important;
-  background-image: none !important;
   border: 0 !important;
   box-shadow: none !important;
+  background-image: none !important;
 }
-
 .marquee::before,
 .marquee::after,
 .marquee__wrap::before,
 .marquee__wrap::after {
   content: none !important;
   display: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 
+/* Marquee-tekst = #24344d (arver for lenker) */
 .marquee,
 .marquee__row,
-.marquee__row span { color: var(--myss-blue) !important; }
-.marquee a { color: inherit; }
-
-.marquee__wrap { padding: 8px 0 !important; }
-/* /Codex */
+.marquee__row span,
+.marquee__row strong,
+.marquee__row em {
+  color: var(--myss-blue) !important;
+}
+.marquee a { color: inherit !important; }
 
