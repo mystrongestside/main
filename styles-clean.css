@@ -380,4 +380,67 @@ main {
 .ribbon--open { background: #3b9b6d; }
 .ribbon--few  { background: #f77c37; }
 .ribbon--full { background: #a6a6a6; }
+/* ===========================================================
+   PATCH v43 – Index-fix (hero + marquee + main spacing)
+   =========================================================== */
+
+/* Sørg for at heroen får korrekt høyde og farge */
+.page--index .hero {
+  background: #24344d;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem 3rem;
+  min-height: 45vh;
+  margin: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.page--index .hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.25;
+}
+.page--index .hero p {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Marquee rett under hero – hvit bakgrunn og luft */
+.page--index .marquee {
+  background: #fff;
+  color: #24344d;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin: 0;
+}
+.page--index .marquee__wrap {
+  display: inline-flex;
+  gap: 2rem;
+  animation: marquee-scroll 45s linear infinite;
+}
+
+/* Hovedinnhold – lys bakgrunn for kontrast */
+.page--index main {
+  background: #f5f6f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sikrer at header alltid ligger over hero */
+header[data-component="site-header"] {
+  position: relative;
+  z-index: 1001;
+}
+
+/* Footer-container spacing */
+.myss-footer {
+  margin-top: 0;
+  padding-top: 2rem;
+  border-top: 1px solid #f77c37;
+}
+
 
