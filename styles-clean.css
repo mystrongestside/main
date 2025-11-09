@@ -333,3 +333,51 @@ main {
   .nav-links { flex-wrap: wrap; justify-content: center; }
   .footer-container { flex-direction: column; text-align: center; }
 }
+/* --- DATOBADGE OG STATUSFARGER --- */
+.date-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #24344d; /* standard mørkblå */
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  z-index: 5;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: background 0.25s ease;
+}
+
+/* Fargekobling til ribbon-type */
+.training-card.card .ribbon--open ~ .date-badge {
+  background: #3b9b6d; /* grønn – åpent for påmelding */
+}
+
+.training-card.card .ribbon--few ~ .date-badge {
+  background: #f77c37; /* oransje – få plasser igjen */
+}
+
+.training-card.card .ribbon--full ~ .date-badge {
+  background: #a6a6a6; /* grå – fulltegnet */
+}
+
+/* Bånd */
+.ribbon-diagonal {
+  position: absolute;
+  top: 18px;
+  right: -32px;
+  transform: rotate(45deg);
+  background: #f77c37;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.3rem 1.8rem;
+  z-index: 6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.ribbon--open { background: #3b9b6d; }
+.ribbon--few  { background: #f77c37; }
+.ribbon--full { background: #a6a6a6; }
+
