@@ -1,27 +1,50 @@
-/* ===== MySS marquee + hero hotfix v38 ===== */
+/* ===== MySS marquee v39 (stabil én-linje, ingen wrap, iOS-safe) ===== */
 .hero{ margin-top:0 !important; }
 body{ scroll-padding-top:90px; }
 
-.marquee{ background:#F77C37 !important; color:#fff !important; overflow:hidden !important; white-space:nowrap !important; }
-.marquee__wrap{ display:inline-flex !important; flex-wrap:nowrap !important; white-space:nowrap !important; width:auto !important;
-  animation:marquee var(--marquee-speed,28s) linear infinite !important; will-change:transform; }
-.marquee__row{ display:inline-flex !important; gap:2rem !important; flex:0 0 auto !important; padding:0 2rem !important; margin-right:2rem !important; }
-
-@keyframes marquee {
-  0% { transform: translate3d(0,0,0); }
-  100% { transform: translate3d(-50%,0,0); }
+.marquee{
+  display:block !important;
+  background:#F77C37 !important;
+  color:#fff !important;
+  overflow:hidden !important;
+  white-space:nowrap !important;
+  line-height:1 !important;
+  padding:.6rem 0 !important;
 }
 
-/* DEDUPE: behold maks to – første vanlige + første .marquee--bottom */
-.marquee:not(.marquee--bottom) ~ .marquee:not(.marquee--bottom){ display:none !important; }
-.marquee--bottom ~ .marquee--bottom{ display:none !important; }
-
-/* Overstyr "Reduce Motion" ved behov */
-.marquee.force-animate .marquee__wrap{
+.marquee__wrap{
+  display:flex !important;
+  align-items:center !important;
+  flex-wrap:nowrap !important;
+  white-space:nowrap !important;
+  width:auto !important;
   animation:marquee var(--marquee-speed,28s) linear infinite !important;
+  will-change:transform;
 }
-@media (prefers-reduced-motion:reduce){
-  .marquee.force-animate .marquee__wrap{
-    animation:marquee var(--marquee-speed,28s) linear infinite !important;
-  }
+
+.marquee__row{
+  display:flex !important;
+  align-items:center !important;
+  gap:2rem !important;
+  flex:0 0 auto !important;
+  padding:0 2rem !important;
+  margin-right:2rem !important;
+}
+
+.marquee__row span{
+  display:inline-block !important;
+}
+
+@keyframes marquee{
+  0%{ transform:translate3d(0,0,0); }
+  100%{ transform:translate3d(-50%,0,0); }
+}
+
+/* Skjul eventuelle ekstra instanser (siste sikkerhetsnett) */
+.marquee:not(.marquee--bottom) ~ .marquee:not(.marquee--bottom){
+  display:none !important;
+}
+
+.marquee--bottom ~ .marquee--bottom{
+  display:none !important;
 }
