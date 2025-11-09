@@ -3129,4 +3129,131 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
   opacity: 0.6;
   pointer-events: none;
 }
+.section--offers {
+  background: #f9fafb;
+  padding: 4rem 1rem;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.training-card.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.training-card.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.course-card__media {
+  position: relative;
+}
+
+.course-card__media img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.date-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #24344d;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  z-index: 3;
+}
+
+.ribbon-diagonal {
+  position: absolute;
+  top: 18px;
+  right: -32px;
+  transform: rotate(45deg);
+  background: #f77c37;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.3rem 1.8rem;
+  z-index: 2;
+}
+
+.ribbon--few { background: #f77c37; }
+.ribbon--open { background: #3b9b6d; }
+.ribbon--full { background: #a6a6a6; }
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.icon-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #105277;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-lead {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #24344d;
+}
+
+.news-time {
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: #f77c37;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #e46d2f;
+}
+
+.btn-secondary {
+  background: #e6edf3;
+  color: #24344d;
+}
+
+.btn-secondary:hover {
+  background: #d3e1ec;
+}
+
+.btn-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 
