@@ -17,14 +17,22 @@
 
   <main>
     <!-- HERO -->
-    <section class="hero-image-block">
+    <section class="hero-card" data-experiment="hero-ab">
       <img src="bilder/hero-large.jpg" alt="Trening og fellesskap på My Strongest Side" class="hero-image">
-    </section>
-
-    <section class="hero--simple">
-      <div class="container hero__content">
-        <h1>Gjør trening tilgjengelig for flest mulig<span class="dot">.</span></h1>
-        <p>Med mestring, trygghet og fellesskap i sentrum.</p>
+      <div class="hero-overlay">
+        <p class="hero-label">Tilrettelagt styrketrening i Bergen</p>
+        <h1>Tren trygt med fagpersoner som heier på deg<span class="dot">.</span></h1>
+        <p class="hero-subtext">Små grupper, universell utforming og individuell veiledning hver eneste uke.</p>
+        <ul class="hero-benefits">
+          <li>Tilpassede økter for ulike funksjonsnivåer</li>
+          <li>Fast team av ergoterapeuter, fysioterapeuter og frivillige</li>
+          <li>Styrkerom med tilgjengelige hjelpemidler og løsninger</li>
+        </ul>
+        <div class="hero-cta">
+          <a href="paamelding.html" class="btn-primary">Meld deg på nå</a>
+          <a href="#treningstilbud" class="btn-secondary">Se alle kurs</a>
+        </div>
+        <p class="hero-note">Oppstart 18. september – plasser fordeles fortløpende.</p>
       </div>
     </section>
 
@@ -47,7 +55,7 @@
     </div>
 
     <!-- INNHOLDSEKSJON -->
-    <section class="section">
+    <section id="treningstilbud" class="section">
       <div class="container">
         <h2>Treningstilbud denne sesongen<span class="dot">.</span></h2>
         <p>Finn gruppen som passer deg – fra ungdom til tett oppfølging.</p>
