@@ -2794,7 +2794,7 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 @supports not (width:max-content) {
   .marquee__wrap { width: auto !important; }
 }
-/* Codex: Marquee = hvit banner globalt + blå tekst */
+/* Codex: Marquee v36 — hvit banner globalt + blå tekst */
 :root { --myss-blue: #24344d; --myss-marquee-bg: #ffffff; }
 
 .marquee,
@@ -2806,6 +2806,7 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
   border: 0 !important;
   box-shadow: none !important;
 }
+
 .marquee::before,
 .marquee::after,
 .marquee__wrap::before,
@@ -2814,13 +2815,11 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
   display: none !important;
 }
 
-/* Tekstfarge */
 .marquee,
 .marquee__row,
 .marquee__row span { color: var(--myss-blue) !important; }
 .marquee a { color: inherit; }
 
-/* Litt luft – juster ved behov */
 .marquee__wrap { padding: 8px 0 !important; }
 /* /Codex */
 
