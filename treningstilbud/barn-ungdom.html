@@ -138,6 +138,13 @@
       color: #105277;
     }
 
+    .small {
+      margin-top: 0.5rem;
+      color: #24344d;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
     .signup {
       background: #105277;
       color: #fff;
@@ -270,17 +277,9 @@
               <li>
                 <span class="icon"><img src="../icons/calendar.svg" alt="Kalender ikon"></span>
                 <div class="info-content">
-                  <strong>Periode:</strong> Hele sesongen<br><br>
-                  <ul class="date-list">
-                    <li>Torsdag 25. september 2025</li>
-                    <li>Torsdag 9. oktober 2025</li>
-                    <li>Torsdag 23. oktober 2025</li>
-                    <li>Torsdag 6. november 2025</li>
-                    <li>Torsdag 20. november 2025</li>
-                    <li>Torsdag 4. desember 2025</li>
-                    <li>Torsdag 15. januar 2026</li>
-                    <li>Torsdag 29. januar 2026</li>
-                  </ul>
+                  <strong>Periode:</strong> Hele sesongen<br>
+                  <p id="next-session" class="small" hidden>Neste økt: …</p>
+                  <ul id="remaining-dates" class="date-list"></ul>
                 </div>
               </li>
               <li>
@@ -329,7 +328,7 @@
 
 <div class="signup">
   <h3>Meld deg på</h3>
-  <p>Det er få plasser tilgjengelig. Sikre deg plass via påmeldingsskjemaet for sesong 5 2026.</p>
+  <p>Kun 2 ledige plasser – meld deg på nå. Prøvetime: 50 kr.</p>
   <a href="../paamelding.html" class="btn-primary">Gå til påmelding</a>
 </div>
 </aside>
@@ -359,6 +358,19 @@
   <!-- Plassholder for bilde -->
 </section>
   </main>
+  <script id="sessions-barn-ungdom" type="application/json">
+    [
+      "2025-09-18T16:30:00+02:00",
+      "2025-10-02T16:30:00+02:00",
+      "2025-10-16T16:30:00+02:00",
+      "2025-10-30T16:30:00+01:00",
+      "2025-11-13T16:30:00+01:00",
+      "2025-11-27T16:30:00+01:00",
+      "2025-12-11T16:30:00+01:00",
+      "2026-01-08T16:30:00+01:00"
+    ]
+  </script>
+  <script src="../assets/js/updateDates.js?v=1" defer></script>
   <script src="../script.js" defer></script>
   <div id="myss-footer"></div>
   <script>
