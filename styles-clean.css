@@ -468,5 +468,63 @@ header[data-component="site-header"] {
 .course-card__media .ribbon--open ~ .date-badge { background: #3b9b6d; }  /* grønn */
 .course-card__media .ribbon--few  ~ .date-badge { background: #f77c37; }  /* oransje */
 .course-card__media .ribbon--full ~ .date-badge { background: #a6a6a6; }  /* grå */
+/* ===========================================================
+   PATCH v44 – Hero-height og layout-fix for index
+   =========================================================== */
+
+/* Heroen skal være lavere og tydelig skilt fra menyen */
+.page--index .hero {
+  background: #24344d;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3.5rem 1rem 2.5rem;
+  height: auto;
+  min-height: 38vh;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Tittel og tekst – strammere line-height og balansert font-size */
+.page--index .hero h1 {
+  font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+  line-height: 1.25;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+}
+.page--index .hero p {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  max-width: 42ch;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Marquee – mer luft og tydelig hvit bakgrunn */
+.page--index .marquee {
+  background: #fff;
+  color: #24344d;
+  padding: 0.9rem 0;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Main – sørg for riktig bakgrunn for kortene */
+.page--index main {
+  background: #f5f6f9;
+  padding-top: 0;
+  margin: 0;
+}
+
+/* Footer – sørg for at den ikke flyter innover */
+.myss-footer {
+  background: #fff;
+  margin-top: 0;
+  border-top: 1px solid #f77c37;
+}
 
 
