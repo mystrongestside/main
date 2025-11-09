@@ -7,7 +7,7 @@
   <meta name="description" content="Gjør trening tilgjengelig for flest mulig. Finn glede i bevegelse og fellesskap med My Strongest Side®." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=38" />
+  <link rel="stylesheet" href="styles.css?v=37" />
   <link rel="stylesheet" href="compat.css?v=39" />
 </head>
 
@@ -22,7 +22,7 @@
       </div>
     </section>
 
-    <!-- MARQUEE -->
+    <!-- MARQUEE TOPP -->
     <div class="marquee force-animate" role="region" aria-label="MyStrongestSide statements">
       <div class="marquee__wrap">
         <div class="marquee__row">
@@ -47,10 +47,10 @@
         <p>Finn gruppen som passer deg – fra ungdom til tett oppfølging.</p>
 
         <div class="offers-grid">
-          <!-- Barn og ungdom -->
+          <!-- Kort 1 – Barn og ungdom -->
           <article class="training-card card course-card" data-gruppe="barn-ungdom">
             <div class="course-card__media">
-              <img class="card-img" src="bilder/barn-ungdom.jpg" alt="Barn og ungdom trener sammen under veiledning" />
+              <img class="card-img" src="bilder/barn-ungdom.jpg" alt="Barn og ungdom trener sammen under veiledning">
               <div class="ribbon-diagonal ribbon--open">Åpent for påmelding</div>
               <div class="date-badge"
                    data-start="2025-09-19"
@@ -73,10 +73,10 @@
             </div>
           </article>
 
-          <!-- Voksne – lett funksjonsvariasjon -->
+          <!-- Kort 2 – Voksne – lett funksjonsvariasjon -->
           <article class="training-card card course-card" data-gruppe="voksne-lett">
             <div class="course-card__media">
-              <img class="card-img" src="bilder/voksne-lett.jpg" alt="Instruktør hjelper deltaker på treningsapparat" />
+              <img class="card-img" src="bilder/voksne-lett.jpg" alt="Instruktør hjelper deltaker på treningsapparat">
               <div class="ribbon-diagonal ribbon--few">Få plasser igjen</div>
               <div class="date-badge"
                    data-start="2025-09-25"
@@ -99,10 +99,10 @@
             </div>
           </article>
 
-          <!-- Tett oppfølging -->
+          <!-- Kort 3 – Tett oppfølging -->
           <article class="training-card card course-card" data-gruppe="voksne-tett">
             <div class="course-card__media">
-              <img class="card-img" src="bilder/voksne-tett.jpg" alt="Deltaker får individuell veiledning under styrketrening" />
+              <img class="card-img" src="bilder/voksne-tett.jpg" alt="Deltaker får individuell veiledning under styrketrening">
               <div class="ribbon-diagonal ribbon--full">Fulltegnet</div>
               <div class="date-badge"
                    data-start="2025-10-02"
@@ -127,10 +127,61 @@
         </div>
       </div>
     </section>
+
+    <!-- JS for datoer -->
+    <script src="/js/updateDates.js?v=3"></script>
+
+    <!-- MARQUEE NEDERST -->
+    <div class="marquee force-animate" role="region" aria-label="MyStrongestSide statements">
+      <div class="marquee__wrap">
+        <div class="marquee__row">
+          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+        </div>
+        <div class="marquee__row" aria-hidden="true">
+          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+        </div>
+      </div>
+    </div>
   </main>
 
-  <!-- JS for datoer -->
-  <script src="/js/updateDates.js?v=3"></script>
+  <script src="script.js" defer></script>
+
+  <div id="myss-footer"></div>
+  <script>
+    (function() {
+      var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
+      if (!prefix) {
+        prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
+      }
+      window.MYSS_PREFIX = prefix;
+      window.__prefix = prefix;
+      var target = document.getElementById("myss-footer");
+      if (!target) { return; }
+      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
+        .then(function(r){ return r.text(); })
+        .then(function(html){
+          target.innerHTML = html;
+          target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img){
+            var raw = img.getAttribute("src");
+            if (raw) {
+              img.setAttribute("src", raw.replace("${prefix}", prefix));
+            }
+          });
+        })
+        .catch(function(){
+          // Minimal fallback hvis fetch feiler
+          target.innerHTML =
+            '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
+        });
+    })();
+  </script>
+
   <script src="marquee-guard.js?v=36" defer></script>
 </body>
 </html>
