@@ -2954,7 +2954,7 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
     text-align: center;
   }
 }
-/* v37 — Fix: outline-CTA kontrast i hvit sticky-bar */
+/* v36 — Fix: outline-CTA kontrast i hvit sticky-bar */
 .sticky-cta .btn.btn--outline {
   color: #24344d;           /* MySS-blå som tekst/border */
   border-color: currentColor;
