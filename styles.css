@@ -2794,3 +2794,9 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 @supports not (width:max-content) {
   .marquee__wrap { width: auto !important; }
 }
+/* Codex: Header + Marquee (auto) */
+:root{--myss-blue:#24344d;}
+.site-header,.hero--simple{background:var(--myss-blue);color:#fff;}
+.marquee,.marquee__row,.marquee__row span{color:var(--myss-blue);}
+.marquee a{color:inherit;}
+/* /Codex */
