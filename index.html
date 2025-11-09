@@ -7,25 +7,20 @@
   <meta name="description" content="Gjør trening tilgjengelig for flest mulig. Finn glede i bevegelse og fellesskap med My Strongest Side®." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=37" />
+  <link rel="stylesheet" href="styles.css?v=38" />
   <link rel="stylesheet" href="compat.css?v=39" />
+</head>
 
-  <body class="page--index">
+<body class="page--index">
   <header data-component="site-header"></header>
 
-  <!-- 2️⃣ TEKST HEADER (hero-området) -->
-  <section class="hero hero--simple">
-    <div class="container hero__content">
-      <h1>Gjør trening tilgjengelig for flest mulig<span class="dot">.</span></h1>
-       
-     
-    </div>
-  </section>
-
-</head>
- 
-  
- 
+  <main>
+    <!-- HERO -->
+    <section class="hero hero--simple">
+      <div class="container hero__content">
+        <h1>Gjør trening tilgjengelig for flest mulig<span class="dot">.</span></h1>
+      </div>
+    </section>
 
     <!-- MARQUEE -->
     <div class="marquee force-animate" role="region" aria-label="MyStrongestSide statements">
@@ -45,146 +40,97 @@
       </div>
     </div>
 
-<section id="treningstilbud" class="section section--offers">
-  <div class="container">
-    <h2>Treningstilbud denne sesongen<span class="dot">.</span></h2>
-    <p>Finn gruppen som passer deg – fra ungdom til tett oppfølging.</p>
+    <!-- TRENINGSTILBUD -->
+    <section id="treningstilbud" class="section section--offers">
+      <div class="container">
+        <h2>Treningstilbud denne sesongen<span class="dot">.</span></h2>
+        <p>Finn gruppen som passer deg – fra ungdom til tett oppfølging.</p>
 
-    <div class="offers-grid">
-      <!-- Kort 1 – Barn og ungdom -->
-      <article class="training-card card course-card" data-gruppe="barn-ungdom">
-        <div class="date-badge"
-             data-start="2025-09-19"
-             data-end="2025-12-19"
-             aria-label="Periode 19. september til 19. desember"></div>
-        <div class="course-card__media">
-          <img class="card-img" src="bilder/barn-ungdom.jpg" alt="Barn og ungdom trener sammen under veiledning">
-          <div class="ribbon-diagonal ribbon--open">Åpent for påmelding</div>
-        </div>
-        <div class="card-body course-card__content">
-          <div class="icon-box">
-            <span class="icon info-location" aria-hidden="true"></span>
-            <span>Trene Sammen Fantoft, Bergen</span>
-          </div>
-          <h3>Trening for barn og ungdom</h3>
-          <p class="card-lead">Tilpasset trening i trygge omgivelser med fokus på bevegelsesglede og mestring.</p>
-          <p>Instruktør og veiledere hjelper deg å finne glede i trening. Vi bruker apparater, frivekter og lek for å bygge styrke og selvtillit.</p>
-          <p class="news-time"><strong>Tid:</strong> torsdager 15:30–16:25</p>
-          <div class="card-actions">
-            <a href="treningstilbud/barn-ungdom.html" class="btn-secondary">Les mer</a>
-            <a href="paamelding.html" class="btn-primary">Påmelding</a>
-          </div>
-        </div>
-      </article>
+        <div class="offers-grid">
+          <!-- Barn og ungdom -->
+          <article class="training-card card course-card" data-gruppe="barn-ungdom">
+            <div class="course-card__media">
+              <img class="card-img" src="bilder/barn-ungdom.jpg" alt="Barn og ungdom trener sammen under veiledning" />
+              <div class="ribbon-diagonal ribbon--open">Åpent for påmelding</div>
+              <div class="date-badge"
+                   data-start="2025-09-19"
+                   data-end="2025-12-19"
+                   aria-label="Periode 19. september til 19. desember"></div>
+            </div>
+            <div class="card-body course-card__content">
+              <div class="icon-box">
+                <span class="icon info-location" aria-hidden="true"></span>
+                <span>Trene Sammen Fantoft, Bergen</span>
+              </div>
+              <h3>Trening for barn og ungdom</h3>
+              <p class="card-lead">Tilpasset trening i trygge omgivelser med fokus på bevegelsesglede og mestring.</p>
+              <p>Instruktør og veiledere hjelper deg å finne glede i trening. Vi bruker apparater, frivekter og lek for å bygge styrke og selvtillit.</p>
+              <p class="news-time"><strong>Tid:</strong> torsdager 15:30–16:25</p>
+              <div class="card-actions">
+                <a href="treningstilbud/barn-ungdom.html" class="btn-secondary">Les mer</a>
+                <a href="paamelding.html" class="btn-primary">Påmelding</a>
+              </div>
+            </div>
+          </article>
 
-      <!-- Kort 2 – Voksne -->
-      <article class="training-card card course-card" data-gruppe="voksne-lett">
-        <div class="date-badge"
-             data-start="2025-09-25"
-             data-end="2026-01-29"
-             aria-label="Periode 25. september til 29. januar"></div>
-        <div class="course-card__media">
-          <img class="card-img" src="bilder/voksne-lett.jpg" alt="Instruktør hjelper deltaker på treningsapparat">
-          <div class="ribbon-diagonal ribbon--few">Få plasser igjen</div>
-        </div>
-        <div class="card-body course-card__content">
-          <div class="icon-box">
-            <span class="icon info-location" aria-hidden="true"></span>
-            <span>Trene Sammen Fantoft, Bergen</span>
-          </div>
-          <h3>Styrketrening for voksne – lett funksjonsvariasjon</h3>
-          <p class="card-lead">For deg som trener selvstendig, men ønsker støtte eller tilpasninger underveis.</p>
-          <p>Små grupper med fagpersoner og studenter til stede. Du får trygg veiledning, tilpassede øvelser og en treningsøkt som bygger mestring – på dine egne premisser.</p>
-          <p class="news-time"><strong>Tid:</strong> torsdager 17:45–18:45</p>
-          <div class="card-actions">
-            <a href="treningstilbud/voksne-lett.html" class="btn-secondary">Les mer</a>
-            <a href="paamelding.html" class="btn-primary">Påmelding</a>
-          </div>
-        </div>
-      </article>
+          <!-- Voksne – lett funksjonsvariasjon -->
+          <article class="training-card card course-card" data-gruppe="voksne-lett">
+            <div class="course-card__media">
+              <img class="card-img" src="bilder/voksne-lett.jpg" alt="Instruktør hjelper deltaker på treningsapparat" />
+              <div class="ribbon-diagonal ribbon--few">Få plasser igjen</div>
+              <div class="date-badge"
+                   data-start="2025-09-25"
+                   data-end="2026-01-29"
+                   aria-label="Periode 25. september til 29. januar"></div>
+            </div>
+            <div class="card-body course-card__content">
+              <div class="icon-box">
+                <span class="icon info-location" aria-hidden="true"></span>
+                <span>Trene Sammen Fantoft, Bergen</span>
+              </div>
+              <h3>Styrketrening for voksne – lett funksjonsvariasjon</h3>
+              <p class="card-lead">For deg som trener selvstendig, men ønsker støtte eller tilpasninger underveis.</p>
+              <p>Små grupper med fagpersoner og studenter til stede. Du får trygg veiledning, tilpassede øvelser og en treningsøkt som bygger mestring – på dine egne premisser.</p>
+              <p class="news-time"><strong>Tid:</strong> torsdager 17:45–18:45</p>
+              <div class="card-actions">
+                <a href="treningstilbud/voksne-lett.html" class="btn-secondary">Les mer</a>
+                <a href="paamelding.html" class="btn-primary">Påmelding</a>
+              </div>
+            </div>
+          </article>
 
-      <!-- Kort 3 – Tett oppfølging -->
-      <article class="training-card card course-card" data-gruppe="voksne-tett">
-        <div class="date-badge"
-             data-start="2025-10-02"
-             data-end="2026-01-30"
-             aria-label="Periode 2. oktober til 30. januar"></div>
-        <div class="course-card__media">
-          <img class="card-img" src="bilder/voksne-tett.jpg" alt="Deltaker får individuell veiledning under styrketrening">
-          <div class="ribbon-diagonal ribbon--full">Fulltegnet</div>
-        </div>
-        <div class="card-body course-card__content">
-          <div class="icon-box">
-            <span class="icon info-location" aria-hidden="true"></span>
-            <span>Trene Sammen Fantoft, Bergen</span>
-          </div>
-          <h3>Tett oppfølging – individuelt tilrettelagt</h3>
-          <p class="card-lead">For deg som trenger ekstra støtte og individuell oppfølging i styrketrening.</p>
-          <p>Her får du tett samarbeid med fysioterapeut og ergoterapeut under hver økt. Vi bygger styrke og trygghet med fokus på funksjon og hverdagsmestring.</p>
-          <p class="news-time"><strong>Tid:</strong> torsdager 16:30–17:30</p>
-          <div class="card-actions">
-            <a href="treningstilbud/voksne-tett.html" class="btn-secondary">Les mer</a>
-            <a href="paamelding.html" class="btn-primary btn-disabled" aria-disabled="true">Fulltegnet</a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- JS for datoer -->
-<script src="/js/updateDates.js?v=3"></script>
-
-
-
-    <!-- MARQUEE -->
-    <div class="marquee force-animate" role="region" aria-label="MyStrongestSide statements">
-      <div class="marquee__wrap">
-        <div class="marquee__row">
-          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-        </div>
-        <div class="marquee__row" aria-hidden="true">
-          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+          <!-- Tett oppfølging -->
+          <article class="training-card card course-card" data-gruppe="voksne-tett">
+            <div class="course-card__media">
+              <img class="card-img" src="bilder/voksne-tett.jpg" alt="Deltaker får individuell veiledning under styrketrening" />
+              <div class="ribbon-diagonal ribbon--full">Fulltegnet</div>
+              <div class="date-badge"
+                   data-start="2025-10-02"
+                   data-end="2026-01-30"
+                   aria-label="Periode 2. oktober til 30. januar"></div>
+            </div>
+            <div class="card-body course-card__content">
+              <div class="icon-box">
+                <span class="icon info-location" aria-hidden="true"></span>
+                <span>Trene Sammen Fantoft, Bergen</span>
+              </div>
+              <h3>Tett oppfølging – individuelt tilrettelagt</h3>
+              <p class="card-lead">For deg som trenger ekstra støtte og individuell oppfølging i styrketrening.</p>
+              <p>Her får du tett samarbeid med fysioterapeut og ergoterapeut under hver økt. Vi bygger styrke og trygghet med fokus på funksjon og hverdagsmestring.</p>
+              <p class="news-time"><strong>Tid:</strong> torsdager 16:30–17:30</p>
+              <div class="card-actions">
+                <a href="treningstilbud/voksne-tett.html" class="btn-secondary">Les mer</a>
+                <a href="paamelding.html" class="btn-primary btn-disabled" aria-disabled="true">Fulltegnet</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
-    </div>
+    </section>
   </main>
 
-  <script src="script.js" defer></script>
-  <div id="myss-footer"></div>
-  <script>
-    (function() {
-      var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
-      if (!prefix) {
-        prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
-      }
-      window.MYSS_PREFIX = prefix;
-      window.__prefix = prefix;
-      var target = document.getElementById("myss-footer");
-      if (!target) { return; }
-      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-        .then(function(r){ return r.text(); })
-        .then(function(html){
-          target.innerHTML = html;
-          target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img){
-            var raw = img.getAttribute("src");
-            if (raw) {
-              img.setAttribute("src", raw.replace("${prefix}", prefix));
-            }
-          });
-        })
-        .catch(function(){
-          // Minimal fallback hvis fetch feiler
-          target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
-        });
-    })();
-  </script>
+  <!-- JS for datoer -->
+  <script src="/js/updateDates.js?v=3"></script>
   <script src="marquee-guard.js?v=36" defer></script>
 </body>
 </html>
