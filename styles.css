@@ -3303,5 +3303,43 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 .ribbon--few  { background: #f77c37; }
 .ribbon--full { background: #a6a6a6; }
 
+/* --- FIKS: Sørg for at datoene vises synlig --- */
+.date-badge {
+  display: inline-block;
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #24344d;
+  color: #fff !important;        /* tving hvit tekst */
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  z-index: 8;                    /* over bildet */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* Hvis du vil ha tydeligere kontrast på mørke bilder */
+.course-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 60%);
+  z-index: 1;
+}
+
+/* Sørg for at datoteksten ligger over bildet */
+.course-card__media .date-badge {
+  z-index: 9;
+  position: absolute;
+}
+
+/* Riktig fargekobling til ribbons */
+.course-card__media .ribbon--open ~ .date-badge { background: #3b9b6d; }
+.course-card__media .ribbon--few  ~ .date-badge { background: #f77c37; }
+.course-card__media .ribbon--full ~ .date-badge { background: #a6a6a6; }
 
 
