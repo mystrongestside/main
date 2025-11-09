@@ -45,17 +45,21 @@
 /* --- MARQUEE --- */
 .marquee {
   overflow: hidden;
-  background: #fff;
-  color: #105277;
+  background: #ffffff;
+  color: #24344d;
   padding: 1rem 0;
+  border: 0;
+  box-shadow: none;
 }
 
 .marquee__wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
   white-space: nowrap;
   animation: marquee 40s linear infinite;
+  padding: 8px 0;
 }
 
 @keyframes marquee {
@@ -68,6 +72,7 @@
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.5px;
+  color: inherit;
 }
 
 /* --- INFOCARD OG ANDRE ELEMENTER (fra forrige oppsett) --- */

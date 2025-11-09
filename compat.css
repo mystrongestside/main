@@ -1,11 +1,12 @@
-/* ===== MySS marquee v39 (stabil én-linje, ingen wrap, iOS-safe) ===== */
+/* ===== MySS marquee v36 (stabil én-linje, hvit bakgrunn) ===== */
+:root{ --myss-blue:#24344d; --myss-marquee-bg:#ffffff; }
 .hero{ margin-top:0 !important; }
 body{ scroll-padding-top:90px; }
 
 .marquee{
   display:block !important;
-  background:#F77C37 !important;
-  color:#fff !important;
+  background:var(--myss-marquee-bg) !important;
+  color:var(--myss-blue) !important;
   overflow:hidden !important;
   white-space:nowrap !important;
   line-height:1 !important;
@@ -40,7 +41,6 @@ body{ scroll-padding-top:90px; }
   100%{ transform:translate3d(-50%,0,0); }
 }
 
-/* Skjul eventuelle ekstra instanser (siste sikkerhetsnett) */
 .marquee:not(.marquee--bottom) ~ .marquee:not(.marquee--bottom){
   display:none !important;
 }
