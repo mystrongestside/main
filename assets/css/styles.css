@@ -1,0 +1,4 @@
+/* — Kun linjen under menyen — */
+:root{--header-accent:#F77C37;--header-accent-h:4px;}
+.site-header,.site-header .navbar,.navbar{border-bottom:var(--header-accent-h) solid var(--header-accent)!important;}
+.site-header::after,.navbar::after{content:"";display:block;height:var(--header-accent-h);background:var(--header-accent);}
