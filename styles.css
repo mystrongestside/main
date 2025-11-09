@@ -2837,3 +2837,14 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 }
 .marquee a { color: inherit !important; }
 
+/* v34 – Barn & ungdom: roligere stil */
+.page--barn-ungdom .page-wrap,
+.page--barn-ungdom main { max-width: 960px; margin: 0 auto; padding-inline: 16px; }
+.page--barn-ungdom section { margin-block: 24px; }
+.page--barn-ungdom .hero--simple { background:#24344d; color:#fff; }
+.page--barn-ungdom .marquee { background:#fff; color:#24344d; border-block:1px solid #eee; }
+.btn.btn--outline { border:1px solid currentColor; background:transparent; }
+.btn.btn--sm { padding:.55rem .9rem; font-size:.95rem; border-radius:10px; }
+.info-card .info-list li { align-items:flex-start; gap:10px; }
+.info-card .icon { width:28px; height:28px; display:inline-flex; }
+.info-card .info-content { line-height:1.5; }
