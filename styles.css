@@ -2954,3 +2954,29 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
     text-align: center;
   }
 }
+/* v37 — Fix: outline-CTA kontrast i hvit sticky-bar */
+.sticky-cta .btn.btn--outline {
+  color: #24344d;           /* MySS-blå som tekst/border */
+  border-color: currentColor;
+  background: transparent;
+}
+.sticky-cta .btn.btn--outline:hover,
+.sticky-cta .btn.btn--outline:focus-visible {
+  background: rgba(36,52,77,0.06);
+  outline: 2px solid rgba(36,52,77,0.25);
+  outline-offset: 2px;
+}
+
+/* Sikring dersom btn--outline kombineres med .btn-primary (som setter hvit farge) */
+.btn.btn--outline.btn-primary {
+  color: #24344d;
+  border-color: currentColor;
+  background: transparent;
+}
+.btn.btn--outline.btn-primary:hover,
+.btn.btn--outline.btn-primary:focus-visible {
+  background: rgba(36,52,77,0.06);
+}
+
+/* Bevar nøytral liten knappestil */
+.btn.btn--outline.btn--sm { padding:.55rem .9rem; font-size:.95rem; border-radius:10px; }
