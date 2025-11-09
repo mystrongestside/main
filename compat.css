@@ -1,19 +1,17 @@
-/* ===== MySS marquee hotfix v36 ===== */
-/* iOS-stabilitet + enlinje */
-.marquee {
-  background:#F77C37 !important; color:#fff !important;
-  overflow:hidden !important; white-space:nowrap !important;
+/* ===== MySS marquee + hero hotfix v38 ===== */
+.hero{ margin-top:0 !important; }
+body{ scroll-padding-top:90px; }
+
+.marquee{ background:#F77C37 !important; color:#fff !important; overflow:hidden !important; white-space:nowrap !important; }
+.marquee__wrap{ display:inline-flex !important; flex-wrap:nowrap !important; white-space:nowrap !important; width:auto !important;
+  animation:marquee var(--marquee-speed,28s) linear infinite !important; will-change:transform; }
+.marquee__row{ display:inline-flex !important; gap:2rem !important; flex:0 0 auto !important; padding:0 2rem !important; margin-right:2rem !important; }
+
+@keyframes marquee {
+  0% { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(-50%,0,0); }
 }
-.marquee__wrap{
-  display:inline-flex !important; flex-wrap:nowrap !important;
-  white-space:nowrap !important; width:auto !important;
-  animation:marquee var(--marquee-speed,28s) linear infinite !important;
-  will-change:transform;
-}
-.marquee__row{
-  display:inline-flex !important; gap:2rem !important;
-  flex:0 0 auto !important; padding:0 2rem !important; margin-right:2rem !important;
-}
+
 /* DEDUPE: behold maks to – første vanlige + første .marquee--bottom */
 .marquee:not(.marquee--bottom) ~ .marquee:not(.marquee--bottom){ display:none !important; }
 .marquee--bottom ~ .marquee--bottom{ display:none !important; }
@@ -27,7 +25,3 @@
     animation:marquee var(--marquee-speed,28s) linear infinite !important;
   }
 }
-
-/* Fjern tvungen luft over hero (iOS sticky header) */
-.hero{ margin-top:0 !important; }
-body{ scroll-padding-top:90px; } /* fin offset for anker */
