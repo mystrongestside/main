@@ -442,5 +442,31 @@ header[data-component="site-header"] {
   padding-top: 2rem;
   border-top: 1px solid #f77c37;
 }
+/* HARD RESET av datobadge – fikser ovale flekker og skjult tekst */
+.course-card__media .date-badge {
+  all: unset; /* fjern all arv / gamle regler */
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  background: #24344d;          /* standard MySS-blå */
+  color: #fff !important;       /* tydelig hvit tekst */
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  z-index: 9;                   /* over bilde og alt annet */
+}
+
+/* Hvis du fortsatt vil matche fargen til båndet: */
+.course-card__media .ribbon--open ~ .date-badge { background: #3b9b6d; }  /* grønn */
+.course-card__media .ribbon--few  ~ .date-badge { background: #f77c37; }  /* oransje */
+.course-card__media .ribbon--full ~ .date-badge { background: #a6a6a6; }  /* grå */
 
 
