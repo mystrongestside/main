@@ -39,29 +39,42 @@
 
   const nextSession = upcomingSessions.length > 0 ? upcomingSessions[0] : null;
 
-  const nextSessionElement = document.getElementById('next-session');
-  if (nextSessionElement && nextSession) {
-    const formattedNext = formatSession(nextSession, { includeWeekday: true });
-    nextSessionElement.textContent = `Neste økt: ${formattedNext}`;
-    nextSessionElement.hidden = false;
-  } else if (nextSessionElement && !nextSession) {
-    nextSessionElement.textContent = 'Ingen planlagte økter akkurat nå.';
-    nextSessionElement.hidden = false;
-  }
+  const nextSessionElements = Array.from(
+    document.querySelectorAll('#next-session, [data-next-session]')
+  );
 
-  const remainingDatesElement = document.getElementById('remaining-dates');
-  if (!remainingDatesElement) {
-    return;
+  if (nextSessionElements.length > 0) {
+    if (nextSession) {
+      const formattedNext = formatSession(nextSession, { includeWeekday: true });
+      nextSessionElements.forEach((element) => {
+        element.textContent = `Neste økt: ${formattedNext}`;
+        element.hidden = false;
+      });
+    } else {
+      nextSessionElements.forEach((element) => {
+        element.textContent = 'Ingen planlagte økter akkurat nå.';
+        element.hidden = false;
+      });
+    }
   }
 
   const sessionsToRender = upcomingSessions.length > 0 ? upcomingSessions : parsedSessions;
 
-  remainingDatesElement.textContent = '';
-  sessionsToRender.forEach((date) => {
-    const item = document.createElement('li');
-    item.textContent = formatSession(date, { includeWeekday: true });
-    remainingDatesElement.appendChild(item);
-  });
+  const remainingCountElement = document.getElementById('remaining-count');
+  if (remainingCountElement) {
+    const countValue = upcomingSessions.length > 0 ? upcomingSessions.length : parsedSessions.length;
+    remainingCountElement.textContent = String(countValue);
+  }
+
+  const remainingDatesElement = document.getElementById('remaining-dates');
+  if (remainingDatesElement) {
+    remainingDatesElement.textContent = '';
+    sessionsToRender.forEach((date) => {
+      const item = document.createElement('li');
+      item.textContent = formatSession(date, { includeWeekday: true });
+      remainingDatesElement.appendChild(item);
+    });
+  }
 })();
 
 function formatSession(date, { includeWeekday = false } = {}) {

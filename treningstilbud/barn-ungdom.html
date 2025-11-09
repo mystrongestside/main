@@ -7,6 +7,7 @@
   <meta name="description" content="Tilrettelagt styrketrening for ungdom (11–15 år) med funksjonsvariasjon som ønsker trygg og morsom trening med faglig støtte.">
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="../styles.css?v=36">
+  <link rel="stylesheet" href="../assets/css/sales.css?v=1">
 
   <style>
     .hero,
@@ -183,6 +184,51 @@
     <section class="hero--simple">
       <div class="container hero__content">
         <h1>Styrketrening for ungdom (12–15 år)<span class="dot">.</span></h1>
+        <section class="offer-sell" aria-labelledby="offer-sell-title">
+          <h2 id="offer-sell-title" class="visually-hidden">Tilbud og påmelding</h2>
+
+          <div class="offer-header" role="status" aria-live="polite">
+            <span class="badge-live">Ny pris – spar 50 %</span>
+            <span class="offer-title">Kun 2 plasser igjen</span>
+          </div>
+
+          <p id="next-session" class="offer-sub" hidden>Neste økt: …</p>
+          <p class="offer-sub"><strong><span id="remaining-count"></span> økter igjen denne sesongen</strong></p>
+
+          <div class="price-grid" role="group" aria-label="Tilbudspriser">
+            <article class="price-card" aria-label="Pris for CPV-medlem">
+              <div class="ribbon" aria-hidden="true">-50%</div>
+              <div><span class="before" aria-label="førpris">400 kr</span></div>
+              <div class="now" aria-label="nåpris">200 kr</div>
+              <div class="save">Spar 200 kr</div>
+            </article>
+
+            <article class="price-card" aria-label="Pris for ikke-medlem">
+              <div class="ribbon" aria-hidden="true">-50%</div>
+              <div><span class="before" aria-label="førpris">600 kr</span></div>
+              <div class="now" aria-label="nåpris">300 kr</div>
+              <div class="save">Spar 300 kr</div>
+            </article>
+          </div>
+
+          <p class="included">Dette får du:</p>
+          <ul class="bullets">
+            <li>Trygg, tilrettelagt styrketrening (11–15 år)</li>
+            <li>Små grupper, tett oppfølging</li>
+            <li>PT + fysioterapeut/ergoterapeut til stede</li>
+            <li>Individuell tilpasning og progresjon</li>
+          </ul>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#pamelding">Meld på nå</a>
+            <a class="btn btn-secondary" href="#pamelding">Prøvetime 50 kr (trekkes fra)</a>
+          </div>
+
+          <div class="trust" aria-label="Trygghet og samarbeid">
+            <span>Trygt miljø • Faste treningsrutiner</span>
+            <span>Samspill med CP-foreningen Vestland</span>
+          </div>
+        </section>
         <p>Tilrettelagt styrketrening i trygge omgivelser – med mestring, fellesskap og faglig støtte.</p>
       </div>
     </section>
@@ -278,7 +324,7 @@
                 <span class="icon"><img src="../icons/calendar.svg" alt="Kalender ikon"></span>
                 <div class="info-content">
                   <strong>Periode:</strong> Hele sesongen<br>
-                  <p id="next-session" class="small" hidden>Neste økt: …</p>
+                    <p data-next-session class="small" hidden>Neste økt: …</p>
                   <ul id="remaining-dates" class="date-list"></ul>
                 </div>
               </li>
@@ -326,7 +372,7 @@
   </ul>
 </div>
 
-<div class="signup">
+<div id="pamelding" class="signup">
   <h3>Meld deg på</h3>
   <p>Kun 2 ledige plasser – meld deg på nå. Prøvetime: 50 kr.</p>
   <a href="../paamelding.html" class="btn-primary">Gå til påmelding</a>
@@ -370,7 +416,11 @@
       "2026-01-08T16:30:00+01:00"
     ]
   </script>
-  <script src="../assets/js/updateDates.js?v=1" defer></script>
+  <div class="sticky-cta" role="region" aria-label="Rask påmelding">
+    <div>2 plasser igjen • Prøvetime 50 kr</div>
+    <a class="btn btn-primary" href="#pamelding">Meld på</a>
+  </div>
+  <script src="../assets/js/updateDates.js?v=2" defer></script>
   <script src="../script.js" defer></script>
   <div id="myss-footer"></div>
   <script>
