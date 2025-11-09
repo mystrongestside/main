@@ -2800,3 +2800,15 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 .marquee,.marquee__row,.marquee__row span{color:var(--myss-blue);}
 .marquee a{color:inherit;}
 /* /Codex */
+
+/* Codex: Marquee universal white (top & bottom) */
+:root{--myss-blue:#24344d;--myss-marquee-bg:#ffffff;}
+/* Bakgrunn hvit uansett plassering */
+.marquee,.marquee--top,.marquee--bottom,.marquee__wrap{
+  background-color:var(--myss-marquee-bg);
+}
+/* Tekst i MySS-blå */
+.marquee,.marquee__row,.marquee__row span{ color:var(--myss-blue); }
+.marquee a{ color:inherit; }
+/* /Codex */
+
