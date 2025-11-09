@@ -2794,21 +2794,33 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 @supports not (width:max-content) {
   .marquee__wrap { width: auto !important; }
 }
-/* Codex: Header + Marquee (auto) */
-:root{--myss-blue:#24344d;}
-.site-header,.hero--simple{background:var(--myss-blue);color:#fff;}
-.marquee,.marquee__row,.marquee__row span{color:var(--myss-blue);}
-.marquee a{color:inherit;}
-/* /Codex */
+/* Codex: Marquee = hvit banner globalt + blå tekst */
+:root { --myss-blue: #24344d; --myss-marquee-bg: #ffffff; }
 
-/* Codex: Marquee universal white (top & bottom) */
-:root{--myss-blue:#24344d;--myss-marquee-bg:#ffffff;}
-/* Bakgrunn hvit uansett plassering */
-.marquee,.marquee--top,.marquee--bottom,.marquee__wrap{
-  background-color:var(--myss-marquee-bg);
+.marquee,
+.marquee--top,
+.marquee--bottom,
+.marquee__wrap {
+  background: var(--myss-marquee-bg) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
-/* Tekst i MySS-blå */
-.marquee,.marquee__row,.marquee__row span{ color:var(--myss-blue); }
-.marquee a{ color:inherit; }
+.marquee::before,
+.marquee::after,
+.marquee__wrap::before,
+.marquee__wrap::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Tekstfarge */
+.marquee,
+.marquee__row,
+.marquee__row span { color: var(--myss-blue) !important; }
+.marquee a { color: inherit; }
+
+/* Litt luft – juster ved behov */
+.marquee__wrap { padding: 8px 0 !important; }
 /* /Codex */
 
