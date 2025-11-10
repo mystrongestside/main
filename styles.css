@@ -2856,5 +2856,9 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 .hero__content {
   max-width: 100% !important;
 }
-
+* Responsiv */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
 
