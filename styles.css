@@ -2854,17 +2854,17 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 }
 .hero--simple {
   min-height: unset !important;
-  height: 28vh !important;
+  height: 15vh !important;
   padding: 1.5rem 1rem !important;
 }
-.container {
-  max-width: 1100pxpx !important;
-  margin: 0 auto;
+html, body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #e9edf3;
 }
-body {
-  max-width: 1200px;
-  margin: 0 auto;
-  background-color: #e9edf3;
-}
- 
 
+body > * {
+  width: 1200px;
+  max-width: 95vw;
+}
