@@ -118,7 +118,7 @@
       </div>
     </section>
 
-    <!-- MARQUEE NEDERST (kun én rad, JS kloner automatisk) -->
+    <!-- MARQUEE NEDERST (vi legger inn kun ÉN rad) -->
     <div class="marquee" role="region" aria-label="MyStrongestSide statements">
       <div class="marquee__wrap">
         <div class="marquee__row">
@@ -161,6 +161,29 @@
             '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
         });
     })();
+  </script>
+
+  <!-- TVING MARQUEE TIL KUN ÉN RAD + ÉN KLON -->
+  <script>
+    window.addEventListener('load', function() {
+      document.querySelectorAll('.marquee').forEach(function(m) {
+        var wrap = m.querySelector('.marquee__wrap');
+        if (!wrap) return;
+
+        var rows = wrap.querySelectorAll('.marquee__row');
+        if (!rows.length) return;
+
+        // Fjern alle ekstra rader bortsett fra den første
+        for (var i = 1; i < rows.length; i++) {
+          wrap.removeChild(rows[i]);
+        }
+
+        // Lag nøyaktig én klon for sømløs rulling
+        var clone = rows[0].cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        wrap.appendChild(clone);
+      });
+    });
   </script>
 </body>
 </html>
