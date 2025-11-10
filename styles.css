@@ -2858,7 +2858,7 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
   padding: 1.5rem 1rem !important;
 }
 .container {
-  max-width: 900px !important;
+  max-width: 600px !important;
   margin: 0 auto;
 }
  
