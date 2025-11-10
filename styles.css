@@ -2852,6 +2852,10 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 .hero-card[data-experiment="hero-ab"] {
   position: relative;
 }
-
+.hero--simple {
+  min-height: unset !important;
+  height: 28vh !important;
+  padding: 1.5rem 1rem !important;
+}
  
 
