@@ -8,9 +8,40 @@
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="styles.css?v=40">
+
   <style>
-    /* Tillegg: definér farge for 'åpen for påmelding'-bånd */
-    .ribbon--open { background-color: #3cb371; } /* grønn */
+    /* --- Tillegg: farge for 'åpen for påmelding'-bånd --- */
+    .ribbon--open { background-color: #3cb371; }
+
+    /* --- FIKS: Gjør marquee 100% énlinje og stabil på iOS/Safari --- */
+    .marquee {
+      background: #F77C37 !important;
+      color: #fff !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+    }
+
+    .marquee__wrap {
+      display: inline-flex !important;
+      flex-wrap: nowrap !important;
+      white-space: nowrap !important;
+      width: auto !important;
+      animation: marquee-scroll var(--marquee-speed, 28s) linear infinite !important;
+      will-change: transform;
+    }
+
+    .marquee__row {
+      display: inline-flex !important;
+      gap: 2rem !important;
+      flex: 0 0 auto !important;
+      padding: 0 2rem !important;
+      margin-right: 2rem !important;
+    }
+
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
   </style>
 </head>
 
@@ -56,10 +87,7 @@
             <div class="course-card__media">
               <img class="card-img" src="bilder/barn-ungdom.jpg" alt="Barn og ungdom trener sammen under veiledning">
               <div class="ribbon-diagonal ribbon--open">Åpent for påmelding</div>
-              <div class="date-badge"
-                   data-start="2025-09-19"
-                   data-end="2025-12-19"
-                   aria-label="Periode 19. september til 19. desember"></div>
+              <div class="date-badge" aria-label="Datoer for trening"></div>
             </div>
             <div class="card-body course-card__content">
               <div class="icon-box">
@@ -82,10 +110,7 @@
             <div class="course-card__media">
               <img class="card-img" src="bilder/voksne-lett.jpg" alt="Instruktør hjelper deltaker på treningsapparat">
               <div class="ribbon-diagonal ribbon--few">Få plasser igjen</div>
-              <div class="date-badge"
-                   data-start="2025-09-25"
-                   data-end="2026-01-29"
-                   aria-label="Periode 25. september til 29. januar"></div>
+              <div class="date-badge" aria-label="Datoer for trening"></div>
             </div>
             <div class="card-body course-card__content">
               <div class="icon-box">
@@ -108,10 +133,7 @@
             <div class="course-card__media">
               <img class="card-img" src="bilder/voksne-tett.jpg" alt="Deltaker får individuell veiledning under styrketrening">
               <div class="ribbon-diagonal ribbon--soldout">Fulltegnet</div>
-              <div class="date-badge"
-                   data-start="2025-10-02"
-                   data-end="2026-01-30"
-                   aria-label="Periode 2. oktober til 30. januar"></div>
+              <div class="date-badge" aria-label="Datoer for trening"></div>
             </div>
             <div class="card-body course-card__content">
               <div class="icon-box">
@@ -155,16 +177,14 @@
   <div id="myss-footer"></div>
 
   <!-- Skript -->
-  <script src="assets/js/updateDates.js?v=3" defer></script>
+  <script src="js/updateDates.js?v=5" defer></script>
   <script src="script.js" defer></script>
   <script src="marquee-guard.js?v=40" defer></script>
 
   <script>
     (function() {
       var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
-      if (!prefix) {
-        prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
-      }
+      if (!prefix) prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
       window.MYSS_PREFIX = prefix;
       window.__prefix = prefix;
       var target = document.getElementById("myss-footer");
@@ -181,7 +201,7 @@
         })
         .catch(() => {
           target.innerHTML =
-            '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
+            '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
         });
     })();
   </script>
