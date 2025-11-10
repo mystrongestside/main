@@ -1,3 +1,31 @@
+// Hindrer duplisering ved re-init (f.eks. når header/footer lastes dynamisk)
+document.querySelectorAll('.marquee').forEach(m => {
+  if (m.dataset.initialized === '1') return;
+  m.dataset.initialized = '1';
+
+  // Finn eller bygg innhold
+  const row = m.querySelector('.marquee__row');
+  if (!row) return;
+
+  // Sørg for en wrap + en klon for sømløs rull
+  let wrap = m.querySelector('.marquee__wrap');
+  if (!wrap) {
+    wrap = document.createElement('div');
+    wrap.className = 'marquee__wrap';
+    // flytt eksisterende rad inn i wrap
+    wrap.appendChild(row);
+    m.appendChild(wrap);
+  }
+  // legg til én (kun én) klon
+  if (!wrap.querySelector('[data-clone="1"]')) {
+    const clone = row.cloneNode(true);
+    clone.setAttribute('data-clone', '1');
+    wrap.appendChild(clone);
+  }
+});
+
+
+
 (function(){
   const SPEED = getComputedStyle(document.documentElement).getPropertyValue('--marquee-speed')?.trim() || '28s';
 
