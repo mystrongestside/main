@@ -2909,6 +2909,24 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
   color: #24344dbb; /* svakere blå */
   font-size: 0.9rem;
 }
+.course-card__media {
+  position: relative;
+  overflow: visible !important; /* så teksten ikke kuttes bort */
+}
+
+.date-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.95);
+  color: #24344d;
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-top: 3px solid #f77c37;
+  z-index: 2;
+}
 
 
  
