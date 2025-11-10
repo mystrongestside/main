@@ -12,36 +12,6 @@
   <style>
     /* --- Tillegg: farge for 'åpen for påmelding'-bånd --- */
     .ribbon--open { background-color: #3cb371; }
-
-    /* --- FIKS: Gjør marquee 100% énlinje og stabil på iOS/Safari --- */
-    .marquee {
-      background: #F77C37 !important;
-      color: #fff !important;
-      overflow: hidden !important;
-      white-space: nowrap !important;
-    }
-
-    .marquee__wrap {
-      display: inline-flex !important;
-      flex-wrap: nowrap !important;
-      white-space: nowrap !important;
-      width: auto !important;
-      animation: marquee-scroll var(--marquee-speed, 28s) linear infinite !important;
-      will-change: transform;
-    }
-
-    .marquee__row {
-      display: inline-flex !important;
-      gap: 2rem !important;
-      flex: 0 0 auto !important;
-      padding: 0 2rem !important;
-      margin-right: 2rem !important;
-    }
-
-    @keyframes marquee-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
   </style>
 </head>
 
