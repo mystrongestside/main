@@ -2852,19 +2852,10 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 .hero-card[data-experiment="hero-ab"] {
   position: relative;
 }
-.hero--simple {
-  min-height: unset !important;
-  height: 15vh !important;
-  padding: 1.5rem 1rem !important;
-}
-html, body {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  background: #e9edf3;
-}
-
-body > * {
-  width: 1200px;
-  max-width: 95vw;
+/* --- Maks bredde på hele siden (riktig løsning) --- */
+.page--index,
+body {
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: #e9edf3;
 }
