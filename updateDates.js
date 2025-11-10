@@ -5,71 +5,50 @@ const treninger = [
   {
     gruppe: 'voksne-lett',
     datoer: [
-      '2025-09-25',
-      '2025-10-09',
-      '2025-10-23',
-      '2025-11-06',
-      '2025-11-20',
-      '2025-12-04',
-      '2026-01-15',
-      '2026-01-29',
+      '2025-09-25','2025-10-09','2025-10-23','2025-11-06',
+      '2025-11-20','2025-12-04','2026-01-15','2026-01-29'
     ],
   },
   {
     gruppe: 'voksne-tett',
     datoer: [
-      '2025-09-18',
-      '2025-10-02',
-      '2025-10-16',
-      '2025-10-30',
-      '2025-11-13',
-      '2025-11-27',
-      '2025-12-11',
-      '2026-01-08',
+      '2025-09-18','2025-10-02','2025-10-16','2025-10-30',
+      '2025-11-13','2025-11-27','2025-12-11','2026-01-08'
     ],
   },
   {
     gruppe: 'barn-ungdom',
     datoer: [
-      '2025-09-19',
-      '2025-10-03',
-      '2025-10-17',
-      '2025-10-31',
-      '2025-11-14',
-      '2025-11-28',
-      '2025-12-12',
-      '2025-12-19',
+      '2025-09-19','2025-10-03','2025-10-17','2025-10-31',
+      '2025-11-14','2025-11-28','2025-12-12','2025-12-19'
     ],
   },
 ];
 
-// --- Hjelpefunksjoner ---
 const parseDate = str => {
-  const [y, m, d] = str.split('-').map(Number);
+  const [y,m,d] = str.split('-').map(Number);
   return new Date(y, m - 1, d);
 };
-
 const formatDate = d =>
-  d.toLocaleDateString('no-NO', { day: '2-digit', month: 'short' }).replace('.', '').toUpperCase();
+  d.toLocaleDateString('no-NO', { day: '2-digit', month: 'short' })
+    .replace('.', '').toUpperCase();
 
-const today = new Date();
-today.setHours(0, 0, 0, 0);
+const today = new Date(); today.setHours(0,0,0,0);
 
-// --- Hovedfunksjon for hvert kort ---
 treninger.forEach(({ gruppe, datoer }) => {
   const card = document.querySelector(`.training-card[data-gruppe="${gruppe}"]`);
   if (!card) return;
-
   const badge = card.querySelector('.date-badge');
   if (!badge) return;
 
-  const parsed = datoer.map(parseDate).sort((a, b) => a - b);
+  const parsed = datoer.map(parseDate).sort((a,b)=>a-b);
   const next = parsed.find(d => d >= today);
-  const last = parsed[parsed.length - 1];
+  const last = parsed[parsed.length-1];
 
   if (next) {
     badge.innerHTML = `
       <div class="date-info">
+        <span class="date-icon" aria-hidden="true">📅</span>
         <strong>Neste økt:</strong> ${formatDate(next)}<br>
         <small>Siste økt: ${formatDate(last)}</small>
       </div>
@@ -77,6 +56,7 @@ treninger.forEach(({ gruppe, datoer }) => {
   } else {
     badge.innerHTML = `
       <div class="date-info">
+        <span class="date-icon" aria-hidden="true">📅</span>
         <strong>Sesongen er avsluttet</strong><br>
         <small>Siste økt var ${formatDate(last)}</small>
       </div>
