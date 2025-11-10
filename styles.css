@@ -3395,4 +3395,46 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+/* === Marquee – trygg høyde, riktig farger === */
+.marquee {
+  overflow: hidden;
+  background: #fff;          /* hvit banner */
+  color: #24344d;            /* MySS-blå tekst */
+  border-block: 1px solid #eee;
+}
+.marquee__wrap { display: flex; gap: 3rem; white-space: nowrap; }
+.marquee__row span { display: inline-block; padding-inline: .5rem; }
+
+/* === Dekorflekker bak innhold === */
+[class*="spot"], .card::before, .card::after {
+  pointer-events: none;
+  z-index: 0 !important;
+}
+.card, .course-card, footer .container { position: relative; z-index: 1; }
+
+/* === Sticky footer-layout === */
+html, body { height: 100%; }
+.body-wrap { min-height: 100dvh; display: flex; flex-direction: column; }
+main { flex: 1; }
+
+/* === Footer kompakt === */
+footer { background: #f8fafc; padding: 24px 0; }
+
+/* === Dato-badge foran dekor === */
+.date-badge { position: relative; z-index: 2; }
+
+/* === Felles container === */
+.container { max-width: 1200px; margin-inline: auto; padding-inline: 16px; }
+
+/* === Konsistent bildeforhold === */
+.card__image, .course-card__image, .hero-image-block img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* === Kun én marquee i topp + bunn (skjul i main hvis den finnes) === */
+main .marquee { display: none; }
 
