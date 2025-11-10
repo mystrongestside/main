@@ -3367,5 +3367,32 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 .course-card__media .ribbon--open ~ .date-badge { background: #3b9b6d; }  /* grønn */
 .course-card__media .ribbon--few  ~ .date-badge { background: #f77c37; }  /* oransje */
 .course-card__media .ribbon--full ~ .date-badge { background: #a6a6a6; }  /* grå */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  background: #fff;
+  color: #24344d;
+}
 
+.marquee__wrap {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll var(--marquee-speed, 28s) linear infinite; /* 👈 infinite */
+}
+
+.marquee__row {
+  display: flex;
+}
+
+.marquee__row span {
+  margin: 0 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
