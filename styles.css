@@ -2861,5 +2861,10 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
   max-width: 1100pxpx !important;
   margin: 0 auto;
 }
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #e9edf3;
+}
  
 
