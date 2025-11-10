@@ -2855,7 +2855,7 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
   }
  /* --- FIKS: Gjør marquee 100% énlinje og stabil på iOS/Safari --- */
 .marquee {
-  background: #F77C37 !important;
+  background: #fff !important;
   color: #fff !important;
   overflow: hidden !important;
   white-space: nowrap !important;
