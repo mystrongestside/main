@@ -1,6 +1,9 @@
+// --- My Strongest Side: Oppdaterer treningsdatoer på forsiden ---
+console.log('[updateDates] Starter oppdatering');
+
 const treninger = [
   {
-    gruppe: 'voksne',
+    gruppe: 'voksne-lett',
     datoer: [
       '2025-09-25',
       '2025-10-09',
@@ -13,7 +16,7 @@ const treninger = [
     ],
   },
   {
-    gruppe: 'tett',
+    gruppe: 'voksne-tett',
     datoer: [
       '2025-09-18',
       '2025-10-02',
@@ -26,69 +29,62 @@ const treninger = [
     ],
   },
   {
-    gruppe: 'barn',
+    gruppe: 'barn-ungdom',
     datoer: [
-      '2025-09-25',
-      '2025-10-09',
-      '2025-10-23',
-      '2025-11-06',
-      '2025-11-20',
-      '2025-12-04',
-      '2026-01-15',
-      '2026-01-29',
+      '2025-09-19',
+      '2025-10-03',
+      '2025-10-17',
+      '2025-10-31',
+      '2025-11-14',
+      '2025-11-28',
+      '2025-12-12',
+      '2025-12-19',
     ],
   },
 ];
 
-const logPrefix = '[updateDates]';
-
-const parseDate = (dateString) => {
-  console.log(logPrefix, 'Parser dato', dateString);
-  if (typeof dateString !== 'string') {
-    console.log(logPrefix, 'Dato er ikke en streng, hopper over', dateString);
-    return null;
-  }
-
-  const parts = dateString.split('-').map((part) => Number(part));
-  const [year, month, day] = parts;
-
-  if (parts.length !== 3 || parts.some((part) => Number.isNaN(part))) {
-    console.log(logPrefix, 'Ugyldig datoformat', dateString);
-    return null;
-  }
-
-  const parsed = new Date(year, month - 1, day);
-  console.log(logPrefix, 'Returnerer dato', parsed.toString());
-  return parsed;
+// --- Hjelpefunksjoner ---
+const parseDate = str => {
+  const [y, m, d] = str.split('-').map(Number);
+  return new Date(y, m - 1, d);
 };
 
-const normalizeDate = (date) => {
-  const normalized = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  console.log(logPrefix, 'Normaliserer dato til', normalized.toString());
-  return normalized;
-};
+const formatDate = d =>
+  d.toLocaleDateString('no-NO', { day: '2-digit', month: 'short' }).replace('.', '').toUpperCase();
 
-const finnNesteDato = (datoListe) => {
-  const idag = normalizeDate(new Date());
-  console.log(logPrefix, 'I dag er', idag.toString());
+const today = new Date();
+today.setHours(0, 0, 0, 0);
 
-  for (const datoStr of datoListe) {
-    const parsed = parseDate(datoStr);
-    if (!parsed) {
-      console.log(logPrefix, 'Hopper over ugyldig dato', datoStr);
-      continue;
-    }
+// --- Hovedfunksjon for hvert kort ---
+treninger.forEach(({ gruppe, datoer }) => {
+  const card = document.querySelector(`.training-card[data-gruppe="${gruppe}"]`);
+  if (!card) return;
 
-    const normalized = normalizeDate(parsed);
-    if (normalized >= idag) {
-      console.log(logPrefix, 'Fant neste dato', normalized.toString());
-      return normalized;
-    }
+  const badge = card.querySelector('.date-badge');
+  if (!badge) return;
+
+  const parsed = datoer.map(parseDate).sort((a, b) => a - b);
+  const next = parsed.find(d => d >= today);
+  const last = parsed[parsed.length - 1];
+
+  if (next) {
+    badge.innerHTML = `
+      <div class="date-info">
+        <strong>Neste økt:</strong> ${formatDate(next)}<br>
+        <small>Siste økt: ${formatDate(last)}</small>
+      </div>
+    `;
+  } else {
+    badge.innerHTML = `
+      <div class="date-info">
+        <strong>Sesongen er avsluttet</strong><br>
+        <small>Siste økt var ${formatDate(last)}</small>
+      </div>
+    `;
   }
+});
 
-  console.log(logPrefix, 'Fant ingen kommende datoer');
-  return null;
-};
+console.log('[updateDates] Ferdig oppdatert');
 
 const finnSisteDato = (datoListe) => {
   for (let i = datoListe.length - 1; i >= 0; i -= 1) {
