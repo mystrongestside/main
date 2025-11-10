@@ -383,6 +383,286 @@ const initNewsCardMeta = () => {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
+const initNewsCardMeta = () => {
+  document.querySelectorAll('.news-card').forEach((card) => {
+    if (card.querySelector('.card-meta')) {
+      return;
+    }
+
+    const meta = document.createElement('div');
+    meta.classList.add('card-meta');
+
+    const location = document.createElement('span');
+    location.classList.add('meta-location');
+
+    const locationIcon = document.createElement('img');
+    locationIcon.classList.add('meta-icon');
+    locationIcon.src = LOCATION_META.iconSrc;
+    locationIcon.alt = '';
+    locationIcon.setAttribute('aria-hidden', 'true');
+    location.appendChild(locationIcon);
+
+    const locationText = document.createElement('span');
+    locationText.classList.add('meta-location-text');
+    locationText.textContent = LOCATION_META.text;
+    location.appendChild(locationText);
+
+    meta.appendChild(location);
+
+    const image = card.querySelector('.news-media') ?? card.querySelector('img');
+    if (image) {
+      image.insertAdjacentElement('afterend', meta);
+    } else {
+      card.prepend(meta);
+    }
+  });
+};
+
+/* 🔧 LIM INN DENNE FIXEN HER ⬇️ */
+(function () {
+  // === My Strongest Side · Marquee Fix ===
+  // Hindrer at flere kopier av teksten blir laget
+
+  const SPEED =
+    getComputedStyle(document.documentElement)
+      .getPropertyValue("--marquee-speed")
+      ?.trim() || "28s";
+
+  document.querySelectorAll(".marquee").forEach((m) => {
+    if (m.dataset.initialized === "1") return; // hopp over hvis kjørt
+    m.dataset.initialized = "1";
+
+    const wrap = m.querySelector(".marquee__wrap");
+    if (!wrap) return;
+
+    const rows = wrap.querySelectorAll(".marquee__row");
+    if (rows.length > 1) return; // allerede to eller flere, ikke gjør noe
+
+    if (rows.length === 1) {
+      const clone = rows[0].cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      wrap.appendChild(clone);
+    }
+
+    wrap.style.display = "inline-flex";
+    wrap.style.flexWrap = "nowrap";
+    wrap.style.animation = `marquee-scroll ${SPEED} linear infinite`;
+    wrap.style.willChange = "transform";
+  });
+})();
+/* 🔧 FIX SLUTT ⬆️ */
+
+window.addEventListener('DOMContentLoaded', () => {
+const initNewsCardMeta = () => {
+  document.querySelectorAll('.news-card').forEach((card) => {
+    if (card.querySelector('.card-meta')) {
+      return;
+    }
+
+    const meta = document.createElement('div');
+    meta.classList.add('card-meta');
+
+    const location = document.createElement('span');
+    location.classList.add('meta-location');
+
+    const locationIcon = document.createElement('img');
+    locationIcon.classList.add('meta-icon');
+    locationIcon.src = LOCATION_META.iconSrc;
+    locationIcon.alt = '';
+    locationIcon.setAttribute('aria-hidden', 'true');
+    location.appendChild(locationIcon);
+
+    const locationText = document.createElement('span');
+    locationText.classList.add('meta-location-text');
+    locationText.textContent = LOCATION_META.text;
+    location.appendChild(locationText);
+
+    meta.appendChild(location);
+
+    const image = card.querySelector('.news-media') ?? card.querySelector('img');
+    if (image) {
+      image.insertAdjacentElement('afterend', meta);
+    } else {
+      card.prepend(meta);
+    }
+  });
+};
+
+/* 🔧 LIM INN DENNE FIXEN HER ⬇️ */
+(function () {
+  // === My Strongest Side · Marquee Fix ===
+  // Hindrer at flere kopier av teksten blir laget
+
+  const SPEED =
+    getComputedStyle(document.documentElement)
+      .getPropertyValue("--marquee-speed")
+      ?.trim() || "28s";
+
+  document.querySelectorAll(".marquee").forEach((m) => {
+    if (m.dataset.initialized === "1") return; // hopp over hvis kjørt
+    m.dataset.initialized = "1";
+
+    const wrap = m.querySelector(".marquee__wrap");
+    if (!wrap) return;
+
+    const rows = wrap.querySelectorAll(".marquee__row");
+    if (rows.length > 1) return; // allerede to eller flere, ikke gjør noe
+
+    if (rows.length === 1) {
+      const clone = rows[0].cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      wrap.appendChild(clone);
+    }
+
+    wrap.style.display = "inline-flex";
+    wrap.style.flexWrap = "nowrap";
+    wrap.style.animation = `marquee-scroll ${SPEED} linear infinite`;
+    wrap.style.willChange = "transform";
+  });
+})();
+/* 🔧 FIX SLUTT ⬆️ */
+
+window.addEventListener('DOMContentLoaded', () => {
+  const initNewsCardMeta = () => {
+  document.querySelectorAll('.news-card').forEach((card) => {
+    if (card.querySelector('.card-meta')) {
+      return;
+    }
+
+    const meta = document.createElement('div');
+    meta.classList.add('card-meta');
+
+    const location = document.createElement('span');
+    location.classList.add('meta-location');
+
+    const locationIcon = document.createElement('img');
+    locationIcon.classList.add('meta-icon');
+    locationIcon.src = LOCATION_META.iconSrc;
+    locationIcon.alt = '';
+    locationIcon.setAttribute('aria-hidden', 'true');
+    location.appendChild(locationIcon);
+
+    const locationText = document.createElement('span');
+    locationText.classList.add('meta-location-text');
+    locationText.textContent = LOCATION_META.text;
+    location.appendChild(locationText);
+
+    meta.appendChild(location);
+
+    const image = card.querySelector('.news-media') ?? card.querySelector('img');
+    if (image) {
+      image.insertAdjacentElement('afterend', meta);
+    } else {
+      card.prepend(meta);
+    }
+  });
+};
+
+/* 🔧 LIM INN DENNE FIXEN HER ⬇️ */
+(function () {
+  // === My Strongest Side · Marquee Fix ===
+  // Hindrer at flere kopier av teksten blir laget
+
+  const SPEED =
+    getComputedStyle(document.documentElement)
+      .getPropertyValue("--marquee-speed")
+      ?.trim() || "28s";
+
+  document.querySelectorAll(".marquee").forEach((m) => {
+    if (m.dataset.initialized === "1") return; // hopp over hvis kjørt
+    m.dataset.initialized = "1";
+
+    const wrap = m.querySelector(".marquee__wrap");
+    if (!wrap) return;
+
+    const rows = wrap.querySelectorAll(".marquee__row");
+    if (rows.length > 1) return; // allerede to eller flere, ikke gjør noe
+
+    if (rows.length === 1) {
+      const clone = rows[0].cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      wrap.appendChild(clone);
+    }
+
+    wrap.style.display = "inline-flex";
+    wrap.style.flexWrap = "nowrap";
+    wrap.style.animation = `marquee-scroll ${SPEED} linear infinite`;
+    wrap.style.willChange = "transform";
+  });
+})();
+/* 🔧 FIX SLUTT ⬆️ */
+
+window.addEventListener('DOMContentLoaded', () => {
+     const initNewsCardMeta = () => {
+  document.querySelectorAll('.news-card').forEach((card) => {
+    if (card.querySelector('.card-meta')) {
+      return;
+    }
+
+    const meta = document.createElement('div');
+    meta.classList.add('card-meta');
+
+    const location = document.createElement('span');
+    location.classList.add('meta-location');
+
+    const locationIcon = document.createElement('img');
+    locationIcon.classList.add('meta-icon');
+    locationIcon.src = LOCATION_META.iconSrc;
+    locationIcon.alt = '';
+    locationIcon.setAttribute('aria-hidden', 'true');
+    location.appendChild(locationIcon);
+
+    const locationText = document.createElement('span');
+    locationText.classList.add('meta-location-text');
+    locationText.textContent = LOCATION_META.text;
+    location.appendChild(locationText);
+
+    meta.appendChild(location);
+
+    const image = card.querySelector('.news-media') ?? card.querySelector('img');
+    if (image) {
+      image.insertAdjacentElement('afterend', meta);
+    } else {
+      card.prepend(meta);
+    }
+  });
+};
+
+/* 🔧 LIM INN DENNE FIXEN HER ⬇️ */
+(function () {
+  // === My Strongest Side · Marquee Fix ===
+  // Hindrer at flere kopier av teksten blir laget
+
+  const SPEED =
+    getComputedStyle(document.documentElement)
+      .getPropertyValue("--marquee-speed")
+      ?.trim() || "28s";
+
+  document.querySelectorAll(".marquee").forEach((m) => {
+    if (m.dataset.initialized === "1") return; // hopp over hvis kjørt
+    m.dataset.initialized = "1";
+
+    const wrap = m.querySelector(".marquee__wrap");
+    if (!wrap) return;
+
+    const rows = wrap.querySelectorAll(".marquee__row");
+    if (rows.length > 1) return; // allerede to eller flere, ikke gjør noe
+
+    if (rows.length === 1) {
+      const clone = rows[0].cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      wrap.appendChild(clone);
+    }
+
+    wrap.style.display = "inline-flex";
+    wrap.style.flexWrap = "nowrap";
+    wrap.style.animation = `marquee-scroll ${SPEED} linear infinite`;
+    wrap.style.willChange = "transform";
+  });
+})();
+/* 🔧 FIX SLUTT ⬆️ */
+
+window.addEventListener('DOMContentLoaded', () => {
   injectLayout();
   injectBottomMarquee();
   applyPrefixPlaceholders();
@@ -393,3 +673,5 @@ window.addEventListener('DOMContentLoaded', () => {
   oppdaterTreningskort();
   initNewsCardMeta();
 });
+
+
