@@ -1,3 +1,7 @@
+/* ==========================================================
+   My Strongest Side® – script.js (ryddet 2025-11)
+   ========================================================== */
+
 const buildHeaderTemplate = (prefix = '') => `
 <header class="site-header" data-component="site-header">
   <nav class="navbar" role="navigation" aria-label="Hovedmeny">
@@ -40,18 +44,14 @@ const buildHeaderTemplate = (prefix = '') => `
 </header>
 `;
 
-const resolvePathPrefix = () => (window.location.pathname.includes('/treningstilbud/') ? '../' : '');
+const resolvePathPrefix = () =>
+  window.location.pathname.includes('/treningstilbud/') ? '../' : '';
 
+/* === MARQUEE MAL === */
 const bottomMarqueeTemplate = `
   <div class="marquee marquee--bottom" role="region" aria-label="MyStrongestSide statements">
     <div class="marquee__wrap">
       <div class="marquee__row">
-        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-        <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-      </div>
-      <div class="marquee__row" aria-hidden="true">
         <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
         <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
         <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
@@ -63,101 +63,62 @@ const bottomMarqueeTemplate = `
 
 const injectBottomMarquee = () => {
   const mainElement = document.querySelector('main');
-  if (!mainElement) {
-    return;
-  }
-
-  if (document.querySelector('.marquee--bottom')) {
-    return;
-  }
-
+  if (!mainElement || document.querySelector('.marquee--bottom')) return;
   mainElement.insertAdjacentHTML('afterend', bottomMarqueeTemplate);
 };
 
+/* === TRENINGSDATOER === */
 const treninger = [
   {
     gruppe: 'voksne',
-    datoer: [
-      '2025-09-25',
-      '2025-10-09',
-      '2025-10-23',
-      '2025-11-06',
-      '2025-11-20',
-      '2025-12-04',
-      '2026-01-15',
-      '2026-01-29',
-    ],
+    datoer: ['2025-09-25','2025-10-09','2025-10-23','2025-11-06','2025-11-20','2025-12-04','2026-01-15','2026-01-29'],
   },
   {
     gruppe: 'tett',
-    datoer: [
-      '2025-09-18',
-      '2025-10-02',
-      '2025-10-16',
-      '2025-10-30',
-      '2025-11-13',
-      '2025-11-27',
-      '2025-12-11',
-      '2026-01-08',
-    ],
+    datoer: ['2025-09-18','2025-10-02','2025-10-16','2025-10-30','2025-11-13','2025-11-27','2025-12-11','2026-01-08'],
   },
   {
     gruppe: 'barn',
-    datoer: [
-      '2025-09-25',
-      '2025-10-09',
-      '2025-10-23',
-      '2025-11-06',
-      '2025-11-20',
-      '2025-12-04',
-      '2026-01-15',
-      '2026-01-29',
-    ],
+    datoer: ['2025-09-25','2025-10-09','2025-10-23','2025-11-06','2025-11-20','2025-12-04','2026-01-15','2026-01-29'],
   },
 ];
 
+/* === HEADER / LAYOUT === */
 const injectLayout = () => {
   const prefix = resolvePathPrefix();
   window.MYSS_PREFIX = prefix;
   window.__prefix = prefix;
   const headerTarget = document.querySelector('[data-component="site-header"]');
-  if (headerTarget) {
-    headerTarget.outerHTML = buildHeaderTemplate(prefix);
-  } else if (!document.querySelector('.site-header')) {
+  if (headerTarget) headerTarget.outerHTML = buildHeaderTemplate(prefix);
+  else if (!document.querySelector('.site-header'))
     document.body.insertAdjacentHTML('afterbegin', buildHeaderTemplate(prefix));
-  }
 };
 
 const applyPrefixPlaceholders = () => {
   const prefix = resolvePathPrefix();
   document.querySelectorAll('img').forEach((img) => {
     const rawSrc = img.getAttribute('src');
-    if (rawSrc?.includes('${prefix}')) {
+    if (rawSrc?.includes('${prefix}'))
       img.setAttribute('src', rawSrc.replace('${prefix}', prefix));
-    }
   });
 };
 
+/* === NAVIGASJON === */
 const initNavigation = () => {
   const btn = document.getElementById('hamburger');
   const menu = document.getElementById('navbar-menu');
   const overlay = document.querySelector('[data-js="nav-overlay"]');
-
-  if (!btn || !menu) {
-    return;
-  }
+  if (!btn || !menu) return;
 
   const closeMenu = () => {
     btn.setAttribute('aria-expanded', 'false');
     menu.classList.remove('active');
     document.body.classList.remove('no-scroll');
     overlay?.setAttribute('hidden', '');
-    menu.querySelectorAll('.has-sub').forEach((item) => {
-      item.classList.remove('open');
-    });
-    menu.querySelectorAll('.nav-has-sub').forEach((link) => {
-      link.setAttribute('aria-expanded', 'false');
-    });
+    menu.querySelectorAll('.has-sub').forEach((i) => i.classList.remove('open'));
+    menu.querySelectorAll('.nav-has-sub').forEach((l) =>
+      l.setAttribute('aria-expanded', 'false')
+    );
   };
 
   const openMenu = () => {
@@ -171,50 +132,32 @@ const initNavigation = () => {
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     expanded ? closeMenu() : openMenu();
   });
-
   overlay?.addEventListener('click', closeMenu);
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      closeMenu();
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 900) {
-      closeMenu();
-    }
-  });
-
-  menu.addEventListener('click', (event) => {
-    const toggleLink = event.target.closest('.nav-has-sub');
+  document.addEventListener('keydown', (e) => e.key === 'Escape' && closeMenu());
+  window.addEventListener('resize', () => window.innerWidth > 900 && closeMenu());
+  menu.addEventListener('click', (e) => {
+    const toggleLink = e.target.closest('.nav-has-sub');
     if (toggleLink) {
-      event.preventDefault();
+      e.preventDefault();
       const parent = toggleLink.closest('.has-sub');
       const isOpen = parent?.classList.toggle('open');
       toggleLink.setAttribute('aria-expanded', String(Boolean(isOpen)));
       return;
     }
-
-    const anchor = event.target.closest('a');
-    if (anchor) {
-      closeMenu();
-    }
+    const anchor = e.target.closest('a');
+    if (anchor) closeMenu();
   });
 };
 
 const highlightNavigation = () => {
-  const currentPath = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  const currentPath =
+    (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const links = document.querySelectorAll('.nav-links a[data-page]');
   let activeLink = null;
-
-  document.querySelectorAll('.nav-links .has-sub').forEach((item) => {
-    item.classList.remove('is-active-parent');
-    item.querySelector('.nav-has-sub')?.classList.remove('is-active');
-  });
-
   links.forEach((link) => {
-    const pages = link.dataset.page.split(',').map((page) => page.trim().toLowerCase());
+    const pages = link.dataset.page
+      .split(',')
+      .map((p) => p.trim().toLowerCase());
     const match = pages.includes(currentPath);
     if (match) {
       link.classList.add('is-active');
@@ -225,453 +168,84 @@ const highlightNavigation = () => {
       link.removeAttribute('aria-current');
     }
   });
-
-  if (!activeLink) {
-    return;
-  }
-
-  const parentItem = activeLink.closest('.has-sub');
-  if (parentItem) {
-    parentItem.classList.add('is-active-parent');
-    const trigger = parentItem.querySelector('.nav-has-sub');
-    trigger?.classList.add('is-active');
-  }
-};
-
-const initFooterYear = () => {
-  const currentYear = String(new Date().getFullYear());
-  document.querySelectorAll('[data-js="current-year"]').forEach((node) => {
-    node.textContent = currentYear;
-  });
-};
-
-const initContactForm = () => {
-  const form = document.querySelector('[data-js="contact-form"]');
-  if (!form) {
-    return;
-  }
-
-  const feedback = form.querySelector('[data-js="form-feedback"]');
-
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    if (feedback) {
-      feedback.hidden = true;
-      feedback.textContent = '';
-      feedback.className = 'form-feedback';
+  if (activeLink) {
+    const parentItem = activeLink.closest('.has-sub');
+    if (parentItem) {
+      parentItem.classList.add('is-active-parent');
+      parentItem.querySelector('.nav-has-sub')?.classList.add('is-active');
     }
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: form.method || 'POST',
-        headers: { Accept: 'application/json' },
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error('Respons ikke OK');
-      }
-
-      if (feedback) {
-        feedback.textContent = 'Takk! Vi har mottatt meldingen din.';
-        feedback.classList.add('success');
-        feedback.hidden = false;
-      }
-
-      form.reset();
-    } catch (error) {
-      if (feedback) {
-        feedback.textContent = 'Noe gikk galt. Prøv igjen senere.';
-        feedback.classList.add('error');
-        feedback.hidden = false;
-      }
-    }
-  });
+  }
 };
 
+/* === DATOER OG KORT === */
 const normalizeDate = (date) => {
-  const normalized = new Date(date);
-  normalized.setHours(0, 0, 0, 0);
-  return normalized;
+  const d = new Date(date);
+  d.setHours(0, 0, 0, 0);
+  return d;
 };
-
-const finnNesteDato = (datoListe) => {
+const finnNesteDato = (liste) => {
   const idag = normalizeDate(new Date());
-  return datoListe
-    .map((datoStr) => normalizeDate(datoStr))
-    .find((dato) => dato >= idag) ?? null;
+  return liste.map(normalizeDate).find((d) => d >= idag) ?? null;
 };
-
 const formatDatoKort = (dato) => {
   const måned = dato.toLocaleString('no-NO', { month: 'short' }).toUpperCase();
   const dag = dato.getDate();
   return `${måned} ${dag}.`;
 };
-
 const formatDatoLang = (dato) => {
   const dag = dato.getDate();
   const måned = dato.toLocaleString('no-NO', { month: 'short' }).toUpperCase();
   return `${dag}. ${måned}`;
 };
-
 const oppdaterTreningskort = () => {
   treninger.forEach(({ gruppe, datoer }) => {
     if (!datoer.length) return;
-
     const siste = normalizeDate(datoer[datoer.length - 1]);
     const neste = finnNesteDato(datoer);
-
     const card = document.querySelector(`[data-gruppe="${gruppe}"]`);
     if (!card) return;
-
     const monthEl = card.querySelector('.date-start');
-const dayEl = card.querySelector('.date-divider');
-const rangeEl = card.querySelector('.date-end');
-
+    const dayEl = card.querySelector('.date-divider');
+    const rangeEl = card.querySelector('.date-end');
     if (monthEl && dayEl && neste) {
       const [måned, dag] = formatDatoKort(neste).split(' ');
       monthEl.textContent = måned;
       dayEl.textContent = dag;
     }
-
     if (rangeEl && siste) {
       rangeEl.textContent = `TIL ${formatDatoLang(siste)}`;
     }
   });
 };
 
-const LOCATION_META = {
-  text: 'Bergen – Fantoft',
-  iconSrc: 'icons/location.svg',
-};
-
-const initNewsCardMeta = () => {
-  document.querySelectorAll('.news-card').forEach((card) => {
-    if (card.querySelector('.card-meta')) {
-      return;
-    }
-
-    const meta = document.createElement('div');
-    meta.classList.add('card-meta');
-
-    const location = document.createElement('span');
-    location.classList.add('meta-location');
-
-    const locationIcon = document.createElement('img');
-    locationIcon.classList.add('meta-icon');
-    locationIcon.src = LOCATION_META.iconSrc;
-    locationIcon.alt = '';
-    locationIcon.setAttribute('aria-hidden', 'true');
-    location.appendChild(locationIcon);
-
-    const locationText = document.createElement('span');
-    locationText.classList.add('meta-location-text');
-    locationText.textContent = LOCATION_META.text;
-    location.appendChild(locationText);
-
-    meta.appendChild(location);
-
-    const image = card.querySelector('.news-media') ?? card.querySelector('img');
-    if (image) {
-      image.insertAdjacentElement('afterend', meta);
-    } else {
-      card.prepend(meta);
-    }
-  });
-};
-
-window.addEventListener('DOMContentLoaded', () => {
-const initNewsCardMeta = () => {
-  document.querySelectorAll('.news-card').forEach((card) => {
-    if (card.querySelector('.card-meta')) {
-      return;
-    }
-
-    const meta = document.createElement('div');
-    meta.classList.add('card-meta');
-
-    const location = document.createElement('span');
-    location.classList.add('meta-location');
-
-    const locationIcon = document.createElement('img');
-    locationIcon.classList.add('meta-icon');
-    locationIcon.src = LOCATION_META.iconSrc;
-    locationIcon.alt = '';
-    locationIcon.setAttribute('aria-hidden', 'true');
-    location.appendChild(locationIcon);
-
-    const locationText = document.createElement('span');
-    locationText.classList.add('meta-location-text');
-    locationText.textContent = LOCATION_META.text;
-    location.appendChild(locationText);
-
-    meta.appendChild(location);
-
-    const image = card.querySelector('.news-media') ?? card.querySelector('img');
-    if (image) {
-      image.insertAdjacentElement('afterend', meta);
-    } else {
-      card.prepend(meta);
-    }
-  });
-};
-
-/* 🔧 LIM INN DENNE FIXEN HER ⬇️ */
+/* === MARQUEE FIX === */
 (function () {
-  // === My Strongest Side · Marquee Fix ===
-  // Hindrer at flere kopier av teksten blir laget
-
   const SPEED =
     getComputedStyle(document.documentElement)
-      .getPropertyValue("--marquee-speed")
-      ?.trim() || "28s";
-
-  document.querySelectorAll(".marquee").forEach((m) => {
-    if (m.dataset.initialized === "1") return; // hopp over hvis kjørt
-    m.dataset.initialized = "1";
-
-    const wrap = m.querySelector(".marquee__wrap");
+      .getPropertyValue('--marquee-speed')
+      ?.trim() || '28s';
+  document.querySelectorAll('.marquee').forEach((m) => {
+    if (m.dataset.initialized === '1') return;
+    m.dataset.initialized = '1';
+    const wrap = m.querySelector('.marquee__wrap');
     if (!wrap) return;
-
-    const rows = wrap.querySelectorAll(".marquee__row");
-    if (rows.length > 1) return; // allerede to eller flere, ikke gjør noe
-
-    if (rows.length === 1) {
-      const clone = rows[0].cloneNode(true);
-      clone.setAttribute("aria-hidden", "true");
-      wrap.appendChild(clone);
-    }
-
-    wrap.style.display = "inline-flex";
-    wrap.style.flexWrap = "nowrap";
-    wrap.style.animation = `marquee-scroll ${SPEED} linear infinite`;
-    wrap.style.willChange = "transform";
+    const rows = wrap.querySelectorAll('.marquee__row');
+    if (rows.length > 1) return;
+    const clone = rows[0].cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    wrap.appendChild(clone);
   });
 })();
-/* 🔧 FIX SLUTT ⬆️ */
 
-window.addEventListener('DOMContentLoaded', () => {
-const initNewsCardMeta = () => {
-  document.querySelectorAll('.news-card').forEach((card) => {
-    if (card.querySelector('.card-meta')) {
-      return;
-    }
-
-    const meta = document.createElement('div');
-    meta.classList.add('card-meta');
-
-    const location = document.createElement('span');
-    location.classList.add('meta-location');
-
-    const locationIcon = document.createElement('img');
-    locationIcon.classList.add('meta-icon');
-    locationIcon.src = LOCATION_META.iconSrc;
-    locationIcon.alt = '';
-    locationIcon.setAttribute('aria-hidden', 'true');
-    location.appendChild(locationIcon);
-
-    const locationText = document.createElement('span');
-    locationText.classList.add('meta-location-text');
-    locationText.textContent = LOCATION_META.text;
-    location.appendChild(locationText);
-
-    meta.appendChild(location);
-
-    const image = card.querySelector('.news-media') ?? card.querySelector('img');
-    if (image) {
-      image.insertAdjacentElement('afterend', meta);
-    } else {
-      card.prepend(meta);
-    }
-  });
-};
-
-/* 🔧 LIM INN DENNE FIXEN HER ⬇️ */
-(function () {
-  // === My Strongest Side · Marquee Fix ===
-  // Hindrer at flere kopier av teksten blir laget
-
-  const SPEED =
-    getComputedStyle(document.documentElement)
-      .getPropertyValue("--marquee-speed")
-      ?.trim() || "28s";
-
-  document.querySelectorAll(".marquee").forEach((m) => {
-    if (m.dataset.initialized === "1") return; // hopp over hvis kjørt
-    m.dataset.initialized = "1";
-
-    const wrap = m.querySelector(".marquee__wrap");
-    if (!wrap) return;
-
-    const rows = wrap.querySelectorAll(".marquee__row");
-    if (rows.length > 1) return; // allerede to eller flere, ikke gjør noe
-
-    if (rows.length === 1) {
-      const clone = rows[0].cloneNode(true);
-      clone.setAttribute("aria-hidden", "true");
-      wrap.appendChild(clone);
-    }
-
-    wrap.style.display = "inline-flex";
-    wrap.style.flexWrap = "nowrap";
-    wrap.style.animation = `marquee-scroll ${SPEED} linear infinite`;
-    wrap.style.willChange = "transform";
-  });
-})();
-/* 🔧 FIX SLUTT ⬆️ */
-
-window.addEventListener('DOMContentLoaded', () => {
-  const initNewsCardMeta = () => {
-  document.querySelectorAll('.news-card').forEach((card) => {
-    if (card.querySelector('.card-meta')) {
-      return;
-    }
-
-    const meta = document.createElement('div');
-    meta.classList.add('card-meta');
-
-    const location = document.createElement('span');
-    location.classList.add('meta-location');
-
-    const locationIcon = document.createElement('img');
-    locationIcon.classList.add('meta-icon');
-    locationIcon.src = LOCATION_META.iconSrc;
-    locationIcon.alt = '';
-    locationIcon.setAttribute('aria-hidden', 'true');
-    location.appendChild(locationIcon);
-
-    const locationText = document.createElement('span');
-    locationText.classList.add('meta-location-text');
-    locationText.textContent = LOCATION_META.text;
-    location.appendChild(locationText);
-
-    meta.appendChild(location);
-
-    const image = card.querySelector('.news-media') ?? card.querySelector('img');
-    if (image) {
-      image.insertAdjacentElement('afterend', meta);
-    } else {
-      card.prepend(meta);
-    }
-  });
-};
-
-/* 🔧 LIM INN DENNE FIXEN HER ⬇️ */
-(function () {
-  // === My Strongest Side · Marquee Fix ===
-  // Hindrer at flere kopier av teksten blir laget
-
-  const SPEED =
-    getComputedStyle(document.documentElement)
-      .getPropertyValue("--marquee-speed")
-      ?.trim() || "28s";
-
-  document.querySelectorAll(".marquee").forEach((m) => {
-    if (m.dataset.initialized === "1") return; // hopp over hvis kjørt
-    m.dataset.initialized = "1";
-
-    const wrap = m.querySelector(".marquee__wrap");
-    if (!wrap) return;
-
-    const rows = wrap.querySelectorAll(".marquee__row");
-    if (rows.length > 1) return; // allerede to eller flere, ikke gjør noe
-
-    if (rows.length === 1) {
-      const clone = rows[0].cloneNode(true);
-      clone.setAttribute("aria-hidden", "true");
-      wrap.appendChild(clone);
-    }
-
-    wrap.style.display = "inline-flex";
-    wrap.style.flexWrap = "nowrap";
-    wrap.style.animation = `marquee-scroll ${SPEED} linear infinite`;
-    wrap.style.willChange = "transform";
-  });
-})();
-/* 🔧 FIX SLUTT ⬆️ */
-
-window.addEventListener('DOMContentLoaded', () => {
-     const initNewsCardMeta = () => {
-  document.querySelectorAll('.news-card').forEach((card) => {
-    if (card.querySelector('.card-meta')) {
-      return;
-    }
-
-    const meta = document.createElement('div');
-    meta.classList.add('card-meta');
-
-    const location = document.createElement('span');
-    location.classList.add('meta-location');
-
-    const locationIcon = document.createElement('img');
-    locationIcon.classList.add('meta-icon');
-    locationIcon.src = LOCATION_META.iconSrc;
-    locationIcon.alt = '';
-    locationIcon.setAttribute('aria-hidden', 'true');
-    location.appendChild(locationIcon);
-
-    const locationText = document.createElement('span');
-    locationText.classList.add('meta-location-text');
-    locationText.textContent = LOCATION_META.text;
-    location.appendChild(locationText);
-
-    meta.appendChild(location);
-
-    const image = card.querySelector('.news-media') ?? card.querySelector('img');
-    if (image) {
-      image.insertAdjacentElement('afterend', meta);
-    } else {
-      card.prepend(meta);
-    }
-  });
-};
-
-/* 🔧 LIM INN DENNE FIXEN HER ⬇️ */
-(function () {
-  // === My Strongest Side · Marquee Fix ===
-  // Hindrer at flere kopier av teksten blir laget
-
-  const SPEED =
-    getComputedStyle(document.documentElement)
-      .getPropertyValue("--marquee-speed")
-      ?.trim() || "28s";
-
-  document.querySelectorAll(".marquee").forEach((m) => {
-    if (m.dataset.initialized === "1") return; // hopp over hvis kjørt
-    m.dataset.initialized = "1";
-
-    const wrap = m.querySelector(".marquee__wrap");
-    if (!wrap) return;
-
-    const rows = wrap.querySelectorAll(".marquee__row");
-    if (rows.length > 1) return; // allerede to eller flere, ikke gjør noe
-
-    if (rows.length === 1) {
-      const clone = rows[0].cloneNode(true);
-      clone.setAttribute("aria-hidden", "true");
-      wrap.appendChild(clone);
-    }
-
-    wrap.style.display = "inline-flex";
-    wrap.style.flexWrap = "nowrap";
-    wrap.style.animation = `marquee-scroll ${SPEED} linear infinite`;
-    wrap.style.willChange = "transform";
-  });
-})();
-/* 🔧 FIX SLUTT ⬆️ */
-
+/* === INIT === */
 window.addEventListener('DOMContentLoaded', () => {
   injectLayout();
   injectBottomMarquee();
   applyPrefixPlaceholders();
   initNavigation();
   highlightNavigation();
-  initFooterYear();
-  initContactForm();
-  oppdaterTreningskort();
-  initNewsCardMeta();
+  initFooterYear?.();
+  initContactForm?.();
+  oppdaterTreningskort?.();
+  initNewsCardMeta?.();
 });
-
-
