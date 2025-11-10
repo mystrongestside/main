@@ -2954,6 +2954,46 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
   color: #24344dbb;
   font-size: 0.9rem;
 }
+/* --- Dato-badge med kalenderikon --- */
+.date-badge {
+  background: #fff;
+  color: #24344d;
+  padding: 0.8rem 1rem;
+  border-top: 3px solid #f77c37;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.date-info {
+  flex: 1;
+}
+
+.date-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-top: 0.1rem;
+}
+
+.date-badge .date-info strong {
+  display: block;
+  color: #24344d;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.date-badge .date-info small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #24344dbb;
+  font-size: 0.9rem;
+}
 
 
  
