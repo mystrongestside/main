@@ -2852,10 +2852,8 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 .hero-card[data-experiment="hero-ab"] {
   position: relative;
 }
- /* --- Maks bredde på hele siden (riktig løsning) --- */
-.page--index,
-body {
-  max-width: 1300px;
+.hero__content {
+  max-width: 900px;
   margin: 0 auto;
-  background-color: #e9edf3;
 }
+
