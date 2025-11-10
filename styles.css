@@ -2927,6 +2927,33 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
   border-top: 3px solid #f77c37;
   z-index: 2;
 }
+/* --- Dato-badge under bilde --- */
+.date-badge {
+  background: #ffffff;
+  color: #24344d;
+  padding: 0.8rem 1rem;
+  border-top: 3px solid #f77c37;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.date-badge .date-info strong {
+  display: block;
+  color: #24344d;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.date-badge .date-info small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #24344dbb;
+  font-size: 0.9rem;
+}
 
 
  
