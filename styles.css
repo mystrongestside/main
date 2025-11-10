@@ -2851,9 +2851,10 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 /* === Hero variant B experiment === */
 .hero-card[data-experiment="hero-ab"] {
   position: relative;
+ 
 }
 .hero__content {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 100% !important;
 }
+
 
