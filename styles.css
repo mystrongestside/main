@@ -3532,14 +3532,4 @@ html, body {
   .training-card:hover {
     transform: translateY(-3px);
   }
-}
-
-/* ==========================
-   GLOBALT – FJERN SMAL SENTRERING
-   ========================== */
-.container {
-  width: 50%;
-  max-width: none;
-  margin: 0 auto;
-  padding: 0;
-}
+ 
