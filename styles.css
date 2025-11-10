@@ -2882,6 +2882,34 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+/* --- Dato-badge på kurskort --- */
+.date-badge {
+  position: static !important;  /* fjern absolutt posisjon */
+  background: #fff;
+  color: #24344d; /* MySS-blå */
+  padding: 0.75rem 1rem;
+  border-top: 3px solid #f77c37; /* MySS-oransje linje */
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: left;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.date-badge .date-info strong {
+  display: block;
+  font-size: 1rem;
+  color: #24344d;
+}
+
+.date-badge .date-info small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #24344dbb; /* svakere blå */
+  font-size: 0.9rem;
+}
+
 
  
 
