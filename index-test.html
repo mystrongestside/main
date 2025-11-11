@@ -9,91 +9,102 @@
    <link rel="stylesheet" href="styles.css?v=42">
  
   <style>
-  .ribbon--open { background-color: #3cb371; }
+ <style>
+/* === My Strongest Side® – ryddet treningskort v44 === */
 
-  /* --- Dato-badge med kalenderikon (REN OG RIKTIG) --- */
-  .date-badge {
-    background: #fff;
-    color: #24344d;
-    padding: 0.8rem 1rem;
-    border-top: 3px solid #f77c37;
-    font-size: 0.95rem;
-    font-weight: 500;
-    line-height: 1.4;
-    text-align: left;
-    border-radius: 0 0 1rem 1rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
+/* Grønt bånd: Åpent for påmelding */
+.ribbon--open {
+  background-color: #3cb371;
+}
 
-  .date-info { flex: 1; }
-
-  .date-icon {
-    font-size: 1.4rem;
-    line-height: 1;
-    margin-top: 0.1rem;
-    color: #f77c37;
-  }
-
-  .date-badge .date-info strong {
-    display: block;
-    color: #24344d;
-    font-weight: 600;
-    font-size: 1rem;
-  }
-
-  .date-badge .date-info small {
-    display: block;
-    margin-top: 0.25rem;
-    color: #24344dbb;
-    font-size: 0.9rem;
-  }
-    
-
-  /* Sørg for at dato-boksen alltid vises over bildet */
-  .training-card {
-    position: relative;
-    overflow: visible;
-  }
-    /* === FIKS: Dato-badge under bilde, men inne i kortet === */
+/* Kortcontainer */
 .training-card {
   position: relative;
-  overflow: hidden;
+  background: #fff;
   border-radius: 1rem;
   box-shadow: 0 6px 20px rgba(0,0,0,0.07);
-  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Bildeområde */
 .training-card .course-card__media {
   position: relative;
-  overflow: hidden;
   border-radius: 1rem 1rem 0 0;
+  overflow: hidden;
 }
 
-.training-card .date-badge {
+.training-card .course-card__media img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Ribbon alltid øverst */
+.ribbon-diagonal {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: 20px;
+  right: -50px;
+  width: 180px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #fff;
+  padding: 6px 0;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Dato-felt under bildet */
+.training-card .date-badge {
   background: #fff;
   color: #24344d;
-  padding: 0.8rem 1rem;
+  padding: 0.9rem 1.1rem;
   border-top: 3px solid #f77c37;
   font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.4;
   text-align: left;
-  border-radius: 0 0 1rem 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-  z-index: 5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  z-index: 1; /* lavere enn ribbon */
 }
 
-/* valgfritt: liten luft mellom dato og teksten under */
-.training-card .card-body {
-  padding-top: 1rem;
+.date-badge strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #24344d;
+  font-weight: 700;
+  font-size: 1rem;
 }
+
+/* Tekstområde */
+.training-card .card-body {
+  padding: 1.5rem;
+}
+
+.training-card .card-body h3 {
+  color: #24344d;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.training-card .card-body p {
+  color: #24344d;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Lett hover-løft */
+.training-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  transition: all 0.25s ease;
+}
+ 
 </style>
 </head>
 
