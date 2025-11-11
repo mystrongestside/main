@@ -2995,6 +2995,49 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
   font-size: 0.9rem;
 }
 
+/* === FIX: Konsolidert date-badge for treningskort (MySS v42) === */
+.training-card .date-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  color: #24344d;
+  padding: 0.8rem 1rem;
+  border-top: 3px solid #f77c37;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  z-index: 5;
+}
+
+.training-card {
+  position: relative;
+  overflow: visible;
+}
+
+.training-card .date-badge .date-icon {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  color: #f77c37;
+}
+
+.training-card .date-badge strong {
+  display: block;
+  color: #24344d;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.training-card .date-badge small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #24344dbb;
+  font-size: 0.9rem;
+}
 
  
 
