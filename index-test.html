@@ -8,11 +8,10 @@
   <link rel="icon" type="image/png" href="favicon.png" />
    <link rel="stylesheet" href="styles.css?v=42">
  
-  <style>
- 
-/* === My Strongest Side® – ryddet treningskort v44 === */
+   <style>
+/* === My Strongest Side® – Treningskort v45 (ren og stabil) === */
 
- 
+/* --- Ribbon alltid øverst og leselig over bildet --- */
 .ribbon-diagonal {
   position: absolute;
   top: 20px;
@@ -21,21 +20,21 @@
   text-align: center;
   font-weight: 700;
   font-size: 0.8rem;
-  color: #3cb371;
+  color: #fff;
   padding: 6px 0;
   transform: rotate(45deg);
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   pointer-events: none;
-  z-index: 2;
+  z-index: 10;
 
-  /* ✅ For bedre lesbarhet */
-  background-color: rgba(60, 179, 113, 0.9); /* litt mørkere grønn med 90 % dekning */
+  /* ✅ Lesbarhet og stil */
+  background-color: rgba(60, 179, 113, 0.9);
   text-shadow: 0 1px 2px rgba(0,0,0,0.6);
   letter-spacing: 0.5px;
   border-radius: 4px;
 }
 
-/* Kortcontainer */
+/* --- Kortcontainer --- */
 .training-card {
   position: relative;
   background: #fff;
@@ -44,9 +43,10 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: all 0.25s ease;
 }
 
-/* Bildeområde */
+/* --- Bildeområde --- */
 .training-card .course-card__media {
   position: relative;
   border-radius: 1rem 1rem 0 0;
@@ -60,24 +60,7 @@
   display: block;
 }
 
-/* Ribbon alltid øverst */
-.ribbon-diagonal {
-  position: absolute;
-  top: 20px;
-  right: -50px;
-  width: 180px;
-  text-align: center;
-  font-weight: 700;
-  font-size: 0.8rem;
-  color: #fff;
-  padding: 6px 0;
-  transform: rotate(45deg);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  pointer-events: none;
-  z-index: 10;
-}
-
-/* Dato-felt under bildet */
+/* --- Dato-felt under bildet --- */
 .training-card .date-badge {
   background: #fff;
   color: #24344d;
@@ -99,7 +82,7 @@
   font-size: 1rem;
 }
 
-/* Tekstområde */
+/* --- Tekstområde --- */
 .training-card .card-body {
   padding: 1.5rem;
 }
@@ -116,13 +99,11 @@
   margin: 0;
 }
 
-/* Lett hover-løft */
+/* --- Lett hover-løft --- */
 .training-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-  transition: all 0.25s ease;
 }
- 
 </style>
 </head>
 
