@@ -7,10 +7,10 @@
   <meta name="description" content="Gjør trening tilgjengelig for flest mulig. Finn glede i bevegelse og fellesskap med My Strongest Side®." />
   <link rel="icon" type="image/png" href="favicon.png" />
    <link rel="stylesheet" href="styles.css?v=42">
- 
-   <style>
-/* === My Strongest Side® – Treningskort med pris og knapper (v49) === */
+ <style>
+/* === My Strongest Side® – Treningskort med universell utforming (v49-UU) === */
 
+/* --- Kortcontainer --- */
 .training-card {
   position: relative;
   background: #fff;
@@ -21,18 +21,17 @@
   flex-direction: column;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
 .training-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 32px rgba(0,0,0,0.15);
 }
 
+/* --- Bildeområde --- */
 .course-card__media {
   position: relative;
   border-radius: 0.75rem 0.75rem 0 0;
   overflow: hidden;
 }
-
 .course-card__media img {
   width: 100%;
   aspect-ratio: 16/10;
@@ -40,6 +39,7 @@
   display: block;
 }
 
+/* --- Ribbon (mørkere grønn for kontrast) --- */
 .ribbon-diagonal {
   position: absolute;
   top: 22px;
@@ -51,7 +51,7 @@
   color: #fff;
   padding: 8px 0;
   transform: rotate(42deg);
-  background-color: #3cb371;
+  background-color: #2e8b57; /* mørkere grønn */
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   text-shadow: 0 1px 1px rgba(0,0,0,0.4);
   letter-spacing: 0.6px;
@@ -60,6 +60,7 @@
   border-radius: 4px;
 }
 
+/* --- Dato-badge --- */
 .date-badge {
   background: #f9fafb;
   border-top: 2px solid #f77c37;
@@ -73,17 +74,16 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
+/* --- Innhold --- */
 .card-body {
   padding: 1.5rem 1.25rem 1.75rem;
 }
-
 .card-body h3 {
   color: #24344d;
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.6rem;
 }
-
 .card-body p {
   color: #24344d;
   font-size: 1rem;
@@ -109,7 +109,6 @@
   gap: 0.75rem;
   margin-top: 1.25rem;
 }
-
 .btn {
   display: inline-block;
   text-decoration: none;
@@ -118,15 +117,16 @@
   padding: 0.7rem 1.4rem;
   transition: all 0.25s ease;
   text-align: center;
+  cursor: pointer;
 }
 
-/* Primær – oransje */
+/* Primær – oransje med bedre kontrast */
 .btn-primary {
-  background: #f77c37;
+  background: #e86f2d;
   color: #fff;
 }
 .btn-primary:hover {
-  background: #e86f2d;
+  background: #d55f20;
 }
 
 /* Sekundær – blå outline */
@@ -150,6 +150,22 @@
   text-decoration: underline;
 }
 
+/* --- Tastaturnavigasjon --- */
+.btn:focus-visible {
+  outline: 3px solid #24344d;
+  outline-offset: 3px;
+}
+
+/* --- Semantisk struktur for tid/dato --- */
+.info-tid {
+  margin: 0.5rem 0 1rem;
+}
+.info-tid dt,
+.info-tid dd {
+  display: inline;
+  margin: 0;
+}
+
 /* --- Responsiv justering --- */
 @media (max-width: 600px) {
   .card-buttons {
@@ -160,6 +176,7 @@
     text-align: center;
     width: 100%;
   }
+}
 </style>
 </head>
 
