@@ -46,25 +46,27 @@
   z-index: 1;
   pointer-events: none; /* 🔹 bildet kan ikke blokkere trykk */
 }
-/* --- Ribbon (fikset for synlig tekst) --- */
+/* --- Ribbon (v51.1 – hele teksten vises) --- */
 .ribbon-diagonal {
   position: absolute;
-  top: 26px;
-  right: -70px;
-  width: 210px;                /* 🔹 litt bredere plass til teksten */
+  top: 30px;                     /* litt lavere for mer luft */
+  right: -75px;                  /* balanserer rotasjonen */
+  width: 240px;                  /* 🔹 bredere bånd */
   text-align: center;
   font-weight: 700;
-  font-size: 0.85rem;          /* 🔹 ørlite større for bedre lesbarhet */
+  font-size: 0.9rem;
+  line-height: 1.4;
   color: #fff;
   padding: 10px 0;
   background-color: #2e8b57;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   border-radius: 4px;
-  transform: rotate(42deg);
-  transform-origin: center;    /* 🔹 sørger for at teksten holder seg innenfor */
-  pointer-events: none;        /* hindrer blokkering av knapper */
+  transform: rotate(38deg);      /* 🔹 litt mindre vinkel for bedre lesbarhet */
+  transform-origin: center;
+  pointer-events: none;
   z-index: 2;
-  white-space: nowrap;         /* 🔹 hindrer at teksten bryter linje */
+  white-space: nowrap;           /* hindrer linjeskift */
+ 
 }
 
 /* --- Info-panel (dato + tid) --- */
