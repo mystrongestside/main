@@ -190,6 +190,18 @@
     border-radius: 14px;
     padding: 1.1rem;
   }
+/* --- Fiks for klikkbare knapper på mobil --- */
+.training-card,
+.card-body,
+.card-buttons,
+.btn {
+  position: relative;
+  z-index: 5;
+}
+
+.ribbon-diagonal {
+  z-index: 1;
+  pointer-events: none; /* hindrer at båndet blokkerer trykk */
 }
 
   </style>
