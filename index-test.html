@@ -12,9 +12,27 @@
  
 /* === My Strongest Side® – ryddet treningskort v44 === */
 
-/* Grønt bånd: Åpent for påmelding */
-.ribbon--open {
-  background-color: #3cb371;
+* Ribbon alltid øverst og leselig over bilde */
+.ribbon-diagonal {
+  position: absolute;
+  top: 20px;
+  right: -50px;
+  width: 180px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #fff;
+  padding: 6px 0;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  pointer-events: none;
+  z-index: 2;
+
+  /* ✅ For bedre lesbarhet */
+  background-color: rgba(60, 179, 113, 0.9); /* litt mørkere grønn med 90 % dekning */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  letter-spacing: 0.5px;
+  border-radius: 4px;
 }
 
 /* Kortcontainer */
