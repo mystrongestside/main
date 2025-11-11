@@ -215,7 +215,41 @@
       border-radius: 14px;
       padding: 1.1rem;
     }
+  /* === FIX: Knappene skal tilpasse skjermen (overstyrer eldre regler) === */
+.training-card .card-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;     /* midtstilt når de bryter */
+  align-items: stretch;
+}
+
+/* Fjern breddebegrensning og la flex styre størrelsen */
+.training-card .card-buttons .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;                 /* overstyrer width:100% fra tidligere */
+  max-width: none;             /* <- viktig: fjerner 280px-begrensningen */
+  flex: 1 1 220px;             /* vokser jevnt, bryter pent til ny rad */
+  box-sizing: border-box;
+}
+
+/* Mobil: én knapp per rad i full kortbredde */
+@media (max-width: 600px) {
+  .training-card .card-buttons {
+    flex-direction: column;
+    align-items: stretch;      /* fyll hele kortet */
   }
+  .training-card .card-buttons .btn {
+    width: 100%;
+    flex: 0 0 auto;            /* ikke prøv å dele raden */
+    max-width: 100%;
+    border-radius: 14px;
+    padding: 1.1rem;
+    font-size: 1.1rem;
+  }
+}
   </style>
 </head>
 
