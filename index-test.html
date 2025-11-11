@@ -172,22 +172,28 @@
         <p>Finn gruppen som passer deg – fra ungdom til tett oppfølging.</p>
 
         <div class="offers-grid">
-         <article class="training-card" data-gruppe="barn-ungdom">
+        <article class="training-card" role="region" aria-labelledby="kurs-ungdom-tittel">
   <div class="course-card__media">
-    <img class="card-img" src="bilde01.jpg" alt="ungdom trener sammen under veiledning">
+    <img class="card-img" src="bilde01.jpg" alt="Ungdom trener sammen under veiledning på treningssenter">
     <div class="ribbon-diagonal ribbon--open">Åpent for påmelding</div>
   </div>
 
-  <div class="date-badge"></div>
+  <div class="date-badge" aria-label="Neste treningsøkt"></div>
 
   <div class="card-body">
-    <h3>Trening for ungdom fra 12 til 15 år</h3>
-    <p><strong>Tid:</strong> torsdager 16:30–17:30</p>
+    <h3 id="kurs-ungdom-tittel">Trening for ungdom fra 12 til 15 år</h3>
+
+    <dl class="info-tid">
+      <dt><strong>Tid:</strong></dt>
+      <dd>torsdager 16:30–17:30</dd>
+    </dl>
+
     <p>
       Et inkluderende kurs for ungdom med ulike funksjonsvariasjoner, der vi fokuserer på mestring, glede og fellesskap. 
       Øktene ledes av <strong>Alexander Sviggum</strong> og <strong>Amir Asadollahzadeh</strong> sammen med frivillige studenter 
       fra <strong>Høgskulen på Vestlandet</strong>, som får faglig oppfølging og kurs gjennom hele perioden.
     </p>
+
     <p>
       Fokuset er på trygg og tilpasset trening i apparater, samt innlæring av grunnøvelsene 
       <strong>knebøy</strong>, <strong>benkpress</strong> og <strong>markløft</strong> for de som ønsker det.
@@ -197,12 +203,13 @@
       Prøvetime <strong>80 kr</strong> · Sesongpris fra <strong>200 kr</strong> · <strong>2 ledige plasser</strong>
     </p>
 
-    <div class="card-buttons">
-      <a href="https://mystrongestside.no/pamelding" class="btn btn-primary">Meld deg på</a>
-      <a href="https://mystrongestside.no/provetime" class="btn btn-secondary">Prøvetime</a>
-      <a href="https://mystrongestside.no/treningstilbud/barn-ungdom.html" class="btn btn-link">Les mer</a>
+    <div class="card-buttons" role="group" aria-label="Handlinger for kurs påmelding">
+      <a href="https://mystrongestside.no/pamelding" class="btn btn-primary" aria-label="Meld deg på kurset for ungdom">Meld deg på</a>
+      <a href="https://mystrongestside.no/provetime" class="btn btn-secondary" aria-label="Meld deg på prøvetime for ungdom">Prøvetime</a>
+      <a href="https://mystrongestside.no/treningstilbud/barn-ungdom.html" class="btn btn-link" aria-label="Les mer om kurset for ungdom">Les mer</a>
     </div>
-
+  </div>
+</article>
      
   </div>
 </article>
