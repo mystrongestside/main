@@ -149,6 +149,21 @@
 @media (max-width: 600px) {
   .card-buttons { flex-direction: column; }
   .btn { width: 100%; }
+}.icon {
+  width: 20px !important;
+  height: 20px !important;
+  max-width: 20px;
+  max-height: 20px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  filter: brightness(0) saturate(100%) invert(20%) sepia(50%) saturate(700%) hue-rotate(170deg) brightness(90%);
+  opacity: 0.9;
+  display: inline-block;
+}
+.icon svg,
+.icon img {
+  width: 100% !important;
+  height: auto !important;
 }
   </style>
 </head>
