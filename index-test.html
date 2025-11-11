@@ -9,31 +9,35 @@
    <link rel="stylesheet" href="styles.css?v=42">
  
    <style>
- .ribbon-diagonal {
+/* === My Strongest Side® – Treningskort v48 (refined look) === */
+
+/* --- Ribbon: grønn, balansert og tydelig --- */
+.ribbon-diagonal {
   position: absolute;
-  top: 20px;
-  right: -50px;
+  top: 22px;
+  right: -60px;
   width: 180px;
   text-align: center;
   font-weight: 700;
   font-size: 0.8rem;
   color: #fff;
-  padding: 6px 0;
-  transform: rotate(45deg);
+  padding: 8px 0;
+  transform: rotate(42deg);
   background-color: #3cb371;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   text-shadow: 0 1px 1px rgba(0,0,0,0.4);
-  letter-spacing: 0.3px;
+  letter-spacing: 0.6px;
   pointer-events: none;
   z-index: 10;
   border-radius: 4px;
 }
 
+/* --- Kortcontainer --- */
 .training-card {
   position: relative;
   background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   overflow: visible;
   display: flex;
   flex-direction: column;
@@ -41,13 +45,14 @@
 }
 
 .training-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
 }
 
+/* --- Bildeområde --- */
 .training-card .course-card__media {
   position: relative;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 0.75rem 0.75rem 0 0;
   overflow: visible;
 }
 
@@ -58,19 +63,53 @@
   display: block;
 }
 
+/* --- Dato-felt (integrert, lett og balansert) --- */
 .training-card .date-badge {
-  background: #fff;
-  border-top: 3px solid #f77c37;
+  background: #f9fafb;
+  border-top: 2px solid #f77c37;
   color: #24344d;
-  font-size: 0.95rem;
-  font-weight: 600;
-  padding: 1rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.75rem 1.1rem;
   margin-top: 0;
   line-height: 1.4;
-  border-radius: 0 0 0.8rem 0.8rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-radius: 0 0 0.75rem 0.75rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
+.date-badge strong {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+  color: #24344dcc;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* --- Tekstområde --- */
+.training-card .card-body {
+  padding: 1.5rem 1.25rem 1.75rem;
+}
+
+.training-card .card-body h3 {
+  color: #24344d;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.training-card .card-body p {
+  color: #24344d;
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* --- Seksjonstittel og spacing --- */
+.section--offers h2 {
+  margin-bottom: 1.25rem;
+}
 </style>
 </head>
 
