@@ -6,12 +6,11 @@
   <title>My Strongest Side®</title>
   <meta name="description" content="Gjør trening tilgjengelig for flest mulig. Finn glede i bevegelse og fellesskap med My Strongest Side®." />
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=50.3" />
+  <link rel="stylesheet" href="styles.css?v=50.5" />
 
   <style>
-/* === My Strongest Side® – Treningskort med tid + dato ikon (v50.3) === */
+/* === My Strongest Side® – Treningskort med strukturert info-panel (v50.5) === */
 
-/* Kortcontainer */
 .training-card {
   position: relative;
   background: #fff;
@@ -26,7 +25,7 @@
   box-shadow: 0 12px 32px rgba(0,0,0,0.15);
 }
 
-/* Bilde */
+/* --- Bildeområde --- */
 .course-card__media {
   position: relative;
   border-radius: 0.75rem 0.75rem 0 0;
@@ -41,7 +40,7 @@
   display: block;
 }
 
-/* Ribbon */
+/* --- Ribbon --- */
 .ribbon-diagonal {
   position: absolute;
   top: 22px;
@@ -60,34 +59,41 @@
   border-radius: 4px;
 }
 
-/* Dato-badge */
-.date-badge {
+/* === Kompakt info-panel for dato + tid === */
+.info-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
   background: #f9fafb;
   border-top: 2px solid #f77c37;
-  color: #24344d;
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: 0.75rem 1.1rem;
-  line-height: 1.4;
   border-radius: 0 0 0.75rem 0.75rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  padding: 0.9rem 1.2rem;
+  color: #24344d;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  align-items: flex-start;
+}
+
+.info-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  flex: 1 1 240px;
+  min-width: 220px;
 }
 
-/* Ikonstil */
-.icon {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
+.info-item img.icon {
+  width: 22px;
+  height: 22px;
+  margin-top: 3px;
   flex-shrink: 0;
-  filter: brightness(0) saturate(100%) invert(20%) sepia(50%) saturate(700%) hue-rotate(170deg) brightness(90%);
-  opacity: 0.9;
+  filter: brightness(0) saturate(100%) invert(25%) sepia(80%) saturate(450%) hue-rotate(170deg) brightness(85%);
 }
 
-/* Innhold */
-.card-body { padding: 1.5rem 1.25rem 1.75rem; }
+/* --- Innhold --- */
+.card-body {
+  padding: 1.5rem 1.25rem 1.75rem;
+}
 .card-body h3 {
   color: #24344d;
   font-size: 1.25rem;
@@ -101,24 +107,14 @@
   opacity: 0.9;
 }
 
-/* Tid-linje */
-.info-tid {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.95rem;
-  color: #24344d;
-  margin: 0.25rem 0 1rem;
-}
-
-/* Info-linje */
+/* --- Info-linje (pris og plasser) --- */
 .info-line {
   margin-top: 1rem;
   font-size: 0.95rem;
   color: #24344d;
 }
 
-/* Knapper */
+/* --- Knapper --- */
 .card-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -134,7 +130,10 @@
   transition: all 0.25s ease;
   text-align: center;
 }
-.btn-primary { background: #e86f2d; color: #fff; }
+.btn-primary {
+  background: #e86f2d;
+  color: #fff;
+}
 .btn-primary:hover { background: #d55f20; }
 .btn-secondary {
   border: 2px solid #24344d;
@@ -142,28 +141,20 @@
   background: transparent;
 }
 .btn-secondary:hover { background: #24344d; color: #fff; }
-.btn-link { color: #24344d; opacity: 0.8; }
-.btn-link:hover { opacity: 1; text-decoration: underline; }
+.btn-link {
+  color: #24344d;
+  opacity: 0.8;
+}
+.btn-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
 
-/* Responsiv */
+/* --- Responsiv --- */
 @media (max-width: 600px) {
+  .info-panel { flex-direction: column; }
   .card-buttons { flex-direction: column; }
   .btn { width: 100%; }
-}.icon {
-  width: 20px !important;
-  height: 20px !important;
-  max-width: 20px;
-  max-height: 20px;
-  vertical-align: middle;
-  flex-shrink: 0;
-  filter: brightness(0) saturate(100%) invert(20%) sepia(50%) saturate(700%) hue-rotate(170deg) brightness(90%);
-  opacity: 0.9;
-  display: inline-block;
-}
-.icon svg,
-.icon img {
-  width: 100% !important;
-  height: auto !important;
 }
   </style>
 </head>
@@ -182,21 +173,20 @@
               <div class="ribbon-diagonal">Åpent for påmelding</div>
             </div>
 
-            <!-- Dato-badge -->
-            <div class="date-badge" aria-label="Neste treningsøkt">
-              <img src="icons/calendar.svg" class="icon" alt="Kalender" aria-hidden="true">
-              <div class="date-info"></div>
-            </div>
-             <!-- Tid-linje -->
-              <div class="info-tid">
-                <img src="icons/clock.svg" class="icon" alt="En klokke som viser tidspunktet 16:30" aria-hidden="true">
-                <span>Torsdager 16:30–17:30</span>
+            <!-- ✅ Kompakt info-panel (koblet til scriptet) -->
+            <div class="info-panel" data-gruppe="barn-ungdom">
+              <div class="info-item">
+                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
+                <div class="date-info"><strong>Neste økt:</strong><br>—</div>
               </div>
+              <div class="info-item">
+                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
+                <div><strong>Tid:</strong><br>Torsdager 16:30–17:30</div>
+              </div>
+            </div>
 
             <div class="card-body">
               <h3 id="kurs-ungdom-tittel">Trening for ungdom fra 12 til 15 år</h3>
-
-         
 
               <p>
                 Et inkluderende kurs for ungdom med ulike funksjonsvariasjoner, der vi fokuserer på mestring, glede og fellesskap.
@@ -225,8 +215,8 @@
     </section>
   </main>
 
+  <!-- ✅ Dato-script -->
   <script>
-  // Dynamisk datooppdatering
   const treninger = [
     {
       gruppe: 'barn-ungdom',
@@ -251,21 +241,21 @@
     const today = new Date(); today.setHours(0,0,0,0);
 
     treninger.forEach(({ gruppe, datoer }) => {
-      const card = document.querySelector(`.training-card[data-gruppe="${gruppe}"]`);
-      if (!card) return;
-      const badge = card.querySelector('.date-info');
+      const panel = document.querySelector(`.info-panel[data-gruppe="${gruppe}"]`);
+      if (!panel) return;
+      const badge = panel.querySelector('.date-info');
       if (!badge) return;
 
       const parsed = datoer.map(parseDate).sort((a,b)=>a-b);
       const next = parsed.find(d => d >= today);
 
       if (!next) {
-        badge.innerHTML = `Sesongen er avsluttet`;
+        badge.innerHTML = `<strong>Neste økt:</strong><br>Sesongen er avsluttet`;
         return;
       }
 
       const remaining = parsed.filter(d => d >= today).length;
-      badge.innerHTML = `<strong>Neste økt:</strong> ${formatDate(next)} – ${remaining} økter igjen`;
+      badge.innerHTML = `<strong>Neste økt:</strong><br>${formatDate(next)} – ${remaining} økter igjen`;
     });
   });
   </script>
