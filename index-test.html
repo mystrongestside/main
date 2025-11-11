@@ -249,6 +249,22 @@
     padding: 1.1rem;
     font-size: 1.1rem;
   }
+/* === Auto-tilpass bilder uten manuell justering (v50.auto) === */
+
+/* 1) Lik høyde via aspect-ratio, dropp max-height */
+.myss-cards .course-card__media { aspect-ratio: 16/10; }
+.myss-cards .course-card__media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* fyll kortet pent */
+  object-position: 50% 38%;   /* litt opp i bildet = færre avskårne hoder */
+  max-height: none !important;
+}
+
+/* 2) På mobil: litt “høyere” utsnitt som ofte passer ansikter bedre */
+@media (max-width: 640px){
+  .myss-cards .course-card__media { aspect-ratio: 4/3; }
+  .myss-cards .course-card__media img{ object-position: 50% 32%; }
 }
   </style>
 </head>
