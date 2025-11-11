@@ -6,11 +6,12 @@
   <title>My Strongest Side®</title>
   <meta name="description" content="Gjør trening tilgjengelig for flest mulig. Finn glede i bevegelse og fellesskap med My Strongest Side®." />
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=50.2" />
+  <link rel="stylesheet" href="styles.css?v=50.3" />
 
   <style>
-/* === My Strongest Side® – Treningskort med tid + dato ikon (v50.2) === */
+/* === My Strongest Side® – Treningskort med tid + dato ikon (v50.3) === */
 
+/* Kortcontainer */
 .training-card {
   position: relative;
   background: #fff;
@@ -33,8 +34,11 @@
 }
 .course-card__media img {
   width: 100%;
+  height: auto;
+  max-height: 400px;
   aspect-ratio: 16/10;
   object-fit: cover;
+  display: block;
 }
 
 /* Ribbon */
@@ -71,10 +75,15 @@
   align-items: flex-start;
   gap: 0.5rem;
 }
-.icon-calendar {
-  font-size: 1.1rem;
-  color: #f77c37;
+
+/* Ikonstil */
+.icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
   flex-shrink: 0;
+  filter: brightness(0) saturate(100%) invert(20%) sepia(50%) saturate(700%) hue-rotate(170deg) brightness(90%);
+  opacity: 0.9;
 }
 
 /* Innhold */
@@ -100,10 +109,6 @@
   font-size: 0.95rem;
   color: #24344d;
   margin: 0.25rem 0 1rem;
-}
-.info-tid .icon-clock {
-  font-size: 1.1rem;
-  color: #f77c37;
 }
 
 /* Info-linje */
@@ -145,15 +150,6 @@
   .card-buttons { flex-direction: column; }
   .btn { width: 100%; }
 }
-    .icon {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-  flex-shrink: 0;
-  filter: brightness(0) saturate(100%) invert(20%) sepia(50%) saturate(700%) hue-rotate(170deg) brightness(90%);
-  opacity: 0.9;
-}
-
   </style>
 </head>
 
@@ -172,18 +168,19 @@
             </div>
 
             <!-- Dato-badge -->
-<div class="date-badge" aria-label="Neste treningsøkt">
-  <img src="/main/icons/calendar.svg" class="icon" alt="" aria-hidden="true">
-  <div class="date-info"></div>
-</div>
+            <div class="date-badge" aria-label="Neste treningsøkt">
+              <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
+              <div class="date-info"></div>
+            </div>
+
             <div class="card-body">
               <h3 id="kurs-ungdom-tittel">Trening for ungdom fra 12 til 15 år</h3>
 
-             <!-- Tid-linje -->
-<div class="info-tid">
-  <img src="/main/icons/clock.svg" class="icon" alt="" aria-hidden="true">
-  <span>Torsdager 16:30–17:30</span>
-</div>
+              <!-- Tid-linje -->
+              <div class="info-tid">
+                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
+                <span>Torsdager 16:30–17:30</span>
+              </div>
 
               <p>
                 Et inkluderende kurs for ungdom med ulike funksjonsvariasjoner, der vi fokuserer på mestring, glede og fellesskap.
@@ -213,6 +210,7 @@
   </main>
 
   <script>
+  // Dynamisk datooppdatering
   const treninger = [
     {
       gruppe: 'barn-ungdom',
@@ -227,6 +225,7 @@
     const [y,m,d] = str.split('-').map(Number);
     return new Date(y, m - 1, d);
   };
+
   const formatDate = d =>
     d.toLocaleDateString('no-NO', { day: '2-digit', month: 'short' })
       .replace('.', '')
@@ -234,6 +233,7 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     const today = new Date(); today.setHours(0,0,0,0);
+
     treninger.forEach(({ gruppe, datoer }) => {
       const card = document.querySelector(`.training-card[data-gruppe="${gruppe}"]`);
       if (!card) return;
@@ -242,10 +242,12 @@
 
       const parsed = datoer.map(parseDate).sort((a,b)=>a-b);
       const next = parsed.find(d => d >= today);
+
       if (!next) {
         badge.innerHTML = `Sesongen er avsluttet`;
         return;
       }
+
       const remaining = parsed.filter(d => d >= today).length;
       badge.innerHTML = `<strong>Neste økt:</strong> ${formatDate(next)} – ${remaining} økter igjen`;
     });
