@@ -9,9 +9,37 @@
    <link rel="stylesheet" href="styles.css?v=42">
  
    <style>
-/* === My Strongest Side® – Treningskort v48 (refined look) === */
+/* === My Strongest Side® – Treningskort med pris og knapper (v49) === */
 
-/* --- Ribbon: grønn, balansert og tydelig --- */
+.training-card {
+  position: relative;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.training-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+}
+
+.course-card__media {
+  position: relative;
+  border-radius: 0.75rem 0.75rem 0 0;
+  overflow: hidden;
+}
+
+.course-card__media img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+}
+
 .ribbon-diagonal {
   position: absolute;
   top: 22px;
@@ -32,39 +60,7 @@
   border-radius: 4px;
 }
 
-/* --- Kortcontainer --- */
-.training-card {
-  position: relative;
-  background: #fff;
-  border-radius: 0.75rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  overflow: visible;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.training-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
-}
-
-/* --- Bildeområde --- */
-.training-card .course-card__media {
-  position: relative;
-  border-radius: 0.75rem 0.75rem 0 0;
-  overflow: visible;
-}
-
-.training-card .course-card__media img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  display: block;
-}
-
-/* --- Dato-felt (integrert, lett og balansert) --- */
-.training-card .date-badge {
+.date-badge {
   background: #f9fafb;
   border-top: 2px solid #f77c37;
   color: #24344d;
@@ -77,39 +73,93 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.date-badge strong {
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.25rem;
-  color: #24344dcc;
-  font-weight: 600;
-  font-size: 0.8rem;
-}
-
-/* --- Tekstområde --- */
-.training-card .card-body {
+.card-body {
   padding: 1.5rem 1.25rem 1.75rem;
 }
 
-.training-card .card-body h3 {
+.card-body h3 {
   color: #24344d;
   font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
 }
 
-.training-card .card-body p {
+.card-body p {
   color: #24344d;
   font-size: 1rem;
-  margin: 0;
+  margin: 0.5rem 0;
   opacity: 0.9;
 }
 
-/* --- Seksjonstittel og spacing --- */
-.section--offers h2 {
-  margin-bottom: 1.25rem;
+/* --- Info-linje (pris og plasser) --- */
+.info-line {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #24344d;
+  opacity: 0.9;
 }
+.info-line strong {
+  color: #24344d;
+}
+
+/* --- Knapper --- */
+.card-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.7rem 1.4rem;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+/* Primær – oransje */
+.btn-primary {
+  background: #f77c37;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #e86f2d;
+}
+
+/* Sekundær – blå outline */
+.btn-secondary {
+  border: 2px solid #24344d;
+  color: #24344d;
+  background: transparent;
+}
+.btn-secondary:hover {
+  background: #24344d;
+  color: #fff;
+}
+
+/* Tertiær – lenke */
+.btn-link {
+  color: #24344d;
+  opacity: 0.8;
+}
+.btn-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* --- Responsiv justering --- */
+@media (max-width: 600px) {
+  .card-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn {
+    text-align: center;
+    width: 100%;
+  }
 </style>
 </head>
 
