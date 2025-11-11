@@ -6,11 +6,12 @@
   <title>My Strongest Side®</title>
   <meta name="description" content="Gjør trening tilgjengelig for flest mulig. Finn glede i bevegelse og fellesskap med My Strongest Side®." />
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=42">
+  <link rel="stylesheet" href="styles.css?v=50" />
 
   <style>
-/* === My Strongest Side® – Treningskort med universell utforming (v49-UU) === */
+/* === My Strongest Side® – Treningskort med universell utforming (v50) === */
 
+/* Kortcontainer */
 .training-card {
   position: relative;
   background: #fff;
@@ -26,6 +27,7 @@
   box-shadow: 0 12px 32px rgba(0,0,0,0.15);
 }
 
+/* Bilde */
 .course-card__media {
   position: relative;
   border-radius: 0.75rem 0.75rem 0 0;
@@ -38,6 +40,7 @@
   display: block;
 }
 
+/* Ribbon */
 .ribbon-diagonal {
   position: absolute;
   top: 22px;
@@ -49,7 +52,7 @@
   color: #fff;
   padding: 8px 0;
   transform: rotate(42deg);
-  background-color: #2e8b57; /* mørkere grønn for kontrast */
+  background-color: #2e8b57;
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   text-shadow: 0 1px 1px rgba(0,0,0,0.4);
   letter-spacing: 0.6px;
@@ -58,6 +61,7 @@
   border-radius: 4px;
 }
 
+/* Dato-badge med ikon */
 .date-badge {
   background: #f9fafb;
   border-top: 2px solid #f77c37;
@@ -69,8 +73,18 @@
   line-height: 1.4;
   border-radius: 0 0 0.75rem 0.75rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.date-badge .icon-calendar {
+  font-size: 1.1rem;
+  line-height: 1;
+  color: #f77c37;
+  flex-shrink: 0;
 }
 
+/* Innhold */
 .card-body {
   padding: 1.5rem 1.25rem 1.75rem;
 }
@@ -87,6 +101,7 @@
   opacity: 0.9;
 }
 
+/* Info-linje */
 .info-line {
   margin-top: 1rem;
   font-size: 0.95rem;
@@ -97,6 +112,7 @@
   color: #24344d;
 }
 
+/* Knapper */
 .card-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -113,38 +129,18 @@
   text-align: center;
   cursor: pointer;
 }
-
-/* Primær – oransje med bedre kontrast */
-.btn-primary {
-  background: #e86f2d;
-  color: #fff;
-}
-.btn-primary:hover {
-  background: #d55f20;
-}
-
-/* Sekundær – blå outline */
+.btn-primary { background: #e86f2d; color: #fff; }
+.btn-primary:hover { background: #d55f20; }
 .btn-secondary {
   border: 2px solid #24344d;
   color: #24344d;
   background: transparent;
 }
-.btn-secondary:hover {
-  background: #24344d;
-  color: #fff;
-}
+.btn-secondary:hover { background: #24344d; color: #fff; }
+.btn-link { color: #24344d; opacity: 0.8; }
+.btn-link:hover { opacity: 1; text-decoration: underline; }
 
-/* Tertiær – lenke */
-.btn-link {
-  color: #24344d;
-  opacity: 0.8;
-}
-.btn-link:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
-
-/* Tastaturnavigasjon */
+/* Tastaturfokus */
 .btn:focus-visible {
   outline: 3px solid #24344d;
   outline-offset: 3px;
@@ -152,14 +148,8 @@
 
 /* Responsiv */
 @media (max-width: 600px) {
-  .card-buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .btn {
-    text-align: center;
-    width: 100%;
-  }
+  .card-buttons { flex-direction: column; align-items: stretch; }
+  .btn { width: 100%; text-align: center; }
 }
   </style>
 </head>
@@ -172,14 +162,16 @@
         <p>Finn gruppen som passer deg – fra ungdom til tett oppfølging.</p>
 
         <div class="offers-grid">
-
           <article class="training-card" data-gruppe="barn-ungdom" role="region" aria-labelledby="kurs-ungdom-tittel">
             <div class="course-card__media">
               <img class="card-img" src="bilde01.jpg" alt="Ungdom trener sammen under veiledning på treningssenter">
               <div class="ribbon-diagonal ribbon--open">Åpent for påmelding</div>
             </div>
 
-            <div class="date-badge" aria-label="Neste treningsøkt"></div>
+            <div class="date-badge" aria-label="Neste treningsøkt">
+              <span class="icon-calendar" aria-hidden="true">📅</span>
+              <div class="date-info"></div>
+            </div>
 
             <div class="card-body">
               <h3 id="kurs-ungdom-tittel">Trening for ungdom fra 12 til 15 år</h3>
@@ -200,19 +192,17 @@
               </p>
 
               <div class="card-buttons" role="group" aria-label="Handlinger for kurs påmelding">
-                <a href="https://mystrongestside.no/pamelding" class="btn btn-primary" aria-label="Meld deg på kurset for ungdom">Meld deg på</a>
-                <a href="https://mystrongestside.no/provetime" class="btn btn-secondary" aria-label="Meld deg på prøvetime for ungdom">Prøvetime</a>
-                <a href="https://mystrongestside.no/treningstilbud/barn-ungdom.html" class="btn btn-link" aria-label="Les mer om kurset for ungdom">Les mer</a>
+                <a href="https://mystrongestside.no/pamelding" class="btn btn-primary">Meld deg på</a>
+                <a href="https://mystrongestside.no/provetime" class="btn btn-secondary">Prøvetime</a>
+                <a href="https://mystrongestside.no/treningstilbud/barn-ungdom.html" class="btn btn-link">Les mer</a>
               </div>
             </div>
           </article>
-
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ✅ Script som oppdaterer dato -->
   <script>
   console.log('[updateDates] Starter oppdatering');
 
@@ -223,57 +213,37 @@
         '2025-09-19','2025-10-03','2025-10-17','2025-10-31',
         '2025-11-14','2025-11-28','2025-12-12','2025-12-19',
       ],
-    },
-    {
-      gruppe: 'voksne-lett',
-      datoer: [
-        '2025-09-25','2025-10-09','2025-10-23','2025-11-06',
-        '2025-11-20','2025-12-04','2026-01-15','2026-01-29',
-      ],
-    },
-    {
-      gruppe: 'voksne-tett',
-      datoer: [
-        '2025-09-18','2025-10-02','2025-10-16','2025-10-30',
-        '2025-11-13','2025-11-27','2025-12-11','2026-01-08',
-      ],
-    },
+    }
   ];
 
   const parseDate = str => {
     const [y,m,d] = str.split('-').map(Number);
     return new Date(y, m - 1, d);
   };
-
   const formatDate = d =>
     d.toLocaleDateString('no-NO', { day: '2-digit', month: 'short' })
       .replace('.', '')
       .toUpperCase();
 
   document.addEventListener('DOMContentLoaded', () => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const today = new Date(); today.setHours(0,0,0,0);
 
     treninger.forEach(({ gruppe, datoer }) => {
       const card = document.querySelector(`.training-card[data-gruppe="${gruppe}"]`);
       if (!card) return;
-
-      const badge = card.querySelector('.date-badge');
+      const badge = card.querySelector('.date-info');
       if (!badge) return;
 
-      const parsed = datoer.map(parseDate).sort((a,b) => a - b);
+      const parsed = datoer.map(parseDate).sort((a,b)=>a-b);
       const next = parsed.find(d => d >= today);
 
       if (!next) {
-        badge.innerHTML = `<div class="date-info">Sesongen er avsluttet</div>`;
+        badge.innerHTML = `Sesongen er avsluttet`;
         return;
       }
 
       const remaining = parsed.filter(d => d >= today).length;
-      badge.innerHTML = `
-        <div class="date-info">
-          <strong>Neste økt:</strong> ${formatDate(next)} – ${remaining} økter igjen
-        </div>`;
+      badge.innerHTML = `<strong>Neste økt:</strong> ${formatDate(next)} – ${remaining} økter igjen`;
     });
 
     console.log('[updateDates] Ferdig oppdatert');
