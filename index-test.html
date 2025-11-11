@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="styles.css?v=50.5" />
 
   <style>
-/* === My Strongest Side® – Treningskort med strukturert info-panel (v50.5) === */
+ /* === My Strongest Side® – Treningskort med strukturert info-panel (v50.6) === */
 
 .training-card {
   position: relative;
@@ -63,11 +63,11 @@
 .info-panel {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem;
+  gap: 1rem;
   background: #f9fafb;
   border-top: 2px solid #f77c37;
   border-radius: 0 0 0.75rem 0.75rem;
-  padding: 0.9rem 1.2rem;
+  padding: 1rem 1.2rem;
   color: #24344d;
   font-size: 0.95rem;
   line-height: 1.4;
@@ -76,16 +76,15 @@
 
 .info-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.6rem;
-  flex: 1 1 240px;
-  min-width: 220px;
+  flex: 1 1 220px;
+  min-width: 180px;
 }
 
 .info-item img.icon {
   width: 22px;
   height: 22px;
-  margin-top: 3px;
   flex-shrink: 0;
   filter: brightness(0) saturate(100%) invert(25%) sepia(80%) saturate(450%) hue-rotate(170deg) brightness(85%);
 }
@@ -107,7 +106,7 @@
   opacity: 0.9;
 }
 
-/* --- Info-linje (pris og plasser) --- */
+/* --- Info-linje --- */
 .info-line {
   margin-top: 1rem;
   font-size: 0.95rem;
@@ -150,12 +149,26 @@
   text-decoration: underline;
 }
 
-/* --- Responsiv --- */
-@media (max-width: 600px) {
-  .info-panel { flex-direction: column; }
-  .card-buttons { flex-direction: column; }
-  .btn { width: 100%; }
-}
+/* === Responsiv === */
+@media (max-width: 640px) {
+  .info-panel {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+  .info-item {
+    flex: 1 1 100%;
+    align-items: flex-start;
+  }
+  .info-item img.icon {
+    margin-top: 3px;
+  }
+  .card-buttons {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+  }
   </style>
 </head>
 
