@@ -11,203 +11,183 @@
 <!-- === MYSS – Standardiserte treningskort v50.8 (match første kort) === -->
 <section class="myss-cards">
   <style>
-    /* Grid */
-    .myss-cards .offers-grid{
-      display:grid; gap:1.25rem;
-      grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
-      align-items:stretch;
-    }
+/* === MySS – Cards (scopet til .section--offers) v51.3 === */
+.section--offers .training-card{
+  position:relative;background:#fff;border-radius:.75rem;box-shadow:0 8px 24px rgba(0,0,0,.12);
+  display:flex;flex-direction:column;overflow:hidden;transition:transform .25s,box-shadow .25s
+}
+.section--offers .training-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.15)}
+.section--offers .course-card__media{position:relative;border-radius:.75rem .75rem 0 0;overflow:hidden;z-index:1}
+.section--offers .course-card__media img{width:100%;max-height:400px;aspect-ratio:16/10;object-fit:cover;display:block;pointer-events:none}
 
-    /* Kort */
-    .myss-cards .training-card{
-      position:relative; background:#fff; border-radius:.75rem;
-      box-shadow:0 8px 24px rgba(0,0,0,.12);
-      display:flex; flex-direction:column; transition:.25s transform,.25s box-shadow;
-      height:100%;
-    }
-    .myss-cards .training-card:hover{ transform:translateY(-3px); box-shadow:0 12px 32px rgba(0,0,0,.15); }
+/* Ribbon med status */
+.section--offers .ribbon-diagonal{
+  position:absolute;top:30px;right:-75px;width:240px;text-align:center;font-weight:700;font-size:.75rem;line-height:1.4;
+  color:#fff;padding:10px 0;border-radius:4px;transform:rotate(38deg);transform-origin:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.25);pointer-events:none;z-index:2;white-space:nowrap
+}
+.section--offers .ribbon--open{background:#2e8b57}        /* grønn */
+.section--offers .ribbon--few{background:#f77c37}         /* oransje */
+.section--offers .ribbon--full{background:#b22222}        /* rød */
 
-    /* Bilde – identisk på alle kort */
-    .myss-cards .course-card__media{
-      position:relative; overflow:hidden; border-radius:.75rem .75rem 0 0;
-    }
-    .myss-cards .course-card__media img{
-      width:100%; aspect-ratio:16/10; object-fit:cover; object-position:center;
-      display:block; max-height:400px;
-    }
+/* Info-panel (dato + tid) */
+.section--offers .info-panel{
+  display:flex;flex-wrap:wrap;gap:1rem;background:#f9fafb;border-top:2px solid #f77c37;border-radius:0 0 .75rem .75rem;
+  padding:1rem 1.25rem;color:#24344d;font-size:.95rem;align-items:flex-start
+}
+.section--offers .info-item{display:flex;align-items:center;gap:.6rem;flex:1 1 220px;min-width:180px}
+.section--offers .info-item img.icon{width:22px;height:22px;flex-shrink:0;
+  filter:brightness(0) saturate(100%) invert(25%) sepia(80%) saturate(450%) hue-rotate(170deg) brightness(85%)}
 
-    /* Ribbon – grønn, lik posisjon/rotasjon */
-    .myss-cards .ribbon-diagonal{
-      position:absolute; top:22px; right:-60px; width:180px;
-      transform:rotate(42deg);
-      text-align:center; font-weight:700; font-size:.8rem; letter-spacing:.6px;
-      color:#fff; background:#2e8b57; padding:8px 0; border-radius:4px;
-      box-shadow:0 4px 10px rgba(0,0,0,.25); pointer-events:none; z-index:2;
-    }
+/* Innhold */
+.section--offers .card-body{padding:1.5rem 1.25rem 1rem;z-index:5}
+.section--offers .card-body h3{color:#24344d;font-size:1.25rem;font-weight:700;margin-bottom:.6rem}
+.section--offers .card-body p{color:#24344d;font-size:1rem;margin:.5rem 0;opacity:.9}
+.section--offers .info-line{margin-top:.8rem;font-size:1rem;color:#24344d}
 
-    /* Info-panel under bildet: dato + tid (ikon + tekst) */
-    .myss-cards .info-panel{
-      display:flex; flex-wrap:wrap; gap:1rem; align-items:flex-start;
-      background:#f9fafb; border-top:2px solid #f77c37; color:#24344d;
-      padding:1rem 1.25rem; border-radius:0 0 .75rem .75rem; line-height:1.4;
-    }
-    .myss-cards .info-item{ display:flex; align-items:center; gap:.6rem; flex:1 1 220px; min-width:190px; }
-    .myss-cards .icon{ width:22px; height:22px; flex-shrink:0; opacity:.9;
-      filter:brightness(0) saturate(100%) invert(25%) sepia(80%) saturate(450%) hue-rotate(170deg) brightness(85%);
-    }
-    .myss-cards .date-text strong{ font-weight:700; }
+/* Knapper (scopet så vi ikke rører globale .btn utenfor seksjonen) */
+.section--offers .card-buttons{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem;justify-content:center;position:relative;z-index:10}
+.section--offers .card-buttons .btn{
+  display:inline-block;text-decoration:none;font-weight:600;border-radius:12px;padding:1rem 1.6rem;transition:.25s;text-align:center;
+  width:100%;max-width:280px;font-size:1.05rem;box-shadow:0 1px 4px rgba(0,0,0,.08);pointer-events:auto
+}
+.section--offers .card-buttons .btn-primary{background:#f77c37;color:#fff;border:none}
+.section--offers .card-buttons .btn-primary:hover,
+.section--offers .card-buttons .btn-primary:focus-visible{background:#e86f2d;box-shadow:0 3px 10px rgba(0,0,0,.15)}
+.section--offers .card-buttons .btn-secondary{border:2px solid #24344d;color:#24344d;background:#fff}
+.section--offers .card-buttons .btn-secondary:hover,
+.section--offers .card-buttons .btn-secondary:focus-visible{background:#f3f4f6}
+.section--offers .card-buttons .btn-link{color:#24344d;font-weight:600;opacity:.9;margin-top:.25rem}
+.section--offers .card-buttons .btn-link:hover,
+.section--offers .card-buttons .btn-link:focus-visible{opacity:1;text-decoration:underline}
+.section--offers .card-buttons .btn:focus-visible{outline:3px solid #24344d;outline-offset:3px}
 
-    /* Innhold */
-    .myss-cards .card-body{ padding:1.6rem 1.3rem 1.8rem; display:flex; flex-direction:column; gap:.65rem; flex:1; }
-    .myss-cards .card-body h3{ color:#24344d; font-size:1.25rem; font-weight:700; margin:0 0 .2rem; }
-    .myss-cards .card-body p{ color:#24344d; font-size:1rem; margin:0; opacity:.9; }
-
-    .myss-cards .info-line{ margin-top:.5rem; font-size:.95rem; color:#24344d; }
-
-    /* Knapper – identisk look, robust mot globale stiler */
-    .myss-cards .card-buttons{ margin-top:1rem; display:flex; flex-wrap:wrap; gap:.8rem; }
-    .myss-cards .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      text-decoration:none; font-weight:700; border-radius:8px;
-      padding:.9rem 1.5rem; min-height:48px; line-height:1; cursor:pointer;
-      transition:.25s background,.25s color,.25s border-color,.25s box-shadow;
-      font-size:1rem;
-    }
-    .myss-cards .btn-primary{ background:#e86f2d; color:#fff; }
-    .myss-cards .btn-primary:hover{ background:#d55f20; }
-    .myss-cards .btn-secondary{ background:transparent; border:2px solid #24344d; color:#24344d; }
-    .myss-cards .btn-secondary:hover{ background:#24344d; color:#fff; }
-    .myss-cards .btn-link{ color:#24344d; opacity:.85; padding:.9rem 0; }
-    .myss-cards .btn-link:hover{ opacity:1; text-decoration:underline; }
-    .myss-cards .btn:focus-visible{ outline:3px solid #24344d; outline-offset:3px; }
-
-    /* Mobil */
-    @media (max-width:640px){
-      .myss-cards .info-panel{ flex-direction:column; gap:.9rem; padding:1rem; }
-      .myss-cards .info-item{ flex:1 1 100%; }
-      .myss-cards .card-buttons{ flex-direction:column; }
-      .myss-cards .btn{ width:100%; font-size:1.05rem; }
-    }
+/* Mobil */
+@media (max-width:600px){
+  .section--offers .card-buttons{flex-direction:column;align-items:center}
+  .section--offers .card-buttons .btn{width:95%;font-size:1.05rem;border-radius:12px;padding:1rem}
+}
+ 
   </style>
 
-  <div class="offers-grid">
-    <!-- KORT 1 (referansekort) -->
-    <article class="training-card" data-gruppe="barn-ungdom" aria-labelledby="t1">
-      <div class="course-card__media">
-        <img src="bilde01.jpg" alt="Ungdom trener sammen under veiledning på treningssenter">
-        <div class="ribbon-diagonal">Åpent for påmelding</div>
-      </div>
+ <div class="offers-grid">
+  <!-- Ungdom -->
+  <article class="training-card" data-gruppe="barn-ungdom" aria-labelledby="t-bu">
+    <div class="course-card__media">
+      <img src="bilde01.jpg" alt="Ungdom trener sammen under veiledning på treningssenter">
+      <div class="ribbon-diagonal ribbon--open">Åpent for påmelding</div>
+    </div>
 
-      <div class="info-panel" aria-label="Kursinformasjon">
-        <div class="info-item">
-          <img src="/main/icons/calendar.svg" class="icon" alt="" aria-hidden="true">
-          <div class="date-text"><strong>Neste økt:</strong> —</div>
-        </div>
-        <div class="info-item">
-          <img src="/main/icons/clock.svg" class="icon" alt="" aria-hidden="true">
-          <span>Torsdager 16:30–17:30</span>
-        </div>
+    <div class="info-panel" data-gruppe="barn-ungdom">
+      <div class="info-item">
+        <img src="icons/calendar.svg" class="icon" alt="">
+        <div class="date-info"><strong>Neste økt:</strong><br>—</div>
       </div>
+      <div class="info-item">
+        <img src="icons/clock.svg" class="icon" alt="">
+        <div><strong>Tid:</strong><br>Torsdager 16:30–17:30</div>
+      </div>
+    </div>
 
-      <div class="card-body">
-        <h3 id="t1">Trening for ungdom (12–15 år)</h3>
-        <p>Inkluderende styrketrening i apparater og grunnøvelsene knebøy, benkpress og markløft – tilpasset individuelt for de som ønsker det.</p>
-        <p class="info-line">Prøvetime <strong>80 kr</strong> · Sesongpris fra <strong>200 kr</strong> · <strong>2 ledige plasser</strong></p>
-        <div class="card-buttons" role="group" aria-label="Handlinger">
-          <a class="btn btn-primary" href="https://mystrongestside.no/pamelding">Meld deg på</a>
-          <a class="btn btn-secondary" href="https://mystrongestside.no/provetime">Prøvetime</a>
-          <a class="btn btn-link" href="https://mystrongestside.no/treningstilbud/barn-ungdom.html">Les mer</a>
-        </div>
+    <div class="card-body">
+      <h3 id="t-bu">Trening for ungdom (12–15 år)</h3>
+      <p>Et inkluderende kurs med fokus på mestring, glede og fellesskap.</p>
+      <p>Øktene ledes av <strong>Alexander Sviggum</strong> og <strong>Amir Asadollahzadeh</strong> sammen med frivillige studenter fra <strong>HVL</strong>.</p>
+      <p class="info-line">Prøvetime <strong>80 kr</strong> · Sesongpris fra <strong>200 kr</strong> · <strong>2 ledige plasser</strong></p>
+      <div class="card-buttons" role="group" aria-label="Handlinger ungdom">
+        <a href="https://mystrongestside.no/pamelding" class="btn btn-primary">Meld deg på</a>
+        <a href="https://mystrongestside.no/provetime" class="btn btn-secondary">Prøvetime</a>
+        <a href="https://mystrongestside.no/treningstilbud/barn-ungdom.html" class="btn btn-link">Les mer</a>
       </div>
-    </article>
+    </div>
+  </article>
 
-    <!-- KORT 2 -->
-    <article class="training-card" data-gruppe="voksne-lett" aria-labelledby="t2">
-      <div class="course-card__media">
-        <img src="bilde02.jpg" alt="Voksne trener i apparater med veiledning">
-        <div class="ribbon-diagonal">Åpent for påmelding</div>
-      </div>
+  <!-- Voksne lett -->
+  <article class="training-card" data-gruppe="voksne-lett" aria-labelledby="t-vl">
+    <div class="course-card__media">
+      <img src="bilde02.jpg" alt="Voksne trener i gruppe på treningssenter">
+      <div class="ribbon-diagonal ribbon--few">Få plasser igjen</div>
+    </div>
 
-      <div class="info-panel" aria-label="Kursinformasjon">
-        <div class="info-item">
-          <img src="/main/icons/calendar.svg" class="icon" alt="" aria-hidden="true">
-          <div class="date-text"><strong>Neste økt:</strong> —</div>
-        </div>
-        <div class="info-item">
-          <img src="/main/icons/clock.svg" class="icon" alt="" aria-hidden="true">
-          <span>Annenhver torsdag 17:30–18:30</span>
-        </div>
+    <div class="info-panel" data-gruppe="voksne-lett">
+      <div class="info-item">
+        <img src="icons/calendar.svg" class="icon" alt="">
+        <div class="date-info"><strong>Neste økt:</strong><br>—</div>
       </div>
+      <div class="info-item">
+        <img src="icons/clock.svg" class="icon" alt="">
+        <div><strong>Tid:</strong><br>Torsdager 15:30–16:25</div>
+      </div>
+    </div>
 
-      <div class="card-body">
-        <h3 id="t2">Voksne – lett oppfølging</h3>
-        <p>Tilpasset styrketrening i trygge omgivelser, med fokus på mestring og fellesskap.</p>
-        <p class="info-line">Sesongpris fra <strong>200 kr</strong></p>
-        <div class="card-buttons" role="group" aria-label="Handlinger">
-          <a class="btn btn-primary" href="https://mystrongestside.no/pamelding">Meld deg på</a>
-          <a class="btn btn-secondary" href="https://mystrongestside.no/provetime">Prøvetime</a>
-          <a class="btn btn-link" href="#">Les mer</a>
-        </div>
+    <div class="card-body">
+      <h3 id="t-vl">Trening for voksne – lett oppfølging</h3>
+      <p>Tilrettelagt styrketrening i rolig tempo med trygg veiledning.</p>
+      <p class="info-line">Sesongpris <strong>200 kr</strong> · <strong>Få plasser igjen</strong></p>
+      <div class="card-buttons" role="group" aria-label="Handlinger voksne lett">
+        <a href="https://mystrongestside.no/pamelding" class="btn btn-primary">Meld deg på</a>
+        <a href="https://mystrongestside.no/treningstilbud/voksne-lett.html" class="btn btn-link">Les mer</a>
       </div>
-    </article>
+    </div>
+  </article>
 
-    <!-- KORT 3 -->
-    <article class="training-card" data-gruppe="voksne-tett" aria-labelledby="t3">
-      <div class="course-card__media">
-        <img src="bilde03.jpg" alt="Deltaker får tett veiledning i styrkerommet">
-        <div class="ribbon-diagonal">Åpent for påmelding</div>
-      </div>
+  <!-- Voksne tett -->
+  <article class="training-card" data-gruppe="voksne-tett" aria-labelledby="t-vt">
+    <div class="course-card__media">
+      <img src="bilde03.jpg" alt="Deltaker får individuell oppfølging under trening">
+      <div class="ribbon-diagonal ribbon--full">Fulltegnet</div>
+    </div>
 
-      <div class="info-panel" aria-label="Kursinformasjon">
-        <div class="info-item">
-          <img src="/main/icons/calendar.svg" class="icon" alt="" aria-hidden="true">
-          <div class="date-text"><strong>Neste økt:</strong> —</div>
-        </div>
-        <div class="info-item">
-          <img src="/main/icons/clock.svg" class="icon" alt="" aria-hidden="true">
-          <span>Annenhver torsdag 15:30–16:25</span>
-        </div>
+    <div class="info-panel" data-gruppe="voksne-tett">
+      <div class="info-item">
+        <img src="icons/calendar.svg" class="icon" alt="">
+        <div class="date-info"><strong>Neste økt:</strong><br>—</div>
       </div>
+      <div class="info-item">
+        <img src="icons/clock.svg" class="icon" alt="">
+        <div><strong>Tid:</strong><br>Torsdager 15:30–16:25</div>
+      </div>
+    </div>
 
-      <div class="card-body">
-        <h3 id="t3">Voksne – tett oppfølging</h3>
-        <p>Liten gruppe med ekstra nær veiledning og rolig progresjon.</p>
-        <p class="info-line">Sesongpris fra <strong>200 kr</strong></p>
-        <div class="card-buttons" role="group" aria-label="Handlinger">
-          <a class="btn btn-primary" href="https://mystrongestside.no/pamelding">Meld deg på</a>
-          <a class="btn btn-secondary" href="https://mystrongestside.no/provetime">Prøvetime</a>
-          <a class="btn btn-link" href="#">Les mer</a>
-        </div>
+    <div class="card-body">
+      <h3 id="t-vt">Trening for voksne – tett oppfølging</h3>
+      <p>For deg som trenger mer individuell tilpasning. Tett faglig oppfølging.</p>
+      <p class="info-line"><strong>Fulltegnet</strong> · Venteliste tilgjengelig</p>
+      <div class="card-buttons" role="group" aria-label="Handlinger voksne tett">
+        <a href="https://mystrongestside.no/venteliste" class="btn btn-secondary">Sett meg på venteliste</a>
+        <a href="https://mystrongestside.no/treningstilbud/voksne-tett.html" class="btn btn-link">Les mer</a>
       </div>
-    </article>
-  </div>
+    </div>
+  </article>
+</div>
 
   <!-- Dato-oppdatering (identisk logikk for alle kort) -->
-  <script>
-    const treninger = [
-      { gruppe:'barn-ungdom', datoer:['2025-09-19','2025-10-03','2025-10-17','2025-10-31','2025-11-14','2025-11-28','2025-12-12','2025-12-19'] },
-      { gruppe:'voksne-lett', datoer:['2025-09-25','2025-10-09','2025-10-23','2025-11-06','2025-11-20','2025-12-04','2026-01-15','2026-01-29'] },
-      { gruppe:'voksne-tett', datoer:['2025-09-18','2025-10-02','2025-10-16','2025-10-30','2025-11-13','2025-11-27','2025-12-11','2026-01-08'] },
-    ];
-    const parseDate = s => { const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d); };
-    const formatDate = d => d.toLocaleDateString('no-NO',{weekday:'short', day:'2-digit', month:'short'})
-                                 .replace(/\./g,'').toUpperCase();
+ <script>
+const treninger = [
+  { gruppe:'voksne-lett', datoer:['2025-09-25','2025-10-09','2025-10-23','2025-11-06','2025-11-20','2025-12-04','2026-01-15','2026-01-29'] },
+  { gruppe:'voksne-tett', datoer:['2025-09-18','2025-10-02','2025-10-16','2025-10-30','2025-11-13','2025-11-27','2025-12-11','2026-01-08'] },
+  { gruppe:'barn-ungdom', datoer:['2025-09-19','2025-10-03','2025-10-17','2025-10-31','2025-11-14','2025-11-28','2025-12-12','2025-12-19'] },
+];
 
-    (function(){
-      const today = new Date(); today.setHours(0,0,0,0);
-      treninger.forEach(({gruppe, datoer})=>{
-        const card = document.querySelector(`.myss-cards .training-card[data-gruppe="${gruppe}"]`);
-        if(!card) return;
-        const slot = card.querySelector('.date-text'); if(!slot) return;
+const parseDate = s => { const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d); };
+const formatDate = d => d.toLocaleDateString('no-NO',{day:'2-digit',month:'short'}).replace('.','').toUpperCase();
 
-        const parsed = datoer.map(parseDate).sort((a,b)=>a-b);
-        const next = parsed.find(d=>d>=today);
-        if(!next){ slot.textContent = 'Sesongen er avsluttet'; return; }
-        const remaining = parsed.filter(d=>d>=today).length;
-        slot.innerHTML = `<strong>NESTE ØKT:</strong> ${formatDate(next)} – ${remaining} ØKTER IGJEN`;
-      });
-    })();
-  </script>
+document.addEventListener('DOMContentLoaded', () => {
+  const today = new Date(); today.setHours(0,0,0,0);
+  treninger.forEach(({gruppe,datoer})=>{
+    const panel = document.querySelector(`.section--offers .info-panel[data-gruppe="${gruppe}"]`);
+    if(!panel) return;
+    const badge = panel.querySelector('.date-info');
+    if(!badge) return;
+
+    const parsed = datoer.map(parseDate).sort((a,b)=>a-b);
+    const next = parsed.find(d => d >= today);
+    if(!next){ badge.innerHTML = `<strong>Neste økt:</strong><br>Sesongen er avsluttet`; return; }
+    const remaining = parsed.filter(d => d >= today).length;
+    badge.innerHTML = `<strong>Neste økt:</strong><br>${formatDate(next)} – ${remaining} økter igjen`;
+  });
+});
+</script>
 </section>
 </body>
 </html>
