@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="styles.css?v=50.5" />
 
   
-   <style>
-/* === My Strongest Side® – Treningskort v50.8 (UU + mobiloptimalisert + layoutfiks) === */
+  
+ <style>
+/* === My Strongest Side® – Treningskort v51.0 (UU + mobilfiks + layoutjustering) === */
 
 /* --- Kortcontainer --- */
 .training-card {
@@ -21,8 +22,7 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  overflow: hidden;              /* 🔹 Hindrer at knapper og skygger stikker ut */
-  padding-bottom: 1.5rem;        /* 🔹 Gir luft nederst */
+  overflow: hidden; /* hindrer at elementer flyter utenfor */
 }
 .training-card:hover {
   transform: translateY(-3px);
@@ -34,13 +34,17 @@
   position: relative;
   border-radius: 0.75rem 0.75rem 0 0;
   overflow: hidden;
+  z-index: 1;
 }
 .course-card__media img {
   width: 100%;
+  height: auto;
   max-height: 400px;
   aspect-ratio: 16/10;
   object-fit: cover;
   display: block;
+  z-index: 1;
+  pointer-events: none; /* 🔹 bildet kan ikke blokkere trykk */
 }
 
 /* --- Ribbon --- */
@@ -58,11 +62,11 @@
   background-color: #2e8b57;
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   border-radius: 4px;
-  pointer-events: none;
-  z-index: 1;
+  pointer-events: none; /* 🔹 sikrer at den ikke blokkerer klikk */
+  z-index: 2;
 }
 
-/* === Info-panel (dato + tid) === */
+/* --- Info-panel (dato + tid) --- */
 .info-panel {
   display: flex;
   flex-wrap: wrap;
@@ -75,6 +79,7 @@
   font-size: 0.95rem;
   line-height: 1.4;
   align-items: flex-start;
+  z-index: 3;
 }
 .info-item {
   display: flex;
@@ -92,7 +97,9 @@
 
 /* --- Innhold --- */
 .card-body {
-  padding: 1.6rem 1.3rem 0.5rem;  /* 🔹 Mer balanse mellom tekst og knapper */
+  padding: 1.6rem 1.3rem 1.5rem;
+  position: relative;
+  z-index: 5;
 }
 .card-body h3 {
   color: #24344d;
@@ -114,13 +121,15 @@
   color: #24344d;
 }
 
-/* === My Strongest Side® – Knapper === */
+/* --- Knapper --- */
 .card-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
   margin-top: 1.6rem;
   justify-content: center;
+  position: relative;
+  z-index: 10; /* 🔹 løftes over alt annet */
 }
 .btn {
   display: inline-block;
@@ -131,14 +140,13 @@
   transition: all 0.25s ease;
   text-align: center;
   width: 100%;
-  max-width: 280px;              /* 🔹 Hindrer at knappene blir for brede */
+  max-width: 280px;
   font-size: 1.05rem;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  position: relative;
-  z-index: 5;                    /* 🔹 Sikrer at de alltid er klikkbare */
+  pointer-events: auto; /* 🔹 knappen mottar trykk */
 }
 
-/* Primær – oransje */
+/* --- Primær knapp (oransje) --- */
 .btn-primary {
   background: #f77c37;
   color: #fff;
@@ -150,7 +158,7 @@
   box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
 
-/* Sekundær – blå outline */
+/* --- Sekundær knapp (blå outline) --- */
 .btn-secondary {
   border: 2px solid #24344d;
   color: #24344d;
@@ -161,7 +169,7 @@
   background: #f3f4f6;
 }
 
-/* Tertiær – tekstlenke */
+/* --- Lenke-knapp (tekst) --- */
 .btn-link {
   color: #24344d;
   font-weight: 600;
@@ -180,6 +188,21 @@
   outline-offset: 3px;
 }
 
+/* --- Klikkprioritet (fikser mobiltrykk) --- */
+.training-card,
+.card-body,
+.card-buttons,
+.btn {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+.course-card__media,
+.course-card__media img,
+.ribbon-diagonal {
+  pointer-events: none; /* 🔹 ingenting over knappene fanger trykk */
+}
+
 /* --- Responsiv justering --- */
 @media (max-width: 600px) {
   .card-buttons {
@@ -193,6 +216,7 @@
     padding: 1.1rem;
   }
 }
+ 
 </style>
 
 </head>
