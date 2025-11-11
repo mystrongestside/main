@@ -6,12 +6,11 @@
   <title>My Strongest Side®</title>
   <meta name="description" content="Gjør trening tilgjengelig for flest mulig. Finn glede i bevegelse og fellesskap med My Strongest Side®." />
   <link rel="icon" type="image/png" href="favicon.png" />
-   <link rel="stylesheet" href="styles.css?v=42">
- <style>
- 
+  <link rel="stylesheet" href="styles.css?v=42">
+
+  <style>
 /* === My Strongest Side® – Treningskort med universell utforming (v49-UU) === */
 
-/* --- Kortcontainer --- */
 .training-card {
   position: relative;
   background: #fff;
@@ -27,7 +26,6 @@
   box-shadow: 0 12px 32px rgba(0,0,0,0.15);
 }
 
-/* --- Bildeområde --- */
 .course-card__media {
   position: relative;
   border-radius: 0.75rem 0.75rem 0 0;
@@ -40,7 +38,6 @@
   display: block;
 }
 
-/* --- Ribbon (mørkere grønn for kontrast) --- */
 .ribbon-diagonal {
   position: absolute;
   top: 22px;
@@ -52,7 +49,7 @@
   color: #fff;
   padding: 8px 0;
   transform: rotate(42deg);
-  background-color: #2e8b57; /* mørkere grønn */
+  background-color: #2e8b57; /* mørkere grønn for kontrast */
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   text-shadow: 0 1px 1px rgba(0,0,0,0.4);
   letter-spacing: 0.6px;
@@ -61,7 +58,6 @@
   border-radius: 4px;
 }
 
-/* --- Dato-badge --- */
 .date-badge {
   background: #f9fafb;
   border-top: 2px solid #f77c37;
@@ -75,7 +71,6 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-/* --- Innhold --- */
 .card-body {
   padding: 1.5rem 1.25rem 1.75rem;
 }
@@ -92,7 +87,6 @@
   opacity: 0.9;
 }
 
-/* --- Info-linje (pris og plasser) --- */
 .info-line {
   margin-top: 1rem;
   font-size: 0.95rem;
@@ -103,7 +97,6 @@
   color: #24344d;
 }
 
-/* --- Knapper --- */
 .card-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -151,23 +144,13 @@
   text-decoration: underline;
 }
 
-/* --- Tastaturnavigasjon --- */
+/* Tastaturnavigasjon */
 .btn:focus-visible {
   outline: 3px solid #24344d;
   outline-offset: 3px;
 }
 
-/* --- Semantisk struktur for tid/dato --- */
-.info-tid {
-  margin: 0.5rem 0 1rem;
-}
-.info-tid dt,
-.info-tid dd {
-  display: inline;
-  margin: 0;
-}
-
-/* --- Responsiv justering --- */
+/* Responsiv */
 @media (max-width: 600px) {
   .card-buttons {
     flex-direction: column;
@@ -178,10 +161,8 @@
     width: 100%;
   }
 }
-
-</style>
+  </style>
 </head>
-
 
 <body class="page--index">
   <main>
@@ -191,53 +172,47 @@
         <p>Finn gruppen som passer deg – fra ungdom til tett oppfølging.</p>
 
         <div class="offers-grid">
-        <article class="training-card" role="region" aria-labelledby="kurs-ungdom-tittel">
-  <div class="course-card__media">
-    <img class="card-img" src="bilde01.jpg" alt="Ungdom trener sammen under veiledning på treningssenter">
-    <div class="ribbon-diagonal ribbon--open">Åpent for påmelding</div>
-  </div>
 
-  <div class="date-badge" aria-label="Neste treningsøkt"></div>
+          <article class="training-card" data-gruppe="barn-ungdom" role="region" aria-labelledby="kurs-ungdom-tittel">
+            <div class="course-card__media">
+              <img class="card-img" src="bilde01.jpg" alt="Ungdom trener sammen under veiledning på treningssenter">
+              <div class="ribbon-diagonal ribbon--open">Åpent for påmelding</div>
+            </div>
 
-  <div class="card-body">
-    <h3 id="kurs-ungdom-tittel">Trening for ungdom fra 12 til 15 år</h3>
+            <div class="date-badge" aria-label="Neste treningsøkt"></div>
 
-    <dl class="info-tid">
-      <dt><strong>Tid:</strong></dt>
-      <dd>torsdager 16:30–17:30</dd>
-    </dl>
+            <div class="card-body">
+              <h3 id="kurs-ungdom-tittel">Trening for ungdom fra 12 til 15 år</h3>
 
-    <p>
-      Et inkluderende kurs for ungdom med ulike funksjonsvariasjoner, der vi fokuserer på mestring, glede og fellesskap. 
-      Øktene ledes av <strong>Alexander Sviggum</strong> og <strong>Amir Asadollahzadeh</strong> sammen med frivillige studenter 
-      fra <strong>Høgskulen på Vestlandet</strong>, som får faglig oppfølging og kurs gjennom hele perioden.
-    </p>
+              <p>
+                Et inkluderende kurs for ungdom med ulike funksjonsvariasjoner, der vi fokuserer på mestring, glede og fellesskap.
+                Øktene ledes av <strong>Alexander Sviggum</strong> og <strong>Amir Asadollahzadeh</strong> sammen med frivillige studenter
+                fra <strong>Høgskulen på Vestlandet</strong>, som får faglig oppfølging og kurs gjennom hele perioden.
+              </p>
 
-    <p>
-      Fokuset er på trygg og tilpasset trening i apparater, samt innlæring av grunnøvelsene 
-      <strong>knebøy</strong>, <strong>benkpress</strong> og <strong>markløft</strong> for de som ønsker det.
-    </p>
+              <p>
+                Fokuset er på trygg og tilpasset trening i apparater, samt innlæring av grunnøvelsene
+                <strong>knebøy</strong>, <strong>benkpress</strong> og <strong>markløft</strong> for de som ønsker det.
+              </p>
 
-    <p class="info-line">
-      Prøvetime <strong>80 kr</strong> · Sesongpris fra <strong>200 kr</strong> · <strong>2 ledige plasser</strong>
-    </p>
+              <p class="info-line">
+                Prøvetime <strong>80 kr</strong> · Sesongpris fra <strong>200 kr</strong> · <strong>2 ledige plasser</strong>
+              </p>
 
-    <div class="card-buttons" role="group" aria-label="Handlinger for kurs påmelding">
-      <a href="https://mystrongestside.no/pamelding" class="btn btn-primary" aria-label="Meld deg på kurset for ungdom">Meld deg på</a>
-      <a href="https://mystrongestside.no/provetime" class="btn btn-secondary" aria-label="Meld deg på prøvetime for ungdom">Prøvetime</a>
-      <a href="https://mystrongestside.no/treningstilbud/barn-ungdom.html" class="btn btn-link" aria-label="Les mer om kurset for ungdom">Les mer</a>
-    </div>
-  </div>
-</article>
-     
-  </div>
-</article>
+              <div class="card-buttons" role="group" aria-label="Handlinger for kurs påmelding">
+                <a href="https://mystrongestside.no/pamelding" class="btn btn-primary" aria-label="Meld deg på kurset for ungdom">Meld deg på</a>
+                <a href="https://mystrongestside.no/provetime" class="btn btn-secondary" aria-label="Meld deg på prøvetime for ungdom">Prøvetime</a>
+                <a href="https://mystrongestside.no/treningstilbud/barn-ungdom.html" class="btn btn-link" aria-label="Les mer om kurset for ungdom">Les mer</a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ✅ Script starter her -->
+  <!-- ✅ Script som oppdaterer dato -->
   <script>
   console.log('[updateDates] Starter oppdatering');
 
@@ -272,8 +247,8 @@
 
   const formatDate = d =>
     d.toLocaleDateString('no-NO', { day: '2-digit', month: 'short' })
-     .replace('.', '')
-     .toUpperCase();
+      .replace('.', '')
+      .toUpperCase();
 
   document.addEventListener('DOMContentLoaded', () => {
     const today = new Date();
@@ -286,7 +261,7 @@
       const badge = card.querySelector('.date-badge');
       if (!badge) return;
 
-      const parsed = datoer.map(parseDate).sort((a,b)=>a-b);
+      const parsed = datoer.map(parseDate).sort((a,b) => a - b);
       const next = parsed.find(d => d >= today);
 
       if (!next) {
@@ -295,7 +270,6 @@
       }
 
       const remaining = parsed.filter(d => d >= today).length;
-
       badge.innerHTML = `
         <div class="date-info">
           <strong>Neste økt:</strong> ${formatDate(next)} – ${remaining} økter igjen
@@ -304,8 +278,6 @@
 
     console.log('[updateDates] Ferdig oppdatert');
   });
-  
-
   </script>
 </body>
 </html>
