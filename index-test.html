@@ -290,6 +290,30 @@
 .training-card[data-focus="center"] .course-card__media img{ object-position:50% 50%; }
 .training-card[data-focus="bottom"] .course-card__media img{ object-position:50% 70%; }
   }
+    /* === Desktop-fiks for kortbilde + layout === */
+@media (min-width: 900px){
+  /* Gjør seksjonen smalere og ryddigere på brede skjermer */
+  .offers-grid{ max-width: 1100px; margin-inline: auto; }
+
+  /* Grunt utsnitt på desktop = mindre “tak”, mer motiv */
+  .course-card__media{ aspect-ratio: 16/7; }       /* var 16/10 */
+  .course-card__media img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 45%;                     /* litt opp = bedre komposisjon */
+    max-height: none !important;
+    display: block;
+  }
+
+  /* Liten justering av ribbon så den sitter riktig etter ny ratio */
+  .ribbon-diagonal{ right: -56px; transform: rotate(40deg); }
+}
+
+/* Ekstra stor skjerm: enda litt grunnere utsnitt */
+@media (min-width: 1300px){
+  .course-card__media{ aspect-ratio: 16/6; }
+}
   </style>
 </head>
 
