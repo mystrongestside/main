@@ -8,312 +8,85 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="styles.css?v=50.5" />
 
+  
   <style>
-  /* === My Strongest Side® – Treningskort v51.1 (UU + mobilfiks + layoutjustering) === */
+/* === My Strongest Side® – Treningskort v51.2 (fix media braces + desktop) === */
 
-  /* --- Kortcontainer --- */
-  .training-card {
-    position: relative;
-    background: #fff;
-    border-radius: 0.75rem;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    overflow: hidden; /* hindrer at elementer flyter utenfor */
-  }
-  .training-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.15);
-  }
+/* Kort */
+.training-card{
+  position:relative; background:#fff; border-radius:.75rem;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  display:flex; flex-direction:column; overflow:hidden;
+  transition:transform .25s, box-shadow .25s;
+}
+.training-card:hover{ transform:translateY(-3px); box-shadow:0 12px 32px rgba(0,0,0,.15); }
 
-  /* --- Bildeområde --- */
-  .course-card__media {
-    position: relative;
-    border-radius: 0.75rem 0.75rem 0 0;
-    overflow: hidden;
-    z-index: 1;
-  }
-  .course-card__media img {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    aspect-ratio: 16/10;
-    object-fit: cover;
-    display: block;
-    z-index: 1;
-    pointer-events: none; /* bildet kan ikke blokkere trykk */
-  }
+/* Bilde (felles) */
+.course-card__media{ position:relative; border-radius:.75rem .75rem 0 0; overflow:hidden; aspect-ratio:16/10; }
+.course-card__media img{ width:100%; height:100%; object-fit:cover; object-position:50% 45%; display:block; }
 
-  /* --- Ribbon (grønn) --- */
-  .ribbon-diagonal {
-    position: absolute;
-    top: 28px;
-    right: -70px;
-    width: 220px;                 /* litt bredere for å vise hele teksten */
-    text-align: center;
-    font-weight: 700;
-    font-size: 0.8rem;
-    line-height: 1.4;
-    color: #fff;
-    padding: 10px 0;
-    transform: rotate(38deg);     /* litt slakkere vinkel for lesbarhet */
-    background-color: #2e8b57;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-    border-radius: 4px;
-    pointer-events: none;         /* sikrer at den ikke blokkerer klikk */
-    z-index: 2;
-    white-space: nowrap;          /* hindrer linjeskift */
-  }
-
-  /* --- Info-panel (dato + tid) --- */
-  .info-panel {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    background: #f9fafb;
-    border-top: 2px solid #f77c37;
-    border-radius: 0 0 0.75rem 0.75rem;
-    padding: 1rem 1.25rem;
-    color: #24344d;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    align-items: flex-start;
-    z-index: 3;
-  }
-  .info-item {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    flex: 1 1 220px;
-    min-width: 180px;
-  }
-  .info-item img.icon {
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
-    filter: brightness(0) saturate(100%) invert(25%) sepia(80%) saturate(450%) hue-rotate(170deg) brightness(85%);
-  }
-
-  /* --- Innhold --- */
-  .card-body {
-    padding: 1.6rem 1.3rem 1.5rem;
-    position: relative;
-    z-index: 5;
-  }
-  .card-body h3 {
-    color: #24344d;
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.6rem;
-  }
-  .card-body p {
-    color: #24344d;
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    opacity: 0.9;
-  }
-
-  /* --- Info-linje --- */
-  .info-line {
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    color: #24344d;
-  }
-
-  /* --- Knapper --- */
-  .card-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.9rem;
-    margin-top: 1.6rem;
-    justify-content: center;
-    position: relative;
-    z-index: 10; /* løftes over alt annet */
-  }
-  .btn {
-    display: inline-block;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 12px;
-    padding: 1rem 1.6rem;
-    transition: all 0.25s ease;
-    text-align: center;
-    width: 100%;
-    max-width: 280px;
-    font-size: 1.05rem;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    pointer-events: auto; /* knappen mottar trykk */
-  }
-
-  /* Primær knapp (oransje) */
-  .btn-primary {
-    background: #f77c37;
-    color: #fff;
-    border: none;
-  }
-  .btn-primary:hover,
-  .btn-primary:focus-visible {
-    background: #e86f2d;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  }
-
-  /* Sekundær knapp (blå outline) */
-  .btn-secondary {
-    border: 2px solid #24344d;
-    color: #24344d;
-    background: #fff;
-  }
-  .btn-secondary:hover,
-  .btn-secondary:focus-visible {
-    background: #f3f4f6;
-  }
-
-  /* Lenke-knapp (tekst) */
-  .btn-link {
-    color: #24344d;
-    font-weight: 600;
-    opacity: 0.9;
-    margin-top: 0.25rem;
-  }
-  .btn-link:hover,
-  .btn-link:focus-visible {
-    opacity: 1;
-    text-decoration: underline;
-  }
-
-  /* Tilgjengelighet */
-  .btn:focus-visible {
-    outline: 3px solid #24344d;
-    outline-offset: 3px;
-  }
-
-  /* Klikkprioritet (fikser mobiltrykk) */
-  .training-card,
-  .card-body,
-  .card-buttons,
-  .btn {
-    position: relative;
-    z-index: 5;
-    pointer-events: auto;
-  }
-  .course-card__media,
-  .course-card__media img,
-  .ribbon-diagonal {
-    pointer-events: none; /* ingenting over knappene fanger trykk */
-  }
-
-  /* Responsiv */
-  @media (max-width: 600px) {
-    .card-buttons {
-      flex-direction: column;
-      align-items: center;
-    }
-    .btn {
-      width: 100%;
-      font-size: 1.1rem;
-      border-radius: 14px;
-      padding: 1.1rem;
-    }
-  /* === FIX: Knappene skal tilpasse skjermen (overstyrer eldre regler) === */
-.training-card .card-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem;
-  justify-content: center;     /* midtstilt når de bryter */
-  align-items: stretch;
+/* Ribbon */
+.ribbon-diagonal{
+  position:absolute; top:28px; right:-70px; width:220px;
+  text-align:center; font-weight:700; font-size:.8rem; line-height:1.4;
+  color:#fff; padding:10px 0; transform:rotate(38deg);
+  background:#2e8b57; box-shadow:0 4px 10px rgba(0,0,0,.25); border-radius:4px; white-space:nowrap; pointer-events:none; z-index:2;
 }
 
-/* Fjern breddebegrensning og la flex styre størrelsen */
-.training-card .card-buttons .btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: auto;                 /* overstyrer width:100% fra tidligere */
-  max-width: none;             /* <- viktig: fjerner 280px-begrensningen */
-  flex: 1 1 220px;             /* vokser jevnt, bryter pent til ny rad */
-  box-sizing: border-box;
+/* Info-panel */
+.info-panel{
+  display:flex; flex-wrap:wrap; gap:1rem; align-items:flex-start;
+  background:#f9fafb; border-top:2px solid #f77c37; border-radius:0 0 .75rem .75rem;
+  padding:1rem 1.25rem; color:#24344d; font-size:.95rem; line-height:1.4;
+}
+.info-item{ display:flex; align-items:center; gap:.6rem; flex:1 1 220px; min-width:180px; }
+.info-item img.icon{ width:22px; height:22px; flex-shrink:0; filter:brightness(0) saturate(100%) invert(25%) sepia(80%) saturate(450%) hue-rotate(170deg) brightness(85%); }
+
+/* Innhold */
+.card-body{ padding:1.6rem 1.3rem 1.5rem; position:relative; z-index:5; }
+.card-body h3{ color:#24344d; font-size:1.25rem; font-weight:700; margin-bottom:.6rem; }
+.card-body p{ color:#24344d; font-size:1rem; margin:.5rem 0; opacity:.9; }
+
+/* Info-linje */
+.info-line{ margin-top:1rem; font-size:.95rem; color:#24344d; }
+
+/* Knapper */
+.card-buttons{ display:flex; flex-wrap:wrap; gap:.9rem; justify-content:center; margin-top:1.6rem; z-index:10; }
+.btn{
+  display:inline-flex; justify-content:center; align-items:center;
+  text-decoration:none; font-weight:600; border-radius:12px;
+  padding:1rem 1.6rem; transition:all .25s; text-align:center;
+  flex:1 1 220px; max-width:none; box-shadow:0 1px 4px rgba(0,0,0,.08);
+}
+.btn-primary{ background:#f77c37; color:#fff; border:none; }
+.btn-primary:hover, .btn-primary:focus-visible{ background:#e86f2d; box-shadow:0 3px 10px rgba(0,0,0,.15); }
+.btn-secondary{ border:2px solid #24344d; color:#24344d; background:#fff; }
+.btn-secondary:hover, .btn-secondary:focus-visible{ background:#f3f4f6; }
+.btn-link{ color:#24344d; font-weight:600; opacity:.9; }
+.btn-link:hover, .btn-link:focus-visible{ opacity:1; text-decoration:underline; }
+.btn:focus-visible{ outline:3px solid #24344d; outline-offset:3px; }
+
+/* — Mobil — */
+@media (max-width:600px){
+  .card-buttons{ flex-direction:column; align-items:stretch; }
+  .btn{ width:100%; flex:0 0 auto; border-radius:14px; padding:1.1rem; font-size:1.1rem; }
+  .course-card__media{ aspect-ratio:4/3; }
+  .course-card__media img{ object-position:50% 55%; }
 }
 
-/* Mobil: én knapp per rad i full kortbredde */
-@media (max-width: 600px) {
-  .training-card .card-buttons {
-    flex-direction: column;
-    align-items: stretch;      /* fyll hele kortet */
-  }
-  .training-card .card-buttons .btn {
-    width: 100%;
-    flex: 0 0 auto;            /* ikke prøv å dele raden */
-    max-width: 100%;
-    border-radius: 14px;
-    padding: 1.1rem;
-    font-size: 1.1rem;
-  }
-/* === Auto-tilpass bilder uten manuell justering (v50.auto) === */
-
-/* 1) Lik høyde via aspect-ratio, dropp max-height */
-.myss-cards .course-card__media { aspect-ratio: 16/10; }
-.myss-cards .course-card__media img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;          /* fyll kortet pent */
-  object-position: 50% 38%;   /* litt opp i bildet = færre avskårne hoder */
-  max-height: none !important;
+/* — Desktop — */
+@media (min-width:900px){
+  .offers-grid{ max-width:1100px; margin-inline:auto; }
+  .course-card__media{ aspect-ratio:16/7; }           /* mindre “tak”, mer motiv */
+  .course-card__media img{ object-position:50% 45%; }
+  .ribbon-diagonal{ right:-56px; transform:rotate(40deg); }
 }
 
-/* 2) På mobil: litt “høyere” utsnitt som ofte passer ansikter bedre */
-@media (max-width: 640px){
-  .myss-cards .course-card__media { aspect-ratio: 4/3; }
-  .myss-cards .course-card__media img{ object-position: 50% 32%; }
+/* — Ekstra bredt — */
+@media (min-width:1300px){
+  .course-card__media{ aspect-ratio:16/6; }
 }
-  /* --- Bilde: stabil høyde + smart utsnitt --- */
-.course-card__media{
-  aspect-ratio: 16/10;            /* lik høyde på alle kort */
-  overflow: hidden;
-}
-.course-card__media img{
-  width: 100%;
-  height: 100%;                    /* fyll containeren */
-  object-fit: cover;               /* beskjær pent */
-  object-position: 50% 60%;        /* litt ned = mindre tak/mer personer */
-  max-height: none !important;     /* overstyr evt. gamle regler */
-}
-
-/* Mobil: litt høyere utsnitt gir oftere ansikter i frame */
-@media (max-width: 600px){
-  .course-card__media{ aspect-ratio: 4/3; }
-  .course-card__media img{ object-position: 50% 55%; }
-}
-
-/* Valgfritt: finjuster per kort uten å endre CSS igjen */
-.training-card[data-focus="top"]    .course-card__media img{ object-position:50% 30%; }
-.training-card[data-focus="center"] .course-card__media img{ object-position:50% 50%; }
-.training-card[data-focus="bottom"] .course-card__media img{ object-position:50% 70%; }
-  }
-    /* === Desktop-fiks for kortbilde + layout === */
-@media (min-width: 900px){
-  /* Gjør seksjonen smalere og ryddigere på brede skjermer */
-  .offers-grid{ max-width: 1100px; margin-inline: auto; }
-
-  /* Grunt utsnitt på desktop = mindre “tak”, mer motiv */
-  .course-card__media{ aspect-ratio: 16/7; }       /* var 16/10 */
-  .course-card__media img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 45%;                     /* litt opp = bedre komposisjon */
-    max-height: none !important;
-    display: block;
-  }
-
-  /* Liten justering av ribbon så den sitter riktig etter ny ratio */
-  .ribbon-diagonal{ right: -56px; transform: rotate(40deg); }
-}
-
-/* Ekstra stor skjerm: enda litt grunnere utsnitt */
-@media (min-width: 1300px){
-  .course-card__media{ aspect-ratio: 16/6; }
-}
+ 
   </style>
 </head>
 
