@@ -266,6 +266,29 @@
   .myss-cards .course-card__media { aspect-ratio: 4/3; }
   .myss-cards .course-card__media img{ object-position: 50% 32%; }
 }
+  /* --- Bilde: stabil høyde + smart utsnitt --- */
+.course-card__media{
+  aspect-ratio: 16/10;            /* lik høyde på alle kort */
+  overflow: hidden;
+}
+.course-card__media img{
+  width: 100%;
+  height: 100%;                    /* fyll containeren */
+  object-fit: cover;               /* beskjær pent */
+  object-position: 50% 60%;        /* litt ned = mindre tak/mer personer */
+  max-height: none !important;     /* overstyr evt. gamle regler */
+}
+
+/* Mobil: litt høyere utsnitt gir oftere ansikter i frame */
+@media (max-width: 600px){
+  .course-card__media{ aspect-ratio: 4/3; }
+  .course-card__media img{ object-position: 50% 55%; }
+}
+
+/* Valgfritt: finjuster per kort uten å endre CSS igjen */
+.training-card[data-focus="top"]    .course-card__media img{ object-position:50% 30%; }
+.training-card[data-focus="center"] .course-card__media img{ object-position:50% 50%; }
+.training-card[data-focus="bottom"] .course-card__media img{ object-position:50% 70%; }
   </style>
 </head>
 
