@@ -6,13 +6,12 @@
   <title>My Strongest Side®</title>
   <meta name="description" content="Gjør trening tilgjengelig for flest mulig. Finn glede i bevegelse og fellesskap med My Strongest Side®." />
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=50.5" />
+  <link rel="stylesheet" href="styles.css?v=51.4" />
 
-  
   <style>
-/* === My Strongest Side® – Treningskort v51.3 (UU + mobilfiks + grid + bildeutsnitt) === */
+/* === My Strongest Side® – Treningskort v51.4 (UU + mobilfiks + grid + bildeutsnitt) === */
 
-/* — Grid for kortene — */
+/* Grid for kortene */
 .offers-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
@@ -20,7 +19,7 @@
   align-items:stretch;
 }
 
-/* — Kort — */
+/* Kort */
 .training-card{
   position:relative;
   background:#fff;
@@ -31,238 +30,114 @@
   overflow:hidden;
   transition:transform .25s ease, box-shadow .25s ease;
 }
-.training-card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 32px rgba(0,0,0,.15);
-}
+.training-card:hover{ transform:translateY(-3px); box-shadow:0 12px 32px rgba(0,0,0,.15); }
 
-/* — Bildeområde — */
+/* Bildeområde (ens høyde) */
 .course-card__media{
   position:relative;
   border-radius:.75rem .75rem 0 0;
   overflow:hidden;
-  aspect-ratio:16/10;            /* lik høyde på tvers av kort */
+  aspect-ratio:16/10;
 }
 .course-card__media img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:50% 45%;       /* litt opp i bildet = mindre “tak” */
-  display:block;
-  pointer-events:none;            /* blokkerer ikke klikk på knapper */
+  width:100%; height:100%;
+  object-fit:cover; object-position:50% 45%;
+  display:block; pointer-events:none;
 }
 
-/* — Ribbon — */
+/* Ribbon */
 .ribbon-diagonal{
-  position:absolute;
-  top:28px;
-  right:-70px;
-  width:220px;
-  text-align:center;
-  font-weight:700;
-  font-size:.8rem;
-  line-height:1.4;
-  color:#fff;
-  padding:10px 0;
-  transform:rotate(38deg);
-  background:#2e8b57;            /* standard: grønn (åpent) */
-  box-shadow:0 4px 10px rgba(0,0,0,.25);
-  border-radius:4px;
-  white-space:nowrap;
-  pointer-events:none;
-  z-index:2;
+  position:absolute; top:28px; right:-70px; width:220px;
+  text-align:center; font-weight:700; font-size:.8rem; line-height:1.4;
+  color:#fff; padding:10px 0; transform:rotate(38deg);
+  background:#2e8b57; box-shadow:0 4px 10px rgba(0,0,0,.25);
+  border-radius:4px; white-space:nowrap; pointer-events:none; z-index:2;
 }
-/* Variant når det er få plasser / annet budskap */
 .ribbon--alert{ background:#f77c37; }
 
-/* — Info-panel (dato + tid) — */
+/* Info-panel (dato + tid) */
 .info-panel{
-  display:flex;
-  flex-wrap:wrap;
-  gap:1rem;
-  align-items:flex-start;
-  background:#f9fafb;
-  border-top:2px solid #f77c37;
-  border-radius:0 0 .75rem .75rem;
-  padding:1rem 1.25rem;
-  color:#24344d;
-  font-size:.95rem;
-  line-height:1.4;
-  z-index:3;
+  display:flex; flex-wrap:wrap; gap:1rem; align-items:flex-start;
+  background:#f9fafb; border-top:2px solid #f77c37; border-radius:0 0 .75rem .75rem;
+  padding:1rem 1.25rem; color:#24344d; font-size:.95rem; line-height:1.4; z-index:3;
 }
-.info-item{
-  display:flex;
-  align-items:center;
-  gap:.6rem;
-  flex:1 1 220px;
-  min-width:180px;
-}
+.info-item{ display:flex; align-items:center; gap:.6rem; flex:1 1 220px; min-width:180px; }
 .info-item img.icon{
   width:22px; height:22px; flex-shrink:0;
-  /* tone ikoner til MySS-blå */
   filter:brightness(0) saturate(100%) invert(25%) sepia(80%) saturate(450%) hue-rotate(170deg) brightness(85%);
 }
 
-/* — (Valgfritt) Støtte for gamle .date-badge — */
-.date-badge{
-  background:#f9fafb;
-  border-top:2px solid #f77c37;
-  color:#24344d;
-  font-size:.9rem;
-  font-weight:500;
-  padding:.75rem 1.1rem;
-  line-height:1.4;
-  border-radius:0 0 .75rem .75rem;
-  box-shadow:0 1px 3px rgba(0,0,0,.05);
-}
+/* Innhold */
+.card-body{ padding:1.6rem 1.3rem 1.5rem; position:relative; z-index:5; }
+.card-body h3{ color:#24344d; font-size:1.25rem; font-weight:700; margin-bottom:.6rem; }
+.card-body p{ color:#24344d; font-size:1rem; margin:.5rem 0; opacity:.9; }
 
-/* — Innhold — */
-.card-body{
-  padding:1.6rem 1.3rem 1.5rem;
-  position:relative;
-  z-index:5;
-}
-.card-body h3{
-  color:#24344d;
-  font-size:1.25rem;
-  font-weight:700;
-  margin-bottom:.6rem;
-}
-.card-body p{
-  color:#24344d;
-  font-size:1rem;
-  margin:.5rem 0;
-  opacity:.9;
-}
+/* Info-linje (pris/plasser) */
+.info-line{ margin-top:1rem; font-size:.95rem; color:#24344d; }
 
-/* — Info-linje (pris/plasser) — */
-.info-line{
-  margin-top:1rem;
-  font-size:.95rem;
-  color:#24344d;
-}
-
-/* — Knapper — */
-.card-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.9rem;
-  justify-content:center;
-  margin-top:1.6rem;
-  z-index:10;
-}
+/* Knapper – basis */
+.card-buttons{ display:flex; flex-wrap:wrap; gap:.9rem; justify-content:center; margin-top:1.6rem; z-index:10; }
 .btn{
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  text-decoration:none;
-  font-weight:600;
-  border-radius:12px;
-  padding:1rem 1.6rem;
-  transition:all .25s ease;
-  text-align:center;
-  flex:1 1 220px;                /* balansert bredde på desktop */
-  max-width:none;
-  box-shadow:0 1px 4px rgba(0,0,0,.08);
+  display:inline-flex; justify-content:center; align-items:center;
+  text-decoration:none; font-weight:600; border-radius:12px;
+  padding:1rem 1.6rem; transition:all .25s ease; text-align:center;
+  flex:1 1 220px; max-width:none; box-shadow:0 1px 4px rgba(0,0,0,.08);
 }
-.btn-primary{ background:#f77c37; color:#fff; border:none; }
-.btn-primary:hover, .btn-primary:focus-visible{ background:#e86f2d; box-shadow:0 3px 10px rgba(0,0,0,.15); }
-.btn-secondary{ border:2px solid #24344d; color:#24344d; background:#fff; }
-.btn-secondary:hover, .btn-secondary:focus-visible{ background:#f3f4f6; }
-.btn-link{ color:#24344d; font-weight:600; opacity:.9; }
-.btn-link:hover, .btn-link:focus-visible{ opacity:1; text-decoration:underline; }
 .btn:focus-visible{ outline:3px solid #24344d; outline-offset:3px; }
 
-/* — Preferanse: mindre bevegelse — */
-@media (prefers-reduced-motion: reduce){
+.btn-primary{ background:#f77c37; color:#fff; border:none; }
+.btn-primary:hover, .btn-primary:focus-visible{ background:#e86f2d; box-shadow:0 3px 10px rgba(0,0,0,.15); }
+
+.btn-secondary{ border:2px solid #24344d; color:#24344d; background:#fff; }
+.btn-secondary:hover, .btn-secondary:focus-visible{ background:#f3f4f6; }
+
+.btn-link{ color:#24344d; font-weight:600; opacity:.9; }
+.btn-link:hover, .btn-link:focus-visible{ opacity:1; text-decoration:underline; }
+
+/* Fulltegnet – mørk blå, deaktivert (lik layout som .btn) */
+.btn-full{
+  background:#1d2b43; color:#fff; border:2px solid #1d2b43;
+  cursor:not-allowed; pointer-events:none; box-shadow:none;
+}
+.btn-full:hover, .btn-full:focus, .btn-full:active{
+  background:#1d2b43; color:#fff; box-shadow:none; text-decoration:none;
+}
+
+/* Preferanse: redusert bevegelse */
+@media (prefers-reduced-motion:reduce){
   .training-card, .btn{ transition:none; }
   .training-card:hover{ transform:none; }
 }
 
-/* — Mobil — */
+/* Mobil */
 @media (max-width:600px){
-  /* midtstill knapper, ikke 100% bredde */
-  .card-buttons{
-    flex-direction:column !important;
-    align-items:center !important;
-  }
+  .card-buttons{ flex-direction:column; align-items:center; }
   .card-buttons .btn{
-    width:auto !important;
-    max-width:320px !important;
-    flex:0 0 auto !important;
-    border-radius:14px;
-    padding:1.1rem;
-    font-size:1.1rem;
+    width:100%; max-width:340px; flex:0 0 auto;
+    border-radius:14px; padding:1.05rem 1.2rem; font-size:1.075rem; box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
   }
-  .card-buttons .btn.btn-link{ padding:.5rem 0; }
-
-  /* litt høyere utsnitt = flere ansikter i frame */
+  /* Gjør "Les mer" visuelt på linje med de andre på mobil */
+  .card-buttons .btn.btn-link{
+    border:2px solid rgba(36,52,77,.2);
+    background:#fff; color:#24344d; text-decoration:none; opacity:1; padding:1.05rem 1.2rem;
+  }
   .course-card__media{ aspect-ratio:4/3; }
   .course-card__media img{ object-position:50% 55%; }
 }
 
-/* — Desktop — */
+/* Desktop */
 @media (min-width:900px){
   .offers-grid{ max-width:1100px; margin-inline:auto; }
-  .course-card__media{ aspect-ratio:16/7; }   /* mindre “tak”, mer motiv */
+  .course-card__media{ aspect-ratio:16/7; }
   .course-card__media img{ object-position:50% 45%; }
   .ribbon-diagonal{ right:-56px; transform:rotate(40deg); }
 }
 
-/* — Ekstra bredt — */
+/* Ekstra bredt */
 @media (min-width:1300px){
   .course-card__media{ aspect-ratio:16/6; }
 }
-/* === Mobile button hotfix (iOS/Safari) — settes helt sist === */
-@media (max-width: 600px){
-  .training-card .card-buttons{
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:center !important;
-    gap:12px !important;
-  }
-
-  .training-card .card-buttons .btn{
-    display:flex !important;
-    justify-content:center !important;
-    align-items:center !important;
-    width:100% !important;          /* full bredde innenfor container */
-    max-width:340px !important;      /* pen maks */
-    flex:0 0 auto !important;        /* ikke “strekk”/fordel plass */
-    border-radius:14px !important;
-    padding:1.05rem 1.2rem !important;
-    font-size:1.075rem !important;
-    box-sizing:border-box !important;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  /* Gjør "Les mer" visuelt lik høyde/bredde som de andre */
-  .training-card .card-buttons .btn.btn-link{
-    border:2px solid rgba(36,52,77,.2) !important;  /* subtil outline */
-    background:#fff !important;
-    color:#24344d !important;
-    text-decoration:none !important;
-    opacity:1 !important;
-    padding:1.05rem 1.2rem !important;
-  }
-/* Fulltegnet-knapp (ikke-klikkbar) */
-.btn-full {
-  background: #1d2b43 !important;
-  color: #fff !important;
-  border: none !important;
-  cursor: not-allowed !important;
-  pointer-events: none !important;   /* blokker klikk */
-  box-shadow: none !important;
-}
-.btn-full:hover,
-.btn-full:focus,
-.btn-full:active {
-  background: #1d2b43 !important;
-  color: #fff !important;
-  box-shadow: none !important;
-  text-decoration: none !important;
-}
-  
   </style>
 </head>
 
@@ -274,13 +149,14 @@
         <p>Finn gruppen som passer deg – fra ungdom til tett oppfølging.</p>
 
         <div class="offers-grid">
+
+          <!-- 1) UNGDOM -->
           <article class="training-card" data-gruppe="barn-ungdom" aria-labelledby="kurs-ungdom-tittel">
             <div class="course-card__media">
-              <img class="card-img" src="bilde01.jpg" alt="Ungdom trener sammen under veiledning på treningssenter" loading="lazy" decoding="async">
+              <img src="bilde01.jpg" alt="Ungdom trener sammen under veiledning på treningssenter" loading="lazy" decoding="async">
               <div class="ribbon-diagonal">Åpent for påmelding</div>
             </div>
 
-            <!-- Info-panel (koblet til scriptet) -->
             <div class="info-panel" data-gruppe="barn-ungdom">
               <div class="info-item">
                 <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
@@ -294,16 +170,9 @@
 
             <div class="card-body">
               <h3 id="kurs-ungdom-tittel">Trening for ungdom fra 12 til 15 år</h3>
+              <p>Mestring, glede og fellesskap for 12–15 år. Trygg introduksjon til apparater og basisøvelser – ledet av <strong>Alexander</strong> og <strong>Amir</strong> med studenter fra HVL.</p>
 
-              <p>
-                <p>Mestring, glede og fellesskap for 12–15 år. Trygg introduksjon til apparater og basisøvelser – ledet av <strong>Alexander</strong> og <strong>Amir</strong> med studenter fra HVL.</p>
-
-              </p>
-
-              
-              <p class="info-line">
-                Prøvetime <strong>80 kr</strong> · Sesongpris fra <strong>200 kr</strong> · <strong>2 ledige plasser</strong>
-              </p>
+              <p class="info-line">Prøvetime <strong>80 kr</strong> · Sesongpris fra <strong>200 kr</strong> · <strong>2 ledige plasser</strong></p>
 
               <div class="card-buttons" role="group">
                 <a href="https://mystrongestside.no/pamelding" class="btn btn-primary">Meld deg på</a>
@@ -312,13 +181,12 @@
               </div>
             </div>
           </article>
-        
-          <!-- 2) VOKSNE – LETT (få plasser) -->
+
+          <!-- 2) VOKSNE – LETT -->
           <article class="training-card" data-gruppe="voksne-lett" aria-labelledby="kurs-voksne-lett-tittel">
             <div class="course-card__media">
-              <img class="card-img" src="bilder/hero-large.jpg" alt="Voksne trener lett oppfølging i styrkerommet" loading="lazy" decoding="async">
-              <!-- oransje bånd for få plasser -->
-              <div class="ribbon-diagonal" style="background-color:#f77c37;">Få plasser</div>
+              <img src="bilder/hero-large.jpg" alt="Voksne trener med lett oppfølging i styrkerommet" loading="lazy" decoding="async">
+              <div class="ribbon-diagonal ribbon--alert">Få plasser</div>
             </div>
 
             <div class="info-panel" data-gruppe="voksne-lett">
@@ -333,12 +201,10 @@
             </div>
 
             <div class="card-body">
-              <h3>Styrketrening – voksne (lett grad av funksjonsvariasjoner)</h3>
-<p>Små, trygge økter med rolig progresjon og tydelige øvelser. For deg med lett grad av funksjonsvariasjoner (f.eks. CP). Ledes av PT <strong>Amir</strong> og ergoterapeut <strong>Alexander</strong> sammen med studenter.</p>
+              <h3 id="kurs-voksne-lett-tittel">Styrketrening – voksne (lett grad av funksjonsvariasjoner)</h3>
+              <p>Små, trygge økter med rolig progresjon og tydelige øvelser. For deg med lett grad av funksjonsvariasjoner (f.eks. CP). Ledes av PT <strong>Amir</strong> og ergoterapeut <strong>Alexander</strong> sammen med studenter.</p>
 
-              <p class="info-line">
-                Prøvetime <strong>80 kr</strong> · Sesongpris fra <strong>200 kr</strong> · <strong>2 ledige plasser</strong>
-              </p>
+              <p class="info-line">Prøvetime <strong>80 kr</strong> · Sesongpris fra <strong>200 kr</strong> · <strong>2 ledige plasser</strong></p>
 
               <div class="card-buttons" role="group">
                 <a href="https://mystrongestside.no/pamelding?gruppe=voksne-lett" class="btn btn-primary">Meld deg på</a>
@@ -347,127 +213,92 @@
               </div>
             </div>
           </article>
-<!-- 3) VOKSNE – TETT OPPFØLGING -->
-<article class="training-card" data-gruppe="voksne-tett" aria-labelledby="kurs-voksne-tett-tittel">
-  <div class="course-card__media">
-    <img class="card-img" src="bilde02.jpg" alt="Deltaker får tett veiledning i styrkerommet" loading="lazy" decoding="async">
-    <div class="ribbon-diagonal" style="background-color:#1d2b43;">Fulltegnet</div>
-  </div>
 
-  <!-- Info-panel (kobles til scriptet via data-gruppe="voksne-tett") -->
-  <div class="info-panel" data-gruppe="voksne-tett">
-    <div class="info-item">
-      <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
-      <div class="date-info"><strong>Neste økt:</strong><br>—</div>
-    </div>
-    <div class="info-item">
-      <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
-      <div><strong>Tid:</strong><br>Torsdager – se påmelding</div>
-    </div>
-  </div>
+          <!-- 3) VOKSNE – TETT OPPFØLGING -->
+          <article class="training-card" data-gruppe="voksne-tett" aria-labelledby="kurs-voksne-tett-tittel">
+            <div class="course-card__media">
+              <img src="bilde02.jpg" alt="Deltaker får tett veiledning i styrkerommet" loading="lazy" decoding="async">
+              <div class="ribbon-diagonal" style="background:#1d2b43;">Fulltegnet</div>
+            </div>
 
-  <div class="card-body">
-    <h3 id="kurs-voksne-tett-tittel">Styrketrening – voksne (tett oppfølging)</h3>
-    <p>For deg som ønsker mer veiledning, støtte og tilpasning. Små grupper, forutsigbar struktur og rolig progresjon. Ledes av fysioterapeut, PT  i samarbeid med <strong>Alexander</strong> (ergoterapeut) og studenter.</p>
+            <div class="info-panel" data-gruppe="voksne-tett">
+              <div class="info-item">
+                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
+                <div class="date-info"><strong>Neste økt:</strong><br>—</div>
+              </div>
+              <div class="info-item">
+                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
+                <div><strong>Tid:</strong><br>Torsdager – se påmelding</div>
+              </div>
+            </div>
 
-    <p class="info-line">
-      Prøvetime <strong>80 kr</strong> · Sesongpris fra <strong>200 kr</strong> · <strong>Begrensede plasser</strong>
-    </p>
+            <div class="card-body">
+              <h3 id="kurs-voksne-tett-tittel">Styrketrening – voksne (tett oppfølging)</h3>
+              <p>For deg som ønsker mer veiledning, støtte og tilpasning. Små grupper, forutsigbar struktur og rolig progresjon. Ledes av fysioterapeut og PT i samarbeid med <strong>Alexander</strong> (ergoterapeut) og studenter.</p>
 
-    <div class="card-buttons" role="group">
-    <a href=""
-   class="btn btn-full"
-   aria-disabled="true"
-   tabindex="-1">Fulltegnet</a>
-      <a href="https://mystrongestside.no/provetime?gruppe=voksne-tett" class="btn btn-secondary">Venteliste</a>
-      <a href="https://mystrongestside.no/treningstilbud/voksne-tett.html" class="btn btn-link">Les mer</a>
-    </div>
-  </div>
-</article>
+              <p class="info-line">Prøvetime <strong>80 kr</strong> · Sesongpris fra <strong>200 kr</strong> · <strong>Begrensede plasser</strong></p>
+
+              <div class="card-buttons" role="group">
+                <a class="btn btn-full" aria-disabled="true" tabindex="-1" role="button">Fulltegnet</a>
+                <a href="https://mystrongestside.no/provetime?gruppe=voksne-tett" class="btn btn-secondary">Venteliste</a>
+                <a href="https://mystrongestside.no/treningstilbud/voksne-tett.html" class="btn btn-link">Les mer</a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Dato-script (RETTET: backticks/anførselstegn) -->
   <script>
- // === Oppdaterte datoer (ungdom + lett + tett) ===
-// Merk: Jeg antar at januar-datoene er i 2026 (etter desember 2025).
+/* === Datoer: ungdom + lett + tett (2025/2026) === */
 const treninger = [
-  {
-    gruppe: 'barn-ungdom',
-    datoer: [
-      '2025-09-25',
-      '2025-10-09',
-      '2025-10-23',
-      '2025-11-06',
-      '2025-11-20',
-      '2025-12-04',
-      '2026-01-15',
-      '2026-01-29',
-    ],
-  },
-  {
-    gruppe: 'voksne-lett',
-    datoer: [
-      '2025-09-25',
-      '2025-10-09',
-      '2025-10-23',
-      '2025-11-06',
-      '2025-11-20',
-      '2025-12-04',
-      '2026-01-15',
-      '2026-01-29',
-    ],
-  },
-  {
-    gruppe: 'voksne-tett',
-    datoer: [
-      '2025-09-18',
-      '2025-10-02',
-      '2025-10-16',
-      '2025-10-30',
-      '2025-11-13',
-      '2025-11-27',
-      '2025-12-11',
-      '2026-01-08',
-    ],
-  },
+  { gruppe: 'barn-ungdom', datoer: [
+    '2025-09-25','2025-10-09','2025-10-23','2025-11-06',
+    '2025-11-20','2025-12-04','2026-01-15','2026-01-29',
+  ]},
+  { gruppe: 'voksne-lett', datoer: [
+    '2025-09-25','2025-10-09','2025-10-23','2025-11-06',
+    '2025-11-20','2025-12-04','2026-01-15','2026-01-29',
+  ]},
+  { gruppe: 'voksne-tett', datoer: [
+    '2025-09-18','2025-10-02','2025-10-16','2025-10-30',
+    '2025-11-13','2025-11-27','2025-12-11','2026-01-08',
+  ]}
 ];
 
+const parseDate = str => {
+  const [y,m,d] = str.split('-').map(Number);
+  return new Date(y, m - 1, d);
+};
+const formatDate = d =>
+  d.toLocaleDateString('no-NO', { day:'2-digit', month:'short' })
+   .replace('.', '')
+   .toUpperCase();
 
-    const parseDate = (str) => {
-      const [y,m,d] = str.split('-').map(Number);
-      return new Date(y, m - 1, d);
-    };
+document.addEventListener('DOMContentLoaded', () => {
+  const today = new Date(); today.setHours(0,0,0,0);
 
-    const formatDate = (d) =>
-      d.toLocaleDateString('no-NO', { day: '2-digit', month: 'short' })
-       .replace('.', '')
-       .toUpperCase();
+  treninger.forEach(({ gruppe, datoer }) => {
+    const panel = document.querySelector(`.info-panel[data-gruppe="${gruppe}"]`);
+    if (!panel) return;
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const today = new Date(); today.setHours(0,0,0,0);
+    const badge = panel.querySelector('.date-info');
+    if (!badge) return;
 
-      treninger.forEach(({ gruppe, datoer }) => {
-        const panel = document.querySelector(`.info-panel[data-gruppe="${gruppe}"]`); // FIX: backticks
-        if (!panel) return;
+    const parsed = datoer.map(parseDate).sort((a,b)=>a-b);
+    const next = parsed.find(d => d >= today);
 
-        const badge = panel.querySelector('.date-info');
-        if (!badge) return;
+    if (!next) {
+      badge.innerHTML = `<strong>Neste økt:</strong><br>Sesongen er avsluttet`;
+      return;
+    }
 
-        const parsed = datoer.map(parseDate).sort((a,b)=>a-b);
-        const next = parsed.find(d => d >= today);
-
-        if (!next) {
-          badge.innerHTML = `<strong>Neste økt:</strong><br>Sesongen er avsluttet`; // FIX: backticks
-          return;
-        }
-
-        const remaining = parsed.filter(d => d >= today).length;
-        badge.innerHTML = `<strong>Neste økt:</strong><br>${formatDate(next)} – ${remaining} økter igjen`; // FIX: backticks
-      });
-    });
+    const remaining = parsed.filter(d => d >= today).length;
+    badge.innerHTML = `<strong>Neste økt:</strong><br>${formatDate(next)} – ${remaining} økter igjen`;
+  });
+});
   </script>
 </body>
 </html>
