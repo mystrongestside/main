@@ -213,6 +213,40 @@
 @media (min-width:1300px){
   .course-card__media{ aspect-ratio:16/6; }
 }
+/* === Mobile button hotfix (iOS/Safari) — settes helt sist === */
+@media (max-width: 600px){
+  .training-card .card-buttons{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:12px !important;
+  }
+
+  .training-card .card-buttons .btn{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    width:100% !important;          /* full bredde innenfor container */
+    max-width:340px !important;      /* pen maks */
+    flex:0 0 auto !important;        /* ikke “strekk”/fordel plass */
+    border-radius:14px !important;
+    padding:1.05rem 1.2rem !important;
+    font-size:1.075rem !important;
+    box-sizing:border-box !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Gjør "Les mer" visuelt lik høyde/bredde som de andre */
+  .training-card .card-buttons .btn.btn-link{
+    border:2px solid rgba(36,52,77,.2) !important;  /* subtil outline */
+    background:#fff !important;
+    color:#24344d !important;
+    text-decoration:none !important;
+    opacity:1 !important;
+    padding:1.05rem 1.2rem !important;
+  }
+}
+    
   </style>
 </head>
 
