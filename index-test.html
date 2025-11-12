@@ -245,8 +245,24 @@
     opacity:1 !important;
     padding:1.05rem 1.2rem !important;
   }
+/* Fulltegnet-knapp (ikke-klikkbar) */
+.btn-full {
+  background: #1d2b43 !important;
+  color: #fff !important;
+  border: none !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;   /* blokker klikk */
+  box-shadow: none !important;
 }
-    
+.btn-full:hover,
+.btn-full:focus,
+.btn-full:active {
+  background: #1d2b43 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+  
   </style>
 </head>
 
@@ -359,7 +375,10 @@
     </p>
 
     <div class="card-buttons" role="group">
-    <a href="https://mystrongestside.no/pamelding?gruppe=voksne-tett" class="btn btn-primary">Fulltegnet</a>
+    <a href=""
+   class="btn btn-full"
+   aria-disabled="true"
+   tabindex="-1">Fulltegnet</a>
       <a href="https://mystrongestside.no/provetime?gruppe=voksne-tett" class="btn btn-secondary">Venteliste</a>
       <a href="https://mystrongestside.no/treningstilbud/voksne-tett.html" class="btn btn-link">Les mer</a>
     </div>
