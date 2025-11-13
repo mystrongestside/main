@@ -55,7 +55,16 @@
         max-height: 1200px;
         overflow-y: auto;
       }
-    }
+    /* HERO – riktig høyde på både mobil og desktop */
+.hero--simple {
+  padding: 3.5rem 0 2.5rem 0 !important;
+}
+
+@media (max-width: 720px) {
+  .hero--simple {
+    padding: 2.5rem 0 1.5rem 0 !important;
+  }
+}
   </style>
 </head>
 
