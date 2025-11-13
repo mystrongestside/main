@@ -10,8 +10,14 @@
   <link rel="stylesheet" href="../styles.css?v=41">
 
   <style>
-    /* Grønne ribbon */
+    /* --- Tillegg: farge for 'åpen for påmelding'-bånd --- */
     .ribbon--open { background-color: #3cb371; }
+
+    /* Fikser forskjøvet punktum i overskriften */
+    .dot {
+      position: static !important;
+      margin-left: 0.1em;
+    }
 
     /* Forbedret hero */
     .hero__content {
@@ -61,9 +67,7 @@
     <!-- HERO -->
     <section class="hero hero--simple">
       <div class="container hero__content">
-        <h1>Gruppetilbud for personer med lett funksjonsvariasjoner
-          <span class="dot">.</span>
-        </h1>
+        <h1>Gruppetilbud for personer med lett funksjonsvariasjoner<span class="dot">.</span></h1>
       </div>
     </section>
 
@@ -260,32 +264,41 @@
 
   <script src="../script.js" defer></script>
 
-   (function() {
-      var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
+  <!-- FOOTER -->
+  <div id="myss-footer"></div>
+
+  <script>
+    (function () {
+      let prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
       if (!prefix) {
-        prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
+        prefix = window.location.pathname.includes("/treningstilbud/") ? "../" : "";
       }
       window.MYSS_PREFIX = prefix;
       window.__prefix = prefix;
-      var target = document.getElementById("myss-footer");
-      if (!target) {
-        return;
-      }
+
+      const target = document.getElementById("myss-footer");
+      if (!target) return;
+
       fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-        .then(function(r) {
-          return r.text();
-        })
-        .then(function(html) {
+        .then(r => r.text())
+        .then(html => {
           target.innerHTML = html;
-          target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img) {
-            var raw = img.getAttribute("src");
-            if (raw) {
-              img.setAttribute("src", raw.replace("${prefix}", prefix));
+
+          /* FIKS: Sørger for at logo alltid vises */
+          target.querySelectorAll("img").forEach(img => {
+            let src = img.getAttribute("src");
+            if (!src) return;
+
+            if (!src.startsWith("http") && !src.startsWith(prefix)) {
+              img.setAttribute("src", prefix + src);
             }
           });
         })
-        .catch(function() {
-          target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
+        .catch(() => {
+          target.innerHTML = `
+            <footer class="myss-footer">
+              <p>© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p>
+            </footer>`;
         });
     })();
   </script>
