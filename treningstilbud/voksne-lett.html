@@ -300,33 +300,7 @@
  <div id="myss-footer"></div>
 <script>
 
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const monthMap = {
-    "januar": 0, "februar": 1, "mars": 2, "april": 3, "mai": 4, "juni": 5,
-    "juli": 6, "august": 7, "september": 8, "oktober": 9, "november": 10, "desember": 11
-  };
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0); // sammenligner rent på dato
-
-  document.querySelectorAll(".date-list li").forEach(li => {
-    const text = li.textContent.trim();  
-    const parts = text.split(" ");
-
-    // Format: "Torsdag 25. september 2025"
-    const day = parseInt(parts[1]);
-    const month = monthMap[parts[2].replace(".", "")];
-    const year = parseInt(parts[3]);
-
-    const dateObj = new Date(year, month, day);
-
-    if (dateObj < today) {
-      li.style.display = "none";   // skjul gamle datoer
-    }
-  });
-});
-</script>
+ 
   (function() {
     var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
     if (!prefix) {
