@@ -67,11 +67,29 @@
     max-height: 1200px;
     overflow-y: auto;
   }
+/* --- Hero-tekst midtstilling (desktop + mobil) --- */
 .hero--simple .hero__content {
-  max-width: 850px;       /* justerer hvor “bred” tekstblokken kan være */
-  margin: 0 auto;         /* midtstiller horisontalt */
-  text-align: center;     /* sentrerer teksten */
+  max-width: 850px;           /* justerer bredde */
+  margin-left: auto;
+  margin-right: auto;          /* midtstill horisontalt */
+  text-align: center;          /* midtstill tekst */
 }
+
+/* --- Hero padding (desktop) --- */
+.hero--simple {
+  padding: 4rem 0 3rem 0 !important;
+}
+
+/* --- Hero padding (mobil) --- */
+@media (max-width: 720px) {
+  .hero--simple {
+    padding: 2.5rem 0 1.5rem 0 !important;
+  }
+
+  /* Mobilversjon av hero-text om du vil endre noe her */
+  .hero--simple .hero__content {
+    max-width: 90%;
+  }
 }
   </style>
 </head>
