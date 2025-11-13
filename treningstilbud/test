@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Strongest Side® – Lett funksjonsvariasjon</title>
+  <meta name="description" content="Tilrettelagt styrketrening for voksne med lett funksjonsvariasjon"> 
+
+  <link rel="stylesheet" href="../styles.css?v=41" />
+</head>
+<body class="page--index">
+<header data-component="site-header"></header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero hero--simple">
+    <div class="container hero__content">
+      <h1>Gruppetilbud for personer med lett funksjonsvariasjoner<span class="dot">.</span></h1>
+      <p class="lead">Et trygt, sosialt og faglig sterkt treningstilbud på Trene Sammen Fantoft.</p>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee__wrap">
+      <div class="marquee__row">
+        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+        <span>Mestring.</span><span>Universelt.</span><span>Inkluderende.</span><span>Tilgjengelig.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYOUT -->
+  <section class="section">
+    <div class="container two-column">
+
+      <!-- LEFT CONTENT -->
+      <article class="surface-card stack">
+        <h2>Kurs: Styrketrening for voksne</h2>
+        <p>Kurset er for voksne med lett funksjonsvariasjon som ønsker trygghet, tilpasning og veiledning i styrketrening.</p>
+
+        <h3>Hvem passer det for?</h3>
+        <p>Du som trener selvstendig, men ønsker trygghet, struktur og faglig støtte i et tilrettelagt miljø.</p>
+
+        <h3>Hvordan foregår øktene?</h3>
+        <ul class="bullets">
+          <li>Små grupper (maks 8 deltakere)</li>
+          <li>Veiledning fra studenter ved HVL og trenere</li>
+          <li>Individuelle tilpasninger ved behov</li>
+        </ul>
+
+        <h3>Faglig grunnlag</h3>
+        <p>Kurset tar utgangspunkt i anbefalingene fra NorCP og fagmiljøer innen nevrologi og rehabilitering.</p>
+      </article>
+
+      <!-- INFO-CARD -->
+      <aside class="info-card">
+        <h3>Nyttig informasjon</h3>
+        <ul class="info-list">
+          <li>
+            <span class="icon info-price"></span>
+            <div class="info-content"><strong>Pris</strong>200 kr (medlem) / 300 kr (ikke-medlem)</div>
+          </li>
+
+          <li>
+            <span class="icon info-place"></span>
+            <div class="info-content"><strong>Sted</strong>Trene Sammen Fantoft, Bergen</div>
+          </li>
+
+          <li>
+            <span class="icon info-period"></span>
+            <div class="info-content">
+              <strong>Datoer</strong>
+              <ul class="date-list">
+                <li>Torsdag 25. september 2025</li>
+                <li>Torsdag 9. oktober 2025</li>
+                <li>Torsdag 23. oktober 2025</li>
+                <li>Torsdag 6. november 2025</li>
+                <li>Torsdag 20. november 2025</li>
+                <li>Torsdag 4. desember 2025</li>
+                <li>Torsdag 15. januar 2026</li>
+                <li>Torsdag 29. januar 2026</li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <span class="icon info-time"></span>
+            <div class="info-content"><strong>Tid</strong>17:45–18:45 (oppmøte 17:30)</div>
+          </li>
+        </ul>
+
+        <h3>Tilgjengelighet</h3>
+        <ul class="info-list">
+          <li><span class="icon info-access"></span><div class="info-content">Trinnfri inngang og HC-toalett</div></li>
+          <li><span class="icon info-transport"></span><div class="info-content">Buss 2 og 3 – Fantoft Studentby</div></li>
+          <li><span class="icon info-parking"></span><div class="info-content">HC-parkering ved MENY</div></li>
+        </ul>
+
+        <div class="signup">
+          <h3>Meld deg på</h3>
+          <p>Du kan sikre plass til neste sesong.</p>
+          <div id="checkin_registration"></div>
+          <script src="https://registration.checkin.no/registration.loader.js"
+            data-event-id="155377" async></script>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq">
+    <div class="container surface-card stack">
+      <h2>Ofte stilte spørsmål<span class="dot">.</span></h2>
+
+      <details>
+        <summary>Hva hvis jeg bruker hjelpemidler?</summary>
+        <p>Lokalet er universelt utformet og vi tilpasser alt etter ditt behov.</p>
+      </details>
+
+      <details>
+        <summary>Kan jeg ta med ledsager?</summary>
+        <p>Ja, ledsager/assistent er velkommen uten ekstra kostnad.</p>
+      </details>
+
+      <details>
+        <summary>Hva gjør jeg hvis jeg er usikker på nivå?</summary>
+        <p>Snakk med oss – vi hjelper deg å finne riktig gruppe.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<div id="myss-footer"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const monthMap = {
+    "januar": 0, "februar": 1, "mars": 2, "april": 3, "mai": 4, "juni": 5,
+    "juli": 6, "august": 7, "september": 8, "oktober": 9, "november": 10, "desember": 11
+  };
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  document.querySelectorAll(".date-list li").forEach(li => {
+    const t = li.textContent.trim().split(" ");
+    const day = parseInt(t[1]);
+    const month = monthMap[t[2]];
+    const year = parseInt(t[3]);
+    const d = new Date(year, month, day);
+    if (d < today) li.style.display = "none";
+  });
+});
+</script>
+
+</body>
+</html>
