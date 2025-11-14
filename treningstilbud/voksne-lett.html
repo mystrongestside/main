@@ -330,32 +330,55 @@
 
   <!-- Marquee-fiks -->
   <script src="../marquee-guard.js?v=36" defer></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    function fixCheckinButtons() {
-      var buttons = document.querySelectorAll("#checkin_registration button");
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-      buttons.forEach(function (btn) {
-        // Bakgrunn og tekst på alle knapper (inkl. pluss/minus)
+  function fixCheckinButtons() {
+    const root = document.querySelector("#checkin_registration");
+    if (!root) return;
+
+    const buttons = root.querySelectorAll("button");
+
+    buttons.forEach(btn => {
+      const isPlus = btn.textContent.trim() === "+" || btn.classList.contains("ticket-amount__button--plus");
+      const isMinus = btn.textContent.trim() === "–" || btn.classList.contains("ticket-amount__button--minus");
+
+      // === PLUSS-KNAPP ===
+      if (isPlus) {
         btn.style.setProperty("background-color", "#105277", "important");
-        btn.style.setProperty("color", "#ffffff", "important");
-        btn.style.setProperty("border-radius", "6px", "important");
         btn.style.setProperty("border", "none", "important");
+        btn.style.setProperty("color", "#ffffff", "important");
+        btn.style.setProperty("border-radius", "8px", "important");
 
-        // Ikoner inne i knappene (pluss/minus SVG)
-        var paths = btn.querySelectorAll("svg path, svg rect, svg line");
-        paths.forEach(function (p) {
+        const paths = btn.querySelectorAll("svg path, svg rect, svg line");
+        paths.forEach(p => {
           p.style.setProperty("fill", "#ffffff", "important");
           p.style.setProperty("stroke", "#ffffff", "important");
         });
-      });
-    }
+      }
 
-    // Checkin lastes inn async, så vi kjører funksjonen flere ganger
-    setTimeout(fixCheckinButtons, 500);
-    setTimeout(fixCheckinButtons, 1500);
-    setTimeout(fixCheckinButtons, 3000);
-  });
+      // === MINUS-KNAPP ===
+      if (isMinus) {
+        btn.style.setProperty("background-color", "#ffffff", "important");
+        btn.style.setProperty("border", "2px solid #105277", "important");
+        btn.style.setProperty("color", "#105277", "important");
+        btn.style.setProperty("border-radius", "8px", "important");
+
+        const paths = btn.querySelectorAll("svg path, svg rect, svg line");
+        paths.forEach(p => {
+          p.style.setProperty("fill", "#105277", "important");
+          p.style.setProperty("stroke", "#105277", "important");
+        });
+      }
+    });
+  }
+
+  // Checkin lastes asynkront → vi kjører dette flere ganger
+  setTimeout(fixCheckinButtons, 300);
+  setTimeout(fixCheckinButtons, 1000);
+  setTimeout(fixCheckinButtons, 2500);
+  setInterval(fixCheckinButtons, 2000); // re-render fix
+});
 </script>
 </body>
 </html>
