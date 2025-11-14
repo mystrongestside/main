@@ -330,6 +330,32 @@
 
   <!-- Marquee-fiks -->
   <script src="../marquee-guard.js?v=36" defer></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    function fixCheckinButtons() {
+      var buttons = document.querySelectorAll("#checkin_registration button");
 
+      buttons.forEach(function (btn) {
+        // Bakgrunn og tekst på alle knapper (inkl. pluss/minus)
+        btn.style.setProperty("background-color", "#105277", "important");
+        btn.style.setProperty("color", "#ffffff", "important");
+        btn.style.setProperty("border-radius", "6px", "important");
+        btn.style.setProperty("border", "none", "important");
+
+        // Ikoner inne i knappene (pluss/minus SVG)
+        var paths = btn.querySelectorAll("svg path, svg rect, svg line");
+        paths.forEach(function (p) {
+          p.style.setProperty("fill", "#ffffff", "important");
+          p.style.setProperty("stroke", "#ffffff", "important");
+        });
+      });
+    }
+
+    // Checkin lastes inn async, så vi kjører funksjonen flere ganger
+    setTimeout(fixCheckinButtons, 500);
+    setTimeout(fixCheckinButtons, 1500);
+    setTimeout(fixCheckinButtons, 3000);
+  });
+</script>
 </body>
 </html>
