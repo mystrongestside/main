@@ -86,6 +86,64 @@
   #checkin_registration .ticket-amount__button svg path {
     fill: #fff !important;
   }
+    /* --- Tillegg: farge for 'åpen for påmelding'-bånd --- */
+.ribbon--open { background-color: #3cb371; }
+
+/* Fikser forskjøvet punktum i overskriften */
+.dot {
+  position: static !important;
+  margin-left: 0.1em;
+}
+
+/* Forbedret hero */
+.hero__content {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* HERO – desktop */
+.hero--simple {
+  padding: 3.5rem 0 2.5rem 0 !important;
+}
+
+/* HERO – mobil */
+@media (max-width: 720px) {
+  .hero--simple {
+    padding: 2.5rem 0 1.5rem 0 !important;
+  }
+}
+
+/* Checkin spacing + design */
+#checkin_registration {
+  background: #ffffff !important;
+  padding: 2rem !important;
+  border-radius: 12px;
+  border: 2px solid #105277;
+  color: #24344d !important;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif !important;
+  margin: 1.5rem 0 !important;
+}
+
+#checkin_registration * {
+  color: #24344d !important;
+  font-family: inherit !important;
+}
+
+/* Bedre spacing rundt sign-up boksen */
+.signup {
+  padding: 2rem 1.5rem !important;
+  background: #105277;
+  border-radius: 12px;
+  color: #fff;
+}
+
+/* Begrens høyde på info-card på mobil */
+@media (max-width: 720px) {
+  .info-card {
+    max-height: 1200px;
+    overflow-y: auto;
+  }
+}
  
 
   </style>
