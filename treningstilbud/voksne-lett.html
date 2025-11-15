@@ -64,6 +64,24 @@
       overflow-y: auto;
     }
   }
+   .section--gallery h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: .75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
   </style>
 </head>
 
@@ -229,7 +247,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+<!-- GALLERI – nederst på siden -->
+<section class="section section--gallery">
+  <div class="container">
+    <h3>Fra øktene våre<span class="dot">.</span></h3>
 
+    <div class="gallery-grid">
+      <img src="../bilder/Benkpress.png" alt="Deltaker som trener med veiledning">
+      <img src="../bilder/løfteteknikk2.png" alt="Styrketrening i apparat med tilpasning">
+      <img src="../bilder/Amir samtaler.png" alt="Gruppe i aktivitet på treningssenteret">
+      <img src="../bilder/løfteteknikk.png" alt="Veileder som hjelper deltaker i apparat">
+    </div>
+  </div>
+</section>
 <!-- FOOTER + PREFIX-LOGIKK (RETTET, IKKE ENDRET) -->
 <script>
 (function() {
