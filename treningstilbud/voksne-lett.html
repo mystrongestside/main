@@ -51,6 +51,65 @@
     font-family: inherit !important;
   }
 
+  #checkin_registration .ticket--amount--button {
+    align-items: center;
+    background: #ffffff !important;
+    border: 2px solid #105277 !important;
+    border-radius: 10px !important;
+    color: #105277 !important;
+    display: inline-flex;
+    font-weight: 600;
+    height: 40px;
+    justify-content: center;
+    padding: 0 !important;
+    transition: background 0.2s ease, color 0.2s ease;
+    width: 40px;
+  }
+
+  #checkin_registration .ticket--amount--button span {
+    display: none !important;
+  }
+
+  #checkin_registration .ticket--amount--button::after {
+    color: #105277;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  #checkin_registration .ticket--amount--button.plus::after {
+    content: "+";
+  }
+
+  #checkin_registration .ticket--amount--button.minus::after {
+    content: "–";
+  }
+
+  #checkin_registration .ticket--amount--button.btn-disabled {
+    border-color: rgba(16, 82, 119, 0.35) !important;
+    color: rgba(16, 82, 119, 0.35) !important;
+  }
+
+  #checkin_registration .coupon--section--activate,
+  #checkin_registration .btn.nextButton {
+    background: #ffffff !important;
+    border: 2px solid #105277 !important;
+    border-radius: 12px !important;
+    color: #105277 !important;
+    font-weight: 600;
+    padding: 0.9rem 1.5rem !important;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  #checkin_registration .btn.nextButton[disabled] {
+    opacity: 0.6;
+  }
+
+  #checkin_registration .btn.nextButton svg path,
+  #checkin_registration .btn.nextButton svg circle {
+    stroke: #105277 !important;
+    fill: #105277 !important;
+  }
+
   .signup {
     padding: 2rem 1.5rem !important;
     background: #105277;
@@ -303,55 +362,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script src="../script.js?v=42" defer></script>
 <script src="../marquee-guard.js?v=36" defer></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  function fixCheckinButtons() {
-    const root = document.querySelector("#checkin_registration");
-    if (!root) return;
-
-    const buttons = root.querySelectorAll("button");
-
-    buttons.forEach(btn => {
-      const isPlus = btn.textContent.trim() === "+" || btn.classList.contains("ticket-amount__button--plus");
-      const isMinus = btn.textContent.trim() === "–" || btn.classList.contains("ticket-amount__button--minus");
-
-      if (isPlus) {
-        btn.style.setProperty("background-color", "#105277", "important");
-        btn.style.setProperty("border", "none", "important");
-        btn.style.setProperty("color", "#ffffff", "important");
-        btn.style.setProperty("border-radius", "8px", "important");
-
-        const paths = btn.querySelectorAll("svg path, svg rect, svg line");
-        paths.forEach(p => {
-          p.style.setProperty("fill", "#ffffff", "important");
-          p.style.setProperty("stroke", "#ffffff", "important");
-        });
-      }
-
-      if (isMinus) {
-        btn.style.setProperty("background-color", "#ffffff", "important");
-        btn.style.setProperty("border", "2px solid #105277", "important");
-        btn.style.setProperty("color", "#105277", "important");
-        btn.style.setProperty("border-radius", "8px", "important");
-
-        const paths = btn.querySelectorAll("svg path, svg rect, svg line");
-        paths.forEach(p => {
-          p.style.setProperty("fill", "#105277", "important");
-          p.style.setProperty("stroke", "#105277", "important");
-        });
-      }
-    });
-  }
-
-  setTimeout(fixCheckinButtons, 300);
-  setTimeout(fixCheckinButtons, 1000);
-  setTimeout(fixCheckinButtons, 2500);
-  setInterval(fixCheckinButtons, 2000);
-
-});
-</script>
 
 </body>
 </html>
