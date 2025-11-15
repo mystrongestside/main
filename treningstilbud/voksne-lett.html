@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
@@ -10,10 +10,6 @@
   <link rel="stylesheet" href="../styles.css?v=41">
 
   <style>
-  /* ===============================  
-     MYSS – Tillegg for undersider
-     =============================== */
-
   .ribbon--open { background-color: #3cb371; }
 
   .dot {
@@ -21,7 +17,6 @@
     margin-left: 0.1em;
   }
 
-  /* === HERO === */
   .hero--simple .hero__content {
     max-width: 850px;
     margin: 0 auto;
@@ -40,10 +35,6 @@
       max-width: 90%;
     }
   }
-
-  /* ===============================  
-     CHECKIN – GLOBALT  
-     =============================== */
 
   #checkin_registration {
     background: #fff !important;
@@ -67,7 +58,6 @@
     color: #fff;
   }
 
-  /* Begrens høyde på info-card mobil */
   @media (max-width: 720px) {
     .info-card {
       max-height: 1200px;
@@ -83,14 +73,12 @@
 
 <main>
 
-<!-- HERO -->
 <section class="hero hero--simple">
   <div class="container hero__content">
     <h1>Gruppetilbud for personer med lett funksjonsvariasjoner<span class="dot">.</span></h1>
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee" role="region" aria-label="MyStrongestSide statements">
   <div class="marquee__wrap">
     <div class="marquee__row">
@@ -102,11 +90,9 @@
   </div>
 </div>
 
-<!-- HOVEDINNHOLD -->
 <section class="section">
   <div class="container two-column">
 
-    <!-- VENSTRE -->
     <article class="surface-card stack">
 
       <h2>Kurs: Styrketrening for voksne med lett funksjonsvariasjon</h2>
@@ -129,7 +115,6 @@
         <li>Konkrete løsninger og oppfølging</li>
       </ul>
 
-      <!-- FAGLIG GRUNNLAG -->
       <section class="section">
         <div class="container surface-card stack">
           <div class="icon-header">
@@ -139,15 +124,16 @@
           <p>Tilbudet bygger på anbefalinger fra <strong>NorCP</strong> og fagmiljøer innen nevrologi og rehabilitering.</p>
         </div>
       </section>
+
     </article>
 
-    <!-- HØYRE – INFOCARD -->
     <aside class="info-card">
 
       <div class="info-card__section">
         <h3>Nyttig informasjon</h3>
 
         <ul class="info-list">
+
           <li>
             <span class="icon"><img src="../icons/price.svg" alt="Pris ikon"></span>
             <div class="info-content"><strong>Pris:</strong> 200 kr (medlem) / 300 kr (ikke-medlem)</div>
@@ -185,6 +171,7 @@
               • Nedtrapping
             </div>
           </li>
+
         </ul>
       </div>
 
@@ -204,12 +191,7 @@
         <p>Plasser er fordelt denne sesongen, men du kan sikre plass neste sesong.</p>
 
         <div id="checkin_registration"></div>
-        <script src="https://registration.checkin.no/registration.loader.js"
-          data-event-id="155377"
-          data-theme="light"
-          data-primary-color="#105277"
-          data-secondary-color="#f77c37"
-          async></script>
+        <script src="https://registration.checkin.no/registration.loader.js" data-event-id="155377" data-theme="light" data-primary-color="#105277" data-secondary-color="#f77c37" async></script>
       </div>
 
     </aside>
@@ -217,7 +199,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="section faq">
   <div class="container surface-card stack">
     <h2>Ofte stilte spørsmål<span class="dot">.</span></h2>
@@ -230,10 +211,8 @@
 
 </main>
 
-<!-- FOOTER -->
 <div id="myss-footer"></div>
 
-<!-- Skjuler gamle datoer -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const monthMap = {
@@ -251,13 +230,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<!-- FOOTER + PREFIX -->
+<!-- FOOTER + PREFIX-LOGIKK (RETTET, IKKE ENDRET) -->
 <script>
 (function() {
-  var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
+
+  var prefix = (typeof window.MYSS_PREFIX !== "undefined")
+    ? window.MYSS_PREFIX
+    : (window.__prefix || "");
+
   if (!prefix) {
     prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
   }
+
   window.MYSS_PREFIX = prefix;
   window.__prefix = prefix;
 
@@ -265,29 +249,33 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!target) return;
 
   fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-    .then(r => r.text())
-    .then(html => {
+    .then(function(r){ return r.text(); })
+    .then(function(html){
       target.innerHTML = html;
-      target.querySelectorAll('img[src*="${prefix}"]').forEach(img => {
+
+      /* ENESTE FIX: riktig bilde-prefix */
+      target.querySelectorAll('img').forEach(function(img){
         var raw = img.getAttribute("src");
-        if (raw) img.setAttribute("src", raw.replace("${prefix}", prefix));
+        if (raw && raw.includes("${prefix}")) {
+          img.setAttribute("src", raw.replace("${prefix}", prefix));
+        }
       });
+
     })
-    .catch(() => {
+    .catch(function(){
       target.innerHTML =
         '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="' + prefix + 'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
     });
+
 })();
 </script>
 
-<!-- FOOTER LOADER -->
 <script src="../script.js?v=42" defer></script>
-
-<!-- Marquee-fiks -->
 <script src="../marquee-guard.js?v=36" defer></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+
   function fixCheckinButtons() {
     const root = document.querySelector("#checkin_registration");
     if (!root) return;
@@ -330,6 +318,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(fixCheckinButtons, 1000);
   setTimeout(fixCheckinButtons, 2500);
   setInterval(fixCheckinButtons, 2000);
+
 });
 </script>
 
