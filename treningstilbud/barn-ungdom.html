@@ -372,7 +372,7 @@
   </ul>
 </div>
 
-  <div class="signup">
+  <div class="signup" id="pamelding">
     <h3>Meld deg på</h3>
     <p>Plasser er fordelt denne sesongen, men du kan sikre deg plass via påmeldingsskjemaet til neste sesong.</p>
 
@@ -425,9 +425,15 @@
       "2026-01-08T16:30:00+01:00"
     ]
   </script>
-  <div class="sticky-cta" role="region" aria-label="Rask påmelding">
-    <div>Maks 8 deltakere • Prøvetime tilgjengelig</div>
-    <a class="btn btn--outline btn--sm" href="#pamelding">Meld interesse</a>
+  <div class="sticky-cta" data-floating-cta role="region" aria-label="Rask påmelding">
+    <div class="sticky-cta__text">
+      <p class="sticky-cta__label">Påmelding</p>
+      <p class="sticky-cta__prices">
+        <span><strong>200 kr</strong> for CPV-medlem</span>
+        <span><strong>300 kr</strong> for ikke-medlem</span>
+      </p>
+    </div>
+    <a class="btn-primary" href="#pamelding">Bestill plass</a>
   </div>
   <script src="../assets/js/updateDates.js?v=2" defer></script>
   <script src="../script.js" defer></script>
@@ -463,5 +469,35 @@
     })();
   </script>
   <script src="../marquee-guard.js?v=36" defer></script>
+  <script>
+    (function() {
+      var cta = document.querySelector('[data-floating-cta]');
+      var pamelding = document.getElementById('pamelding');
+      if (!cta || !pamelding) { return; }
+
+      document.body.classList.add('has-sticky-cta');
+
+      var toggleVisibility = function(isVisible) {
+        cta.classList.toggle('is-hidden', Boolean(isVisible));
+      };
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            toggleVisibility(entry.isIntersecting);
+          });
+        }, { threshold: 0.3 });
+        observer.observe(pamelding);
+      } else {
+        var checkVisibility = function() {
+          var rect = pamelding.getBoundingClientRect();
+          var viewport = window.innerHeight || document.documentElement.clientHeight;
+          toggleVisibility(rect.top < viewport && rect.bottom > 0);
+        };
+        window.addEventListener('scroll', checkVisibility, { passive: true });
+        checkVisibility();
+      }
+    })();
+  </script>
 </body>
 </html>
