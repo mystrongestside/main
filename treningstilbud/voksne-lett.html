@@ -123,6 +123,44 @@
       overflow-y: auto;
     }
   }
+
+  .price-highlight {
+    background: #eef6fb;
+    border: 2px solid #105277;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .price-highlight__heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #105277;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-highlight__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.75rem;
+    font-weight: 600;
+    color: #0f3252;
+  }
+
+  .price-highlight__item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 0.75rem;
+    border: 1px solid #d7e6ef;
+  }
+
+  .price-highlight__item span {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #526b7d;
+  }
    .section--gallery h3 {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -214,6 +252,19 @@
 
       <div class="info-card__section">
         <h3>Nyttig informasjon</h3>
+        <div class="price-highlight" aria-live="polite">
+          <p class="price-highlight__heading">Pris per økt</p>
+          <div class="price-highlight__grid">
+            <div class="price-highlight__item">
+              200 kr
+              <span>Medlem</span>
+            </div>
+            <div class="price-highlight__item">
+              300 kr
+              <span>Ikke medlem</span>
+            </div>
+          </div>
+        </div>
 
         <ul class="info-list">
 
