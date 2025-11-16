@@ -3039,5 +3039,10 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
   font-size: 0.9rem;
 }
 
+/* Hide the discount code toggle/section in embedded Checkin registration widgets */
+#checkin_registration [class*="coupon--section"] {
+  display: none !important;
+}
+
  
 
