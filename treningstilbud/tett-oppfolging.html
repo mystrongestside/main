@@ -12,6 +12,98 @@
   <style>
     /* --- Tillegg: farge for 'åpen for påmelding'-bånd --- */
     .ribbon--open { background-color: #3cb371; }
+
+    .price-highlight {
+      background: #eef6fb;
+      border: 2px solid #105277;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .price-highlight__heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #105277;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-highlight__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.75rem;
+      font-weight: 600;
+      color: #0f3252;
+    }
+
+    .price-highlight__item {
+      background: #fff;
+      border-radius: 10px;
+      padding: 0.75rem;
+      border: 1px solid #d7e6ef;
+    }
+
+    .price-highlight__item span {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #526b7d;
+    }
+
+    .sticky-signup-bar {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background: rgba(16, 82, 119, 0.97);
+      color: #fff;
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 1rem;
+      gap: 0.75rem;
+      box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.18);
+      z-index: 999;
+    }
+
+    .sticky-signup-bar__price {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.95rem;
+      line-height: 1.3;
+    }
+
+    .sticky-signup-bar__price strong {
+      font-size: 1.05rem;
+    }
+
+    .sticky-signup-bar__button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.65rem 1.5rem;
+      background: #f77c37;
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      min-width: 140px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 90px;
+      }
+
+      .sticky-signup-bar {
+        display: flex;
+      }
+
+      .price-highlight {
+        text-align: left;
+      }
+    }
   </style>
 </head>
 
@@ -106,6 +198,19 @@ for å sikre at treningen og veiledningen holder høy faglig kvalitet.
 <aside class="info-card">
   <div class="info-card__section">
     <h3>Nyttig informasjon</h3>
+    <div class="price-highlight" aria-live="polite">
+      <p class="price-highlight__heading">Pris per økt</p>
+      <div class="price-highlight__grid">
+        <div class="price-highlight__item">
+          400 kr
+          <span>CPV-medlem</span>
+        </div>
+        <div class="price-highlight__item">
+          600 kr
+          <span>Ikke medlem</span>
+        </div>
+      </div>
+    </div>
     <ul class="info-list">
       <li>
         <span class="icon"><img src="../icons/price.svg" alt="Pris ikon"></span>
@@ -211,7 +316,14 @@ for å sikre at treningen og veiledningen holder høy faglig kvalitet.
 <section class="hero-image-block">
   <!-- Plassholder for bilde -->
 </section>
-  </main>
+</main>
+<div class="sticky-signup-bar" aria-label="Påmelding og pris">
+  <div class="sticky-signup-bar__price">
+    <strong>400 kr / 600 kr</strong>
+    <span>CPV-medlem / ikke medlem</span>
+  </div>
+  <a class="sticky-signup-bar__button" href="#checkin_registration">Meld deg på</a>
+</div>
 <script src="../script.js" defer></script>
 <div id="myss-footer"></div>
 <script>
