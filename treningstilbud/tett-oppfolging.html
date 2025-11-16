@@ -51,6 +51,62 @@
       color: #526b7d;
     }
 
+    .info-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin: 0 0 1.5rem;
+    }
+
+    .info-summary__item {
+      background: #f7fafc;
+      border: 1px solid #d7e6ef;
+      border-radius: 10px;
+      padding: 0.85rem;
+    }
+
+    .info-summary__label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #3c5264;
+      margin-bottom: 0.2rem;
+    }
+
+    .info-summary__value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f3252;
+      margin: 0;
+    }
+
+    .info-summary__meta {
+      font-size: 0.9rem;
+      color: #526b7d;
+      margin: 0.15rem 0 0;
+    }
+
+    .info-card__group {
+      margin-bottom: 1.25rem;
+    }
+
+    .info-card__group h4 {
+      font-size: 1rem;
+      color: #0f3252;
+      margin-bottom: 0.35rem;
+    }
+
+    .date-list--grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.35rem 0.75rem;
+    }
+
+    .date-list--grid li {
+      margin: 0;
+    }
+
     .session-agenda {
       list-style: none;
       margin: 0.5rem 0 0;
@@ -245,44 +301,51 @@ for å sikre at treningen og veiledningen holder høy faglig kvalitet.
         </div>
       </div>
     </div>
-    <ul class="info-list">
-      <li>
-        <span class="icon"><img src="../icons/price.svg" alt="Pris ikon"></span>
-        <div class="info-content"><strong>Pris:</strong> 400 kr for medlemmer / 600 kr for ikke-medlemmer</div>
-      </li>
-      <li>
-        <span class="icon"><img src="../icons/place.svg" alt="Sted ikon"></span>
-        <div class="info-content"><strong>Sted:</strong> Trene Sammen Fantoft, Fantoftvegen 14, Bergen</div>
-      </li>
-      <li>
-        <span class="icon"><img src="../icons/calendar.svg" alt="Kalender ikon"></span>
-        <div class="info-content">
-          <strong>Periode:</strong> Hele sesongen<br><br>
-          <ul class="date-list">
-            <li>Torsdag 18. september 2025</li>
-            <li>Torsdag 2. oktober 2025</li>
-            <li>Torsdag 16. oktober 2025</li>
-            <li>Torsdag 30. oktober 2025</li>
-            <li>Torsdag 13. november 2025</li>
-            <li>Torsdag 27. november 2025</li>
-            <li>Torsdag 11. desember 2025</li>
-            <li>Torsdag 8. januar 2026</li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <span class="icon"><img src="../icons/clock.svg" alt="Tid ikon"></span>
-        <div class="info-content">
-          <strong>Tid:</strong> 16:30 – 17:30<br>
-          <strong>Oppmøte:</strong> kl. 16:15
-          <ul class="session-agenda" aria-label="Innhold i økten">
-            <li>Felles oppvarming</li>
-            <li>Individuelt tilpasset trening</li>
-            <li>Felles nedtrapping</li>
-          </ul>
-        </div>
-      </li>
-    </ul>
+    <div class="info-summary" aria-label="Oppsummering av kursinformasjon">
+      <div class="info-summary__item">
+        <p class="info-summary__label">Sted</p>
+        <p class="info-summary__value">Trene Sammen Fantoft</p>
+        <p class="info-summary__meta">Fantoftvegen 14, Bergen</p>
+      </div>
+      <div class="info-summary__item">
+        <p class="info-summary__label">Tid</p>
+        <p class="info-summary__value">16:30 – 17:30</p>
+        <p class="info-summary__meta">Oppmøte kl. 16:15</p>
+      </div>
+      <div class="info-summary__item">
+        <p class="info-summary__label">Sesong</p>
+        <p class="info-summary__value">Sep 2025 – Jan 2026</p>
+        <p class="info-summary__meta">Torsdager annenhver uke</p>
+      </div>
+      <div class="info-summary__item">
+        <p class="info-summary__label">Gruppestørrelse</p>
+        <p class="info-summary__value">Maks 8 deltakere</p>
+        <p class="info-summary__meta">Fast instruktørteam</p>
+      </div>
+    </div>
+
+    <div class="info-card__group">
+      <h4>Datoer denne sesongen</h4>
+      <ol class="date-list date-list--grid">
+        <li>Torsdag 18. september 2025</li>
+        <li>Torsdag 2. oktober 2025</li>
+        <li>Torsdag 16. oktober 2025</li>
+        <li>Torsdag 30. oktober 2025</li>
+        <li>Torsdag 13. november 2025</li>
+        <li>Torsdag 27. november 2025</li>
+        <li>Torsdag 11. desember 2025</li>
+        <li>Torsdag 8. januar 2026</li>
+      </ol>
+    </div>
+
+    <div class="info-card__group">
+      <h4>Oppbygging av økten</h4>
+      <ul class="session-agenda" aria-label="Innhold i økten">
+        <li>Felles oppvarming</li>
+        <li>Individuelt tilpasset trening</li>
+        <li>Felles nedtrapping</li>
+      </ul>
+    </div>
   </div>
 
   <div class="info-card__section">
