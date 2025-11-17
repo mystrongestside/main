@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="../styles.css?v=41">
 
   <style>
-    /* --- Grunnstil for undertilbud --- */
     .ribbon--open { background-color: #3cb371; }
     .dot { position: static !important; margin-left: 0.1em; }
 
@@ -24,7 +23,96 @@
       .hero__content { max-width: 92%; }
     }
 
-    /* --- Info-summary (samme som tett oppfølging) --- */
+    /* Checkin-stil */
+    #checkin_registration {
+      background: #fff !important;
+      padding: 2rem !important;
+      border-radius: 12px;
+      border: 2px solid #105277;
+      color: #24344d !important;
+      font-family: "Inter", Arial, sans-serif !important;
+      margin: 1.5rem 0 !important;
+    }
+
+    #checkin_registration * {
+      color: #24344d !important;
+      font-family: inherit !important;
+    }
+
+    #checkin_registration .ticket--amount--button {
+      align-items: center;
+      background: #ffffff !important;
+      border: 2px solid #105277 !important;
+      border-radius: 10px !important;
+      color: #105277 !important;
+      display: inline-flex;
+      font-weight: 600;
+      height: 40px;
+      justify-content: center;
+      padding: 0 !important;
+      transition: background 0.2s ease, color 0.2s ease;
+      width: 40px;
+    }
+
+    #checkin_registration .ticket--amount--button span {
+      display: none !important;
+    }
+
+    #checkin_registration .ticket--amount--button::after {
+      color: #105277;
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    #checkin_registration .ticket--amount--button.plus::after {
+      content: "+";
+    }
+
+    #checkin_registration .ticket--amount--button.minus::after {
+      content: "–";
+    }
+
+    #checkin_registration .ticket--amount--button.btn-disabled {
+      border-color: rgba(16, 82, 119, 0.35) !important;
+      color: rgba(16, 82, 119, 0.35) !important;
+    }
+
+    #checkin_registration .coupon--section--activate,
+    #checkin_registration .btn.nextButton {
+      background: #ffffff !important;
+      border: 2px solid #105277 !important;
+      border-radius: 12px !important;
+      color: #105277 !important;
+      font-weight: 600;
+      padding: 0.9rem 1.5rem !important;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    #checkin_registration .btn.nextButton[disabled] {
+      opacity: 0.6;
+    }
+
+    #checkin_registration .btn.nextButton svg path,
+    #checkin_registration .btn.nextButton svg circle {
+      stroke: #105277 !important;
+      fill: #105277 !important;
+    }
+
+    .signup {
+      padding: 2rem 1.5rem !important;
+      background: #105277;
+      border-radius: 12px;
+      color: #fff;
+    }
+
+    @media (max-width: 720px) {
+      .info-card {
+        max-height: 1200px;
+        overflow-y: auto;
+      }
+    }
+
+    /* Info-summary */
     .info-summary {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
@@ -55,7 +143,7 @@
       color: #526b7d;
     }
 
-    /* --- Pris-blokk --- */
+    /* Pris-blokk */
     .price-highlight {
       background: #eef6fb;
       border: 2px solid #105277;
@@ -94,7 +182,7 @@
       color: #526b7d;
     }
 
-    /* --- Datoer i grid --- */
+    /* Dato-grid */
     .date-list--grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
@@ -103,7 +191,7 @@
     }
     .date-list--grid li { margin: 0; }
 
-    /* --- Agenda --- */
+    /* Agenda */
     .session-agenda {
       list-style: none;
       margin: .5rem 0 0;
@@ -127,7 +215,7 @@
       flex-shrink: 0;
     }
 
-    /* --- Sticky signup bar --- */
+    /* Sticky signup bar */
     .sticky-signup-bar {
       position: fixed;
       left: 0; bottom: 0;
@@ -167,7 +255,7 @@
       pointer-events: none;
     }
 
-    /* --- Galleri (3 bilder) --- */
+    /* Galleri (3 bilder) */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
@@ -195,7 +283,7 @@
   <div class="container hero__content">
     <h1>Gruppetilbud for personer med lett funksjonsvariasjon<span class="dot">.</span></h1>
     <p style="max-width:650px;margin:1rem auto 0;font-size:1.15rem;color:#24344d;">
-      Et trygt, sosialt og inkluderende treningstilbud for deg som trener selvstendig, men ønsker støtte, teknikk og faglig veiledning.
+      Et trygt, sosialt og inkluderende treningstilbud for deg med lett funksjonsvariasjon som ønsker å trene styrke på egne premisser – med veiledere i nærheten når du trenger det.
     </p>
   </div>
 </section>
@@ -212,145 +300,198 @@
 </div>
 
 <section class="section">
-<div class="container two-column">
+  <div class="container two-column">
 
-<article class="surface-card stack">
+    <article class="surface-card stack">
 
-<h2>Kurs: Styrketrening for voksne med lett funksjonsvariasjon</h2>
+      <h2>Kurs: Styrketrening for voksne med lett funksjonsvariasjon</h2>
 
-<h3>Hvem passer kurset for?</h3>
-<p>
-Dette kurset passer for deg som trener selvstendig, men ønsker trygghet, teknikk, støtte og en sosial arena der du kan være deg selv.
-Vi legger vekt på mestring, ro og god oppfølging – uten prestasjonskrav.
-</p>
+      <h3>Hvem passer kurset for?</h3>
+      <p>
+        Kurset passer for voksne med lett funksjonsvariasjon som enten allerede trener på treningssenter,
+        eller som har lyst til å komme i gang, men kjenner at terskelen er litt høy alene.
+      </p>
+      <p>
+        Noen deltakere har cerebral parese, andre har ulike nevrologiske eller muskel- og skjelettrelaterte utfordringer.
+        Fellesnevneren er ønsket om å trene i et miljø der det er lov å spørre, prøve seg frem og ta ting i eget tempo.
+      </p>
 
-<h3>Hva</h3>
-<p>
-Du får en oversiktlig og trygg treningsopplevelse, med fokus på god teknikk, skadeforebygging og styrkeøkning på ditt nivå.
-</p>
+      <h3>Hva</h3>
+      <p>
+        Kurset gir deg faste rammer rundt treningen, med fokus på god teknikk, tilpasning og trygg progresjon.
+        Vi jobber med grunnleggende styrkeøvelser, balanse og bevegelighet, og ser på hvordan apparater og øvelser kan
+        tilpasses slik at de fungerer for deg – ikke motsatt.
+      </p>
 
-<h3>Hvordan</h3>
-<p>
-Vi trener på <strong>Trene Sammen Fantoft</strong> i små grupper. Et fast team fra <strong>HVL</strong> og frivillige gir støtte, tilpasninger og kontinuitet i hver økt.
-</p>
+      <h3>Hvordan</h3>
+      <p>
+        Vi møtes annenhver torsdag på <strong>Trene Sammen Fantoft</strong>. Hver økt varer omtrent 60 minutter.
+        Veilederne er frivillige <strong>fysioterapi- og ergoterapistudenter fra Høgskulen på Vestlandet (HVL)</strong>,
+        som får opplæring gjennom My Strongest Side før de går inn i rollen som instruktører.
+      </p>
+      <p>
+        Studentene er til stede ute på gulvet hele tiden, følger med, svarer på spørsmål og hjelper deg med å finne gode
+        løsninger – enten du trener i apparater, med frivekter eller trenger små justeringer for at en øvelse skal kjennes trygg.
+        I tillegg er <strong>Alexander Sviggum</strong>, ergoterapeut, likeperson og styrkeløfter med CP, ofte til stede i salen
+        for å bidra med ekstra tilpasninger og erfaring fra eget liv.
+      </p>
 
-<h3>Gjennom kurset får du</h3>
-<ul>
-  <li>Faste veiledere som kjenner deg og dine behov</li>
-  <li>Tilpassede øvelser og god tid til å lære teknikk</li>
-  <li>Trygg utforsking av apparater og hjelpemidler</li>
-  <li>Konkrete råd som gjør treningen mer forutsigbar</li>
-</ul>
+      <h3>Gjennom kurset får du</h3>
+      <ul>
+        <li>Faste veiledere som blir kjent med deg og dine mål</li>
+        <li>Tilpassede øvelser med fokus på trygg teknikk og små, realistiske steg</li>
+        <li>Mulighet til å utforske apparater, hjelpemidler og alternative løsninger i rolige omgivelser</li>
+        <li>Et sosialt treningsmiljø med plass til både prat, pauser og konsentrert trening</li>
+        <li>Mer trygghet til å trene på egen hånd mellom øktene</li>
+      </ul>
 
-<!-- FAGLIG GRUNNLAG -->
-<section class="section">
-  <div class="container surface-card stack">
-    <div class="icon-header">
-      <img src="../icons/icon-faglig.svg" alt="Faglig ikon" class="icon-faglig">
-      <h3>Faglig grunnlag</h3>
-    </div>
-    <p>
-      Tilbudet bygger på anbefalinger fra <strong>NorCP</strong> og fagmiljøer innen nevrologi og rehabilitering,
-      kombinert med erfaring og metode fra My Strongest Side® sitt arbeid med tilrettelegging i styrketrening.
-    </p>
+      <h3>Hvorfor dette tilbudet finnes</h3>
+      <p>
+        Som barn og ungdom med cerebral parese fikk Alexander ofte høre at «trening er for alle». I praksis opplevde han noe annet:
+        fotballbaner, treningssentre og treningsapparater var sjelden laget med hans kropp i tankene. Mange øvelser forutsatte at man
+        kunne bevege seg uten begrensninger, og det var få som visste hvordan de kunne tilrettelegge.
+      </p>
+      <p>
+        Takket være en trener og støttekontakt som så muligheter, fikk han likevel oppleve mestring gjennom snowboard, boksing og
+        styrketrening. Det gjorde noe med både selvtilliten, helsen og følelsen av å høre til. Senere utdannet Alexander seg til ergoterapeut
+        og ble engasjert som likeperson. I møte med andre med funksjonsvariasjon så han de samme barrierene igjen og igjen.
+      </p>
+      <p>
+        My Strongest Side ble startet for å gjøre noe konkret med dette. Målet er ikke særbehandling, men like muligheter: at flere skal få
+        tilgang til vanlige treningssentre, med små, smarte tilpasninger. Dette kurset er ett av tiltakene som skal gjøre veien inn i
+        ordinære treningsmiljøer kortere, tryggere og mer forutsigbar – både for deg som deltaker, og for dem som veileder.
+      </p>
+
+      <section class="section">
+        <div class="container surface-card stack">
+          <div class="icon-header">
+            <img src="../icons/icon-faglig.svg" alt="Faglig ikon" class="icon-faglig">
+            <h3>Faglig grunnlag</h3>
+          </div>
+          <p>
+            Tilbudet bygger på anbefalinger fra <strong>Norsk kvalitets- og oppfølgingsregister for cerebral parese (NorCP)</strong>
+            og fagmiljøer innen nevrologi og rehabilitering. Som ergoterapeut og likeperson har Alexander et særlig blikk for hvordan
+            små justeringer i omgivelser, utstyr og aktivitet kan gi stor effekt for mestring og deltakelse.
+          </p>
+          <p>
+            Studentene fra HVL får veiledning og faglig støtte gjennom My Strongest Side før og underveis i kurset.
+            På den måten styrker vi både kvaliteten på tilbudet til deg som deltaker, og kompetansen til fremtidige fagpersoner som
+            skal møte personer med funksjonsvariasjon i sine yrker.
+          </p>
+        </div>
+      </section>
+
+    </article>
+
+    <aside class="info-card">
+
+      <div class="info-card__section">
+        <h3>Nyttig informasjon</h3>
+
+        <div class="price-highlight" aria-live="polite">
+          <p class="price-highlight__heading">Pris per økt</p>
+          <div class="price-highlight__grid">
+            <div class="price-highlight__item">
+              200 kr
+              <span>Medlem</span>
+            </div>
+            <div class="price-highlight__item">
+              300 kr
+              <span>Ikke medlem</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-summary" aria-label="Oppsummering av kursinformasjon">
+          <div class="info-summary__item">
+            <p class="info-summary__label">Sted</p>
+            <p class="info-summary__value">Trene Sammen Fantoft</p>
+            <p class="info-summary__meta">Fantoftvegen 14, Bergen</p>
+          </div>
+          <div class="info-summary__item">
+            <p class="info-summary__label">Tid</p>
+            <p class="info-summary__value">17:45–18:45</p>
+            <p class="info-summary__meta">Oppmøte kl. 17:30</p>
+          </div>
+          <div class="info-summary__item">
+            <p class="info-summary__label">Sesong</p>
+            <p class="info-summary__value">Sep 2025 – Jan 2026</p>
+            <p class="info-summary__meta">Torsdager annenhver uke</p>
+          </div>
+          <div class="info-summary__item">
+            <p class="info-summary__label">Gruppestørrelse</p>
+            <p class="info-summary__value">Maks 8 deltakere</p>
+            <p class="info-summary__meta">Fast instruktørteam</p>
+          </div>
+        </div>
+
+        <div class="info-card__group">
+          <h4>Datoer denne sesongen</h4>
+          <ol class="date-list date-list--grid">
+            <li>Torsdag 25. september 2025</li>
+            <li>Torsdag 9. oktober 2025</li>
+            <li>Torsdag 23. oktober 2025</li>
+            <li>Torsdag 6. november 2025</li>
+            <li>Torsdag 20. november 2025</li>
+            <li>Torsdag 4. desember 2025</li>
+            <li>Torsdag 15. januar 2026</li>
+            <li>Torsdag 29. januar 2026</li>
+          </ol>
+        </div>
+
+        <div class="info-card__group">
+          <h4>Oppbygging av økten</h4>
+          <ul class="session-agenda" aria-label="Innhold i økten">
+            <li>Felles oppvarming</li>
+            <li>Tilpasset styrketrening</li>
+            <li>Rolig nedtrapping</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="info-card__section">
+        <h3>Tilgjengelighet og praktisk info</h3>
+        <ul class="info-list">
+          <li>
+            <span class="icon"><img src="../icons/wheelchair.svg" alt="Tilgjengelighet ikon"></span>
+            <div class="info-content">Universell utforming, heis og HC-toalett</div>
+          </li>
+          <li>
+            <span class="icon"><img src="../icons/bus.svg" alt="Transport ikon"></span>
+            <div class="info-content">Buss 2 og 3 – holdeplass Fantoft Studentby</div>
+          </li>
+          <li>
+            <span class="icon"><img src="../icons/parking.svg" alt="Parkering ikon"></span>
+            <div class="info-content">HC-parkering: 3 plasser i området rundt MENY Fantoft</div>
+          </li>
+          <li>
+            <span class="icon"><img src="../icons/map.svg" alt="Kart ikon"></span>
+            <div class="info-content">
+              <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" target="_blank" rel="noopener">
+                Se kart
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="signup">
+        <h3>Meld deg på</h3>
+        <p>Plasser er fordelt denne sesongen, men du kan sikre plass til neste sesong via påmeldingsskjemaet.</p>
+
+        <div id="checkin_registration"></div>
+        <script src="https://registration.checkin.no/registration.loader.js"
+                data-event-id="155377"
+                data-theme="light"
+                data-primary-color="#105277"
+                data-secondary-color="#f77c37"
+                async></script>
+      </div>
+
+    </aside>
+
   </div>
-</section>
-
-</article>
-
-<!-- SIDEINFO -->
-<aside class="info-card">
-
-<div class="info-card__section">
-  <h3>Nyttig informasjon</h3>
-
-  <div class="price-highlight">
-    <p class="price-highlight__heading">Pris per økt</p>
-    <div class="price-highlight__grid">
-      <div class="price-highlight__item">200 kr <span>Medlem</span></div>
-      <div class="price-highlight__item">300 kr <span>Ikke medlem</span></div>
-    </div>
-  </div>
-
-  <!-- Info-summary -->
-  <div class="info-summary">
-    <div class="info-summary__item">
-      <p class="info-summary__label">Sted</p>
-      <p class="info-summary__value">Trene Sammen Fantoft</p>
-      <p class="info-summary__meta">Fantoftvegen 14</p>
-    </div>
-    <div class="info-summary__item">
-      <p class="info-summary__label">Tid</p>
-      <p class="info-summary__value">17:45–18:45</p>
-      <p class="info-summary__meta">Oppmøte kl. 17:30</p>
-    </div>
-    <div class="info-summary__item">
-      <p class="info-summary__label">Sesong</p>
-      <p class="info-summary__value">Sep 2025 – Jan 2026</p>
-      <p class="info-summary__meta">Annenhver torsdag</p>
-    </div>
-    <div class="info-summary__item">
-      <p class="info-summary__label">Gruppestørrelse</p>
-      <p class="info-summary__value">Maks 8</p>
-      <p class="info-summary__meta">Fast instruktørteam</p>
-    </div>
-  </div>
-
-  <!-- Datoer -->
-  <div class="info-card__group">
-    <h4>Datoer denne sesongen</h4>
-    <ol class="date-list date-list--grid">
-      <li>Torsdag 25. september 2025</li>
-      <li>Torsdag 9. oktober 2025</li>
-      <li>Torsdag 23. oktober 2025</li>
-      <li>Torsdag 6. november 2025</li>
-      <li>Torsdag 20. november 2025</li>
-      <li>Torsdag 4. desember 2025</li>
-      <li>Torsdag 15. januar 2026</li>
-      <li>Torsdag 29. januar 2026</li>
-    </ol>
-  </div>
-
-  <!-- Agenda -->
-  <div class="info-card__group">
-    <h4>Oppbygging av økten</h4>
-    <ul class="session-agenda">
-      <li>Felles oppvarming</li>
-      <li>Tilpasset styrketrening</li>
-      <li>Nedtrapping</li>
-    </ul>
-  </div>
-
-</div>
-
-<!-- Tilgjengelighet -->
-<div class="info-card__section">
-  <h3>Tilgjengelighet og praktisk info</h3>
-  <ul class="info-list">
-    <li><span class="icon"><img src="../icons/wheelchair.svg"></span><div class="info-content">Universell utforming og HC-toalett</div></li>
-    <li><span class="icon"><img src="../icons/bus.svg"></span><div class="info-content">Buss 2 / 3 – Fantoft Studentby</div></li>
-    <li><span class="icon"><img src="../icons/parking.svg"></span><div class="info-content">HC-parkering: 3 plasser</div></li>
-    <li><span class="icon"><img src="../icons/map.svg"></span><div class="info-content"><a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" target="_blank">Se kart</a></div></li>
-  </ul>
-</div>
-
-<!-- CHECKIN -->
-<div class="signup">
-  <h3>Meld deg på</h3>
-  <p>Plasser er fordelt denne sesongen, men du kan sikre plass til neste.</p>
-
-  <div id="checkin_registration"></div>
-  <script src="https://registration.checkin.no/registration.loader.js"
-          data-event-id="155377"
-          data-theme="light"
-          data-primary-color="#105277"
-          data-secondary-color="#f77c37"
-          async></script>
-</div>
-
-</aside>
-
-</div>
 </section>
 
 <!-- GALLERI (3 bilder) -->
@@ -358,9 +499,9 @@ Vi trener på <strong>Trene Sammen Fantoft</strong> i små grupper. Et fast team
   <div class="container">
     <h3 style="text-align:center;">Fra øktene våre<span class="dot">.</span></h3>
     <div class="gallery-grid">
-      <img src="../bilder/Benkpress.png" alt="">
-      <img src="../bilder/løfteteknikk2.png" alt="">
-      <img src="../bilder/løfteteknikk.png" alt="">
+      <img src="../bilder/Benkpress.png" alt="Deltaker som trener benkpress med veiledning">
+      <img src="../bilder/løfteteknikk2.png" alt="Tilpasset styrketrening i apparat">
+      <img src="../bilder/løfteteknikk.png" alt="Veileder som hjelper deltaker med løfteteknikk">
     </div>
   </div>
 </section>
@@ -370,16 +511,37 @@ Vi trener på <strong>Trene Sammen Fantoft</strong> i små grupper. Et fast team
   <div class="container surface-card stack">
     <h2>Ofte stilte spørsmål<span class="dot">.</span></h2>
 
-    <details><summary>Hva hvis jeg bruker hjelpemidler?</summary><p>Det går helt fint – lokalet er universelt utformet.</p></details>
-    <details><summary>Kan jeg ta med ledsager?</summary><p>Ja, ledsager er alltid velkommen uten ekstra kostnad.</p></details>
-    <details><summary>Hvordan tilpasses øvelsene?</summary><p>Instruktørene vurderer sammen med deg hva som fungerer best ut fra målsetting og behov.</p></details>
+    <details>
+      <summary>Hva hvis jeg bruker hjelpemidler?</summary>
+      <p>
+        Det går helt fint. Lokalet er universelt utformet med heis, trinnfri inngang og HC-toalett.
+        Vi tilpasser øvelser og apparater etter hjelpemidlene du bruker, og finner løsninger sammen med deg.
+      </p>
+    </details>
+
+    <details>
+      <summary>Kan jeg ta med ledsager eller BPA?</summary>
+      <p>
+        Ja. Ledsager, BPA eller verge er alltid velkommen uten ekstra kostnad.
+        Si gjerne ifra i påmeldingen, så vet vi hvem som kommer sammen med deg.
+      </p>
+    </details>
+
+    <details>
+      <summary>Hvordan tilpasses øvelsene?</summary>
+      <p>
+        Vi starter med en kort prat om hva du ønsker, hva som fungerer godt i dag og hva som er utfordrende.
+        Deretter prøver vi oss frem i praksis, gjør små justeringer og evaluerer underveis.
+        Målet er at du skal kjenne deg trygg og oppleve mestring gjennom hele økten.
+      </p>
+    </details>
   </div>
 </section>
 
 </main>
 
 <!-- Sticky signup -->
-<div class="sticky-signup-bar">
+<div class="sticky-signup-bar" aria-label="Påmelding og pris">
   <div class="sticky-signup-bar__price">
     <strong>200 kr / 300 kr</strong>
     <span>Medlem / ikke medlem</span>
@@ -387,48 +549,79 @@ Vi trener på <strong>Trene Sammen Fantoft</strong> i små grupper. Et fast team
   <a class="sticky-signup-bar__button" href="#checkin_registration">Meld deg på</a>
 </div>
 
-<!-- Sticky logikk -->
 <script>
-(function(){
-  var stickyBar = document.querySelector('.sticky-signup-bar');
-  var registration = document.getElementById('checkin_registration');
+  // Skjul datoer som har vært
+  document.addEventListener("DOMContentLoaded", function() {
+    const monthMap = {
+      "januar":0,"februar":1,"mars":2,"april":3,"mai":4,"juni":5,"juli":6,
+      "august":7,"september":8,"oktober":9,"november":10,"desember":11
+    };
+    const today = new Date();
+    today.setHours(0,0,0,0);
 
-  if (!('IntersectionObserver' in window) || !stickyBar || !registration) return;
-
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      stickyBar.classList.toggle('is-hidden', entry.isIntersecting);
+    document.querySelectorAll(".date-list li").forEach(li => {
+      const t = li.textContent.trim().split(" ");
+      const d = new Date(parseInt(t[3]), monthMap[t[2]], parseInt(t[1]));
+      if (d < today) li.style.display = "none";
     });
-  }, { threshold: 0.1 });
+  });
 
-  observer.observe(registration);
-})();
+  // Sticky-bar logikk
+  (function(){
+    var stickyBar = document.querySelector('.sticky-signup-bar');
+    var registration = document.getElementById('checkin_registration');
+
+    if (!('IntersectionObserver' in window) || !stickyBar || !registration) return;
+
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        stickyBar.classList.toggle('is-hidden', entry.isIntersecting);
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(registration);
+  })();
 </script>
 
 <!-- FOOTER + PREFIX -->
 <div id="myss-footer"></div>
 <script>
 (function(){
-  var prefix = window.MYSS_PREFIX || window.__prefix || "";
-  if (!prefix) prefix = location.pathname.includes("/treningstilbud/") ? "../" : "";
-  window.MYSS_PREFIX = prefix; window.__prefix = prefix;
+  var prefix = (typeof window.MYSS_PREFIX !== "undefined")
+    ? window.MYSS_PREFIX
+    : (window.__prefix || "");
+
+  if (!prefix) {
+    prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
+  }
+
+  window.MYSS_PREFIX = prefix;
+  window.__prefix = prefix;
 
   var target = document.getElementById("myss-footer");
-  fetch(prefix + "partials/footer.html", {cache:"no-cache"})
-    .then(r=>r.text()).then(html=>{
+  if (!target) return;
+
+  fetch(prefix + "partials/footer.html", { cache: "no-cache" })
+    .then(function(r){ return r.text(); })
+    .then(function(html){
       target.innerHTML = html;
-      target.querySelectorAll('img[src*="${prefix}"]').forEach(img=>{
-        img.src = img.src.replace("${prefix}", prefix);
+
+      target.querySelectorAll('img').forEach(function(img){
+        var raw = img.getAttribute("src");
+        if (raw && raw.includes("${prefix}")) {
+          img.setAttribute("src", raw.replace("${prefix}", prefix));
+        }
       });
     })
-    .catch(()=>{
-      target.innerHTML = '<footer class="myss-footer">Fallback footer</footer>';
+    .catch(function(){
+      target.innerHTML =
+        '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="' + prefix + 'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
     });
 })();
 </script>
 
-<script src="../marquee-guard.js?v=36" defer></script>
 <script src="../script.js?v=42" defer></script>
+<script src="../marquee-guard.js?v=36" defer></script>
 
 </body>
 </html>
