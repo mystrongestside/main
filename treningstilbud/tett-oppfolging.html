@@ -168,20 +168,25 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      padding: 0.85rem 1.25rem;
+      width: min(320px, 100%);
+      padding: 0.7rem 1.75rem;
       background: #f77c37;
       color: #fff;
-      border-radius: 14px;
+      border-radius: 999px;
       font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.02em;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       text-decoration: none;
       min-width: 0;
-      flex: 1;
+      align-self: center;
       transition: background-color 0.2s ease, transform 0.2s ease;
       box-shadow: 0 6px 16px rgba(247, 124, 55, 0.35);
+      text-align: center;
+    }
+
+    .sticky-signup-bar__button span {
+      display: inline-block;
     }
 
     .sticky-signup-bar__button:hover,
