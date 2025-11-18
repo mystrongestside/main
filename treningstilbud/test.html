@@ -18,6 +18,18 @@
       margin: 0 auto;
       text-align: center;
     }
+    .hero__tagline {
+      font-size: 1rem;
+      margin-top: .65rem;
+      color: #105277;
+      font-weight: 600;
+    }
+    .section-divider {
+      border: 0;
+      border-top: 1px solid #d7e6ef;
+      margin: 2rem auto;
+      width: min(760px, 100%);
+    }
 
     @media (max-width: 720px) {
       .hero--simple { padding: 2.5rem 0 1.5rem !important; }
@@ -261,6 +273,10 @@
     }
 
     /* Galleri (3 bilder) */
+    .section--gallery h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
@@ -303,10 +319,12 @@
 <!-- HERO -->
 <section class="hero hero--simple">
   <div class="container hero__content">
-    <h1 data-scroll-fade>Gruppetilbud for personer med lett funksjonsvariasjon<span class="dot">.</span></h1>
+    <h1 data-scroll-fade>Gruppetilbud for personer med lett funksjonsvariasjon</h1>
     <p data-scroll-fade style="max-width:650px;margin:1rem auto 0;font-size:1.15rem;color:#24344d;">
-      Et trygt, sosialt og inkluderende treningstilbud for deg med lett funksjonsvariasjon som ønsker å trene styrke på egne premisser – med veiledere i nærheten når du trenger det.
+      Et trygt og sosialt treningstilbud for deg med lett funksjonsvariasjon som vil trene styrke på egne premisser –
+      med veiledere tett på når du trenger det.
     </p>
+    <p class="hero__tagline" data-scroll-fade>Tilrettelagt. Trygt. Inkluderende.</p>
   </div>
 </section>
 
@@ -326,6 +344,10 @@
   </div>
 </div>
 
+<div class="container" aria-hidden="true">
+  <hr class="section-divider">
+</div>
+
 <section class="section">
   <div class="container two-column">
 
@@ -334,106 +356,57 @@
       <h2 data-scroll-fade>Kurs: Styrketrening for voksne med lett funksjonsvariasjon</h2>
 
       <h3 data-scroll-fade>Hvem passer kurset for?</h3>
-      <p data-scroll-fade>
-        Kurset passer for voksne med lett funksjonsvariasjon som enten allerede trener på treningssenter,
-        eller som har lyst til å komme i gang, men kjenner at terskelen er litt høy alene.
-      </p>
-      <p data-scroll-fade>
-        Noen deltakere har cerebral parese, andre har ulike nevrologiske eller muskel- og skjelettrelaterte utfordringer.
-        Fellesnevneren er ønsket om å trene i et miljø der det er lov å spørre, prøve seg frem og ta ting i eget tempo.
-      </p>
+      <p data-scroll-fade>Kurset er for voksne med lett funksjonsvariasjon som enten allerede trener på treningssenter, eller som har lyst til å komme i gang, men synes terskelen er høy alene.</p>
+      <p data-scroll-fade>Noen har cerebral parese, andre har nevrologiske eller muskel- og skjelettrelaterte utfordringer – felles er ønsket om et rolig, tilrettelagt miljø.</p>
 
       <h3 data-scroll-fade>Hva</h3>
-      <p data-scroll-fade>
-        Kurset gir deg faste rammer rundt treningen, med fokus på god teknikk, tilpasning og trygg progresjon.
-        Vi jobber med grunnleggende styrkeøvelser, balanse og bevegelighet, og ser på hvordan apparater og øvelser kan
-        tilpasses slik at de fungerer for deg – ikke motsatt.
-      </p>
+      <p data-scroll-fade>Vi jobber med grunnleggende styrkeøvelser, balanse og bevegelighet. Fokus er på trygg teknikk, små justeringer og å finne måter å trene på som fungerer for din kropp.</p>
 
       <h3 data-scroll-fade>Hvordan</h3>
-      <p data-scroll-fade>
-        Vi møtes annenhver torsdag på <strong>Trene Sammen Fantoft</strong>. Hver økt varer omtrent 60 minutter.
-        Veilederne er frivillige <strong>fysioterapi- og ergoterapistudenter fra Høgskulen på Vestlandet (HVL)</strong>,
-        som får opplæring gjennom My Strongest Side før de går inn i rollen som instruktører.
-      </p>
-      <p data-scroll-fade>
-        Studentene er til stede ute på gulvet hele tiden, følger med, svarer på spørsmål og hjelper deg med å finne gode
-        løsninger – enten du trener i apparater, med frivekter eller trenger små justeringer for at en øvelse skal kjennes trygg.
-        På enkelte økter vil du også møte <strong>Amir Azadollah</strong>, to ganger norgesmester i styrkeløft og på et høyt nivå
-        internasjonalt. Han bidrar med teknikkveiledning, justeringer og inspirasjon i grunnleggende styrkeøvelser.
-      </p>
-      <p data-scroll-fade>
-        <strong>Alexander Sviggum</strong>, ergoterapeut, likeperson og styrkeløfter med CP, er også ofte til stede i salen
-        for å bidra med tilpasninger, støtte og erfaring fra eget liv – både som fagperson og som deltaker i treningssenter-hverdagen.
-      </p>
+      <p data-scroll-fade>Vi møtes annenhver torsdag på <strong>Trene Sammen Fantoft</strong>. Hver økt varer ca. 60 minutter.</p>
+      <p data-scroll-fade>Veilederne er frivillige fysio- og ergoterapistudenter fra HVL som har fått opplæring gjennom My Strongest Side. De er til stede ute på gulvet hele tiden og hjelper deg med tilpasninger, spørsmål og justeringer.</p>
+      <p data-scroll-fade>På enkelte økter møter du også styrkeløfter <strong>Amir Azadollah (2x norgesmester)</strong>, som bidrar med teknikk og inspirasjon.</p>
+      <p data-scroll-fade><strong>Alexander Sviggum</strong>, ergoterapeut, likeperson og styrkeløfter med CP, er ofte til stede og bidrar med både faglig og personlig erfaring.</p>
 
       <h3 data-scroll-fade>Gjennom kurset får du</h3>
       <ul data-scroll-fade>
-        <li>Faste veiledere som blir kjent med deg, kroppen din og målene dine</li>
-        <li>Tilpassede øvelser med fokus på trygg teknikk og små, realistiske steg</li>
-        <li>Mulighet til å utforske apparater, hjelpemidler og alternative løsninger i rolige omgivelser</li>
-        <li>Inspirasjon og teknikkveiledning fra <strong>Amir Azadollah</strong>, to ganger norgesmester i styrkeløft, på utvalgte økter</li>
-        <li>Tilrettelegging og støtte fra <strong>Alexander Sviggum</strong>, ergoterapeut, likeperson og styrkeløfter med CP</li>
-        <li>Et sosialt treningsmiljø med plass til både prat, pauser og konsentrert trening</li>
+        <li>Faste veiledere som blir kjent med deg og målene dine</li>
+        <li>Tilpassede øvelser med fokus på trygg teknikk og realistisk progresjon</li>
+        <li>Mulighet til å teste apparater og hjelpemidler i rolige omgivelser</li>
+        <li>Veiledning og inspirasjon fra Amir på utvalgte økter</li>
+        <li>Tilrettelegging og støtte fra Alexander som ergoterapeut og likeperson</li>
+        <li>Et sosialt treningsmiljø med plass til både pauser, prat og konsentrert trening</li>
         <li>Mer trygghet til å trene på egen hånd mellom øktene</li>
       </ul>
 
+      <div aria-hidden="true">
+        <hr class="section-divider">
+      </div>
+
       <h3 data-scroll-fade>Hvorfor dette tilbudet finnes</h3>
-      <p data-scroll-fade>
-        My Strongest Side er startet av <strong>Alexander Sviggum</strong>, ergoterapeut, likeperson og styrkeløfter med cerebral parese.
-        Han har selv opplevd hvordan treningssentre, apparater og aktiviteter ofte ikke er laget for kropper som trenger litt ekstra tilrettelegging.
-      </p>
-      <p data-scroll-fade>
-        Gjennom My Strongest Side ønsker han å gjøre noe konkret med dette: senke terskelen inn i vanlige treningssentre, bygge opp trygghet og
-        vise at små justeringer kan gjøre stor forskjell for mestring, deltakelse og treningsglede.
-      </p>
+      <p data-scroll-fade>My Strongest Side er startet av Alexander Sviggum, ergoterapeut, likeperson og styrkeløfter med CP. Han har selv erfart at mange treningssentre og apparater ikke er laget for kropper som trenger ekstra tilrettelegging, og ville gjøre noe konkret med det.</p>
+      <p data-scroll-fade>Målet er å senke terskelen inn i vanlige treningssentre, bygge trygghet og vise hvordan små justeringer kan gi stor forskjell for mestring og treningsglede.</p>
 
-      <section class="section">
-        <div class="container surface-card stack" data-scroll-fade>
-          <div class="icon-header">
-            <img src="../icons/icon-faglig.svg" alt="Faglig ikon" class="icon-faglig">
-            <h3 data-scroll-fade>Faglig grunnlag</h3>
-          </div>
-          <p data-scroll-fade>
-            Tilbudet bygger på anbefalinger fra <strong>Norsk kvalitets- og oppfølgingsregister for cerebral parese (NorCP)</strong>
-            og fagmiljøer innen nevrologi og rehabilitering. Som ergoterapeut og likeperson har Alexander et særlig blikk for hvordan
-            små justeringer i omgivelser, utstyr og aktivitet kan gi stor effekt for mestring og deltakelse.
-          </p>
-          <p data-scroll-fade>
-            Studentene fra HVL får veiledning og faglig støtte gjennom My Strongest Side før og underveis i kurset.
-            På den måten styrker vi både kvaliteten på tilbudet til deg som deltaker, og kompetansen til fremtidige fagpersoner som
-            skal møte personer med funksjonsvariasjon i sine yrker.
-          </p>
-        </div>
-      </section>
+      <h3 data-scroll-fade>Faglig grunnlag</h3>
+      <p data-scroll-fade>Tilbudet tar utgangspunkt i anbefalinger fra fagmiljøer innen nevrologi og rehabilitering, blant annet NorCP.</p>
+      <p data-scroll-fade>Som ergoterapeut har Alexander et spesielt blikk for hvordan tilpasning av omgivelser, utstyr og aktivitet kan gjøre det lettere å delta. Studentene fra HVL får faglig veiledning før og under kurset, slik at både deltakerne og framtidige fagpersoner lærer mer om tilrettelegging.</p>
 
-      <section class="section">
-        <div class="container surface-card stack" data-scroll-fade>
-          <h3 data-scroll-fade>Om oss og min historie</h3>
-          <p data-scroll-fade>
-            My Strongest Side® er bygget på en kombinasjon av fagkunnskap og egne erfaringer med å leve med CP og
-            navigere i en treningshverdag som ikke alltid er tilrettelagt.
-          </p>
-          <p data-scroll-fade>
-            På en egen side vil Alexander fortelle mer om bakgrunnen for prosjektet, hvorfor trening ikke alltid oppleves som «for alle»,
-            og hvordan små justeringer kan åpne dørene til ordinære treningssentre for langt flere.
-          </p>
-        </div>
-      </section>
+      <h3 data-scroll-fade>Om oss</h3>
+      <p data-scroll-fade>My Strongest Side® bygger på en kombinasjon av fagkunnskap og egne erfaringer med å leve med CP og trene i miljøer som ikke alltid er tilrettelagt.</p>
 
     </article>
 
     <aside class="info-card">
 
       <div class="info-card__section" data-scroll-fade>
-        <h3 data-scroll-fade>Nyttig informasjon</h3>
+        <h2 data-scroll-fade>Nyttig informasjon</h2>
 
         <div class="price-highlight" aria-live="polite" data-scroll-fade>
           <p class="price-highlight__heading" data-scroll-fade>Pris for resten av sesongen</p>
           <div class="price-highlight__grid" data-scroll-fade>
             <div class="price-highlight__item">
               200 kr
-              <span>Medlem av Cp foreningen Vestland</span>
+              <span>Medlem av CP-foreningen Vestland</span>
             </div>
             <div class="price-highlight__item">
               300 kr
@@ -491,7 +464,7 @@
       </div>
 
       <div class="info-card__section" data-scroll-fade>
-        <h3 data-scroll-fade>Tilgjengelighet og praktisk info</h3>
+        <h2 data-scroll-fade>Tilgjengelighet og praktisk info</h2>
         <ul class="info-list" data-scroll-fade>
           <li>
             <span class="icon"><img src="../icons/wheelchair.svg" alt="Tilgjengelighet ikon"></span>
@@ -505,46 +478,35 @@
             <span class="icon"><img src="../icons/parking.svg" alt="Parkering ikon"></span>
             <div class="info-content">HC-parkering: 3 plasser i området rundt MENY Fantoft</div>
           </li>
-          <li>
-            <span class="icon"><img src="../icons/map.svg" alt="Kart ikon"></span>
-            <div class="info-content">
-              <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" target="_blank" rel="noopener">
-                Se kart
-              </a>
-            </div>
-          </li>
         </ul>
       </div>
 
       <div class="info-card__section" data-scroll-fade>
-        <h3 data-scroll-fade>Hvem møter du?</h3>
+        <h2 data-scroll-fade>Hvem møter du?</h2>
         <ul class="info-list" data-scroll-fade>
           <li>
             <div class="info-content">
               <strong>Alexander Sviggum</strong><br>
-              Ergoterapeut, likeperson og styrkeløfter med CP. Grunnlegger av My Strongest Side® og ansvarlig for faglig innhold
-              og tilrettelegging i tilbudet.
+              Ergoterapeut, likeperson og styrkeløfter med CP. Grunnlegger av My Strongest Side® og ansvarlig for faglig innhold og tilrettelegging.
             </div>
           </li>
           <li>
             <div class="info-content">
               <strong>Amir Azadollah</strong><br>
-              To ganger norgesmester i styrkeløft og på et høyt nivå internasjonalt. Bidrar på utvalgte økter med teknikkveiledning,
-              justeringer og inspirasjon i grunnleggende styrketrening.
+              To ganger norgesmester i styrkeløft. Bidrar på utvalgte økter med teknikkveiledning, justeringer og motivasjon i grunnleggende styrketrening.
             </div>
           </li>
           <li>
             <div class="info-content">
               <strong>Studenter fra HVL</strong><br>
-              Frivillige fysioterapi- og ergoterapistudenter fra Høgskulen på Vestlandet. De får opplæring gjennom My Strongest Side
-              og er til stede i salen for å støtte, tilpasse og følge opp deltakerne underveis.
+              Frivillige fysio- og ergoterapistudenter fra Høgskulen på Vestlandet. De er til stede på gulvet for å støtte, tilpasse og følge opp deltakerne underveis.
             </div>
           </li>
         </ul>
       </div>
 
       <div class="signup" data-scroll-fade>
-        <h3 data-scroll-fade>Meld deg på</h3>
+        <h2 data-scroll-fade>Meld deg på</h2>
         <p data-scroll-fade>Plasser er fordelt denne sesongen, men du kan sikre plass til neste sesong via påmeldingsskjemaet.</p>
 
         <div id="checkin_registration"></div>
@@ -561,10 +523,15 @@
   </div>
 </section>
 
+<div class="container" aria-hidden="true">
+  <hr class="section-divider">
+</div>
+
 <!-- GALLERI (3 bilder) -->
-<section class="section">
+<section class="section section--gallery">
   <div class="container">
-    <h3 style="text-align:center;">Fra øktene våre<span class="dot">.</span></h3>
+    <h2 style="text-align:center;" data-scroll-fade>Fra øktene våre</h2>
+    <p data-scroll-fade style="text-align:center;margin-bottom:1.5rem;">(Bilder fra øktene legges inn her.)</p>
     <div class="gallery-grid">
       <img src="../bilder/Benkpress.png" alt="Deltaker som trener benkpress med veiledning">
       <img src="../bilder/løfteteknikk2.png" alt="Tilpasset styrketrening i apparat">
@@ -573,35 +540,31 @@
   </div>
 </section>
 
+<div class="container" aria-hidden="true">
+  <hr class="section-divider">
+</div>
+
 <!-- FAQ -->
 <section class="section faq" data-scroll-fade>
   <div class="container surface-card stack">
-    <h2 data-scroll-fade>Ofte stilte spørsmål<span class="dot">.</span></h2>
+    <h2 data-scroll-fade>Ofte stilte spørsmål</h2>
 
     <details data-scroll-fade>
       <summary data-scroll-fade>Hva hvis jeg bruker hjelpemidler?</summary>
-      <p data-scroll-fade>
-        Det går helt fint. Lokalet er universelt utformet med heis, trinnfri inngang og HC-toalett.
-        Vi tilpasser øvelser og apparater etter hjelpemidlene du bruker, og finner løsninger sammen med deg.
-      </p>
+      <p data-scroll-fade>Det går helt fint. Lokalet er universelt utformet med heis, trinnfri inngang og HC-toalett. Vi tilpasser øvelser og apparater etter hjelpemidlene du bruker, og finner løsninger sammen med deg.</p>
     </details>
 
     <details data-scroll-fade>
       <summary data-scroll-fade>Kan jeg ta med ledsager eller BPA?</summary>
-      <p data-scroll-fade>
-        Ja. Ledsager, BPA eller verge er alltid velkommen uten ekstra kostnad.
-        Si gjerne ifra i påmeldingen, så vet vi hvem som kommer sammen med deg.
-      </p>
+      <p data-scroll-fade>Ja. Ledsager, BPA eller verge er velkommen uten ekstra kostnad. Si gjerne ifra i påmeldingen, så vet vi hvem som kommer sammen med deg.</p>
     </details>
 
     <details data-scroll-fade>
       <summary data-scroll-fade>Hvordan tilpasses øvelsene?</summary>
-      <p data-scroll-fade>
-        Vi starter med en kort prat om hva du ønsker, hva som fungerer godt i dag og hva som er utfordrende.
-        Deretter prøver vi oss frem i praksis, gjør små justeringer og evaluerer underveis.
-        Målet er at du skal kjenne deg trygg og oppleve mestring gjennom hele økten.
-      </p>
+      <p data-scroll-fade>Vi starter med en kort prat om mål og utfordringer. Deretter prøver vi ut øvelser, gjør små justeringer og evaluerer underveis. Målet er at du skal kjenne deg trygg og oppleve mestring gjennom hele økten.</p>
     </details>
+
+    <p data-scroll-fade><strong>200 kr / 300 kr – Medlem / ikke medlem</strong><br><strong>Meld deg på</strong></p>
   </div>
 </section>
 
