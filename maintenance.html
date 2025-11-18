@@ -3,34 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Strongest Side® – Vedlikehold</title>
+  <title>My Strongest Side® – Midlertidig vedlikehold</title>
   <style>
+    :root {
+      --blue: #105277;
+      --orange: #f77c37;
+      --ice: #E4E8F2;
+      --white: #ffffff;
+    }
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
-      background: #24344d;
-      color: white;
+      align-items: center;
+      background: var(--ice);
+      color: var(--blue);
+      display: flex;
+      font-family: "Arial", "Helvetica Neue", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      justify-content: center;
+      margin: 0;
+      min-height: 100vh;
+      padding: 24px;
       text-align: center;
-      padding: 80px 20px;
+    }
+    .maintenance {
+      background: var(--white);
+      border: 2px solid var(--blue);
+      border-radius: 24px;
+      box-shadow: 0 22px 45px rgba(16, 82, 119, 0.18);
+      max-width: 520px;
+      padding: clamp(2rem, 4vw, 3rem);
+      width: min(520px, 100%);
+    }
+    .maintenance__logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 2px solid var(--orange);
+      border-radius: 999px;
+      color: var(--orange);
+      padding: 0.35rem 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
     }
     h1 {
-      font-size: 32px;
-      margin-bottom: 16px;
-      letter-spacing: 0.5px;
+      color: var(--blue);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
     }
     p {
-      font-size: 18px;
-      opacity: 0.85;
+      color: rgba(16, 82, 119, 0.88);
+      font-size: 1.05rem;
       line-height: 1.6;
-      max-width: 420px;
-      margin: 0 auto;
+      margin: 0 auto 1.25rem;
+      max-width: 46ch;
+    }
+    .status-tag {
+      background: rgba(247, 124, 55, 0.1);
+      border-radius: 999px;
+      color: var(--orange);
+      display: inline-flex;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      padding: 0.4rem 1.1rem;
+      text-transform: uppercase;
+    }
+    ul {
+      color: rgba(16, 82, 119, 0.9);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      list-style: none;
+      margin: 0 0 1.5rem;
+      padding: 0;
+      text-align: left;
+    }
+    ul li {
+      align-items: center;
+      display: flex;
+      gap: 0.65rem;
+      margin-bottom: 0.75rem;
+    }
+    ul li::before {
+      content: "•";
+      color: var(--orange);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+    .cta {
+      background: var(--orange);
+      border: 0;
+      border-radius: 12px;
+      color: var(--white);
+      cursor: pointer;
+      display: inline-flex;
+      font-size: 1rem;
+      font-weight: 600;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+      padding: 0.85rem 1.75rem;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+    .cta:hover,
+    .cta:focus-visible {
+      opacity: 0.9;
+    }
+    .help-text {
+      color: rgba(16, 82, 119, 0.7);
+      font-size: 0.95rem;
+      margin: 0;
     }
   </style>
 </head>
 <body>
-  <h1>My Strongest Side®</h1>
-  <p>
-    Nettsiden er midlertidig utilgjengelig.<br>
-    Vi er snart tilbake.
-  </p>
+  <main class="maintenance" role="status" aria-live="polite">
+    <span class="maintenance__logo">My Strongest Side®</span>
+    <span class="status-tag">Kort pause</span>
+    <h1>Vi gjør nettsiden klar for neste økt</h1>
+    <p>
+      Vi finpusser løsningen slik at du får en ryddig oversikt over nye kurs og aktiviteter.
+      Takk for tålmodigheten – vi er straks tilbake.
+    </p>
+    <ul>
+      <li>Nye datoer legges ut så snart planene er spikret.</li>
+      <li>Du kan fortsatt nå oss for spørsmål om tilbud og påmelding.</li>
+    </ul>
+    <a class="cta" href="mailto:post@mystrongestside.no">Send oss en e-post</a>
+    <p class="help-text">Eller ring oss via kontaktinformasjonen på MyStrongestSide.no.</p>
+  </main>
 </body>
 </html>
