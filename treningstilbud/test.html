@@ -270,6 +270,70 @@
       .image-frame img { height: 250px; }
       .cta-panel { padding: 1.75rem; }
     }
+    .hero--simple {
+  background: var(--myss-blue);
+  padding: 6rem 1rem 5rem 1rem; /* MER LUFT */
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero__content {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.hero__season {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+}
+
+.hero--simple h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+}
+
+.hero__subtitle {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #f5f7fa;
+  max-width: 620px;
+  margin: 0.75rem auto 2rem;
+}
+
+.btn-main {
+  display: inline-block;
+  background: var(--myss-orange);
+  color: #ffffff;
+  padding: 0.9rem 1.6rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.btn-main:hover {
+  background: #e86d2d;
+}
+
+/* Mobilforbedring */
+@media (max-width: 720px) {
+  .hero--simple {
+    padding: 4rem 1rem 3.5rem 1rem;
+  }
+  .hero--simple h1 {
+    font-size: 1.9rem;
+  }
+  .hero__subtitle {
+    font-size: 1.05rem;
+  }
+}
+
   </style>
 </head>
 
@@ -278,24 +342,22 @@
 
 <main>
   <section class="hero hero--simple">
-    <div class="container hero__content">
-      <p class="hero__tagline" data-scroll-fade>Ny sesong 2025</p>
-      <h1 data-scroll-fade>Gruppetilbud for voksne med lett funksjonsvariasjon<span class="dot">.</span></h1>
-      <p class="hero__lede" data-scroll-fade>
-        Rolige styrkeøkter med fokus på trygg teknikk, forutsigbare rammer og veiledere som kjenner deg og kroppen din.
-      </p>
-      <ul class="hero__chips" data-scroll-fade>
-        <li>Maks 10 deltakere</li>
-        <li>Veiledere fra HVL</li>
-        <li>Gode tilpasninger i apparater</li>
-        <li>Tilgjengelige lokaler</li>
-      </ul>
-      <div class="hero__cta" data-scroll-fade>
-        <a class="btn-myss" href="voksne-lett-praktisk.html">Meld deg på</a>
-        <a class="btn-myss btn-myss--ghost" href="#kursinnhold">Se hva du får</a>
-      </div>
-    </div>
-  </section>
+  <div class="container hero__content">
+
+    <p class="hero__season">Pågående sesong · September 2025 – Januar 2026</p>
+
+    <h1>Gruppetrening for voksne med lett funksjonsvariasjon<span class="dot">.</span></h1>
+
+    <p class="hero__subtitle">
+      Trygg, rolig og tilpasset styrketrening i små grupper.  
+      Meld deg på ventelisten for sesongen 2026.
+    </p>
+
+    <a href="testpaa.html" class="btn-main">Meld meg på ventelisten</a>
+
+  </div>
+</section>
+
 
   <section class="section section--split">
     <div class="container split">
