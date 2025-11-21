@@ -252,6 +252,9 @@
     .link-arrow::after { content: " →"; }
     .link-arrow:hover { opacity: 0.85; }
 
+    .marquee__row span + span { margin-left: .35rem; }
+    .marquee__row[aria-hidden="true"] { display: none; }
+
     .floating-cta {
       position: fixed;
       right: 2rem;
@@ -357,11 +360,14 @@
     <h1>Gruppetrening for voksne med lett funksjonsvariasjon<span class="dot">.</span></h1>
 
     <p class="hero__subtitle">
-      Trygg, rolig og tilpasset styrketrening i små grupper.  
-      Meld deg på ventelisten for sesongen 2026.
+      Rolige styrkeøkter i små grupper – med tid, tilpasninger og veiledere som faktisk ser deg.
     </p>
 
     <a href="testpaa.html" class="btn-main">Meld meg på ventelisten</a>
+
+    <p class="hero__subtitle" style="max-width:540px;">
+      Meld deg på ventelisten for neste sesong (2026). Vi tar en kort prat med deg før oppstart.
+    </p>
 
   </div>
 </section>
@@ -395,7 +401,7 @@
       <div class="split__text" data-scroll-fade>
         <h3>Veiledere med faglig tyngde</h3>
         <p>
-          Fysio- og ergoterapistudenter fra HVL trener sammen med deg hele semesteret. De følger progresjonen din og deler
+          Fysio- og ergoterapistudenter fra HVL trener sammen med deg hele sesongen. De følger progresjonen din og deler
           informasjon i teamet slik at du møter kjente ansikt og forutsigbar støtte.
         </p>
         <p>
@@ -415,14 +421,14 @@
   <div class="marquee" role="region" aria-label="Kjerneverdier">
     <div class="marquee__wrap">
       <div class="marquee__row">
-        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+        <span>Tilrettelagt ·</span><span>Fellesskap ·</span><span>Trygt ·</span><span>Kompetanse ·</span>
+        <span>Tilhørighet ·</span><span>Mestring ·</span><span>Åpent for alle ·</span><span>Kunnskap ·</span>
+        <span>Universelt ·</span><span>Inkluderende ·</span><span>Sertifisert ·</span><span>Standardisert ·</span>
       </div>
       <div class="marquee__row" aria-hidden="true">
-        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+        <span>Tilrettelagt ·</span><span>Fellesskap ·</span><span>Trygt ·</span><span>Kompetanse ·</span>
+        <span>Tilhørighet ·</span><span>Mestring ·</span><span>Åpent for alle ·</span><span>Kunnskap ·</span>
+        <span>Universelt ·</span><span>Inkluderende ·</span><span>Sertifisert ·</span><span>Standardisert ·</span>
       </div>
     </div>
   </div>
@@ -451,6 +457,13 @@
         som kjennes gode ut for deg.
       </p>
 
+      <div class="info-chips" style="margin-top:1.75rem;">
+        <span>Sted: Trene Sammen Fantoft</span>
+        <span>Varighet: ca. 60 minutter</span>
+        <span>Hyppighet: Annenhver torsdag</span>
+        <span>Kostnad: CP Vestland dekker plasser</span>
+      </div>
+
       <h3 data-scroll-fade>Hvordan foregår øktene?</h3>
       <p data-scroll-fade>
         Vi møtes annenhver torsdag på <strong>Trene Sammen Fantoft</strong>. Hver økt varer rundt 60 minutter og består av
@@ -477,7 +490,7 @@
       </p>
 
       <p style="margin-top:2rem;" data-scroll-fade>
-        <a class="link-arrow" href="voksne-lett-praktisk.html">
+        <a class="link-arrow" href="voksne-lett.html">
           Se praktisk informasjon og påmelding
         </a>
       </p>
@@ -490,12 +503,12 @@
         <div>
           <h2 style="margin-top:0;" data-scroll-fade>Klar for å bli med?</h2>
           <p data-scroll-fade>
-            Vi åpner for små kohorter slik at veilederne får tid til hver enkelt. Send inn påmeldingen og få en kort prat før oppstart.
+            Vi åpner for små grupper (kohorter) slik at veilederne får tid til hver enkelt. Send inn påmeldingen og få en kort prat før oppstart.
           </p>
-          <p data-scroll-fade><strong>Neste kurs starter april 2025.</strong></p>
+          <p data-scroll-fade><strong>Neste kurs starter april 2026.</strong></p>
         </div>
         <div class="hero__cta" data-scroll-fade>
-          <a class="btn-myss" href="voksne-lett-praktisk.html">Meld deg på nå</a>
+          <a class="btn-myss" href="voksne-lett.html">Meld deg på nå</a>
           <a class="btn-myss btn-myss--ghost" href="mailto:hei@mystrongestside.no">Still et spørsmål</a>
         </div>
       </div>
@@ -584,6 +597,13 @@
       </details>
 
       <details data-scroll-fade>
+        <summary data-scroll-fade>Må jeg ha trent før?</summary>
+        <p data-scroll-fade>
+          Nei. Vi tilpasser nivået etter deg og starter rolig slik at du kjenner mestring fra første økt.
+        </p>
+      </details>
+
+      <details data-scroll-fade>
         <summary data-scroll-fade>Hvordan tilpasses øvelsene?</summary>
         <p data-scroll-fade>
           Vi starter med en kort prat om mål og utfordringer. Deretter prøver vi ut øvelser, gjør justeringer og evaluerer underveis slik at du kjenner deg trygg.
@@ -593,7 +613,7 @@
       <p data-scroll-fade>
         Har du flere spørsmål, eller vil du melde deg på?
         <br>
-        <a class="link-arrow" href="voksne-lett-praktisk.html">
+        <a class="link-arrow" href="voksne-lett.html">
           Se praktisk info og påmelding
         </a>
       </p>
@@ -601,7 +621,7 @@
   </section>
 </main>
 
-<a class="btn-myss floating-cta" href="voksne-lett-praktisk.html">Meld deg på</a>
+<a class="btn-myss floating-cta" href="voksne-lett.html">Meld deg på</a>
 
 <div id="myss-footer"></div>
 <script>
