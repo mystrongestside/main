@@ -378,6 +378,14 @@ a:focus-visible, button:focus-visible {
 .nav-links li {
   position: relative;
 }
+
+.nav-cta {
+  margin-left: 0.25rem;
+}
+
+.nav-cta .btn-pill {
+  width: 100%;
+}
 .nav-links li .dropdown {
   background: #223759;
   border-radius: 10px;
@@ -1143,6 +1151,13 @@ body.no-scroll {
   }
   .has-sub .dropdown a {
     padding-left: 1rem;
+  }
+  .nav-cta {
+    margin: 0.5rem 0 0;
+    width: 100%;
+  }
+  .nav-cta .btn-pill {
+    justify-content: center;
   }
   .btn-pill, .btn-primary {
     padding: 14px 18px;
