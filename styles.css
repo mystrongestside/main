@@ -586,6 +586,11 @@ body.no-scroll {
   margin-right: 2rem;
   padding: 0 2.1rem;
 }
+.marquee__row span {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+}
 @keyframes marquee-scroll {
   0% {
     transform: translateX(0);
