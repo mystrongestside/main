@@ -357,7 +357,13 @@
         font-size: 1.05rem;
       }
 }
-
+.fullscreen-image {
+  width: 100%;
+  height: 100vh;      /* fyller hele skjermhøyden */
+  object-fit: cover;  /* beskjærer slik at bildet fyller rammen */
+  object-position: center; /* holder fokus i midten */
+  display: block;     /* fjerner små mellomrom */
+}
   </style>
 </head>
 
