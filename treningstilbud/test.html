@@ -137,10 +137,17 @@
       object-fit: cover;
       height: 320px;
     }
-    .image-frame--studenter img {
-  object-position: center 50%; /* flytt fokus oppover i bildet */
+   /* Vis hele bildet – ingen cropping */
+.image-frame--full {
+  height: auto;          /* Ikke lås høyden */
+  aspect-ratio: auto;    /* Ikke tving 16:9 eller lignende */
 }
 
+.image-frame--full img {
+  width: 100%;
+  height: auto;          /* La høyden følge originalbildet */
+  object-fit: contain;   /* Sikrer at hele bildet vises inne i ramma */
+}
     .image-tag {
       position: absolute;
       bottom: 1rem;
@@ -418,10 +425,10 @@
   vanlige hverdagsbevegelser.
 </p>
 <div class="split__image" data-scroll-fade>
-  <div class="image-frame image-frame--studenter">
-    <img src="../bilder/studenter.png" alt="Studentveileder sitter foran medstudenter">
+  <div class="image-frame image-frame--full">
+    <img src="../bilder/studenter.png" alt="Veiledere og studenter fra HVL">
     <div class="image-tag">Frivillige får faglig påfyll via NorCP-kurs</div>
-  </div>
+</div>
 </div>
 </div>
   </section>      
