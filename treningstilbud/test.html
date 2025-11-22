@@ -137,6 +137,10 @@
       object-fit: cover;
       height: 320px;
     }
+    .image-frame--studenter img {
+  object-position: center 15%; /* flytt fokus oppover i bildet */
+}
+
     .image-tag {
       position: absolute;
       bottom: 1rem;
@@ -404,26 +408,24 @@
   <section class="section section--split">
     <div class="container split split--reverse">
       <div class="split__text" data-scroll-fade>
-        <h3>Veiledere med faglig tyngde</h3>
-        <p>
-          Fysio- og ergoterapistudenter fra HVL trener sammen med deg hele sesongen. De følger progresjonen din og deler
-          informasjon i teamet slik at du møter kjente ansikt og forutsigbar støtte.
-        </p>
-        <p>
-          På enkelte kvelder får du ekstra inspirasjon fra Alexander Sviggum, som viser hvordan konkurranseteknikk
-          kan forenkles til hverdagsstyrke.
-        </p>
-      <div class="split__image" data-scroll-fade>
-  <div class="image-frame">
-    <img src="../bilder/studenter.png" alt="Frivillige veiledere og studenter i treningsmiljø">
+       <h2 data-scroll-fade>Veiledere med relevant fagbakgrunn</h2>
+<p data-scroll-fade>
+  Fysio- og ergoterapistudenter fra HVL er fast til stede gjennom sesongen. 
+  De blir kjent med deg, følger utviklingen din og hjelper til med å justere øvelser underveis.
+</p>
+<p data-scroll-fade>
+  Ved noen økter deltar også Alexander Sviggum, som viser hvordan styrkeløft-teknikk kan tilpasses
+  vanlige hverdagsbevegelser.
+</p>
+<div class="split__image" data-scroll-fade>
+  <div class="image-frame image-frame--studenter">
+    <img src="../bilder/studenter.png" alt="Studentveileder sitter foran medstudenter">
     <div class="image-tag">Frivillige får faglig påfyll via NorCP-kurs</div>
   </div>
 </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+</div>
+  </section>      
+ 
   <div class="marquee" role="region" aria-label="Kjerneverdier">
     <div class="marquee__wrap">
       <div class="marquee__row">
