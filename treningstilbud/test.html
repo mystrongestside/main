@@ -283,7 +283,10 @@
     @media (max-width: 720px) {
       .hero--simple { padding: 2.5rem 0 1.5rem !important; }
       .hero__content { max-width: 92%; }
-      .image-frame img { height: 250px; }
+      .image-frame img { height: min(65vh, 520px); }
+      .image-frame.image-frame--full img { height: auto; }
+      .story-card img { height: min(60vw, 280px); }
+      .gallery-grid img { height: min(52vw, 240px); }
       .cta-panel { padding: 1.75rem; }
     }
     .hero--simple {
