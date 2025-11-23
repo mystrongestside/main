@@ -24,11 +24,24 @@
 
     body { background: var(--myss-white); }
 
+    /* Header/hero: fjern synlig skille og match farge */
+    header[data-component="site-header"],
+    .navbar {
+      background: #24344d !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
+    }
+    header[data-component="site-header"]::after,
+    .navbar::after {
+      content: none !important;
+      display: none !important;
+    }
+
     .hero--simple {
       background: radial-gradient(circle at top left, rgba(247,124,55,0.25), transparent 40%),
                   radial-gradient(circle at 65% 25%, rgba(16,82,119,0.2), transparent 55%),
                   linear-gradient(135deg, var(--myss-white) 0%, var(--myss-soft) 65%, #24344d 100%);
-      padding: 4rem 0 3rem !important;
+      padding: 4rem 0 2.75rem !important;
     }
     .hero--simple .hero__content {
       max-width: 900px;
@@ -101,11 +114,12 @@
     .section-divider {
       border: 0;
       border-top: 1px solid #ffffff;
-      margin: 2.5rem auto;
+      margin: 1.75rem auto;
       width: min(760px, 100%);
     }
 
     .section--split { padding-top: 0; }
+    main > .section.section--split:first-of-type { padding-top: 1rem; }
     .split {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -351,13 +365,20 @@
 /* Mobilforbedring */
 @media (max-width: 720px) {
       .hero--simple {
-        padding: 4rem 1rem 3.5rem 1rem;
+        padding: 3.5rem 1.25rem 2.25rem 1.25rem;
       }
       .hero--simple h1 {
         font-size: 1.9rem;
       }
       .hero__subtitle {
         font-size: 1.05rem;
+      }
+
+      main > .section.section--split:first-of-type {
+        padding-top: 0.75rem;
+      }
+      .section-divider {
+        margin: 1.5rem auto;
       }
 }
 .fullscreen-image {
