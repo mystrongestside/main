@@ -362,6 +362,10 @@
   background: #e86d2d;
 }
 
+.sticky-cta {
+  display: none;
+}
+
 /* Mobilforbedring */
 @media (max-width: 720px) {
       .hero--simple {
@@ -379,6 +383,37 @@
       }
       .section-divider {
         margin: 1.5rem auto;
+      }
+
+      .page--lett {
+        padding-bottom: 5.25rem;
+      }
+
+      .hero__content .btn-main {
+        display: none;
+      }
+
+      .sticky-cta {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(8px);
+        padding: 0.75rem 1rem 1rem;
+        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .sticky-cta__inner {
+        max-width: 640px;
+        margin: 0 auto;
+      }
+
+      .sticky-cta .btn-main {
+        width: 100%;
+        text-align: center;
       }
 }
 .fullscreen-image {
@@ -411,10 +446,10 @@
       Rolige styrkeøkter i små grupper – med tid, tilpasninger og veiledere som faktisk ser deg.
     </p>
 
-    <a href="testpaa.html" class="btn-main">Meld meg på ventelisten</a>
+    <a href="testpaa.html" class="btn-main">Meld meg på nå</a>
 
     <p class="hero__subtitle" style="max-width:540px;">
-      Meld deg på ventelisten for neste sesong (2026). Vi tar en kort prat med deg før oppstart.
+      Meld deg på treningen nå. Vi tar en kort prat med deg før oppstart for å sikre gode tilpasninger.
     </p>
 
   </div>
@@ -684,6 +719,12 @@
     </div>
   </section>
 </main>
+
+<div class="sticky-cta">
+  <div class="sticky-cta__inner">
+    <a class="btn-main" href="testpaa.html">Meld meg på nå</a>
+  </div>
+</div>
 
 <a class="btn-myss floating-cta" href="voksne-lett.html">Meld deg på</a>
 
