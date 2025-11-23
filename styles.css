@@ -2857,6 +2857,19 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 }
 .marquee a { color: inherit !important; }
 
+/* Desktop: sikre at hero-seksjoner ikke klipper innhold */
+@media (min-width: 900px) {
+  .hero {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .hero--simple {
+    width: 100% !important;
+    display: block;
+  }
+}
+
 /* v34 – Barn & ungdom: roligere stil */
 .page--barn-ungdom .page-wrap,
 .page--barn-ungdom main { max-width: 960px; margin: 0 auto; padding-inline: 16px; }

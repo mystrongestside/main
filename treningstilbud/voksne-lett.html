@@ -269,6 +269,13 @@
       .floating-cta { display: inline-flex; }
     }
 
+    /* Skjul topp-CTA på desktop – floating-knappen er nok */
+    @media (min-width: 960px) {
+      .page--lett .navbar-right {
+        display: none !important;
+      }
+    }
+
     @media (max-width: 720px) {
       .hero--simple { padding: 2.5rem 0 1.5rem !important; }
       .hero__content { max-width: 92%; }
