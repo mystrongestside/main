@@ -353,6 +353,18 @@
         font-size: 1.05rem;
       }
 }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--myss-blue);
+}
+
+/* Sikre at mobilmenyen legger seg over hero */
+.site-header nav {
+  position: relative;
+  z-index: 1001;
+}
 
   </style>
 </head>
