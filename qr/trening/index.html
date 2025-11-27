@@ -8,6 +8,120 @@
   <link rel="icon" type="image/png" href="../../favicon.png" />
   <link rel="stylesheet" href="../../styles.css?v=41" />
   <script>document.documentElement.classList.add('js');</script>
+
+  <!-- QR-spesifikk styling (lokalt for denne siden) -->
+  <style>
+    .page-intro {
+      max-width: 640px;
+      margin: 0 auto 2.5rem;
+      text-align: left;
+    }
+    .page-intro h1 { margin-bottom: 0.75rem; }
+    .page-kicker {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(36, 52, 77, 0.7);
+      margin-bottom: 0.25rem;
+    }
+    .page-lead {
+      font-size: 1.02rem;
+      color: rgba(36, 52, 77, 0.9);
+    }
+
+    .qr-layout {
+      display: grid;
+      gap: 2.5rem;
+    }
+    .qr-layout__column h2 { margin-bottom: 0.5rem; }
+    .qr-helper {
+      margin-bottom: 1rem;
+      color: rgba(36, 52, 77, 0.9);
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .program-grid button {
+      background: var(--myss-white);
+      border: 1px solid rgba(16, 82, 119, 0.12);
+      padding: 0.9rem 1rem;
+      border-radius: 0.9rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      color: var(--myss-ink);
+      transition: 0.15s;
+      text-align: center;
+    }
+    .program-grid button:hover,
+    .program-grid button:focus {
+      border-color: var(--myss-orange);
+      box-shadow: 0 0 0 2px rgba(247, 124, 55, 0.25);
+    }
+
+    .qr-form {
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 1.5rem 1.5rem 1.75rem;
+      box-shadow: 0 18px 45px -22px var(--myss-shadow);
+      border: 1px solid rgba(16, 82, 119, 0.06);
+    }
+    .qr-form__title { margin-bottom: 1rem; }
+    .qr-form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .qr-form input[type="text"],
+    .qr-form input[type="email"] {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(16, 82, 119, 0.2);
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+    }
+    .qr-form__submit {
+      background: var(--myss-orange);
+      border: none;
+      color: #ffffff;
+      padding: 0.9rem 1.25rem;
+      border-radius: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .qr-newsletter {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      margin: 0.5rem 0 0.6rem;
+    }
+    .qr-newsletter input[type="checkbox"] {
+      margin-top: 0.2rem;
+    }
+
+    .qr-gdpr {
+      font-size: 0.8rem;
+      margin-top: 0.85rem;
+      color: rgba(36, 52, 77, 0.8);
+    }
+
+    @media (min-width: 768px) {
+      .qr-layout {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -18,60 +132,86 @@
     </div>
   </header>
 
-  <main class="section section--narrow" style="padding-top:2rem;padding-bottom:4rem;">
+  <main class="section section--narrow">
     <div class="container">
 
-      <h1 data-scroll-fade style="text-align:center;margin-bottom:1.25rem;">Velg treningsprogram</h1>
-      <p style="text-align:center;max-width:420px;margin:0 auto 2rem;font-size:1rem;">
-        Velg programmet som passer best for deg – fyll inn navn og e-post, så får du øvelsene tilsendt.
-      </p>
-
-      <!-- Valg av program -->
-      <div id="program-valg" class="program-grid">
-        <button type="button" data-prog="Ben og balanse">Ben &amp; balanse</button>
-        <button type="button" data-prog="Rygg og stabilitet">Rygg &amp; stabilitet</button>
-        <button type="button" data-prog="Sittende øvelser">Sittende øvelser</button>
-        <button type="button" data-prog="Rolige økter">Rolig og skånsomt</button>
-        <button type="button" data-prog="Variert program">Variert program</button>
-      </div>
-
-      <!-- Skjema – Mailchimp -->
-      <form
-        id="qrForm"
-        style="display:none;margin-top:2.5rem;"
-        action="https://mystrongestside.us19.list-manage.com/subscribe/post?u=0a9f5c9b5a9360d8a60462d84&id=b73949bfec&f_id=00ccd7e4f0"
-        method="post"
-        novalidate
-      >
-        <!-- Verdier fra Mailchimp-embed-kode -->
-        <input type="hidden" name="u" value="0a9f5c9b5a9360d8a60462d84">
-        <input type="hidden" name="id" value="b73949bfec">
-        <input type="hidden" name="f_id" value="00ccd7e4f0">
-
-        <!-- Merge-felt i Mailchimp: PROGRAM -->
-        <input type="hidden" name="PROGRAM" id="program-valgt">
-
-        <h2 style="margin-bottom:1rem;font-size:1.25rem;" id="skjema-tittel"></h2>
-
-        <label for="mce-FNAME">Navn</label>
-        <input type="text" id="mce-FNAME" name="FNAME" required>
-
-        <label for="mce-EMAIL">E-post</label>
-        <input type="email" id="mce-EMAIL" name="EMAIL" required>
-
-        <label for="mce-NOTE" style="margin-top:.65rem;">Valgfritt: hvor trener du oftest?</label>
-        <input type="text" id="mce-NOTE" name="NOTE">
-
-        <button type="submit" class="cta-btn" style="margin-top:1.25rem;">Send inn</button>
-
-        <!-- GDPR-tekst -->
-        <p style="font-size:0.85rem;margin-top:0.75rem;max-width:480px;">
-          Når du sender inn skjemaet, samtykker du til at My Strongest Side® lagrer navnet og
-          e-postadressen din i Mailchimp for å kunne sende deg treningsprogrammet du har valgt.
-          Opplysningene brukes ikke til andre formål enn dette, og du kan når som helst be om å bli slettet.
-          Les mer i vår <a href="/personvern.html" target="_blank">personvernerklæring</a>.
+      <header class="page-intro" data-scroll-fade>
+        <p class="page-kicker">Treningsprogram på e-post</p>
+        <h1>Velg treningsprogram fra My Strongest Side®</h1>
+        <p class="page-lead">
+          Du står kanskje allerede i treningssonen. Velg programmet som passer best nå,
+          så får du øvelser tilsendt på e-post.
         </p>
-      </form>
+      </header>
+
+      <section class="qr-layout" data-scroll-fade>
+        <div class="qr-layout__column">
+          <h2>1. Velg program</h2>
+          <p class="qr-helper">
+            Alle programmene er enkle å tilpasse. Du kan justere underveis sammen med veileder
+            eller trene alene.
+          </p>
+
+          <div id="program-valg" class="program-grid">
+            <button type="button" data-prog="Ben og balanse">Ben &amp; balanse</button>
+            <button type="button" data-prog="Rygg og stabilitet">Rygg &amp; stabilitet</button>
+            <button type="button" data-prog="Sittende øvelser">Sittende øvelser</button>
+            <button type="button" data-prog="Rolige økter">Rolig og skånsomt</button>
+            <button type="button" data-prog="Variert program">Variert program</button>
+          </div>
+        </div>
+
+        <div class="qr-layout__column">
+          <h2>2. Fyll inn og få øvelser</h2>
+          <p class="qr-helper">
+            Skriv inn navn og e-post. Du får programmet tilsendt, og kan lagre det eller vise det til veileder.
+          </p>
+
+          <!-- Skjema – Mailchimp -->
+          <form
+            id="qrForm"
+            class="qr-form"
+            action="https://mystrongestside.us19.list-manage.com/subscribe/post?u=0a9f5c9b5a9360d8a60462d84&amp;id=b73949bfec&amp;f_id=00ccd7e4f0"
+            method="post"
+            novalidate
+          >
+            <input type="hidden" name="u" value="0a9f5c9b5a9360d8a60462d84">
+            <input type="hidden" name="id" value="b73949bfec">
+            <input type="hidden" name="f_id" value="00ccd7e4f0">
+
+            <!-- Merge-felt i Mailchimp: PROGRAM -->
+            <input type="hidden" name="PROGRAM" id="program-valgt">
+
+            <h3 id="skjema-tittel" class="qr-form__title">Velg et program for å starte</h3>
+
+            <label for="mce-FNAME">Navn</label>
+            <input type="text" id="mce-FNAME" name="FNAME" required>
+
+            <label for="mce-EMAIL">E-post</label>
+            <input type="email" id="mce-EMAIL" name="EMAIL" required>
+
+            <label for="mce-NOTE">Valgfritt: hvor trener du oftest?</label>
+            <input type="text" id="mce-NOTE" name="NOTE">
+
+            <!-- Nyhetsbrev-samtykke: lag merge-feltet NEWSLETTER (Text) i Mailchimp -->
+            <label class="qr-newsletter">
+              <input type="checkbox" name="NEWSLETTER" value="Ja">
+              <span>Jeg ønsker å få nyheter fra My Strongest Side® om nye grupper, kurs og tilpasset trening.</span>
+            </label>
+
+            <button type="submit" class="qr-form__submit">Send inn</button>
+
+            <p class="qr-gdpr">
+              Når du sender inn skjemaet, samtykker du til at My Strongest Side® lagrer navnet og
+              e-postadressen din i Mailchimp for å kunne sende deg treningsprogrammet du har valgt.
+              Hvis du huker av for nyhetsbrev, bruker vi også e-postadressen din til å sende deg
+              informasjon om lignende tilbud og nyheter fra My Strongest Side®.
+              Du kan når som helst be om å bli slettet eller melde deg av. Les mer i vår
+              <a href="/personvern.html" target="_blank">personvernerklæring</a>.
+            </p>
+          </form>
+        </div>
+      </section>
 
     </div>
   </main>
@@ -96,7 +236,6 @@
           const prog = btn.dataset.prog || btn.textContent.trim();
           hiddenProgram.value = prog;
           title.textContent = prog;
-          form.style.display = 'block';
           form.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       });
