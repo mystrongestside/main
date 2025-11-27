@@ -290,6 +290,10 @@
         </div>
       </div>
     </div>
+
+    <section class="section">
+      <div class="container two-column two-column--signup">
+        <div class="stacked-left">
           <aside class="info-card">
             <div class="info-card__section">
               <h3>Nyttig informasjon</h3>
@@ -399,85 +403,89 @@
                   async></script>
         </aside>
       </div>
-    </section>
-<section class="section faq">
-<div class="container surface-card stack">
-<h2>Ofte stilte spørsmål<span class="dot">.</span></h2>
+      </section>
 
-<details>
-<summary>Hva hvis jeg bruker hjelpemidler eller rullestol?</summary>
-<p>Det går helt fint! Lokalet er universelt utformet, og vi tilpasser både øvelser og apparater etter behov.</p>
-</details>
+      <section class="section faq">
+        <div class="container surface-card stack">
+          <h2>Ofte stilte spørsmål<span class="dot">.</span></h2>
 
-<details>
-<summary>Kan jeg ta med ledsager eller assistent?</summary>
-<p>Ja. Assistent, ledsager eller verge er alltid velkommen – uten ekstra kostnad.</p>
-</details>
+          <details>
+            <summary>Hva hvis jeg bruker hjelpemidler eller rullestol?</summary>
+            <p>Det går helt fint! Lokalet er universelt utformet, og vi tilpasser både øvelser og apparater etter behov.</p>
+          </details>
 
-<details>
-<summary>Hvordan tilpasses øvelsene?</summary>
-<p>Instruktørene vurderer sammen med deg hvilke øvelser som fungerer best ut fra funksjon og målsetting.</p>
-</details>
-</div>
-</section>
-<section class="hero-image-block">
-  <!-- Plassholder for bilde -->
-</section>
-</main>
-<div class="sticky-signup-bar" aria-label="Påmelding og pris">
-  <div class="sticky-signup-bar__price">
-    <strong>400 kr / 600 kr</strong>
-    <span>CPV-medlem / ikke medlem</span>
-  </div>
-  <a class="sticky-signup-bar__button" href="#checkin_registration">Meld deg på</a>
-</div>
-<script>
-  (function() {
-    var stickyBar = document.querySelector('.sticky-signup-bar');
-    var registration = document.getElementById('checkin_registration');
+          <details>
+            <summary>Kan jeg ta med ledsager eller assistent?</summary>
+            <p>Ja. Assistent, ledsager eller verge er alltid velkommen – uten ekstra kostnad.</p>
+          </details>
 
-    if (!('IntersectionObserver' in window) || !stickyBar || !registration) {
-      return;
-    }
+          <details>
+            <summary>Hvordan tilpasses øvelsene?</summary>
+            <p>Instruktørene vurderer sammen med deg hvilke øvelser som fungerer best ut fra funksjon og målsetting.</p>
+          </details>
+        </div>
+      </section>
 
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        stickyBar.classList.toggle('is-hidden', entry.isIntersecting);
-      });
-    }, { threshold: 0.1 });
+      <section class="hero-image-block">
+        <!-- Plassholder for bilde -->
+      </section>
+    </main>
 
-    observer.observe(registration);
-  })();
-</script>
-<script src="../script.js" defer></script>
-<div id="myss-footer"></div>
-<script>
-  (function() {
-    var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
-    if (!prefix) {
-      prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
-    }
-    window.MYSS_PREFIX = prefix;
-    window.__prefix = prefix;
-    var target = document.getElementById("myss-footer");
-    if (!target) { return; }
-    fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-      .then(function(r){ return r.text(); })
-      .then(function(html){
-        target.innerHTML = html;
-        target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img){
-          var raw = img.getAttribute("src");
-          if (raw) {
-            img.setAttribute("src", raw.replace("${prefix}", prefix));
-          }
-        });
-      })
-      .catch(function(){
-        // Minimal fallback hvis fetch feiler
-        target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
-      });
-  })();
-</script>
-  <script src="../marquee-guard.js?v=36" defer></script>
-</body>
+    <div class="sticky-signup-bar" aria-label="Påmelding og pris">
+      <div class="sticky-signup-bar__price">
+        <strong>400 kr / 600 kr</strong>
+        <span>CPV-medlem / ikke medlem</span>
+      </div>
+      <a class="sticky-signup-bar__button" href="#checkin_registration">Meld deg på</a>
+    </div>
+
+    <script>
+      (function() {
+        var stickyBar = document.querySelector('.sticky-signup-bar');
+        var registration = document.getElementById('checkin_registration');
+
+        if (!('IntersectionObserver' in window) || !stickyBar || !registration) {
+          return;
+        }
+
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            stickyBar.classList.toggle('is-hidden', entry.isIntersecting);
+          });
+        }, { threshold: 0.1 });
+
+        observer.observe(registration);
+      })();
+    </script>
+    <script src="../script.js" defer></script>
+    <div id="myss-footer"></div>
+    <script>
+      (function() {
+        var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
+        if (!prefix) {
+          prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
+        }
+        window.MYSS_PREFIX = prefix;
+        window.__prefix = prefix;
+        var target = document.getElementById("myss-footer");
+        if (!target) { return; }
+        fetch(prefix + "partials/footer.html", { cache: "no-cache" })
+          .then(function(r){ return r.text(); })
+          .then(function(html){
+            target.innerHTML = html;
+            target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img){
+              var raw = img.getAttribute("src");
+              if (raw) {
+                img.setAttribute("src", raw.replace("${prefix}", prefix));
+              }
+            });
+          })
+          .catch(function(){
+            // Minimal fallback hvis fetch feiler
+            target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
+          });
+      })();
+    </script>
+    <script src="../marquee-guard.js?v=36" defer></script>
+  </body>
 </html>
