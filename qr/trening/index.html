@@ -13,23 +13,162 @@
     window.MYSS_PREFIX = '../../';
     window.__prefix = '../../';
   </script>
+  <style>
+    :root {
+      --myss-orange: #f77c37;
+      --myss-blue: #24344d;
+      --myss-soft: #e4e8f2;
+      --myss-ink: #24344d;
+    }
+
+    .page--qr { background: #ffffff; }
+
+    .hero--simple {
+      background: linear-gradient(150deg, #f5f7fb 0%, #e8edf7 55%, #24344d 100%);
+      padding: clamp(4rem, 8vw, 6rem) 1rem;
+      text-align: center;
+      color: #ffffff;
+    }
+    .hero__content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1.2rem;
+      justify-items: center;
+    }
+    .hero__title {
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      margin: 0;
+      line-height: 1.3;
+      color: #ffffff;
+      font-weight: 800;
+    }
+    .hero__lede {
+      max-width: 660px;
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: #f1f3f7;
+    }
+    .hero__chips {
+      list-style: none;
+      padding: 0;
+      margin: .25rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+      justify-content: center;
+    }
+    .hero__chips li {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #ffffff;
+      border-radius: 999px;
+      padding: .55rem 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .hero__cta {
+      display: flex;
+      gap: .85rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: .5rem;
+    }
+    .btn-myss {
+      background: var(--myss-orange);
+      color: #ffffff;
+      padding: .95rem 1.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 0;
+      box-shadow: 0 15px 35px rgba(247,124,55,0.32);
+    }
+    .btn-myss--ghost {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #ffffff;
+      box-shadow: none;
+    }
+
+    .section-divider {
+      border: 0;
+      border-top: 1px solid var(--myss-soft);
+      margin: 2.5rem auto;
+      width: min(780px, 92%);
+    }
+
+    .two-column { align-items: stretch; }
+    .info-list { margin-top: 1.25rem; }
+
+    .section--split {
+      padding-top: 0;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+    .split__text h3 { font-size: 1.6rem; margin-bottom: 1rem; color: var(--myss-blue); }
+    .split__text p { font-size: 1.05rem; line-height: 1.7; color: var(--myss-ink); }
+    .info-chips {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+    .info-chips span {
+      background: #ffffff;
+      border-radius: .9rem;
+      padding: .75rem .9rem;
+      border: 1px solid #f77c37;
+      font-weight: 700;
+      color: var(--myss-ink);
+    }
+
+    .cta-panel {
+      background: linear-gradient(120deg, var(--myss-blue), #0f3957);
+      color: #fff;
+      border-radius: 1.25rem;
+      padding: 2rem;
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+    .cta-panel p { margin: 0; font-size: 1.05rem; }
+    .cta-panel strong { color: var(--myss-orange); }
+  </style>
 </head>
-<body>
+<body class="page--qr">
   <header data-component="site-header"></header>
 
   <main>
-    <section class="hero hero-card">
-      <img src="../../bilder/hero-large.jpg" alt="Veiledet trening på My Strongest Side" class="hero-image" loading="lazy" decoding="async">
-      <div class="hero-overlay">
-        <p class="hero-label">Scan QR-kode for treningsvideoer</p>
-        <h1>Få treningsøktene rett på mobilen<span class="dot">.</span></h1>
-        <p class="hero-sub">My Strongest Side gjør trening tilgjengelig for flest mulig – få et gratis utvalg av øvelser du kan gjøre hjemme eller på treningssenteret ved å scanne QR-koden.</p>
-        <div class="cta-row">
-          <a href="#pamelding" class="btn-pill btn-pill--orange">Meld meg på</a>
-          <a href="../../kontakt.html" class="btn-pill btn-pill--ghost">Har du spørsmål?</a>
+    <section class="hero hero--simple">
+      <div class="container hero__content">
+        <p class="hero__season">Du har scannet QR-koden – velg treningsprogrammet som passer deg</p>
+        <h1 class="hero__title">Få riktig treningsfokus sendt til innboksen din<span class="dot">.</span></h1>
+        <p class="hero__lede">Velg om du vil ha økter for ben, rygg, sittende øvelser eller et variert program. Fyll ut skjemaet under, så sender vi lenker til videoene og en kort veiledning.</p>
+        <ul class="hero__chips">
+          <li>Ben &amp; balanse</li>
+          <li>Rygg &amp; stabilitet</li>
+          <li>Sittende øvelser</li>
+          <li>Rolige økter</li>
+          <li>Variert program</li>
+        </ul>
+        <div class="hero__cta">
+          <a href="#pamelding" class="btn-myss">Velg program</a>
+          <a href="../../kontakt.html" class="btn-myss btn-myss--ghost">Har du spørsmål?</a>
         </div>
       </div>
     </section>
+
+    <div class="container" aria-hidden="true">
+      <hr class="section-divider">
+    </div>
 
     <div class="marquee force-animate" role="region" aria-label="MyStrongestSide statements">
       <div class="marquee__wrap">
@@ -52,20 +191,20 @@
       <div class="container two-column">
         <article class="surface-card stack">
           <div class="stack">
-            <p class="eyebrow">Gratis QR-kode</p>
-            <h2>Enkelt å komme i gang</h2>
-            <p>Fyll ut skjemaet så sender vi QR-koden og en kort veiledning på e-post. Du kan scanne koden på mobilen og komme rett til videoene våre.</p>
+            <p class="eyebrow">Velg fokus</p>
+            <h2>Riktig økt til riktig behov</h2>
+            <p>Du har allerede scannet QR-koden. Når du velger fokusområde og fyller ut skjemaet, sender vi treningsprogrammet som matcher ønsket ditt.</p>
             <ul class="bullets">
               <li>Korte videoøkter med fokus på trygg teknikk.</li>
-              <li>Øvelser du kan gjøre hjemme eller på treningssenteret.</li>
-              <li>Tilpasset tempo, rolig instruksjon og tydelige steg.</li>
+              <li>Tilpasset tempo – stående, sittende eller med støtte.</li>
+              <li>Program etter mål: styrke, bevegelighet eller rolig aktivering.</li>
             </ul>
             <ul class="info-list">
               <li>
                 <div class="icon" aria-hidden="true">🎯</div>
                 <div class="info-content">
                   <strong>Velg det som passer deg</strong>
-                  Videoene er delt inn etter fokusområde: bevegelighet, balanse, styrke og oppvarming.
+                  Videoene er delt inn etter fokusområde: ben, rygg, sittende øvelser og rolige økter.
                 </div>
               </li>
               <li>
@@ -81,8 +220,8 @@
 
         <aside class="surface-card stack">
           <div class="stack">
-            <h2>Meld deg på og få QR-koden</h2>
-            <form id="qr-form" class="stack" aria-label="Påmelding til QR-kode for treningsvideoer">
+            <h2>Send meg programmet</h2>
+            <form id="qr-form" class="stack" aria-label="Velg fokus for treningsprogram">
               <div class="form-group">
                 <label for="navn">Navn</label>
                 <input id="navn" name="navn" type="text" autocomplete="name" required />
@@ -92,6 +231,17 @@
                 <input id="epost" name="epost" type="email" autocomplete="email" required />
               </div>
               <div class="form-group">
+                <label for="fokus">Hva vil du fokusere på?</label>
+                <select id="fokus" name="fokus" required>
+                  <option value="">Velg et område</option>
+                  <option>Ben og balanse</option>
+                  <option>Rygg og stabilitet</option>
+                  <option>Sittende øvelser</option>
+                  <option>Rolige økter / oppvarming</option>
+                  <option>Variert program</option>
+                </select>
+              </div>
+              <div class="form-group">
                 <label for="treningssted">Hvor trener du oftest?</label>
                 <input id="treningssted" name="treningssted" type="text" placeholder="Hjemme, treningssenter, skole ..." />
               </div>
@@ -99,8 +249,8 @@
                 <label for="behov">Hva vil du ha hjelp med?</label>
                 <textarea id="behov" name="behov" rows="3" placeholder="F.eks. styrke for overkropp, balanse, trygg teknikk"></textarea>
               </div>
-              <button type="submit" class="btn-primary btn-full">Send meg QR-koden</button>
-              <p class="form-note">Vi sender QR-koden og instruksjonene til e-posten din innen kort tid.</p>
+              <button type="submit" class="btn-primary btn-full">Send meg riktig program</button>
+              <p class="form-note">Vi sender lenken til videoene og forklaring på hvordan du bruker dem.</p>
               <p id="form-feedback" class="form-feedback" hidden aria-live="polite"></p>
             </form>
           </div>
@@ -108,19 +258,27 @@
       </div>
     </section>
 
-    <section class="section next-section">
-      <div class="container two-column">
-        <div class="media">
-          <img src="../../bilde02.jpg" alt="Veiledet styrketrening på apparat" loading="lazy" decoding="async">
+    <section class="section section--split">
+      <div class="container split">
+        <div class="split__text" data-scroll-fade>
+          <h3>Slik fungerer det</h3>
+          <p>Velg fokus, så sender vi deg lenkene til videoene som passer best. Du kan se øktene i ditt eget tempo, enten hjemme, på senter eller med assistent.</p>
+          <div class="info-chips">
+            <span>Ben &amp; balanse</span>
+            <span>Rygg &amp; kjerne</span>
+            <span>Sittende styrke</span>
+            <span>Rolig oppvarming</span>
+          </div>
+          <div class="cta-panel">
+            <p><strong>Tips:</strong> Skriv gjerne om du trener med støtte, hjelpemidler eller ønsker pauser mellom settene.</p>
+            <p>Da tilpasser vi anbefalingen og sender deg riktig video med en gang.</p>
+          </div>
         </div>
-        <div class="stack">
-          <h2>Slik fungerer det</h2>
-          <ol class="bullets">
-            <li>Send inn skjemaet og få QR-koden på e-post.</li>
-            <li>Scan koden med mobilen – du kommer direkte til videoene.</li>
-            <li>Se øvelsene i ditt tempo, og ta kontakt hvis du vil ha ekstra veiledning.</li>
-          </ol>
-          <p>Vi oppdaterer videoene med jevne mellomrom, og gir beskjed når det kommer nye øvelser du kan teste.</p>
+        <div class="split__image" data-scroll-fade>
+          <div class="image-frame">
+            <img src="../../bilde02.jpg" alt="Veiledet styrketrening på apparat" loading="lazy" decoding="async">
+            <span class="image-tag">Tilpasset videoøkt</span>
+          </div>
         </div>
       </div>
     </section>
@@ -166,6 +324,7 @@
         var data = new FormData(form);
         var navn = (data.get('navn') || '').trim();
         var epost = (data.get('epost') || '').trim();
+        var fokus = (data.get('fokus') || '').trim();
         var treningssted = (data.get('treningssted') || '').trim();
         var behov = (data.get('behov') || '').trim();
 
@@ -179,11 +338,12 @@
         var body = [
           'Navn: ' + (navn || 'Ikke oppgitt'),
           'E-post: ' + epost,
+          'Fokusområde: ' + (fokus || 'Ikke valgt'),
           'Hvor trener du: ' + (treningssted || 'Ikke oppgitt'),
           'Behov/ønsker: ' + (behov || 'Ikke oppgitt')
         ].join('\n');
 
-        var subject = encodeURIComponent('QR-kode for treningsvideoer');
+        var subject = encodeURIComponent('Treningsprogram etter QR-kode');
         var mailto = 'mailto:alexander@mystrongestside.no?subject=' + subject + '&body=' + encodeURIComponent(body);
         window.location.href = mailto;
 
