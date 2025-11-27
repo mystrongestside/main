@@ -87,6 +87,52 @@
       margin: 0.15rem 0 0;
     }
 
+    .two-column--signup {
+      align-items: start;
+    }
+
+    .two-column--signup .stacked-left {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.5rem, 2vw, 2rem);
+    }
+
+    .signup-panel {
+      align-self: start;
+      background: #ffffff;
+      border: 2px solid #105277;
+      border-radius: 18px;
+      box-shadow: 0 16px 32px rgba(17, 32, 51, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: clamp(1.5rem, 2.5vw, 2rem);
+      position: sticky;
+      top: 1.5rem;
+    }
+
+    .signup-panel h3 {
+      color: #105277;
+      font-size: 1.3rem;
+      margin: 0;
+    }
+
+    .signup-panel p {
+      margin: 0;
+      color: #0f3252;
+    }
+
+    .signup-panel__disclaimer {
+      color: #526b7d;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .signup-panel .signup__cta {
+      font-weight: 700;
+      color: #f77c37;
+    }
+
     .info-card__group {
       margin-bottom: 1.25rem;
     }
@@ -208,6 +254,10 @@
       .price-highlight {
         text-align: left;
       }
+
+      .signup-panel {
+        position: static;
+      }
     }
 
     .sticky-signup-bar.is-hidden {
@@ -241,178 +291,182 @@
       </div>
     </div>
 
-<section class="section">
-<div class="container two-column">
-<article class="surface-card stack">
-<h2>Kurs: Styrketrening med tett oppfølging</h2>
-<p>
-Her møter du et team som ser deg, følger deg opp og tilrettelegger for mestring i hvert eneste steg.
-Opplev styrketrening i et miljø der du får tid, trygghet og støtte til å bygge gode rutiner og utvikle deg i eget tempo.
-</p>
+    <section class="section">
+      <div class="container two-column two-column--signup">
+        <div class="stacked-left">
+          <article class="surface-card stack">
+            <h2>Kurs: Styrketrening med tett oppfølging</h2>
+            <p>
+              Her møter du et team som ser deg, følger deg opp og tilrettelegger for mestring i hvert eneste steg.
+              Opplev styrketrening i et miljø der du får tid, trygghet og støtte til å bygge gode rutiner og utvikle deg i eget tempo.
+            </p>
 
-<h3>Hva</h3>
-<p>
-Et helhetlig kurs for deg som ønsker tett oppfølging, trygghet og forutsigbarhet i treningen – med veiledere som blir godt kjent med deg og dine mål.
-Vi legger til rette for individuell oppfølging og forutsigbare rammer i et inkluderende treningsmiljø.
-</p>
+            <h3>Hva</h3>
+            <p>
+              Et helhetlig kurs for deg som ønsker tett oppfølging, trygghet og forutsigbarhet i treningen – med veiledere som blir godt kjent med deg og dine mål.
+              Vi legger til rette for individuell oppfølging og forutsigbare rammer i et inkluderende treningsmiljø.
+            </p>
 
-<h3>Hvordan</h3>
-<p>
-Vi trener i små grupper på <strong>Trene Sammen Fantoft</strong>, med maks åtte deltakere per kurs.
-Hver økt varer i omtrent 60 minutter og ledes av et fast team bestående av fysioterapi- og ergoterapistudenter fra Høgskulen på Vestlandet,
-personlige trenere og frivillige.
-</p>
+            <h3>Hvordan</h3>
+            <p>
+              Vi trener i små grupper på <strong>Trene Sammen Fantoft</strong>, med maks åtte deltakere per kurs.
+              Hver økt varer i omtrent 60 minutter og ledes av et fast team bestående av fysioterapi- og ergoterapistudenter fra Høgskulen på Vestlandet,
+              personlige trenere og frivillige.
+            </p>
 
-<p>
-Teamet får opplæring gjennom <strong>My Strongest Side AS</strong>, basert på faglig innhold og anbefalinger fra anerkjente fagmiljøer innen rehabilitering og nevrologi.
-Innholdet er formidlet via My Strongest Side, og bygger på tilgjengelige faglige ressurser og webinarer, samt veiledning fra Atterås Ortopedi innen trygg og individuelt tilpasset trening.
-</p>
+            <p>
+              Teamet får opplæring gjennom <strong>My Strongest Side AS</strong>, basert på faglig innhold og anbefalinger fra anerkjente fagmiljøer innen rehabilitering og nevrologi.
+              Innholdet er formidlet via My Strongest Side, og bygger på tilgjengelige faglige ressurser og webinarer, samt veiledning fra Atterås Ortopedi innen trygg og individuelt tilpasset trening.
+            </p>
 
-<h3>Gjennom kurset får du</h3>
-<ul>
-<li>Faste veiledere som følger deg gjennom hele perioden</li>
-<li>Tilpassede øvelser for styrke, bevegelighet og balanse – på ditt nivå</li>
-<li>Mulighet til å utforske hjelpemidler, teknikker og apparater i trygge omgivelser</li>
-<li>Tid og rom til å lære, stille spørsmål og finne løsninger som fungerer for deg</li>
-</ul>
+            <h3>Gjennom kurset får du</h3>
+            <ul>
+              <li>Faste veiledere som følger deg gjennom hele perioden</li>
+              <li>Tilpassede øvelser for styrke, bevegelighet og balanse – på ditt nivå</li>
+              <li>Mulighet til å utforske hjelpemidler, teknikker og apparater i trygge omgivelser</li>
+              <li>Tid og rom til å lære, stille spørsmål og finne løsninger som fungerer for deg</li>
+            </ul>
 
-<h3>Erfaring du kan kjenne deg igjen i</h3>
-<p>
-Gjennom kurset møter du <strong>Alexander Sviggum</strong>, ergoterapeut, styrkeløfter og grunnlegger av My Strongest Side.
-Han kombinerer faglig innsikt med egne erfaringer fra tilpasning i styrketrening, og deler praktiske løsninger som gjør treningshverdagen mer tilgjengelig, tryggere – og morsommere.
-</p>
+            <h3>Erfaring du kan kjenne deg igjen i</h3>
+            <p>
+              Gjennom kurset møter du <strong>Alexander Sviggum</strong>, ergoterapeut, styrkeløfter og grunnlegger av My Strongest Side.
+              Han kombinerer faglig innsikt med egne erfaringer fra tilpasning i styrketrening, og deler praktiske løsninger som gjør treningshverdagen mer tilgjengelig, tryggere – og morsommere.
+            </p>
 
-<h3>Hvorfor</h3>
-<p>
-Når du trener i et miljø som forstår ulike behov, blir terskelen lavere og opplevelsen bedre.
-Målet vårt er at du skal oppleve mestring, fellesskap og økt selvtillit – og ta med deg kunnskap og strategier videre i hverdagen.
-</p>
+            <h3>Hvorfor</h3>
+            <p>
+              Når du trener i et miljø som forstår ulike behov, blir terskelen lavere og opplevelsen bedre.
+              Målet vårt er at du skal oppleve mestring, fellesskap og økt selvtillit – og ta med deg kunnskap og strategier videre i hverdagen.
+            </p>
 
-<section class="section">
-<div class="container surface-card stack">
-<div class="icon-header">
-<img src="../icons/icon-faglig.svg" alt="Faglig grunnlag ikon" class="icon-faglig">
-<h3>Faglig grunnlag</h3>
-</div>
-<p>
-Opplæringen bygger på anerkjent kunnskap fra norske fagmiljøer innen rehabilitering og nevrologi.
-Vi følger anbefalingene fra <strong>Norsk kvalitets- og oppfølgingsregister for cerebral parese (NorCP)</strong>
-for å sikre at treningen og veiledningen holder høy faglig kvalitet.
-</p>
-</div>
-</section>
-<section class="hero-image-block">
-  <!-- Plassholder for bilde -->
-</section>
-</article>
+            <section class="section">
+              <div class="container surface-card stack">
+                <div class="icon-header">
+                  <img src="../icons/icon-faglig.svg" alt="Faglig grunnlag ikon" class="icon-faglig">
+                  <h3>Faglig grunnlag</h3>
+                </div>
+                <p>
+                  Opplæringen bygger på anerkjent kunnskap fra norske fagmiljøer innen rehabilitering og nevrologi.
+                  Vi følger anbefalingene fra <strong>Norsk kvalitets- og oppfølgingsregister for cerebral parese (NorCP)</strong>
+                  for å sikre at treningen og veiledningen holder høy faglig kvalitet.
+                </p>
+              </div>
+            </section>
+            <section class="hero-image-block">
+              <!-- Plassholder for bilde -->
+            </section>
+          </article>
 
-<aside class="info-card">
-  <div class="info-card__section">
-    <h3>Nyttig informasjon</h3>
-    <div class="price-highlight" aria-live="polite">
-      <p class="price-highlight__heading">Pris per økt</p>
-      <div class="price-highlight__grid">
-        <div class="price-highlight__item">
-          400 kr
-          <span>CPV-medlem</span>
+          <aside class="info-card">
+            <div class="info-card__section">
+              <h3>Nyttig informasjon</h3>
+              <div class="price-highlight" aria-live="polite">
+                <p class="price-highlight__heading">Pris per økt</p>
+                <div class="price-highlight__grid">
+                  <div class="price-highlight__item">
+                    400 kr
+                    <span>CPV-medlem</span>
+                  </div>
+                  <div class="price-highlight__item">
+                    600 kr
+                    <span>Ikke medlem</span>
+                  </div>
+                </div>
+              </div>
+              <div class="info-summary" aria-label="Oppsummering av kursinformasjon">
+                <div class="info-summary__item">
+                  <p class="info-summary__label">Sted</p>
+                  <p class="info-summary__value">Trene Sammen Fantoft</p>
+                  <p class="info-summary__meta">Fantoftvegen 14, Bergen</p>
+                </div>
+                <div class="info-summary__item">
+                  <p class="info-summary__label">Tid</p>
+                  <p class="info-summary__value">16:30 – 17:30</p>
+                  <p class="info-summary__meta">Oppmøte kl. 16:15</p>
+                </div>
+                <div class="info-summary__item">
+                  <p class="info-summary__label">Sesong</p>
+                  <p class="info-summary__value">Sep 2025 – Jan 2026</p>
+                  <p class="info-summary__meta">Torsdager annenhver uke</p>
+                </div>
+                <div class="info-summary__item">
+                  <p class="info-summary__label">Gruppestørrelse</p>
+                  <p class="info-summary__value">Maks 8 deltakere</p>
+                  <p class="info-summary__meta">Fast instruktørteam</p>
+                </div>
+              </div>
+
+              <div class="info-card__group">
+                <h4>Datoer denne sesongen</h4>
+                <ol class="date-list date-list--grid">
+                  <li>Torsdag 18. september 2025</li>
+                  <li>Torsdag 2. oktober 2025</li>
+                  <li>Torsdag 16. oktober 2025</li>
+                  <li>Torsdag 30. oktober 2025</li>
+                  <li>Torsdag 13. november 2025</li>
+                  <li>Torsdag 27. november 2025</li>
+                  <li>Torsdag 11. desember 2025</li>
+                  <li>Torsdag 8. januar 2026</li>
+                </ol>
+              </div>
+
+              <div class="info-card__group">
+                <h4>Oppbygging av økten</h4>
+                <ul class="session-agenda" aria-label="Innhold i økten">
+                  <li>Felles oppvarming</li>
+                  <li>Individuelt tilpasset trening</li>
+                  <li>Felles nedtrapping</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="info-card__section">
+              <h3>Tilgjengelighet og praktisk info</h3>
+              <ul class="info-list">
+                <li>
+                  <span class="icon"><img src="../icons/wheelchair.svg" alt="Tilgjengelighet ikon"></span>
+                  <div class="info-content">Trinnfri inngang, heis og HC-toalett</div>
+                </li>
+                <li>
+                  <span class="icon"><img src="../icons/bus.svg" alt="Transport ikon"></span>
+                  <div class="info-content">Buss nr. 2 og 3 (holdeplass Fantoft Studentby)</div>
+                </li>
+                <li>
+                  <span class="icon"><img src="../icons/parking.svg" alt="Parkering ikon"></span>
+                  <div class="info-content">
+                    HC-parkering: 3 plasser ved MENY Fantoft (70 – 90 m, 2 – 3 min i manuell rullestol uten assistanse)
+                  </div>
+                </li>
+                <li>
+                  <span class="icon"><img src="../icons/map.svg" alt="Kart ikon"></span>
+                  <div class="info-content">
+                    <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen"
+                       class="map-link" target="_blank" rel="noopener">
+                      Se kart
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </aside>
         </div>
-        <div class="price-highlight__item">
-          600 kr
-          <span>Ikke medlem</span>
-        </div>
+
+        <aside class="signup-panel" aria-labelledby="signup-heading">
+          <h3 id="signup-heading">Meld deg på</h3>
+          <p class="signup__cta">Sikre deg plass til neste sesong via skjemaet.</p>
+          <p class="signup-panel__disclaimer">Plasser er fordelt denne sesongen, men du kan sende inn påmelding nå, så prioriterer vi deg på neste kurs.</p>
+
+          <div id="checkin_registration"></div>
+
+          <script src="https://registration.checkin.no/registration.loader.js"
+                  data-event-id="156159"
+                  data-theme="light"
+                  data-primary-color="#105277"
+                  data-secondary-color="#f77c37"
+                  async></script>
+        </aside>
       </div>
-    </div>
-    <div class="info-summary" aria-label="Oppsummering av kursinformasjon">
-      <div class="info-summary__item">
-        <p class="info-summary__label">Sted</p>
-        <p class="info-summary__value">Trene Sammen Fantoft</p>
-        <p class="info-summary__meta">Fantoftvegen 14, Bergen</p>
-      </div>
-      <div class="info-summary__item">
-        <p class="info-summary__label">Tid</p>
-        <p class="info-summary__value">16:30 – 17:30</p>
-        <p class="info-summary__meta">Oppmøte kl. 16:15</p>
-      </div>
-      <div class="info-summary__item">
-        <p class="info-summary__label">Sesong</p>
-        <p class="info-summary__value">Sep 2025 – Jan 2026</p>
-        <p class="info-summary__meta">Torsdager annenhver uke</p>
-      </div>
-      <div class="info-summary__item">
-        <p class="info-summary__label">Gruppestørrelse</p>
-        <p class="info-summary__value">Maks 8 deltakere</p>
-        <p class="info-summary__meta">Fast instruktørteam</p>
-      </div>
-    </div>
-
-    <div class="info-card__group">
-      <h4>Datoer denne sesongen</h4>
-      <ol class="date-list date-list--grid">
-        <li>Torsdag 18. september 2025</li>
-        <li>Torsdag 2. oktober 2025</li>
-        <li>Torsdag 16. oktober 2025</li>
-        <li>Torsdag 30. oktober 2025</li>
-        <li>Torsdag 13. november 2025</li>
-        <li>Torsdag 27. november 2025</li>
-        <li>Torsdag 11. desember 2025</li>
-        <li>Torsdag 8. januar 2026</li>
-      </ol>
-    </div>
-
-    <div class="info-card__group">
-      <h4>Oppbygging av økten</h4>
-      <ul class="session-agenda" aria-label="Innhold i økten">
-        <li>Felles oppvarming</li>
-        <li>Individuelt tilpasset trening</li>
-        <li>Felles nedtrapping</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="info-card__section">
-    <h3>Tilgjengelighet og praktisk info</h3>
-    <ul class="info-list">
-      <li>
-        <span class="icon"><img src="../icons/wheelchair.svg" alt="Tilgjengelighet ikon"></span>
-        <div class="info-content">Trinnfri inngang, heis og HC-toalett</div>
-      </li>
-      <li>
-        <span class="icon"><img src="../icons/bus.svg" alt="Transport ikon"></span>
-        <div class="info-content">Buss nr. 2 og 3 (holdeplass Fantoft Studentby)</div>
-      </li>
-      <li>
-        <span class="icon"><img src="../icons/parking.svg" alt="Parkering ikon"></span>
-        <div class="info-content">
-          HC-parkering: 3 plasser ved MENY Fantoft (70 – 90 m, 2 – 3 min i manuell rullestol uten assistanse)
-        </div>
-      </li>
-      <li>
-        <span class="icon"><img src="../icons/map.svg" alt="Kart ikon"></span>
-        <div class="info-content">
-          <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen"
-             class="map-link" target="_blank" rel="noopener">
-            Se kart
-          </a>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <div class="signup">
-    <h3>Meld deg på</h3>
-    <p>Plasser er fordelt denne sesongen, men du kan sikre deg plass via påmeldingsskjemaet til neste sesong.</p>
-
-    <div id="checkin_registration"></div>
-</div>
-
-<script src="https://registration.checkin.no/registration.loader.js"
-        data-event-id="156159"
-     data-theme="light"
-        data-primary-color="#105277"
-        data-secondary-color="#f77c37"
-        async></script>
-  </div>
-</aside>
+    </section>
 <section class="section faq">
 <div class="container surface-card stack">
 <h2>Ofte stilte spørsmål<span class="dot">.</span></h2>
