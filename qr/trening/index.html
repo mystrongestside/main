@@ -3,79 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QR – Treningsprogram | My Strongest Side®</title>
-  <meta name="description" content="Velg treningsprogram og få øvelsene tilsendt på e-post fra My Strongest Side®." />
+  <title>Treningsprogram via QR | My Strongest Side®</title>
+  <meta name="description" content="Velg et enkelt treningsprogram tilpasset deg, og få det tilsendt på e-post fra My Strongest Side®." />
   <link rel="icon" type="image/png" href="../../favicon.png" />
-  <link rel="stylesheet" href="../../styles.css?v=42" />
+  <link rel="stylesheet" href="../../styles.css?v=41" />
   <script>document.documentElement.classList.add('js');</script>
-
-  <style>
-    .program-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .program-grid button {
-      background: var(--myss-white);
-      border: 1px solid rgba(16,82,119,0.12);
-      padding: 0.9rem 1rem;
-      border-radius: 0.9rem;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      color: var(--myss-ink);
-      transition: 0.15s;
-    }
-
-    .program-grid button:hover,
-    .program-grid button:focus {
-      border-color: var(--myss-orange);
-      box-shadow: 0 0 0 2px rgba(247,124,55,0.25);
-    }
-
-    #qrForm label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    #qrForm input {
-      width: 100%;
-      padding: 0.7rem 0.9rem;
-      border-radius: 0.6rem;
-      border: 1px solid rgba(16,82,119,0.2);
-      margin-bottom: 0.75rem;
-      font-size: 1rem;
-    }
-
-    #qrForm .cta-btn {
-      background: var(--myss-orange);
-      border: none;
-      color: #ffffff;
-      padding: 0.9rem 1.25rem;
-      border-radius: 0.8rem;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-      font-size: 1rem;
-    }
-  </style>
 </head>
-
 <body>
-  <header>
-    <!-- Din eksisterende toppmeny -->
+  <header class="site-header">
+    <div class="container header__inner">
+      <a href="/" class="site-logo">
+        <span class="site-logo__mark">My Strongest Side®</span>
+      </a>
+    </div>
   </header>
 
   <main class="section section--narrow" style="padding-top:2rem;padding-bottom:4rem;">
     <div class="container">
+
       <h1 data-scroll-fade style="text-align:center;margin-bottom:1.25rem;">Velg treningsprogram</h1>
       <p style="text-align:center;max-width:420px;margin:0 auto 2rem;font-size:1rem;">
-        Fyll inn navn og e-post, så får du treningsprogrammet tilsendt.
+        Velg programmet som passer best for deg – fyll inn navn og e-post, så får du øvelsene tilsendt.
       </p>
 
+      <!-- Valg av program -->
       <div id="program-valg" class="program-grid">
         <button type="button" data-prog="Ben og balanse">Ben &amp; balanse</button>
         <button type="button" data-prog="Rygg og stabilitet">Rygg &amp; stabilitet</button>
@@ -84,14 +35,21 @@
         <button type="button" data-prog="Variert program">Variert program</button>
       </div>
 
-      <!-- Mailchimp-skjema -->
-      <form id="qrForm"
-            style="display:none;margin-top:2.5rem;"
-            action="ACTION-URL-FRA-MAILCHIMP"
-            method="post"
-            novalidate>
-        <input type="hidden" name="u" value="DIN_U_VERDI">
-        <input type="hidden" name="id" value="DIN_ID_VERDI">
+      <!-- Skjema – Mailchimp -->
+      <form
+        id="qrForm"
+        style="display:none;margin-top:2.5rem;"
+        action="https://mystrongestside.us19.list-manage.com/subscribe/post?u=0a9f5c9b5a9360d8a60462d84&id=b73949bfec&f_id=00ccd7e4f0"
+        method="post"
+        novalidate
+      >
+        <!-- Verdier fra Mailchimp-embed-kode -->
+        <input type="hidden" name="u" value="0a9f5c9b5a9360d8a60462d84">
+        <input type="hidden" name="id" value="b73949bfec">
+        <input type="hidden" name="f_id" value="00ccd7e4f0">
+
+        <!-- Merge-felt i Mailchimp: PROGRAM -->
+        <input type="hidden" name="PROGRAM" id="program-valgt">
 
         <h2 style="margin-bottom:1rem;font-size:1.25rem;" id="skjema-tittel"></h2>
 
@@ -101,25 +59,27 @@
         <label for="mce-EMAIL">E-post</label>
         <input type="email" id="mce-EMAIL" name="EMAIL" required>
 
-        <input type="hidden" name="PROGRAM" id="program-valgt">
-
         <label for="mce-NOTE" style="margin-top:.65rem;">Valgfritt: hvor trener du oftest?</label>
         <input type="text" id="mce-NOTE" name="NOTE">
 
         <button type="submit" class="cta-btn" style="margin-top:1.25rem;">Send inn</button>
 
+        <!-- GDPR-tekst -->
         <p style="font-size:0.85rem;margin-top:0.75rem;max-width:480px;">
-          Når du sender inn skjemaet, samtykker du til at My Strongest Side® lagrer navnet og e-postadressen din i Mailchimp
-          for å sende deg treningsprogrammet du har valgt. Opplysningene brukes ikke til andre formål enn dette, og du kan
-          når som helst be om å bli slettet. Les mer i vår
-          <a href="/personvern.html" target="_blank">personvernerklæring</a>.
+          Når du sender inn skjemaet, samtykker du til at My Strongest Side® lagrer navnet og
+          e-postadressen din i Mailchimp for å kunne sende deg treningsprogrammet du har valgt.
+          Opplysningene brukes ikke til andre formål enn dette, og du kan når som helst be om å bli slettet.
+          Les mer i vår <a href="/personvern.html" target="_blank">personvernerklæring</a>.
         </p>
       </form>
+
     </div>
   </main>
 
-  <footer>
-    <!-- Din eksisterende footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>My Strongest Side® – tilrettelagt styrketrening på dine premisser.</p>
+    </div>
   </footer>
 
   <script>
