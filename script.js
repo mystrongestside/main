@@ -47,8 +47,17 @@ const buildHeaderTemplate = (prefix = '') => `
 </header>
 `;
 
-const resolvePathPrefix = () =>
-  window.location.pathname.includes('/treningstilbud/') ? '../' : '';
+const resolvePathPrefix = () => {
+  if (typeof window !== 'undefined') {
+    if (typeof window.MYSS_PREFIX !== 'undefined' && window.MYSS_PREFIX !== null)
+      return window.MYSS_PREFIX;
+    if (typeof window.__prefix !== 'undefined' && window.__prefix)
+      return window.__prefix;
+    if (window.location.pathname.includes('/treningstilbud/')) return '../';
+    if (window.location.pathname.includes('/qr/')) return '../../';
+  }
+  return '';
+};
 
 /* === MARQUEE MAL === */
 const bottomMarqueeTemplate = `
