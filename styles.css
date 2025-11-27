@@ -3133,3 +3133,56 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 
  
 
+
+/* === QR-treningsprogram (programvalg + skjema) === */
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.program-grid button {
+  background: var(--myss-white);
+  border: 1px solid rgba(16, 82, 119, 0.12);
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--myss-ink);
+  transition: 0.15s;
+}
+
+.program-grid button:hover,
+.program-grid button:focus {
+  border-color: var(--myss-orange);
+  box-shadow: 0 0 0 2px rgba(247, 124, 55, 0.25);
+}
+
+#qrForm label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+#qrForm input {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(16, 82, 119, 0.2);
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+#qrForm .cta-btn {
+  background: var(--myss-orange);
+  border: none;
+  color: #ffffff;
+  padding: 0.9rem 1.25rem;
+  border-radius: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+}
