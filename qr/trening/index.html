@@ -3,357 +3,144 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scan QR-kode for treningsvideoer | My Strongest Side®</title>
-  <meta name="description" content="Meld deg på for å få QR-kode til treningsvideoer fra My Strongest Side®. Gratis øvelser du kan gjøre hjemme eller på treningssenteret." />
+  <title>QR – Treningsprogram | My Strongest Side®</title>
+  <meta name="description" content="Velg treningsprogram og få øvelsene tilsendt på e-post fra My Strongest Side®." />
+  <link rel="icon" type="image/png" href="../../favicon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=42" />
+  <script>document.documentElement.classList.add('js');</script>
 
-  <link rel="icon" type="image/png" href="../../favicon.png">
-  <link rel="stylesheet" href="../../styles.css?v=42">
-  <link rel="stylesheet" href="../../compat.css?v=39">
-  <script>
-    window.MYSS_PREFIX = '../../';
-    window.__prefix = '../../';
-  </script>
   <style>
-    :root {
-      --myss-orange: #f77c37;
-      --myss-blue: #24344d;
-      --myss-soft: #e4e8f2;
-      --myss-ink: #24344d;
-    }
-
-    .page--qr { background: #ffffff; }
-
-    .hero--simple {
-      background: linear-gradient(150deg, #f5f7fb 0%, #e8edf7 55%, #24344d 100%);
-      padding: clamp(4rem, 8vw, 6rem) 1rem;
-      text-align: center;
-      color: #ffffff;
-    }
-    .hero__content {
-      max-width: 900px;
-      margin: 0 auto;
+    .program-grid {
       display: grid;
-      gap: 1.2rem;
-      justify-items: center;
-    }
-    .hero__title {
-      font-size: clamp(2.1rem, 4vw, 2.8rem);
-      margin: 0;
-      line-height: 1.3;
-      color: #ffffff;
-      font-weight: 800;
-    }
-    .hero__lede {
-      max-width: 660px;
-      margin: 0;
-      font-size: 1.08rem;
-      line-height: 1.7;
-      color: #f1f3f7;
-    }
-    .hero__chips {
-      list-style: none;
-      padding: 0;
-      margin: .25rem 0 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: .65rem;
-      justify-content: center;
-    }
-    .hero__chips li {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #ffffff;
-      border-radius: 999px;
-      padding: .55rem 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-    .hero__cta {
-      display: flex;
-      gap: .85rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: .5rem;
-    }
-    .btn-myss {
-      background: var(--myss-orange);
-      color: #ffffff;
-      padding: .95rem 1.8rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      border: 0;
-      box-shadow: 0 15px 35px rgba(247,124,55,0.32);
-    }
-    .btn-myss--ghost {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.35);
-      color: #ffffff;
-      box-shadow: none;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
     }
 
-    .section-divider {
-      border: 0;
-      border-top: 1px solid var(--myss-soft);
-      margin: 2.5rem auto;
-      width: min(780px, 92%);
-    }
-
-    .two-column { align-items: stretch; }
-    .info-list { margin-top: 1.25rem; }
-
-    .section--split {
-      padding-top: 0;
-    }
-    .split {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      align-items: center;
-    }
-    .split__text h3 { font-size: 1.6rem; margin-bottom: 1rem; color: var(--myss-blue); }
-    .split__text p { font-size: 1.05rem; line-height: 1.7; color: var(--myss-ink); }
-    .info-chips {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: .85rem;
-      margin-top: 1rem;
-    }
-    .info-chips span {
-      background: #ffffff;
-      border-radius: .9rem;
-      padding: .75rem .9rem;
-      border: 1px solid #f77c37;
-      font-weight: 700;
+    .program-grid button {
+      background: var(--myss-white);
+      border: 1px solid rgba(16,82,119,0.12);
+      padding: 0.9rem 1rem;
+      border-radius: 0.9rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
       color: var(--myss-ink);
+      transition: 0.15s;
     }
 
-    .cta-panel {
-      background: linear-gradient(120deg, var(--myss-blue), #0f3957);
-      color: #fff;
-      border-radius: 1.25rem;
-      padding: 2rem;
-      display: grid;
-      gap: 1.25rem;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      align-items: center;
-      margin-top: 1.5rem;
+    .program-grid button:hover,
+    .program-grid button:focus {
+      border-color: var(--myss-orange);
+      box-shadow: 0 0 0 2px rgba(247,124,55,0.25);
     }
-    .cta-panel p { margin: 0; font-size: 1.05rem; }
-    .cta-panel strong { color: var(--myss-orange); }
+
+    #qrForm label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    #qrForm input {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(16,82,119,0.2);
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+    }
+
+    #qrForm .cta-btn {
+      background: var(--myss-orange);
+      border: none;
+      color: #ffffff;
+      padding: 0.9rem 1.25rem;
+      border-radius: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+    }
   </style>
 </head>
-<body class="page--qr">
-  <header data-component="site-header"></header>
 
-  <main>
-    <section class="hero hero--simple">
-      <div class="container hero__content">
-        <p class="hero__season">Du har scannet QR-koden – velg treningsprogrammet som passer deg</p>
-        <h1 class="hero__title">Få riktig treningsfokus sendt til innboksen din<span class="dot">.</span></h1>
-        <p class="hero__lede">Velg om du vil ha økter for ben, rygg, sittende øvelser eller et variert program. Fyll ut skjemaet under, så sender vi lenker til videoene og en kort veiledning.</p>
-        <ul class="hero__chips">
-          <li>Ben &amp; balanse</li>
-          <li>Rygg &amp; stabilitet</li>
-          <li>Sittende øvelser</li>
-          <li>Rolige økter</li>
-          <li>Variert program</li>
-        </ul>
-        <div class="hero__cta">
-          <a href="#pamelding" class="btn-myss">Velg program</a>
-          <a href="../../kontakt.html" class="btn-myss btn-myss--ghost">Har du spørsmål?</a>
-        </div>
+<body>
+  <header>
+    <!-- Din eksisterende toppmeny -->
+  </header>
+
+  <main class="section section--narrow" style="padding-top:2rem;padding-bottom:4rem;">
+    <div class="container">
+      <h1 data-scroll-fade style="text-align:center;margin-bottom:1.25rem;">Velg treningsprogram</h1>
+      <p style="text-align:center;max-width:420px;margin:0 auto 2rem;font-size:1rem;">
+        Fyll inn navn og e-post, så får du treningsprogrammet tilsendt.
+      </p>
+
+      <div id="program-valg" class="program-grid">
+        <button type="button" data-prog="Ben og balanse">Ben &amp; balanse</button>
+        <button type="button" data-prog="Rygg og stabilitet">Rygg &amp; stabilitet</button>
+        <button type="button" data-prog="Sittende øvelser">Sittende øvelser</button>
+        <button type="button" data-prog="Rolige økter">Rolig og skånsomt</button>
+        <button type="button" data-prog="Variert program">Variert program</button>
       </div>
-    </section>
 
-    <div class="container" aria-hidden="true">
-      <hr class="section-divider">
+      <!-- Mailchimp-skjema -->
+      <form id="qrForm"
+            style="display:none;margin-top:2.5rem;"
+            action="ACTION-URL-FRA-MAILCHIMP"
+            method="post"
+            novalidate>
+        <input type="hidden" name="u" value="DIN_U_VERDI">
+        <input type="hidden" name="id" value="DIN_ID_VERDI">
+
+        <h2 style="margin-bottom:1rem;font-size:1.25rem;" id="skjema-tittel"></h2>
+
+        <label for="mce-FNAME">Navn</label>
+        <input type="text" id="mce-FNAME" name="FNAME" required>
+
+        <label for="mce-EMAIL">E-post</label>
+        <input type="email" id="mce-EMAIL" name="EMAIL" required>
+
+        <input type="hidden" name="PROGRAM" id="program-valgt">
+
+        <label for="mce-NOTE" style="margin-top:.65rem;">Valgfritt: hvor trener du oftest?</label>
+        <input type="text" id="mce-NOTE" name="NOTE">
+
+        <button type="submit" class="cta-btn" style="margin-top:1.25rem;">Send inn</button>
+
+        <p style="font-size:0.85rem;margin-top:0.75rem;max-width:480px;">
+          Når du sender inn skjemaet, samtykker du til at My Strongest Side® lagrer navnet og e-postadressen din i Mailchimp
+          for å sende deg treningsprogrammet du har valgt. Opplysningene brukes ikke til andre formål enn dette, og du kan
+          når som helst be om å bli slettet. Les mer i vår
+          <a href="/personvern.html" target="_blank">personvernerklæring</a>.
+        </p>
+      </form>
     </div>
-
-    <div class="marquee force-animate" role="region" aria-label="MyStrongestSide statements">
-      <div class="marquee__wrap">
-        <div class="marquee__row">
-          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-        </div>
-        <div class="marquee__row" aria-hidden="true">
-          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-        </div>
-      </div>
-    </div>
-
-    <section id="pamelding" class="section">
-      <div class="container two-column">
-        <article class="surface-card stack">
-          <div class="stack">
-            <p class="eyebrow">Velg fokus</p>
-            <h2>Riktig økt til riktig behov</h2>
-            <p>Du har allerede scannet QR-koden. Når du velger fokusområde og fyller ut skjemaet, sender vi treningsprogrammet som matcher ønsket ditt.</p>
-            <ul class="bullets">
-              <li>Korte videoøkter med fokus på trygg teknikk.</li>
-              <li>Tilpasset tempo – stående, sittende eller med støtte.</li>
-              <li>Program etter mål: styrke, bevegelighet eller rolig aktivering.</li>
-            </ul>
-            <ul class="info-list">
-              <li>
-                <div class="icon" aria-hidden="true">🎯</div>
-                <div class="info-content">
-                  <strong>Velg det som passer deg</strong>
-                  Videoene er delt inn etter fokusområde: ben, rygg, sittende øvelser og rolige økter.
-                </div>
-              </li>
-              <li>
-                <div class="icon" aria-hidden="true">🤝</div>
-                <div class="info-content">
-                  <strong>Del med andre</strong>
-                  QR-koden kan vises i treningslokalet eller deles med assistenter, treningskompiser eller familie.
-                </div>
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <aside class="surface-card stack">
-          <div class="stack">
-            <h2>Send meg programmet</h2>
-            <form id="qr-form" class="stack" aria-label="Velg fokus for treningsprogram">
-              <div class="form-group">
-                <label for="navn">Navn</label>
-                <input id="navn" name="navn" type="text" autocomplete="name" required />
-              </div>
-              <div class="form-group">
-                <label for="epost">E-post</label>
-                <input id="epost" name="epost" type="email" autocomplete="email" required />
-              </div>
-              <div class="form-group">
-                <label for="fokus">Hva vil du fokusere på?</label>
-                <select id="fokus" name="fokus" required>
-                  <option value="">Velg et område</option>
-                  <option>Ben og balanse</option>
-                  <option>Rygg og stabilitet</option>
-                  <option>Sittende øvelser</option>
-                  <option>Rolige økter / oppvarming</option>
-                  <option>Variert program</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="treningssted">Hvor trener du oftest?</label>
-                <input id="treningssted" name="treningssted" type="text" placeholder="Hjemme, treningssenter, skole ..." />
-              </div>
-              <div class="form-group">
-                <label for="behov">Hva vil du ha hjelp med?</label>
-                <textarea id="behov" name="behov" rows="3" placeholder="F.eks. styrke for overkropp, balanse, trygg teknikk"></textarea>
-              </div>
-              <button type="submit" class="btn-primary btn-full">Send meg riktig program</button>
-              <p class="form-note">Vi sender lenken til videoene og forklaring på hvordan du bruker dem.</p>
-              <p id="form-feedback" class="form-feedback" hidden aria-live="polite"></p>
-            </form>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section section--split">
-      <div class="container split">
-        <div class="split__text" data-scroll-fade>
-          <h3>Slik fungerer det</h3>
-          <p>Velg fokus, så sender vi deg lenkene til videoene som passer best. Du kan se øktene i ditt eget tempo, enten hjemme, på senter eller med assistent.</p>
-          <div class="info-chips">
-            <span>Ben &amp; balanse</span>
-            <span>Rygg &amp; kjerne</span>
-            <span>Sittende styrke</span>
-            <span>Rolig oppvarming</span>
-          </div>
-          <div class="cta-panel">
-            <p><strong>Tips:</strong> Skriv gjerne om du trener med støtte, hjelpemidler eller ønsker pauser mellom settene.</p>
-            <p>Da tilpasser vi anbefalingen og sender deg riktig video med en gang.</p>
-          </div>
-        </div>
-        <div class="split__image" data-scroll-fade>
-          <div class="image-frame">
-            <img src="../../bilde02.jpg" alt="Veiledet styrketrening på apparat" loading="lazy" decoding="async">
-            <span class="image-tag">Tilpasset videoøkt</span>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <script src="../../script.js" defer></script>
-  <div id="myss-footer"></div>
+  <footer>
+    <!-- Din eksisterende footer -->
+  </footer>
+
   <script>
-    (function() {
-      var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
-      if (!prefix) {
-        prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
-      }
-      window.MYSS_PREFIX = prefix;
-      window.__prefix = prefix;
-      var target = document.getElementById("myss-footer");
-      if (!target) { return; }
-      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-        .then(function(r){ return r.text(); })
-        .then(function(html){
-          target.innerHTML = html;
-          target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img){
-            var raw = img.getAttribute("src");
-            if (raw) {
-              img.setAttribute("src", raw.replace("${prefix}", prefix));
-            }
-          });
-        })
-        .catch(function(){
-          // Minimal fallback hvis fetch feiler
-          target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
+    (function () {
+      const buttons = document.querySelectorAll('#program-valg button');
+      const form = document.getElementById('qrForm');
+      const title = document.getElementById('skjema-tittel');
+      const hiddenProgram = document.getElementById('program-valgt');
+
+      if (!buttons.length || !form) return;
+
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const prog = btn.dataset.prog || btn.textContent.trim();
+          hiddenProgram.value = prog;
+          title.textContent = prog;
+          form.style.display = 'block';
+          form.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
-    })();
-  </script>
-  <script>
-    (function() {
-      var form = document.getElementById('qr-form');
-      var feedback = document.getElementById('form-feedback');
-      if (!form || !feedback) return;
-
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        var data = new FormData(form);
-        var navn = (data.get('navn') || '').trim();
-        var epost = (data.get('epost') || '').trim();
-        var fokus = (data.get('fokus') || '').trim();
-        var treningssted = (data.get('treningssted') || '').trim();
-        var behov = (data.get('behov') || '').trim();
-
-        if (!epost) {
-          feedback.textContent = 'Vi trenger e-postadressen din for å sende QR-koden.';
-          feedback.className = 'form-feedback error';
-          feedback.hidden = false;
-          return;
-        }
-
-        var body = [
-          'Navn: ' + (navn || 'Ikke oppgitt'),
-          'E-post: ' + epost,
-          'Fokusområde: ' + (fokus || 'Ikke valgt'),
-          'Hvor trener du: ' + (treningssted || 'Ikke oppgitt'),
-          'Behov/ønsker: ' + (behov || 'Ikke oppgitt')
-        ].join('\n');
-
-        var subject = encodeURIComponent('Treningsprogram etter QR-kode');
-        var mailto = 'mailto:alexander@mystrongestside.no?subject=' + subject + '&body=' + encodeURIComponent(body);
-        window.location.href = mailto;
-
-        feedback.textContent = 'Takk! Hvis e-postklienten ikke åpner, send oss gjerne en melding på alexander@mystrongestside.no.';
-        feedback.className = 'form-feedback success';
-        feedback.hidden = false;
-        form.reset();
       });
     })();
   </script>
-  <script src="../../marquee-guard.js?v=36" defer></script>
 </body>
 </html>
