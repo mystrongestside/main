@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Styrketrening med tett oppfølging | My Strongest Side®</title>
+  <meta name="description" content="Kurs i styrketrening med tett oppfølging ved Trene Sammen Fantoft. Små grupper, trygg veiledning og praktisk informasjon samlet på ett sted." />
+
+  <link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="stylesheet" href="../styles.css?v=41">
+
+  <style>
+    /* --- Tillegg: farge for 'åpen for påmelding'-bånd --- */
+    .ribbon--open { background-color: #3cb371; }
+
+    .price-highlight {
+      background: #eef6fb;
+      border: 2px solid #105277;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .price-highlight__heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #105277;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-highlight__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.75rem;
+      font-weight: 600;
+      color: #0f3252;
+    }
+
+    .price-highlight__item {
+      background: #fff;
+      border-radius: 10px;
+      padding: 0.75rem;
+      border: 1px solid #d7e6ef;
+    }
+
+    .price-highlight__item span {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #526b7d;
+    }
+
+    .info-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin: 0 0 1.5rem;
+    }
+
+    .info-summary__item {
+      background: #f7fafc;
+      border: 1px solid #d7e6ef;
+      border-radius: 10px;
+      padding: 0.85rem;
+    }
+
+    .info-summary__label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #3c5264;
+      margin-bottom: 0.2rem;
+    }
+
+    .info-summary__value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f3252;
+      margin: 0;
+    }
+
+    .info-summary__meta {
+      font-size: 0.9rem;
+      color: #526b7d;
+      margin: 0.15rem 0 0;
+    }
+
+    .two-column--signup {
+      align-items: start;
+    }
+
+    .two-column--signup .stacked-left {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.5rem, 2vw, 2rem);
+    }
+
+    .signup-panel {
+      align-self: start;
+      background: #ffffff;
+      border: 2px solid #105277;
+      border-radius: 18px;
+      box-shadow: 0 16px 32px rgba(17, 32, 51, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: clamp(1.5rem, 2.5vw, 2rem);
+      position: sticky;
+      top: 1.5rem;
+    }
+
+    .signup-panel h3 {
+      color: #105277;
+      font-size: 1.3rem;
+      margin: 0;
+    }
+
+    .signup-panel p {
+      margin: 0;
+      color: #0f3252;
+    }
+
+    .signup-panel__disclaimer {
+      color: #526b7d;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .signup-panel .signup__cta {
+      font-weight: 700;
+      color: #f77c37;
+    }
+
+    .info-card__group {
+      margin-bottom: 1.25rem;
+    }
+
+    .info-card__group h4 {
+      font-size: 1rem;
+      color: #0f3252;
+      margin-bottom: 0.35rem;
+    }
+
+    .date-list--grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.35rem 0.75rem;
+    }
+
+    .date-list--grid li {
+      margin: 0;
+    }
+
+    .session-agenda {
+      list-style: none;
+      margin: 0.5rem 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .session-agenda li {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      color: #0f3252;
+    }
+
+    .session-agenda li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      margin-right: 0.5rem;
+      background: #f77c37;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .sticky-signup-bar {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background: rgba(16, 82, 119, 0.97);
+      color: #fff;
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0.85rem 1rem;
+      padding-bottom: calc(0.85rem + env(safe-area-inset-bottom));
+      gap: 0.65rem;
+      box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.18);
+      z-index: 999;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .sticky-signup-bar__price {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      font-size: 0.95rem;
+      line-height: 1.3;
+    }
+
+    .sticky-signup-bar__price strong {
+      font-size: 1.05rem;
+    }
+
+    .sticky-signup-bar__button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: min(320px, 100%);
+      padding: 0.7rem 1.75rem;
+      background: #f77c37;
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      min-width: 0;
+      align-self: center;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 6px 16px rgba(247, 124, 55, 0.35);
+      text-align: center;
+    }
+
+    .sticky-signup-bar__button span {
+      display: inline-block;
+    }
+
+    .sticky-signup-bar__button:hover,
+    .sticky-signup-bar__button:focus-visible {
+      background: #ff8a49;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 110px;
+        padding-bottom: calc(110px + env(safe-area-inset-bottom));
+      }
+
+      .sticky-signup-bar {
+        display: flex;
+      }
+
+      .price-highlight {
+        text-align: left;
+      }
+
+      .signup-panel {
+        position: static;
+      }
+    }
+
+    .sticky-signup-bar.is-hidden {
+      transform: translateY(110%);
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="page--tett-oppfolging">
+  <header data-component="site-header"></header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero hero--simple">
+      <div class="container hero__content">
+        <h1>Gruppetilbud for personer med funksjonsvariasjon som ønsker tett oppfølging<span class="dot">.</span></h1>
+      </div>
+    </section>
+
+    <!-- MARQUEE TOPP -->
+    <div class="marquee" role="region" aria-label="MyStrongestSide statements">
+      <div class="marquee__wrap">
+        <div class="marquee__row">
+          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
+          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
+          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container two-column two-column--signup">
+        <div class="stacked-left">
+          <aside class="info-card">
+            <div class="info-card__section">
+              <h3>Nyttig informasjon</h3>
+              <div class="price-highlight" aria-live="polite">
+                <p class="price-highlight__heading">Pris for sesong</p>
+                <div class="price-highlight__grid">
+                  <div class="price-highlight__item">
+                    150 kr
+                    <span>Prøvetime</span>
+                  </div>
+                  <div class="price-highlight__item">
+                   600 kr
+                    <span>CP Vestland medlemspris</span>
+                    </div>
+                     <div class="price-highlight__item">
+                    800 kr
+                    <span>ikke medlem</span>
+                  </div>
+                </div>
+              </div>
+              <div class="info-summary" aria-label="Oppsummering av kursinformasjon">
+                <div class="info-summary__item">
+                  <p class="info-summary__label">Sted</p>
+                  <p class="info-summary__value">Trene Sammen Fantoft</p>
+                  <p class="info-summary__meta">Fantoftvegen 14, Bergen</p>
+                </div>
+                <div class="info-summary__item">
+                  <p class="info-summary__label">Tid</p>
+                  <p class="info-summary__value">17:00 – 18:00</p>
+                  <p class="info-summary__meta">Oppmøte kl. 16:45</p>
+                </div>
+                <div class="info-summary__item">
+                  <p class="info-summary__label">Sesong</p>
+                  <p class="info-summary__value">Mars 2026 – Juni 2026</p>
+                  <p class="info-summary__meta">Torsdager annenhver uke</p>
+                </div>
+                <div class="info-summary__item">
+                  <p class="info-summary__label">Gruppestørrelse</p>
+                  <p class="info-summary__value">Maks 8 deltakere</p>
+                  <p class="info-summary__meta">Fast instruktørteam</p>
+                </div>
+              </div>
+
+              <div class="info-card__group">
+                <h4>Datoer denne sesongen</h4>
+              <ol class="date-list date-list--grid">
+  <li>Torsdag 12. mars 2026</li>
+  <li>Torsdag 26. mars 2026</li>
+  <li>Torsdag 9. april 2026</li>
+  <li>Torsdag 23. april 2026</li>
+  <li>Torsdag 7. mai 2026</li>
+  <li>Torsdag 21. mai 2026</li>
+  <li>Torsdag 11. juni 2026</li>
+  <li>Torsdag 25. juni 2026</li>
+</ol>
+                </ol>
+              </div>
+
+              <div class="info-card__group">
+                <h4>Oppbygging av økten</h4>
+                <ul class="session-agenda" aria-label="Innhold i økten">
+                  <li>Felles oppvarming</li>
+                  <li>Individuelt tilpasset trening</li>
+                  <li>Felles nedtrapping</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="info-card__section">
+              <h3>Tilgjengelighet og praktisk info</h3>
+              <ul class="info-list">
+                <li>
+                  <span class="icon"><img src="../icons/wheelchair.svg" alt="Tilgjengelighet ikon"></span>
+                  <div class="info-content">Trinnfri inngang, heis og HC-toalett</div>
+                </li>
+                <li>
+                  <span class="icon"><img src="../icons/bus.svg" alt="Transport ikon"></span>
+                  <div class="info-content">Buss nr. 2 og 3 (holdeplass Fantoft Studentby)</div>
+                </li>
+                <li>
+                  <span class="icon"><img src="../icons/parking.svg" alt="Parkering ikon"></span>
+                  <div class="info-content">
+                    HC-parkering: 3 plasser ved MENY Fantoft (70 – 90 m, 2 – 3 min i manuell rullestol uten assistanse)
+                  </div>
+                </li>
+                <li>
+                  <span class="icon"><img src="../icons/map.svg" alt="Kart ikon"></span>
+                  <div class="info-content">
+                    <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen"
+                       class="map-link" target="_blank" rel="noopener">
+                      Se kart
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+
+        <aside class="signup-panel" aria-labelledby="signup-heading">
+          <h3 id="signup-heading">Meld deg på</h3>
+          <p class="signup__cta">Sikre deg plass til neste sesong via skjemaet.</p>
+          <p class="signup-panel__disclaimer">Plasser er fordelt denne sesongen, men du kan sende inn påmelding nå, så prioriterer vi deg på neste kurs.</p>
+
+          <div id="checkin_registration"></div>
+
+          <script src="https://registration.checkin.no/registration.loader.js"
+                  data-event-id="214654"
+                  data-theme="light"
+                  data-primary-color="#105277"
+                  data-secondary-color="#f77c37"
+                  async></script>
+        </aside>
+      </div>
+      </section>
+
+      <section class="section faq">
+        <div class="container surface-card stack">
+          <h2>Ofte stilte spørsmål<span class="dot">.</span></h2>
+
+          <details>
+            <summary>Hva hvis jeg bruker hjelpemidler eller rullestol?</summary>
+            <p>Det går helt fint! Lokalet er universelt utformet, og vi tilpasser både øvelser og apparater etter behov.</p>
+          </details>
+
+          <details>
+            <summary>Kan jeg ta med ledsager eller assistent?</summary>
+            <p>Ja. Assistent, ledsager eller verge er alltid velkommen – uten ekstra kostnad.</p>
+          </details>
+
+          <details>
+            <summary>Hvordan tilpasses øvelsene?</summary>
+            <p>Instruktørene vurderer sammen med deg hvilke øvelser som fungerer best ut fra funksjon og målsetting.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="hero-image-block">
+        <!-- Plassholder for bilde -->
+      </section>
+    </main>
+
+    <div class="sticky-signup-bar" aria-label="Påmelding og pris">
+      <div class="sticky-signup-bar__price">
+        <strong>600 kr / 800 kr</strong>
+        <span>CPV-medlem / ikke medlem</span>
+      </div>
+      <a class="sticky-signup-bar__button" href="#checkin_registration">Meld deg på</a>
+    </div>
+
+    <script>
+      (function() {
+        var stickyBar = document.querySelector('.sticky-signup-bar');
+        var registration = document.getElementById('checkin_registration');
+
+        if (!('IntersectionObserver' in window) || !stickyBar || !registration) {
+          return;
+        }
+
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            stickyBar.classList.toggle('is-hidden', entry.isIntersecting);
+          });
+        }, { threshold: 0.1 });
+
+        observer.observe(registration);
+      })();
+    </script>
+    <script src="../script.js" defer></script>
+    <div id="myss-footer"></div>
+    <script>
+      (function() {
+        var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
+        if (!prefix) {
+          prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
+        }
+        window.MYSS_PREFIX = prefix;
+        window.__prefix = prefix;
+        var target = document.getElementById("myss-footer");
+        if (!target) { return; }
+        fetch(prefix + "partials/footer.html", { cache: "no-cache" })
+          .then(function(r){ return r.text(); })
+          .then(function(html){
+            target.innerHTML = html;
+            target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img){
+              var raw = img.getAttribute("src");
+              if (raw) {
+                img.setAttribute("src", raw.replace("${prefix}", prefix));
+              }
+            });
+          })
+          .catch(function(){
+            // Minimal fallback hvis fetch feiler
+            target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
+          });
+      })();
+    </script>
+    <script src="../marquee-guard.js?v=36" defer></script>
+  </body>
+</html>
