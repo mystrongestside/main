@@ -5,346 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Samarbeid | My Strongest Side®</title>
   <meta name="description" content="Sammen gjør vi trening mulig for flere. Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluderende treningsmiljø – der flere kan delta, lære og oppleve mestring." />
+
   <link rel="icon" type="image/png" href="favicon.png" />
+  <!-- Global stil -->
   <link rel="stylesheet" href="styles.css?v=41">
+  <!-- Enkel undersides-stil for samarbeid (kommer ETTER global) -->
+  <link rel="stylesheet" href="samarbeid.css?v=1">
+
   <script>document.documentElement.classList.add('js');</script>
-
-  <style>
-    :root {
-      --myss-white: #ffffff;
-      --myss-orange: #f77c37;
-      --myss-blue: #24344d;
-      --myss-soft: #e4e8f2;
-      --myss-ink: #24344d;
-      --myss-shadow: rgba(16, 82, 119, 0.12);
-    }
-
-    body.page-samarbeid {
-      background: var(--myss-white);
-      margin: 0;
-      font-size: 17px; /* litt større, mer likt mio.no */
-    }
-
-    /* Fjern evt. ekstra topp-padding på denne siden */
-    body.page-samarbeid main {
-      padding-top: 0 !important;
-    }
-
-    /* HERO */
-    .partners-hero {
-      background: var(--myss-blue);
-      padding: 1.75rem 1.5rem 2.4rem;
-      text-align: center;
-      color: #ffffff;
-    }
-
-    .partners-hero__content {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .partners-hero h1 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin: 0 0 0.75rem;
-      color: #ffffff !important;
-    }
-
-    .partners-hero p {
-      font-size: 1.1rem;
-      margin: 0;
-      line-height: 1.7;
-      color: #ffffff !important;
-      opacity: 0.95;
-    }
-
-    /* MARQUEE – roligere og mer diskret */
-    .marquee {
-      background: #ffffff;
-      padding: 0.35rem 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-      margin-top: -1px;
-    }
-
-    .marquee__wrap {
-      overflow: hidden;
-    }
-
-    .marquee__row {
-      display: inline-flex;
-      /* roligere enn før */
-      animation: marquee-slow 55s linear infinite !important;
-    }
-
-    .marquee__row span {
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      color: var(--myss-blue);
-      padding: 0 1.6rem;
-      white-space: nowrap;
-    }
-
-    @keyframes marquee-slow {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* PARTNERE */
-    .partners-section {
-      padding: 3.2rem 0 3.6rem;
-    }
-
-    .partners-section.container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding-inline: 1.75rem;
-    }
-
-    .partners-grid.refined {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 2.3rem;
-      align-items: stretch;
-    }
-
-    .partner-card.smooth {
-      background: #ffffff;
-      border-radius: 1.25rem;
-      padding: 2rem 1.9rem 1.8rem;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
-      border: 1px solid rgba(15, 23, 42, 0.04);
-      display: flex;
-      flex-direction: column;
-      gap: 1.15rem;
-    }
-
-    .partner-meta {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .partner-logo-frame {
-      border-radius: 999px;
-      padding: 0.4rem 0.85rem;
-      background: #ffffff;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .partner-logo {
-      max-height: 42px;
-      width: auto;
-      display: block;
-    }
-
-    .partner-logo--framed {
-      max-height: 36px;
-    }
-
-    .partner-content h3 {
-      margin: 0 0 0.55rem;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--myss-blue);
-    }
-
-    .partner-content p {
-      margin: 0 0 1rem;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #4b5563;
-    }
-
-    .partner-link {
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      color: var(--myss-orange);
-    }
-
-    .partner-link::after {
-      content: "↗";
-      font-size: 0.8rem;
-      position: relative;
-      top: -0.5px;
-    }
-
-    .partner-card.smooth:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.09);
-      transition: transform 200ms ease, box-shadow 200ms ease;
-    }
-
-    /* REN, PREMIUM CTA */
-    .partners-cta-clean {
-      padding: 4rem 1.75rem 4.2rem;
-      background: linear-gradient(
-        180deg,
-        rgba(247, 124, 55, 0.03),
-        rgba(36, 52, 77, 0.02)
-      );
-      display: flex;
-      justify-content: center;
-    }
-
-    .partners-cta-clean .cta-inner {
-      background: #ffffff;
-      border: 1px solid rgba(36, 52, 77, 0.08);
-      border-radius: 20px;
-      padding: 2.6rem 2.1rem 2.2rem;
-      max-width: 640px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.07);
-    }
-
-    .partners-cta-clean h3 {
-      margin: 0 0 0.4rem;
-      font-size: 1.9rem;
-      font-weight: 800;
-      color: var(--myss-orange);
-    }
-
-    .partners-cta-clean p {
-      margin: 0 0 1.6rem;
-      color: var(--myss-blue);
-      opacity: 0.8;
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    .partners-cta-clean .cta-actions {
-      display: flex;
-      justify-content: center;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-    }
-
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.7rem 1.6rem;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      background: var(--myss-orange);
-      color: #ffffff;
-      border: none;
-      box-shadow: 0 12px 30px rgba(247, 124, 55, 0.4);
-      transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
-      white-space: nowrap;
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(247, 124, 55, 0.45);
-      background: #f96e1e;
-    }
-
-    .cta-btn--outline {
-      background: #ffffff;
-      color: var(--myss-orange);
-      border: 1px solid rgba(247, 124, 55, 0.6);
-      box-shadow: none;
-    }
-
-    .cta-btn--outline:hover {
-      background: rgba(247, 124, 55, 0.06);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-    }
-
-    /* FOOTER – sørg for at logo synes på denne siden */
-    .page-samarbeid #myss-footer {
-      padding-top: 2.5rem;
-    }
-
-    .page-samarbeid #myss-footer img {
-      opacity: 1 !important;
-      filter: none !important;
-      max-height: 42px;
-    }
-
-    /* FJERN EMOJI-PILER PÅ MOBIL PÅ DENNE SIDEN */
-    @media (max-width: 768px) {
-      .page-samarbeid a::after {
-        /* nuller ut evt. JS/CSS som legger inn 👉 på lenker/knapper */
-        content: none !important;
-      }
-    }
-
-    /* MOBIL-JUSTERINGER */
-    @media (max-width: 900px) {
-      .partners-section.container {
-        padding-inline: 1.4rem;
-      }
-
-      .partners-grid.refined {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .partners-hero {
-        padding: 1.6rem 1.25rem 2.1rem;
-      }
-
-      .partners-hero h1 {
-        font-size: 1.7rem;
-      }
-
-      .partners-hero p {
-        font-size: 1rem;
-      }
-
-      .marquee__row span {
-        padding: 0 1.1rem;
-      }
-
-      .partner-card.smooth {
-        padding: 1.7rem 1.4rem 1.6rem;
-      }
-
-      .partners-cta-clean {
-        padding: 3.2rem 1.4rem 3.4rem;
-      }
-
-      .partners-cta-clean .cta-inner {
-        padding: 2.2rem 1.6rem 2rem;
-      }
-
-      .partners-cta-clean .cta-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .partners-cta-clean .cta-actions .cta-btn,
-      .partners-cta-clean .cta-actions .cta-btn--outline {
-        width: 100%;
-      }
-
-      /* sørg for at knapper holder seg innenfor margin på mobil */
-      .partners-cta-clean .cta-inner,
-      .partners-section.container {
-        box-sizing: border-box;
-      }
-    }
-  </style>
 </head>
 
 <body class="page-samarbeid">
-
   <!-- Global header -->
   <header data-component="site-header"></header>
 
@@ -366,13 +37,13 @@
       <div class="marquee__wrap">
         <div class="marquee__row">
           <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent For Alle.</span><span>Kunnskap.</span>
+          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
           <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
           <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
         </div>
         <div class="marquee__row" aria-hidden="true">
           <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent For Alle.</span><span>Kunnskap.</span>
+          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
           <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
           <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
         </div>
@@ -408,8 +79,9 @@
           <div class="partner-content">
             <h3>Høgskulen på Vestlandet</h3>
             <p>
-              Gjennom HVL Skape-programmet har MySS fått innovasjonstøtte til å videreutvikle en digital løsning som gjør treningsapparater
-              mer forståelige og tilgjengelige. Målet er at alle skal kunne trene trygt – uavhengig av funksjonsevne.
+              Gjennom HVL Skape-programmet har MySS fått innovasjonstøtte til å videreutvikle en digital løsning
+              som gjør treningsapparater mer forståelige og tilgjengelige. Målet er at alle skal kunne trene trygt –
+              uavhengig av funksjonsevne.
             </p>
             <a href="https://hvlskape.no" target="_blank" class="partner-link">Besøk nettside</a>
           </div>
@@ -432,6 +104,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- FOOTER -->
