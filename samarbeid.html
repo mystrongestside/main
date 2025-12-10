@@ -3,31 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samarbeid | My Strongest Side®</title>
-  <meta name="description" content="Sammen gjør vi trening mulig for flere gjennom samarbeid med organisasjoner, fagmiljøer og støttespillere." />
-
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <!-- Bruk samme CSS-versjon som på de nye sidene -->
-  <link rel="stylesheet" href="styles.css?v=41">
-  <link rel="stylesheet" href="compat.css?v=39">
+  <title>Lett funksjonsvariasjon | My Strongest Side®</title>
+  <meta name="description" content="Styrketrening i små grupper for voksne med lett funksjonsvariasjon – rolig tempo, tett oppfølging og faste veiledere." />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../styles.css?v=41">
   <script>document.documentElement.classList.add('js');</script>
-</head>
-<body>
-  <!-- Felles header lastes inn via script.js -->
-  <header data-component="site-header"></header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero hero--page hero--dark">
-      <div class="container hero__content hero__content--center">
-        <p class="eyebrow">Samarbeid</p>
-        <h1>Sammen gjør vi trening mulig for flere<span class="dot">.</span></h1>
-        <p>
-          Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluderende treningsmiljø –
-          der flere kan delta, lære og oppleve mestring.
-        </p>
-      </div>
-    </section>
+  <style>
+    :root {
+      --myss-white: #ffffff;
+      --myss-orange: #f77c37;
+      --myss-blue: #24344d;
+      --myss-soft: #e4e8f2;
+      --myss-ink: #24344d;
+      --myss-shadow: rgba(16, 82, 119, 0.12);
+    }
+
+    .ribbon--open { background-color: #3cb371; }
+    .dot { position: static !important; margin-left: 0.1em; }
+
+    body { background: var(--myss-white); }
+
+    .hero--simple {
+      background: radial-gradient(circle at top left, rgba(247,124,55,0.25), transparent 40%),
+                  radial-gradient(circle at 65% 25%, rgba(16,82,119,0.2), transparent 55%),
+                  linear-gradient(135deg, var(--myss-white) 0%, var(--myss-soft) 65%, #24344d 100%);
+      padding: 4rem 0 3rem !important;
+    }
+    .hero--simple .hero__content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero__tagline {
+      font-size: 1rem;
+      margin-top: .65rem;
+      color: var(--myss-blue);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .hero__lede {
+      max-width: 640px;
+      margin: 1rem auto 0;
+      font-size: 1.12rem;
+      color: var(--myss-ink);
+      line-height: 1.6;
+    }
+    .hero__chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .6rem;
+      margin: 1.75rem auto 0;
+      padding: 0;
+      list-style: none;
+    }
+    .hero__chips li {
+      background: rgba(16,82,119,0.08);
+      border: 1px solid rgba(16,82,119,0.12);
+      border-radius: 999px;
+      padding: .4rem 1rem;
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--myss-ink);
+    }
+    .hero__cta {
+      margin-top: 2.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
 
     <!-- MARQUEE -->
     <div class="marquee force-animate" role="region" aria-label="MyStrongestSide statements">
