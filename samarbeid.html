@@ -24,55 +24,122 @@
       margin: 0;
     }
 
-    /* Fullbredde mørk hero med hvit tekst – litt mindre padding for å komme nærmere headeren */
+    /* FULLBREDDE MØRK HERO MED LOGO + CTA */
     .partners-hero {
       background: var(--myss-blue);
-      padding: 1.75rem 1.5rem 1.75rem; /* mindre topp/bunn */
-      text-align: center;
+      padding: 2.75rem 1.5rem 2.5rem;
+      color: #fff;
     }
 
-    @media (min-width: 768px) {
-      .partners-hero {
-        padding: 2rem 1.5rem 2rem;
-      }
-    }
-
-    .partners-hero__content {
-      max-width: 960px;
+    .partners-hero__inner {
+      max-width: 1080px;
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .partners-hero__logo {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .partners-hero__logo img {
+      display: block;
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    .partners-hero__text {
+      flex: 1 1 auto;
+      min-width: 0;
     }
 
     .partners-hero h1 {
-      font-size: 2.1rem;
+      font-size: 2.2rem;
       font-weight: 800;
-      margin: 0 0 0.6rem;
-      color: #ffffff !important;
+      margin: 0 0 0.75rem;
+      color: #fff !important;
     }
 
     .partners-hero p {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       line-height: 1.6;
-      margin: 0;
-      color: #ffffff !important;
+      margin: 0 0 1.25rem;
+      color: #fff !important;
     }
 
-    /* MARQUEE – liten høyde, tett inntil hero så det ikke ser ut som en meny */
+    .partners-hero__cta {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .partners-hero__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.6rem;
+      border-radius: 999px;
+      background: var(--myss-orange);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.98rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .partners-hero__btn:hover,
+    .partners-hero__btn:focus-visible {
+      background: #ff8d4f;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(0, 0, 0, 0.22);
+    }
+
+    .partners-hero__btn:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    @media (max-width: 768px) {
+      .partners-hero__inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
+
+      .partners-hero__cta {
+        justify-content: center;
+      }
+    }
+
+    /* MARQUEE – SLANK STRIPE, IKKE MENY */
     .marquee {
       background: #ffffff;
-      padding: 0.35rem 0;
+      padding: 0.3rem 0;
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-      margin-top: -1px; /* lim den tett under hero */
+      margin: 0; /* ingen glipp mellom hero og marquee */
     }
 
     .marquee__row span {
       font-size: 0.9rem;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 0.01em;
+      text-transform: none;
       color: var(--myss-blue);
       padding: 0 1.5rem;
       white-space: nowrap;
     }
 
+    /* LITT LUFT FØR PARTNERKORT */
     .partners-section {
       margin-top: 2.5rem;
     }
@@ -86,14 +153,27 @@
 
   <main>
 
-    <!-- Hero -->
+    <!-- HERO MED LOGO + CTA -->
     <section class="partners-hero">
-      <div class="partners-hero__content">
-        <h1>Våre samarbeidspartnere og støttespillere</h1>
-        <p>
-          My Strongest Side® utvikler løsningen. Våre partnere gjør det mulig.
-          Sammen skaper vi et mer inkluderende treningsmiljø.
-        </p>
+      <div class="partners-hero__inner">
+        <div class="partners-hero__logo">
+          <!-- bruk samme logo som ellers i header/footer -->
+          <img src="logo-orange.png" alt="My Strongest Side-logo">
+        </div>
+
+        <div class="partners-hero__text">
+          <h1>Våre samarbeidspartnere og støttespillere</h1>
+          <p>
+            My Strongest Side® utvikler løsningen. Våre partnere gjør det mulig.
+            Sammen skaper vi et mer inkluderende treningsmiljø.
+          </p>
+        </div>
+
+        <div class="partners-hero__cta">
+          <a class="partners-hero__btn" href="/treningstilbud/">
+            Se treningstilbud
+          </a>
+        </div>
       </div>
     </section>
 
@@ -177,37 +257,13 @@
   <div id="myss-footer"></div>
   <script>
     (function () {
-      var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
-      if (!prefix) {
-        prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
-      }
-      window.MYSS_PREFIX = prefix;
-      window.__prefix = prefix;
-      var target = document.getElementById("myss-footer");
-      if (!target) return;
-      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-        .then(function (r) { return r.text(); })
-        .then(function (html) { target.innerHTML = html; })
-        .catch(function () {
-          target.innerHTML =
-            '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><img src="' + prefix + 'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
-        });
-    })();
-  </script>
+      var prefix = window.MYSS_PREFIX || "";
+      if (!prefix) prefix = window.location.pathname.includes("/treningstilbud/") ? "../" : "";
 
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "My Strongest Side",
-      "url": "https://www.mystrongestside.no/samarbeid.html",
-      "logo": "https://www.mystrongestside.no/hlogo.png",
-      "sameAs": [
-        "https://www.instagram.com/mystrongestside",
-        "https://www.linkedin.com/company/mystrongestside"
-      ]
-    }
+      fetch(prefix + "partials/footer.html")
+        .then(r => r.text())
+        .then(html => { document.getElementById("myss-footer").innerHTML = html; });
+    })();
   </script>
 
 </body>
