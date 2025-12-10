@@ -22,6 +22,7 @@
     body.page-samarbeid {
       background: var(--myss-white);
       margin: 0;
+      font-size: 17px; /* litt større, mer likt mio.no */
     }
 
     /* Fjern evt. ekstra topp-padding på denne siden */
@@ -29,33 +30,38 @@
       padding-top: 0 !important;
     }
 
-    /* Fullbredde mørk hero med hvit tekst */
+    /* HERO */
     .partners-hero {
       background: var(--myss-blue);
       padding: 1.75rem 1.5rem 2.4rem;
       text-align: center;
+      color: #ffffff;
     }
+
     .partners-hero__content {
       max-width: 960px;
       margin: 0 auto;
     }
+
     .partners-hero h1 {
-      font-size: 2.1rem;
+      font-size: 2.2rem;
       font-weight: 800;
       margin: 0 0 0.75rem;
       color: #ffffff !important;
     }
+
     .partners-hero p {
       font-size: 1.1rem;
       margin: 0;
-      line-height: 1.6;
+      line-height: 1.7;
       color: #ffffff !important;
+      opacity: 0.95;
     }
 
     /* MARQUEE – roligere og mer diskret */
     .marquee {
       background: #ffffff;
-      padding: 0.3rem 0;
+      padding: 0.35rem 0;
       border-bottom: 1px solid rgba(0, 0, 0, 0.04);
       margin-top: -1px;
     }
@@ -66,7 +72,8 @@
 
     .marquee__row {
       display: inline-flex;
-      animation: marquee 60s linear infinite;
+      /* roligere enn før */
+      animation: marquee-slow 55s linear infinite !important;
     }
 
     .marquee__row span {
@@ -74,121 +81,88 @@
       font-weight: 600;
       letter-spacing: 0.01em;
       color: var(--myss-blue);
-      padding: 0 1.4rem;
+      padding: 0 1.6rem;
       white-space: nowrap;
     }
 
-    @keyframes marquee {
+    @keyframes marquee-slow {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .marquee__row {
-        animation: none;
-      }
-    }
-
-    /* PARTNERS-SEKSJON */
+    /* PARTNERE */
     .partners-section {
-      padding: 2.8rem 0 3.4rem;
+      padding: 3.2rem 0 3.6rem;
     }
 
     .partners-section.container {
       max-width: 1100px;
       margin: 0 auto;
-      padding-inline: 1.5rem;
+      padding-inline: 1.75rem;
     }
 
     .partners-grid.refined {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 2rem;
+      gap: 2.3rem;
       align-items: stretch;
     }
 
     .partner-card.smooth {
       background: #ffffff;
       border-radius: 1.25rem;
-      padding: 1.75rem 1.75rem 1.6rem;
-      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.06);
+      padding: 2rem 1.9rem 1.8rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
       border: 1px solid rgba(15, 23, 42, 0.04);
       display: flex;
       flex-direction: column;
-      gap: 1.1rem;
+      gap: 1.15rem;
     }
 
     .partner-meta {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       gap: 1rem;
       margin-bottom: 0.25rem;
     }
 
-    .partner-label {
-      display: inline-flex;
-      align-items: center;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(15, 23, 42, 0.06);
-      background: #f9fafb;
-      color: var(--myss-blue);
-      white-space: nowrap;
-    }
-
-    .partner-label.hovedpartner {
-      background: rgba(247, 124, 55, 0.06);
-      border-color: rgba(247, 124, 55, 0.45);
-      color: var(--myss-orange);
-    }
-
-    .partner-label.innovasjon {
-      background: rgba(36, 52, 77, 0.05);
-      border-color: rgba(36, 52, 77, 0.35);
-      color: var(--myss-blue);
-    }
-
     .partner-logo-frame {
       border-radius: 999px;
-      padding: 0.3rem 0.75rem;
+      padding: 0.4rem 0.85rem;
       background: #ffffff;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
       display: inline-flex;
       align-items: center;
       justify-content: center;
     }
 
     .partner-logo {
-      max-height: 40px;
+      max-height: 42px;
       width: auto;
       display: block;
     }
 
     .partner-logo--framed {
-      max-height: 34px;
+      max-height: 36px;
     }
 
     .partner-content h3 {
-      margin: 0 0 0.45rem;
-      font-size: 1.2rem;
+      margin: 0 0 0.55rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--myss-blue);
     }
 
     .partner-content p {
-      margin: 0 0 0.9rem;
-      font-size: 0.98rem;
-      line-height: 1.6;
+      margin: 0 0 1rem;
+      font-size: 1rem;
+      line-height: 1.7;
       color: #4b5563;
     }
 
     .partner-link {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 600;
       text-decoration: none;
       display: inline-flex;
@@ -197,20 +171,22 @@
       color: var(--myss-orange);
     }
 
-    /* Fjern «emoji»-pil på partner-lenker */
     .partner-link::after {
-      content: none !important;
+      content: "↗";
+      font-size: 0.8rem;
+      position: relative;
+      top: -0.5px;
     }
 
     .partner-card.smooth:hover {
       transform: translateY(-2px);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.09);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.09);
       transition: transform 200ms ease, box-shadow 200ms ease;
     }
 
     /* REN, PREMIUM CTA */
     .partners-cta-clean {
-      padding: 4rem 1.5rem;
+      padding: 4rem 1.75rem 4.2rem;
       background: linear-gradient(
         180deg,
         rgba(247, 124, 55, 0.03),
@@ -223,12 +199,12 @@
     .partners-cta-clean .cta-inner {
       background: #ffffff;
       border: 1px solid rgba(36, 52, 77, 0.08);
-      border-radius: 18px;
-      padding: 2.4rem 2rem;
-      max-width: 620px;
+      border-radius: 20px;
+      padding: 2.6rem 2.1rem 2.2rem;
+      max-width: 640px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.07);
     }
 
     .partners-cta-clean h3 {
@@ -241,7 +217,9 @@
     .partners-cta-clean p {
       margin: 0 0 1.6rem;
       color: var(--myss-blue);
-      opacity: 0.75;
+      opacity: 0.8;
+      font-size: 1rem;
+      line-height: 1.7;
     }
 
     .partners-cta-clean .cta-actions {
@@ -255,7 +233,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.65rem 1.4rem;
+      padding: 0.7rem 1.6rem;
       border-radius: 999px;
       font-size: 0.95rem;
       font-weight: 600;
@@ -264,11 +242,14 @@
       background: var(--myss-orange);
       color: #ffffff;
       border: none;
-      transition: 0.15s ease;
+      box-shadow: 0 12px 30px rgba(247, 124, 55, 0.4);
+      transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
       white-space: nowrap;
     }
 
     .cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(247, 124, 55, 0.45);
       background: #f96e1e;
     }
 
@@ -276,65 +257,88 @@
       background: #ffffff;
       color: var(--myss-orange);
       border: 1px solid rgba(247, 124, 55, 0.6);
+      box-shadow: none;
     }
 
     .cta-btn--outline:hover {
       background: rgba(247, 124, 55, 0.06);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
     }
 
-    /* MOBIL-TILPASNINGER */
-    @media (max-width: 768px) {
-      .partners-hero {
-        padding: 1.5rem 1.25rem 2rem;
-      }
-      .partners-hero h1 {
-        font-size: 1.6rem;
-      }
-      .partners-hero p {
-        font-size: 1rem;
-      }
-      .marquee__row span {
-        padding: 0 1rem;
-      }
-      .partners-section.container {
-        padding-inline: 1.25rem;
-      }
-      .partners-grid.refined {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .partners-cta-clean .cta-inner {
-        padding: 2rem 1.6rem 1.9rem;
-      }
-      .partners-cta-clean h3 {
-        font-size: 1.55rem;
-      }
-      .partners-cta-clean .cta-actions {
-        flex-direction: column;
-      }
-      .cta-btn,
-      .cta-btn--outline {
-        width: 100%;
-        max-width: 100%;
-      }
+    /* FOOTER – sørg for at logo synes på denne siden */
+    .page-samarbeid #myss-footer {
+      padding-top: 2.5rem;
+    }
 
-      /* Tving header-knapper inn i marg og fjern piler på mobil */
-      body.page-samarbeid .button,
-      body.page-samarbeid .button--primary,
-      body.page-samarbeid .button--ghost {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-      }
-      body.page-samarbeid .button--primary::after,
-      body.page-samarbeid .button--ghost::after {
+    .page-samarbeid #myss-footer img {
+      opacity: 1 !important;
+      filter: none !important;
+      max-height: 42px;
+    }
+
+    /* FJERN EMOJI-PILER PÅ MOBIL PÅ DENNE SIDEN */
+    @media (max-width: 768px) {
+      .page-samarbeid a::after {
+        /* nuller ut evt. JS/CSS som legger inn 👉 på lenker/knapper */
         content: none !important;
       }
     }
 
-    /* Prøv å sikre at footer-logo faktisk synes på denne siden */
-    body.page-samarbeid footer img {
-      filter: none !important;
-      opacity: 1 !important;
+    /* MOBIL-JUSTERINGER */
+    @media (max-width: 900px) {
+      .partners-section.container {
+        padding-inline: 1.4rem;
+      }
+
+      .partners-grid.refined {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .partners-hero {
+        padding: 1.6rem 1.25rem 2.1rem;
+      }
+
+      .partners-hero h1 {
+        font-size: 1.7rem;
+      }
+
+      .partners-hero p {
+        font-size: 1rem;
+      }
+
+      .marquee__row span {
+        padding: 0 1.1rem;
+      }
+
+      .partner-card.smooth {
+        padding: 1.7rem 1.4rem 1.6rem;
+      }
+
+      .partners-cta-clean {
+        padding: 3.2rem 1.4rem 3.4rem;
+      }
+
+      .partners-cta-clean .cta-inner {
+        padding: 2.2rem 1.6rem 2rem;
+      }
+
+      .partners-cta-clean .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .partners-cta-clean .cta-actions .cta-btn,
+      .partners-cta-clean .cta-actions .cta-btn--outline {
+        width: 100%;
+      }
+
+      /* sørg for at knapper holder seg innenfor margin på mobil */
+      .partners-cta-clean .cta-inner,
+      .partners-section.container {
+        box-sizing: border-box;
+      }
     }
   </style>
 </head>
