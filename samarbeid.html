@@ -330,6 +330,79 @@
         width: 100%;
       }
     }
+    /* REN, PREMIUM CTA */
+.partners-cta-clean {
+  padding: 4rem 1.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(247, 124, 55, 0.03),
+    rgba(36, 52, 77, 0.02)
+  );
+  display: flex;
+  justify-content: center;
+}
+
+.partners-cta-clean .cta-inner {
+  background: #ffffff;
+  border: 1px solid rgba(36, 52, 77, 0.08);
+  border-radius: 18px;
+  padding: 2.4rem 2rem;
+  max-width: 620px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
+}
+
+.partners-cta-clean h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--myss-orange);
+}
+
+.partners-cta-clean p {
+  margin: 0 0 1.6rem;
+  color: var(--myss-blue);
+  opacity: 0.75;
+}
+
+.partners-cta-clean .cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  background: var(--myss-orange);
+  color: #ffffff;
+  border: none;
+  transition: 0.15s ease;
+}
+
+.cta-btn:hover {
+  background: #f96e1e;
+}
+
+.cta-btn--outline {
+  background: #ffffff;
+  color: var(--myss-orange);
+  border: 1px solid rgba(247, 124, 55, 0.6);
+}
+
+.cta-btn--outline:hover {
+  background: rgba(247, 124, 55, 0.06);
+}
+
   </style>
 </head>
 
@@ -410,20 +483,19 @@
       </div>
     </section>
 
-    <!-- CTA BLI PARTNER -->
-    <section class="partners-cta" id="bli-partner">
-      <div class="container">
-        <div class="cta-card">
-          <h3>Lurer du på noe?</h3>
-          <p>Ta gjerne kontakt.</p>
-          <div class="cta-actions">
-            <a class="cta-btn" href="kontakt.html#partner">Kontakt oss</a>
-            <a class="cta-btn cta-btn--outline" href="mailto:post@mystrongestside.no">post@mystrongestside.no</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="partners-cta-clean" id="bli-partner">
+  <div class="cta-inner">
+    <h3>Lurer du på noe?</h3>
+    <p>Ta gjerne kontakt.</p>
 
+    <div class="cta-actions">
+      <a class="cta-btn" href="kontakt.html#partner">Kontakt oss</a>
+      <a class="cta-btn cta-btn--outline" href="mailto:post@mystrongestside.no">
+        post@mystrongestside.no
+      </a>
+    </div>
+  </div>
+</section>
   </main>
 
   <!-- FOOTER -->
