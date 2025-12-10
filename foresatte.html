@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kurs for foresatte og BPA | My Strongest Side®</title>
-  <meta name="description" content="Kurs for foresatte og BPA med fokus på trygg løfteteknikk, hverdagsforflytninger og hjelpemidler – kombinert med webinarer om hvordan ta vare på egen kropp og hode i en travel hverdag." />
-  <link rel="icon" type="image/png" href="../favicon.png" />
-  <link rel="stylesheet" href="../styles.css?v=41">
+  <meta name="description" content="Praktisk kurs for foresatte og BPA med fokus på trygg løfteteknikk, hverdagsforflytning og bruk av hjelpemidler – kombinert med korte kurs/webinarer om kropp og hode i en travel hverdag." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css?v=41">
   <script>document.documentElement.classList.add('js');</script>
 
   <style>
@@ -23,6 +23,18 @@
     .dot { position: static !important; margin-left: 0.1em; }
 
     body { background: var(--myss-white); }
+
+    header[data-component="site-header"],
+    .navbar {
+      background: #24344d !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
+    }
+    header[data-component="site-header"]::after,
+    .navbar::after {
+      content: none !important;
+      display: none !important;
+    }
 
     .hero--simple {
       background: var(--myss-blue);
@@ -53,9 +65,9 @@
     }
 
     .hero--simple h1 {
-      font-size: 2.6rem;
+      font-size: clamp(2.4rem, 5.8vw, 3.4rem);
       font-weight: 800;
-      line-height: 1.3;
+      line-height: 1.25;
       margin: 0;
       color: #ffffff;
     }
@@ -68,55 +80,16 @@
       margin: 0;
     }
 
-    .btn-main {
-      display: inline-block;
-      background: var(--myss-orange);
-      color: #ffffff;
-      padding: 1.25rem 2.2rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.2s ease;
-    }
-
-    .btn-main:hover {
-      background: #e86d2d;
-    }
-
-    /* Mobilforbedring */
-    @media (max-width: 720px) {
-      .hero--simple {
-        padding: 4rem 1rem 3.5rem 1rem;
-      }
-      .hero--simple h1 {
-        font-size: 1.9rem;
-      }
-      .hero__subtitle {
-        font-size: 1.05rem;
-      }
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: var(--myss-blue);
-    }
-
-    /* Sikre at mobilmenyen legger seg over hero */
-    .site-header nav {
-      position: relative;
-      z-index: 1001;
-    }
-
     .section-divider {
       border: 0;
       border-top: 1px solid #ffffff;
-      margin: 2.5rem auto;
+      margin: 1.75rem auto;
       width: min(760px, 100%);
     }
 
     .section--split { padding-top: 0; }
+    main > .section.section--split:first-of-type { padding-top: 1rem; }
+
     .split {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -125,6 +98,7 @@
     }
     .split--reverse { direction: rtl; }
     .split--reverse > * { direction: ltr; }
+
     .split__text h3 {
       font-size: 1.6rem;
       margin-bottom: .9rem;
@@ -135,6 +109,7 @@
       line-height: 1.6;
       color: var(--myss-ink);
     }
+
     .split__image { position: relative; }
     .image-frame {
       border-radius: 1.5rem;
@@ -167,7 +142,6 @@
       gap: 1rem;
       margin-top: 1.25rem;
     }
-
     .info-chips span {
       background: #ffffff;
       border-radius: .9rem;
@@ -199,7 +173,6 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
     }
-
     .story-card {
       background: #fff;
       border-radius: 1.25rem;
@@ -266,7 +239,6 @@
     .link-arrow:hover { opacity: 0.85; }
 
     .marquee__row span + span { margin-left: .35rem; }
-    .marquee__row[aria-hidden="true"] { display: none; }
 
     .floating-cta {
       position: fixed;
@@ -280,41 +252,104 @@
       .floating-cta { display: inline-flex; }
     }
 
-    /* Skjul topp-CTA på desktop – floating-knappen er nok */
-    @media (min-width: 960px) {
-      .page--lett .navbar-right {
-        display: none !important;
-      }
+    .btn-main {
+      display: inline-block;
+      background: var(--myss-orange);
+      color: #ffffff;
+      padding: 1.1rem 2.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+    .btn-main:hover {
+      background: #e86d2d;
+    }
+
+    .sticky-cta {
+      display: none;
     }
 
     @media (max-width: 720px) {
-      .hero--simple { padding: 2.5rem 0 1.5rem !important; }
-      .hero__content { max-width: 92%; }
-      .image-frame img { height: 250px; }
-      .cta-panel { padding: 1.75rem; }
+      .hero--simple {
+        padding: 3.5rem 1.25rem 2.25rem 1.25rem;
+      }
+      .hero--simple h1 {
+        font-size: clamp(2.0rem, 7vw, 2.6rem);
+        line-height: 1.25;
+      }
+      .hero__subtitle {
+        font-size: 1.05rem;
+      }
+
+      main > .section.section--split:first-of-type {
+        padding-top: 0.75rem;
+      }
+      .section-divider {
+        margin: 1.5rem auto;
+      }
+
+      .page--foresatte {
+        padding-bottom: 5.25rem;
+      }
+
+      .hero__content .btn-main {
+        display: none;
+      }
+
+      .sticky-cta {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(8px);
+        padding: 0.75rem 1rem 1rem;
+        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .sticky-cta__inner {
+        max-width: 420px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .sticky-cta .btn-main {
+        width: auto;
+        max-width: 280px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0.85rem 1.6rem;
+      }
     }
   </style>
 </head>
 
-<body class="page--lett">
+<body class="page--foresatte">
 <header id="myss-header" data-component="site-header"></header>
 
 <main>
+  <!-- HERO -->
   <section class="hero hero--simple">
     <div class="container hero__content">
-
       <p class="hero__season">Vår 2026 · Kurs for foresatte og BPA</p>
-
       <h1>Løfteteknikk og hverdagsmestring for foresatte og BPA<span class="dot">.</span></h1>
-
       <p class="hero__subtitle">
         Praktisk kurs i trygg løfting, forflytning og bruk av hjelpemidler – med fokus på både kroppen og hodet i en hverdag med mange hatter.
       </p>
-
       <p class="hero__subtitle" style="max-width:540px;">
         Du får konkrete verktøy du kan bruke med én gang, samt tilgang til korte kurs/webinarer som du kan se når det passer.
       </p>
 
+      <!-- CTA-knapp (vises på desktop, skjules på mobil til fordel for sticky-cta) -->
+      <a class="btn-main" href="mailto:post@mystrongestside.no?subject=Meld%20interesse%20-%20kurs%20for%20foresatte%20og%20BPA">
+        Meld interesse for kurs
+      </a>
     </div>
   </section>
 
@@ -322,12 +357,14 @@
     <hr class="section-divider">
   </div>
 
+  <!-- Løft trygt-seksjon -->
   <section class="section section--split">
     <div class="container split">
       <div class="split__text" data-scroll-fade>
         <h3>Løft trygt – i sofaen, sengen og bilen</h3>
         <p>
-          Som foresatt eller BPA gjør du mange små løft og forflytninger i løpet av en dag – ofte uten å tenke over det. Inn og ut av bil, støtte i trapp, fra rullestol til stol eller seng, påkledning eller hjelp på badet.
+          Som foresatt eller BPA gjør du mange små løft og forflytninger i løpet av en dag – ofte uten å tenke over det.
+          Inn og ut av bil, støtte i trapp, fra rullestol til stol eller seng, påkledning eller hjelp på badet.
         </p>
         <p>
           I kurset jobber vi med grunnleggende løfteteknikk, kroppsstilling og enkle prinsipper som gjør hverdagsbevegelsene tryggere – både for deg og den du hjelper.
@@ -341,47 +378,37 @@
       </div>
       <div class="split__image" data-scroll-fade>
         <div class="image-frame">
-          <img src="../bilde02.jpg" alt="Veileder som viser løfteteknikk til foresatt/BPA i apparat">
+          <img src="bilder/foresatt-løfteteknikk.jpg" alt="Veileder som viser løfteteknikk til foresatt/BPA i apparat">
           <div class="image-tag">Fra apparat til hverdagssituasjon</div>
         </div>
       </div>
     </div>
   </section>
 
-
-  <section class="section section--mentors">
-    <div class="container">
-      <h2 data-scroll-fade>Fagpersoner med erfaring fra både trening og hverdag</h2>
-      <p data-scroll-fade>
-        Kurset ledes av Alexander Sviggum (ergoterapeut, styrkeløfter og grunnlegger av My Strongest Side®) sammen med fagpersoner og veiledere med erfaring fra
-        habilitering, rehabilitering og tilrettelegging i hverdagsliv.
-      </p>
-      <p data-scroll-fade>
-        Vi kombinerer styrkeløft-teknikk, kunnskap om hjelpemidler og helt vanlige hverdagsbevegelser – slik at du får et realistisk bilde av hvordan små justeringer kan gi stor forskjell over tid.
-      </p>
-
-      <div class="media-stack">
-        <!-- Kort 1: Veiledere -->
-        <figure class="media-card" data-scroll-fade>
-          <img src="../bilder/studenter.png"
-               alt="Veiledere som viser løfteteknikk og bruk av hjelpemidler">
-          <figcaption class="media-chip">
-            Faglig påfyll om både kropp og hjelpemidler
-          </figcaption>
-        </figure>
-
-        <!-- Kort 2: Fellesskap -->
-        <figure class="media-card" data-scroll-fade>
-          <img src="../bilder/tett-gruppebilde.jpg"
-               alt="Gruppe som deltar på kurs hos My Strongest Side">
-          <figcaption class="media-chip media-chip--left">
-            Rom for spørsmål, deling og erfaringer
-          </figcaption>
-        </figure>
+  <!-- Fagpersoner-seksjon -->
+  <section class="section section--split">
+    <div class="container split split--reverse">
+      <div class="split__text" data-scroll-fade>
+        <h3>Fagpersoner med erfaring fra både trening og hverdag</h3>
+        <p>
+          Kurset ledes av <strong>Alexander Sviggum</strong> (ergoterapeut, styrkeløfter og grunnlegger av My Strongest Side®) sammen
+          med fagpersoner og veiledere med erfaring fra habilitering, rehabilitering og tilrettelegging i hverdagsliv.
+        </p>
+        <p>
+          Vi kombinerer styrkeløft-teknikk, kunnskap om hjelpemidler og helt vanlige hverdagsbevegelser – slik at du får et realistisk bilde av
+          hvordan små justeringer kan gi stor forskjell over tid.
+        </p>
+      </div>
+      <div class="split__image" data-scroll-fade>
+        <div class="image-frame">
+          <img src="bilder/foresatte-kurs.jpg" alt="Veiledere som viser løfteteknikk og bruk av hjelpemidler">
+          <div class="image-tag">Faglig påfyll om både kropp og hjelpemidler</div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Marquee -->
   <div class="marquee" role="region" aria-label="Kjerneverdier">
     <div class="marquee__wrap">
       <div class="marquee__row">
@@ -397,6 +424,7 @@
     </div>
   </div>
 
+  <!-- Kursinnhold -->
   <section class="section" id="kursinnhold">
     <div class="container surface-card stack">
       <h2 data-scroll-fade>Kurs for foresatte og BPA</h2>
@@ -429,7 +457,8 @@
 
       <h3 data-scroll-fade>Kursform</h3>
       <p data-scroll-fade>
-        Vi kombinerer én eller flere fysiske samlinger med korte digitale kurs/webinarer som du får tilgang til i etterkant. Webinarene kan du se når det passer – alene eller sammen med andre i teamet rundt barnet/brukeren.
+        Vi kombinerer én eller flere fysiske samlinger med korte digitale kurs/webinarer som du får tilgang til i etterkant.
+        Webinarene kan du se når det passer – alene eller sammen med andre i teamet rundt barnet/brukeren.
       </p>
 
       <div class="info-chips" style="margin-top:1.75rem;">
@@ -453,19 +482,21 @@
 
       <h3 data-scroll-fade>Kan dette kobles til ordinære treningsgrupper?</h3>
       <p data-scroll-fade>
-        Dersom du har barn eller bruker som deltar i <a href="tett-oppfolging.html" class="link-arrow">Styrketrening med tett oppfølging</a>,
-        kan kurset gi deg som foresatt/BPA et felles språk og noen felles referanser med veilederne. Det gjør det lettere å overføre det som fungerer på trening
-        til hverdagen hjemme.
+        Dersom du har barn eller bruker som deltar i
+        <a href="/treningstilbud/tett-oppfolging.html">Styrketrening med tett oppfølging</a>,
+        kan kurset gi deg som foresatt/BPA et felles språk og noen felles referanser med veilederne. Det gjør det lettere å
+        overføre det som fungerer på trening til hverdagen hjemme.
       </p>
 
       <p style="margin-top:2rem;" data-scroll-fade>
-        <a class="link-arrow" href="tett-påmelding.html">
-          Meld interesse for kurs for foresatte og BPA
+        <a class="link-arrow" href="mailto:post@mystrongestside.no?subject=Meld%20interesse%20-%20kurs%20for%20foresatte%20og%20BPA">
+          Meld interesse eller still et spørsmål
         </a>
       </p>
     </div>
   </section>
 
+  <!-- CTA-panel -->
   <section class="section">
     <div class="container" data-scroll-fade>
       <div class="cta-panel">
@@ -477,34 +508,35 @@
           <p data-scroll-fade><strong>Fint både for enkeltpersoner og små team rundt samme bruker.</strong></p>
         </div>
         <div class="hero__cta" data-scroll-fade>
-          <a class="btn-myss" href="tett-påmelding.html">Meld interesse</a>
-          <a class="btn-myss btn-myss--ghost" href="mailto:post@mystrongestside.no">Still et spørsmål</a>
+          <a class="btn-main" href="mailto:post@mystrongestside.no?subject=Meld%20interesse%20-%20kurs%20for%20foresatte%20og%20BPA">
+            Meld interesse nå
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-
+  <!-- Slik kan en samling se ut -->
   <section class="section section--stories">
     <div class="container stack" style="gap:2rem;">
       <h2 data-scroll-fade>Slik kan en samling se ut</h2>
       <div class="story-grid">
         <article class="story-card" data-scroll-fade>
-          <img src="../bilder/hero-large.jpg" alt="Rolig oppstart med gjennomgang av løftesituasjoner">
+          <img src="bilder/foresatte-rolig-start.jpg" alt="Rolig oppstart med gjennomgang av løftesituasjoner">
           <div>
             <h3>Rolig start og kartlegging</h3>
             <p>Vi starter med å se på hvilke situasjoner du faktisk står i: bil, seng, bad, trapp, rullestol. Du får stille spørsmål og komme med egne eksempler.</p>
           </div>
         </article>
         <article class="story-card" data-scroll-fade>
-          <img src="../bilde01.jpg" alt="Veileder demonstrerer løfteteknikk">
+          <img src="bilder/foresatte-praktisk-trening.jpg" alt="Veileder demonstrerer løfteteknikk">
           <div>
             <h3>Praktisk trening</h3>
             <p>Vi trener på teknikk i sal og apparater. Vi justerer fotstilling, grep og posisjon slik at du kjenner forskjell i egen kropp med én gang.</p>
           </div>
         </article>
         <article class="story-card" data-scroll-fade>
-          <img src="../bilder/Amir samtaler.png" alt="Samtale i pause under kurs">
+          <img src="bilder/foresatte-pauseprat.jpg" alt="Gruppe i samtale under pause">
           <div>
             <h3>Pauseprat og refleksjon</h3>
             <p>Det er tid til å lufte tanker om slitenhet, dårlig samvittighet og forventninger. Vi ser på små, realistiske grep du kan gjøre i egen hverdag.</p>
@@ -518,30 +550,7 @@
     <hr class="section-divider">
   </div>
 
-  <section class="section section--gallery">
-    <div class="container">
-      <h2 data-scroll-fade>Bilder fra trening og veiledning</h2>
-      <div class="gallery-grid">
-        <figure data-scroll-fade>
-          <img src="../bilder/tett1.jpg" alt="Foresatt som lærer riktig løft med veiledning">
-          <figcaption>Gjennomgang av løft fra sittende til stående.</figcaption>
-        </figure>
-        <figure data-scroll-fade>
-          <img src="../bilder/My Strongest Side0118 copy.jpg" alt="Demonstrasjon av tilpasset apparatbruk">
-          <figcaption>Apparatbruk som trening på hverdagsbevegelser.</figcaption>
-        </figure>
-        <figure data-scroll-fade>
-          <img src="../bilder/My Strongest Side0224 copy.jpg" alt="Veileder korrigerer teknikk hos foresatt/BPA">
-          <figcaption>Små teknikkjusteringer som sparer kroppen over tid.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <div class="container" aria-hidden="true">
-    <hr class="section-divider">
-  </div>
-
+  <!-- FAQ -->
   <section class="section faq">
     <div class="container surface-card stack">
       <h2 data-scroll-fade>Ofte stilte spørsmål</h2>
@@ -584,15 +593,27 @@
       <p data-scroll-fade>
         Har du flere spørsmål, eller vil du melde interesse?
         <br>
-        <a class="link-arrow" href="tett-påmelding.html">
-          Meld interesse eller se praktisk informasjon
+        <a class="link-arrow" href="mailto:post@mystrongestside.no?subject=Meld%20interesse%20-%20kurs%20for%20foresatte%20og%20BPA">
+          Meld interesse eller still et spørsmål
         </a>
       </p>
     </div>
   </section>
 </main>
 
-<a class="btn-myss floating-cta" href="tett-påmelding.html">Meld interesse</a>
+<!-- Sticky CTA på mobil -->
+<div class="sticky-cta">
+  <div class="sticky-cta__inner">
+    <a class="btn-main" href="mailto:post@mystrongestside.no?subject=Meld%20interesse%20-%20kurs%20for%20foresatte%20og%20BPA">
+      Meld interesse for kurs
+    </a>
+  </div>
+</div>
+
+<!-- Flytende CTA på desktop hvis du vil -->
+<a class="btn-main floating-cta" href="mailto:post@mystrongestside.no?subject=Meld%20interesse%20-%20kurs%20for%20foresatte%20og%20BPA">
+  Meld interesse
+</a>
 
 <div id="myss-footer"></div>
 <script>
@@ -617,7 +638,7 @@
     fadeTargets.forEach(function(el){ fadeObserver.observe(el); });
   })();
 </script>
-<script src="../script.js?v=42" defer></script>
-<script src="../marquee-guard.js?v=36" defer></script>
+<script src="script.js?v=42" defer></script>
+<script src="marquee-guard.js?v=36" defer></script>
 </body>
 </html>
