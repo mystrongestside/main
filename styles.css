@@ -276,8 +276,9 @@ ul.bullets li + li {
   max-width: 65ch;
 }
 
-.hero--page {
+.hero.hero--page {
   background: #27344b;
+  width: 100vw;
 }
 
 .hero--page .hero__content h1,
