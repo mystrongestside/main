@@ -275,6 +275,12 @@ ul.bullets li + li {
   font-size: clamp(1rem, 1.6vw, 1.25rem);
   max-width: 65ch;
 }
+
+.hero--page .hero__content h1,
+.hero--page .hero__content p,
+.hero--page .hero__content .eyebrow {
+  color: #27344b;
+}
 .lead {
   color: var(--blue-2);
   font-size: 1.05rem;
