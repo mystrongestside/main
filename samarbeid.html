@@ -19,40 +19,89 @@
       --myss-shadow: rgba(16, 82, 119, 0.12);
     }
 
+    .ribbon--open { background-color: #3cb371; }
+    .dot { position: static !important; margin-left: 0.1em; }
+
     body {
       background: var(--myss-white);
+      margin: 0; /* sørger for at bakgrunnsfarger går helt ut */
     }
 
-    /* Mørk blå fullbredde header */
+    /* Mørk blå header for samarbeidspartnere */
     .partners-hero {
-      width: 100%;
       background: var(--myss-blue);
       color: var(--myss-white);
-      padding: 3.5rem 1.25rem 3rem;
-      text-align: center;
+      padding: 3rem 1.5rem;
+      margin: 0;
     }
-
     .partners-hero__content {
       max-width: 960px;
       margin: 0 auto;
-      padding: 0; /* viktig – fjerner glippen */
+      text-align: center;
     }
-
     .partners-hero h1 {
       font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 0.75rem;
+      margin: 0 0 0.75rem; /* fjerner top-margin = ingen glipe */
+      color: var(--myss-white) !important;
     }
-
     .partners-hero p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       line-height: 1.6;
       margin: 0;
+      color: var(--myss-white) !important;
     }
 
-
-    /* MARQUEE KAN BEHOLDES SOM DET ER */
-    .hero--simple { display: none; } /* fjerner konflikt med gammel hero */
+    .hero--simple {
+      background: radial-gradient(circle at top left, rgba(247,124,55,0.25), transparent 40%),
+                  radial-gradient(circle at 65% 25%, rgba(16,82,119,0.2), transparent 55%),
+                  linear-gradient(135deg, var(--myss-white) 0%, var(--myss-soft) 65%, #24344d 100%);
+      padding: 4rem 0 3rem !important;
+    }
+    .hero--simple .hero__content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero__tagline {
+      font-size: 1rem;
+      margin-top: .65rem;
+      color: var(--myss-blue);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .hero__lede {
+      max-width: 640px;
+      margin: 1rem auto 0;
+      font-size: 1.12rem;
+      color: var(--myss-ink);
+      line-height: 1.6;
+    }
+    .hero__chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .6rem;
+      margin: 1.75rem auto 0;
+      padding: 0;
+      list-style: none;
+    }
+    .hero__chips li {
+      background: rgba(16,82,119,0.08);
+      border: 1px solid rgba(16,82,119,0.12);
+      border-radius: 999px;
+      padding: .4rem 1rem;
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--myss-ink);
+    }
+    .hero__cta {
+      margin-top: 2.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
   </style>
 </head>
 
@@ -61,10 +110,9 @@
   <header data-component="site-header"></header>
 
   <main>
-
-    <!-- FULLBREDDE HERO HEADER -->
+    <!-- Mørk blå samarbeid-header -->
     <section class="partners-hero">
-      <div class="partners-hero__content">
+      <div class="partners-hero__content container">
         <h1>Våre samarbeidspartnere og støttespillere</h1>
         <p>
           My Strongest Side® utvikler løsningen. Våre partnere gjør det mulig.
@@ -94,8 +142,7 @@
     <!-- PARTNERE -->
     <section class="partners-section container">
       <div class="partners-grid refined">
-
-        <!-- CP Vestland -->
+        <!-- CP-foreningen Vestland -->
         <article class="partner-card smooth">
           <div class="partner-meta">
             <span class="partner-label hovedpartner">Hovedpartner</span>
@@ -109,11 +156,13 @@
               CP-foreningen Vestland bidrar til at flere medlemmer blir med på trening.
               Sammen senker vi terskelen for deltakelse gjennom rekruttering, informasjon og likepersonsarbeid.
             </p>
-            <a href="https://cp.no/vestland" target="_blank" class="partner-link">Besøk nettside</a>
+            <a href="https://cp.no/vestland" target="_blank" class="partner-link" rel="noopener">
+              Besøk nettside
+            </a>
           </div>
         </article>
 
-        <!-- HVL SKAPE -->
+        <!-- HVL -->
         <article class="partner-card smooth">
           <div class="partner-meta">
             <span class="partner-label innovasjon">Innovasjonsstøtte</span>
@@ -125,10 +174,11 @@
               Gjennom HVL Skape-programmet videreutvikler vi en digital løsning som gjør treningsapparater
               mer forståelige og tilgjengelige. Målet er at alle skal kunne trene trygt – uavhengig av funksjonsevne.
             </p>
-            <a href="https://hvlskape.no" target="_blank" class="partner-link">Besøk nettside</a>
+            <a href="https://hvlskape.no" target="_blank" class="partner-link" rel="noopener">
+              Besøk nettside
+            </a>
           </div>
         </article>
-
       </div>
     </section>
 
@@ -142,33 +192,48 @@
             Ta gjerne kontakt med oss.
           </p>
           <div class="cta-actions">
-            <a class="cta-btn" href="kontakt.html#partner">Kontakt oss</a>
-            <a class="cta-btn cta-btn--outline" href="mailto:post@mystrongestside.no">post@mystrongestside.no</a>
+            <a class="cta-btn" href="kontakt.html#partner" aria-label="Kontakt oss om partnerskap">
+              Kontakt oss
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5V3H3v7h2V5zM5 19v-5H3v7h7v-2H5z"/>
+              </svg>
+            </a>
+            <a class="cta-btn cta-btn--outline" href="mailto:post@mystrongestside.no">
+              post@mystrongestside.no
+            </a>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- Felles footer -->
   <script src="script.js" defer></script>
   <div id="myss-footer"></div>
-
   <script>
     (function () {
-      var prefix = window.MYSS_PREFIX || window.__prefix || "";
-      if (!prefix) prefix = window.location.pathname.includes("/treningstilbud/") ? "../" : "";
+      var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
+      if (!prefix) {
+        prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
+      }
       window.MYSS_PREFIX = prefix;
-
+      window.__prefix = prefix;
+      var target = document.getElementById("myss-footer");
+      if (!target) { return; }
       fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-        .then(r => r.text())
-        .then(html => {
-          document.getElementById("myss-footer").innerHTML = html;
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          target.innerHTML = html;
+          target.querySelectorAll('img[src*="${prefix}"]').forEach(function (img) {
+            var raw = img.getAttribute("src");
+            if (raw) {
+              img.setAttribute("src", raw.replace("${prefix}", prefix));
+            }
+          });
         })
-        .catch(() => {
-          document.getElementById("myss-footer").innerHTML =
-            '<footer class="myss-footer"><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
+        .catch(function () {
+          target.innerHTML =
+            '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="' + prefix + 'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
         });
     })();
   </script>
