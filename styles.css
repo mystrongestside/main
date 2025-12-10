@@ -276,10 +276,17 @@ ul.bullets li + li {
   max-width: 65ch;
 }
 
+.hero--page {
+  background: #27344b;
+  margin-inline: calc(50% - 50vw);
+  padding: clamp(3.5rem, 8vw, 5.5rem) 0;
+  width: 100vw;
+}
+
 .hero--page .hero__content h1,
 .hero--page .hero__content p,
 .hero--page .hero__content .eyebrow {
-  color: #27344b;
+  color: #fff;
 }
 .lead {
   color: var(--blue-2);
