@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
@@ -17,11 +17,6 @@
       --myss-soft: #e4e8f2;
       --myss-ink: #24344d;
       --myss-shadow: rgba(16, 82, 119, 0.12);
-    }
-
-    html, body {
-      max-width: 100%;
-      overflow-x: hidden;
     }
 
     body.page-samarbeid {
@@ -57,7 +52,7 @@
       color: #ffffff !important;
     }
 
-    /* MARQUEE – roligere og renere */
+    /* MARQUEE – roligere og mindre tekst */
     .marquee {
       background: #ffffff;
       padding: 0.3rem 0;
@@ -71,11 +66,11 @@
 
     .marquee__row {
       display: inline-flex;
-      animation: marquee 60s linear infinite; /* SAKTERE enn 35s */
+      animation: marquee 55s linear infinite; /* tregere */
     }
 
     .marquee__row span {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
       letter-spacing: 0.01em;
       color: var(--myss-blue);
@@ -180,269 +175,4 @@
     }
 
     .partner-content p {
-      margin: 0 0 0.9rem;
-      font-size: 0.98rem;
-      line-height: 1.6;
-      color: #4b5563;
-    }
-
-    .partner-link {
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      color: var(--myss-orange);
-    }
-
-    /* Fjernet pil-emoji/↗ for renere uttrykk, spesielt på mobil */
-    .partner-link::after {
-      content: "";
-    }
-
-    .partner-card.smooth:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.09);
-      transition: transform 200ms ease, box-shadow 200ms ease;
-    }
-
-    /* REN, PREMIUM CTA */
-    .partners-cta-clean {
-      padding: 4rem 1.5rem;
-      background: linear-gradient(
-        180deg,
-        rgba(247, 124, 55, 0.03),
-        rgba(36, 52, 77, 0.02)
-      );
-      display: flex;
-      justify-content: center;
-    }
-
-    .partners-cta-clean .cta-inner {
-      background: #ffffff;
-      border: 1px solid rgba(36, 52, 77, 0.08);
-      border-radius: 18px;
-      padding: 2.4rem 2rem;
-      max-width: 620px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
-    }
-
-    .partners-cta-clean h3 {
-      margin: 0 0 0.4rem;
-      font-size: 1.9rem;
-      font-weight: 800;
-      color: var(--myss-orange);
-    }
-
-    .partners-cta-clean p {
-      margin: 0 0 1.6rem;
-      color: var(--myss-blue);
-      opacity: 0.75;
-    }
-
-    .partners-cta-clean .cta-actions {
-      display: flex;
-      justify-content: center;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-    }
-
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.65rem 1.4rem;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      background: var(--myss-orange);
-      color: #ffffff;
-      border: none;
-      transition: 0.15s ease;
-      white-space: nowrap;
-    }
-
-    .cta-btn:hover {
-      background: #f96e1e;
-    }
-
-    .cta-btn--outline {
-      background: #ffffff;
-      color: var(--myss-orange);
-      border: 1px solid rgba(247, 124, 55, 0.6);
-    }
-
-    .cta-btn--outline:hover {
-      background: rgba(247, 124, 55, 0.06);
-    }
-
-    @media (max-width: 768px) {
-      .partners-hero {
-        padding: 1.5rem 1.25rem 2rem;
-      }
-      .partners-hero h1 {
-        font-size: 1.6rem;
-      }
-      .partners-hero p {
-        font-size: 1rem;
-      }
-
-      .marquee__row {
-        animation-duration: 80s; /* ENDA roligere på mobil */
-      }
-
-      .marquee__row span {
-        padding: 0 1rem;
-      }
-
-      .partners-section.container {
-        padding-inline: 1.25rem;
-      }
-
-      .partners-grid.refined {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .partners-cta-clean {
-        padding: 3rem 1.25rem;
-      }
-
-      .partners-cta-clean .cta-inner {
-        padding: 2rem 1.6rem;
-      }
-
-      .partners-cta-clean .cta-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .cta-btn,
-      .cta-btn--outline {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-
-<body class="page-samarbeid">
-
-  <!-- Global header -->
-  <header data-component="site-header"></header>
-
-  <main>
-
-    <!-- Hero -->
-    <section class="partners-hero">
-      <div class="partners-hero__content">
-        <h1>Våre samarbeidspartnere og støttespillere</h1>
-        <p>
-          My Strongest Side® utvikler løsningen. Våre partnere gjør det mulig.
-          Sammen skaper vi et mer inkluderende treningsmiljø.
-        </p>
-      </div>
-    </section>
-
-    <!-- MARQUEE -->
-    <div class="marquee force-animate" role="region" aria-label="MyStrongestSide statements">
-      <div class="marquee__wrap">
-        <div class="marquee__row">
-          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent For Alle.</span><span>Kunnskap.</span>
-          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-        </div>
-        <div class="marquee__row" aria-hidden="true">
-          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent For Alle.</span><span>Kunnskap.</span>
-          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- PARTNERE -->
-    <section class="partners-section container">
-      <div class="partners-grid refined">
-
-        <!-- CP-foreningen Vestland -->
-        <article class="partner-card smooth">
-          <div class="partner-meta">
-            <div class="partner-logo-frame">
-              <img src="cp.jpg" alt="CP-foreningen Vestland" class="partner-logo partner-logo--framed">
-            </div>
-          </div>
-          <div class="partner-content">
-            <h3>CP-foreningen Vestland</h3>
-            <p>
-              CP-foreningen Vestland bidrar til at flere medlemmer blir med på trening.
-              Sammen senker vi terskelen for deltakelse gjennom rekruttering, informasjon og likepersonsarbeid.
-            </p>
-            <a href="https://cp.no/vestland" target="_blank" class="partner-link">Besøk nettside</a>
-          </div>
-        </article>
-
-        <!-- HVL -->
-        <article class="partner-card smooth">
-          <div class="partner-meta">
-            <img src="hvl.png" alt="Høgskulen på Vestlandet" class="partner-logo">
-          </div>
-          <div class="partner-content">
-            <h3>Høgskulen på Vestlandet</h3>
-            <p>
-              Gjennom HVL Skape-programmet har MySS fått innovasjonstøtte til å videreutvikle en digital løsning som gjør treningsapparater
-              mer forståelige og tilgjengelige. Målet er at alle skal kunne trene trygt – uavhengig av funksjonsevne.
-            </p>
-            <a href="https://hvlskape.no" target="_blank" class="partner-link">Besøk nettside</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="partners-cta-clean" id="bli-partner">
-      <div class="cta-inner">
-        <h3>Lurer du på noe?</h3>
-        <p>Ta gjerne kontakt.</p>
-
-        <div class="cta-actions">
-          <a class="cta-btn" href="kontakt.html#partner">Kontakt oss</a>
-          <a class="cta-btn cta-btn--outline" href="mailto:post@mystrongestside.no">
-            post@mystrongestside.no
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <script src="script.js" defer></script>
-  <div id="myss-footer"></div>
-  <script>
-    (function () {
-      var prefix = window.MYSS_PREFIX || "";
-      if (!prefix) {
-        prefix = window.location.pathname.includes("/treningstilbud/") ? "../" : "";
-      }
-      window.MYSS_PREFIX = prefix;
-      window.__prefix = prefix;
-
-      var target = document.getElementById("myss-footer");
-      if (!target) return;
-
-      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-        .then(function (r) { return r.text(); })
-        .then(function (html) {
-          target.innerHTML = html;
-        });
-    })();
-  </script>
-
-  <script src="marquee-guard.js?v=36" defer></script>
-</body>
-</html>
+      margi
