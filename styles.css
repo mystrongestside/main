@@ -320,8 +320,10 @@ a:focus-visible, button:focus-visible {
   backdrop-filter: saturate(120%) blur(4px);
   background: var(--blue-2);
   box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  margin-inline: calc(50% - 50vw);
   position: sticky;
   top: 0;
+  width: 100vw;
   z-index: 1200;
 }
 .navbar-inner {
@@ -329,9 +331,10 @@ a:focus-visible, button:focus-visible {
   display: flex;
   gap: 1rem;
   justify-content: space-between;
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 1.15rem 2.25rem;
+  margin: 0;
+  max-width: none;
+  padding: 1.15rem clamp(1.2rem, 2vw, 2.25rem);
+  width: 100%;
 }
 .logo {
   display: block;
@@ -562,12 +565,13 @@ body.no-scroll {
   color: #fff;
   font-weight: 600;
   margin-bottom: 0;
+  margin-inline: calc(50% - 50vw);
   overflow: hidden;
   padding: 0.6rem 0;
   position: relative;
   text-transform: capitalize;
   white-space: nowrap;
-  width: 100%;
+  width: 100vw;
   z-index: 1;
 }
 .marquee--bottom {
