@@ -6,7 +6,7 @@
   <title>Samarbeid | My Strongest Side®</title>
   <meta name="description" content="Sammen gjør vi trening mulig for flere. Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluderende treningsmiljø – der flere kan delta, lære og oppleve mestring." />
   <link rel="icon" type="image/png" href="favicon.png" />
-
+  <link rel="stylesheet" href="styles.css?v=41">
   <script>document.documentElement.classList.add('js');</script>
 
   <style>
@@ -22,17 +22,17 @@
     body.page-samarbeid {
       background: var(--myss-white);
       margin: 0;
-      font-family: system-ui, sans-serif;
     }
 
+    /* Fjern evt. ekstra topp-padding på denne siden */
     body.page-samarbeid main {
       padding-top: 0 !important;
     }
 
-    /* HERO */
+    /* Fullbredde mørk hero med hvit tekst */
     .partners-hero {
       background: var(--myss-blue);
-      padding: 1.75rem 1.5rem 2.4rem;
+      padding: 1.75rem 1.5rem 2.4rem; /* litt lavere topp-padding så hero kommer nærmere headeren */
       text-align: center;
     }
     .partners-hero__content {
@@ -52,20 +52,12 @@
       color: #ffffff !important;
     }
 
-    /* MARQUEE */
+    /* MARQUEE – litt lavere og mindre tekst, så den ikke føles som en meny */
     .marquee {
       background: #ffffff;
       padding: 0.3rem 0;
       border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-      margin-top: -1px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .marquee__wrap {
-      display: flex;
-      width: max-content;
-      animation: marquee 22s linear infinite;
+      margin-top: -1px; /* lim den helt inntil hero */
     }
 
     .marquee__row span {
@@ -77,124 +69,87 @@
       white-space: nowrap;
     }
 
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* PARTNER-SEKSJON */
     .partners-section {
       padding: 2.5rem 0 3rem;
-      max-width: 1100px;
-      margin: 0 auto;
     }
 
-    .partners-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
-
-    .partner-card {
-      padding: 1.75rem;
-      border-radius: 10px;
-      background: #ffffff;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-    }
-
-    .partner-meta {
-      margin-bottom: 1.2rem;
-    }
-
-    .partner-label {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      display: inline-block;
-      background: var(--myss-blue);
-      color: #fff;
-    }
-
-    .partner-logo {
-      max-width: 160px;
-      margin-top: 0.6rem;
-    }
-
-    .partner-logo--framed {
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      padding: 0.4rem;
-      background: #fff;
-    }
-
-    .partner-content h3 {
-      margin: 0 0 0.5rem;
-      color: var(--myss-blue);
-    }
-
-    .partner-content p {
-      line-height: 1.55;
-      margin: 0 0 0.8rem;
-      color: #333;
-    }
-
-    .partner-link {
-      color: var(--myss-orange);
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .partner-link:hover {
-      text-decoration: underline;
-    }
-
-    /* CTA – ALT INNEBYGD HER */
+    /* CTA – Bli partner, lysere og varmere med oransje tekst */
     .partners-cta {
-      padding: 3rem 0;
-      background: #fff;
-      text-align: center;
+      padding: 3rem 0 3.5rem;
+      background: #fff7f2; /* lys oransje tone */
+    }
+
+    .partners-cta .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
     .cta-card {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 2rem;
-      background: #fff5ef;
-      border-radius: 12px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 2rem 2.25rem;
+      box-shadow: 0 18px 45px rgba(16, 82, 119, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
     }
 
-    /* HER GJØR VI TEKSTEN ORANSJE */
-    .cta-card h3,
-    .cta-card p {
+    .cta-card h3 {
+      margin: 0;
+      font-size: 1.7rem;
+      font-weight: 800;
       color: var(--myss-orange);
-      margin: 0 0 1rem;
+    }
+
+    .cta-card p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #b45126; /* litt dypere oransje-brun tekst */
     }
 
     .cta-actions {
       display: flex;
-      gap: 1rem;
-      justify-content: center;
       flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
     }
 
     .cta-btn {
-      background: var(--myss-blue);
-      color: #fff;
-      padding: 0.7rem 1.4rem;
-      border-radius: 8px;
-      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.7rem 1.6rem;
       font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--myss-orange);
+      background: var(--myss-orange);
+      color: #ffffff;
+      font-size: 0.95rem;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, color 0.12s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .cta-btn:hover,
+    .cta-btn:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(247, 124, 55, 0.35);
     }
 
     .cta-btn--outline {
       background: transparent;
-      border: 2px solid var(--myss-orange);
       color: var(--myss-orange);
     }
 
-    .cta-btn:hover {
-      opacity: 0.85;
+    .cta-btn--outline:hover,
+    .cta-btn--outline:focus-visible {
+      background: rgba(247, 124, 55, 0.08);
+      color: var(--myss-orange);
+      box-shadow: none;
     }
 
     @media (max-width: 768px) {
@@ -210,18 +165,32 @@
       .marquee__row span {
         padding: 0 1rem;
       }
+      .cta-card {
+        padding: 1.6rem 1.5rem;
+      }
+      .cta-card h3 {
+        font-size: 1.5rem;
+      }
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .cta-btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
 
 <body class="page-samarbeid">
 
-  <!-- HEADER -->
+  <!-- Global header -->
   <header data-component="site-header"></header>
 
   <main>
 
-    <!-- HERO -->
+    <!-- Hero -->
     <section class="partners-hero">
       <div class="partners-hero__content">
         <h1>Våre samarbeidspartnere og støttespillere</h1>
@@ -233,7 +202,7 @@
     </section>
 
     <!-- MARQUEE -->
-    <div class="marquee force-animate" aria-label="MyStrongestSide statements">
+    <div class="marquee force-animate" role="region" aria-label="MyStrongestSide statements">
       <div class="marquee__wrap">
         <div class="marquee__row">
           <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
@@ -252,10 +221,10 @@
 
     <!-- PARTNERE -->
     <section class="partners-section container">
-      <div class="partners-grid">
+      <div class="partners-grid refined">
 
         <!-- CP-foreningen Vestland -->
-        <article class="partner-card">
+        <article class="partner-card smooth">
           <div class="partner-meta">
             <span class="partner-label hovedpartner">Hovedpartner</span>
             <div class="partner-logo-frame">
@@ -273,7 +242,7 @@
         </article>
 
         <!-- HVL -->
-        <article class="partner-card">
+        <article class="partner-card smooth">
           <div class="partner-meta">
             <span class="partner-label innovasjon">Innovasjonsstøtte</span>
             <img src="hvl.png" alt="Høgskulen på Vestlandet" class="partner-logo">
@@ -307,5 +276,29 @@
 
   </main>
 
+  <!-- FOOTER -->
+  <script src="script.js" defer></script>
+  <div id="myss-footer"></div>
+  <script>
+    (function () {
+      var prefix = window.MYSS_PREFIX || "";
+      if (!prefix) {
+        prefix = window.location.pathname.includes("/treningstilbud/") ? "../" : "";
+      }
+      window.MYSS_PREFIX = prefix;
+      window.__prefix = prefix;
+
+      var target = document.getElementById("myss-footer");
+      if (!target) return;
+
+      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          target.innerHTML = html;
+        });
+    })();
+  </script>
+
+  <script src="marquee-guard.js?v=36" defer></script>
 </body>
 </html>
