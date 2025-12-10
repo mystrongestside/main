@@ -19,6 +19,11 @@
       --myss-shadow: rgba(16, 82, 119, 0.12);
     }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body.page-samarbeid {
       background: var(--myss-white);
       margin: 0;
@@ -52,7 +57,7 @@
       color: #ffffff !important;
     }
 
-    /* MARQUEE – litt lavere og mindre tekst, så den ikke føles som en meny */
+    /* MARQUEE – roligere og renere */
     .marquee {
       background: #ffffff;
       padding: 0.3rem 0;
@@ -66,7 +71,7 @@
 
     .marquee__row {
       display: inline-flex;
-      animation: marquee 35s linear infinite;
+      animation: marquee 60s linear infinite; /* SAKTERE enn 35s */
     }
 
     .marquee__row span {
@@ -191,11 +196,9 @@
       color: var(--myss-orange);
     }
 
+    /* Fjernet pil-emoji/↗ for renere uttrykk, spesielt på mobil */
     .partner-link::after {
-      content: "↗";
-      font-size: 0.8rem;
-      position: relative;
-      top: -0.5px;
+      content: "";
     }
 
     .partner-card.smooth:hover {
@@ -204,84 +207,67 @@
       transition: transform 200ms ease, box-shadow 200ms ease;
     }
 
-    /* CTA – BLI PARTNER (lys, mer premium og oransje tekst) */
-    .partners-cta {
-      padding: 3rem 1.5rem 3.4rem;
+    /* REN, PREMIUM CTA */
+    .partners-cta-clean {
+      padding: 4rem 1.5rem;
       background: linear-gradient(
-        145deg,
-        rgba(247, 124, 55, 0.06),
-        rgba(36, 52, 77, 0.03)
+        180deg,
+        rgba(247, 124, 55, 0.03),
+        rgba(36, 52, 77, 0.02)
       );
-      border-top: 1px solid rgba(15, 23, 42, 0.04);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.03);
+      display: flex;
+      justify-content: center;
     }
 
-    .partners-cta .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0;
-    }
-
-    .cta-card {
+    .partners-cta-clean .cta-inner {
       background: #ffffff;
-      border-radius: 1.75rem;
-      padding: 2.3rem 2.1rem 2.1rem;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-      border: 1px solid rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(36, 52, 77, 0.08);
+      border-radius: 18px;
+      padding: 2.4rem 2rem;
+      max-width: 620px;
+      width: 100%;
       text-align: center;
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
     }
 
-    .cta-eyebrow {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-weight: 700;
-      margin: 0 0 0.6rem;
+    .partners-cta-clean h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.9rem;
+      font-weight: 800;
       color: var(--myss-orange);
     }
 
-    .cta-card h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--myss-orange); /* oransje hovedtekst */
-    }
-
-    .cta-card p {
+    .partners-cta-clean p {
       margin: 0 0 1.6rem;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #374151;
+      color: var(--myss-blue);
+      opacity: 0.75;
     }
 
-    .cta-actions {
+    .partners-cta-clean .cta-actions {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 0.9rem;
+      flex-wrap: wrap;
     }
 
     .cta-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.7rem 1.6rem;
+      padding: 0.65rem 1.4rem;
       border-radius: 999px;
       font-size: 0.95rem;
       font-weight: 600;
-      border: none;
       text-decoration: none;
       cursor: pointer;
       background: var(--myss-orange);
       color: #ffffff;
-      box-shadow: 0 12px 30px rgba(247, 124, 55, 0.4);
-      transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+      border: none;
+      transition: 0.15s ease;
       white-space: nowrap;
     }
 
     .cta-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(247, 124, 55, 0.45);
       background: #f96e1e;
     }
 
@@ -289,12 +275,10 @@
       background: #ffffff;
       color: var(--myss-orange);
       border: 1px solid rgba(247, 124, 55, 0.6);
-      box-shadow: none;
     }
 
     .cta-btn--outline:hover {
-      background: rgba(247, 124, 55, 0.04);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      background: rgba(247, 124, 55, 0.06);
     }
 
     @media (max-width: 768px) {
@@ -307,102 +291,41 @@
       .partners-hero p {
         font-size: 1rem;
       }
+
+      .marquee__row {
+        animation-duration: 80s; /* ENDA roligere på mobil */
+      }
+
       .marquee__row span {
         padding: 0 1rem;
       }
+
       .partners-section.container {
         padding-inline: 1.25rem;
       }
+
       .partners-grid.refined {
         grid-template-columns: minmax(0, 1fr);
       }
-      .cta-card {
-        padding: 2rem 1.6rem 1.9rem;
+
+      .partners-cta-clean {
+        padding: 3rem 1.25rem;
       }
-      .cta-card h3 {
-        font-size: 1.55rem;
+
+      .partners-cta-clean .cta-inner {
+        padding: 2rem 1.6rem;
       }
-      .cta-actions {
+
+      .partners-cta-clean .cta-actions {
         flex-direction: column;
+        align-items: stretch;
       }
+
       .cta-btn,
       .cta-btn--outline {
         width: 100%;
       }
     }
-    /* REN, PREMIUM CTA */
-.partners-cta-clean {
-  padding: 4rem 1.5rem;
-  background: linear-gradient(
-    180deg,
-    rgba(247, 124, 55, 0.03),
-    rgba(36, 52, 77, 0.02)
-  );
-  display: flex;
-  justify-content: center;
-}
-
-.partners-cta-clean .cta-inner {
-  background: #ffffff;
-  border: 1px solid rgba(36, 52, 77, 0.08);
-  border-radius: 18px;
-  padding: 2.4rem 2rem;
-  max-width: 620px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
-}
-
-.partners-cta-clean h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1.9rem;
-  font-weight: 800;
-  color: var(--myss-orange);
-}
-
-.partners-cta-clean p {
-  margin: 0 0 1.6rem;
-  color: var(--myss-blue);
-  opacity: 0.75;
-}
-
-.partners-cta-clean .cta-actions {
-  display: flex;
-  justify-content: center;
-  gap: 0.9rem;
-  flex-wrap: wrap;
-}
-
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.65rem 1.4rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  background: var(--myss-orange);
-  color: #ffffff;
-  border: none;
-  transition: 0.15s ease;
-}
-
-.cta-btn:hover {
-  background: #f96e1e;
-}
-
-.cta-btn--outline {
-  background: #ffffff;
-  color: var(--myss-orange);
-  border: 1px solid rgba(247, 124, 55, 0.6);
-}
-
-.cta-btn--outline:hover {
-  background: rgba(247, 124, 55, 0.06);
-}
-
   </style>
 </head>
 
@@ -481,19 +404,20 @@
       </div>
     </section>
 
+    <!-- CTA -->
     <section class="partners-cta-clean" id="bli-partner">
-  <div class="cta-inner">
-    <h3>Lurer du på noe?</h3>
-    <p>Ta gjerne kontakt.</p>
+      <div class="cta-inner">
+        <h3>Lurer du på noe?</h3>
+        <p>Ta gjerne kontakt.</p>
 
-    <div class="cta-actions">
-      <a class="cta-btn" href="kontakt.html#partner">Kontakt oss</a>
-      <a class="cta-btn cta-btn--outline" href="mailto:post@mystrongestside.no">
-        post@mystrongestside.no
-      </a>
-    </div>
-  </div>
-</section>
+        <div class="cta-actions">
+          <a class="cta-btn" href="kontakt.html#partner">Kontakt oss</a>
+          <a class="cta-btn cta-btn--outline" href="mailto:post@mystrongestside.no">
+            post@mystrongestside.no
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER -->
