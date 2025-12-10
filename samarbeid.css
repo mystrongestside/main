@@ -17,10 +17,10 @@ body.page-samarbeid main {
   padding-top: 0 !important;
 }
 
-/* HERO – stor, enkel, luftig */
+/* HERO – mørk, enkel, luftig (Mio vibe) */
 .partners-hero {
   background: var(--myss-blue);
-  padding: 2.4rem 1.5rem 2.8rem;
+  padding: 2.6rem 1.5rem 3rem;
   text-align: center;
 }
 
@@ -41,9 +41,10 @@ body.page-samarbeid main {
   margin: 0;
   line-height: 1.7;
   color: #ffffff;
+  opacity: 0.92;
 }
 
-/* MARQUEE – roligere og mer “diskret” */
+/* MARQUEE – roligere og mer diskret */
 .marquee {
   background: #ffffff;
   padding: 0.35rem 0;
@@ -53,11 +54,13 @@ body.page-samarbeid main {
 
 .marquee__wrap {
   overflow: hidden;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 .marquee__row {
   display: inline-flex;
-  animation: ms-marquee 55s linear infinite;
+  animation: ms-marquee 55s linear infinite; /* saktere = roligere */
 }
 
 .marquee__row span {
@@ -74,7 +77,7 @@ body.page-samarbeid main {
   100% { transform: translateX(-50%); }
 }
 
-/* PARTNER-SEKSJON – to kolonner desktop, én på mobil */
+/* PARTNER-SEKSJON – én rad med to kort på desktop, én kolonne på mobil */
 .partners-section.container {
   max-width: 980px;
   margin: 0 auto;
@@ -129,7 +132,7 @@ body.page-samarbeid main {
 
 .partner-content h3 {
   margin: 0 0 0.6rem;
-  font-size: 1.24rem;
+  font-size: 1.22rem;
   font-weight: 700;
   color: var(--myss-blue);
 }
@@ -141,7 +144,7 @@ body.page-samarbeid main {
   color: #4b5563;
 }
 
-/* Lenke – ren og nøktern */
+/* Ren, nøktern lenke (ingen emoji-pil) */
 .partner-link {
   font-size: 0.98rem;
   font-weight: 600;
@@ -163,7 +166,7 @@ body.page-samarbeid main {
   transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
-/* REN, LUFTIG CTA */
+/* REN, LUFTIG CTA – lik stil både desktop og mobil */
 .partners-cta-clean {
   padding: 3.2rem 1.5rem 3.6rem;
   background: linear-gradient(
@@ -200,7 +203,7 @@ body.page-samarbeid main {
   font-size: 1.02rem;
 }
 
-/* CTA-knapper */
+/* CTA-knapper – ryddige */
 .partners-cta-clean .cta-actions {
   display: flex;
   justify-content: center;
@@ -241,17 +244,15 @@ body.page-samarbeid main {
   background: rgba(247, 124, 55, 0.06);
 }
 
-/* FOOTER – ekstra sikkerhet for at logo vises */
-.page-samarbeid #myss-footer,
-.page-samarbeid #myss-footer .site-footer {
+/* FOOTER – ekstra sikkerhet for at logo vises mørkt/tydelig */
+.page-samarbeid .site-footer {
   background-color: #111827;
-  color: #f9fafb;
 }
 
 /* Mobil-tilpasning */
 @media (max-width: 768px) {
   .partners-hero {
-    padding: 1.9rem 1.25rem 2.1rem;
+    padding: 2rem 1.25rem 2.4rem;
   }
 
   .partners-hero h1 {
@@ -296,7 +297,4 @@ body.page-samarbeid main {
   .partners-cta-clean .cta-btn--outline {
     width: 100%;
   }
-
-  /* Hvis marquee blir for mye på mobil kan du skru av her */
-  /* .marquee { display: none; } */
 }
