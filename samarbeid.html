@@ -19,161 +19,92 @@
       --myss-shadow: rgba(16, 82, 119, 0.12);
     }
 
-    body {
+    body.page-samarbeid {
       background: var(--myss-white);
       margin: 0;
     }
 
-    /* FULLBREDDE MØRK HERO MED LOGO + CTA */
+    /* Fjern evt. ekstra topp-padding på denne siden */
+    body.page-samarbeid main {
+      padding-top: 0 !important;
+    }
+
+    /* Fullbredde mørk hero med hvit tekst */
     .partners-hero {
       background: var(--myss-blue);
-      padding: 2.75rem 1.5rem 2.5rem;
-      color: #fff;
+      padding: 1.75rem 1.5rem 2.4rem; /* litt lavere topp-padding så hero kommer nærmere headeren */
+      text-align: center;
     }
-
-    .partners-hero__inner {
-      max-width: 1080px;
+    .partners-hero__content {
+      max-width: 960px;
       margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
     }
-
-    .partners-hero__logo {
-      flex: 0 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .partners-hero__logo img {
-      display: block;
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-    }
-
-    .partners-hero__text {
-      flex: 1 1 auto;
-      min-width: 0;
-    }
-
     .partners-hero h1 {
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       font-weight: 800;
       margin: 0 0 0.75rem;
-      color: #fff !important;
+      color: #ffffff !important;
     }
-
     .partners-hero p {
       font-size: 1.1rem;
+      margin: 0;
       line-height: 1.6;
-      margin: 0 0 1.25rem;
-      color: #fff !important;
+      color: #ffffff !important;
     }
 
-    .partners-hero__cta {
-      flex: 0 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .partners-hero__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.75rem 1.6rem;
-      border-radius: 999px;
-      background: var(--myss-orange);
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.98rem;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    }
-
-    .partners-hero__btn:hover,
-    .partners-hero__btn:focus-visible {
-      background: #ff8d4f;
-      transform: translateY(-1px);
-      box-shadow: 0 14px 26px rgba(0, 0, 0, 0.22);
-    }
-
-    .partners-hero__btn:active {
-      transform: translateY(0);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
-    }
-
-    @media (max-width: 768px) {
-      .partners-hero__inner {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
-      }
-
-      .partners-hero__cta {
-        justify-content: center;
-      }
-    }
-
-    /* MARQUEE – SLANK STRIPE, IKKE MENY */
+    /* MARQUEE – litt lavere og mindre tekst, så den ikke føles som en meny */
     .marquee {
       background: #ffffff;
       padding: 0.3rem 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-      margin: 0; /* ingen glipp mellom hero og marquee */
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      margin-top: -1px; /* lim den helt inntil hero */
     }
 
     .marquee__row span {
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.01em;
-      text-transform: none;
       color: var(--myss-blue);
-      padding: 0 1.5rem;
+      padding: 0 1.4rem;
       white-space: nowrap;
     }
 
-    /* LITT LUFT FØR PARTNERKORT */
     .partners-section {
-      margin-top: 2.5rem;
+      padding: 2.5rem 0 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .partners-hero {
+        padding: 1.5rem 1.25rem 2rem;
+      }
+      .partners-hero h1 {
+        font-size: 1.6rem;
+      }
+      .partners-hero p {
+        font-size: 1rem;
+      }
+      .marquee__row span {
+        padding: 0 1rem;
+      }
     }
   </style>
 </head>
 
-<body>
+<body class="page-samarbeid">
 
   <!-- Global header -->
   <header data-component="site-header"></header>
 
   <main>
 
-    <!-- HERO MED LOGO + CTA -->
+    <!-- Hero -->
     <section class="partners-hero">
-      <div class="partners-hero__inner">
-        <div class="partners-hero__logo">
-          <!-- bruk samme logo som ellers i header/footer -->
-          <img src="logo-orange.png" alt="My Strongest Side-logo">
-        </div>
-
-        <div class="partners-hero__text">
-          <h1>Våre samarbeidspartnere og støttespillere</h1>
-          <p>
-            My Strongest Side® utvikler løsningen. Våre partnere gjør det mulig.
-            Sammen skaper vi et mer inkluderende treningsmiljø.
-          </p>
-        </div>
-
-        <div class="partners-hero__cta">
-          <a class="partners-hero__btn" href="/treningstilbud/">
-            Se treningstilbud
-          </a>
-        </div>
+      <div class="partners-hero__content">
+        <h1>Våre samarbeidspartnere og støttespillere</h1>
+        <p>
+          My Strongest Side® utvikler løsningen. Våre partnere gjør det mulig.
+          Sammen skaper vi et mer inkluderende treningsmiljø.
+        </p>
       </div>
     </section>
 
@@ -182,13 +113,13 @@
       <div class="marquee__wrap">
         <div class="marquee__row">
           <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent For Alle.</span><span>Kunnskap.</span>
           <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
           <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
         </div>
         <div class="marquee__row" aria-hidden="true">
           <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
+          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent For Alle.</span><span>Kunnskap.</span>
           <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
           <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
         </div>
@@ -258,13 +189,23 @@
   <script>
     (function () {
       var prefix = window.MYSS_PREFIX || "";
-      if (!prefix) prefix = window.location.pathname.includes("/treningstilbud/") ? "../" : "";
+      if (!prefix) {
+        prefix = window.location.pathname.includes("/treningstilbud/") ? "../" : "";
+      }
+      window.MYSS_PREFIX = prefix;
+      window.__prefix = prefix;
 
-      fetch(prefix + "partials/footer.html")
-        .then(r => r.text())
-        .then(html => { document.getElementById("myss-footer").innerHTML = html; });
+      var target = document.getElementById("myss-footer");
+      if (!target) return;
+
+      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          target.innerHTML = html;
+        });
     })();
   </script>
 
+  <script src="marquee-guard.js?v=36" defer></script>
 </body>
 </html>
