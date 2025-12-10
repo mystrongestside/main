@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lett funksjonsvariasjon | My Strongest Side®</title>
-  <meta name="description" content="Sammen gjør vi trening mulig for flere.
-Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluderende treningsmiljø – der flere kan delta, lære og oppleve mestring." />
-  <link rel="icon" type="image/png" href="../favicon.png" />
-  <link rel="stylesheet" href="../styles.css?v=41">
+  <title>Samarbeid | My Strongest Side®</title>
+  <meta name="description" content="Sammen gjør vi trening mulig for flere. Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluderende treningsmiljø – der flere kan delta, lære og oppleve mestring." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css?v=41">
   <script>document.documentElement.classList.add('js');</script>
 
   <style>
@@ -24,6 +23,29 @@ Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluder
     .dot { position: static !important; margin-left: 0.1em; }
 
     body { background: var(--myss-white); }
+
+    /* Mørk blå header for samarbeidspartnere */
+    .partners-hero {
+      background: var(--myss-blue);
+      color: var(--myss-white);
+      padding: 3rem 1.5rem;
+    }
+    .partners-hero__content {
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .partners-hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.75rem;
+      color: var(--myss-white);
+    }
+    .partners-hero p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 0;
+      color: var(--myss-white);
+    }
 
     .hero--simple {
       background: radial-gradient(circle at top left, rgba(247,124,55,0.25), transparent 40%),
@@ -84,6 +106,17 @@ Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluder
   <header data-component="site-header"></header>
 
   <main>
+    <!-- Mørk blå samarbeid-header -->
+    <section class="partners-hero">
+      <div class="partners-hero__content container">
+        <h1>Våre samarbeidspartnere og støttespillere</h1>
+        <p>
+          My Strongest Side® utvikler løsningen. Våre partnere gjør det mulig.
+          Sammen skaper vi et mer inkluderende treningsmiljø.
+        </p>
+      </div>
+    </section>
+
     <!-- MARQUEE -->
     <div class="marquee force-animate" role="region" aria-label="MyStrongestSide statements">
       <div class="marquee__wrap">
@@ -104,14 +137,6 @@ Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluder
 
     <!-- PARTNERE -->
     <section class="partners-section container">
-      <header class="partners-header">
-        <h2>Våre samarbeidspartnere og støttespillere</h2>
-        <p>
-          My Strongest Side® utvikler løsningen. Våre partnere gjør det mulig.
-          Sammen skaper vi et mer inkluderende treningsmiljø.
-        </p>
-      </header>
-
       <div class="partners-grid refined">
         <!-- CP-foreningen Vestland -->
         <article class="partner-card smooth">
