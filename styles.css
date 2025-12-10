@@ -2807,6 +2807,9 @@ body { scroll-padding-top: 90px; }             /* fin offset for ankerlenker, va
 .marquee {
   background: #F77C37 !important;
   color: #fff !important;
+  width: 100vw !important;                        /* full width på tvers av containere */
+  max-width: 100vw !important;                    /* overstyr begrensninger */
+  margin-inline: calc(50% - 50vw) !important;     /* strekk til kantene */
   overflow: hidden !important;
   white-space: nowrap !important;              /* fallback for ikke-flex innhold */
 }
