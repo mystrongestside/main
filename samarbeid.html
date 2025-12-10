@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
@@ -29,6 +29,7 @@
       background: var(--myss-blue);
       padding: 3rem 1.5rem 2.5rem;
       text-align: center;
+      color: #fff;
     }
     .partners-hero__content {
       max-width: 960px;
@@ -41,21 +42,21 @@
       color: #fff !important;
     }
     .partners-hero p {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       margin: 0;
+      line-height: 1.6;
       color: #fff !important;
     }
 
-    /* MARQUEE – redusert padding så den ikke ser ut som en meny */
+    /* MARQUEE – skal ikke se ut som en meny */
     .marquee {
-      background: #fff;
-      padding: 0.35rem 0; /* mindre høyde */
+      background: #ffffff;
+      padding: 0.4rem 0;
       border-bottom: 1px solid rgba(0,0,0,0.06);
-      margin-top: -2px; /* lim den tett under hero */
+      margin-top: -2px; /* lim den oppunder hero */
     }
-
     .marquee__row span {
-      font-size: 0.9rem; 
+      font-size: 0.9rem;
       font-weight: 600;
       letter-spacing: 0.01em;
       color: var(--myss-blue);
@@ -65,12 +66,12 @@
 
     .partners-section {
       margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
     }
   </style>
 </head>
 
 <body>
-
   <!-- Global header -->
   <header data-component="site-header"></header>
 
@@ -92,13 +93,13 @@
       <div class="marquee__wrap">
         <div class="marquee__row">
           <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent For Alle.</span><span>Kunnskap.</span>
+          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
           <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
           <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
         </div>
         <div class="marquee__row" aria-hidden="true">
           <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent For Alle.</span><span>Kunnskap.</span>
+          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
           <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
           <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
         </div>
@@ -123,7 +124,9 @@
               CP-foreningen Vestland bidrar til at flere medlemmer blir med på trening.
               Sammen senker vi terskelen for deltakelse gjennom rekruttering, informasjon og likepersonsarbeid.
             </p>
-            <a href="https://cp.no/vestland" target="_blank" class="partner-link">Besøk nettside</a>
+            <a href="https://cp.no/vestland" target="_blank" class="partner-link" rel="noopener">
+              Besøk nettside
+            </a>
           </div>
         </article>
 
@@ -139,7 +142,9 @@
               Gjennom HVL Skape-programmet videreutvikler vi en digital løsning som gjør treningsapparater
               mer forståelige og tilgjengelige. Målet er at alle skal kunne trene trygt – uavhengig av funksjonsevne.
             </p>
-            <a href="https://hvlskape.no" target="_blank" class="partner-link">Besøk nettside</a>
+            <a href="https://hvlskape.no" target="_blank" class="partner-link" rel="noopener">
+              Besøk nettside
+            </a>
           </div>
         </article>
 
@@ -151,10 +156,20 @@
       <div class="container">
         <div class="cta-card">
           <h3>Bli partner</h3>
-          <p>Har du spørsmål, eller vil du vite mer om hvordan vi kan samarbeide? Ta gjerne kontakt.</p>
+          <p>
+            Har du spørsmål, eller vil du vite mer om hvordan vi kan samarbeide?
+            Ta gjerne kontakt med oss.
+          </p>
           <div class="cta-actions">
-            <a class="cta-btn" href="kontakt.html#partner">Kontakt oss</a>
-            <a class="cta-btn cta-btn--outline" href="mailto:post@mystrongestside.no">post@mystrongestside.no</a>
+            <a class="cta-btn" href="kontakt.html#partner" aria-label="Kontakt oss om partnerskap">
+              Kontakt oss
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5V3H3v7h2V5zM5 19v-5H3v7h7v-2H5z"/>
+              </svg>
+            </a>
+            <a class="cta-btn cta-btn--outline" href="mailto:post@mystrongestside.no">
+              post@mystrongestside.no
+            </a>
           </div>
         </div>
       </div>
@@ -162,19 +177,52 @@
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- Felles footer -->
   <script src="script.js" defer></script>
   <div id="myss-footer"></div>
   <script>
     (function () {
-      var prefix = window.MYSS_PREFIX || "";
-      if (!prefix) prefix = window.location.pathname.includes("/treningstilbud/") ? "../" : "";
-
-      fetch(prefix + "partials/footer.html")
-        .then(r => r.text())
-        .then(html => { document.getElementById("myss-footer").innerHTML = html; });
+      var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
+      if (!prefix) {
+        prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
+      }
+      window.MYSS_PREFIX = prefix;
+      window.__prefix = prefix;
+      var target = document.getElementById("myss-footer");
+      if (!target) { return; }
+      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          target.innerHTML = html;
+          target.querySelectorAll('img[src*="${prefix}"]').forEach(function (img) {
+            var raw = img.getAttribute("src");
+            if (raw) {
+              img.setAttribute("src", raw.replace("${prefix}", prefix));
+            }
+          });
+        })
+        .catch(function () {
+          target.innerHTML =
+            '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="' + prefix + 'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
+        });
     })();
   </script>
 
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "My Strongest Side",
+      "url": "https://www.mystrongestside.no/samarbeid.html",
+      "logo": "https://www.mystrongestside.no/hlogo.png",
+      "sameAs": [
+        "https://www.instagram.com/mystrongestside",
+        "https://www.linkedin.com/company/mystrongestside"
+      ]
+    }
+  </script>
+
+  <script src="marquee-guard.js?v=36" defer></script>
 </body>
 </html>
