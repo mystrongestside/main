@@ -7,50 +7,29 @@
   <meta name="description" content="Sammen gjør vi trening mulig for flere gjennom samarbeid med organisasjoner, fagmiljøer og støttespillere." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=38">
+  <!-- Bruk samme CSS-versjon som på de nye sidene -->
+  <link rel="stylesheet" href="styles.css?v=41">
   <link rel="stylesheet" href="compat.css?v=39">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  <!-- Statisk header -->
-  <header class="site-header site-header--dark">
-    <div class="site-header__bar">
-      <div class="container site-header__inner">
-        <a href="index.html" class="site-header__logo" aria-label="Til forsiden">
-          <img src="hlogo.png" alt="My Strongest Side" />
-        </a>
-
-        <nav class="site-nav" aria-label="Hovedmeny">
-          <a href="index.html" class="site-nav__link">Forside</a>
-          <a href="treningstilbud/index.html" class="site-nav__link">Tilbud</a>
-          <a href="om-oss.html" class="site-nav__link">Om oss</a>
-          <a href="frivillig.html" class="site-nav__link">Frivillig</a>
-          <a href="samarbeid.html" class="site-nav__link site-nav__link--active" aria-current="page">Samarbeid</a>
-          <a href="kontakt.html" class="site-nav__link">Kontakt</a>
-        </nav>
-
-        <div class="site-header__cta-wrap">
-          <a href="treningstilbud/index.html" class="btn btn--primary">
-            Se våre treningstilbud
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hero i samme stil som de andre sidene -->
-    <div class="site-header__hero">
-      <section class="hero hero--simple">
-        <div class="container hero__content">
-          <h1>Sammen gjør vi trening mulig for flere<span class="dot">.</span></h1>
-          <p>
-            Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluderende treningsmiljø.
-          </p>
-        </div>
-      </section>
-    </div>
-  </header>
+  <!-- Felles header lastes inn via script.js -->
+  <header data-component="site-header"></header>
 
   <main>
+    <!-- HERO -->
+    <section class="hero hero--page hero--dark">
+      <div class="container hero__content hero__content--center">
+        <p class="eyebrow">Samarbeid</p>
+        <h1>Sammen gjør vi trening mulig for flere<span class="dot">.</span></h1>
+        <p>
+          Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluderende treningsmiljø –
+          der flere kan delta, lære og oppleve mestring.
+        </p>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
     <div class="marquee force-animate" role="region" aria-label="MyStrongestSide statements">
       <div class="marquee__wrap">
         <div class="marquee__row">
@@ -68,15 +47,18 @@
       </div>
     </div>
 
+    <!-- PARTNERE -->
     <section class="partners-section container">
       <header class="partners-header">
         <h2>Våre samarbeidspartnere og støttespillere</h2>
         <p>
-          My Strongest Side® utvikler løsningen. Våre partnere gjør det mulig. Sammen skaper vi et mer inkluderende treningsmiljø.
+          My Strongest Side® utvikler løsningen. Våre partnere gjør det mulig.
+          Sammen skaper vi et mer inkluderende treningsmiljø.
         </p>
       </header>
 
       <div class="partners-grid refined">
+        <!-- CP-foreningen Vestland -->
         <article class="partner-card smooth">
           <div class="partner-meta">
             <span class="partner-label hovedpartner">Hovedpartner</span>
@@ -90,10 +72,13 @@
               CP-foreningen Vestland bidrar til at flere medlemmer blir med på trening.
               Sammen senker vi terskelen for deltakelse gjennom rekruttering, informasjon og likepersonsarbeid.
             </p>
-            <a href="https://cp.no/vestland" target="_blank" class="partner-link">Besøk nettside</a>
+            <a href="https://cp.no/vestland" target="_blank" class="partner-link" rel="noopener">
+              Besøk nettside
+            </a>
           </div>
         </article>
 
+        <!-- HVL -->
         <article class="partner-card smooth">
           <div class="partner-meta">
             <span class="partner-label innovasjon">Innovasjonsstøtte</span>
@@ -102,27 +87,32 @@
           <div class="partner-content">
             <h3>Høgskulen på Vestlandet</h3>
             <p>
-              Gjennom HVL Skape-programmet videreutvikler vi en digital løsning som gjør treningsapparater mer forståelige og tilgjengelige.
-              Målet er at alle skal kunne trene trygt – uavhengig av funksjonsevne.
+              Gjennom HVL Skape-programmet videreutvikler vi en digital løsning som gjør treningsapparater
+              mer forståelige og tilgjengelige. Målet er at alle skal kunne trene trygt – uavhengig av funksjonsevne.
             </p>
-            <a href="https://hvlskape.no" target="_blank" class="partner-link">Besøk nettside</a>
+            <a href="https://hvlskape.no" target="_blank" class="partner-link" rel="noopener">
+              Besøk nettside
+            </a>
           </div>
         </article>
       </div>
     </section>
 
+    <!-- CTA BLI PARTNER -->
     <section class="partners-cta" id="bli-partner">
       <div class="container">
         <div class="cta-card">
           <h3>Bli partner</h3>
           <p>
-            Lurer du på noe?<br>
+            Har du spørsmål, eller vil du vite mer om hvordan vi kan samarbeide?
             Ta gjerne kontakt med oss.
           </p>
           <div class="cta-actions">
             <a class="cta-btn" href="kontakt.html#partner" aria-label="Kontakt oss om partnerskap">
               Kontakt oss
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5V3H3v7h2V5zM5 19v-5H3v7h7v-2H5z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5V3H3v7h2V5zM5 19v-5H3v7h7v-2H5z"/>
+              </svg>
             </a>
             <a class="cta-btn cta-btn--outline" href="mailto:post@mystrongestside.no">
               post@mystrongestside.no
@@ -133,8 +123,8 @@
     </section>
   </main>
 
+  <!-- Felles footer -->
   <script src="script.js" defer></script>
-
   <div id="myss-footer"></div>
   <script>
     (function () {
@@ -158,11 +148,13 @@
           });
         })
         .catch(function () {
-          target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="' + prefix + 'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
+          target.innerHTML =
+            '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="' + prefix + 'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
         });
     })();
   </script>
 
+  <!-- Schema.org -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -176,6 +168,7 @@
       ]
     }
   </script>
+
   <script src="marquee-guard.js?v=36" defer></script>
 </body>
 </html>
