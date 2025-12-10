@@ -7,8 +7,11 @@
   <meta name="description" content="Sammen gjør vi trening mulig for flere gjennom samarbeid med organisasjoner, fagmiljøer og støttespillere." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=38">
+  <link rel="stylesheet" href="styles.css?v=41">
   <link rel="stylesheet" href="compat.css?v=39">
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
 </head>
 <body>
   <header data-component="site-header"></header>
@@ -19,7 +22,6 @@
         <h1>Sammen gjør vi trening mulig for flere<span class="dot">.</span></h1>
         <p>
           Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluderende treningsmiljø.
-           
         </p>
       </div>
     </section>
@@ -89,13 +91,15 @@
         <div class="cta-card">
           <h3>Bli partner</h3>
           <p>
-            Lurer du på noe?
-           Ta gjerne kontakt med oss
+            Lurer du på noe?<br />
+            Ta gjerne kontakt med oss.
           </p>
           <div class="cta-actions">
             <a class="cta-btn" href="kontakt.html#partner" aria-label="Kontakt oss om partnerskap">
               Kontakt oss
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5V3H3v7h2V5zM5 19v-5H3v7h7v-2H5z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5V3H3v7h2V5zM5 19v-5H3v7h7v-2H5z"/>
+              </svg>
             </a>
             <a class="cta-btn cta-btn--outline" href="mailto:post@mystrongestside.no">
               post@mystrongestside.no
@@ -107,17 +111,49 @@
   </main>
 
   <script src="script.js" defer></script>
+
   <div id="myss-footer"></div>
+
   <script>
     (function () {
+      // Finn prefix (rot vs /treningstilbud/)
       var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
       if (!prefix) {
         prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
       }
       window.MYSS_PREFIX = prefix;
       window.__prefix = prefix;
+
+      // Header
+      var headerTarget = document.querySelector('[data-component="site-header"]');
+      if (headerTarget) {
+        fetch(prefix + "partials/header.html", { cache: "no-cache" })
+          .then(function (r) { return r.text(); })
+          .then(function (html) {
+            headerTarget.innerHTML = html;
+          })
+          .catch(function () {
+            // Enkel fallback-header dersom partial ikke lastes
+            headerTarget.innerHTML =
+              '<div class="myss-header myss-header--fallback">' +
+                '<div class="header-inner">' +
+                  '<a href="' + prefix + 'index.html" class="header-logo-link">' +
+                    '<img src="' + prefix + 'hlogo.png" alt="My Strongest Side" class="header-logo-img">' +
+                  '</a>' +
+                  '<nav class="header-nav">' +
+                    '<a href="' + prefix + 'treningstilbud/index.html">Treningstilbud</a>' +
+                    '<a href="' + prefix + 'samarbeid.html" aria-current="page">Samarbeid</a>' +
+                    '<a href="' + prefix + 'kontakt.html">Kontakt</a>' +
+                  '</nav>' +
+                '</div>' +
+              '</div>';
+          });
+      }
+
+      // Footer
       var target = document.getElementById("myss-footer");
       if (!target) { return; }
+
       fetch(prefix + "partials/footer.html", { cache: "no-cache" })
         .then(function (r) { return r.text(); })
         .then(function (html) {
@@ -130,10 +166,34 @@
           });
         })
         .catch(function () {
-          target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="' + prefix + 'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
+          target.innerHTML =
+            '<footer class="myss-footer">' +
+              '<div class="footer-container">' +
+                '<div class="footer-logo">' +
+                  '<div class="footer-center">' +
+                    '<div class="myss-circle-badge">' +
+                      '<svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet">' +
+                        '<defs>' +
+                          '<path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/>' +
+                        '</defs>' +
+                        '<text class="badge-text">' +
+                          '<textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">' +
+                            '• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®' +
+                          '</textPath>' +
+                        '</text>' +
+                      '</svg>' +
+                      '<img src="' + prefix + 'logo-orange.png" alt="My Strongest Side" class="badge-logo">' +
+                    '</div>' +
+                    '<p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p>' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+              '<p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p>' +
+            '</footer>';
         });
     })();
   </script>
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
