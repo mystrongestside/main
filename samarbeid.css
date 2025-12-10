@@ -12,12 +12,12 @@ body.page-samarbeid {
   background: var(--myss-white);
 }
 
-/* Fjern ekstra top-padding fra global main hvis den finnes */
+/* Fjern eventuell ekstra top-padding fra global main */
 body.page-samarbeid main {
   padding-top: 0 !important;
 }
 
-/* HERO – mørk, enkel, luftig (Mio vibe) */
+/* HERO – stor, enkel, luftig */
 .partners-hero {
   background: var(--myss-blue);
   padding: 2.6rem 1.5rem 3rem;
@@ -29,6 +29,15 @@ body.page-samarbeid main {
   margin: 0 auto;
 }
 
+.partners-hero__eyebrow {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+}
+
 .partners-hero h1 {
   font-size: 2.2rem;
   font-weight: 800;
@@ -37,34 +46,31 @@ body.page-samarbeid main {
 }
 
 .partners-hero p {
-  font-size: 1.1rem;
+  font-size: 1.12rem;
   margin: 0;
-  line-height: 1.7;
+  line-height: 1.8;
   color: #ffffff;
-  opacity: 0.92;
 }
 
-/* MARQUEE – roligere og mer diskret */
+/* MARQUEE – rolig og mer “diskret” */
 .marquee {
   background: #ffffff;
-  padding: 0.35rem 0;
+  padding: 0.4rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   margin-top: -1px;
 }
 
 .marquee__wrap {
   overflow: hidden;
-  max-width: 980px;
-  margin: 0 auto;
 }
 
 .marquee__row {
   display: inline-flex;
-  animation: ms-marquee 55s linear infinite; /* saktere = roligere */
+  animation: ms-marquee 55s linear infinite;
 }
 
 .marquee__row span {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   color: var(--myss-blue);
@@ -81,26 +87,26 @@ body.page-samarbeid main {
 .partners-section.container {
   max-width: 980px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 3.4rem;
+  padding: 3.2rem 1.5rem 3.6rem;
 }
 
 .partners-grid.refined {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 2.4rem;
+  gap: 2.6rem;
   align-items: stretch;
 }
 
 .partner-card.smooth {
   background: #ffffff;
   border-radius: 1.25rem;
-  padding: 1.9rem 1.9rem 1.7rem;
+  padding: 2rem 2rem 1.8rem;
   box-shadow: 0 14px 35px rgba(15, 23, 42, 0.06);
   border: 1px solid rgba(15, 23, 42, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1.2rem;
+  gap: 1.25rem;
 }
 
 .partner-meta {
@@ -112,7 +118,7 @@ body.page-samarbeid main {
 
 .partner-logo-frame {
   border-radius: 999px;
-  padding: 0.4rem 0.9rem;
+  padding: 0.45rem 1rem;
   background: #ffffff;
   box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
   display: inline-flex;
@@ -131,20 +137,20 @@ body.page-samarbeid main {
 }
 
 .partner-content h3 {
-  margin: 0 0 0.6rem;
-  font-size: 1.22rem;
+  margin: 0 0 0.7rem;
+  font-size: 1.24rem;
   font-weight: 700;
   color: var(--myss-blue);
 }
 
 .partner-content p {
-  margin: 0 0 1rem;
+  margin: 0 0 1.1rem;
   font-size: 1.02rem;
   line-height: 1.7;
   color: #4b5563;
 }
 
-/* Ren, nøktern lenke (ingen emoji-pil) */
+/* Ren, nøktern lenke */
 .partner-link {
   font-size: 0.98rem;
   font-weight: 600;
@@ -159,7 +165,7 @@ body.page-samarbeid main {
   content: none !important;
 }
 
-/* Hover – subtil */
+/* Hover-effekt – subtil */
 .partner-card.smooth:hover {
   transform: translateY(-2px);
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.09);
@@ -203,7 +209,7 @@ body.page-samarbeid main {
   font-size: 1.02rem;
 }
 
-/* CTA-knapper – ryddige */
+/* CTA-knapper */
 .partners-cta-clean .cta-actions {
   display: flex;
   justify-content: center;
@@ -244,15 +250,16 @@ body.page-samarbeid main {
   background: rgba(247, 124, 55, 0.06);
 }
 
-/* FOOTER – ekstra sikkerhet for at logo vises mørkt/tydelig */
-.page-samarbeid .site-footer {
+/* FOOTER – ekstra sikkerhet for at logo vises tydelig */
+body.page-samarbeid #myss-footer {
   background-color: #111827;
+  color: #f9fafb;
 }
 
 /* Mobil-tilpasning */
 @media (max-width: 768px) {
   .partners-hero {
-    padding: 2rem 1.25rem 2.4rem;
+    padding: 2.1rem 1.25rem 2.4rem;
   }
 
   .partners-hero h1 {
@@ -260,16 +267,16 @@ body.page-samarbeid main {
   }
 
   .partners-hero p {
-    font-size: 1rem;
+    font-size: 1.02rem;
   }
 
   .marquee__row span {
     padding: 0 1rem;
-    font-size: 0.88rem;
+    font-size: 0.9rem;
   }
 
   .partners-section.container {
-    padding: 2.4rem 1.4rem 3rem;
+    padding: 2.6rem 1.4rem 3.2rem;
   }
 
   .partners-grid.refined {
@@ -277,7 +284,7 @@ body.page-samarbeid main {
   }
 
   .partner-card.smooth {
-    padding: 1.6rem 1.5rem 1.6rem;
+    padding: 1.7rem 1.6rem 1.7rem;
   }
 
   .partners-cta-clean {
