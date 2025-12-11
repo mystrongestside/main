@@ -18,12 +18,12 @@ body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  /* Stor, lettlest tekst – omtrent som Mio */
-  font-size: clamp(18px, 1rem + 0.6vw, 21px);
-  line-height: 1.7;
+  /* STOR OG LETTLEST TEKST OVERALT */
+  font-size: clamp(20px, 1.2rem + 0.8vw, 24px);
+  line-height: 1.8;
 
   color: #182433;
-  background-color: #f4f5f8;
+  background-color: #ffffff; /* ALT HVITT (utenom footer) */
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -31,31 +31,31 @@ p, ul, ol {
   margin-top: 0;
 }
 
-/* Overskrifter – store og tydelige */
+/* Store, tydelige overskrifter – à la Mio */
 h1 {
-  font-size: clamp(38px, 2.6rem + 0.8vw, 52px);
+  font-size: clamp(40px, 2.8rem + 1vw, 58px);
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: clamp(30px, 2.1rem + 0.5vw, 40px);
+  font-size: clamp(32px, 2.2rem + 0.6vw, 44px);
   line-height: 1.3;
   margin-bottom: 0.9rem;
 }
 
 h3 {
-  font-size: clamp(24px, 1.6rem + 0.4vw, 30px);
-  margin-bottom: 0.5rem;
+  font-size: clamp(26px, 1.8rem + 0.4vw, 32px);
+  margin-bottom: 0.6rem;
 }
 
 p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.3rem;
 }
 
 ul, ol {
-  padding-left: 1.4rem;
-  margin-bottom: 1.4rem;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Lenker */
@@ -103,7 +103,7 @@ main {
 /* Eyebrow-tekst */
 .eyebrow {
   font-size: 0.95em;
-  letterspacing: 0.1em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #f77c37;
   font-weight: 700;
@@ -150,23 +150,23 @@ main {
   max-width: 190px;
 }
 
-/* Hamburger-knapp med tekst "Vis menyen" */
+/* Hamburger + tekst "Vis menyen" */
 .site-header__toggle {
   background: none;
   border: 1px solid transparent;
-  padding: 0.35rem 0.7rem;
+  padding: 0.35rem 0.8rem;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.6rem;
   cursor: pointer;
 
-  font-size: 1rem;          /* viktig: faktisk tekststørrelse */
+  font-size: 1rem;  /* arver stor body-text, men kontrollert */
   line-height: 1.2;
 }
 
 .site-header__toggle:focus-visible {
-  border-color: #2f6fed;    /* blå kant som i eksempelet ditt */
+  border-color: #2f6fed;  /* blå kant slik som eksempelet ditt */
 }
 
 .site-header__toggle-box {
@@ -188,12 +188,12 @@ main {
   font-weight: 600;
 }
 
-/* Knapp */
+/* Knapp til høyre */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.55rem 1.35rem;
+  padding: 0.6rem 1.5rem;
   border-radius: 999px;
   border: 2px solid transparent;
   font-weight: 600;
@@ -225,31 +225,29 @@ main {
   text-decoration: none;
 }
 
-/* Header actions */
 .site-header__actions {
   display: flex;
   align-items: center;
 }
 
 /* =========================
-   Navigasjon – side-meny
-   (ALLTID via hamburger, også på desktop)
+   Navigasjon – drop-down UNDER header
    ========================== */
 
 .site-nav {
-  position: fixed;
-  inset: 0 auto 0 0;
-  width: min(280px, 80vw);
-  background-color: #ffffff;
-  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.14);
-  transform: translateX(-100%);
-  transition: transform 0.2s ease-out;
-  z-index: 999;
-  padding: 1.25rem 1.5rem 2rem;
+  display: none;
+  background-color: #ffffff;   /* hvit bakgrunn */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .site-nav--open {
-  transform: translateX(0);
+  display: block;
+}
+
+.site-nav__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 1rem 1.5rem 1.5rem;
 }
 
 .site-nav__cta {
@@ -263,12 +261,12 @@ main {
 }
 
 .site-nav__item + .site-nav__item {
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
 }
 
 .site-nav__link {
   display: block;
-  padding: 0.4rem 0;
+  padding: 0.1rem 0;
   font-size: 1rem;
 }
 
@@ -280,19 +278,20 @@ main {
   padding: 2.5rem 0;
 }
 
+/* Ikke egne bakgrunner – ALT hvitt (du kan bruke disse klassene senere om du vil) */
 .section--light {
   background-color: #ffffff;
 }
 
 .section--soft {
-  background-color: #e4e8f2;
+  background-color: #ffffff;
 }
 
 .section__heading {
   margin-bottom: 1rem;
 }
 
-/* Partner-seksjon: enkel og luftig */
+/* Partner-seksjon */
 .partner-list article + article {
   margin-top: 2rem;
 }
@@ -306,7 +305,7 @@ main {
    ========================== */
 
 .site-footer {
-  background-color: #0d1b2b;
+  background-color: #0d1b2b; /* eneste mørke feltet */
   color: #ffffff;
   padding: 2.5rem 0 2rem;
   margin-top: 3rem;
@@ -414,9 +413,9 @@ main {
   justify-content: center;
 }
 
-/* Justér litt ned på veldig små skjermer hvis nødvendig */
+/* Juster litt ned på de aller minste skjermene om det trengs */
 @media (max-width: 420px) {
   body {
-    font-size: 17px;
+    font-size: 19px;
   }
 }
