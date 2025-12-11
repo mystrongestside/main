@@ -1,4 +1,4 @@
-* =========================
+/* =========================
    My Strongest Side – Global styles
    ========================== */
 
@@ -31,7 +31,7 @@ p, ul, ol {
   margin-top: 0;
 }
 
-/* Store, tydelige overskrifter  
+/* Store, tydelige overskrifter */
 h1 {
   font-size: clamp(40px, 2.8rem + 1vw, 58px);
   line-height: 1.2;
@@ -300,42 +300,6 @@ main {
   margin-bottom: 0.4rem;
 }
 
-
-/* =========================
-   Navigation dropdown
-   ========================== */
-
-.site-nav {
-  display: none;
-  background-color: #ffffff;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-
-.site-nav--open {
-  display: block;
-}
-
-.site-nav__inner {
-  max-width: 1200px;
-  margin-inline: auto;
-  padding: 1.2rem 1.5rem;
-}
-
-.site-nav__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.site-nav__item + .site-nav__item {
-  margin-top: 0.8rem;
-}
-
-.site-nav__link {
-  display: block;
-  font-size: 1rem;
-}
-
 /* =========================
    FOOTER
    ========================== */
@@ -457,7 +421,8 @@ main {
   gap: 0.75rem;
   align-items: center;
 }
-* =========================
+
+/* =========================
    MySS CTA med bølge (lys blå)
    ========================== */
 
