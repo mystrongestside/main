@@ -462,3 +462,44 @@ main {
   margin: 0.4rem 0 0.2rem;
   display: block;
 }
+/* ===========================================
+   FLYTT KUN LOGO + SLAGORD ØVERST
+   =========================================== */
+
+/* Gjør container fleksibel slik vi kan styre rekkefølge */
+.site-footer > .container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Flytt hele brand-blokken opp (logo + alt) */
+.site-footer__brand {
+  order: -1; 
+}
+
+/* Men skjul firmanavn + orgnr i topplogoen */
+.site-footer__brand strong,
+.site-footer__brand .text-small {
+  display: none;       /* skjul firma-navn og orgnr */
+}
+
+/* Vis kun slagordet */
+.site-footer__tagline {
+  display: block;
+}
+
+/* Styling for logo + slagord */
+.site-footer__logo {
+  height: 60px;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.site-footer__tagline {
+  font-family: "Segoe Script", "Bradley Hand", "Brush Script MT", cursive;
+  font-size: 1.25em;
+  color: #E4E8F2;
+  margin-bottom: 0.2rem;
+}
+
