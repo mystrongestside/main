@@ -7,18 +7,62 @@
   <meta name="description" content="Sammen gjør vi trening mulig for flere. Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluderende treningsmiljø – der flere kan delta, lære og oppleve mestring." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
-  <!-- Global stil -->
-  <link rel="stylesheet" href="styles.css?v=50" />
+  <link rel="stylesheet" href="styles.css?v=51" />
 
   <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body class="page-samarbeid">
-  <!-- Global header (lastes inn via script.js) -->
-  <header data-component="site-header"></header>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <!-- Hamburger -->
+      <button class="site-header__toggle" aria-label="Åpne meny">
+        <span class="site-header__toggle-box">
+          <span class="site-header__toggle-line"></span>
+          <span class="site-header__toggle-line"></span>
+          <span class="site-header__toggle-line"></span>
+        </span>
+      </button>
+
+      <!-- Logo -->
+      <a href="index.html" class="site-header__logo">
+        <img src="bilder/myss-logo-header.png" alt="My Strongest Side" />
+      </a>
+
+      <!-- Kontakt-knapp -->
+      <div class="site-header__actions">
+        <a href="kontakt.html" class="btn btn--primary">Kontakt oss</a>
+      </div>
+
+      <!-- Navigasjon -->
+      <nav class="site-nav" aria-label="Hovedmeny">
+        <div class="site-nav__cta">
+          <a href="kontakt.html" class="btn btn--primary">Kontakt oss</a>
+        </div>
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a href="index.html" class="site-nav__link">Forside</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="treningstilbud/voksne-lett.html" class="site-nav__link">Treningstilbud</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="frivillig.html" class="site-nav__link">Frivillig</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="presse.html" class="site-nav__link">Presse</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="samarbeid.html" class="site-nav__link">Samarbeid</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main>
-    <!-- HERO / INTRO -->
+    <!-- HERO -->
     <section class="section section--light">
       <div class="container">
         <p class="eyebrow">Samarbeid</p>
@@ -32,11 +76,11 @@
 
     <!-- PARTNERE -->
     <section class="section">
-      <div class="container">
+      <div class="container partner-list">
         <h2 class="section__heading">Samarbeidspartnere</h2>
 
         <!-- CP-foreningen Vestland -->
-        <article>
+        <article class="mt-md">
           <h3>CP-foreningen Vestland</h3>
           <p>
             CP-foreningen Vestland gjør det mulig for flere medlemmer å delta på trening.
@@ -45,16 +89,14 @@
             fast del av hverdagen.
           </p>
           <p class="mt-sm">
-            <a href="https://cp.no/vestland" target="_blank" rel="noopener noreferrer">
+            <a href="https://cp.no" target="_blank" rel="noopener noreferrer">
               Besøk nettside
             </a>
           </p>
         </article>
 
-        <div class="mt-lg"></div>
-
         <!-- Høgskulen på Vestlandet -->
-        <article>
+        <article class="mt-lg">
           <h3>Høgskulen på Vestlandet</h3>
           <p>
             Gjennom HVL Skape-programmet har My Strongest Side® fått innovasjonsstøtte til
@@ -71,7 +113,7 @@
       </div>
     </section>
 
-    <!-- CTA: Lurer du på noe? -->
+    <!-- CTA -->
     <section class="section section--soft" id="bli-partner">
       <div class="container">
         <h2>Lurer du på noe?</h2>
@@ -87,27 +129,86 @@
     </section>
   </main>
 
-  <!-- FOOTER lastes inn via partial -->
-  <script src="script.js" defer></script>
-  <div id="myss-footer"></div>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <div>
+          <h3 class="site-footer__heading">Våre tjenester</h3>
+          <ul class="site-footer__list">
+            <li><a href="treningstilbud/voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
+            <li><a href="treningstilbud/tett-oppfolging.html">Tett oppfølging</a></li>
+            <li><a href="frivillig.html">Frivilligprogram</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">Informasjon</h3>
+          <ul class="site-footer__list">
+            <li><a href="presse.html">Presse og media</a></li>
+            <li><a href="samarbeid.html">Samarbeid</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">My Strongest Side</h3>
+          <ul class="site-footer__list">
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">Kontakt</h3>
+          <ul class="site-footer__list">
+            <li>My Strongest Side AS</li>
+            <li>Brages veg 3<br>5221 Nesttun</li>
+            <li>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__divider"></div>
+
+      <div class="site-footer__bottom">
+        <div class="site-footer__brand">
+          <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
+          <div>
+            <strong>My Strongest Side AS</strong><br />
+            <span class="text-small text-muted">Org.nr 935 786 053</span>
+          </div>
+        </div>
+
+        <div class="site-footer__meta">
+          <span class="text-small">© <span id="year"></span> My Strongest Side AS</span>
+        </div>
+
+        <div class="site-footer__social">
+          <span class="text-small">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <!-- Legg inn faktiske ikoner/lenker her hvis du vil -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Enkel JS for meny + årstall -->
   <script>
-    (function () {
-      var prefix = window.MYSS_PREFIX || "";
-      if (!prefix) {
-        prefix = window.location.pathname.includes("/treningstilbud/") ? "../" : "";
-      }
-      window.MYSS_PREFIX = prefix;
-      window.__prefix = prefix;
-
-      var target = document.getElementById("myss-footer");
-      if (!target) return;
-
-      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-        .then(function (r) { return r.text(); })
-        .then(function (html) {
-          target.innerHTML = html;
+    document.addEventListener('DOMContentLoaded', function () {
+      var toggle = document.querySelector('.site-header__toggle');
+      var nav = document.querySelector('.site-nav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function () {
+          nav.classList.toggle('site-nav--open');
         });
-    })();
+      }
+
+      var yearSpan = document.getElementById('year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
   </script>
 </body>
 </html>
