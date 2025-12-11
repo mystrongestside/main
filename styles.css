@@ -31,7 +31,7 @@ p, ul, ol {
   margin-top: 0;
 }
 
-/* Store, tydelige overskrifter – à la Mio */
+/* Store, tydelige overskrifter  
 h1 {
   font-size: clamp(40px, 2.8rem + 1vw, 58px);
   line-height: 1.2;
@@ -146,7 +146,7 @@ main {
 /* Logo */
 .site-header__logo img {
   display: block;
-  height: 40px;
+  height: 75px;
   max-width: 190px;
 }
 
