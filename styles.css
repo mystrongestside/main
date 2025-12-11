@@ -539,4 +539,83 @@ main {
     transform: translateY(0);
   }
 }
+/* =========================
+   Navigasjon – drop-down med fade
+   ========================== */
+
+.site-nav {
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  /* skjult som default */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+
+  transition:
+    max-height 0.25s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* når menyen er åpen */
+.site-nav--open {
+  max-height: 600px;          /* stort nok til innholdet */
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.site-nav__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 1.5rem;
+}
+
+.site-nav__columns {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .site-nav__columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.site-nav__column {
+  /* kan justeres ved behov */
+}
+
+.site-nav__heading {
+  font-size: 1.05em;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: #182433;
+}
+
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__list li + li {
+  margin-top: 0.35rem;
+}
+
+.site-nav__link {
+  display: inline-block;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #182433;
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible {
+  text-decoration: underline;
+}
+
 
