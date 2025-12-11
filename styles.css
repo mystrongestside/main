@@ -617,5 +617,135 @@ main {
 .site-nav__link:focus-visible {
   text-decoration: underline;
 }
+/* =======================================
+   MOBILE OPTIMIZATION – MySS
+   Skreddersydd for skjermbredder < 600px
+======================================= */
+
+@media (max-width: 600px) {
+
+  /* 🔹 Mer luft i toppen – header */
+  .site-header__inner {
+    padding: 0.9rem 1rem;
+  }
+
+  .site-header__logo img {
+    height: 60px; /* litt mindre, men fortsatt premium */
+  }
+
+  .site-header__toggle-label {
+    font-size: 0.95rem;
+  }
+
+
+  /* 🔹 Meny (drop-down) */
+  .site-nav__inner {
+    padding: 1.25rem 1rem;
+  }
+
+  .site-nav__columns {
+    gap: 1.8rem;
+  }
+
+  .site-nav__heading {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .site-nav__link {
+    padding: 0.25rem 0;
+    font-size: 0.95rem;
+  }
+
+
+  /* 🔹 HERO-tekst – bedre lesbarhet */
+  .section--light .container {
+    padding-inline: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(32px, 2rem + 2vw, 40px);
+  }
+
+  p {
+    font-size: 1.05rem;
+  }
+
+
+  /* 🔹 CTA – bølge og knapper */
+  .myss-cta-wave {
+    padding: 4rem 0 3rem;
+  }
+
+  .myss-cta-wave__inner {
+    padding: 0 1rem;
+  }
+
+  .myss-cta-wave h2 {
+    font-size: 1.9rem;
+  }
+
+  .myss-cta-wave__actions {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .myss-cta-wave__btn {
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+  }
+
+  .myss-cta-wave__email {
+    font-size: 1rem;
+  }
+
+
+  /* 🔹 FOOTER – optimal mobilstruktur */
+  .site-footer__inner {
+    gap: 2.5rem;
+  }
+
+  .site-footer__brand {
+    align-items: center;
+    text-align: center;
+  }
+
+  .site-footer__logo {
+    height: 55px;
+  }
+
+  .site-footer__tagline {
+    font-size: 1.15rem;
+    line-height: 1.3;
+  }
+
+  .site-footer__top {
+    grid-template-columns: 1fr; /* én kolonne på mobil */
+    gap: 2.2rem;
+  }
+
+  .site-footer__heading {
+    font-size: 1.05rem;
+    text-align: center;
+  }
+
+  .site-footer__list {
+    text-align: center;
+  }
+
+  .site-footer__bottom {
+    text-align: center;
+    gap: 1.2rem;
+  }
+
+  .site-footer__social {
+    align-items: center;
+  }
+
+  .site-footer__social-label {
+    font-size: 0.95rem;
+  }
+}
 
 
