@@ -514,3 +514,8 @@ main {
 .site-footer {
   margin-top: 0;
 }
+.dot {
+  color: #f77c37;      /* MySS-oransje */
+  margin-left: 0.1em;  /* litt avstand før prikken */
+  font-weight: inherit;
+}
