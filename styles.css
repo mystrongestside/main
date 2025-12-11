@@ -337,7 +337,7 @@ main {
 }
 
 /* =========================
-   Footer
+   FOOTER
    ========================== */
 
 .site-footer {
@@ -347,6 +347,34 @@ main {
   margin-top: 4rem;
 }
 
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Logo + slagord øverst */
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.site-footer__logo {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+.site-footer__tagline {
+  font-family: "Segoe Script", "Bradley Hand", "Brush Script MT", cursive;
+  font-size: 1.3em;
+  color: #E4E8F2;
+  margin: 0.2rem 0 0;
+}
+
+/* Kolonner */
 .site-footer__top {
   display: grid;
   gap: 2rem;
@@ -354,13 +382,13 @@ main {
 
 @media (min-width: 760px) {
   .site-footer__top {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1100px) {
   .site-footer__top {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -373,19 +401,32 @@ main {
 
 .site-footer__list {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .site-footer__list li + li {
   margin-top: 0.5rem;
 }
 
+.site-footer a {
+  color: #f5f7fb;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Bunnlinje */
 .site-footer__bottom {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 2rem;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.95em;
 }
 
 @media (min-width: 900px) {
@@ -396,33 +437,23 @@ main {
   }
 }
 
-/* Logo + tekst */
-.site-footer__brand {
+.site-footer__meta {
+  margin: 0;
+}
+
+.site-footer__social {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.4rem;
   align-items: flex-start;
 }
 
-.site-footer__logo {
-  height: 52px;
-  width: auto;
-  display: block;
+.site-footer__social-label {
+  font-size: 0.95em;
 }
 
-/* Slagord */
-.site-footer__tagline {
-  font-family: "Segoe Script", "Bradley Hand", "Brush Script MT", cursive;
-  font-size: 1.2em;
-  color: #E4E8F2;
-  margin-top: 0.3rem;
+.site-footer__social-list {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
 }
-
-.site-footer a {
-  color: #f5f7fb;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-}
-
