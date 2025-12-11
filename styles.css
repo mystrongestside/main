@@ -1,12 +1,224 @@
 /* =========================
+   My Strongest Side – Global Styles
+   ========================== */
+
+/* -------- Reset -------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(19px, 1rem + 0.8vw, 22px);
+  line-height: 1.7;
+  color: #182433;
+  background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, ul, ol {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(36px, 2.4rem + 1vw, 54px);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: clamp(30px, 2rem + 0.6vw, 40px);
+  line-height: 1.3;
+  margin-bottom: 0.9rem;
+}
+
+h3 {
+  font-size: clamp(24px, 1.6rem + 0.4vw, 32px);
+  margin-bottom: 0.6rem;
+}
+
+p {
+  margin-bottom: 1.2rem;
+}
+
+ul, ol {
+  padding-left: 1.4rem;
+  margin-bottom: 1.4rem;
+}
+
+/* Links */
+a {
+  color: #24344d;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Focus */
+:focus-visible {
+  outline: 3px solid #f77c37;
+  outline-offset: 3px;
+}
+
+/* Layout Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+main {
+  padding: 2.5rem 0 3.5rem;
+}
+
+/* =========================
+   Header
+   ========================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+}
+
+/* Header order */
+.site-header__toggle { order: 0; }
+.site-header__logo { order: 1; }
+.site-header__actions { order: 2; }
+
+/* Logo */
+.site-header__logo img {
+  display: block;
+  height: 72px;
+  width: auto;
+}
+
+/* Hamburger Button */
+.site-header__toggle {
+  background: none;
+  border: 1px solid transparent;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.site-header__toggle:hover {
+  background-color: #f1f1f1;
+}
+
+.site-header__toggle:focus-visible {
+  border-color: #2f6fed;
+}
+
+/* Hamburger icon */
+.site-header__toggle-box {
+  width: 24px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.site-header__toggle-line {
+  width: 100%;
+  height: 3px;
+  border-radius: 999px;
+  background-color: #000000;
+}
+
+/* Kontakt-knapp */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-size: 0.95em;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn--primary {
+  background-color: #f77c37;
+  color: #ffffff;
+}
+
+.btn--primary:hover {
+  background-color: #e76923;
+}
+
+/* =========================
+   Navigation dropdown
+   ========================== */
+
+.site-nav {
+  display: none;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.site-nav--open {
+  display: block;
+}
+
+.site-nav__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 1.2rem 1.5rem;
+}
+
+.site-nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-nav__item + .site-nav__item {
+  margin-top: 0.8rem;
+}
+
+.site-nav__link {
+  display: block;
+  font-size: 1rem;
+}
+
+/* =========================
    Footer
    ========================== */
 
 .site-footer {
-  background-color: #105277 !important;
+  background-color: #105277;
   color: #ffffff;
-  padding: 2.5rem 0 2rem;
-  margin-top: 3rem;
+  padding: 3rem 0 2.5rem;
+  margin-top: 4rem;
 }
 
 .site-footer__top {
@@ -14,23 +226,23 @@
   gap: 2rem;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 760px) {
   .site-footer__top {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1100px) {
   .site-footer__top {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .site-footer__heading {
-  font-size: 1.05em;
+  font-size: 1.1em;
   font-weight: 700;
   margin-bottom: 0.75rem;
-  color: #E4E8F2 !important;
+  color: #E4E8F2;
 }
 
 .site-footer__list {
@@ -40,30 +252,14 @@
 }
 
 .site-footer__list li + li {
-  margin-top: 0.4rem;
-}
-
-.site-footer a {
-  color: #f5f7fb;
-  text-decoration: none;
-}
-
-.site-footer a:hover,
-.site-footer a:focus-visible {
-  text-decoration: underline;
-}
-
-.site-footer__divider {
-  margin: 2rem 0 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  margin-top: 0.5rem;
 }
 
 .site-footer__bottom {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  align-items: flex-start;
-  font-size: 0.95em;
+  margin-top: 2rem;
 }
 
 @media (min-width: 900px) {
@@ -74,50 +270,32 @@
   }
 }
 
+/* Logo + tekst */
 .site-footer__brand {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 0.75rem;
+  align-items: flex-start;
 }
 
 .site-footer__logo {
-  display: block;
-  height: 48px;
+  height: 52px;
   width: auto;
-}  /* <-- DENNE MANGLER I DIN FIL */
-
-.site-footer__meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
+  display: block;
 }
 
-.site-footer__social {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.site-footer__social-list {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.site-footer__social-icon {
-  display: inline-flex;
-  width: 28px;
-  height: 28px;
-  align-items: center;
-  justify-content: center;
-}
-
+/* Slagord */
 .site-footer__tagline {
-  font-family: "Segoe Script", "Bradley Hand", "Brush Script MT", "Comic Sans MS", cursive;
-  font-size: 1.1em;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  display: inline-block;
-  margin-top: 0.2rem;
+  font-family: "Segoe Script", "Bradley Hand", "Brush Script MT", cursive;
+  font-size: 1.2em;
+  color: #E4E8F2;
+  margin-top: 0.3rem;
+}
+
+.site-footer a {
+  color: #f5f7fb;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
 }
