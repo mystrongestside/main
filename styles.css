@@ -942,9 +942,7 @@ main {
     font-size: 1.7rem;
   }
 }
-/* =========================
-   Partner-logoer – svart/hvitt + hover i farge
-   ========================== */
+/* Partner-logoer – svart/hvitt + hover i farge */
 
 .partner-card {
   max-width: 720px;
@@ -976,7 +974,6 @@ main {
   transform: translateY(-2px);
 }
 
-/* På mobil: sentrer logoene pent */
 @media (max-width: 600px) {
   .partner-card__logo-wrap {
     display: flex;
@@ -987,6 +984,3 @@ main {
     max-width: 200px;
   }
 }
-
-
-
