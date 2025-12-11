@@ -984,3 +984,9 @@ main {
     max-width: 200px;
   }
 }
+.samarbeid-logo img {
+    max-width: 150px;
+    max-height: 100px;
+    object-fit: contain;
+}
+
