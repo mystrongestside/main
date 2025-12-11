@@ -7,21 +7,21 @@
   <meta name="description" content="Sammen gjør vi trening mulig for flere. Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluderende treningsmiljø – der flere kan delta, lære og oppleve mestring." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
-  <!-- Sidespesifikk stil -->
-  <link rel="stylesheet" href="samarbeid.css?v=2" />
+  <!-- Global stil -->
+  <link rel="stylesheet" href="styles.css?v=50" />
 
   <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body class="page-samarbeid">
-  <!-- Global header -->
+  <!-- Global header (lastes inn via script.js) -->
   <header data-component="site-header"></header>
 
   <main>
-    <!-- HERO -->
-    <section class="partners-hero">
-      <div class="partners-hero__content">
-        <p class="partners-hero__eyebrow">Samarbeid</p>
+    <!-- HERO / INTRO -->
+    <section class="section section--light">
+      <div class="container">
+        <p class="eyebrow">Samarbeid</p>
         <h1>Våre samarbeidspartnere og støttespillere</h1>
         <p>
           My Strongest Side® utvikler løsningene. Våre samarbeidspartnere gjør det mulig
@@ -30,90 +30,64 @@
       </div>
     </section>
 
-    <!-- Marquee – rolig rad med stikkord -->
-    <div class="marquee" role="region" aria-label="Nøkkelord om My Strongest Side">
-      <div class="marquee__wrap">
-        <div class="marquee__row">
-          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-          <span>Universelt.</span><span>Inkluderende.</span><span>Standardisert.</span><span>Enkelt.</span>
-          <span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Forutsigbart.</span>
-        </div>
-        <div class="marquee__row" aria-hidden="true">
-          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-          <span>Universelt.</span><span>Inkluderende.</span><span>Standardisert.</span><span>Enkelt.</span>
-          <span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Forutsigbart.</span>
-        </div>
-      </div>
-    </div>
-
     <!-- PARTNERE -->
-    <section class="partners-section container">
-      <div class="partners-grid refined">
+    <section class="section">
+      <div class="container">
+        <h2 class="section__heading">Samarbeidspartnere</h2>
 
         <!-- CP-foreningen Vestland -->
-        <article class="partner-card smooth">
-          <div class="partner-meta">
-            <div class="partner-logo-frame">
-              <img src="cp.jpg" alt="CP-foreningen Vestland" class="partner-logo partner-logo--framed" />
-            </div>
-          </div>
-          <div class="partner-content">
-            <h3>CP-foreningen Vestland</h3>
-            <p>
-              CP-foreningen Vestland gjør det mulig for flere medlemmer å delta på trening.
-              Sammen senker vi terskelen for deltakelse gjennom rekruttering, informasjon og
-              likepersonsarbeid – og ved å legge til rette for at trening kan bli en trygg og
-              fast del av hverdagen.
-            </p>
-            <a href="https://cp.no/vestland" target="_blank" class="partner-link" rel="noopener noreferrer">
+        <article>
+          <h3>CP-foreningen Vestland</h3>
+          <p>
+            CP-foreningen Vestland gjør det mulig for flere medlemmer å delta på trening.
+            Sammen senker vi terskelen for deltakelse gjennom rekruttering, informasjon og
+            likepersonsarbeid – og ved å legge til rette for at trening kan bli en trygg og
+            fast del av hverdagen.
+          </p>
+          <p class="mt-sm">
+            <a href="https://cp.no/vestland" target="_blank" rel="noopener noreferrer">
               Besøk nettside
             </a>
-          </div>
+          </p>
         </article>
+
+        <div class="mt-lg"></div>
 
         <!-- Høgskulen på Vestlandet -->
-        <article class="partner-card smooth">
-          <div class="partner-meta">
-            <div class="partner-logo-frame">
-              <img src="hvl.png" alt="Høgskulen på Vestlandet" class="partner-logo" />
-            </div>
-          </div>
-          <div class="partner-content">
-            <h3>Høgskulen på Vestlandet</h3>
-            <p>
-              Gjennom HVL Skape-programmet har My Strongest Side® fått innovasjonsstøtte til
-              å utvikle en digital løsning som gjør treningsapparater mer forståelige og
-              tilgjengelige. Målet er at flere skal kunne trene trygt og selvstendig –
-              uavhengig av funksjonsvariasjon.
-            </p>
-            <a href="https://hvlskape.no" target="_blank" class="partner-link" rel="noopener noreferrer">
+        <article>
+          <h3>Høgskulen på Vestlandet</h3>
+          <p>
+            Gjennom HVL Skape-programmet har My Strongest Side® fått innovasjonsstøtte til
+            å utvikle en digital løsning som gjør treningsapparater mer forståelige og
+            tilgjengelige. Målet er at flere skal kunne trene trygt og selvstendig –
+            uavhengig av funksjonsvariasjon.
+          </p>
+          <p class="mt-sm">
+            <a href="https://hvlskape.no" target="_blank" rel="noopener noreferrer">
               Besøk nettside
             </a>
-          </div>
+          </p>
         </article>
-
       </div>
     </section>
 
     <!-- CTA: Lurer du på noe? -->
-    <section class="partners-cta-clean" id="bli-partner">
-      <div class="cta-inner">
-        <h3>Lurer du på noe?</h3>
+    <section class="section section--soft" id="bli-partner">
+      <div class="container">
+        <h2>Lurer du på noe?</h2>
         <p>Ta gjerne kontakt hvis du vil vite mer om samarbeid eller har spørsmål.</p>
 
-        <div class="cta-actions">
-          <a class="cta-btn" href="kontakt.html#partner">Kontakt oss</a>
-          <a class="cta-btn cta-btn--outline" href="mailto:post@mystrongestside.no">
+        <p class="mt-md">
+          <a class="btn btn--primary" href="kontakt.html#partner">Kontakt oss</a>
+          <a class="btn mt-sm" href="mailto:post@mystrongestside.no">
             post@mystrongestside.no
           </a>
-        </div>
+        </p>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER lastes inn via partial -->
   <script src="script.js" defer></script>
   <div id="myss-footer"></div>
   <script>
@@ -135,7 +109,5 @@
         });
     })();
   </script>
-
-  <script src="marquee-guard.js?v=36" defer></script>
 </body>
 </html>
