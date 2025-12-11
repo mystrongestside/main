@@ -1,8 +1,9 @@
-/* =========================
-   My Strongest Side – Global Styles
+* =========================
+   My Strongest Side – Global styles
    ========================== */
 
-/* -------- Reset -------- */
+/* ---- Reset / base ---- */
+
 *,
 *::before,
 *::after {
@@ -16,10 +17,13 @@ html {
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: clamp(19px, 1rem + 0.8vw, 22px);
-  line-height: 1.7;
+
+  /* STOR OG LETTLEST TEKST OVERALT */
+  font-size: clamp(20px, 1.2rem + 0.8vw, 24px);
+  line-height: 1.8;
+
   color: #182433;
-  background-color: #ffffff;
+  background-color: #ffffff; /* ALT HVITT (utenom footer) */
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -27,33 +31,34 @@ p, ul, ol {
   margin-top: 0;
 }
 
+/* Store, tydelige overskrifter – à la Mio */
 h1 {
-  font-size: clamp(36px, 2.4rem + 1vw, 54px);
+  font-size: clamp(40px, 2.8rem + 1vw, 58px);
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: clamp(30px, 2rem + 0.6vw, 40px);
+  font-size: clamp(32px, 2.2rem + 0.6vw, 44px);
   line-height: 1.3;
   margin-bottom: 0.9rem;
 }
 
 h3 {
-  font-size: clamp(24px, 1.6rem + 0.4vw, 32px);
+  font-size: clamp(26px, 1.8rem + 0.4vw, 32px);
   margin-bottom: 0.6rem;
 }
 
 p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.3rem;
 }
 
 ul, ol {
-  padding-left: 1.4rem;
-  margin-bottom: 1.4rem;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Links */
+/* Lenker */
 a {
   color: #24344d;
   text-decoration: none;
@@ -64,13 +69,13 @@ a:focus-visible {
   text-decoration: underline;
 }
 
-/* Focus */
+/* Fokusmarkering */
 :focus-visible {
   outline: 3px solid #f77c37;
   outline-offset: 3px;
 }
 
-/* Layout Container */
+/* Layout container */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -80,6 +85,29 @@ a:focus-visible {
 
 main {
   padding: 2.5rem 0 3.5rem;
+}
+
+/* Små helpers */
+.text-muted {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.text-small {
+  font-size: 0.9em;
+}
+
+.mt-sm { margin-top: 0.5rem; }
+.mt-md { margin-top: 1rem; }
+.mt-lg { margin-top: 1.5rem; }
+
+/* Eyebrow-tekst */
+.eyebrow {
+  font-size: 0.95em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f77c37;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 /* =========================
@@ -102,45 +130,49 @@ main {
   padding: 0.75rem 1.5rem;
 }
 
-/* Header order */
-.site-header__toggle { order: 0; }
-.site-header__logo { order: 1; }
-.site-header__actions { order: 2; }
+/* Rekkefølge i header: burger (venstre) – logo – knapp (høyre) */
+.site-header__toggle {
+  order: 0;
+}
+
+.site-header__logo {
+  order: 1;
+}
+
+.site-header__actions {
+  order: 2;
+}
 
 /* Logo */
 .site-header__logo img {
   display: block;
-  height: 72px;
-  width: auto;
+  height: 40px;
+  max-width: 190px;
 }
 
-/* Hamburger Button */
+/* Hamburger + tekst "Vis menyen" */
 .site-header__toggle {
   background: none;
   border: 1px solid transparent;
-  padding: 0.45rem 1rem;
+  padding: 0.35rem 0.8rem;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.6rem;
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-}
 
-.site-header__toggle:hover {
-  background-color: #f1f1f1;
+  font-size: 1rem;  /* arver stor body-text, men kontrollert */
+  line-height: 1.2;
 }
 
 .site-header__toggle:focus-visible {
-  border-color: #2f6fed;
+  border-color: #2f6fed;  /* blå kant slik som eksempelet ditt */
 }
 
-/* Hamburger icon */
 .site-header__toggle-box {
-  width: 24px;
+  width: 22px;
   height: 18px;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -152,7 +184,11 @@ main {
   background-color: #000000;
 }
 
-/* Kontakt-knapp */
+.site-header__toggle-label {
+  font-weight: 600;
+}
+
+/* Knapp til høyre */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -160,20 +196,110 @@ main {
   padding: 0.6rem 1.5rem;
   border-radius: 999px;
   border: 2px solid transparent;
-  font-size: 0.95em;
   font-weight: 600;
+  font-size: 0.95em;
   cursor: pointer;
   text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
 }
 
 .btn--primary {
   background-color: #f77c37;
+  border-color: #f77c37;
   color: #ffffff;
 }
 
-.btn--primary:hover {
+.btn--primary:hover,
+.btn--primary:focus-visible {
   background-color: #e76923;
+  border-color: #e76923;
+  color: #ffffff;
+  text-decoration: none;
 }
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+}
+
+/* =========================
+   Navigasjon – drop-down UNDER header
+   ========================== */
+
+.site-nav {
+  display: none;
+  background-color: #ffffff;   /* hvit bakgrunn */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.site-nav--open {
+  display: block;
+}
+
+.site-nav__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.site-nav__cta {
+  margin-bottom: 1rem;
+}
+
+.site-nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-nav__item + .site-nav__item {
+  margin-top: 0.6rem;
+}
+
+.site-nav__link {
+  display: block;
+  padding: 0.1rem 0;
+  font-size: 1rem;
+}
+
+/* =========================
+   Seksjoner / innhold
+   ========================== */
+
+.section {
+  padding: 2.5rem 0;
+}
+
+/* Ikke egne bakgrunner – ALT hvitt (du kan bruke disse klassene senere om du vil) */
+.section--light {
+  background-color: #ffffff;
+}
+
+.section--soft {
+  background-color: #ffffff;
+}
+
+.section__heading {
+  margin-bottom: 1rem;
+}
+
+/* Partner-seksjon */
+.partner-list article + article {
+  margin-top: 2rem;
+}
+
+.partner-list h3 {
+  margin-bottom: 0.4rem;
+}
+
 
 /* =========================
    Navigation dropdown
