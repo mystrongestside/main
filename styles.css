@@ -305,7 +305,7 @@ main {
    ========================== */
 
 .site-footer {
-  background-color: #105277; /* eneste mørke feltet */
+  background-color: #105277; !important; /* eneste mørke feltet */
   color: #ffffff;
   padding: 2.5rem 0 2rem;
   margin-top: 3rem;
