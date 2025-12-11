@@ -7,7 +7,7 @@
   <meta name="description" content="Sammen gjør vi trening mulig for flere. Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluderende treningsmiljø – der flere kan delta, lære og oppleve mestring." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=61" />
+  <link rel="stylesheet" href="styles.css?v=70" />
 
   <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -18,7 +18,7 @@
     <div class="site-header__inner container">
       <!-- Hamburger + tekst -->
       <button class="site-header__toggle" aria-label="Åpne meny" aria-expanded="false">
-        <span class="site-header__toggle-box">
+        <span class="site-header__toggle-box" aria-hidden="true">
           <span class="site-header__toggle-line"></span>
           <span class="site-header__toggle-line"></span>
           <span class="site-header__toggle-line"></span>
@@ -35,9 +35,11 @@
       <div class="site-header__actions">
         <a href="kontakt.html" class="btn btn--primary">Kontakt oss</a>
       </div>
+    </div>
 
-      <!-- Navigasjon (åpnes med hamburger, også på desktop) -->
-      <nav class="site-nav" aria-label="Hovedmeny">
+    <!-- Navigasjon: drop-down under header -->
+    <nav class="site-nav" aria-label="Hovedmeny">
+      <div class="site-nav__inner">
         <div class="site-nav__cta">
           <a href="kontakt.html" class="btn btn--primary">Kontakt oss</a>
         </div>
@@ -58,8 +60,8 @@
             <a href="samarbeid.html" class="site-nav__link">Samarbeid</a>
           </li>
         </ul>
-      </nav>
-    </div>
+      </div>
+    </nav>
   </header>
 
   <main>
@@ -80,7 +82,6 @@
       <div class="container partner-list">
         <h2 class="section__heading">Samarbeidspartnere</h2>
 
-        <!-- CP-foreningen Vestland -->
         <article class="mt-md">
           <h3>CP-foreningen Vestland</h3>
           <p>
@@ -96,7 +97,6 @@
           </p>
         </article>
 
-        <!-- Høgskulen på Vestlandet -->
         <article class="mt-lg">
           <h3>Høgskulen på Vestlandet</h3>
           <p>
@@ -115,7 +115,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="section section--soft" id="bli-partner">
+    <section class="section" id="bli-partner">
       <div class="container">
         <h2>Lurer du på noe?</h2>
         <p>Ta gjerne kontakt hvis du vil vite mer om samarbeid eller har spørsmål.</p>
@@ -130,7 +130,7 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (mørkeblå) -->
   <footer class="site-footer">
     <div class="container">
       <div class="site-footer__top">
@@ -187,7 +187,7 @@
         <div class="site-footer__social">
           <span class="text-small">Følg oss i sosiale medier</span>
           <div class="site-footer__social-list">
-            <!-- Ikoner/lenker kan legges inn her -->
+            <!-- legg inn faktiske ikoner/lenker hvis du vil -->
           </div>
         </div>
       </div>
