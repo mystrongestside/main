@@ -31,7 +31,7 @@ p, ul, ol {
   margin-top: 0;
 }
 
-/* Store, tydelige overskrifter – à la Mio */
+/* Store, tydelige overskrifter – 
 h1 {
   font-size: clamp(40px, 2.8rem + 1vw, 58px);
   line-height: 1.2;
@@ -305,7 +305,7 @@ main {
    ========================== */
 
 .site-footer {
-  background-color: #14577a; /* eneste mørke feltet */
+  background-color: #105277; /* eneste mørke feltet */
   color: #ffffff;
   padding: 2.5rem 0 2rem;
   margin-top: 3rem;
