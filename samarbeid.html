@@ -21,7 +21,7 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="site-header__inner container">
-
+      <!-- Hamburger + tekst -->
       <button class="site-header__toggle" aria-label="Åpne meny" aria-expanded="false">
         <span class="site-header__toggle-box" aria-hidden="true">
           <span class="site-header__toggle-line"></span>
@@ -31,48 +31,48 @@
         <span class="site-header__toggle-label">Vis menyen</span>
       </button>
 
+      <!-- Logo -->
       <a href="index.html" class="site-header__logo">
         <img src="bilder/myss-logo-header.png" alt="My Strongest Side" />
       </a>
 
+      <!-- Kontakt-knapp -->
       <div class="site-header__actions">
         <a href="kontakt.html" class="btn btn--primary">Kontakt oss</a>
       </div>
     </div>
 
-   <nav class="site-nav" aria-label="Hovedmeny">
-  <div class="site-nav__inner">
-    <div class="site-nav__columns">
+    <!-- NAVIGASJON (drop-down, også fin på mobil) -->
+    <nav class="site-nav" aria-label="Hovedmeny">
+      <div class="site-nav__inner">
+        <div class="site-nav__columns">
 
-      <div class="site-nav__column">
-        <h2 class="site-nav__heading">Våre tjenester</h2>
-        <ul class="site-nav__list">
-          <li><a href="treningstilbud/voksne-lett.html" class="site-nav__link">Voksne – lett funksjonsvariasjon</a></li>
-          <li><a href="treningstilbud/tett-oppfolging.html" class="site-nav__link">Tett oppfølging</a></li>
-          <li><a href="frivillig.html" class="site-nav__link">Frivilligprogram</a></li>
-        </ul>
-   </div>
+          <div class="site-nav__column">
+            <h2 class="site-nav__heading">Våre tjenester</h2>
+            <ul class="site-nav__list">
+              <li><a href="treningstilbud/voksne-lett.html" class="site-nav__link">Voksne – lett funksjonsvariasjon</a></li>
+              <li><a href="treningstilbud/tett-oppfolging.html" class="site-nav__link">Tett oppfølging</a></li>
+              <li><a href="frivillig.html" class="site-nav__link">Frivilligprogram</a></li>
+            </ul>
+          </div>
 
-      <div class="site-nav__column">
-        <h2 class="site-nav__heading">Informasjon</h2>
-        <ul class="site-nav__list">
-          <li><a href="presse.html" class="site-nav__link">Presse og media</a></li>
-          <li><a href="samarbeid.html" class="site-nav__link">Samarbeid</a></li>
-        </ul>
-      </div>
+          <div class="site-nav__column">
+            <h2 class="site-nav__heading">Informasjon</h2>
+            <ul class="site-nav__list">
+              <li><a href="presse.html" class="site-nav__link">Presse og media</a></li>
+              <li><a href="samarbeid.html" class="site-nav__link">Samarbeid</a></li>
+            </ul>
+          </div>
 
-      <div class="site-nav__column">
-        <h2 class="site-nav__heading">My Strongest Side</h2>
-        <ul class="site-nav__list">
-          <li><a href="index.html" class="site-nav__link">Forside</a></li>
-          <li><a href="kontakt.html" class="site-nav__link">Kontakt</a></li>
-        </ul>
-      </div>
+          <div class="site-nav__column">
+            <h2 class="site-nav__heading">My Strongest Side</h2>
+            <ul class="site-nav__list">
+              <li><a href="index.html" class="site-nav__link">Forside</a></li>
+              <li><a href="kontakt.html" class="site-nav__link">Kontakt</a></li>
+            </ul>
+          </div>
 
-    </div>
-  </div>
-</nav>
-
+        </div>
       </div>
     </nav>
   </header>
@@ -206,25 +206,25 @@
     </div>
   </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.site-header__toggle');
-  const nav = document.querySelector('.site-nav');
+  <!-- JS FOR MENY + ÅRSTALL -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.site-header__toggle');
+      const nav = document.querySelector('.site-nav');
 
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('site-nav--open');
-      toggle.setAttribute('aria-expanded', isOpen);
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const isOpen = nav.classList.toggle('site-nav--open');
+          toggle.setAttribute('aria-expanded', isOpen);
+        });
+      }
+
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
     });
-  }
-
-  const yearSpan = document.getElementById('year');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
-});
-</script>
-
+  </script>
 
 </body>
 </html>
