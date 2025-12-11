@@ -305,7 +305,7 @@ main {
    ========================== */
 
 .site-footer {
-  background-color: ##105277; /* eneste mørke feltet */
+  background-color: #105277; /* eneste mørke feltet */
   color: #ffffff;
   padding: 2.5rem 0 2rem;
   margin-top: 3rem;
@@ -332,6 +332,7 @@ main {
   font-size: 1.05em;
   font-weight: 700;
   margin-bottom: 0.75rem;
+color: #E4E8F2; /* NY FARGE */
 }
 
 .site-footer__list {
