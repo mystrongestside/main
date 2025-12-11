@@ -1,4 +1,4 @@
- /* =========================
+/* =========================
    My Strongest Side – Global styles
    ========================== */
 
@@ -18,7 +18,7 @@ body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  /* STØRRE, MEN IKKE OVERDREVET TEKST */
+  /* Stor, lettlest tekst – omtrent som Mio */
   font-size: clamp(18px, 1rem + 0.6vw, 21px);
   line-height: 1.7;
 
@@ -31,7 +31,7 @@ p, ul, ol {
   margin-top: 0;
 }
 
-/* Overskrifter – inspirert av Mio-størrelser */
+/* Overskrifter – store og tydelige */
 h1 {
   font-size: clamp(38px, 2.6rem + 0.8vw, 52px);
   line-height: 1.2;
@@ -100,10 +100,10 @@ main {
 .mt-md { margin-top: 1rem; }
 .mt-lg { margin-top: 1.5rem; }
 
-/* Eyebrow-tekst (seksjonstittel over H1) */
+/* Eyebrow-tekst */
 .eyebrow {
   font-size: 0.95em;
-  letter-spacing: 0.1em;
+  letterspacing: 0.1em;
   text-transform: uppercase;
   color: #f77c37;
   font-weight: 700;
@@ -150,24 +150,28 @@ main {
   max-width: 190px;
 }
 
-/* Hamburger-knapp */
+/* Hamburger-knapp med tekst "Vis menyen" */
 .site-header__toggle {
   background: none;
-  border: none;
-  padding: 0.4rem;
+  border: 1px solid transparent;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.55rem;
   cursor: pointer;
 
-  /* VIKTIG: ikke vis tekst som "Vis menyen" */
-  font-size: 0;
-  line-height: 0;
+  font-size: 1rem;          /* viktig: faktisk tekststørrelse */
+  line-height: 1.2;
+}
+
+.site-header__toggle:focus-visible {
+  border-color: #2f6fed;    /* blå kant som i eksempelet ditt */
 }
 
 .site-header__toggle-box {
-  width: 28px;
-  height: 22px;
+  width: 22px;
+  height: 18px;
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
@@ -177,7 +181,11 @@ main {
   width: 100%;
   height: 3px;
   border-radius: 999px;
-  background-color: #24344d;
+  background-color: #000000;
+}
+
+.site-header__toggle-label {
+  font-weight: 600;
 }
 
 /* Knapp */
@@ -224,7 +232,8 @@ main {
 }
 
 /* =========================
-   Navigasjon (side-meny mobil, horisontal desktop)
+   Navigasjon – side-meny
+   (ALLTID via hamburger, også på desktop)
    ========================== */
 
 .site-nav {
@@ -261,41 +270,6 @@ main {
   display: block;
   padding: 0.4rem 0;
   font-size: 1rem;
-}
-
-/* Desktop-nav (horisontal) */
-@media (min-width: 900px) {
-  .site-header__inner {
-    padding-inline: 2rem;
-  }
-
-  .site-nav {
-    position: static;
-    transform: none;
-    box-shadow: none;
-    width: auto;
-    padding: 0;
-    background: transparent;
-  }
-
-  .site-nav__cta {
-    display: none;
-  }
-
-  .site-nav__list {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .site-nav__item + .site-nav__item {
-    margin-top: 0;
-  }
-
-  .site-nav__link {
-    padding: 0;
-    font-size: 0.95em;
-  }
 }
 
 /* =========================
@@ -440,7 +414,7 @@ main {
   justify-content: center;
 }
 
-/* Litt nedjustert tekst på veldig små skjermer, men fortsatt stor nok */
+/* Justér litt ned på veldig små skjermer hvis nødvendig */
 @media (max-width: 420px) {
   body {
     font-size: 17px;
