@@ -1,311 +1,9 @@
 /* =========================
-   My Strongest Side – Global styles
-   ========================== */
-
-/* ---- Reset / base ---- */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-
-  /* STOR OG LETTLEST TEKST OVERALT */
-  font-size: clamp(20px, 1.2rem + 0.8vw, 24px);
-  line-height: 1.8;
-
-  color: #182433;
-  background-color: #ffffff; /* ALT HVITT (utenom footer) */
-}
-
-h1, h2, h3, h4, h5, h6,
-p, ul, ol {
-  margin-top: 0;
-}
-
-/* Store, tydelige overskrifter – 
-h1 {
-  font-size: clamp(40px, 2.8rem + 1vw, 58px);
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-
-h2 {
-  font-size: clamp(32px, 2.2rem + 0.6vw, 44px);
-  line-height: 1.3;
-  margin-bottom: 0.9rem;
-}
-
-h3 {
-  font-size: clamp(26px, 1.8rem + 0.4vw, 32px);
-  margin-bottom: 0.6rem;
-}
-
-p {
-  margin-bottom: 1.3rem;
-}
-
-ul, ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Lenker */
-a {
-  color: #24344d;
-  text-decoration: none;
-}
-
-a:hover,
-a:focus-visible {
-  text-decoration: underline;
-}
-
-/* Fokusmarkering */
-:focus-visible {
-  outline: 3px solid #f77c37;
-  outline-offset: 3px;
-}
-
-/* Layout container */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin-inline: auto;
-  padding-inline: 1.5rem;
-}
-
-main {
-  padding: 2.5rem 0 3.5rem;
-}
-
-/* Små helpers */
-.text-muted {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.text-small {
-  font-size: 0.9em;
-}
-
-.mt-sm { margin-top: 0.5rem; }
-.mt-md { margin-top: 1rem; }
-.mt-lg { margin-top: 1.5rem; }
-
-/* Eyebrow-tekst */
-.eyebrow {
-  font-size: 0.95em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #f77c37;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-/* =========================
-   Header
-   ========================== */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: #ffffff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.site-header__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.75rem 1.5rem;
-}
-
-/* Rekkefølge i header: burger (venstre) – logo – knapp (høyre) */
-.site-header__toggle {
-  order: 0;
-}
-
-.site-header__logo {
-  order: 1;
-}
-
-.site-header__actions {
-  order: 2;
-}
-
-/* Logo */
-.site-header__logo img {
-  display: block;
-  height: 74px;
-  max-width: 190px;
-}
-
-/* Hamburger + tekst "Vis menyen" */
-.site-header__toggle {
-  background: none;
-  border: 1px solid transparent;
-  padding: 0.35rem 0.8rem;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  cursor: pointer;
-
-  font-size: 1rem;  /* arver stor body-text, men kontrollert */
-  line-height: 1.2;
-}
-
-.site-header__toggle:focus-visible {
-  border-color: #2f6fed;  /* blå kant slik som eksempelet ditt */
-}
-
-.site-header__toggle-box {
-  width: 22px;
-  height: 18px;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.site-header__toggle-line {
-  width: 100%;
-  height: 3px;
-  border-radius: 999px;
-  background-color: #000000;
-}
-
-.site-header__toggle-label {
-  font-weight: 600;
-}
-
-/* Knapp til høyre */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.6rem 1.5rem;
-  border-radius: 999px;
-  border: 2px solid transparent;
-  font-weight: 600;
-  font-size: 0.95em;
-  cursor: pointer;
-  text-decoration: none;
-  transition:
-    background-color 0.15s ease,
-    color 0.15s ease,
-    border-color 0.15s ease,
-    transform 0.1s ease;
-}
-
-.btn:active {
-  transform: translateY(1px);
-}
-
-.btn--primary {
-  background-color: #f77c37;
-  border-color: #f77c37;
-  color: #ffffff;
-}
-
-.btn--primary:hover,
-.btn--primary:focus-visible {
-  background-color: #e76923;
-  border-color: #e76923;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.site-header__actions {
-  display: flex;
-  align-items: center;
-}
-
-/* =========================
-   Navigasjon – drop-down UNDER header
-   ========================== */
-
-.site-nav {
-  display: none;
-  background-color: #ffffff;   /* hvit bakgrunn */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.site-nav--open {
-  display: block;
-}
-
-.site-nav__inner {
-  max-width: 1200px;
-  margin-inline: auto;
-  padding: 1rem 1.5rem 1.5rem;
-}
-
-.site-nav__cta {
-  margin-bottom: 1rem;
-}
-
-.site-nav__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.site-nav__item + .site-nav__item {
-  margin-top: 0.6rem;
-}
-
-.site-nav__link {
-  display: block;
-  padding: 0.1rem 0;
-  font-size: 1rem;
-}
-
-/* =========================
-   Seksjoner / innhold
-   ========================== */
-
-.section {
-  padding: 2.5rem 0;
-}
-
-/* Ikke egne bakgrunner – ALT hvitt (du kan bruke disse klassene senere om du vil) */
-.section--light {
-  background-color: #ffffff;
-}
-
-.section--soft {
-  background-color: #ffffff;
-}
-
-.section__heading {
-  margin-bottom: 1rem;
-}
-
-/* Partner-seksjon */
-.partner-list article + article {
-  margin-top: 2rem;
-}
-
-.partner-list h3 {
-  margin-bottom: 0.4rem;
-}
-
-/* =========================
    Footer
    ========================== */
 
 .site-footer {
-  background-color: #105277; !important; /* eneste mørke feltet */
+  background-color: #105277 !important;
   color: #ffffff;
   padding: 2.5rem 0 2rem;
   margin-top: 3rem;
@@ -332,7 +30,7 @@ main {
   font-size: 1.05em;
   font-weight: 700;
   margin-bottom: 0.75rem;
-color: #E4E8F2; /* NY FARGE */
+  color: #E4E8F2 !important;
 }
 
 .site-footer__list {
@@ -378,15 +76,16 @@ color: #E4E8F2; /* NY FARGE */
 
 .site-footer__brand {
   display: flex;
-flex-direction: column;     /* logo over tekst */
- align-items: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 0.75rem;
 }
 
 .site-footer__logo {
   display: block;
-  height: 48px;               /* litt større logo */
+  height: 48px;
   width: auto;
+}  /* <-- DENNE MANGLER I DIN FIL */
 
 .site-footer__meta {
   display: flex;
@@ -413,20 +112,12 @@ flex-direction: column;     /* logo over tekst */
   align-items: center;
   justify-content: center;
 }
-   /* Slagord i håndskrift-aktig stil */
+
 .site-footer__tagline {
-  font-family: "Segoe Script", "Bradley Hand", "Brush Script MT",
-               "Comic Sans MS", cursive;
+  font-family: "Segoe Script", "Bradley Hand", "Brush Script MT", "Comic Sans MS", cursive;
   font-size: 1.1em;
   font-weight: 500;
   letter-spacing: 0.03em;
   display: inline-block;
   margin-top: 0.2rem;
-}
-
-/* Juster litt ned på de aller minste skjermene om det trengs */
-@media (max-width: 420px) {
-  body {
-    font-size: 19px;
-  }
 }
