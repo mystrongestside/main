@@ -1,113 +1,423 @@
-  <!DOCTYPE html>
-<html lang="no">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samarbeid | My Strongest Side®</title>
-  <meta name="description" content="Sammen gjør vi trening mulig for flere. Gjennom støtte og samarbeid bidrar partnerne våre til å bygge et mer inkluderende treningsmiljø – der flere kan delta, lære og oppleve mestring." />
+/* =========================
+   My Strongest Side – Global styles
+   ========================== */
 
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <!-- Global stil -->
-  <link rel="stylesheet" href="styles.css?v=50" />
+/* ---- Reset / base ---- */
 
-  <script>document.documentElement.classList.add('js');</script>
-</head>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-<body class="page-samarbeid">
-  <!-- Global header (lastes inn via script.js) -->
-  <header data-component="site-header"></header>
+html {
+  scroll-behavior: smooth;
+}
 
-  <main>
-    <!-- HERO / INTRO -->
-    <section class="section section--light">
-      <div class="container">
-        <p class="eyebrow">Samarbeid</p>
-        <h1>Våre samarbeidspartnere og støttespillere</h1>
-        <p>
-          My Strongest Side® utvikler løsningene. Våre samarbeidspartnere gjør det mulig
-          å gjennomføre tilbudene i praksis – med trygghet, kvalitet og lav terskel for å delta.
-        </p>
-      </div>
-    </section>
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(18px, 1.05rem + 0.25vw, 20px);
+  line-height: 1.6;
+  color: #182433;
+  background-color: #f4f5f8;
+}
 
-    <!-- PARTNERE -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section__heading">Samarbeidspartnere</h2>
+h1, h2, h3, h4, h5, h6,
+p, ul, ol {
+  margin-top: 0;
+}
 
-        <!-- CP-foreningen Vestland -->
-        <article>
-          <h3>CP-foreningen Vestland</h3>
-          <p>
-            CP-foreningen Vestland gjør det mulig for flere medlemmer å delta på trening.
-            Sammen senker vi terskelen for deltakelse gjennom rekruttering, informasjon og
-            likepersonsarbeid – og ved å legge til rette for at trening kan bli en trygg og
-            fast del av hverdagen.
-          </p>
-          <p class="mt-sm">
-            <a href="https://cp.no/vestland" target="_blank" rel="noopener noreferrer">
-              Besøk nettside
-            </a>
-          </p>
-        </article>
+h1 {
+  font-size: clamp(32px, 2.4rem + 0.6vw, 42px);
+  line-height: 1.2;
+}
 
-        <div class="mt-lg"></div>
+h2 {
+  font-size: clamp(26px, 2rem + 0.4vw, 32px);
+  line-height: 1.3;
+}
 
-        <!-- Høgskulen på Vestlandet -->
-        <article>
-          <h3>Høgskulen på Vestlandet</h3>
-          <p>
-            Gjennom HVL Skape-programmet har My Strongest Side® fått innovasjonsstøtte til
-            å utvikle en digital løsning som gjør treningsapparater mer forståelige og
-            tilgjengelige. Målet er at flere skal kunne trene trygt og selvstendig –
-            uavhengig av funksjonsvariasjon.
-          </p>
-          <p class="mt-sm">
-            <a href="https://hvlskape.no" target="_blank" rel="noopener noreferrer">
-              Besøk nettside
-            </a>
-          </p>
-        </article>
-      </div>
-    </section>
+h3 {
+  font-size: clamp(20px, 1.4rem + 0.3vw, 24px);
+}
 
-    <!-- CTA: Lurer du på noe? -->
-    <section class="section section--soft" id="bli-partner">
-      <div class="container">
-        <h2>Lurer du på noe?</h2>
-        <p>Ta gjerne kontakt hvis du vil vite mer om samarbeid eller har spørsmål.</p>
+a {
+  color: #24344d;
+  text-decoration: none;
+}
 
-        <p class="mt-md">
-          <a class="btn btn--primary" href="kontakt.html#partner">Kontakt oss</a>
-          <a class="btn mt-sm" href="mailto:post@mystrongestside.no">
-            post@mystrongestside.no
-          </a>
-        </p>
-      </div>
-    </section>
-  </main>
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
 
-  <!-- FOOTER lastes inn via partial -->
-  <script src="script.js" defer></script>
-  <div id="myss-footer"></div>
-  <script>
-    (function () {
-      var prefix = window.MYSS_PREFIX || "";
-      if (!prefix) {
-        prefix = window.location.pathname.includes("/treningstilbud/") ? "../" : "";
-      }
-      window.MYSS_PREFIX = prefix;
-      window.__prefix = prefix;
+:focus-visible {
+  outline: 3px solid #f77c37;
+  outline-offset: 3px;
+}
 
-      var target = document.getElementById("myss-footer");
-      if (!target) return;
+/* Layout container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
 
-      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-        .then(function (r) { return r.text(); })
-        .then(function (html) {
-          target.innerHTML = html;
-        });
-    })();
-  </script>
-</body>
-</html>
+main {
+  padding: 2.5rem 0 3.5rem;
+}
+
+/* Små helpers */
+.text-muted {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.text-small {
+  font-size: 0.9em;
+}
+
+.mt-sm { margin-top: 0.5rem; }
+.mt-md { margin-top: 1rem; }
+.mt-lg { margin-top: 1.5rem; }
+
+/* =========================
+   Header
+   ========================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+}
+
+/* Order: burger (venstre) – logo – knapp (høyre) */
+.site-header__toggle {
+  order: 0;
+}
+
+.site-header__logo {
+  order: 1;
+}
+
+.site-header__actions {
+  order: 2;
+}
+
+/* Logo */
+.site-header__logo img {
+  display: block;
+  height: 40px;
+  max-width: 190px;
+}
+
+/* Hamburger */
+.site-header__toggle {
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.site-header__toggle-box {
+  width: 28px;
+  height: 22px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.site-header__toggle-line {
+  width: 100%;
+  height: 3px;
+  border-radius: 999px;
+  background-color: #24344d;
+}
+
+/* Knapp */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.35rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-weight: 600;
+  font-size: 0.95em;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background-color: #f77c37;
+  border-color: #f77c37;
+  color: #ffffff;
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background-color: #e76923;
+  border-color: #e76923;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Header actions */
+.site-header__actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Side-meny (mobil) */
+.site-nav {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: min(280px, 80vw);
+  background-color: #ffffff;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.14);
+  transform: translateX(-100%);
+  transition: transform 0.2s ease-out;
+  z-index: 999;
+  padding: 1.25rem 1.5rem 2rem;
+}
+
+.site-nav--open {
+  transform: translateX(0);
+}
+
+.site-nav__cta {
+  margin-bottom: 1rem;
+}
+
+.site-nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-nav__item + .site-nav__item {
+  margin-top: 0.5rem;
+}
+
+.site-nav__link {
+  display: block;
+  padding: 0.4rem 0;
+  font-size: 1rem;
+}
+
+/* Desktop-nav (horisontal) */
+@media (min-width: 900px) {
+  .site-header__inner {
+    padding-inline: 2rem;
+  }
+
+  .site-nav {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    width: auto;
+    padding: 0;
+    background: transparent;
+  }
+
+  .site-nav__cta {
+    display: none;
+  }
+
+  .site-nav__list {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .site-nav__item + .site-nav__item {
+    margin-top: 0;
+  }
+
+  .site-nav__link {
+    padding: 0;
+    font-size: 0.95em;
+  }
+}
+
+/* =========================
+   Seksjoner / innhold
+   ========================== */
+
+.section {
+  padding: 2.5rem 0;
+}
+
+.section--light {
+  background-color: #ffffff;
+}
+
+.section--soft {
+  background-color: #e4e8f2;
+}
+
+.section__heading {
+  margin-bottom: 1rem;
+}
+
+/* Eyebrow-tekst */
+.eyebrow {
+  font-size: 0.95em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f77c37;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Partner-artikler – enkel og luftig */
+.partner-list article + article {
+  margin-top: 2rem;
+}
+
+.partner-list h3 {
+  margin-bottom: 0.4rem;
+}
+
+/* =========================
+   Footer
+   ========================== */
+
+.site-footer {
+  background-color: #0d1b2b;
+  color: #ffffff;
+  padding: 2.5rem 0 2rem;
+  margin-top: 3rem;
+}
+
+.site-footer__top {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 700px) {
+  .site-footer__top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-footer__top {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.site-footer__heading {
+  font-size: 1.05em;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.site-footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-footer__list li + li {
+  margin-top: 0.4rem;
+}
+
+.site-footer a {
+  color: #f5f7fb;
+  text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  text-decoration: underline;
+}
+
+.site-footer__divider {
+  margin: 2rem 0 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+  font-size: 0.95em;
+}
+
+@media (min-width: 900px) {
+  .site-footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.site-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-footer__logo {
+  display: block;
+  height: 40px;
+  width: auto;
+}
+
+.site-footer__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.site-footer__social {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.site-footer__social-list {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.site-footer__social-icon {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Juster font litt ned på veldig små skjermer */
+@media (max-width: 420px) {
+  body {
+    font-size: 17px;
+  }
+}
