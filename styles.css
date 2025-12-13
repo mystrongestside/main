@@ -1649,6 +1649,147 @@ html.nav-open, body.nav-open{ overflow: hidden !important; }
   header.site-header .site-header__toggle-line{
     transition: none !important;
   }
+}@charset "UTF-8";
+/* =========================================================
+   MySS - Samarbeid FIX (safe override)
+   - Stabil meny (ingen "kommer og går")
+   - Burger -> kryss (stabil)
+   - Partnerlogoer samme visuelle størrelse + venstrestilt på mobil
+   - Footer SoMe-ikoner synlige og riktig størrelse
+   Lim som egen fil og lastes ETTER styles.css
+   ========================================================= */
+
+/* ---------- 1) MENY: Tving ett system (ikke display:none) ---------- */
+header.site-header nav.site-nav{
+  display: block !important; /* overstyr tidligere display:none */
+  background: #fff !important;
+  border-bottom: 1px solid rgba(0,0,0,.06) !important;
+
+  max-height: 0 !important;
+  overflow: hidden !important;
+
+  opacity: 0 !important;
+  transform: translateY(-8px) !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+
+  transition: max-height .32s ease, opacity .22s ease, transform .22s ease, visibility 0s linear .22s !important;
+}
+
+header.site-header nav.site-nav.site-nav--open{
+  max-height: 1000px !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+
+  transition: max-height .32s ease, opacity .22s ease, transform .22s ease, visibility 0s !important;
+}
+
+/* Scroll-lås (hvis du vil beholde den) */
+html.nav-open, body.nav-open{ overflow: hidden; }
+html{ scrollbar-gutter: stable; }
+
+/* ---------- 2) Burger -> kryss: nøytraliser "absolute/top"-varianter ---------- */
+header.site-header .site-header__toggle{
+  color: #182433 !important; /* sørger for at linjene arver riktig farge */
+}
+
+header.site-header .site-header__toggle-box{
+  position: static !important;
+  width: 22px !important;
+  height: 18px !important;
+  display: inline-flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+header.site-header .site-header__toggle-line{
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+
+  width: 100% !important;
+  height: 3px !important;
+  border-radius: 999px !important;
+  background-color: currentColor !important;
+
+  transform: none !important;
+  opacity: 1 !important;
+
+  transition: transform .2s ease, opacity .2s ease !important;
+}
+
+header.site-header .site-header__toggle.is-open .site-header__toggle-line:nth-child(1){
+  transform: translateY(7.5px) rotate(45deg) !important;
+}
+header.site-header .site-header__toggle.is-open .site-header__toggle-line:nth-child(2){
+  opacity: 0 !important;
+}
+header.site-header .site-header__toggle.is-open .site-header__toggle-line:nth-child(3){
+  transform: translateY(-7.5px) rotate(-45deg) !important;
+}
+
+/* ---------- 3) Partnerlogoer: samme visuelle størrelse ---------- */
+.partner-card__logo-wrap{
+  height: 72px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  margin-bottom: 14px !important;
+}
+
+.partner-logo{
+  max-height: 72px !important;
+  max-width: 220px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* Mobil: venstrestilt + litt lavere */
+@media (max-width: 600px){
+  .partner-card__logo-wrap{ height: 56px !important; }
+  .partner-logo{ max-height: 56px !important; max-width: 200px !important; }
+}
+
+/* ---------- 4) Footer SoMe: synlig + riktig størrelse ---------- */
+.site-footer__social-label{
+  color: #E4E8F2;
+}
+
+.site-footer__social-list{
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.social-link{
+  width: 64px;
+  height: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.social-link img{
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Hvis ikonene dine er svarte PNG: gjør dem LYSE (nær #E4E8F2).
+   Dette er en "best effort" filter. For 100% riktig farge: bruk SVG eller eksporter PNG i ønsket farge. */
+.site-footer .social-link img{
+  filter: invert(92%) brightness(1.02) contrast(0.95);
+}
+
+@media (max-width: 520px){
+  .social-link{ width: 56px; height: 56px; }
+  .social-link img{ width: 46px; height: 46px; }
 }
 
 
