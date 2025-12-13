@@ -1359,6 +1359,63 @@ html.nav-open, body.nav-open{ overflow: hidden; }
   max-width: 100%;
   height: auto;
 }
+/* =================================================
+   MYSS – GLOBAL TEKSTFARGE + FOOTER (EN KILDE)
+   ================================================= */
+
+:root{
+  --myss-text-dark: #24344d;   /* mørkeblå */
+  --myss-text-light: #E4E8F2;  /* footer */
+}
+
+/* Alt innhold og meny */
+body,
+main,
+.site-header,
+.site-header a,
+.site-nav,
+.site-nav a{
+  color: var(--myss-text-dark);
+}
+
+/* Footer (inkl. overskrift + ikoner) */
+.site-footer,
+.site-footer a,
+.site-footer__social,
+.site-footer__social *{
+  color: var(--myss-text-light);
+}
+
+/* Sosiale ikoner */
+.site-footer__social-list{
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.social-link{
+  width: 72px;
+  height: 72px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.social-link svg,
+.social-link img{
+  width: 56px;
+  height: 56px;
+  display: block;
+  fill: currentColor;
+}
+
+/* Mobil */
+@media (max-width: 520px){
+  .social-link{ width: 60px; height: 60px; }
+  .social-link svg,
+  .social-link img{ width: 46px; height: 46px; }
+}
 
 
 
