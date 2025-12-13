@@ -707,5 +707,64 @@ main, .section, .myss-cta-wave, footer{
 /* Hvis bølgen likevel havner “over”, press den bak */
 .myss-cta-wave{ z-index: 0; }
 .myss-cta-wave::before{ z-index: -1; }
+/* =========================
+   MENY-PATCH (nuker konflikter)
+   Lim HELT nederst i styles.css
+   ========================= */
+
+/* Sticky header er allerede “posisjonert”, så absolute-barn ankres her */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+}
+
+/* NAV skal alltid åpne NED (under header) */
+.site-header > nav.site-nav{
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 100% !important;
+
+  background: #fff !important;
+  border-bottom: 1px solid rgba(0,0,0,.06) !important;
+  box-shadow: 0 14px 30px rgba(0,0,0,.08) !important;
+
+  /* Skjult default */
+  opacity: 0 !important;
+  transform: translateY(-8px) !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+
+  /* Stabil åpne/lukke uten layout-tull */
+  max-height: 0 !important;
+  overflow: hidden !important;
+
+  transition:
+    max-height .32s ease,
+    opacity .22s ease,
+    transform .22s ease,
+    visibility 0s linear .22s !important;
+}
+
+.site-header > nav.site-nav.site-nav--open{
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+
+  max-height: 1000px !important;
+
+  transition:
+    max-height .32s ease,
+    opacity .22s ease,
+    transform .22s ease,
+    visibility 0s !important;
+}
+
+/* Ikke scroll-lock (kan gi “jump”/flimmer pga scrollbar) */
+html.nav-open, body.nav-open{ overflow: auto !important; }
+
 
 
