@@ -1472,6 +1472,73 @@ body, main { color: var(--myss-dark); }
     margin-right: auto;
   }
 }
+/* =================================================
+   MYSS: Meny med smooth fade + hamburger -> kryss
+   ================================================= */
+
+/* NAV fade/slide */
+.site-nav{
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity .22s ease, transform .22s ease, visibility 0s linear .22s;
+}
+
+.site-nav.site-nav--open{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+  transition: opacity .22s ease, transform .22s ease, visibility 0s;
+}
+
+/* Lås scrolling når meny er åpen (bra på mobil) */
+html.nav-open, body.nav-open{ overflow: hidden; }
+
+/* HAMBURGER -> KRYSS */
+.site-header__toggle-box{
+  position: relative;
+  width: 28px;
+  height: 18px;
+  display: inline-block;
+}
+
+.site-header__toggle-line{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform .2s ease, top .2s ease, opacity .15s ease;
+}
+
+.site-header__toggle-line:nth-child(1){ top: 0; }
+.site-header__toggle-line:nth-child(2){ top: 8px; }
+.site-header__toggle-line:nth-child(3){ top: 16px; }
+
+.site-header__toggle.is-open .site-header__toggle-line:nth-child(1){
+  top: 8px;
+  transform: rotate(45deg);
+}
+.site-header__toggle.is-open .site-header__toggle-line:nth-child(2){
+  opacity: 0;
+}
+.site-header__toggle.is-open .site-header__toggle-line:nth-child(3){
+  top: 8px;
+  transform: rotate(-45deg);
+}
+
+/* “Fin” label-bytte (valgfritt, men pent) */
+.site-header__toggle .site-header__toggle-label::after{
+  content: "";
+}
+
+/* Redusert bevegelse */
+@media (prefers-reduced-motion: reduce){
+  .site-nav, .site-header__toggle-line{ transition: none !important; }
+}
 
 
 
