@@ -637,4 +637,38 @@ body.nav-open{
     padding: 1.1rem 1rem 1.25rem;
   }
 }
+/* =========================
+   FIX: Header mister klikk på mobil etter scroll
+   ========================= */
+
+/* 1) Tving headeren over ALT */
+.site-header{
+  z-index: 99999;
+  isolation: isolate; /* ny stacking context = mer stabilt */
+}
+
+/* sørg for at selve knappen alltid kan trykkes */
+.site-header__toggle{
+  position: relative;
+  z-index: 2;
+  touch-action: manipulation;
+}
+
+/* nav under header men fortsatt over innhold */
+.site-nav{
+  position: relative;
+  z-index: 1;
+}
+
+/* 2) Dekor-elementer skal aldri fange trykk */
+.myss-cta-wave::before,
+.myss-cta-wave::after{
+  pointer-events: none;
+}
+
+/* (valgfritt) hvis du har andre seksjoner med overlays/pseudo-elementer */
+.section::before,
+.section::after{
+  pointer-events: none;
+}
 
