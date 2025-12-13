@@ -226,41 +226,49 @@
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.querySelector('.site-header__toggle');
-      const nav = document.querySelector('.site-nav');
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.site-header__toggle');
+  const nav = document.querySelector('.site-nav');
+  const header = document.querySelector('.site-header');
+  if (!toggle || !nav || !header) return;
 
-      function setOpen(open){
-        if (!toggle || !nav) return;
-        nav.classList.toggle('site-nav--open', open);
-        toggle.classList.toggle('is-open', open);
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  function setHeaderVar(){
+    const h = header.getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--myss-header-h', `${h}px`);
+  }
+  setHeaderVar();
+  window.addEventListener('resize', setHeaderVar);
 
+  function setOpen(open){
+    setHeaderVar(); // sikre riktig top før vi viser nav
+    nav.classList.toggle('site-nav--open', open);
+    toggle.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 
+    const label = toggle.querySelector('.site-header__toggle-label');
+    if (label) label.textContent = open ? 'Lukk menyen' : 'Vis menyen';
+  }
 
-        const label = toggle.querySelector('.site-header__toggle-label');
-        if (label) label.textContent = open ? 'Lukk menyen' : 'Vis menyen';
-      }
+  toggle.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setOpen(!nav.classList.contains('site-nav--open'));
+  });
 
-      if (toggle && nav) {
-        toggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          setOpen(!nav.classList.contains('site-nav--open'));
-        });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
+  });
 
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') setOpen(false);
-        });
+  nav.addEventListener('click', (e) => {
+    if (e.target.closest('a')) setOpen(false);
+  });
 
-        nav.addEventListener('click', (e) => {
-          if (e.target.closest('a')) setOpen(false);
-        });
-      }
+  // årstall
+  const yearSpan = document.getElementById('year');
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+});
+</script>
 
-      const yearSpan = document.getElementById('year');
-      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-    });
-  </script>
 
 </body>
 </html>
