@@ -224,49 +224,78 @@
 
     </div>
   </footer>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.site-header__toggle');
+    const nav = document.querySelector('.site-nav');
+    const yearSpan = document.getElementById('year');
 
-  <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.site-header__toggle');
-  const nav = document.querySelector('.site-nav');
-  const header = document.querySelector('.site-header');
-  if (!toggle || !nav || !header) return;
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    if (!toggle || !nav) return;
 
-  function setHeaderVar(){
-    const h = header.getBoundingClientRect().height;
-    document.documentElement.style.setProperty('--myss-header-h', `${h}px`);
-  }
-  setHeaderVar();
-  window.addEventListener('resize', setHeaderVar);
+    // For sikkerhets skyld (noen miljøer kan tolke button annerledes)
+    toggle.setAttribute('type', 'button');
 
-  function setOpen(open){
-    setHeaderVar(); // sikre riktig top før vi viser nav
-    nav.classList.toggle('site-nav--open', open);
-    toggle.classList.toggle('is-open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    function setOpen(open) {
+      nav.classList.toggle('site-nav--open', open);
+      toggle.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 
-    const label = toggle.querySelector('.site-header__toggle-label');
-    if (label) label.textContent = open ? 'Lukk menyen' : 'Vis menyen';
-  }
+      document.documentElement.classList.toggle('nav-open', open);
+      document.body.classList.toggle('nav-open', open);
 
-  toggle.addEventListener('pointerdown', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setOpen(!nav.classList.contains('site-nav--open'));
+      const label = toggle.querySelector('.site-header__toggle-label');
+      if (label) label.textContent = open ? 'Lukk menyen' : 'Vis menyen';
+    }
+
+    // Start lukket (stabilt)
+    setOpen(false);
+
+    // --- Robust mobil-toggle (Safari/iOS kan “miste click” etter scroll) ---
+    let lastToggleAt = 0;
+
+    function toggleMenu(e) {
+      // Unngå dobbel-trigger fra touchend + click
+      const now = Date.now();
+      if (now - lastToggleAt < 350) return;
+      lastToggleAt = now;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      setOpen(!nav.classList.contains('site-nav--open'));
+    }
+
+    toggle.addEventListener('pointerup', toggleMenu);
+    toggle.addEventListener('touchend', toggleMenu, { passive: false });
+    toggle.addEventListener('click', toggleMenu);
+
+    // Klikk på lenke i menyen lukker
+    nav.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if (a) setOpen(false);
+    });
+
+    // Klikk utenfor lukker (men ikke hvis du klikker i menyen eller knappen)
+    document.addEventListener('click', (e) => {
+      if (nav.classList.contains('site-nav--open')) {
+        const clickedToggle = e.target.closest('.site-header__toggle');
+        const clickedNav = e.target.closest('.site-nav');
+        if (!clickedToggle && !clickedNav) setOpen(false);
+      }
+    });
+
+    // ESC lukker
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    });
+
+    // Hvis skjermen endrer størrelse mens menyen er åpen (rotasjon osv.)
+    window.addEventListener('resize', () => {
+      // Valgfritt: behold åpen. Hvis du heller vil lukke på resize, bruk setOpen(false)
+      // setOpen(false);
+    });
   });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setOpen(false);
-  });
-
-  nav.addEventListener('click', (e) => {
-    if (e.target.closest('a')) setOpen(false);
-  });
-
-  // årstall
-  const yearSpan = document.getElementById('year');
-  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-});
 </script>
 
 
