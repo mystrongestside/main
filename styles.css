@@ -1416,6 +1416,40 @@ main,
   .social-link svg,
   .social-link img{ width: 46px; height: 46px; }
 }
+/* ===== MYSS: tving farger riktig (meny/main mørkeblå, footer lys) ===== */
+
+:root{
+  --myss-dark: #24344d;
+  --myss-footer: #E4E8F2;
+}
+
+/* MAIN + MENY: mørkeblå (tving) */
+body, main { color: var(--myss-dark); }
+
+.site-header,
+.site-header a,
+.site-header__toggle,
+.site-header__toggle-label,
+.site-nav,
+.site-nav a,
+.site-nav__link,
+.site-nav__heading{
+  color: var(--myss-dark) !important;
+}
+
+/* FOOTER: lys (tving) */
+.site-footer,
+.site-footer a,
+.site-footer__social,
+.site-footer__social *{
+  color: var(--myss-footer) !important;
+}
+
+/* Hvis du bruker INLINE svg */
+.site-footer .social-link svg{
+  fill: currentColor;
+  stroke: currentColor;
+}
 
 
 
