@@ -1450,6 +1450,28 @@ body, main { color: var(--myss-dark); }
   fill: currentColor;
   stroke: currentColor;
 }
+/* =================================================
+   Samarbeid – logo venstrestilt på mobil
+   ================================================= */
+
+/* Standard (desktop / større skjermer) */
+.partner-card__logo-wrap{
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Mobil */
+@media (max-width: 768px){
+  .partner-card__logo-wrap{
+    justify-content: flex-start; /* venstre */
+    text-align: left;
+  }
+
+  .partner-card__logo-wrap img{
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
 
 
 
