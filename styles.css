@@ -670,5 +670,42 @@ body.nav-open{
 .section::before,
 .section::after{
   pointer-events: none;
+}/* =========================
+   MOBIL-FIX: Sticky header mister trykk etter scroll
+   ========================= */
+
+/* Header alltid over alt */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 2147483647;   /* max-ish */
+  isolation: isolate;
 }
+
+/* Selve knappen må ligge “øverst” */
+.site-header__toggle{
+  position: relative;
+  z-index: 2;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Pass på at innholdet aldri ligger over header */
+main, .section, .myss-cta-wave, footer{
+  position: relative;
+  z-index: 0;
+}
+
+/* Dekor/pseudo-elementer skal aldri kunne fange trykk */
+.myss-cta-wave::before,
+.myss-cta-wave::after,
+.section::before,
+.section::after{
+  pointer-events: none !important;
+}
+
+/* Hvis bølgen likevel havner “over”, press den bak */
+.myss-cta-wave{ z-index: 0; }
+.myss-cta-wave::before{ z-index: -1; }
+
 
