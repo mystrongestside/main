@@ -8,7 +8,7 @@
   <meta name="description" content="Sammen gjør vi trening mulig for flere. Våre samarbeidspartnere bidrar til å bygge et inkluderende treningsmiljø der alle kan delta og oppleve mestring." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=101" />
+  <link rel="stylesheet" href="styles.css?v=102" />
 
   <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -236,8 +236,7 @@
         toggle.classList.toggle('is-open', open);
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 
-        document.documentElement.classList.toggle('nav-open', open);
-        document.body.classList.toggle('nav-open', open);
+
 
         const label = toggle.querySelector('.site-header__toggle-label');
         if (label) label.textContent = open ? 'Lukk menyen' : 'Vis menyen';
