@@ -575,3 +575,66 @@ body.nav-open{ overflow: hidden; }
   .site-header__logo img{ height: 50px; }
   .myss-cta-wave h2{ font-size: 1.7rem; }
 }
+/* =========================
+   MENY FIX (overlay) – stabil på mobil
+   Lim nederst i styles.css
+   ========================= */
+
+/* sørg for at nav kan ligge "over" uten å dytte layout */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* overlay-meny under header */
+.site-header > .site-nav{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+
+  background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+
+  /* skjult default */
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  visibility: hidden;
+
+  /* IKKE max-height system her */
+  max-height: none;
+  overflow: visible;
+
+  transition: opacity .22s ease, transform .22s ease, visibility 0s linear .22s;
+}
+
+/* åpen */
+.site-header > .site-nav.site-nav--open{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+
+  transition: opacity .22s ease, transform .22s ease, visibility 0s;
+}
+
+/* viktig: fjern eventuell scroll-lock som kan gi “jump” */
+html.nav-open,
+body.nav-open{
+  overflow: auto !important;
+}
+
+/* (valgfritt) litt skygge for premium følelse */
+.site-header > .site-nav.site-nav--open{
+  box-shadow: 0 14px 30px rgba(0,0,0,.08);
+}
+
+/* Mobile: litt mer luft */
+@media (max-width: 600px){
+  .site-header > .site-nav .site-nav__inner{
+    padding: 1.1rem 1rem 1.25rem;
+  }
+}
+
