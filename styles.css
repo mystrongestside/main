@@ -1305,6 +1305,61 @@ html.nav-open, body.nav-open{ overflow: hidden; }
   .social-link{ width: 62px; height: 62px; }
   .social-link svg{ width: 48px; height: 48px; }
 }
+/* ===== Footer SoMe – idiotsikker ===== */
+
+.site-footer__social-list{
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.social-link{
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+}
+
+.social-link img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* ===== Mobilmeny – faktisk synlig ===== */
+
+.site-nav{
+  display: none;
+}
+
+.site-nav.site-nav--open{
+  display: block;
+}
+
+@media (min-width: 900px){
+  .site-nav{
+    display: block;
+  }
+}
+/* ===== Samarbeid – mobil ===== */
+
+.partner-list{
+  display: grid;
+  gap: 32px;
+}
+
+.partner-card{
+  max-width: 100%;
+}
+
+.partner-card__logo-wrap{
+  height: auto;
+  max-width: 220px;
+}
+
+.partner-logo{
+  max-width: 100%;
+  height: auto;
+}
+
 
 
 
