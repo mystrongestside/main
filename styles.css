@@ -1539,6 +1539,38 @@ html.nav-open, body.nav-open{ overflow: hidden; }
 @media (prefers-reduced-motion: reduce){
   .site-nav, .site-header__toggle-line{ transition: none !important; }
 }
+/* =================================================
+   MENY: Stabil (ingen "kommer og går")
+   - Fjern display:none-problemet
+   - Bruk max-height + opacity i stedet
+   ================================================= */
+
+.site-nav{
+  display: block !important;     /* overstyr evt display:none */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: max-height .28s ease, opacity .22s ease, transform .22s ease, visibility 0s linear .28s;
+}
+
+.site-nav.site-nav--open{
+  max-height: 80vh;              /* nok høyde til menyen */
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: max-height .32s ease, opacity .22s ease, transform .22s ease, visibility 0s;
+}
+
+/* Sørg for at menyen ikke "kollapser" pga padding/margin inni */
+.site-nav__inner{
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
 
 
 
