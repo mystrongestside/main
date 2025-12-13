@@ -1250,5 +1250,61 @@ html.nav-open, body.nav-open{ overflow: hidden; }
 }
 
 .social-link:hover svg{ opacity: 1; }
+/* ===== FOOTER SOSIALE MEDIER (stor rad som i eksempelbildet) ===== */
+
+.site-footer__social{
+  margin-top: 14px;
+}
+
+.site-footer__social-label{
+  display: block;
+  font-size: 28px;      /* større tittel */
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+
+/* ikonrad */
+.site-footer__social-list{
+  display: flex;
+  gap: 26px;            /* “luft” mellom ikonene */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* lenke/ikon */
+.social-link{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  border-radius: 16px;  /* mykere */
+  text-decoration: none;
+  color: rgba(233, 240, 234, 0.95); /* lys “minty” */
+  background: transparent;          /* i bildet er det ingen boks */
+  transition: transform .15s ease, opacity .15s ease;
+}
+
+.social-link:hover{
+  transform: translateY(-1px);
+  opacity: 1;
+}
+
+/* SVG-størrelse */
+.social-link svg{
+  width: 56px;
+  height: 56px;
+  display: block;
+  fill: currentColor;
+}
+
+/* Mobil: litt mindre */
+@media (max-width: 520px){
+  .site-footer__social-label{ font-size: 22px; }
+  .social-link{ width: 62px; height: 62px; }
+  .social-link svg{ width: 48px; height: 48px; }
+}
+
 
 
