@@ -268,7 +268,18 @@
 
     toggle.addEventListener('pointerup', toggleMenu);
     toggle.addEventListener('touchend', toggleMenu, { passive: false });
-    toggle.addEventListener('click', toggleMenu);
+   let busy = false;
+
+toggle.addEventListener('pointerdown', (e) => {
+  e.preventDefault();
+  if (busy) return;
+  busy = true;
+
+  setOpen(!nav.classList.contains('site-nav--open'));
+
+  setTimeout(() => { busy = false; }, 280);
+});
+
 
     // Klikk på lenke i menyen lukker
     nav.addEventListener('click', (e) => {
