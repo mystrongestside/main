@@ -703,5 +703,47 @@ body.nav-open{ overflow:hidden; }
     transform: translateY(-50%);
   }
 }
+/* FORCE: midtstill MySS-logo på mobil (robust) */
+@media (max-width: 760px){
+  .site-header .site-header__inner{
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 72px !important;
+  }
+
+  /* Logo: ekte geometrisk midt */
+  .site-header .site-header__logo{
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    z-index: 1001 !important;
+  }
+
+  .site-header .site-header__logo img{
+    display: block !important;
+    height: 56px !important;
+    width: auto !important;
+    max-width: 190px !important;
+  }
+
+  /* Meny-knapp låses til venstre */
+  .site-header .site-header__toggle{
+    position: absolute !important;
+    left: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 1002 !important;
+  }
+
+  /* CTA skjules uansett på mobil */
+  .site-header .site-header__actions{
+    display: none !important;
+  }
+}
+
 
 
