@@ -1,4 +1,4 @@
-(() => {
+ (() => {
   const root = document.documentElement;
 
   const updateFooterYear = () => {
@@ -58,11 +58,13 @@
     }
   };
 
+  // Init
   updateFooterYear();
-  syncAria  // Header: fade/glid opp mens du scroller ned mot første tekst i hero
+  syncAria();
+
+  // Header: fade/glid opp mens du scroller ned mot første tekst i hero
   const header = document.querySelector('.site-header');
 
-  // "Første tekst" i hero (eyebrow eller h1)
   const firstText =
     document.querySelector('.section.section--light .eyebrow') ||
     document.querySelector('.section.section--light h1');
@@ -83,20 +85,13 @@
     }
 
     const headerH = header.offsetHeight || 80;
-
-    // Hvor langt er det fra toppen av viewport til første tekst akkurat nå?
     const textTop = firstText.getBoundingClientRect().top;
 
-    // Vi vil fade når teksten nærmer seg headerens "område"
-    // Start fade litt før: når teksten er 2x header-høyde ned i viewport
-    const start = headerH * 2.0;
-    // Slutt fade når teksten når rett under headeren
-    const end = headerH + 10;
+    const start = headerH * 2.0;   // start fade
+    const end = headerH + 10;      // ferdig fade
 
-    // progress: 0 -> 1
     const p = clamp01((start - textTop) / (start - end));
 
-    // Apply: opacity ned, glid opp
     root.style.setProperty('--hdr-o', String(1 - p));
     root.style.setProperty('--hdr-y', `${-p * (headerH + 12)}px`);
   };
@@ -110,5 +105,5 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', updateHeaderScrollFade);
   updateHeaderScrollFade();
-();
 })();
+
