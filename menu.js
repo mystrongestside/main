@@ -1,63 +1,70 @@
- (() => {
+(() => {
   const root = document.documentElement;
 
-  function initMenu() {
+  function init() {
     const toggle = document.querySelector('.site-header__toggle');
     const nav = document.querySelector('.site-nav');
     const label = toggle?.querySelector('.site-header__toggle-label');
+    const header = document.querySelector('.site-header');
 
-    if (!toggle || !nav) return;
+    if (!toggle || !nav || !header) return;
 
-    // Ensure nav has an id for aria-controls
-    if (!nav.id) nav.id = 'site-nav';
-    toggle.setAttribute('aria-controls', nav.id);
+    const headerH = Math.round(header.getBoundingClientRect().height);
+
+    const applyOpenStyles = (open) => {
+      if (open) {
+        // Force visible + fixed overlay (bypasses sticky/height bugs)
+        nav.style.position = 'fixed';
+        nav.style.left = '0';
+        nav.style.right = '0';
+        nav.style.top = `${headerH}px`;
+        nav.style.height = `calc(100vh - ${headerH}px)`;
+        nav.style.maxHeight = 'none';
+        nav.style.overflow = 'auto';
+        nav.style.webkitOverflowScrolling = 'touch';
+        nav.style.background = '#fff';
+        nav.style.opacity = '1';
+        nav.style.transform = 'translateY(0)';
+        nav.style.visibility = 'visible';
+        nav.style.pointerEvents = 'auto';
+        nav.style.zIndex = '2147483646';
+
+        header.style.zIndex = '2147483647';
+        toggle.style.zIndex = '2147483647';
+      } else {
+        // Remove forced styles
+        nav.removeAttribute('style');
+        header.style.zIndex = '';
+        toggle.style.zIndex = '';
+      }
+    };
 
     const setOpen = (open) => {
       nav.classList.toggle('site-nav--open', open);
-      toggle.classList.toggle('is-open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-     root.classList.toggle('nav-open', open);
-document.body.classList.toggle('nav-open', open);
+      root.classList.toggle('nav-open', open);
+      document.body.classList.toggle('nav-open', open);
       if (label) label.textContent = open ? 'Lukk menyen' : 'Vis menyen';
-
-      // Optional: keep focus sane
-      if (open) {
-        // Focus first link in menu (if exists)
-        const firstLink = nav.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
-        firstLink?.focus?.();
-      } else {
-        toggle.focus?.();
-      }
+      applyOpenStyles(open);
     };
 
     const isOpen = () => nav.classList.contains('site-nav--open');
 
-    // Use BOTH click and pointerup. Some mobile setups swallow pointer events at top.
-    const onToggle = (e) => {
+    toggle.addEventListener('click', (e) => {
       e.preventDefault();
-      e.stopPropagation();
       setOpen(!isOpen());
-    };
-
-    toggle.addEventListener('click', onToggle, { passive: false });
-    toggle.addEventListener('pointerup', onToggle, { passive: false });
-
-    // Close when clicking a link in the menu
-    nav.addEventListener('click', (e) => {
-      const a = e.target.closest('a');
-      if (a) setOpen(false);
     });
 
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isOpen()) setOpen(false);
-    });
-
-    // Close if you tap outside (important on mobile)
+    // Close on outside click
     document.addEventListener('click', (e) => {
       if (!isOpen()) return;
       const inside = nav.contains(e.target) || toggle.contains(e.target);
       if (!inside) setOpen(false);
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) setOpen(false);
     });
 
     // Footer year
@@ -66,9 +73,8 @@ document.body.classList.toggle('nav-open', open);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMenu);
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    initMenu();
+    init();
   }
 })();
-
