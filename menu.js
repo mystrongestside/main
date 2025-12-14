@@ -36,6 +36,13 @@
       setOpen(!isOpen());
     });
 
+    nav.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target instanceof HTMLElement && target.closest('a')) {
+        setOpen(false);
+      }
+    });
+
     // Close on outside click
     document.addEventListener('click', (e) => {
       if (!isOpen()) return;
