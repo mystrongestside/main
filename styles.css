@@ -743,6 +743,21 @@ body.nav-open{ overflow:hidden; }
     pointer-events:none;
   }
 }
+/* Når menyen er åpen: la toggle-knappen ligge over overlayen */
+html.nav-open .site-header__toggle{
+  z-index: 3001; /* må være høyere enn .site-nav (2000) */
+}
+
+/* Valgfritt: skjul close-knappen i overlay, siden vi bruker toggle som close */
+html.nav-open .site-nav__close{
+  display:none;
+}
+
+/* Valgfritt: gjør topbaren litt mer “ren” når close er skjult */
+html.nav-open .site-nav__top-inner{
+  justify-content:flex-start;
+}
+
 
 
 
