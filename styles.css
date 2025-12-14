@@ -1174,6 +1174,19 @@ html.nav-open .site-header__toggle-label{
 .site-header__toggle{ font-weight:800 !important; }
 .site-header__toggle-line{ height:3.5px !important; }
 .site-header__toggle-label{ font-weight:800 !important; }
+/* Header-fade: JS setter --hdr-o og --hdr-y */
+.site-header{
+  opacity: var(--hdr-o, 1);
+  transform: translateY(var(--hdr-y, 0px));
+  will-change: transform, opacity;
+}
+
+/* Ikke fade når menyen er åpen */
+html.nav-open .site-header{
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+
 
 
 
