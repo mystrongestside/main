@@ -76,7 +76,48 @@ console.log("menu.js loaded");
     let ticking = false;
     const clamp01 = (n) => Math.max(0, Math.min(1, n));
 
-    const updateHeaderScrollFade = () => {
+   const updateHeaderScrollFade = () => {
+  ticking = false;
+
+  const firstText = getFirstText();
+
+  // 1️⃣ Hvis vi er helt på toppen: header skal ALLTID være synlig
+  if (window.scrollY === 0) {
+    root.style.setProperty('--hdr-o', '1');
+    root.style.setProperty('--hdr-y', '0px');
+    return;
+  }
+
+  // 2️⃣ Hvis noe mangler: normal header
+  if (!header || !firstText) {
+    root.style.setProperty('--hdr-o', '1');
+    root.style.setProperty('--hdr-y', '0px');
+    return;
+  }
+
+  // 3️⃣ Ikke fade når menyen er åpen
+  if (isOpen()) {
+    root.style.setProperty('--hdr-o', '1');
+    root.style.setProperty('--hdr-y', '0px');
+    return;
+  }
+
+  const headerH = header.offsetHeight || 80;
+  const textTop = firstText.getBoundingClientRect().top;
+
+  // Rolig, lang fade
+  const start = headerH * 3.2;
+  const end   = headerH * 1.2;
+  const denom = (start - end) || 1;
+
+  let p = clamp01((start - textTop) / denom);
+
+  // smoothstep
+  p = p * p * (3 - 2 * p);
+
+  root.style.setProperty('--hdr-o', String(1 - p));
+  root.style.setProperty('--hdr-y', `${-p * 18}px`);
+};
       ticking = false;
 
       const firstText = getFirstText();
