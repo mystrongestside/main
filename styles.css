@@ -481,4 +481,51 @@ body.nav-open{ overflow:hidden; }
   .site-header__logo img{ height:50px; }
   .myss-cta-wave h2{ font-size:1.7rem; }
 }
+/* --- Mobile menu hardening (put at VERY bottom of styles.css) --- */
+
+/* Make sure header is always above hero/sections */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+/* Ensure the button can always be clicked */
+.site-header__toggle{
+  position: relative;
+  z-index: 10000;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+/* Hidden by default (safe even if you already style it elsewhere) */
+.site-nav{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 9998;
+
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  visibility: hidden;
+
+  transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+}
+
+/* Open state */
+.site-nav.site-nav--open{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Lock background scroll when menu is open */
+html.nav-open,
+html.nav-open body{
+  overflow: hidden;
+}
 
