@@ -1477,4 +1477,12 @@ html.nav-open .site-header{
     margin-right: auto !important;
   }
 
+  /* DEBUG – remove later */
+  body.page-samarbeid .site-header {
+    outline: 3px solid red !important;
+  }
+
+  body.page-samarbeid .partner-card {
+    outline: 2px dashed blue !important;
+  }
 }
