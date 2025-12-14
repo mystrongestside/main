@@ -185,9 +185,10 @@ main{ padding:2.5rem 0 3.5rem; }
 
 .site-nav.site-nav--open{
   position:fixed;
-  inset:0;
-  padding-top:var(--header-height);
-  height:auto;
+  left:0;
+  right:0;
+  top:var(--header-height);
+  height:calc(100vh - var(--header-height));
   max-height:none;
   overflow:auto;
   -webkit-overflow-scrolling:touch;

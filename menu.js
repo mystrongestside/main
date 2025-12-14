@@ -53,9 +53,6 @@
       if (isOpen()) syncHeaderHeightVar();
     });
 
-    // Adjust header height when scrolling (sticky header with shadow/transform)
-    window.addEventListener('scroll', syncHeaderHeightVar, { passive: true });
-
     // Initialize header height for first render
     syncHeaderHeightVar();
 
