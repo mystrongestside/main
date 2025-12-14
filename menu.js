@@ -78,10 +78,16 @@ console.log("menu.js loaded");
 
       const headerH = header.offsetHeight || 80;
       const textTop = firstText.getBoundingClientRect().top;
+      
+// Lengre og roligere fade (mindre “brå”)
+const start = headerH * 3.2;   // starter senere (mer scroll før noe skjer)
+const end   = headerH * 1.2;   // ferdig senere (større fade-vindu)
 
-      const start = headerH * 2.2;
-      const end = headerH * 0.9;
-      const denom = (start - end) || 1;
+// progress 0..1
+let p = clamp01((start - textTop) / (start - end));
+
+// myk kurve (ease-in-out)
+p = p * p * (3 - 2 * p);
 
       const p = clamp01((start - textTop) / denom);
 
