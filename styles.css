@@ -881,39 +881,6 @@ html.nav-open .site-nav__top-inner{
   z-index: 5000 !important;
 }
 
-/* Viktig: sticky funker dårlig hvis foreldre har overflow/transform */
-html, body{
-  overflow-x: clip;          /* ok */
-  overflow-y: visible;       /* sticky trenger dette */
-}
-/* ====== Alltid-sticky header (fixed) ====== */
-:root{
-  --header-h: 96px; /* desktop-høyde */
-}
-
-@media (max-width:600px){
-  :root{ --header-h: 78px; } /* mobil-høyde */
-}
-
-.site-header{
-  position:fixed !important;
-  top:0 !important;
-  left:0 !important;
-  right:0 !important;
-  width:100% !important;
-  z-index:5000 !important;
-}
-
-/* sørg for at innholdet ikke ligger under headeren */
-body{
-  padding-top: var(--header-h) !important;
-}
-
-/* header-innholdet skal ha samme “høyde-følelse” */
-.site-header__inner{
-  min-height: var(--header-h);
-}
-.site-nav{ z-index: 6000; }
 
 
 
