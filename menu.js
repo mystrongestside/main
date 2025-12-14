@@ -1,14 +1,20 @@
 console.log("menu.js loaded");
+
 (() => {
   const init = () => {
     const root = document.documentElement;
 
+    // Footer-år
     const updateFooterYear = () => {
       const yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = String(new Date().getFullYear());
     };
 
+    // Meny-state
     const isOpen = () => root.classList.contains('nav-open');
+
+    // Fade scheduler (defineres senere, men brukes i setOpen)
+    let requestFadeUpdate = () => {};
 
     const setOpen = (open) => {
       const nav = document.querySelector('.site-nav');
@@ -27,28 +33,38 @@ console.log("menu.js loaded");
         if (label) label.textContent = open ? 'Lukk menyen' : 'Vis menyen';
       }
 
-      // Oppdater fade etter meny-åpning/lukking
+      // Viktig: oppdater fade etter åpne/lukk
       requestFadeUpdate();
     };
 
+    // Klikk-håndtering
     document.addEventListener('click', (event) => {
       const target = event.target;
       if (!(target instanceof Element)) return;
 
+      // Toggle åpne/lukk
       if (target.closest('.site-header__toggle')) {
         event.preventDefault();
         setOpen(!isOpen());
         return;
       }
 
+      // Klikk på lenke i meny lukker
       if (target.closest('.site-nav a')) {
         setOpen(false);
       }
     });
 
+    // ESC lukker
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && isOpen()) setOpen(false);
     });
+
+    // Synk ARIA ved init
+    const syncAria = () => {
+      const toggle = document.querySelector('.site-header__toggle');
+      if (toggle) toggle.setAttribute('aria-expanded', isOpen() ? 'true' : 'false');
+    };
 
     // ===== Header: gradvis fade ut når du nærmer deg hero-tekst =====
     const header = document.querySelector('.site-header');
@@ -64,12 +80,15 @@ console.log("menu.js loaded");
       ticking = false;
 
       const firstText = getFirstText();
+
+      // Hvis noe mangler: sørg for normal header
       if (!header || !firstText) {
         root.style.setProperty('--hdr-o', '1');
         root.style.setProperty('--hdr-y', '0px');
         return;
       }
 
+      // Ikke fade når menyen er åpen
       if (isOpen()) {
         root.style.setProperty('--hdr-o', '1');
         root.style.setProperty('--hdr-y', '0px');
@@ -78,24 +97,26 @@ console.log("menu.js loaded");
 
       const headerH = header.offsetHeight || 80;
       const textTop = firstText.getBoundingClientRect().top;
-      
-// Lengre og roligere fade (mindre “brå”)
-const start = headerH * 3.2;   // starter senere (mer scroll før noe skjer)
-const end   = headerH * 1.2;   // ferdig senere (større fade-vindu)
 
-// progress 0..1
-let p = clamp01((start - textTop) / (start - end));
+      // Lengre og roligere fade
+      const start = headerH * 3.2; // start senere
+      const end = headerH * 1.2;   // slutt senere
 
-// myk kurve (ease-in-out)
-p = p * p * (3 - 2 * p);
+      const denom = (start - end) || 1;
 
-      const p = clamp01((start - textTop) / denom);
+      // progress 0..1
+      let p = clamp01((start - textTop) / denom);
+
+      // myk kurve (ease-in-out)
+      p = p * p * (3 - 2 * p);
 
       root.style.setProperty('--hdr-o', String(1 - p));
-      root.style.setProperty('--hdr-y', `${-p * (headerH + 12)}px`);
+
+      // Juster glid opp: bruk liten verdi for mest fade, lite flytt
+      root.style.setProperty('--hdr-y', `${-p * 18}px`);
     };
 
-    const requestFadeUpdate = () => {
+    requestFadeUpdate = () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(updateHeaderScrollFade);
@@ -104,14 +125,16 @@ p = p * p * (3 - 2 * p);
     window.addEventListener('scroll', requestFadeUpdate, { passive: true });
     window.addEventListener('resize', requestFadeUpdate);
 
+    // Init
     updateFooterYear();
+    syncAria();
     requestFadeUpdate();
   };
 
+  // Kjør når DOM er klar
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init, { once: true });
   } else {
     init();
   }
 })();
-
