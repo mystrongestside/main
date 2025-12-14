@@ -1170,7 +1170,7 @@ html.nav-open .site-header__toggle{
 .site-header__toggle-line{
   height: 3.5px;
 }
-body{ outline: 6px solid red !important; }
+
 /* ========= TVANGS-PATCH (garantert effekt) ========= */
 
 /* 1) Fjern topbaren i overlay (MENY + Lukk) */
@@ -1477,12 +1477,4 @@ html.nav-open .site-header{
     margin-right: auto !important;
   }
 
-  /* DEBUG – remove later */
-  body.page-samarbeid .site-header {
-    outline: 3px solid red !important;
-  }
-
-  body.page-samarbeid .partner-card {
-    outline: 2px dashed blue !important;
-  }
 }
