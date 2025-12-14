@@ -423,7 +423,7 @@ body.nav-open{ overflow:hidden; }
   margin-right:auto;
 }
 
-.partner-logo{
+.partner-card__logo-wrap .partner-logo{
   max-height:72px;
   max-width:220px;
   width:auto;
@@ -437,8 +437,8 @@ body.nav-open{ overflow:hidden; }
   transition:filter .25s ease, opacity .25s ease, transform .2s ease;
 }
 
-.partner-card:hover .partner-logo,
-.partner-logo:hover{
+.partner-card:hover .partner-card__logo-wrap .partner-logo,
+.partner-card .partner-logo:hover{
   filter:grayscale(0%);
   opacity:1;
   transform:translateY(-2px);
