@@ -686,4 +686,22 @@ body.nav-open{ overflow:hidden; }
     z-index: 2;
   }
 }
+@media (max-width: 760px){
+  .site-header__inner{
+    position: relative !important;
+    justify-content: center !important;
+  }
+
+  .site-header__logo{
+    margin: 0 auto !important;
+  }
+
+  .site-header__toggle{
+    position: absolute !important;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
 
