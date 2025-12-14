@@ -880,6 +880,35 @@ html.nav-open .site-nav__top-inner{
   top: 0 !important;
   z-index: 5000 !important;
 }
+:root{
+  --header-h: 96px;
+}
+@media (max-width:600px){
+  :root{ --header-h: 78px; }
+}
+
+/* Header følger med (fixed) */
+.site-header{
+  position:fixed;
+  top:0; left:0; right:0;
+  width:100%;
+  z-index:5000;
+  transition: transform .28s ease, opacity .22s ease;
+  will-change: transform, opacity;
+}
+
+/* Innhold under header */
+body{
+  padding-top: var(--header-h);
+}
+
+/* Når vi passerer første tekst -> header fader og glir opp */
+.header-fadeout .site-header{
+  transform: translateY(-110%);
+  opacity: 0;
+  pointer-events: none;
+}
+
 
 
 
