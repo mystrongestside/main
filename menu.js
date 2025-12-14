@@ -11,6 +11,10 @@
 
     const headerH = Math.round(header.getBoundingClientRect().height);
 
+    const syncAriaExpanded = (open) => {
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
     const applyOpenStyles = (open) => {
       if (open) {
         // Force visible + fixed overlay (bypasses sticky/height bugs)
@@ -40,8 +44,8 @@
     };
 
     const setOpen = (open) => {
+      syncAriaExpanded(open);
       nav.classList.toggle('site-nav--open', open);
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       root.classList.toggle('nav-open', open);
       document.body.classList.toggle('nav-open', open);
       if (label) label.textContent = open ? 'Lukk menyen' : 'Vis menyen';
