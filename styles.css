@@ -528,4 +528,53 @@ html.nav-open,
 html.nav-open body{
   overflow: hidden;
 }
+/* === Mobile menu: fixed overlay (stable on iOS/Android) === */
+@media (max-width: 760px) {
+
+  .site-header{
+    z-index: 2147483647;
+  }
+
+  .site-header__toggle{
+    position: relative;
+    z-index: 2147483647;
+    touch-action: manipulation;
+  }
+
+  /* fixed panel under header */
+  .site-nav{
+    position: fixed;
+    left: 0;
+    right: 0;
+
+    /* header height on mobile (logo 56px + padding) */
+    top: 78px;
+
+    height: calc(100vh - 78px);
+    max-height: none;
+
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    visibility: hidden;
+
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+  }
+
+  .site-nav.site-nav--open{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
+    transition: opacity .18s ease, transform .18s ease, visibility 0s;
+  }
+
+  html.nav-open,
+  body.nav-open{
+    overflow: hidden;
+  }
+}
 
