@@ -1367,6 +1367,67 @@ html.nav-open .site-header{
 .partner-card__logo-wrap .partner-logo[alt*="Mio"]{
   transform: translateX(-6px) !important;
 }
+/* ================================
+   MOBIL – samarbeid.html ONLY
+   ================================ */
+@media (max-width: 768px) {
+
+  /* Scope KUN samarbeid-siden */
+  body.page-samarbeid {
+
+    /* ===== HEADER / LOGO / MENY ===== */
+
+    /* Header-layout: hamburger venstre, logo høyre */
+    .site-header__inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+    }
+
+    /* MYSS-logo høyrestilt */
+    .site-header__logo {
+      margin-left: auto !important;
+      margin-right: 0 !important;
+      text-align: right !important;
+    }
+
+    .site-header__logo img {
+      display: block;
+      margin-left: auto !important;
+      max-height: 42px;
+    }
+
+    /* Bedre synlig mobilmeny */
+    .site-nav {
+      background: #ffffff !important;
+      padding: 1.5rem 1.25rem !important;
+    }
+
+    .site-nav a {
+      font-size: 1.15rem;
+      padding: 0.75rem 0;
+      display: block;
+    }
+
+    /* ===== PARTNERLOGOER ===== */
+
+    /* Tving venstrestilling på ALLE partnerlogoer */
+    .partner-card__logo-wrap,
+    .partner-logo {
+      display: flex !important;
+      justify-content: flex-start !important;
+      text-align: left !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+    }
+
+    .partner-logo img {
+      margin-left: 0 !important;
+    }
+
+  }
+}
+
 
 
 
