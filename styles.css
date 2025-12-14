@@ -1081,6 +1081,100 @@ html.nav-open .site-header__toggle{
   height: 3.5px;
 }
 body{ outline: 6px solid red !important; }
+/* ========= TVANGS-PATCH (garantert effekt) ========= */
+
+/* 1) Fjern topbaren i overlay (MENY + Lukk) */
+.site-nav__top{ display:none !important; }
+.site-nav__scroll{ height:100vh !important; }
+
+/* 2) Legg X/hamburger trygt oppe til venstre når menyen er åpen */
+html.nav-open .site-header__toggle{
+  position: fixed !important;
+  top: 14px !important;
+  left: 14px !important;
+  z-index: 10000 !important;
+}
+
+/* Skjul teksten ved åpnet meny (så den ikke kræsjer) */
+html.nav-open .site-header__toggle-label{
+  display:none !important;
+}
+
+/* 3) Fjern vertikale delestreker/linjer i editorial-layout */
+.nav-editorial .site-nav__columns::before,
+.nav-editorial .site-nav__columns::after{
+  display:none !important;
+}
+
+/* 4) Overskrifter: kort “Mio-aktig” fargelinje under */
+.nav-editorial .site-nav__heading{
+  border-bottom:none !important;
+  padding-bottom:0 !important;
+  margin:0 0 1.25rem !important;
+  position:relative !important;
+}
+
+.nav-editorial .site-nav__heading::after{
+  content:"" !important;
+  display:block !important;
+  width:90px !important;
+  height:6px !important;
+  margin-top:.75rem !important;
+  border-radius:999px !important;
+  background:rgba(16,82,119,.28) !important;
+}
+
+/* per kolonne (valgfritt, men fint) */
+.nav-editorial .site-nav__column:nth-child(1) .site-nav__heading::after{ background:rgba(247,124,55,.32) !important; }
+.nav-editorial .site-nav__column:nth-child(2) .site-nav__heading::after{ background:rgba(16,82,119,.28) !important; }
+.nav-editorial .site-nav__column:nth-child(3) .site-nav__heading::after{ background:rgba(24,36,51,.18) !important; }
+
+/* 5) Lenker: ren liste + lys understrek (ingen bokser) */
+.nav-editorial .site-nav__link{
+  display:inline-block !important;
+  padding:0 !important;
+  min-height:0 !important;
+  background:none !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  text-decoration:none !important;
+
+  font-size:clamp(1.4rem,1.1rem + 1vw,2.1rem) !important;
+  line-height:1.25 !important;
+  font-weight:750 !important;
+  color:#182433 !important;
+}
+
+.nav-editorial .site-nav__link::after{
+  content:"" !important;
+  display:block !important;
+  width:100% !important;
+  height:3px !important;
+  margin-top:.45rem !important;
+  border-radius:999px !important;
+  background:rgba(16,82,119,.18) !important;
+}
+
+.nav-editorial .site-nav__list li + li{
+  margin-top:.9rem !important;
+}
+
+/* hover */
+.nav-editorial .site-nav__link:hover,
+.nav-editorial .site-nav__link:focus-visible{
+  color:var(--myss-blue) !important;
+  outline:none !important;
+}
+.nav-editorial .site-nav__link:hover::after,
+.nav-editorial .site-nav__link:focus-visible::after{
+  background:rgba(16,82,119,.35) !important;
+}
+
+/* 6) Hamburger: BOLD */
+.site-header__toggle{ font-weight:800 !important; }
+.site-header__toggle-line{ height:3.5px !important; }
+.site-header__toggle-label{ font-weight:800 !important; }
+
 
 
 
