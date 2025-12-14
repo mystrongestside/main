@@ -757,6 +757,10 @@ html.nav-open .site-nav__close{
 html.nav-open .site-nav__top-inner{
   justify-content:flex-start;
 }
+/* Fjern "MENY"-teksten i overlay */
+.site-nav__brand{
+  display:none;
+}
 
 
 
