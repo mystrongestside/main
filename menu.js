@@ -44,9 +44,10 @@
               <div class="site-nav__column">
                 <h2 class="site-nav__heading">Våre tjenester</h2>
                 <ul class="site-nav__list">
-                  <li><a href="treningstilbud/voksne-lett.html" class="site-nav__link">Voksne – lett funksjonsvariasjon</a></li>
-                  <li><a href="treningstilbud/tett-oppfolging.html" class="site-nav__link">Tett oppfølging</a></li>
-                  <li><a href="frivillig.html" class="site-nav__link">Frivilligprogram</a></li>
+                  <li><a href="gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
+                  <li><a href="treningstilbud/tett-oppfolging.html" class="site-nav__link">Individuell oppfølging</a></li>
+                  <li><a href="foresatte.html" class="site-nav__link">Kurs og seminar</a></li>
+                  <li><a href="qr/trening/index.html" class="site-nav__link">QR/NFC treningssystem</a></li>
                 </ul>
               </div>
 
