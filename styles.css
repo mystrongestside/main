@@ -1286,6 +1286,87 @@ html.nav-open .site-header{
   opacity: 1 !important;
   transform: translateY(0px) !important;
 }
+/* =====================================================
+   MOBIL HEADER + PARTNERLOGOER (samlet patch)
+   - Hindrer at MYSS-logo kolliderer med "Vis menyen"
+   - Ekte midtstilt logo på mobil
+   - Normaliserer partnerlogoer + optisk justering for Mio
+   ===================================================== */
+
+/* ---------- 1) Header: ekte 3-kolonne layout på mobil ---------- */
+@media (max-width: 760px){
+  .site-header__inner{
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important; /* venstre / midt / høyre */
+    align-items: center !important;
+    gap: .75rem !important;
+  }
+
+  /* Venstre: hamburger + tekst */
+  .site-header__toggle{
+    justify-self: start !important;
+    z-index: 2 !important;
+  }
+
+  /* Midt: logo */
+  .site-header__logo{
+    justify-self: center !important;
+  }
+
+  /* Høyre: behold "spacer" slik at logo alltid er perfekt midtstilt
+     (selv om du skjuler knappen) */
+  .site-header__actions{
+    justify-self: end !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* Litt tryggere logo-størrelse på mobil */
+  .site-header__logo img{
+    max-width: 170px !important;
+    height: 56px !important;
+    width: auto !important;
+  }
+
+  /* Gjør toggle-teksten litt mer kompakt så den ikke presser logoen */
+  .site-header__toggle-label{
+    white-space: nowrap !important;
+    font-size: .95rem !important;
+  }
+}
+
+/* ---------- 2) Partnerlogoer: normaliser plassering og størrelse ---------- */
+.partner-card__logo-wrap{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  height: 72px !important;
+}
+
+.partner-card__logo-wrap .partner-logo{
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-height: 64px !important;
+  max-width: 220px !important;
+  object-fit: contain !important;
+}
+
+/* Mobil: litt mindre høyde så det ser stramt ut */
+@media (max-width: 600px){
+  .partner-card__logo-wrap{
+    height: 60px !important;
+  }
+  .partner-card__logo-wrap .partner-logo{
+    max-height: 56px !important;
+    max-width: 200px !important;
+  }
+}
+
+/* ---------- 3) Optisk justering: Mio ser ofte "for midtstilt" ut ---------- */
+.partner-card__logo-wrap .partner-logo[alt*="Mio"]{
+  transform: translateX(-6px) !important;
+}
 
 
 
