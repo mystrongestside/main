@@ -61,6 +61,7 @@
     const setOpen = (open) => {
       syncAriaExpanded(open);
       nav.classList.toggle('site-nav--open', open);
+      toggle.classList.toggle('is-open', open);
       root.classList.toggle('nav-open', open);
       document.body.classList.toggle('nav-open', open);
       if (label) label.textContent = open ? 'Lukk menyen' : 'Vis menyen';
