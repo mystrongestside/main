@@ -700,6 +700,50 @@ body.nav-open{ overflow:hidden; }
     z-index:2;
   }
 }
+/* Header – ekte midtstilt logo */
+.site-header__inner{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:1rem;
+}
+
+.site-header__left{
+  justify-self:start;
+}
+
+.site-header__center{
+  justify-self:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.site-header__right{
+  justify-self:end;
+}
+
+/* Logo */
+.site-header__logo img{
+  display:block;
+  height:75px;
+  max-width:190px;
+}
+
+/* Mobil */
+@media (max-width:600px){
+  .site-header__logo img{
+    height:56px;
+  }
+
+  /* skjul høyre knapp visuelt,
+     MEN behold plassen slik at logo forblir midtstilt */
+  .site-header__right{
+    visibility:hidden;
+    pointer-events:none;
+  }
+}
+
 
 
 
