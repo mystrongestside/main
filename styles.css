@@ -761,6 +761,18 @@ html.nav-open .site-nav__top-inner{
 .site-nav__brand{
   display:none;
 }
+/* Fjern vertikale delestreker */
+.nav-editorial .site-nav__columns::before,
+.nav-editorial .site-nav__columns::after{
+  display:none;
+}
+
+/* Fjern gamle tynne understreker */
+.site-nav__heading{
+  border-bottom:none;
+  padding-bottom:0;
+}
+
 
 
 
