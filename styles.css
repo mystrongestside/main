@@ -936,6 +936,20 @@ html.nav-open .site-header__toggle{
   position:relative;
   z-index:3001;
 }
+/* Header fade styres av CSS-variabler fra JS */
+.site-header{
+  opacity: var(--hdr-o, 1) !important;
+  transform: translateY(var(--hdr-y, 0px)) !important;
+  transition: none !important;
+  will-change: transform, opacity;
+}
+
+/* Når meny er åpen: ikke fade (header må være synlig) */
+html.nav-open .site-header{
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+
 
 
 
