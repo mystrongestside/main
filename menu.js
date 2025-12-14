@@ -13,7 +13,7 @@
 
     const toggle = document.querySelector('.site-header__toggle');
     const nav = document.querySelector('.site-nav');
-    const header = document.querySelector('.site-header');
+    const header = toggle?.closest('header') || document.querySelector('.site-header');
     const label = toggle?.querySelector('.site-header__toggle-label');
 
     if (!toggle || !nav || !header) return false;
