@@ -7,6 +7,11 @@
   --myss-white:#ffffff;
   --nav-top: 62px;
   --container:1200px;
+  --header-h:96px;
+}
+
+@media (max-width:600px){
+  :root{ --header-h:78px; }
 }
 
 *,
@@ -948,6 +953,91 @@ html.nav-open .site-header__toggle{
 html.nav-open .site-header{
   opacity: 1 !important;
   transform: translateY(0px) !important;
+}
+
+/* =====================================================
+   SISTE LAG: Samarbeid-siden trenger sikre overstyringer
+   ===================================================== */
+body.page-samarbeid{
+  padding-top: var(--header-h);
+  outline: none !important;
+}
+
+body.page-samarbeid .site-header{
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: #fff !important;
+  border-bottom: 1px solid rgba(0,0,0,.06) !important;
+  z-index: 6000 !important;
+  opacity: var(--hdr-o, 1) !important;
+  transform: translateY(var(--hdr-y, 0px)) !important;
+  transition: none !important;
+}
+
+body.page-samarbeid.nav-open .site-header,
+html.nav-open body.page-samarbeid .site-header{
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+
+body.page-samarbeid .site-nav{ z-index: 4000; }
+body.page-samarbeid .site-nav__top{ display:flex !important; height:var(--nav-top) !important; }
+body.page-samarbeid .site-nav__scroll{ height:calc(100vh - var(--nav-top)) !important; }
+
+body.page-samarbeid.nav-open .site-header__toggle,
+html.nav-open body.page-samarbeid .site-header__toggle{
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  z-index: 7000 !important;
+}
+
+body.page-samarbeid.nav-open .site-header__toggle-label,
+html.nav-open body.page-samarbeid .site-header__toggle-label{
+  display: inline !important;
+}
+
+/* =====================================================
+   SAMARBEID – Ryddige overstyringer for header/meny
+   ===================================================== */
+body{
+  padding-top: var(--header-h);
+  outline: none !important;
+}
+
+.site-header{
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: #fff !important;
+  border-bottom: 1px solid rgba(0,0,0,.06) !important;
+  z-index: 5000 !important;
+  opacity: var(--hdr-o, 1) !important;
+  transform: translateY(var(--hdr-y, 0px)) !important;
+  transition: none !important;
+}
+
+html.nav-open .site-header{
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+
+.site-nav{ z-index: 4000; }
+.site-nav__top{ display:flex !important; height:var(--nav-top); }
+.site-nav__scroll{ height:calc(100vh - var(--nav-top)); }
+
+html.nav-open .site-header__toggle{
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  z-index: 6000 !important;
+}
+
+html.nav-open .site-header__toggle-label{
+  display: inline !important;
 }
 /* =====================================================
    HEADER + OVERLAY – RYDDIG, KLASSISK OG KOMPATIBEL

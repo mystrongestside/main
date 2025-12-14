@@ -1,6 +1,6 @@
 console.log("menu.js loaded");
- (() => {
-  document.addEventListener('DOMContentLoaded', () => {
+(() => {
+  const init = () => {
     const root = document.documentElement;
 
     const updateFooterYear = () => {
@@ -100,6 +100,12 @@ console.log("menu.js loaded");
 
     updateFooterYear();
     requestFadeUpdate();
-  });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    init();
+  }
 })();
 
