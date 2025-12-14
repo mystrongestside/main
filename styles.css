@@ -949,6 +949,138 @@ html.nav-open .site-header{
   opacity: 1 !important;
   transform: translateY(0px) !important;
 }
+/* =====================================================
+   HEADER + OVERLAY – RYDDIG, KLASSISK OG KOMPATIBEL
+   ===================================================== */
+
+/* --- Header styres av scroll (JS setter CSS-variabler) --- */
+.site-header{
+  opacity: var(--hdr-o, 1);
+  transform: translateY(var(--hdr-y, 0px));
+  will-change: transform, opacity;
+  transition: none; /* scroll styrer direkte */
+  z-index: 5000;
+}
+
+/* Når menyen er åpen: header skal ALLTID være synlig */
+html.nav-open .site-header{
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+
+/* --- Sørg for at hamburger/X alltid er klikkbar --- */
+html.nav-open .site-header__toggle{
+  position: relative;
+  z-index: 6000;
+}
+
+/* --- Fjern top-bar i overlay (MENY + Lukk) --- */
+.site-nav__top{
+  display: none;
+}
+
+/* Når top-bar er fjernet, la menyen fylle hele høyden */
+.site-nav__scroll{
+  height: 100vh;
+}
+
+/* --- Fjern vertikale delestreker i editorial-nav --- */
+.nav-editorial .site-nav__columns::before,
+.nav-editorial .site-nav__columns::after{
+  display: none;
+}
+
+/* --- Fjern gamle tynne understreker --- */
+.site-nav__heading{
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* --- Overskrifter: kort, klassisk MySS-strek --- */
+.site-nav__heading{
+  position: relative;
+  margin: 0 0 1.3rem;
+  padding-bottom: .6rem;
+}
+
+.site-nav__heading::after{
+  content: "";
+  display: block;
+  width: 90px;
+  height: 6px;
+  margin-top: .75rem;
+  border-radius: 999px;
+  background: rgba(16,82,119,.28); /* MySS blå */
+}
+
+/* Litt variasjon per kolonne (rolig, ikke flashy) */
+.site-nav__column:nth-child(1) .site-nav__heading::after{
+  background: rgba(247,124,55,.32); /* oransje */
+}
+.site-nav__column:nth-child(2) .site-nav__heading::after{
+  background: rgba(16,82,119,.28); /* blå */
+}
+.site-nav__column:nth-child(3) .site-nav__heading::after{
+  background: rgba(24,36,51,.18); /* ink/grå */
+}
+
+/* --- Lenker: ren liste, Mio-aktig, ingen kort/bokser --- */
+.site-nav__link{
+  display: inline-block;
+  padding: 0;
+  min-height: 0;
+  font-size: clamp(1.4rem,1.1rem + 1vw,2.1rem);
+  line-height: 1.25;
+  font-weight: 750;
+  color: #182433;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Lys understrek per lenke */
+.site-nav__link::after{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  margin-top: .45rem;
+  border-radius: 999px;
+  background: rgba(16,82,119,.18);
+}
+
+/* Hover – litt tydeligere, fortsatt klassisk */
+.site-nav__link:hover::after,
+.site-nav__link:focus-visible::after{
+  background: rgba(16,82,119,.35);
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible{
+  color: var(--myss-blue);
+  outline: none;
+}
+
+/* Mer luft mellom punktene */
+.site-nav__list li + li{
+  margin-top: .9rem;
+}
+
+/* --- Hamburger: BOLD og med tyngde --- */
+.site-header__toggle{
+  font-weight: 800;
+}
+
+.site-header__toggle-label{
+  font-weight: 800;
+}
+
+.site-header__toggle-line{
+  height: 3.5px;
+}
+
 
 
 
