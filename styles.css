@@ -1445,3 +1445,36 @@ html.nav-open .site-header{
 
 
 
+
+/* =========================================
+   FORCE MOBILE FIX – samarbeid.html ONLY
+   ========================================= */
+@media (max-width: 768px) {
+
+  body.page-samarbeid .site-header__inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  body.page-samarbeid .site-header__logo {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    text-align: right !important;
+  }
+
+  body.page-samarbeid .site-header__logo img {
+    display: block !important;
+    margin-left: auto !important;
+  }
+
+  body.page-samarbeid .partner-card__logo-wrap,
+  body.page-samarbeid .partner-logo,
+  body.page-samarbeid .partner-logo img {
+    justify-content: flex-start !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+}
