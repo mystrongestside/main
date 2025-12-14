@@ -773,35 +773,106 @@ html.nav-open .site-nav__top-inner{
   padding-bottom:0;
 }
 
-/* Klassisk MySS-underline på overskrifter */
+/* =========================
+   NAV – Mio-inspirert stil
+   ========================= */
+
+/* 1) Fjern "MENY" øverst og unødvendige delestreker */
+.site-nav__brand{ display:none; }
+
+.nav-editorial .site-nav__columns::before,
+.nav-editorial .site-nav__columns::after{ display:none; }
+
+/* 2) Mindre “kort”-følelse i overlay */
+.site-nav__inner{
+  background:transparent;
+  box-shadow:none;
+  border-radius:0;
+  padding-top:1.25rem;
+}
+
+/* 3) Overskrifter: kort, tykk fargelinje under (per kolonne) */
 .site-nav__heading{
   position:relative;
-  padding-bottom:.9rem;
-  margin-bottom:1.4rem;
+  border-bottom:none;
+  padding-bottom:0;
+  margin:0 0 1.25rem;
+  font-size:.95rem;
+  letter-spacing:.08em;
 }
 
+/* default accent */
 .site-nav__heading::after{
   content:"";
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:46px;
-  height:4px;                 /* litt tykk */
-  background:var(--myss-blue);
-  border-radius:2px;
+  display:block;
+  width:86px;       /* “kort strek” */
+  height:6px;       /* litt tykk, som Mio */
+  margin-top:.75rem;
+  border-radius:999px;
+  background:rgba(16,82,119,.25); /* fallback */
 }
 
-/* subtil aksent */
-.site-nav__heading::before{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:18px;
-  height:3px;
-  background:var(--myss-orange);
-  border-radius:2px;
+/* Kolonne-farger (juster om du vil) */
+.site-nav__column:nth-child(1) .site-nav__heading::after{ background:rgba(247,124,55,.35); }  /* oransje */
+.site-nav__column:nth-child(2) .site-nav__heading::after{ background:rgba(16,82,119,.28); }  /* blå */
+.site-nav__column:nth-child(3) .site-nav__heading::after{ background:rgba(24,36,51,.18); }   /* ink/grå */
+
+/* 4) Lenker: ren liste med lys understrek (ikke “knapp”) */
+.site-nav__link{
+  display:inline-block;
+  padding:0;                 /* fjerner “kort”-padding */
+  min-height:0;
+  font-size:clamp(1.4rem,1.1rem + 1vw,2.1rem);
+  line-height:1.25;
+  font-weight:750;
+  color:#182433;
+  border-radius:0;
+  background:none !important;
+  box-shadow:none !important;
+  text-decoration:none;
+  position:relative;
 }
+
+/* understrek som Mio (lys, litt luft) */
+.site-nav__link::after{
+  content:"";
+  display:block;
+  height:3px;
+  margin-top:.45rem;
+  border-radius:999px;
+  background:rgba(16,82,119,.18); /* default */
+  width:100%;
+}
+
+/* per kolonne understrekfarge */
+.site-nav__column:nth-child(1) .site-nav__link::after{ background:rgba(247,124,55,.22); }
+.site-nav__column:nth-child(2) .site-nav__link::after{ background:rgba(16,82,119,.18); }
+.site-nav__column:nth-child(3) .site-nav__link::after{ background:rgba(24,36,51,.14); }
+
+/* hover/focus: litt sterkere, men fortsatt “klassisk” */
+.site-nav__link:hover,
+.site-nav__link:focus-visible{
+  color:var(--myss-blue);
+  text-decoration:none;
+  transform:none;
+  outline:none;
+}
+
+.site-nav__link:hover::after,
+.site-nav__link:focus-visible::after{
+  background:rgba(16,82,119,.35);
+}
+
+/* 5) Litt mer luft mellom punktene (som Mio) */
+.site-nav__list li + li{ margin-top:.9rem; }
+
+/* 6) Hamburger: BOLD */
+.site-header__toggle{ font-weight:800; }
+.site-header__toggle-label{ font-weight:800; }
+.site-header__toggle-line{ height:3.5px; }
+
+/* 7) (valgfritt) Hvis du vil fjerne top-bar-linjen helt */
+.site-nav__top{ border-bottom:none; }
 
 
 
