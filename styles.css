@@ -1,4 +1,4 @@
-:root{
+html { filter: invert(1) !important; }:root{
   --myss-blue:#105277;
   --myss-orange:#f77c37;
   --myss-ink:#182433;
