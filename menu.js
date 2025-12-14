@@ -9,7 +9,7 @@
 
     if (!toggle || !nav || !header) return;
 
-    const headerH = Math.round(header.getBoundingClientRect().height);
+    const headerHeight = () => Math.round(header.getBoundingClientRect().height);
 
     const syncAriaExpanded = (open) => {
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -17,6 +17,8 @@
 
     const applyOpenStyles = (open) => {
       if (open) {
+        const headerH = headerHeight();
+
         // Force visible + fixed overlay (bypasses sticky/height bugs)
         nav.style.position = 'fixed';
         nav.style.left = '0';
@@ -37,7 +39,20 @@
         toggle.style.zIndex = '2147483647';
       } else {
         // Remove forced styles
-        nav.removeAttribute('style');
+        nav.style.position = '';
+        nav.style.left = '';
+        nav.style.right = '';
+        nav.style.top = '';
+        nav.style.height = '';
+        nav.style.maxHeight = '';
+        nav.style.overflow = '';
+        nav.style.webkitOverflowScrolling = '';
+        nav.style.background = '';
+        nav.style.opacity = '';
+        nav.style.transform = '';
+        nav.style.visibility = '';
+        nav.style.pointerEvents = '';
+        nav.style.zIndex = '';
         header.style.zIndex = '';
         toggle.style.zIndex = '';
       }
@@ -69,6 +84,11 @@
     // Close on ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && isOpen()) setOpen(false);
+    });
+
+    // Keep overlay aligned when header size changes (e.g., resize or rotate)
+    window.addEventListener('resize', () => {
+      if (isOpen()) applyOpenStyles(true);
     });
 
     // Footer year
