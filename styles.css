@@ -643,7 +643,7 @@ body.nav-open{ overflow:hidden; }
     margin-right:auto;
     text-align:left;
   }
-  .partner-card__logo-wrap .partner-logo{ max-height:56px; max-width:200px; margin-right:auto; }
+  .partner-logo{ max-height:56px; max-width:200px; margin-right:auto; }
 
   .myss-cta-wave{ padding:4rem 0 3rem; }
   .myss-cta-wave__inner{ padding:0 1rem; }
