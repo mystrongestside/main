@@ -1,4 +1,77 @@
 (() => {
+  const headerTemplate = `
+    <div class="site-header__inner container">
+      <div class="site-header__left">
+        <button class="site-header__toggle"
+          aria-label="Åpne meny"
+          aria-expanded="false"
+          aria-controls="hovedmeny"
+          type="button">
+          <span class="site-header__toggle-box" aria-hidden="true">
+            <span class="site-header__toggle-line"></span>
+            <span class="site-header__toggle-line"></span>
+            <span class="site-header__toggle-line"></span>
+          </span>
+          <span class="site-header__toggle-label">Vis menyen</span>
+        </button>
+      </div>
+
+      <div class="site-header__center">
+        <a href="index.html" class="site-header__logo">
+          <img src="bilder/myss-logo-header.png" alt="My Strongest Side" />
+        </a>
+      </div>
+
+      <div class="site-header__right site-header__actions">
+        <a href="kontakt.html" class="btn btn--primary">Kontakt oss</a>
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Hovedmeny" id="hovedmeny">
+      <div class="site-nav__top">
+        <div class="site-nav__top-inner container">
+          <div class="site-nav__brand">Meny</div>
+          <button class="site-nav__close" type="button" aria-label="Lukk menyen">
+            ✕ <span class="site-nav__close-label">Lukk menyen</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="site-nav__scroll">
+        <div class="site-nav__panel">
+          <div class="site-nav__inner container nav-editorial">
+            <div class="site-nav__columns">
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">Våre tjenester</h2>
+                <ul class="site-nav__list">
+                  <li><a href="treningstilbud/voksne-lett.html" class="site-nav__link">Voksne – lett funksjonsvariasjon</a></li>
+                  <li><a href="treningstilbud/tett-oppfolging.html" class="site-nav__link">Tett oppfølging</a></li>
+                  <li><a href="frivillig.html" class="site-nav__link">Frivilligprogram</a></li>
+                </ul>
+              </div>
+
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">Informasjon</h2>
+                <ul class="site-nav__list">
+                  <li><a href="presse.html" class="site-nav__link">Presse og media</a></li>
+                  <li><a href="samarbeid.html" class="site-nav__link">Samarbeid</a></li>
+                </ul>
+              </div>
+
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">My Strongest Side</h2>
+                <ul class="site-nav__list">
+                  <li><a href="index.html" class="site-nav__link">Forside</a></li>
+                  <li><a href="kontakt.html" class="site-nav__link">Kontakt</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  `;
+
   function ready(fn) {
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", fn, { once: true });
@@ -10,21 +83,27 @@
   ready(() => {
     const root = document.documentElement;
     const body = document.body;
+    const mount = document.querySelector("[data-component='site-header']");
 
-    const nav = document.querySelector(".site-nav");
-    const toggle = document.querySelector(".site-header__toggle");
-    const header = document.querySelector(".site-header");
-
-    // Hvis helt grunnleggende mangler, stopp uten å kræsje
-    if (!toggle || !nav) {
-      console.warn("menu.js: mangler .site-header__toggle eller .site-nav");
-      return;
+    if (mount) {
+      mount.classList.add("site-header");
+      mount.innerHTML = headerTemplate;
     }
+
+    const header = mount?.classList.contains("site-header") ? mount : document.querySelector(".site-header");
+    const nav = header?.querySelector(".site-nav") || document.querySelector(".site-nav");
+    const toggle = header?.querySelector(".site-header__toggle") || document.querySelector(".site-header__toggle");
 
     const updateFooterYear = () => {
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = String(new Date().getFullYear());
     };
+
+    // Hvis helt grunnleggende mangler, stopp uten å kræsje
+    if (!header || !toggle || !nav) {
+      updateFooterYear();
+      return;
+    }
 
     const isOpen = () => root.classList.contains("nav-open");
 
@@ -122,6 +201,11 @@
     nav.addEventListener("click", (e) => {
       const target = e.target;
       if (!(target instanceof Element)) return;
+      if (target.closest(".site-nav__close")) {
+        e.preventDefault();
+        setOpen(false);
+        return;
+      }
       if (target.closest("a")) setOpen(false);
     });
 
