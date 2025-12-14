@@ -908,6 +908,20 @@ body{
   opacity: 0;
   pointer-events: none;
 }
+/* Header: scroll-fade ut (JS styrer variabler) */
+.site-header{
+  will-change: transform, opacity;
+  transform: translateY(var(--hdr-y, 0px));
+  opacity: var(--hdr-o, 1);
+  transition: none; /* vi vil at scrollen skal styre helt */
+}
+
+/* Når menyen er åpen: ikke fade headeren */
+html.nav-open .site-header{
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
 
 
 
