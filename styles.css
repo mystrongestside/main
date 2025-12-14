@@ -668,37 +668,22 @@ body.nav-open{ overflow:hidden; }
   .social-link img{ width:48px; height:48px; }
 }
 
-@media (max-width:360px){
-  body{ font-size:18px; }
-  .site-header__logo img{ height:50px; }
-  .myss-cta-wave h2{ font-size:1.7rem; }
-}
-/* Mobile menu hardening (stable on iOS/Android) */
-@media (max-width: 760px) {
-  .site-nav{
-    transition: opacity .18s ease, visibility 0s linear .18s;
-  }
+@media (max-width: 760px){
 
-  .nav-open .site-nav{
-    transition: opacity .18s ease, visibility 0s;
-  }
-}
-@media (max-width: 600px){
   .site-header__inner{
     position: relative;
-    justify-content: center; /* midtstill innholdet */
+    justify-content: flex-start; /* behold flex */
   }
 
   .site-header__logo{
-    margin-inline: auto;     /* sørg for at logoen kan sentreres */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .site-header__toggle{
-    position: absolute;
-    left: 1rem;              /* samme som header-padding */
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
+    z-index: 2;
   }
 }
-
 
