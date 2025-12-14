@@ -673,6 +673,33 @@ body.nav-open{ overflow:hidden; }
   .site-header__logo{ position: absolute; left: 50%; transform: translateX(-50%); }
   .site-header__toggle{ position: relative; z-index: 2; }
 }
+/* Midtstill logo på mobil (uten å endre HTML) */
+@media (max-width: 760px){
+  .site-header__inner{
+    position:relative;
+    /* valgfritt men fint: gir stabil høyde */
+    min-height:62px;
+  }
+
+  .site-header__logo{
+    position:absolute !important;
+    left:50% !important;
+    top:50% !important;
+    transform:translate(-50%, -50%) !important;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    z-index:1;
+  }
+
+  /* sørg for at hamburgeren ligger "over" logoen og fortsatt kan klikkes */
+  .site-header__toggle{
+    position:relative;
+    z-index:2;
+  }
+}
 
 
 
