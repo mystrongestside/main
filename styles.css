@@ -921,6 +921,21 @@ html.nav-open .site-header{
   transform: translateY(0) !important;
   opacity: 1 !important;
 }
+/* Overlay: fjern top-bar (MENY + Lukk) for å unngå kollisjon */
+.site-nav__top{
+  display:none;
+}
+
+/* Når top-bar er borte, må scroll-området fylle hele høyden */
+.site-nav__scroll{
+  height:100vh;
+}
+
+/* Sørg for at hamburger/X alltid er klikkbar over overlay */
+html.nav-open .site-header__toggle{
+  position:relative;
+  z-index:3001;
+}
 
 
 
