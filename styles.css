@@ -683,4 +683,22 @@ body.nav-open{ overflow:hidden; }
     transition: opacity .18s ease, visibility 0s;
   }
 }
+@media (max-width: 600px){
+  .site-header__inner{
+    position: relative;
+    justify-content: center; /* midtstill innholdet */
+  }
+
+  .site-header__logo{
+    margin-inline: auto;     /* sørg for at logoen kan sentreres */
+  }
+
+  .site-header__toggle{
+    position: absolute;
+    left: 1rem;              /* samme som header-padding */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
 
