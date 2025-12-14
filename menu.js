@@ -1,35 +1,37 @@
 (() => {
   const root = document.documentElement;
+  let initialized = false;
+  let observer;
 
-  function init() {
+  const updateFooterYear = () => {
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+  };
+
+  const initMenu = () => {
+    if (initialized) return true;
+
     const toggle = document.querySelector('.site-header__toggle');
     const nav = document.querySelector('.site-nav');
-    const label = toggle?.querySelector('.site-header__toggle-label');
     const header = document.querySelector('.site-header');
+    const label = toggle?.querySelector('.site-header__toggle-label');
 
-    if (!toggle || !nav || !header) return;
-
-    const headerHeight = () => Math.round(header.getBoundingClientRect().height);
+    if (!toggle || !nav || !header) return false;
 
     const syncHeaderHeightVar = () => {
-      root.style.setProperty('--header-height', `${headerHeight()}px`);
-    };
-
-    const syncAriaExpanded = (open) => {
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      root.style.setProperty('--header-height', `${Math.round(header.getBoundingClientRect().height)}px`);
     };
 
     const setOpen = (open) => {
       syncHeaderHeightVar();
-      syncAriaExpanded(open);
-      nav.classList.toggle('site-nav--open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.classList.toggle('is-open', open);
       root.classList.toggle('nav-open', open);
       document.body.classList.toggle('nav-open', open);
       if (label) label.textContent = open ? 'Lukk menyen' : 'Vis menyen';
     };
 
-    const isOpen = () => nav.classList.contains('site-nav--open');
+    const isOpen = () => root.classList.contains('nav-open');
 
     toggle.addEventListener('click', (e) => {
       e.preventDefault();
@@ -43,34 +45,58 @@
       }
     });
 
-    // Close on outside click
     document.addEventListener('click', (e) => {
       if (!isOpen()) return;
       const inside = nav.contains(e.target) || toggle.contains(e.target);
       if (!inside) setOpen(false);
     });
 
-    // Close on ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && isOpen()) setOpen(false);
     });
 
-    // Keep overlay aligned when header size changes (e.g., resize or rotate)
     window.addEventListener('resize', () => {
       if (isOpen()) syncHeaderHeightVar();
     });
 
-    // Initialize header height for first render
     syncHeaderHeightVar();
+    updateFooterYear();
 
-    // Footer year
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-  }
+    initialized = true;
+    return true;
+  };
+
+  const attemptInit = () => {
+    if (initMenu() && observer) {
+      observer.disconnect();
+      observer = undefined;
+    }
+  };
+
+  const waitForMenu = () => {
+    if (initialized) return;
+
+    observer = new MutationObserver(() => {
+      attemptInit();
+    });
+
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+    });
+  };
+
+  const onReady = () => {
+    attemptInit();
+    if (!initialized) {
+      waitForMenu();
+      attemptInit();
+    }
+  };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', onReady);
   } else {
-    init();
+    onReady();
   }
 })();

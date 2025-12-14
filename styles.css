@@ -175,13 +175,11 @@ main{ padding:2.5rem 0 3.5rem; }
   transform:translateY(-8px);
   pointer-events:none;
   visibility:hidden;
-
   overflow:hidden;
-
   transition:opacity .22s ease, transform .22s ease, visibility 0s linear .22s;
 }
 
-.site-nav.site-nav--open{
+.nav-open .site-nav{
   opacity:1;
   transform:translateY(0);
   pointer-events:auto;
@@ -496,7 +494,7 @@ body.nav-open{ overflow:hidden; }
     transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
   }
 
-  .site-nav.site-nav--open{
+  .nav-open .site-nav{
     transition: opacity .18s ease, transform .18s ease, visibility 0s;
   }
 }
