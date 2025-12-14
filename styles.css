@@ -167,7 +167,7 @@ main{ padding:2.5rem 0 3.5rem; }
   position:absolute;
   left:0;
   right:0;
-  top:100%;
+  top:var(--header-height);
   z-index:2147483646;
   background:#fff;
   border-bottom:1px solid rgba(0,0,0,.06);
