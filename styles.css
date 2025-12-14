@@ -164,42 +164,32 @@ main{ padding:2.5rem 0 3.5rem; }
 .site-nav{
   --header-height: 0px;
   display:block;
-  position:absolute;
-  left:0;
-  right:0;
-  top:var(--header-height);
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
   z-index:2147483646;
   background:#fff;
-  border-bottom:1px solid rgba(0,0,0,.06);
-
-  max-height:0;
-  overflow:hidden;
 
   opacity:0;
   transform:translateY(-8px);
   pointer-events:none;
   visibility:hidden;
 
-  transition:max-height .32s ease, opacity .22s ease, transform .22s ease, visibility 0s linear .22s;
+  overflow:hidden;
+
+  transition:opacity .22s ease, transform .22s ease, visibility 0s linear .22s;
 }
 
 .site-nav.site-nav--open{
-  position:fixed;
-  left:0;
-  right:0;
-  top:var(--header-height);
-  height:calc(100vh - var(--header-height));
-  max-height:none;
-  overflow:auto;
-  -webkit-overflow-scrolling:touch;
-  background:#fff;
-
   opacity:1;
   transform:translateY(0);
   pointer-events:auto;
   visibility:visible;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
 
-  transition:max-height .32s ease, opacity .22s ease, transform .22s ease, visibility 0s;
+  transition:opacity .22s ease, transform .22s ease, visibility 0s;
 }
 
 .nav-open .site-header{ z-index:2147483647; }
@@ -211,7 +201,7 @@ body.nav-open{ overflow:hidden; }
 .site-nav__inner{
   max-width:var(--container);
   margin-inline:auto;
-  padding:1rem 1.5rem 1.5rem;
+  padding:calc(var(--header-height) + 1rem) 1.5rem 1.5rem;
 }
 
 .site-nav__columns{ display:grid; gap:2rem; }
@@ -502,26 +492,11 @@ body.nav-open{ overflow:hidden; }
 }
 /* Mobile menu hardening (stable on iOS/Android) */
 @media (max-width: 760px) {
-  /* fixed panel under header */
   .site-nav{
-    position: fixed;
-    left: 0;
-    right: 0;
-
-    /* header height on mobile (logo 56px + padding) */
-    top: 78px;
-
-    height: calc(100vh - 78px);
-    max-height: none;
-
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-
     transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
   }
 
   .site-nav.site-nav--open{
-    max-height: none;
     transition: opacity .18s ease, transform .18s ease, visibility 0s;
   }
 }
