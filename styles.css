@@ -773,6 +773,37 @@ html.nav-open .site-nav__top-inner{
   padding-bottom:0;
 }
 
+/* Klassisk MySS-underline på overskrifter */
+.site-nav__heading{
+  position:relative;
+  padding-bottom:.9rem;
+  margin-bottom:1.4rem;
+}
+
+.site-nav__heading::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:46px;
+  height:4px;                 /* litt tykk */
+  background:var(--myss-blue);
+  border-radius:2px;
+}
+
+/* subtil aksent */
+.site-nav__heading::before{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:18px;
+  height:3px;
+  background:var(--myss-orange);
+  border-radius:2px;
+}
+
+
 
 
 
