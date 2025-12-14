@@ -11,61 +11,22 @@
 
     const headerHeight = () => Math.round(header.getBoundingClientRect().height);
 
+    const syncHeaderHeightVar = () => {
+      root.style.setProperty('--header-height', `${headerHeight()}px`);
+    };
+
     const syncAriaExpanded = (open) => {
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     };
 
-    const applyOpenStyles = (open) => {
-      if (open) {
-        const headerH = headerHeight();
-
-        // Force visible + fixed overlay (bypasses sticky/height bugs)
-        nav.style.position = 'fixed';
-        nav.style.left = '0';
-        nav.style.right = '0';
-        nav.style.top = `${headerH}px`;
-        nav.style.height = `calc(100vh - ${headerH}px)`;
-        nav.style.maxHeight = 'none';
-        nav.style.overflow = 'auto';
-        nav.style.webkitOverflowScrolling = 'touch';
-        nav.style.background = '#fff';
-        nav.style.opacity = '1';
-        nav.style.transform = 'translateY(0)';
-        nav.style.visibility = 'visible';
-        nav.style.pointerEvents = 'auto';
-        nav.style.zIndex = '2147483646';
-
-        header.style.zIndex = '2147483647';
-        toggle.style.zIndex = '2147483647';
-      } else {
-        // Remove forced styles
-        nav.style.position = '';
-        nav.style.left = '';
-        nav.style.right = '';
-        nav.style.top = '';
-        nav.style.height = '';
-        nav.style.maxHeight = '';
-        nav.style.overflow = '';
-        nav.style.webkitOverflowScrolling = '';
-        nav.style.background = '';
-        nav.style.opacity = '';
-        nav.style.transform = '';
-        nav.style.visibility = '';
-        nav.style.pointerEvents = '';
-        nav.style.zIndex = '';
-        header.style.zIndex = '';
-        toggle.style.zIndex = '';
-      }
-    };
-
     const setOpen = (open) => {
+      syncHeaderHeightVar();
       syncAriaExpanded(open);
       nav.classList.toggle('site-nav--open', open);
       toggle.classList.toggle('is-open', open);
       root.classList.toggle('nav-open', open);
       document.body.classList.toggle('nav-open', open);
       if (label) label.textContent = open ? 'Lukk menyen' : 'Vis menyen';
-      applyOpenStyles(open);
     };
 
     const isOpen = () => nav.classList.contains('site-nav--open');
@@ -89,8 +50,11 @@
 
     // Keep overlay aligned when header size changes (e.g., resize or rotate)
     window.addEventListener('resize', () => {
-      if (isOpen()) applyOpenStyles(true);
+      if (isOpen()) syncHeaderHeightVar();
     });
+
+    // Initialize header height for first render
+    syncHeaderHeightVar();
 
     // Footer year
     const yearEl = document.getElementById('year');
