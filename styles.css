@@ -1276,6 +1276,17 @@ html.nav-open .site-header{
   opacity: 1 !important;
   transform: translateY(0px) !important;
 }
+.site-header{
+  opacity: var(--hdr-o, 1);
+  transform: translateY(var(--hdr-y, 0px));
+  will-change: transform, opacity;
+}
+
+html.nav-open .site-header{
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+
 
 
 
