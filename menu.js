@@ -20,6 +20,7 @@
     if (toggle) {
       toggle.classList.toggle('is-open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+
       const label = toggle.querySelector('.site-header__toggle-label');
       if (label) label.textContent = open ? 'Lukk menyen' : 'Vis menyen';
     }
@@ -29,48 +30,40 @@
     const target = event.target;
     if (!(target instanceof Element)) return;
 
+    // Toggle åpne/lukk
     if (target.closest('.site-header__toggle')) {
       event.preventDefault();
       setOpen(!isOpen());
       return;
     }
 
-    if (target.closest('.site-nav__close')) {
-      setOpen(false);
-      return;
-    }
-
+    // Klikk på lenke lukker
     if (target.closest('.site-nav a')) {
       setOpen(false);
     }
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && isOpen()) {
-      setOpen(false);
-    }
+    if (event.key === 'Escape' && isOpen()) setOpen(false);
   });
 
   const syncAria = () => {
     const toggle = document.querySelector('.site-header__toggle');
-    if (toggle) {
-      toggle.setAttribute('aria-expanded', isOpen() ? 'true' : 'false');
-    }
+    if (toggle) toggle.setAttribute('aria-expanded', isOpen() ? 'true' : 'false');
   };
 
-  // Init
   updateFooterYear();
   syncAria();
 
-  // Header: fade/glid opp mens du scroller ned mot første tekst i hero
+  // ===== Header: gradvis fade ut når du nærmer deg hero-tekst =====
   const header = document.querySelector('.site-header');
 
+  // Bruk første tekst i hero som referanse (eyebrow eller h1)
   const firstText =
     document.querySelector('.section.section--light .eyebrow') ||
     document.querySelector('.section.section--light h1');
 
   let ticking = false;
-
   const clamp01 = (n) => Math.max(0, Math.min(1, n));
 
   const updateHeaderScrollFade = () => {
@@ -87,8 +80,10 @@
     const headerH = header.offsetHeight || 80;
     const textTop = firstText.getBoundingClientRect().top;
 
-    const start = headerH * 2.0;   // start fade
-    const end = headerH + 10;      // ferdig fade
+    // Start fade når teksten er litt under header-området,
+    // og avslutt når teksten er nær toppen.
+    const start = headerH * 2.2;   // tidligere/senere fade: juster 2.2
+    const end = headerH * 0.9;     // hvor "ferdig" den skal være
 
     const p = clamp01((start - textTop) / (start - end));
 
