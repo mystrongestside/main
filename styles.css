@@ -873,6 +873,20 @@ html.nav-open .site-nav__top-inner{
 
 /* 7) (valgfritt) Hvis du vil fjerne top-bar-linjen helt */
 .site-nav__top{ border-bottom:none; }
+/* Tving sticky header tilbake */
+.site-header{
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 5000 !important;
+}
+
+/* Viktig: sticky funker dårlig hvis foreldre har overflow/transform */
+html, body{
+  overflow-x: clip;          /* ok */
+  overflow-y: visible;       /* sticky trenger dette */
+}
+
 
 
 
