@@ -1,10 +1,260 @@
+> <!DOCTYPE html>
+a> <html lang="no">
+> <head>
+>   <meta charset="UTF-8" />
+>   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+color: var(>   <title>Samarbeid | My Strongest Side®</title>
+>   <meta name="description" content="Sammen gjør vi trening mulig for flere. Samarbeidspartnere og støttespillere bygger trygge
+ og inkluderende treningsmiljøer." />
+rid;
+     >   <link rel="icon" type="image/png" href="favicon.png" />
+px, 1fr>   <link rel="stylesheet" href="styles.css?v=112" />
+>   <script>document.documentElement.classList.add('js');</script>
+>
+>   <style>
+95>     :root {
+>       --myss-white: #ffffff;
+5rem 1rem;
+      bo>       --myss-orange: #f77c37;
+>       --myss-blue: #24344d;
+>       --myss-soft: #e4e8f2;
+>       --myss-ink: #24344d;
+>       --myss-shadow: rgba(16, 82, 119, 0.12);
+>     }
+>
+>     .dot { position: static !important; margin-left: 0.1em; }
+>     body { background: var(--myss-white); }
+>
+>     header[data-component="site-header"],
+
+   >     .navbar {
+5re>       background: #24344d !important;
+>       border-bottom: none !important;
+background: #f>       box-shadow: none !important;
+1.2rem;
+  >     }
+    pa>     header[data-component="site-header"]::after,
+>     .navbar::after {
+  >       content: none !important;
+>       display: none !important;
+>     }
+>
+>     .hero--simple {
+>       background: radial-gradient(circle at top left, rgba(247,124,55,0.22), transparent 40%),
+
+  >                   radial-gradient(circle at 70% 25%, rgba(16,82,119,0.22), transparent 55%),
+>                   linear-gradient(145deg, #1f2f48 0%, #24344d 65%, #162233 100%);
+em; >       color: #ffffff;
+>       padding: clamp(4.5rem, 9vw, 6.5rem) 1rem clamp(3.5rem, 7vw, 5.5rem);
+>       text-align: center;
+ 700; colo>     }
+>     .hero__content {
+>       max-width: 840px;
+>       margin: 0 auto;
+>       display: flex;
+>       flex-direction: column;
+>       align-items: center;
+>       gap: 1.25rem;
+>     }
+>     .hero__eyebrow {
+>       font-size: .98rem;
+>       letter-spacing: 0.08em;
+>       text-transform: uppercase;
+>       margin: 0;
+>       opacity: 0.85;
+>     }
+>     .hero--simple h1 {
+>       font-size: clamp(2.75rem, 5.6vw, 3.6rem);
+>       font-weight: 800;
+>       line-height: 1.3;
+{>       margin: 0;
+font->     }
+>     .hero__subtitle {
+ .link->       font-size: 1.15rem;
+>       line-height: 1.8;
+>       color: #f5f7fa;
+>       margin: 0;
+>       max-width: 680px;
+>     }
+>     .hero__cta {
+>       display: flex;
+>       flex-wrap: wrap;
+>       justify-content: center;
+nt: >       gap: .85rem;
+>       margin-top: .75rem;
+>     }
+>
+>     .btn-myss {
+>       background: var(--myss-orange);
+>       color: #ffffff;
+>       padding: 1rem 1.8rem;
+>       border-radius: 999px;
+6s >       font-weight: 700;
+>       text-decoration: none;
+>       box-shadow: 0 14px 28px rgba(247,124,55,0.35);
+>       transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+>       border: 0;
+i>     }
+>     .btn-myss:hover,
+form>     .btn-myss:focus-visible {
+      tra>       transform: translateY(-2px);
+}
+ >       box-shadow: 0 18px 36px rgba(247,124,55,0.45);
+-si>       background: #e86d2d;
+3.5rem 1.25>     }
+>     .btn-myss--ghost {
+>       background: #fff;
+l>       border: 1px solid rgba(255,255,255,0.32);
+ght: 1.25; }
+ >       box-shadow: none;
+>       color: var(--myss-blue);
+ima>     }
+ra>
+m>     .section-divider {
+5v>       border: 0;
+>       border-top: 1px solid #e7ecf4;
+  >       margin: 2rem auto;
+d>
+
+<b>       width: min(820px, 100%);
+">
+<h>     }
+>
+d>     .section--split { padding-top: 0; }
+...
+>         </p>
+>       </div>
+>       <div class="split__image" data-scroll-fade>
+>         <div class="image-frame">
+>           <img src="frivillig-hero.jpg" alt="Veileder støtter deltaker på treningssenter" loading="lazy">
+>           <div class="image-tag">Trygghet gjennom faste veiledere</div>
+>         </div>
+>       </div>
+>     </div>
+>   </section>
+>
+>   <section class="section section--partners">
+argets.>     <div class="container stack" style="gap:1.5rem;">
+>       <h2 data-scroll-fade>Våre samarbeidspartnere og støttespillere</h2>
+>       <p data-scroll-fade style="max-width:780px;">
+>         Hver partner bidrar på sitt felt – fra finansiering og faglig sparring til praktisk tilrettelegging og rekruttering.
+>       </p>
+>       <div class="partner-grid">
+>         <article class="partner-card" data-scroll-fade>
+>           <div class="partner-card__logo-wrap">
+>             <img src="bilder/cp-logo.png" alt="CP-foreningen Vestland" loading="lazy" />
+>           </div>
+>           <h3>CP-foreningen Vestland</h3>
+>           <p>Gjør det mulig for flere medlemmer å delta gjennom rekruttering, informasjon og likepersonsarbeid.</p>
+>           <p><a href="https://cp.no" target="_blank" rel="noopener noreferrer">Besøk nettside</a></p>
+>         </article>
+>
+>         <article class="partner-card" data-scroll-fade>
+>           <div class="partner-card__logo-wrap">
+>             <img src="bilder/hvl-logo.svg" alt="Høgskulen på Vestlandet" loading="lazy" />
+>           </div>
+>           <h3>Høgskulen på Vestlandet</h3>
+>           <p>Bidrar gjennom HVL Skape-programmet med innovasjonsstøtte til digitale løsninger for tilgjengelig styrketrening.<
+/p>
+>           <p><a href="https://hvlskape.no" target="_blank" rel="noopener noreferrer">Besøk nettside</a></p>
+>         </article>
+>
+>         <article class="partner-card" data-scroll-fade>
+>           <div class="partner-card__logo-wrap">
+>             <img src="bilder/atteraas_logo.svg" alt="Atterås AS" loading="lazy" />
+>           </div>
+>           <h3>Atterås AS</h3>
+>           <p>Samarbeider faglig om ortoser og ortopediske hjelpemidler, slik at trening kan tilpasses både utstyr og kropp.</p
+>
+>           <p><a href="https://atteraas.no" target="_blank" rel="noopener noreferrer">Besøk nettside</a></p>
+>         </article>
+>
+>         <article class="partner-card" data-scroll-fade>
+>           <div class="partner-card__logo-wrap">
+>             <img src="bilder/logo-bpa.svg" alt="Mio BPA" loading="lazy" />
+>           </div>
+>           <h3>Mio BPA</h3>
+>           <p>Forenkler deltakelse med praktisk støtte, og gir ungdom og unge voksne trygghet i rollen som arbeidsleder.</p>
+>           <p><a href="https://mio.no/bpa/" target="_blank" rel="noopener noreferrer">Besøk nettside</a></p>
+>         </article>
+>       </div>
+>     </div>
+>   </section>
+>
+>   <section class="section">
+>     <div class="container" data-scroll-fade>
+>       <div class="cta-panel" id="bli-partner">
+>         <div>
+>           <h2>Vil du samarbeide med oss?</h2>
+>           <p>Ta kontakt hvis du vil bidra til tryggere og mer tilgjengelige treningsopplevelser, eller har forslag til nye til
+tak.</p>
+>         </div>
+>         <div class="hero__cta">
+>           <a class="btn-myss" href="kontakt.html#partner">Kontakt oss</a>
+>           <a class="btn-myss btn-myss--ghost" href="mailto:post@mystrongestside.no">post@mystrongestside.no</a>
+>         </div>
+>       </div>
+>     </div>
+>   </section>
+>
+>   <div class="container" aria-hidden="true">
+>     <hr class="section-divider">
+>   </div>
+>
+>   <section class="section">
+>     <div class="container surface-card stack" style="gap:1.1rem;" data-scroll-fade>
+>       <h2>Hva slags samarbeid ser vi etter?</h2>
+>       <p>
+>         Vi er nysgjerrige på alt som kan gjøre trening enklere for flere: fagmiljøer som vil teste nye metoder, organisasjoner
+ som ønsker å gi medlemmene et trygt treningstilbud, eller leverandører som vil utforske bedre tilpasninger av utstyr.
+>       </p>
+>       <p>
+>         Fortell oss hva dere ønsker å få til, så finner vi ut hvordan vi kan skape mest mulig verdi sammen.
+>       </p>
+>       <p>
+>         <a class="link-arrow" href="mailto:post@mystrongestside.no">Send oss en e-post</a>
+>       </p>
+>     </div>
+>   </section>
+> </main>
+>
+> <div id="myss-footer"></div>
+> <script>
+>   (function(){
+>     var fadeTargets = Array.prototype.slice.call(document.querySelectorAll('[data-scroll-fade]'));
+>     if (!fadeTargets.length) return;
+>     var reveal = function(el){ el.classList.add('is-visible'); };
+>     if (!('IntersectionObserver' in window)) {
+>       fadeTargets.forEach(reveal);
+>       return;
+>     }
+>     var fadeObserver = new IntersectionObserver(function(entries, obs){
+>       entries.forEach(function(entry){
+>         if (entry.isIntersecting) {
+>           reveal(entry.target);
+>           obs.unobserve(entry.target);
+>         }
+>       });
+>     }, {
+>       threshold: 0.2
+>     });
+>     fadeTargets.forEach(function(el){ fadeObserver.observe(el); });
+>   })();
+> </script>
+> <script src="script.js?v=42" defer></script>
+> <script src="marquee-guard.js?v=36" defer></script>
+> </body>
+> </html>
+> EOF
+root@3e0184f20347:/workspace/main# sed -n '1,200p' samarbeid.html
 <!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Samarbeid | My Strongest Side®</title>
-  <meta name="description" content="Sammen gjør vi trening mulig for flere. Samarbeidspartnere og støttespillere bygger trygge og inkluderende treningsmiljøer." />
+  <meta name="description" content="Sammen gjør vi trening mulig for flere. Samarbeidspartnere og støttespillere bygger trygge o
+g inkluderende treningsmiljøer." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="styles.css?v=112" />
   <script>document.documentElement.classList.add('js');</script>
@@ -198,6 +448,8 @@
     .partner-card h3 { margin: 0; color: var(--myss-blue); font-size: 1.15rem; }
     .partner-card p { margin: 0; line-height: 1.6; color: var(--myss-ink); }
     .partner-card a { font-weight: 700; color: var(--myss-blue); }
+root@3e0184f20347:/workspace/main# sed -n '200,400p' samarbeid.html
+    .partner-card a { font-weight: 700; color: var(--myss-blue); }
 
     .cta-panel {
       background: linear-gradient(120deg, var(--myss-blue), #0f3957);
@@ -259,7 +511,8 @@
       <p class="hero__eyebrow">Samarbeid</p>
       <h1>Sammen åpner vi dørene til styrketrening<span class="dot">.</span></h1>
       <p class="hero__subtitle">
-        My Strongest Side® utvikler løsningene – partnerne våre gjør det mulig å gjennomføre trygge, inkluderende treningsopplevelser for barn, ungdom og voksne.
+        My Strongest Side® utvikler løsningene – partnerne våre gjør det mulig å gjennomføre trygge, inkluderende treningsopplev
+elser for barn, ungdom og voksne.
       </p>
       <div class="hero__cta">
         <a class="btn-myss" href="#bli-partner">Bli samarbeidspartner</a>
@@ -277,7 +530,8 @@
       <div class="split__text" data-scroll-fade>
         <h3>Partnerskap som gjør en forskjell</h3>
         <p>
-          Vi bygger tilbud sammen med organisasjoner, fagmiljøer og leverandører som deler ambisjonen vår: å gjøre styrketrening tryggere og mer forståelig for flest mulig. Samarbeidene gir oss innsikt, utstyr og menneskene som trengs for å lykkes.
+          Vi bygger tilbud sammen med organisasjoner, fagmiljøer og leverandører som deler ambisjonen vår: å gjøre styrketrening
+ tryggere og mer forståelig for flest mulig. Samarbeidene gir oss innsikt, utstyr og menneskene som trengs for å lykkes.
         </p>
         <div class="info-chips">
           <span>Rekruttering og likepersonsarbeid</span>
@@ -337,7 +591,8 @@
             <img src="bilder/hvl-logo.svg" alt="Høgskulen på Vestlandet" loading="lazy" />
           </div>
           <h3>Høgskulen på Vestlandet</h3>
-          <p>Bidrar gjennom HVL Skape-programmet med innovasjonsstøtte til digitale løsninger for tilgjengelig styrketrening.</p>
+          <p>Bidrar gjennom HVL Skape-programmet med innovasjonsstøtte til digitale løsninger for tilgjengelig styrketrening.</p
+>
           <p><a href="https://hvlskape.no" target="_blank" rel="noopener noreferrer">Besøk nettside</a></p>
         </article>
 
@@ -367,7 +622,8 @@
       <div class="cta-panel" id="bli-partner">
         <div>
           <h2>Vil du samarbeide med oss?</h2>
-          <p>Ta kontakt hvis du vil bidra til tryggere og mer tilgjengelige treningsopplevelser, eller har forslag til nye tiltak.</p>
+          <p>Ta kontakt hvis du vil bidra til tryggere og mer tilgjengelige treningsopplevelser, eller har forslag til nye tilta
+k.</p>
         </div>
         <div class="hero__cta">
           <a class="btn-myss" href="kontakt.html#partner">Kontakt oss</a>
@@ -385,7 +641,8 @@
     <div class="container surface-card stack" style="gap:1.1rem;" data-scroll-fade>
       <h2>Hva slags samarbeid ser vi etter?</h2>
       <p>
-        Vi er nysgjerrige på alt som kan gjøre trening enklere for flere: fagmiljøer som vil teste nye metoder, organisasjoner som ønsker å gi medlemmene et trygt treningstilbud, eller leverandører som vil utforske bedre tilpasninger av utstyr.
+        Vi er nysgjerrige på alt som kan gjøre trening enklere for flere: fagmiljøer som vil teste nye metoder, organisasjoner s
+om ønsker å gi medlemmene et trygt treningstilbud, eller leverandører som vil utforske bedre tilpasninger av utstyr.
       </p>
       <p>
         Fortell oss hva dere ønsker å få til, så finner vi ut hvordan vi kan skape mest mulig verdi sammen.
@@ -398,29 +655,3 @@
 </main>
 
 <div id="myss-footer"></div>
-<script>
-  (function(){
-    var fadeTargets = Array.prototype.slice.call(document.querySelectorAll('[data-scroll-fade]'));
-    if (!fadeTargets.length) return;
-    var reveal = function(el){ el.classList.add('is-visible'); };
-    if (!('IntersectionObserver' in window)) {
-      fadeTargets.forEach(reveal);
-      return;
-    }
-    var fadeObserver = new IntersectionObserver(function(entries, obs){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting) {
-          reveal(entry.target);
-          obs.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.2
-    });
-    fadeTargets.forEach(function(el){ fadeObserver.observe(el); });
-  })();
-</script>
-<script src="script.js?v=42" defer></script>
-<script src="marquee-guard.js?v=36" defer></script>
-</body>
-</html>
