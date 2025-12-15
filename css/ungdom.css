@@ -1,0 +1,131 @@
+/* Ungdom-side: kun side-layout. Alt “grunn-design” kommer fra styles.css */
+
+/* Ghost-knapp (siden du har primary i base) */
+.btn--ghost{
+  background: transparent;
+  border-color: rgba(16,82,119,.18);
+  color: var(--myss-blue);
+}
+.btn--ghost:hover,
+.btn--ghost:focus-visible{
+  border-color: var(--myss-blue);
+  text-decoration: none;
+}
+
+/* Hero */
+.youth-hero{ padding-top: 3.25rem; padding-bottom: 3.25rem; }
+.youth-hero__inner{ max-width: 980px; text-align:center; }
+.youth-hero__lede{ max-width: 760px; margin-inline:auto; }
+
+/* Chips */
+.youth-chips{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.6rem;
+  list-style:none;
+  padding:0;
+  margin: 1.35rem 0 0;
+}
+.youth-chips li{
+  border: 1px solid rgba(16,82,119,.14);
+  background: rgba(16,82,119,.06);
+  border-radius: 999px;
+  padding: .45rem .95rem;
+  font-weight: 700;
+}
+
+/* Actions */
+.youth-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.75rem;
+  margin-top: 1.2rem;
+}
+
+/* Split */
+.youth-split{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 2rem;
+  align-items:center;
+}
+.youth-split--reverse .youth-split__text{ order:2; }
+.youth-split--reverse .youth-frame{ order:1; }
+
+@media (max-width: 900px){
+  .youth-split{ grid-template-columns: 1fr; }
+  .youth-split--reverse .youth-split__text,
+  .youth-split--reverse .youth-frame{ order:initial; }
+}
+
+/* Frame */
+.youth-frame{
+  margin:0;
+  border-radius: 24px;
+  overflow:hidden;
+  position:relative;
+  background:#fff;
+  box-shadow: 0 18px 45px rgba(16,82,119,.12);
+  border: 1px solid rgba(16,82,119,.10);
+}
+.youth-frame img{
+  display:block;
+  width:100%;
+  height: 340px;
+  object-fit: cover;
+}
+@media (max-width: 900px){
+  .youth-frame img{ height: min(56vh, 520px); }
+}
+.youth-frame__tag{
+  position:absolute;
+  left: 14px;
+  bottom: 14px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(16,82,119,.12);
+  border-radius: 999px;
+  padding: .42rem .8rem;
+  font-weight: 800;
+}
+
+/* Infochips */
+.youth-infochips{
+  display:flex;
+  flex-wrap:wrap;
+  gap: .75rem;
+  margin-top: 1rem;
+}
+.youth-infochips span{
+  border: 1px solid rgba(247,124,55,.65);
+  border-radius: 14px;
+  padding: .8rem .95rem;
+  font-weight: 800;
+  background: #fff;
+}
+.youth-infochips--grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+/* Kort */
+.youth-card{
+  border: 1px solid rgba(16,82,119,.10);
+  border-radius: 24px;
+  padding: 1.6rem;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(16,82,119,.12);
+}
+
+/* Scroll-reveal (ikke bland med .fade-in animasjonen du har i base) */
+.js .reveal{
+  opacity:0;
+  transform: translateY(10px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: opacity, transform;
+}
+.js .reveal.is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  .js .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
+}
