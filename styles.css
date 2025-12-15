@@ -1469,7 +1469,35 @@ html.nav-open .site-header{
     }
   }
 } 
- <section class="myss-heroimg" aria-label="Bilde">
-  <img src="bilder/hero-large.jpg" alt="Styrketrening i fellesskap hos My Strongest Side" loading="lazy" decoding="async">
-</section>
+ /* HERO: gjør bildet lavere + mer kontrollert */
+.hero{
+  position: relative;
+  overflow: hidden;
+  max-height: 340px;     /* juster: 260–420px */
+}
+
+.hero-image{
+  width: 100%;
+  height: 340px;         /* må matche max-height for stabil høyde */
+  display: block;
+  object-fit: cover;
+  object-position: 50% 35%;
+}
+
+/* Overlay beholdes */
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+}
+
+/* Mobil: enda lavere */
+@media (max-width:600px){
+  .hero{ max-height: 220px; }
+  .hero-image{
+    height: 220px;
+    object-position: 50% 40%;
+  }
+}
+
+  
 
