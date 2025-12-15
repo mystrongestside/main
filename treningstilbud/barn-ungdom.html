@@ -1,126 +1,126 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Barn og unge | My Strongest Side®</title>
-  <meta name="description" content="Tilbud for barn og unge med funksjonsvariasjon. Små grupper, rolig tempo, tilpasninger og faste veiledere." />
+  <title>Ungdomstrening | My Strongest Side®</title>
+  <meta name="description" content="Ungdomstrening for 12–15 år. Små grupper, rolig tempo, tilpasninger og faste veiledere." />
 
   <link rel="icon" type="image/png" href="../favicon.png" />
   <link rel="stylesheet" href="../styles.css?v=112" />
   <link rel="stylesheet" href="../css/ungdom.css?v=1" />
 
   <script>document.documentElement.classList.add('js');</script>
+
+  <style>
+    /* Knapper (samme som Tett oppfølging) */
+    .myss-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
+    .myss-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.9rem 1.15rem;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      line-height:1.1;
+      background:var(--myss-blue);
+      color:#fff;
+      border:2px solid var(--myss-blue);
+      transition:transform .08s ease, filter .2s ease, background .2s ease, color .2s ease;
+    }
+    .myss-btn:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+    .myss-btn:active{ transform:translateY(0); }
+    .myss-btn--outline{ background:transparent; color:var(--myss-blue); }
+
+    /* HERO-grid */
+    .myss-hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:2rem;
+      align-items:center;
+    }
+    @media (max-width: 900px){
+      .myss-hero-grid{ grid-template-columns:1fr; }
+    }
+    .myss-hero-photo{
+      width:100%;
+      height:auto;
+      border-radius:24px;
+      aspect-ratio: 4 / 3;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* Reveal */
+    .js .reveal{
+      opacity:0;
+      transform:translateY(10px);
+      transition:opacity .6s ease, transform .6s ease;
+      will-change:opacity, transform;
+    }
+    .js .reveal.is-visible{ opacity:1; transform:none; }
+    .js .reveal.d1{ transition-delay:.05s; }
+    .js .reveal.d2{ transition-delay:.12s; }
+    .js .reveal.d3{ transition-delay:.18s; }
+    .js .reveal.d4{ transition-delay:.24s; }
+  </style>
 </head>
 
 <body class="page-ungdom">
-  <header class="site-header">
-    <div class="site-header__inner container">
-      <div class="site-header__left">
-        <button class="site-header__toggle"
-          aria-label="Åpne meny"
-          aria-expanded="false"
-          aria-controls="hovedmeny"
-          type="button">
-          <span class="site-header__toggle-box" aria-hidden="true">
-            <span class="site-header__toggle-line"></span>
-            <span class="site-header__toggle-line"></span>
-            <span class="site-header__toggle-line"></span>
-          </span>
-          <span class="site-header__toggle-label">Vis menyen</span>
-        </button>
-      </div>
 
-      <div class="site-header__center">
-        <a href="../index.html" class="site-header__logo">
-          <img src="../bilder/myss-logo-header.png" alt="My Strongest Side" />
-        </a>
-      </div>
-
-      <div class="site-header__right site-header__actions">
-        <a href="../kontakt.html" class="btn btn--primary">Kontakt oss</a>
-      </div>
-    </div>
-
-    <nav class="site-nav" aria-label="Hovedmeny" id="hovedmeny">
-      <div class="site-nav__top">
-        <div class="site-nav__top-inner container">
-          <div class="site-nav__brand">Meny</div>
-          <button class="site-nav__close" type="button" aria-label="Lukk menyen">
-            ✕ <span class="site-nav__close-label">Lukk menyen</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="site-nav__scroll">
-        <div class="site-nav__panel">
-          <div class="site-nav__inner container nav-editorial">
-            <div class="site-nav__columns">
-              <div class="site-nav__column">
-                <h2 class="site-nav__heading">Våre tjenester</h2>
-                <ul class="site-nav__list">
-                  <li><a href="../gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
-                  <li><a href="../Individuelloppfølging.html" class="site-nav__link">Individuell oppfølging</a></li>
-                  <li><a href="../foresatte.html" class="site-nav__link">Kurs og seminar</a></li>
-                  <li><a href="../qr/trening/index.html" class="site-nav__link">QR/NFC treningssystem</a></li>
-                </ul>
-              </div>
-
-              <div class="site-nav__column">
-                <h2 class="site-nav__heading">Informasjon</h2>
-                <ul class="site-nav__list">
-                  <li><a href="../presse.html" class="site-nav__link">Presse og media</a></li>
-                  <li><a href="../samarbeid.html" class="site-nav__link">Samarbeid</a></li>
-                </ul>
-              </div>
-
-              <div class="site-nav__column">
-                <h2 class="site-nav__heading">My Strongest Side</h2>
-                <ul class="site-nav__list">
-                  <li><a href="../index.html" class="site-nav__link">Forside</a></li>
-                  <li><a href="../kontakt.html" class="site-nav__link">Kontakt</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <header data-component="site-header"></header>
 
   <main>
 
     <!-- HERO -->
-    <section class="section section--light youth-hero">
-      <div class="container youth-hero__inner">
-        <p class="eyebrow reveal">Ungdom</p>
-        <h1 class="reveal">Trening for ungdom fra 12 til 15 år<span class="dot">.</span></h1>
-        <p class="reveal youth-hero__lede">
-          Mestring, glede og fellesskap for 12–15 år. Trygg introduksjon til apparater og basisøvelser – ledet av Alexander og Amir med studenter fra HVL.
-        </p>
+    <section class="section section--light">
+      <div class="container myss-hero-grid">
 
-        <ul class="youth-chips reveal" aria-label="Kort oppsummert">
-          <li>Små grupper</li>
-          <li>Tilpasninger</li>
-          <li>Rolig tempo</li>
-          <li>Faste veiledere</li>
-        </ul>
+        <div>
+          <p class="eyebrow reveal d1">Ungdom</p>
+          <h1 class="reveal d2">Ungdomstrening 12–15 år<span class="dot">.</span></h1>
 
-        <div class="youth-actions reveal">
-          <a class="btn btn--primary" href="ungdom-påmelding.html">Se påmelding</a>
-          <a class="btn btn--ghost" href="mailto:post@mystrongestside.no">Still et spørsmål</a>
+          <p class="reveal d3" style="opacity:.95;">
+            Mestring, glede og fellesskap. Trygg introduksjon til apparater og basisøvelser – ledet av Alexander og Amir
+            sammen med studenter fra HVL.
+          </p>
+
+          <ul class="youth-chips reveal d4" aria-label="Kort oppsummert">
+            <li>Små grupper</li>
+            <li>Tilpasninger</li>
+            <li>Rolig tempo</li>
+            <li>Faste veiledere</li>
+          </ul>
+
+          <div class="myss-actions reveal d4">
+            <a class="myss-btn" href="ungdom-påmelding.html">Se påmelding</a>
+            <a class="myss-btn myss-btn--outline" href="mailto:post@mystrongestside.no">Still et spørsmål</a>
+          </div>
         </div>
+
+        <div class="reveal d2">
+          <img
+            src="../bilde01.jpg"
+            alt="Veileder som støtter ungdom i styrkeapparat"
+            class="myss-hero-photo"
+            loading="lazy"
+          />
+        </div>
+
       </div>
     </section>
 
     <!-- SPLIT 1 -->
     <section class="section">
       <div class="container youth-split">
-        <div class="youth-split__text reveal">
+
+        <div class="youth-split__text reveal d2">
           <h2>Tren med trygghet</h2>
           <p>
-            Vi starter hver økt med å sjekke dagsform og behov. Du får rolig og ryddig oppfølging hele veien, og det er alltid rom for pauser.
+            Vi starter hver økt med å sjekke dagsform og behov. Du får rolig og ryddig oppfølging hele veien,
+            og det er alltid rom for pauser.
           </p>
 
           <div class="youth-infochips">
@@ -130,17 +130,19 @@
           </div>
         </div>
 
-        <figure class="youth-frame reveal">
-          <img src="../bilde01.jpg" alt="Veileder som støtter deltaker i styrkeapparat" loading="lazy">
+        <figure class="youth-frame reveal d3">
+          <img src="../bilde01.jpg" alt="Teknikkstøtte i apparat" loading="lazy">
           <figcaption class="youth-frame__tag">Teknikkstøtte i apparat</figcaption>
         </figure>
+
       </div>
     </section>
 
     <!-- SPLIT 2 -->
     <section class="section section--light">
       <div class="container youth-split youth-split--reverse">
-        <div class="youth-split__text reveal">
+
+        <div class="youth-split__text reveal d2">
           <h2>Veiledere med relevant fagbakgrunn</h2>
           <p>
             Du møter trygge veiledere med erfaring innen trening og tilpasninger. Vi jobber strukturert og gjør øvelser forståelige – i praksis.
@@ -150,21 +152,22 @@
           </p>
         </div>
 
-        <figure class="youth-frame reveal">
+        <figure class="youth-frame reveal d3">
           <img src="../bilder/studenter.png" alt="Veiledere og studenter" loading="lazy">
           <figcaption class="youth-frame__tag">Faste veiledere</figcaption>
         </figure>
+
       </div>
     </section>
 
     <!-- KORT INFO -->
     <section class="section" id="tilbud">
-      <div class="container youth-card reveal">
+      <div class="container youth-card reveal d2">
         <h2>Tilbudet i korte trekk</h2>
 
         <h3>Hvem passer det for?</h3>
         <p>
-          For barn og unge som ønsker et rolig og oversiktlig miljø å trene i. Du trenger ikke ha trent styrke før.
+          For ungdom som ønsker et rolig og oversiktlig miljø å trene i. Du trenger ikke ha trent styrke før.
           Vi tilpasser etter utgangspunkt, mål og eventuelle hjelpemidler.
         </p>
 
@@ -181,9 +184,9 @@
           <span>Pris: fra 600,- pr sesong</span>
         </div>
 
-        <div class="youth-actions">
-          <a class="btn btn--primary" href="ungdom-påmelding.html">Se praktisk info og påmelding</a>
-          <a class="btn btn--ghost" href="mailto:post@mystrongestside.no">Spørsmål</a>
+        <div class="myss-actions" style="margin-top:1.1rem;">
+          <a class="myss-btn" href="ungdom-påmelding.html">Se praktisk info og påmelding</a>
+          <a class="myss-btn myss-btn--outline" href="mailto:post@mystrongestside.no">Spørsmål</a>
         </div>
       </div>
     </section>
@@ -191,9 +194,9 @@
     <!-- CTA -->
     <section class="myss-cta-wave" id="cta">
       <div class="myss-cta-wave__inner">
-        <h2 class="reveal">Klar for å bli med<span class="dot">.</span></h2>
-        <p class="reveal">Send påmelding – vi tar en kort prat før oppstart for å sikre gode tilpasninger.</p>
-        <div class="myss-cta-wave__actions reveal">
+        <h2 class="reveal d2">Klar for å bli med<span class="dot">.</span></h2>
+        <p class="reveal d3">Send påmelding – vi tar en kort prat før oppstart for å sikre gode tilpasninger.</p>
+        <div class="myss-cta-wave__actions reveal d4">
           <a href="ungdom-påmelding.html" class="myss-cta-wave__btn">Se påmelding</a>
           <a href="mailto:post@mystrongestside.no" class="myss-cta-wave__email">post@mystrongestside.no</a>
         </div>
@@ -202,52 +205,54 @@
 
   </main>
 
-  <footer class="site-footer fade-in delay-1">
+  <footer class="site-footer">
     <div class="container site-footer__inner">
-      <div class="site-footer__brand fade-in delay-2">
+
+      <div class="site-footer__brand reveal d2">
         <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
-        <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
+        <p class="site-footer__tagline reveal d3">Gjør trening tilgjengelig for flest mulig</p>
       </div>
 
       <div class="site-footer__top">
         <div>
-          <h3 class="site-footer__heading">Våre tjenester</h3>
+          <h3 class="site-footer__heading reveal d2">Våre tjenester</h3>
           <ul class="site-footer__list">
-            <li><a href="voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
-            <li><a href="tett-oppfolging.html">Tett oppfølging</a></li>
-            <li><a href="../frivillig.html">Frivilligprogram</a></li>
+            <li class="reveal d2"><a href="voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
+            <li class="reveal d3"><a href="tett-oppfolging.html">Tett oppfølging</a></li>
+            <li class="reveal d4"><a href="../frivillig.html">Frivilligprogram</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="site-footer__heading">Informasjon</h3>
+          <h3 class="site-footer__heading reveal d2">Informasjon</h3>
           <ul class="site-footer__list">
-            <li><a href="../presse.html">Presse og media</a></li>
-            <li><a href="../samarbeid.html">Samarbeid</a></li>
+            <li class="reveal d2"><a href="../presse.html">Presse og media</a></li>
+            <li class="reveal d3"><a href="../samarbeid.html">Samarbeid</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="site-footer__heading">My Strongest Side</h3>
+          <h3 class="site-footer__heading reveal d2">My Strongest Side</h3>
           <ul class="site-footer__list">
-            <li><a href="../kontakt.html">Kontakt</a></li>
+            <li class="reveal d2"><a href="../kontakt.html">Kontakt</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="site-footer__heading">Kontakt</h3>
+          <h3 class="site-footer__heading reveal d2">Kontakt</h3>
           <ul class="site-footer__list">
-            <li>My Strongest Side AS</li>
-            <li>Brages veg 3<br>5221 Nesttun</li>
-            <li>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
-            <li>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
+            <li class="reveal d2">My Strongest Side AS</li>
+            <li class="reveal d3">Brages veg 3<br>5221 Nesttun</li>
+            <li class="reveal d3">E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li class="reveal d4">Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
           </ul>
         </div>
       </div>
 
       <div class="site-footer__bottom">
-        <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
-        <div class="site-footer__social">
+        <p class="site-footer__meta reveal d2">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+
+        <div class="site-footer__social reveal d3">
           <span class="site-footer__social-label">Følg oss i sosiale medier</span>
           <div class="site-footer__social-list">
             <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
@@ -259,44 +264,34 @@
           </div>
         </div>
       </div>
+
     </div>
   </footer>
 
   <script src="../menu.js" defer></script>
-  <script defer>
-    document.addEventListener('DOMContentLoaded', () => {
-      const header = document.querySelector('.site-header');
-      if (!header) return;
 
-      const logoLink = header.querySelector('.site-header__logo');
-      if (logoLink) {
-        logoLink.setAttribute('href', '../index.html');
-        const logoImg = logoLink.querySelector('img');
-        if (logoImg) logoImg.setAttribute('src', '../bilder/myss-logo-header.png');
+  <!-- Fade-in observer -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const els = Array.from(document.querySelectorAll('.reveal'));
+
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
       }
 
-      const contactLink = header.querySelector('.site-header__actions .btn');
-      if (contactLink) contactLink.setAttribute('href', '../kontakt.html');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
 
-      const navLinks = Array.from(header.querySelectorAll('.site-nav .site-nav__link'));
-      const replacements = [
-        '../gruppetrening.html',
-        '../Individuelloppfølging.html',
-        '../foresatte.html',
-        '../qr/trening/index.html',
-        '../presse.html',
-        '../samarbeid.html',
-        '../index.html',
-        '../kontakt.html'
-      ];
-
-      replacements.forEach((href, index) => {
-        const link = navLinks[index];
-        if (link) link.setAttribute('href', href);
-      });
+      els.forEach(el => io.observe(el));
     });
   </script>
-  <script src="../js/ungdom.js" defer></script>
+
 </body>
 </html>
-
