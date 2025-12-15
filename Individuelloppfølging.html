@@ -65,6 +65,14 @@
       object-fit:cover;
       display:block;
       margin-top:1rem;
+      /* Vis hele bildet (ingen cropping) */
+.myss-team-photo--contain{
+  aspect-ratio: auto;        /* fjerner 4/3-lås */
+  max-height: 520px;         /* juster ved behov */
+  object-fit: contain;       /* viser hele bildet */
+  background: rgba(16,82,119,.06); /* pen “ramme” bak */
+}
+
     }
 
     /* Pris-boks (rolig, tydelig verdi) */
@@ -304,11 +312,9 @@
             </p>
 
             <img
-              src="bilder/amir.jpg"
-              alt="Amir"
-              class="myss-team-photo reveal d2"
-              loading="lazy"
-            />
+             <img src="bilder/amir.jpg" alt="Amir" class="myss-team-photo myss-team-photo--contain reveal d2" loading="lazy" />
+
+            
           </article>
 
         </div>
