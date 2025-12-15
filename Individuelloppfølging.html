@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Tett oppfølging | My Strongest Side®</title>
-  <meta name="description" content="Book individuell oppfølging med Amir, Alexander – eller begge. Velg fysisk eller digital oppfølging. Personlig trening og treningsprogram du kan følge." />
+  <meta name="description" content="Individuell oppfølging er et tilleggstilbud med begrenset kapasitet. Send forespørsel om enkelttime eller digital 1:1 oppfølging (min. 3 mnd)." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="styles.css?v=110" />
@@ -67,6 +67,23 @@
       margin-top:1rem;
     }
 
+    /* Pris-boks (rolig, tydelig verdi) */
+    .myss-pricebox{
+      margin-top:1rem;
+      padding:1.1rem 1.1rem;
+      border-radius:20px;
+      background:rgba(16,82,119,.06);
+      border:1px solid rgba(16,82,119,.16);
+    }
+    .myss-pricebox p{ margin:.55rem 0; }
+    .myss-pricebox ul{ margin:.5rem 0 0; padding-left:1.1rem; }
+    .myss-pricebox li{ margin:.25rem 0; }
+    .myss-note{
+      margin-top:.75rem;
+      font-weight:700;
+    }
+    .myss-muted{ opacity:.85; }
+
     /* Fade-in (scroll-basert) */
     .js .reveal{
       opacity:0;
@@ -97,15 +114,16 @@
 
         <div>
           <p class="eyebrow reveal d1">Individuell oppfølging</p>
-          <h1 class="reveal d2">Tett oppfølging – på dine premisser</h1>
+          <h1 class="reveal d2">Tett oppfølging – som et tilleggstilbud</h1>
           <p class="reveal d3">
-            Vil du ha en mer personlig og målrettet treningshverdag? Hos My Strongest Side® kan du booke individuell time med Amir,
-            Alexander – eller begge. Du får personlig trening og et treningsprogram du kan følge over tid.
+            Dette er et <strong>tilleggstilbud</strong> for deg som ønsker 1:1 oppfølging ved siden av trening i hverdagen.
+            My Strongest Side® har først og fremst fokus på gruppetilbud og tilgjengelig trening for flere – derfor har vi
+            <strong>begrenset kapasitet</strong> på individuelle timer.
           </p>
 
           <div class="myss-actions reveal d4">
             <a class="myss-btn" href="#tilbud">Se tilbud</a>
-            <a class="myss-btn myss-btn--outline" href="kontakt.html#tett-oppfolging">Book / send forespørsel</a>
+            <a class="myss-btn myss-btn--outline" href="kontakt.html#tett-oppfolging">Send forespørsel</a>
           </div>
         </div>
 
@@ -143,10 +161,10 @@
             <li class="reveal d4">Program du kan følge videre</li>
           </ul>
 
-          <p class="mt-sm reveal d2"><strong>Pris:</strong> fra kr 899,- per time</p>
+          <p class="mt-sm reveal d2"><strong>Veiledende pris:</strong> fra kr 899,- per time</p>
 
           <div class="myss-actions reveal d3">
-            <a class="myss-btn" href="kontakt.html#tett-oppfolging">Book enkelttime</a>
+            <a class="myss-btn" href="kontakt.html#tett-oppfolging">Send forespørsel om enkelttime</a>
             <a class="myss-btn myss-btn--outline" href="mailto:post@mystrongestside.no">Spør på e-post</a>
           </div>
         </article>
@@ -157,7 +175,7 @@
             <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
           </div>
 
-          <h2 class="mt-sm reveal d2">Digital oppfølging (månedlig)</h2>
+          <h2 class="mt-sm reveal d2">Digital oppfølging (1:1)</h2>
           <p class="reveal d3">
             For deg som ønsker kontinuitet: vi følger deg opp digitalt og justerer programmet underveis.
             Passer både for deg som trener på senter, hjemme, eller ønsker struktur mellom økter.
@@ -169,12 +187,33 @@
             <li class="reveal d4">Tydelige mål og realistisk opplegg</li>
           </ul>
 
-          <p class="mt-sm reveal d2"><strong>Pris:</strong> Oppstart: 2 500 kr
-Oppfølging: 1 800 kr / mnd</p>
+          <!-- Pris: tydelig verdi + min. 3 mnd -->
+          <div class="myss-pricebox reveal d2">
+            <p class="reveal d2 myss-muted">
+              Oppstart er en <strong>engangssum</strong> fordi vi bygger opplegget (kartlegging + program).
+              Månedsprisen er for <strong>1:1 oppfølging</strong> og justeringer over tid – ikke “betaling for det samme”.
+            </p>
 
-          <div class="myss-actions reveal d3">
-            <a class="myss-btn" href="kontakt.html#tett-oppfolging">Start digital oppfølging</a>
-            <a class="myss-btn myss-btn--outline" href="mailto:post@mystrongestside.no">Spør på e-post</a>
+            <p class="reveal d3"><strong>✔ Oppstart (engangssum): 2 500 kr</strong></p>
+            <ul class="mt-sm">
+              <li class="reveal d2">1:1 kartlegging av mål, nivå og hensyn</li>
+              <li class="reveal d3">Skreddersydd program du kan følge</li>
+              <li class="reveal d4">Plan for progresjon og prioritering</li>
+            </ul>
+
+            <p class="reveal d3" style="margin-top:.9rem;"><strong>✔ Oppfølging: 1 800 kr / mnd</strong></p>
+            <ul class="mt-sm">
+              <li class="reveal d2">1:1 oppfølging og justering av program</li>
+              <li class="reveal d3">Konkrete anbefalinger for videre progresjon</li>
+              <li class="reveal d4">Fast månedlig gjennomgang (digitalt)</li>
+            </ul>
+
+            <p class="myss-note reveal d3">Minimum 3 måneder.</p>
+
+            <div class="myss-actions reveal d3">
+              <a class="myss-btn" href="kontakt.html#tett-oppfolging">Send forespørsel</a>
+              <a class="myss-btn myss-btn--outline" href="mailto:post@mystrongestside.no">Spør på e-post</a>
+            </div>
           </div>
         </article>
 
@@ -196,7 +235,7 @@ Oppfølging: 1 800 kr / mnd</p>
             <li class="reveal d4"><strong>Amir + Alexander:</strong> ekstra tett oppfølging og to faglige perspektiver</li>
           </ul>
 
-          <p class="mt-sm reveal d2" style="opacity:.85;">
+          <p class="mt-sm reveal d2 myss-muted">
             Tips: Skriv gjerne om mål, erfaring, eventuelle hjelpemidler/ortoser, og om du ønsker fysisk eller digital oppfølging.
           </p>
 
@@ -238,7 +277,6 @@ Oppfølging: 1 800 kr / mnd</p>
               barrierer i miljøet – slik at flere kan trene i vanlige treningsarenaer over tid.
             </p>
 
-            <!-- Bilde av Alexander -->
             <img
               src="bilder/alexander.jpg"
               alt="Alexander Sviggum"
@@ -265,7 +303,6 @@ Oppfølging: 1 800 kr / mnd</p>
               motiverende og realistisk å følge.
             </p>
 
-            <!-- Bilde av Amir -->
             <img
               src="bilder/amir.jpg"
               alt="Amir"
@@ -281,12 +318,13 @@ Oppfølging: 1 800 kr / mnd</p>
     <!-- CTA -->
     <section class="myss-cta-wave" id="book">
       <div class="myss-cta-wave__inner">
-        <h2 class="reveal d2">Klar for å komme i gang<span class="dot">.</span></h2>
+        <h2 class="reveal d2">Sjekk tilgjengelighet<span class="dot">.</span></h2>
         <p class="reveal d3">
-          Send en kort forespørsel – så finner vi riktig opplegg og hvem du ønsker å booke.
+          Ønsker du å høre om dette kan passe for deg? Send en kort forespørsel med mål, erfaring og om du ønsker fysisk eller digitalt –
+          så svarer vi med forslag til opplegg og tilgjengelighet.
         </p>
         <div class="myss-cta-wave__actions reveal d4">
-          <a href="kontakt.html#tett-oppfolging" class="myss-btn">Book individuell oppfølging</a>
+          <a href="kontakt.html#tett-oppfolging" class="myss-btn">Send forespørsel</a>
           <a href="mailto:post@mystrongestside.no" class="myss-btn myss-btn--outline">post@mystrongestside.no</a>
         </div>
       </div>
@@ -298,51 +336,51 @@ Oppfølging: 1 800 kr / mnd</p>
   <footer class="site-footer">
     <div class="container site-footer__inner">
 
-      <div class="site-footer__brand">
+      <div class="site-footer__brand reveal d2">
         <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
-        <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
+        <p class="site-footer__tagline reveal d3">Gjør trening tilgjengelig for flest mulig</p>
       </div>
 
       <div class="site-footer__top">
         <div>
-          <h3 class="site-footer__heading">Våre tjenester</h3>
+          <h3 class="site-footer__heading reveal d2">Våre tjenester</h3>
           <ul class="site-footer__list">
-            <li><a href="treningstilbud/voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
-            <li><a href="treningstilbud/tett-oppfolging.html">Tett oppfølging</a></li>
-            <li><a href="frivillig.html">Frivilligprogram</a></li>
+            <li class="reveal d2"><a href="treningstilbud/voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
+            <li class="reveal d3"><a href="treningstilbud/tett-oppfolging.html">Tett oppfølging</a></li>
+            <li class="reveal d4"><a href="frivillig.html">Frivilligprogram</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="site-footer__heading">Informasjon</h3>
+          <h3 class="site-footer__heading reveal d2">Informasjon</h3>
           <ul class="site-footer__list">
-            <li><a href="presse.html">Presse og media</a></li>
-            <li><a href="samarbeid.html">Samarbeid</a></li>
+            <li class="reveal d2"><a href="presse.html">Presse og media</a></li>
+            <li class="reveal d3"><a href="samarbeid.html">Samarbeid</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="site-footer__heading">My Strongest Side</h3>
+          <h3 class="site-footer__heading reveal d2">My Strongest Side</h3>
           <ul class="site-footer__list">
-            <li><a href="kontakt.html">Kontakt</a></li>
+            <li class="reveal d2"><a href="kontakt.html">Kontakt</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="site-footer__heading">Kontakt</h3>
+          <h3 class="site-footer__heading reveal d2">Kontakt</h3>
           <ul class="site-footer__list">
-            <li>My Strongest Side AS</li>
-            <li>Brages veg 3<br>5221 Nesttun</li>
-            <li>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
-            <li>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
+            <li class="reveal d2">My Strongest Side AS</li>
+            <li class="reveal d3">Brages veg 3<br>5221 Nesttun</li>
+            <li class="reveal d3">E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li class="reveal d4">Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
           </ul>
         </div>
       </div>
 
       <div class="site-footer__bottom">
-        <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+        <p class="site-footer__meta reveal d2">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
 
-        <div class="site-footer__social">
+        <div class="site-footer__social reveal d3">
           <span class="site-footer__social-label">Følg oss i sosiale medier</span>
           <div class="site-footer__social-list">
             <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
@@ -366,7 +404,6 @@ Oppfølging: 1 800 kr / mnd</p>
     document.addEventListener('DOMContentLoaded', () => {
       const els = Array.from(document.querySelectorAll('.reveal'));
 
-      // fallback: vis alt
       if (!('IntersectionObserver' in window)) {
         els.forEach(el => el.classList.add('is-visible'));
         return;
