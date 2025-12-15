@@ -1470,6 +1470,7 @@ html.nav-open .site-header{
   }
 } 
 /* HERO: la bildet beholde naturlige proporsjoner */
+ /* HERO: la bildet beholde naturlige proporsjoner */
 .hero{
   position: relative;
   overflow: visible;
@@ -1493,4 +1494,51 @@ html.nav-open .site-header{
   position: absolute;
   inset: 0;
 }
+
+/* Mobil: enda lavere */
+@media (max-width:600px){
+  .hero{ max-height: 220px; }
+  .hero-image{
+    height: 220px;
+    object-position: 50% 40%;
+  }
+}
+
+
+/* CODEX HERO SIZE PATCH */
+.myss-heroimg{
+  max-height: 280px !important;
+  overflow: hidden !important;
+}
+.myss-heroimg img{
+  width: 100% !important;
+  height: 280px !important;
+  object-fit: cover !important;
+  object-position: 50% 35% !important;
+  display: block !important;
+}
+@media (max-width:600px){
+  .myss-heroimg{ max-height: 190px !important; }
+  .myss-heroimg img{ height: 190px !important; object-position: 50% 40% !important; }
+}
+/* END CODEX HERO SIZE PATCH */
+
+
+/* CODEX HERO SIZE PATCH */
+.hero{
+  max-height: 280px !important;
+  overflow: hidden !important;
+}
+.hero .hero-image, .hero-image{
+  width: 100% !important;
+  height: 280px !important;
+  object-fit: cover !important;
+  object-position: 50% 35% !important;
+  display: block !important;
+}
+@media (max-width:600px){
+  .hero{ max-height: 190px !important; }
+  .hero .hero-image, .hero-image{ height: 190px !important; object-position: 50% 40% !important; }
+}
+/* END CODEX HERO SIZE PATCH */
 
