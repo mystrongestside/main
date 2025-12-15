@@ -1431,34 +1431,44 @@ html.nav-open .site-header{
    FORCE MOBILE FIX – samarbeid.html ONLY
    ========================================= */
 @media (max-width: 768px) {
+/* Scope KUN samarbeid-siden */
+  body.page-samarbeid {
 
-  body.page-samarbeid .site-header__inner {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
+    /* ===== HEADER / LOGO / MENY ===== */
+    .site-header__inner {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+
+    .site-header__logo {
+      margin-left: auto !important;
+      margin-right: 0 !important;
+      text-align: right !important;
+    }
+
+    .site-header__logo img {
+      display: block !important;
+      margin-left: auto !important;
+      max-height: 42px !important;
+      width: auto !important;
+    }
+
+    /* ===== PARTNERLOGOER ===== */
+    .partner-card__logo-wrap {
+      display: flex !important;
+      justify-content: flex-start !important;
+      text-align: left !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+    }
+
+    .partner-card__logo-wrap .partner-logo {
+      margin-left: 0 !important;
+      margin-right: auto !important;
+    }
   }
-
-  body.page-samarbeid .site-header__logo {
-    margin-left: auto !important;
-    margin-right: 0 !important;
-    text-align: right !important;
-  }
-
-  body.page-samarbeid .site-header__logo img {
-    display: block !important;
-    margin-left: auto !important;
-  }
-
-  body.page-samarbeid .partner-card__logo-wrap,
-  body.page-samarbeid .partner-logo,
-  body.page-samarbeid .partner-logo img {
-    justify-content: flex-start !important;
-    text-align: left !important;
-    margin-left: 0 !important;
-    margin-right: auto !important;
-  }
-
-}
+} 
 /* === MySS bildekarusell === */
 .myss-carousel{
   margin: 1.25rem 0 2rem;
