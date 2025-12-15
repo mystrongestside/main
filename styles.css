@@ -1469,19 +1469,17 @@ html.nav-open .site-header{
     }
   }
 } 
- /* HERO: gjør bildet lavere + mer kontrollert */
+ /* HERO: la bildet beholde naturlige proporsjoner */
 .hero{
   position: relative;
-  overflow: hidden;
-  max-height: 340px;     /* juster: 260–420px */
+  overflow: visible;
+  max-height: none;
 }
 
 .hero-image{
   width: 100%;
-  height: 340px;         /* må matche max-height for stabil høyde */
+  height: auto;
   display: block;
-  object-fit: cover;
-  object-position: 50% 35%;
 }
 
 /* Overlay beholdes */
