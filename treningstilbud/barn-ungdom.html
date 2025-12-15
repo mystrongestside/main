@@ -95,9 +95,9 @@
     <section class="section section--light youth-hero">
       <div class="container youth-hero__inner">
         <p class="eyebrow reveal">Barn og unge</p>
-        <h1 class="reveal">Trygg styrketrening – på dine premisser<span class="dot">.</span></h1>
+        <h1 class="reveal">Trening for ungdom fra 12 til 15 år<span class="dot">.</span></h1>
         <p class="reveal youth-hero__lede">
-          Små grupper, rolig tempo og tydelige rammer. Vi tilpasser øvelser og utstyr slik at du kan trene trygt – uansett utgangspunkt.
+          Mestring, glede og fellesskap for 12–15 år. Trygg introduksjon til apparater og basisøvelser – ledet av Alexander og Amir med studenter fra HVL.
         </p>
 
         <ul class="youth-chips reveal" aria-label="Kort oppsummert">
@@ -263,6 +263,39 @@
   </footer>
 
   <script src="../menu.js" defer></script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('.site-header');
+      if (!header) return;
+
+      const logoLink = header.querySelector('.site-header__logo');
+      if (logoLink) {
+        logoLink.setAttribute('href', '../index.html');
+        const logoImg = logoLink.querySelector('img');
+        if (logoImg) logoImg.setAttribute('src', '../bilder/myss-logo-header.png');
+      }
+
+      const contactLink = header.querySelector('.site-header__actions .btn');
+      if (contactLink) contactLink.setAttribute('href', '../kontakt.html');
+
+      const navLinks = Array.from(header.querySelectorAll('.site-nav .site-nav__link'));
+      const replacements = [
+        '../gruppetrening.html',
+        '../Individuelloppfølging.html',
+        '../foresatte.html',
+        '../qr/trening/index.html',
+        '../presse.html',
+        '../samarbeid.html',
+        '../index.html',
+        '../kontakt.html'
+      ];
+
+      replacements.forEach((href, index) => {
+        const link = navLinks[index];
+        if (link) link.setAttribute('href', href);
+      });
+    });
+  </script>
   <script src="../js/ungdom.js" defer></script>
 </body>
 </html>
