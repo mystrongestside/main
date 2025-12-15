@@ -15,7 +15,79 @@
 </head>
 
 <body class="page-ungdom">
-  <header data-component="site-header"></header>
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <div class="site-header__left">
+        <button class="site-header__toggle"
+          aria-label="Åpne meny"
+          aria-expanded="false"
+          aria-controls="hovedmeny"
+          type="button">
+          <span class="site-header__toggle-box" aria-hidden="true">
+            <span class="site-header__toggle-line"></span>
+            <span class="site-header__toggle-line"></span>
+            <span class="site-header__toggle-line"></span>
+          </span>
+          <span class="site-header__toggle-label">Vis menyen</span>
+        </button>
+      </div>
+
+      <div class="site-header__center">
+        <a href="../index.html" class="site-header__logo">
+          <img src="../bilder/myss-logo-header.png" alt="My Strongest Side" />
+        </a>
+      </div>
+
+      <div class="site-header__right site-header__actions">
+        <a href="../kontakt.html" class="btn btn--primary">Kontakt oss</a>
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Hovedmeny" id="hovedmeny">
+      <div class="site-nav__top">
+        <div class="site-nav__top-inner container">
+          <div class="site-nav__brand">Meny</div>
+          <button class="site-nav__close" type="button" aria-label="Lukk menyen">
+            ✕ <span class="site-nav__close-label">Lukk menyen</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="site-nav__scroll">
+        <div class="site-nav__panel">
+          <div class="site-nav__inner container nav-editorial">
+            <div class="site-nav__columns">
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">Våre tjenester</h2>
+                <ul class="site-nav__list">
+                  <li><a href="../gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
+                  <li><a href="../Individuelloppfølging.html" class="site-nav__link">Individuell oppfølging</a></li>
+                  <li><a href="../foresatte.html" class="site-nav__link">Kurs og seminar</a></li>
+                  <li><a href="../qr/trening/index.html" class="site-nav__link">QR/NFC treningssystem</a></li>
+                </ul>
+              </div>
+
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">Informasjon</h2>
+                <ul class="site-nav__list">
+                  <li><a href="../presse.html" class="site-nav__link">Presse og media</a></li>
+                  <li><a href="../samarbeid.html" class="site-nav__link">Samarbeid</a></li>
+                </ul>
+              </div>
+
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">My Strongest Side</h2>
+                <ul class="site-nav__list">
+                  <li><a href="../index.html" class="site-nav__link">Forside</a></li>
+                  <li><a href="../kontakt.html" class="site-nav__link">Kontakt</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <main>
 
