@@ -6,7 +6,7 @@
   <title>Gruppetrening på apparat | My Strongest Side®</title>
   <meta name="description" content="Gjør trening tilgjengelig for flest mulig. Finn glede i bevegelse og fellesskap med My Strongest Side®." />
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=111" />
+  <link rel="stylesheet" href="styles.css?v=112" />
 
   <style>
 /* === My Strongest Side® – Treningskort v51.4 (UU + mobilfiks + grid + bildeutsnitt) === */
@@ -138,25 +138,19 @@
 @media (min-width:600px){
   .course-card__media{ aspect-ratio:16/6; }
 }
-    /* HERO-bildet øverst: gjør det lavere og mer kontrollert */
+    /* HERO-bildet øverst: behold naturlig høyde og proporsjon */
 .myss-heroimg{
   width:100%;
   border-radius:0;
-  overflow:hidden;
-  max-height: 340px;          /* juster: 260–420px er ofte fint */
+  overflow:visible;
 }
 
 .myss-heroimg img{
   width:100%;
-  height:340px;               /* må matche max-height for stabil høyde */
-  object-fit:cover;
-  object-position:50% 35%;
+  height:auto;
+  object-fit:contain;
+  object-position:center;
   display:block;
-}
-
-@media (max-width:600px){
-  .myss-heroimg{ max-height:220px; }
-  .myss-heroimg img{ height:220px; object-position:50% 40%; }
 }
 
   </style>
