@@ -152,6 +152,23 @@
   object-position:center;
   display:block;
 }
+/* HERO: halv størrelse i begge retninger på desktop */
+@media (min-width: 900px){
+  .myss-heroimg{
+    width: 50%;
+    max-height: 50vh;
+    margin: 0 auto;        /* midtstill horisontalt */
+    overflow: hidden;
+  }
+
+  .myss-heroimg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* fyll boksen, kutt overskytende */
+    object-position: center;
+    display: block;
+  }
+}
 
   </style>
 </head>
