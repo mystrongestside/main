@@ -4,13 +4,85 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Individuell oppfølging| My Strongest Side®</title>
+  <title>Tett oppfølging | My Strongest Side®</title>
   <meta name="description" content="Book individuell oppfølging med Amir, Alexander – eller begge. Velg fysisk eller digital oppfølging. Personlig trening og treningsprogram du kan følge." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="styles.css?v=110" />
 
   <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Side-spesifikk styling (knapper + bilder + fade-in) -->
+  <style>
+    /* Tydelige knapper */
+    .myss-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
+    .myss-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.9rem 1.15rem;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      line-height:1.1;
+      background:var(--myss-blue);
+      color:#fff;
+      border:2px solid var(--myss-blue);
+      transition:transform .08s ease, filter .2s ease, background .2s ease, color .2s ease;
+    }
+    .myss-btn:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+    .myss-btn:active{ transform:translateY(0); }
+    .myss-btn--outline{
+      background:transparent;
+      color:var(--myss-blue);
+    }
+
+    /* HERO med bilde */
+    .myss-hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:2rem;
+      align-items:center;
+    }
+    @media (max-width: 900px){
+      .myss-hero-grid{ grid-template-columns:1fr; }
+    }
+    .myss-hero-photo{
+      width:100%;
+      height:auto;
+      border-radius:24px;
+      aspect-ratio: 4 / 3;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* Team-bilder */
+    .myss-team-photo{
+      width:100%;
+      height:auto;
+      border-radius:24px;
+      aspect-ratio: 4 / 3;
+      object-fit:cover;
+      display:block;
+      margin-top:1rem;
+    }
+
+    /* Fade-in (scroll-basert) */
+    .js .reveal{
+      opacity:0;
+      transform:translateY(10px);
+      transition:opacity .6s ease, transform .6s ease;
+      will-change:opacity, transform;
+    }
+    .js .reveal.is-visible{
+      opacity:1;
+      transform:none;
+    }
+    .js .reveal.d1{ transition-delay:.05s; }
+    .js .reveal.d2{ transition-delay:.12s; }
+    .js .reveal.d3{ transition-delay:.18s; }
+    .js .reveal.d4{ transition-delay:.24s; }
+  </style>
 </head>
 
 <body class="page-tett-oppfolging">
@@ -20,160 +92,185 @@
   <main>
 
     <!-- HERO -->
-    <section class="section section--light fade-in">
-      <div class="container fade-in delay-1">
-        <p class="eyebrow">Individuell oppfølging</p>
-        <h1 class="fade-in delay-2">Tett oppfølging – på dine premisser</h1>
-        <p class="fade-in delay-3">
-          Vil du ha en mer personlig og målrettet treningshverdag? Hos My Strongest Side® kan du booke individuell time med Amir,
-          Alexander – eller begge. Du får personlig trening og et treningsprogram du kan følge over tid.
-        </p>
+    <section class="section section--light">
+      <div class="container myss-hero-grid">
+
+        <div>
+          <p class="eyebrow reveal d1">Individuell oppfølging</p>
+          <h1 class="reveal d2">Tett oppfølging – på dine premisser</h1>
+          <p class="reveal d3">
+            Vil du ha en mer personlig og målrettet treningshverdag? Hos My Strongest Side® kan du booke individuell time med Amir,
+            Alexander – eller begge. Du får personlig trening og et treningsprogram du kan følge over tid.
+          </p>
+
+          <div class="myss-actions reveal d4">
+            <a class="myss-btn" href="#tilbud">Se tilbud</a>
+            <a class="myss-btn myss-btn--outline" href="kontakt.html#tett-oppfolging">Book / send forespørsel</a>
+          </div>
+        </div>
+
+        <div class="reveal d2">
+          <img
+            src="bilder/tett-oppfolging-hero.jpg"
+            alt="Individuell oppfølging og tilpasset styrketrening hos My Strongest Side"
+            class="myss-hero-photo"
+            loading="lazy"
+          />
+        </div>
+
       </div>
     </section>
 
     <!-- TILBUD -->
-    <section class="section fade-in" id="tilbud">
+    <section class="section" id="tilbud">
       <div class="container partner-list">
 
         <!-- Enkelttime -->
-        <article class="mt-md fade-in delay-2 partner-card">
-          <div class="partner-card__logo-wrap">
-            <!-- Bytt gjerne til et ikon/bilde du har -->
+        <article class="mt-md partner-card">
+          <div class="partner-card__logo-wrap reveal d1">
             <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
           </div>
 
-          <h2 class="mt-sm">Enkelttime (fysisk eller digital)</h2>
-          <p>
+          <h2 class="mt-sm reveal d2">Enkelttime (fysisk eller digital)</h2>
+          <p class="reveal d3">
             En individuell time gir deg en trygg start, en konkret plan og tydelige øvelser du mestrer.
             Vi tilpasser etter mål, erfaring, dagsform og eventuelle hensyn.
           </p>
 
           <ul class="mt-sm">
-            <li>Personlig veiledning 1:1</li>
-            <li>Tilpasning av øvelser og progresjon</li>
-            <li>Program du kan følge videre</li>
+            <li class="reveal d2">Personlig veiledning 1:1</li>
+            <li class="reveal d3">Tilpasning av øvelser og progresjon</li>
+            <li class="reveal d4">Program du kan følge videre</li>
           </ul>
 
-          <p class="mt-sm"><strong>Pris:</strong> fra kr 800,- per time</p>
+          <p class="mt-sm reveal d2"><strong>Pris:</strong> fra kr 800,- per time</p>
 
-          <p class="mt-sm">
-            <a href="kontakt.html#tett-oppfolging">Book time / send forespørsel</a>
-          </p>
+          <div class="myss-actions reveal d3">
+            <a class="myss-btn" href="kontakt.html#tett-oppfolging">Book enkelttime</a>
+            <a class="myss-btn myss-btn--outline" href="mailto:post@mystrongestside.no">Spør på e-post</a>
+          </div>
         </article>
 
         <!-- Digital oppfølging -->
-        <article class="mt-lg fade-in delay-3 partner-card">
-          <div class="partner-card__logo-wrap">
+        <article class="mt-lg partner-card">
+          <div class="partner-card__logo-wrap reveal d1">
             <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
           </div>
 
-          <h2 class="mt-sm">Digital oppfølging (månedlig)</h2>
-          <p>
+          <h2 class="mt-sm reveal d2">Digital oppfølging (månedlig)</h2>
+          <p class="reveal d3">
             For deg som ønsker kontinuitet: vi følger deg opp digitalt og justerer programmet underveis.
             Passer både for deg som trener på senter, hjemme, eller ønsker struktur mellom økter.
           </p>
 
           <ul class="mt-sm">
-            <li>Individuelt treningsprogram</li>
-            <li>Jevnlig justering og progresjon</li>
-            <li>Tydelige mål og realistisk opplegg</li>
+            <li class="reveal d2">Individuelt treningsprogram</li>
+            <li class="reveal d3">Jevnlig justering og progresjon</li>
+            <li class="reveal d4">Tydelige mål og realistisk opplegg</li>
           </ul>
 
-          <p class="mt-sm"><strong>Pris:</strong> fra kr 600,- per måned</p>
+          <p class="mt-sm reveal d2"><strong>Pris:</strong> fra kr 600,- per måned</p>
 
-          <p class="mt-sm">
-            <a href="kontakt.html#tett-oppfolging">Start digital oppfølging</a>
-          </p>
+          <div class="myss-actions reveal d3">
+            <a class="myss-btn" href="kontakt.html#tett-oppfolging">Start digital oppfølging</a>
+            <a class="myss-btn myss-btn--outline" href="mailto:post@mystrongestside.no">Spør på e-post</a>
+          </div>
         </article>
 
         <!-- Velg coach -->
-        <article class="mt-lg fade-in delay-3 partner-card">
-          <div class="partner-card__logo-wrap">
+        <article class="mt-lg partner-card">
+          <div class="partner-card__logo-wrap reveal d1">
             <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
           </div>
 
-          <h2 class="mt-sm">Hvem vil du booke?</h2>
-          <p>
+          <h2 class="mt-sm reveal d2">Hvem vil du booke?</h2>
+          <p class="reveal d3">
             Du kan velge å booke Amir, Alexander – eller begge sammen.
             Vi finner en løsning som passer målene dine og hvordan du liker å bli fulgt opp.
           </p>
 
           <ul class="mt-sm">
-            <li><strong>Amir:</strong> fokus på teknikk, progresjon og trygg gjennomføring</li>
-            <li><strong>Alexander:</strong> helhetlig tilpasning og oppfølging med ergoterapeutisk blikk</li>
-            <li><strong>Amir + Alexander:</strong> ekstra tett oppfølging og to faglige perspektiver</li>
+            <li class="reveal d2"><strong>Amir:</strong> fokus på teknikk, progresjon og trygg gjennomføring</li>
+            <li class="reveal d3"><strong>Alexander:</strong> helhetlig tilpasning og oppfølging med ergoterapeutisk blikk</li>
+            <li class="reveal d4"><strong>Amir + Alexander:</strong> ekstra tett oppfølging og to faglige perspektiver</li>
           </ul>
 
-          <p class="mt-sm">
-            <a href="kontakt.html#tett-oppfolging">Fortell oss hva du ønsker</a>
-          </p>
-
-          <p class="mt-sm" style="opacity:.85;">
+          <p class="mt-sm reveal d2" style="opacity:.85;">
             Tips: Skriv gjerne om mål, erfaring, eventuelle hjelpemidler/ortoser, og om du ønsker fysisk eller digital oppfølging.
           </p>
+
+          <div class="myss-actions reveal d3">
+            <a class="myss-btn" href="kontakt.html#tett-oppfolging">Send forespørsel</a>
+            <a class="myss-btn myss-btn--outline" href="#hvem-er-vi">Les om oss</a>
+          </div>
         </article>
 
       </div>
     </section>
 
     <!-- HVEM ER VI -->
-    <section class="section section--light fade-in" id="hvem-er-vi">
-      <div class="container fade-in delay-1">
-        <p class="eyebrow">Team</p>
-        <h2 class="fade-in delay-2">Hvem møter du?</h2>
-        <p class="fade-in delay-3">
+    <section class="section section--light" id="hvem-er-vi">
+      <div class="container">
+        <p class="eyebrow reveal d1">Team</p>
+        <h2 class="reveal d2">Hvem møter du?</h2>
+        <p class="reveal d3">
           My Strongest Side® kombinerer prestasjonserfaring og helsefaglig kompetanse.
           Målet er alltid det samme: trygg, forståelig og målrettet trening – tilpasset deg.
         </p>
 
         <div class="partner-list mt-md">
 
-          <!-- Alexander først -->
-          <article class="mt-md fade-in delay-2 partner-card">
-            <div class="partner-card__logo-wrap">
-              <!-- Bytt gjerne til portrettbilde senere (f.eks. bilder/alexander.jpg) -->
-              <img src="bilder/myss-logo-footer.png" alt="Alexander Sviggum" class="partner-logo" />
-            </div>
-
-            <h3 class="mt-sm">Hvem er Alexander</h3>
-            <p>
+          <!-- Alexander -->
+          <article class="mt-md partner-card">
+            <h3 class="mt-sm reveal d2">Hvem er Alexander</h3>
+            <p class="reveal d3">
               <strong>Alexander Sviggum</strong> er <strong>daglig leder og eier</strong> av My Strongest Side AS, og <strong>nyutdannet ergoterapeut</strong>
-              med oppdatert kompetanse innen <strong>aktivitet, funksjon, tilrettelegging og deltakelse</strong>.
-              Han har cerebral parese og lang egen erfaring med tilrettelagt trening.
+              med oppdatert kompetanse innen <strong>aktivitet, funksjon, tilrettelegging og deltakelse</strong>. Han har cerebral parese og lang egen erfaring
+              med tilrettelagt trening.
             </p>
-            <p>
-              Alexander trener styrkeløft og er <strong>rangert som 5. plass i NM i sin funksjonsfriske klasse</strong>.
-              I My Strongest Side kombinerer han konkurranseerfaring og helsefaglig perspektiv for å utvikle trygge og målrettede treningsopplegg,
-              der øvelser, dosering og progresjon tilpasses den enkelte.
+            <p class="reveal d3">
+              Alexander trener styrkeløft og er <strong>rangert som 5. plass i NM i sin funksjonsfriske klasse</strong>. I My Strongest Side kombinerer han
+              konkurranseerfaring og helsefaglig perspektiv for å utvikle trygge og målrettede treningsopplegg, der øvelser, dosering og progresjon tilpasses den enkelte.
             </p>
-            <p>
-              Som ergoterapeut er Alexander spesielt opptatt av sammenhengen mellom <strong>trening og hverdagsmestring</strong>,
-              og hvordan gode løsninger kan redusere barrierer i miljøet – slik at flere kan trene i vanlige treningsarenaer over tid.
+            <p class="reveal d4">
+              Som ergoterapeut er Alexander spesielt opptatt av sammenhengen mellom <strong>trening og hverdagsmestring</strong>, og hvordan gode løsninger kan redusere
+              barrierer i miljøet – slik at flere kan trene i vanlige treningsarenaer over tid.
             </p>
+
+            <!-- Bilde av Alexander -->
+            <img
+              src="bilder/alexander.jpg"
+              alt="Alexander Sviggum"
+              class="myss-team-photo reveal d2"
+              loading="lazy"
+            />
           </article>
 
           <!-- Amir -->
-          <article class="mt-lg fade-in delay-3 partner-card">
-            <div class="partner-card__logo-wrap">
-              <!-- Bytt gjerne til portrettbilde senere (f.eks. bilder/amir.jpg) -->
-              <img src="bilder/myss-logo-footer.png" alt="Amir" class="partner-logo" />
-            </div>
-
-            <h3 class="mt-sm">Hvem er Amir</h3>
-            <p>
-              <strong>Amir</strong> er trener i My Strongest Side og har en <strong>bachelorgrad i kroppsøving</strong>,
-              med kompetanse innen <strong>treningsplanlegging, bevegelseslære og tilpasning</strong>.
-              Han er <strong>norgesmester i sin klasse</strong>, og kombinerer prestasjonserfaring med en trygg og tydelig måte å veilede på.
+          <article class="mt-lg partner-card">
+            <h3 class="mt-sm reveal d2">Hvem er Amir</h3>
+            <p class="reveal d3">
+              <strong>Amir</strong> er trener i My Strongest Side og har en <strong>bachelorgrad i kroppsøving</strong>, med kompetanse innen
+              <strong>treningsplanlegging, bevegelseslære og tilpasning</strong>. Han er <strong>norgesmester i sin klasse</strong>, og kombinerer prestasjonserfaring
+              med en trygg og tydelig måte å veilede på.
             </p>
-            <p>
+            <p class="reveal d3">
               Amir har fulgt My Strongest Side-gruppene gjennom <strong>snart fire sesonger</strong>, og er anerkjent for den høye kvaliteten på øktene:
               god struktur, trygge rammer, tydelig progresjon og gode tilpasninger. Han er særlig kjent for å se muligheter fremfor begrensninger,
               og for å gjøre øvelser og apparater forståelige og gjennomførbare – uavhengig av utgangspunkt.
             </p>
-            <p>
-              I individuell oppfølging jobber Amir målrettet med teknikk, riktig mengde trening over tid og progresjon,
-              slik at deltakerne får et opplegg som er trygt, motiverende og realistisk å følge.
+            <p class="reveal d4">
+              I individuell oppfølging jobber Amir målrettet med teknikk, riktig mengde trening over tid og progresjon, slik at deltakerne får et opplegg som er trygt,
+              motiverende og realistisk å følge.
             </p>
+
+            <!-- Bilde av Amir -->
+            <img
+              src="bilder/amir.jpg"
+              alt="Amir"
+              class="myss-team-photo reveal d2"
+              loading="lazy"
+            />
           </article>
 
         </div>
@@ -181,15 +278,15 @@
     </section>
 
     <!-- CTA -->
-    <section class="myss-cta-wave fade-in" id="book">
-      <div class="myss-cta-wave__inner fade-in delay-1">
-        <h2 class="fade-in delay-2">Klar for å komme i gang<span class="dot">.</span></h2>
-        <p class="fade-in delay-3">
+    <section class="myss-cta-wave" id="book">
+      <div class="myss-cta-wave__inner">
+        <h2 class="reveal d2">Klar for å komme i gang<span class="dot">.</span></h2>
+        <p class="reveal d3">
           Send en kort forespørsel – så finner vi riktig opplegg og hvem du ønsker å booke.
         </p>
-        <div class="myss-cta-wave__actions fade-in delay-3">
-          <a href="Individuelloppfølging.html" class="myss-cta-wave__btn">Book individuell oppfølging</a>
-          <a href="mailto:post@mystrongestside.no" class="myss-cta-wave__email">post@mystrongestside.no</a>
+        <div class="myss-cta-wave__actions reveal d4">
+          <a href="kontakt.html#tett-oppfolging" class="myss-btn">Book individuell oppfølging</a>
+          <a href="mailto:post@mystrongestside.no" class="myss-btn myss-btn--outline">post@mystrongestside.no</a>
         </div>
       </div>
     </section>
@@ -197,10 +294,10 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer fade-in delay-1">
+  <footer class="site-footer">
     <div class="container site-footer__inner">
 
-      <div class="site-footer__brand fade-in delay-2">
+      <div class="site-footer__brand">
         <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
         <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
       </div>
@@ -262,6 +359,30 @@
 
   <!-- External JS (ONE source) -->
   <script src="menu.js" defer></script>
+
+  <!-- Fade-in observer -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const els = Array.from(document.querySelectorAll('.reveal'));
+
+      // fallback: vis alt
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      els.forEach(el => io.observe(el));
+    });
+  </script>
 
 </body>
 </html>
