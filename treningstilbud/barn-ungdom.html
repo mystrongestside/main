@@ -9,12 +9,10 @@
 
   <link rel="icon" type="image/png" href="../favicon.png" />
   <link rel="stylesheet" href="../styles.css?v=112" />
-  <link rel="stylesheet" href="../css/ungdom.css?v=1" />
-
   <script>document.documentElement.classList.add('js');</script>
 
   <style>
-    /* Knapper (samme som Tett oppfølging) */
+    /* ===== Knapper (samme stil som Tett oppfølging) ===== */
     .myss-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
     .myss-btn{
       display:inline-flex;
@@ -34,7 +32,7 @@
     .myss-btn:active{ transform:translateY(0); }
     .myss-btn--outline{ background:transparent; color:var(--myss-blue); }
 
-    /* HERO-grid */
+    /* ===== HERO-grid (samme prinsipp som Tett oppfølging) ===== */
     .myss-hero-grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -44,16 +42,108 @@
     @media (max-width: 900px){
       .myss-hero-grid{ grid-template-columns:1fr; }
     }
-    .myss-hero-photo{
+
+    /* ===== Bilder: vis hele bildet + ikke for stort ===== */
+    .myss-hero-photo,
+    .youth-frame img{
       width:100%;
       height:auto;
-      border-radius:24px;
-      aspect-ratio: 4 / 3;
-      object-fit:cover;
       display:block;
+      border-radius:24px;
+
+      /* Hele bildet synlig (ingen cropping) */
+      object-fit:contain;
+
+      /* Ramme/luft når contain gir tomrom */
+      background: rgba(16,82,119,.06);
     }
 
-    /* Reveal */
+    /* Hero: begrens høyde så det ikke blir enormt på desktop */
+    .myss-hero-photo{
+      max-height: clamp(260px, 38vw, 420px);
+      aspect-ratio: auto;
+    }
+
+    /* Split-bilder: litt lavere */
+    .youth-frame img{
+      max-height: clamp(220px, 32vw, 360px);
+    }
+
+    /* ===== Små “chips” (enkel, robust) ===== */
+    .youth-chips{
+      list-style:none;
+      padding:0;
+      margin:1rem 0 0;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+    }
+    .youth-chips li{
+      padding:.45rem .75rem;
+      border-radius:999px;
+      border:1px solid rgba(16,82,119,.18);
+      background:rgba(16,82,119,.06);
+      font-weight:700;
+      font-size: .95em;
+    }
+
+    /* ===== Split-layout (enkelt) ===== */
+    .youth-split{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:2rem;
+      align-items:center;
+    }
+    .youth-split--reverse{ grid-auto-flow:dense; }
+    .youth-split--reverse .youth-split__text{ grid-column:2; }
+    .youth-split--reverse .youth-frame{ grid-column:1; }
+    @media (max-width: 900px){
+      .youth-split{ grid-template-columns:1fr; }
+      .youth-split--reverse .youth-split__text,
+      .youth-split--reverse .youth-frame{ grid-column:auto; }
+    }
+
+    .youth-infochips{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+    .youth-infochips span{
+      padding:.45rem .75rem;
+      border-radius:999px;
+      border:1px solid rgba(16,82,119,.18);
+      background:rgba(16,82,119,.04);
+      font-weight:700;
+      font-size:.95em;
+    }
+    .youth-infochips--grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:.75rem;
+      margin-top:1rem;
+    }
+    @media (max-width: 700px){
+      .youth-infochips--grid{ grid-template-columns:1fr; }
+    }
+
+    .youth-frame{ margin:0; }
+    .youth-frame__tag{
+      display:inline-block;
+      margin-top:.6rem;
+      padding:.35rem .65rem;
+      border-radius:999px;
+      background:rgba(16,82,119,.06);
+      border:1px solid rgba(16,82,119,.16);
+      font-weight:700;
+      font-size:.95em;
+      opacity:.9;
+    }
+
+    /* ===== Kortboks ===== */
+    .youth-card{
+      border-radius:24px;
+      padding:1.25rem;
+      border:1px solid rgba(16,82,119,.16);
+      background:rgba(16,82,119,.04);
+    }
+
+    /* ===== Reveal (samme som Tett oppfølging) ===== */
     .js .reveal{
       opacity:0;
       transform:translateY(10px);
@@ -70,11 +160,84 @@
 
 <body class="page-ungdom">
 
-  <header data-component="site-header"></header>
+  <!-- ===== HEADER (beholder menyen din) ===== -->
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <div class="site-header__left">
+        <button class="site-header__toggle"
+          aria-label="Åpne meny"
+          aria-expanded="false"
+          aria-controls="hovedmeny"
+          type="button">
+          <span class="site-header__toggle-box" aria-hidden="true">
+            <span class="site-header__toggle-line"></span>
+            <span class="site-header__toggle-line"></span>
+            <span class="site-header__toggle-line"></span>
+          </span>
+          <span class="site-header__toggle-label">Vis menyen</span>
+        </button>
+      </div>
+
+      <div class="site-header__center">
+        <a href="../index.html" class="site-header__logo">
+          <img src="../bilder/myss-logo-header.png" alt="My Strongest Side" />
+        </a>
+      </div>
+
+      <div class="site-header__right site-header__actions">
+        <a href="../kontakt.html" class="btn btn--primary">Kontakt oss</a>
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Hovedmeny" id="hovedmeny">
+      <div class="site-nav__top">
+        <div class="site-nav__top-inner container">
+          <div class="site-nav__brand">Meny</div>
+          <button class="site-nav__close" type="button" aria-label="Lukk menyen">
+            ✕ <span class="site-nav__close-label">Lukk menyen</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="site-nav__scroll">
+        <div class="site-nav__panel">
+          <div class="site-nav__inner container nav-editorial">
+            <div class="site-nav__columns">
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">Våre tjenester</h2>
+                <ul class="site-nav__list">
+                  <li><a href="../gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
+                  <li><a href="../Individuelloppfølging.html" class="site-nav__link">Individuell oppfølging</a></li>
+                  <li><a href="../foresatte.html" class="site-nav__link">Kurs og seminar</a></li>
+                  <li><a href="../qr/trening/index.html" class="site-nav__link">QR/NFC treningssystem</a></li>
+                </ul>
+              </div>
+
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">Informasjon</h2>
+                <ul class="site-nav__list">
+                  <li><a href="../presse.html" class="site-nav__link">Presse og media</a></li>
+                  <li><a href="../samarbeid.html" class="site-nav__link">Samarbeid</a></li>
+                </ul>
+              </div>
+
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">My Strongest Side</h2>
+                <ul class="site-nav__list">
+                  <li><a href="../index.html" class="site-nav__link">Forside</a></li>
+                  <li><a href="../kontakt.html" class="site-nav__link">Kontakt</a></li>
+                </ul>
+              </div>
+            </div><!-- /columns -->
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <main>
 
-    <!-- HERO -->
+    <!-- ===== HERO (samme oppsett-stil som Tett oppfølging) ===== -->
     <section class="section section--light">
       <div class="container myss-hero-grid">
 
@@ -112,7 +275,7 @@
       </div>
     </section>
 
-    <!-- SPLIT 1 -->
+    <!-- ===== SPLIT 1 ===== -->
     <section class="section">
       <div class="container youth-split">
 
@@ -138,7 +301,7 @@
       </div>
     </section>
 
-    <!-- SPLIT 2 -->
+    <!-- ===== SPLIT 2 ===== -->
     <section class="section section--light">
       <div class="container youth-split youth-split--reverse">
 
@@ -160,7 +323,7 @@
       </div>
     </section>
 
-    <!-- KORT INFO -->
+    <!-- ===== KORT INFO ===== -->
     <section class="section" id="tilbud">
       <div class="container youth-card reveal d2">
         <h2>Tilbudet i korte trekk</h2>
@@ -191,7 +354,7 @@
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- ===== CTA ===== -->
     <section class="myss-cta-wave" id="cta">
       <div class="myss-cta-wave__inner">
         <h2 class="reveal d2">Klar for å bli med<span class="dot">.</span></h2>
@@ -205,54 +368,53 @@
 
   </main>
 
+  <!-- ===== FOOTER (som du hadde) ===== -->
   <footer class="site-footer">
     <div class="container site-footer__inner">
-
-      <div class="site-footer__brand reveal d2">
+      <div class="site-footer__brand">
         <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
-        <p class="site-footer__tagline reveal d3">Gjør trening tilgjengelig for flest mulig</p>
+        <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
       </div>
 
       <div class="site-footer__top">
         <div>
-          <h3 class="site-footer__heading reveal d2">Våre tjenester</h3>
+          <h3 class="site-footer__heading">Våre tjenester</h3>
           <ul class="site-footer__list">
-            <li class="reveal d2"><a href="voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
-            <li class="reveal d3"><a href="tett-oppfolging.html">Tett oppfølging</a></li>
-            <li class="reveal d4"><a href="../frivillig.html">Frivilligprogram</a></li>
+            <li><a href="voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
+            <li><a href="tett-oppfolging.html">Tett oppfølging</a></li>
+            <li><a href="../frivillig.html">Frivilligprogram</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="site-footer__heading reveal d2">Informasjon</h3>
+          <h3 class="site-footer__heading">Informasjon</h3>
           <ul class="site-footer__list">
-            <li class="reveal d2"><a href="../presse.html">Presse og media</a></li>
-            <li class="reveal d3"><a href="../samarbeid.html">Samarbeid</a></li>
+            <li><a href="../presse.html">Presse og media</a></li>
+            <li><a href="../samarbeid.html">Samarbeid</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="site-footer__heading reveal d2">My Strongest Side</h3>
+          <h3 class="site-footer__heading">My Strongest Side</h3>
           <ul class="site-footer__list">
-            <li class="reveal d2"><a href="../kontakt.html">Kontakt</a></li>
+            <li><a href="../kontakt.html">Kontakt</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="site-footer__heading reveal d2">Kontakt</h3>
+          <h3 class="site-footer__heading">Kontakt</h3>
           <ul class="site-footer__list">
-            <li class="reveal d2">My Strongest Side AS</li>
-            <li class="reveal d3">Brages veg 3<br>5221 Nesttun</li>
-            <li class="reveal d3">E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
-            <li class="reveal d4">Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
+            <li>My Strongest Side AS</li>
+            <li>Brages veg 3<br>5221 Nesttun</li>
+            <li>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
           </ul>
         </div>
       </div>
 
       <div class="site-footer__bottom">
-        <p class="site-footer__meta reveal d2">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
-
-        <div class="site-footer__social reveal d3">
+        <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+        <div class="site-footer__social">
           <span class="site-footer__social-label">Følg oss i sosiale medier</span>
           <div class="site-footer__social-list">
             <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
@@ -264,13 +426,13 @@
           </div>
         </div>
       </div>
-
     </div>
   </footer>
 
+  <!-- Meny (beholder den som fungerer) -->
   <script src="../menu.js" defer></script>
 
-  <!-- Fade-in observer -->
+  <!-- Reveal -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const els = Array.from(document.querySelectorAll('.reveal'));
@@ -295,3 +457,4 @@
 
 </body>
 </html>
+
