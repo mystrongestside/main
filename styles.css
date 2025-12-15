@@ -1469,6 +1469,7 @@ html.nav-open .site-header{
     }
   }
 } 
+/* HERO: la bildet beholde naturlige proporsjoner */
  /* HERO: la bildet beholde naturlige proporsjoner */
 .hero{
   position: relative;
@@ -1480,6 +1481,12 @@ html.nav-open .site-header{
   width: 100%;
   height: auto;
   display: block;
+}
+
+@media (min-width: 992px){
+  .hero-image{
+    max-height: 520px;
+  }
 }
 
 /* Overlay beholdes */
