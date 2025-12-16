@@ -13,6 +13,10 @@
 
   <style>
     /* Handling av hero + knapper (matcher stil fra Individuell oppfølging) */
+    .section--hero {
+      background: linear-gradient(135deg, #f4f8fb 0%, #fdf8f4 100%);
+      border-bottom: 1px solid #e6eef3;
+    }
     .myss-hero-grid {
       display: grid;
       grid-template-columns: 1.1fr .9fr;
@@ -51,6 +55,56 @@
     .myss-btn:active { transform: translateY(0); }
     .myss-btn--outline { background: transparent; color: var(--myss-blue); }
 
+    .myss-badges { display:flex; flex-wrap:wrap; gap:.5rem; margin: .6rem 0 0; }
+    .myss-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      padding: .55rem .9rem;
+      border-radius: 999px;
+      background: rgba(16,82,119,.08);
+      color: #0f3252;
+      font-weight: 700;
+      border: 1px solid rgba(16,82,119,.12);
+      font-size: .95rem;
+    }
+    .myss-badge img { width: 18px; height: 18px; }
+
+    .highlight-banner {
+      margin-top: 1.25rem;
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
+      background: #0f3252;
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      box-shadow: 0 18px 44px rgba(15,50,82,.25);
+    }
+    .highlight-banner__title {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+    .highlight-banner__meta { margin: .2rem 0 0; opacity: .9; }
+    .highlight-banner__pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .5rem .85rem;
+      border-radius: 999px;
+      background: #f77c37;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+    @media (max-width: 700px) {
+      .highlight-banner { grid-template-columns: 1fr; }
+      .highlight-banner__pill { justify-content: center; }
+    }
+
     /* Kort + lister */
     .partner-card p { max-width: 76ch; }
 
@@ -74,6 +128,33 @@
       opacity: .8;
       margin-top: .15rem;
     }
+
+    .pill-row { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.4rem; }
+    .pill {
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      background: rgba(16,82,119,.08);
+      border: 1px solid rgba(16,82,119,.14);
+      font-weight: 700;
+      color: #0f3252;
+      font-size: .95rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0 1.4rem;
+    }
+    .card {
+      border: 1px solid #d7e6ef;
+      background: #fff;
+      border-radius: 14px;
+      padding: .9rem 1rem;
+      box-shadow: 0 10px 24px rgba(0,0,0,.04);
+    }
+    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #325064; }
 
     .info-summary {
       display: grid;
@@ -112,9 +193,35 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: .65rem;
-      padding-left: 1.2rem;
+      padding-left: 0;
+      list-style: none;
     }
-    .date-list--grid li { margin-bottom: .35rem; }
+    .date-list--grid li {
+      margin: 0;
+      padding: .85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid #d7e6ef;
+      background: linear-gradient(135deg, #fdf9f5, #f7fafc);
+      box-shadow: 0 10px 24px rgba(0,0,0,.04);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-weight: 700;
+      color: #0f3252;
+    }
+    .date-list--grid li span {
+      display: inline-flex;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #0f3252;
+      color: #fff;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: .95rem;
+      flex-shrink: 0;
+    }
 
     .info-list {
       list-style: none;
@@ -146,6 +253,22 @@
     summary { font-weight: 700; cursor: pointer; }
     summary::-webkit-details-marker { display: none; }
 
+    .contact-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+      padding: 1rem;
+      border-radius: 14px;
+      background: #0f3252;
+      color: #fff;
+      align-items: center;
+      box-shadow: 0 16px 32px rgba(15,50,82,.22);
+      margin-top: 2rem;
+    }
+    .contact-bar h3 { margin: 0; font-size: 1.1rem; }
+    .contact-bar a { color: #fff; font-weight: 700; }
+    .contact-bar__links { display:flex; gap: 1rem; flex-wrap:wrap; }
+
     /* Scrollbasert fade-in */
     .js .reveal {
       opacity: 0;
@@ -170,7 +293,7 @@
 
   <main>
 
-    <section class="section section--light">
+    <section class="section section--hero section--light">
       <div class="container myss-hero-grid">
         <div>
           <p class="eyebrow reveal d1">Ungdom</p>
@@ -179,9 +302,22 @@
             Påmelding, datoer og praktisk info for ungdomstrening (12–15 år) ved Trene Sammen Fantoft. Små grupper, rolig tempo
             og instruktører som tilpasser øvelser etter behov.
           </p>
+          <div class="myss-badges reveal d3">
+            <span class="myss-badge"><img src="../icons/goal3.png" alt="">Styrke &amp; mestring</span>
+            <span class="myss-badge"><img src="../icons/child.svg" alt="">12–15 år</span>
+            <span class="myss-badge"><img src="../icons/signup.svg" alt="">Små grupper</span>
+          </div>
           <div class="myss-actions reveal d4">
             <a class="myss-btn" href="#paamelding">Gå til påmelding</a>
             <a class="myss-btn myss-btn--outline" href="#praktisk">Se datoer og pris</a>
+          </div>
+
+          <div class="highlight-banner reveal d4" aria-label="Neste oppstart">
+            <div>
+              <p class="highlight-banner__title">Neste oppstart: torsdag 5. mars 2026</p>
+              <p class="highlight-banner__meta">Fantoft · 17:00 – 18:00 · Oppmøte 16:45</p>
+            </div>
+            <span class="highlight-banner__pill">8 plasser · Tilpasset tempo</span>
           </div>
         </div>
 
@@ -236,17 +372,38 @@
             </div>
           </div>
 
+          <div class="card-grid reveal d3">
+            <div class="card">
+              <h3>Hvorfor ungdomstrening?</h3>
+              <p>Mestringsfokus, trygg progresjon og sosialt fellesskap for ungdom mellom 12–15 år.</p>
+              <div class="pill-row" aria-label="Stikkord">
+                <span class="pill">Styrke &amp; balanse</span>
+                <span class="pill">Koordinasjon</span>
+                <span class="pill">Sosialt</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Instruktører</h3>
+              <p>Fast team som lærer deltakerne å kjenne. Tilpasser øvelser og apparater etter funksjon og dagsform.</p>
+              <div class="pill-row" aria-label="Instruktørkvalitet">
+                <span class="pill">Tilgjengelige</span>
+                <span class="pill">Erfarne</span>
+                <span class="pill">Lav terskel</span>
+              </div>
+            </div>
+          </div>
+
           <div class="mt-md reveal d3">
             <h3>Datoer denne sesongen</h3>
             <ol class="date-list--grid">
-              <li>Torsdag 5. mars 2026</li>
-              <li>Torsdag 19. mars 2026</li>
-              <li>Torsdag 16. april 2026</li>
-              <li>Torsdag 30. april 2026</li>
-              <li>Torsdag 14. mai 2026</li>
-              <li>Torsdag 28. mai 2026</li>
-              <li>Torsdag 4. juni 2026</li>
-              <li>Torsdag 18. juni 2026</li>
+              <li><span>1</span> Torsdag 5. mars 2026</li>
+              <li><span>2</span> Torsdag 19. mars 2026</li>
+              <li><span>3</span> Torsdag 16. april 2026</li>
+              <li><span>4</span> Torsdag 30. april 2026</li>
+              <li><span>5</span> Torsdag 14. mai 2026</li>
+              <li><span>6</span> Torsdag 28. mai 2026</li>
+              <li><span>7</span> Torsdag 4. juni 2026</li>
+              <li><span>8</span> Torsdag 18. juni 2026</li>
             </ol>
           </div>
 
@@ -285,6 +442,24 @@
             Plassene er fordelt denne sesongen, men du kan sende inn påmelding nå – så prioriterer vi deg på neste kurs.
           </p>
 
+          <div class="info-list mt-sm reveal d3">
+            <div class="info-summary__label" aria-hidden="true">Slik fungerer det</div>
+            <ul class="info-list">
+              <li>
+                <span class="icon"><img src="../icons/signup.svg" alt="Steg 1"></span>
+                <div class="info-content">Send inn påmelding nedenfor. Du får bekreftelse fra Checkin.</div>
+              </li>
+              <li>
+                <span class="icon"><img src="../icons/calendar.svg" alt="Steg 2"></span>
+                <div class="info-content">Vi kontakter deg for å finne riktig oppstart og eventuelle tilpasninger.</div>
+              </li>
+              <li>
+                <span class="icon"><img src="../icons/info-time.svg" alt="Steg 3"></span>
+                <div class="info-content">Har du spørsmål? Ta kontakt så ordner vi en prøvetime.</div>
+              </li>
+            </ul>
+          </div>
+
           <div id="checkin_registration" class="mt-md"></div>
 
           <script
@@ -317,6 +492,17 @@
           </div>
 
           <p class="mt-md reveal d3"><a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></p>
+
+          <div class="contact-bar reveal d3" aria-label="Kontakt oss">
+            <div>
+              <h3>Vil du snakke med oss først?</h3>
+              <p style="margin:.2rem 0 0; opacity:.9;">Ring oss eller send en e-post – vi svarer raskt.</p>
+            </div>
+            <div class="contact-bar__links">
+              <a href="tel:+4741439384">+47 41 43 93 84</a>
+              <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a>
+            </div>
+          </div>
         </article>
 
       </div>
