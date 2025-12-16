@@ -7,125 +7,213 @@
   <title>Ungdomstrening | My Strongest Side®</title>
   <meta name="description" content="Påmelding ungdomstrening for 12–15 år. Små grupper, rolig tempo, tilpasninger og faste veiledere." />
 
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="stylesheet" href="/styles.css?v=112" />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../styles.css?v=112" />
   <script>document.documentElement.classList.add('js');</script>
+
+  <style>
+    /* Handling av hero + knapper (matcher stil fra Individuell oppfølging) */
+    .myss-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .myss-hero-grid { grid-template-columns: 1fr; }
+    }
+    .myss-hero-photo {
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 18px 48px rgba(0,0,0,.08);
+    }
+
+    .myss-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
+    .myss-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .95rem 1.3rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      line-height: 1.1;
+      background: var(--myss-blue);
+      color: #fff;
+      border: 2px solid var(--myss-blue);
+      transition: transform .08s ease, filter .2s ease, background .2s ease, color .2s ease;
+    }
+    .myss-btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    .myss-btn:active { transform: translateY(0); }
+    .myss-btn--outline { background: transparent; color: var(--myss-blue); }
+
+    /* Kort + lister */
+    .partner-card p { max-width: 76ch; }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    .price-item {
+      padding: .85rem 1rem;
+      border-radius: 14px;
+      background: rgba(16,82,119,.06);
+      border: 1px solid rgba(16,82,119,.16);
+      font-weight: 700;
+      color: var(--myss-ink-2);
+    }
+    .price-item span {
+      display: block;
+      font-weight: 500;
+      opacity: .8;
+      margin-top: .15rem;
+    }
+
+    .info-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: .75rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .info-summary__item {
+      background: #f7fafc;
+      border: 1px solid #d7e6ef;
+      border-radius: 12px;
+      padding: .85rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,.03);
+    }
+    .info-summary__label {
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      color: #3c5264;
+      margin-bottom: .2rem;
+    }
+    .info-summary__value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f3252;
+      margin: 0;
+    }
+    .info-summary__meta {
+      font-size: .98rem;
+      color: #526b7d;
+      margin: .25rem 0 0;
+    }
+
+    .date-list--grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .65rem;
+      padding-left: 1.2rem;
+    }
+    .date-list--grid li { margin-bottom: .35rem; }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: .75rem;
+    }
+    .info-list li {
+      display: flex;
+      gap: .75rem;
+      align-items: flex-start;
+      padding: .75rem .85rem;
+      border-radius: 12px;
+      border: 1px solid #d7e6ef;
+      background: rgba(16,82,119,.03);
+    }
+    .info-list .icon img { width: 28px; height: 28px; display: block; }
+    .info-content { color: #0f3252; }
+
+    details {
+      border: 1px solid #d7e6ef;
+      border-radius: 12px;
+      padding: .8rem 1rem;
+      background: #f7fafc;
+      box-shadow: 0 6px 14px rgba(0,0,0,.03);
+    }
+    details + details { margin-top: .6rem; }
+    summary { font-weight: 700; cursor: pointer; }
+    summary::-webkit-details-marker { display: none; }
+
+    /* Scrollbasert fade-in */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .6s ease, transform .6s ease;
+      will-change: opacity, transform;
+    }
+    .js .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+    .js .reveal.d1 { transition-delay: .05s; }
+    .js .reveal.d2 { transition-delay: .12s; }
+    .js .reveal.d3 { transition-delay: .18s; }
+    .js .reveal.d4 { transition-delay: .24s; }
+  </style>
 </head>
 
-<body class="page-ungdom-paamelding page-samarbeid">
+<body class="page-ungdom-paamelding">
 
-  <header class="site-header">
-    <div class="site-header__inner container">
-      <div class="site-header__left">
-        <button class="site-header__toggle"
-          aria-label="Åpne meny"
-          aria-expanded="false"
-          aria-controls="hovedmeny"
-          type="button">
-          <span class="site-header__toggle-box" aria-hidden="true">
-            <span class="site-header__toggle-line"></span>
-            <span class="site-header__toggle-line"></span>
-            <span class="site-header__toggle-line"></span>
-          </span>
-          <span class="site-header__toggle-label">Vis menyen</span>
-        </button>
-      </div>
-
-      <div class="site-header__center">
-        <a href="/index.html" class="site-header__logo">
-          <img src="/bilder/myss-logo-header.png" alt="My Strongest Side" />
-        </a>
-      </div>
-
-      <div class="site-header__right site-header__actions">
-        <a href="/kontakt.html" class="btn btn--primary">Kontakt oss</a>
-      </div>
-    </div>
-
-    <nav class="site-nav" aria-label="Hovedmeny" id="hovedmeny">
-      <div class="site-nav__top">
-        <div class="site-nav__top-inner container">
-          <div class="site-nav__brand">Meny</div>
-          <button class="site-nav__close" type="button" aria-label="Lukk menyen">
-            ✕ <span class="site-nav__close-label">Lukk menyen</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="site-nav__scroll">
-        <div class="site-nav__panel">
-          <div class="site-nav__inner container nav-editorial">
-            <div class="site-nav__columns">
-              <div class="site-nav__column">
-                <h2 class="site-nav__heading">Våre tjenester</h2>
-                <ul class="site-nav__list">
-                  <li><a href="/gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
-                  <li><a href="/Individuelloppfølging.html" class="site-nav__link">Individuell oppfølging</a></li>
-                  <li><a href="/foresatte.html" class="site-nav__link">Kurs og seminar</a></li>
-                  <li><a href="/qr/trening/index.html" class="site-nav__link">QR/NFC treningssystem</a></li>
-                </ul>
-              </div>
-
-              <div class="site-nav__column">
-                <h2 class="site-nav__heading">Informasjon</h2>
-                <ul class="site-nav__list">
-                  <li><a href="/presse.html" class="site-nav__link">Presse og media</a></li>
-                  <li><a href="/samarbeid.html" class="site-nav__link">Samarbeid</a></li>
-                </ul>
-              </div>
-
-              <div class="site-nav__column">
-                <h2 class="site-nav__heading">My Strongest Side</h2>
-                <ul class="site-nav__list">
-                  <li><a href="/index.html" class="site-nav__link">Forside</a></li>
-                  <li><a href="/kontakt.html" class="site-nav__link">Kontakt</a></li>
-                </ul>
-              </div>
-            </div><!-- /columns -->
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <header data-component="site-header"></header>
 
   <main>
 
-    <section class="section section--light fade-in">
-      <div class="container fade-in delay-1">
-        <p class="eyebrow">Ungdom</p>
-        <h1 class="fade-in delay-2">Påmelding og praktisk info<span class="dot">.</span></h1>
-        <p class="fade-in delay-3" style="max-width:70ch;">
-          Her finner du pris, datoer, tilgjengelighet og påmelding til ungdomstrening ved Trene Sammen Fantoft.
-        </p>
+    <section class="section section--light">
+      <div class="container myss-hero-grid">
+        <div>
+          <p class="eyebrow reveal d1">Ungdom</p>
+          <h1 class="reveal d2">Påmelding og praktisk info<span class="dot">.</span></h1>
+          <p class="reveal d3">
+            Påmelding, datoer og praktisk info for ungdomstrening (12–15 år) ved Trene Sammen Fantoft. Små grupper, rolig tempo
+            og instruktører som tilpasser øvelser etter behov.
+          </p>
+          <div class="myss-actions reveal d4">
+            <a class="myss-btn" href="#paamelding">Gå til påmelding</a>
+            <a class="myss-btn myss-btn--outline" href="#praktisk">Se datoer og pris</a>
+          </div>
+        </div>
 
-        <div class="mt-md fade-in delay-3">
+        <div class="reveal d2">
           <img
-            src="/bilder/ungdom-hero.jpg"
+            src="../bilder/ungdom-hero.jpg"
             alt="Ungdomstrening hos My Strongest Side"
-            class="myss-photo"
+            class="myss-hero-photo"
             loading="lazy"
           />
         </div>
       </div>
     </section>
 
-    <section class="section fade-in">
+    <section class="section">
       <div class="container partner-list">
 
-        <article class="mt-md fade-in delay-2 partner-card" id="praktisk">
-          <div class="partner-card__logo-wrap">
-            <img src="/bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
+        <article class="mt-md partner-card" id="praktisk">
+          <div class="partner-card__logo-wrap reveal d1">
+            <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
           </div>
 
-          <h2 class="mt-sm">Nyttig informasjon</h2>
+          <h2 class="mt-sm reveal d2">Nyttig informasjon</h2>
+          <p class="reveal d3">Kort oppsummert om stedet, tidspunkt og tilgjengelighet for denne sesongen.</p>
 
-          <div class="price-grid" aria-label="Pris for sesong">
+          <div class="price-grid reveal d3" aria-label="Pris for sesong">
             <div class="price-item">150 kr <span>Prøvetime</span></div>
             <div class="price-item">600 kr <span>CP Vestland medlemspris</span></div>
             <div class="price-item">800 kr <span>Ikke medlem</span></div>
           </div>
 
-          <div class="info-summary" aria-label="Oppsummering">
+          <div class="info-summary reveal d3" aria-label="Oppsummering">
             <div class="info-summary__item">
               <p class="info-summary__label">Sted</p>
               <p class="info-summary__value">Trene Sammen Fantoft</p>
@@ -148,7 +236,7 @@
             </div>
           </div>
 
-          <div class="mt-md">
+          <div class="mt-md reveal d3">
             <h3>Datoer denne sesongen</h3>
             <ol class="date-list--grid">
               <li>Torsdag 5. mars 2026</li>
@@ -162,23 +250,23 @@
             </ol>
           </div>
 
-          <div class="mt-md">
+          <div class="mt-md reveal d4">
             <h3>Tilgjengelighet og transport</h3>
             <ul class="info-list">
               <li>
-                <span class="icon"><img src="/icons/wheelchair.svg" alt="Tilgjengelighet ikon"></span>
+                <span class="icon"><img src="../icons/wheelchair.svg" alt="Tilgjengelighet ikon"></span>
                 <div class="info-content">Trinnfri inngang, heis og HC-toalett</div>
               </li>
               <li>
-                <span class="icon"><img src="/icons/bus.svg" alt="Transport ikon"></span>
+                <span class="icon"><img src="../icons/bus.svg" alt="Transport ikon"></span>
                 <div class="info-content">Buss nr. 2 og 3 (holdeplass Fantoft Studentby)</div>
               </li>
               <li>
-                <span class="icon"><img src="/icons/parking.svg" alt="Parkering ikon"></span>
+                <span class="icon"><img src="../icons/parking.svg" alt="Parkering ikon"></span>
                 <div class="info-content">HC-parkering: 3 plasser ved MENY Fantoft (70–90 m)</div>
               </li>
               <li>
-                <span class="icon"><img src="/icons/map.svg" alt="Kart ikon"></span>
+                <span class="icon"><img src="../icons/map.svg" alt="Kart ikon"></span>
                 <div class="info-content">
                   <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" class="map-link" target="_blank" rel="noopener">Se kart</a>
                 </div>
@@ -187,14 +275,14 @@
           </div>
         </article>
 
-        <article class="mt-lg fade-in delay-3 partner-card" id="paamelding">
-          <div class="partner-card__logo-wrap">
-            <img src="/bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
+        <article class="mt-lg partner-card" id="paamelding">
+          <div class="partner-card__logo-wrap reveal d1">
+            <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
           </div>
 
-          <h2 class="mt-sm">Meld deg på</h2>
-          <p>
-            Sikre deg plass via skjemaet. Plasser er fordelt denne sesongen, men du kan sende inn påmelding nå – så prioriterer vi deg på neste kurs.
+          <h2 class="mt-sm reveal d2">Meld deg på</h2>
+          <p class="reveal d3">
+            Plassene er fordelt denne sesongen, men du kan sende inn påmelding nå – så prioriterer vi deg på neste kurs.
           </p>
 
           <div id="checkin_registration" class="mt-md"></div>
@@ -208,25 +296,27 @@
             async></script>
         </article>
 
-        <article class="mt-lg fade-in delay-3 partner-card" id="sporsmal">
-          <h2 class="mt-sm">Spørsmål<span class="dot">.</span></h2>
+        <article class="mt-lg partner-card" id="sporsmal">
+          <h2 class="mt-sm reveal d1">Spørsmål<span class="dot">.</span></h2>
 
-          <details>
-            <summary>Hva hvis jeg bruker hjelpemidler eller rullestol?</summary>
-            <p>Det går helt fint! Lokalet er universelt utformet, og vi tilpasser både øvelser og apparater etter behov.</p>
-          </details>
+          <div class="reveal d2">
+            <details>
+              <summary>Hva hvis jeg bruker hjelpemidler eller rullestol?</summary>
+              <p>Det går helt fint! Lokalet er universelt utformet, og vi tilpasser både øvelser og apparater etter behov.</p>
+            </details>
 
-          <details>
-            <summary>Kan jeg ta med ledsager eller assistent?</summary>
-            <p>Ja. Assistent, ledsager eller verge er alltid velkommen – uten ekstra kostnad.</p>
-          </details>
+            <details>
+              <summary>Kan jeg ta med ledsager eller assistent?</summary>
+              <p>Ja. Assistent, ledsager eller verge er alltid velkommen – uten ekstra kostnad.</p>
+            </details>
 
-          <details>
-            <summary>Hvordan tilpasses øvelsene?</summary>
-            <p>Instruktørene vurderer sammen med deg hvilke øvelser som fungerer best ut fra funksjon og målsetting.</p>
-          </details>
+            <details>
+              <summary>Hvordan tilpasses øvelsene?</summary>
+              <p>Instruktørene vurderer sammen med deg hvilke øvelser som fungerer best ut fra funksjon og målsetting.</p>
+            </details>
+          </div>
 
-          <p class="mt-md"><a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></p>
+          <p class="mt-md reveal d3"><a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></p>
         </article>
 
       </div>
@@ -234,59 +324,59 @@
 
   </main>
 
-  <footer class="site-footer fade-in delay-1">
+  <footer class="site-footer">
     <div class="container site-footer__inner">
-      <div class="site-footer__brand fade-in delay-2">
-        <img src="/bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
-        <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
+      <div class="site-footer__brand reveal d2">
+        <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
+        <p class="site-footer__tagline reveal d3">Gjør trening tilgjengelig for flest mulig</p>
       </div>
 
       <div class="site-footer__top">
         <div>
-          <h3 class="site-footer__heading">Våre tjenester</h3>
+          <h3 class="site-footer__heading reveal d2">Våre tjenester</h3>
           <ul class="site-footer__list">
-            <li><a href="voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
-            <li><a href="tett-oppfolging.html">Tett oppfølging</a></li>
-            <li><a href="/frivillig.html">Frivilligprogram</a></li>
+            <li class="reveal d2"><a href="voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
+            <li class="reveal d3"><a href="tett-oppfolging.html">Tett oppfølging</a></li>
+            <li class="reveal d4"><a href="../frivillig.html">Frivilligprogram</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="site-footer__heading">Informasjon</h3>
+          <h3 class="site-footer__heading reveal d2">Informasjon</h3>
           <ul class="site-footer__list">
-            <li><a href="/presse.html">Presse og media</a></li>
-            <li><a href="/samarbeid.html">Samarbeid</a></li>
+            <li class="reveal d2"><a href="../presse.html">Presse og media</a></li>
+            <li class="reveal d3"><a href="../samarbeid.html">Samarbeid</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="site-footer__heading">My Strongest Side</h3>
+          <h3 class="site-footer__heading reveal d2">My Strongest Side</h3>
           <ul class="site-footer__list">
-            <li><a href="/kontakt.html">Kontakt</a></li>
+            <li class="reveal d2"><a href="../kontakt.html">Kontakt</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="site-footer__heading">Kontakt</h3>
+          <h3 class="site-footer__heading reveal d2">Kontakt</h3>
           <ul class="site-footer__list">
-            <li>My Strongest Side AS</li>
-            <li>Brages veg 3<br>5221 Nesttun</li>
-            <li>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
-            <li>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
+            <li class="reveal d2">My Strongest Side AS</li>
+            <li class="reveal d3">Brages veg 3<br>5221 Nesttun</li>
+            <li class="reveal d3">E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li class="reveal d4">Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
           </ul>
         </div>
       </div>
 
       <div class="site-footer__bottom">
-        <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
-        <div class="site-footer__social">
+        <p class="site-footer__meta reveal d2">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+        <div class="site-footer__social reveal d3">
           <span class="site-footer__social-label">Følg oss i sosiale medier</span>
           <div class="site-footer__social-list">
             <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
-              <img src="/icons/facebook.png" alt="" aria-hidden="true">
+              <img src="../icons/facebook.png" alt="" aria-hidden="true">
             </a>
             <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
-              <img src="/icons/instagram.png" alt="" aria-hidden="true">
+              <img src="../icons/instagram.png" alt="" aria-hidden="true">
             </a>
           </div>
         </div>
@@ -302,6 +392,27 @@
     })();
   </script>
 
-  <script src="/menu.js?v=1" defer></script>
+  <script src="../menu.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const els = Array.from(document.querySelectorAll('.reveal'));
+
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      els.forEach(el => io.observe(el));
+    });
+  </script>
 </body>
 </html>
