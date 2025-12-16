@@ -100,23 +100,39 @@
 
     const root = document.documentElement;
     const body = document.body;
-    const mount = document.querySelector("[data-component='site-header']");
-
-    if (mount) {
-      mount.classList.add("site-header");
-      mount.innerHTML = headerTemplate(prefix);
-    }
-
-    const header = mount?.classList.contains("site-header") ? mount : document.querySelector(".site-header");
-    const nav = header?.querySelector(".site-nav") || document.querySelector(".site-nav");
-    const toggle = header?.querySelector(".site-header__toggle") || document.querySelector(".site-header__toggle");
 
     const updateFooterYear = () => {
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = String(new Date().getFullYear());
     };
 
-    // Hvis helt grunnleggende mangler, stopp uten å kræsje
+    // 1) Finn mount – eller lag en hvis den mangler (slutt på “ingenting skjer”)
+    let mount = document.querySelector("[data-component='site-header']");
+    if (!mount) {
+      // Hvis det finnes en eksisterende header, bruk den. Hvis ikke: lag en.
+      mount = document.querySelector("header.site-header");
+      if (!mount) {
+        mount = document.createElement("header");
+        mount.setAttribute("data-component", "site-header");
+        body.insertBefore(mount, body.firstChild);
+      }
+    }
+
+    // Injiser template kun hvis mount er tom ELLER er data-component mount.
+    // (hindrer at du “overskriver” en manuelt bygget header ved uhell)
+    const isComponentMount = mount.matches("[data-component='site-header']");
+    const isEmpty = !mount.innerHTML || !mount.innerHTML.trim();
+
+    if (isComponentMount || isEmpty) {
+      mount.classList.add("site-header");
+      mount.innerHTML = headerTemplate(prefix);
+    }
+
+    const header = mount.classList.contains("site-header") ? mount : document.querySelector(".site-header");
+    const nav = header?.querySelector(".site-nav") || document.querySelector(".site-nav");
+    const toggle = header?.querySelector(".site-header__toggle") || document.querySelector(".site-header__toggle");
+
+    // Hvis helt grunnleggende mangler, stopp uten å kræsje (men oppdater år)
     if (!header || !toggle || !nav) {
       updateFooterYear();
       return;
@@ -129,21 +145,25 @@
       root.style.setProperty("--hdr-y", String(y));
     };
 
-    // Finn "første tekst" i hero (tåler at den ikke finnes på alle sider)
+    // Finn "første tekst" i hero (tåler at den ikke finnes)
     const findFirstText = () =>
       document.querySelector(".section.section--light .eyebrow") ||
       document.querySelector(".section.section--light h1");
 
     const clamp01 = (n) => Math.max(0, Math.min(1, n));
 
-    // ---- Fade (robust) ----
+    // ---- Fade (fikset: aldri 0-opasitet + kan skrus av pr side) ----
     let ticking = false;
+
+    const fadeDisabled =
+      body.classList.contains("no-header-fade") ||
+      (window.matchMedia && window.matchMedia("(max-width: 900px)").matches);
 
     const updateHeaderFade = () => {
       ticking = false;
 
-      // Hvis ingen header eller ingen hero-tekst: ikke gjør noe fancy
-      if (!header) {
+      // Ikke fade på sider du har sagt "nei" til fade, eller på mobil
+      if (fadeDisabled) {
         setFadeVars(1, "0px");
         return;
       }
@@ -169,18 +189,16 @@
       const headerH = header.offsetHeight || 80;
       const textTop = firstText.getBoundingClientRect().top;
 
-      // Lengre, roligere fade
       const start = headerH * 3.2;
       const end = headerH * 1.2;
       const denom = (start - end) || 1;
 
       let p = clamp01((start - textTop) / denom);
-
-      // smoothstep (myk kurve)
       p = p * p * (3 - 2 * p);
 
-      const opacity = 1 - p;
-      const translateY = -p * 18; // mest fade, lite flytt
+      // ✅ Kritisk: aldri la header bli usynlig
+      const opacity = Math.max(0.92, 1 - p);
+      const translateY = -p * 10;
 
       setFadeVars(opacity, `${translateY}px`);
     };
@@ -204,20 +222,18 @@
       const label = toggle.querySelector(".site-header__toggle-label");
       if (label) label.textContent = open ? "Lukk menyen" : "Vis menyen";
 
-      // Etter state change, normaliser header-fade
       requestFadeUpdate();
     };
 
-    // Toggle click (bruk capture=false, og stopp hvis nødvendig)
     toggle.addEventListener("click", (e) => {
       e.preventDefault();
       setOpen(!isOpen());
     });
 
-    // Klikk på lenke i meny lukker
     nav.addEventListener("click", (e) => {
       const target = e.target;
       if (!(target instanceof Element)) return;
+
       if (target.closest(".site-nav__close")) {
         e.preventDefault();
         setOpen(false);
@@ -226,12 +242,10 @@
       if (target.closest("a")) setOpen(false);
     });
 
-    // ESC lukker
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && isOpen()) setOpen(false);
     });
 
-    // Fade listeners
     window.addEventListener("scroll", requestFadeUpdate, { passive: true });
     window.addEventListener("resize", requestFadeUpdate);
 
