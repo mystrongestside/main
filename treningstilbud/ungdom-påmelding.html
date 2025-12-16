@@ -8,25 +8,12 @@
   <meta name="description" content="Påmelding og praktisk informasjon for ungdomstrening ved Trene Sammen Fantoft. Små grupper, trygg veiledning og tydelig opplegg." />
 
   <link rel="icon" type="image/png" href="../favicon.png" />
-
-  <!-- Cache-bust CSS så du faktisk ser endringer -->
-  <link rel="stylesheet" href="../styles.css?v=113-ungdomfix1" />
-
+  <link rel="stylesheet" href="../styles.css?v=113" />
   <script>document.documentElement.classList.add('js');</script>
 
   <style>
-    /* DEBUG badge: hvis du ikke ser denne, er du ikke på riktig fil/cachen vinner */
-    .debug-badge{
-      position:fixed; top:10px; right:10px;
-      z-index:999999;
-      background:#f77c37; color:#fff;
-      padding:.35rem .6rem;
-      border-radius:999px;
-      font: 700 12px/1 system-ui, -apple-system, Segoe UI, sans-serif;
-      box-shadow: 0 10px 30px rgba(0,0,0,.18);
-    }
+    /* Små tillegg – resten kommer fra styles.css */
 
-    /* Vis HELE bildet + begrens størrelse */
     .myss-photo{
       width:100%;
       height:auto;
@@ -82,23 +69,23 @@
     .info-summary__value{ margin:0; font-weight:900; }
     .info-summary__meta{ margin:.2rem 0 0; opacity:.85; }
 
-    /* Datoer som fine kort (tving gjennom med !important) */
+    /* Datoer som fine kort */
     .date-list--grid{
-      list-style:none !important;
-      padding:0 !important;
-      margin:.75rem 0 0 !important;
-      display:grid !important;
-      grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)) !important;
-      gap:.75rem !important;
+      list-style:none;
+      padding:0;
+      margin:.75rem 0 0;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+      gap:.75rem;
     }
     .date-list--grid li{
-      margin:0 !important;
-      padding:.9rem 1rem !important;
-      border-radius:18px !important;
-      background: rgba(16,82,119,.04) !important;
-      border:1px solid rgba(16,82,119,.16) !important;
-      font-weight:800 !important;
-      line-height:1.35 !important;
+      margin:0;
+      padding:.9rem 1rem;
+      border-radius:18px;
+      background: rgba(16,82,119,.04);
+      border:1px solid rgba(16,82,119,.16);
+      font-weight:800;
+      line-height:1.35;
     }
 
     /* Agenda */
@@ -179,7 +166,7 @@
       .sticky-signup-bar{ display:flex; }
     }
 
-    /* Header over alt */
+    /* Header over alt (så meny ikke havner bak) */
     .site-header{
       position: sticky;
       top: 0;
@@ -190,13 +177,84 @@
 
 <body class="page-ungdom-pamelding">
 
-  <div class="debug-badge">DEBUG: ungdom-påmelding.html</div>
+  <!-- ✅ SAMME HEADER SOM SIDEN SOM FUNKER -->
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <div class="site-header__left">
+        <button class="site-header__toggle"
+          aria-label="Åpne meny"
+          aria-expanded="false"
+          aria-controls="hovedmeny"
+          type="button">
+          <span class="site-header__toggle-box" aria-hidden="true">
+            <span class="site-header__toggle-line"></span>
+            <span class="site-header__toggle-line"></span>
+            <span class="site-header__toggle-line"></span>
+          </span>
+          <span class="site-header__toggle-label">Vis menyen</span>
+        </button>
+      </div>
 
-  <!-- Gjør plassholderen "maks kompatibel" med ulike varianter av menu.js -->
-  <header data-component="site-header" id="siteHeader" data-component-header></header>
+      <div class="site-header__center">
+        <a href="../index.html" class="site-header__logo">
+          <img src="../bilder/myss-logo-header.png" alt="My Strongest Side" />
+        </a>
+      </div>
+
+      <div class="site-header__right site-header__actions">
+        <a href="../kontakt.html" class="btn btn--primary">Kontakt oss</a>
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Hovedmeny" id="hovedmeny">
+      <div class="site-nav__top">
+        <div class="site-nav__top-inner container">
+          <div class="site-nav__brand">Meny</div>
+          <button class="site-nav__close" type="button" aria-label="Lukk menyen">
+            ✕ <span class="site-nav__close-label">Lukk menyen</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="site-nav__scroll">
+        <div class="site-nav__panel">
+          <div class="site-nav__inner container nav-editorial">
+            <div class="site-nav__columns">
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">Våre tjenester</h2>
+                <ul class="site-nav__list">
+                  <li><a href="../gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
+                  <li><a href="../Individuelloppfølging.html" class="site-nav__link">Individuell oppfølging</a></li>
+                  <li><a href="../foresatte.html" class="site-nav__link">Kurs og seminar</a></li>
+                  <li><a href="../qr/trening/index.html" class="site-nav__link">QR/NFC treningssystem</a></li>
+                </ul>
+              </div>
+
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">Informasjon</h2>
+                <ul class="site-nav__list">
+                  <li><a href="../presse.html" class="site-nav__link">Presse og media</a></li>
+                  <li><a href="../samarbeid.html" class="site-nav__link">Samarbeid</a></li>
+                </ul>
+              </div>
+
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">My Strongest Side</h2>
+                <ul class="site-nav__list">
+                  <li><a href="../index.html" class="site-nav__link">Forside</a></li>
+                  <li><a href="../kontakt.html" class="site-nav__link">Kontakt</a></li>
+                </ul>
+              </div>
+            </div><!-- /columns -->
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <main>
 
+    <!-- HERO -->
     <section class="section section--light fade-in">
       <div class="container fade-in delay-1">
         <p class="eyebrow">Ungdom</p>
@@ -216,6 +274,7 @@
       </div>
     </section>
 
+    <!-- INNHOLD -->
     <section class="section fade-in">
       <div class="container partner-list">
 
@@ -363,9 +422,9 @@
 
   </main>
 
+  <!-- FOOTER (som før) -->
   <footer class="site-footer fade-in delay-1">
     <div class="container site-footer__inner">
-
       <div class="site-footer__brand fade-in delay-2">
         <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
         <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
@@ -409,7 +468,6 @@
 
       <div class="site-footer__bottom">
         <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
-
         <div class="site-footer__social">
           <span class="site-footer__social-label">Følg oss i sosiale medier</span>
           <div class="site-footer__social-list">
@@ -422,10 +480,10 @@
           </div>
         </div>
       </div>
-
     </div>
   </footer>
 
+  <!-- Sticky bar (mobil) -->
   <div class="sticky-signup-bar" aria-label="Påmelding og pris">
     <div class="sticky-signup-bar__price">
       <strong>600 kr / 800 kr</strong>
@@ -454,19 +512,7 @@
     })();
   </script>
 
-  <!-- Prefix før menu.js -->
-  <script>
-    window.MYSS_PREFIX = "../";
-    window.__prefix = "../";
-    console.log("PREFIX set:", window.MYSS_PREFIX, window.__prefix);
-  </script>
-
-  <!-- Cache-bust + hard error reporting for menu.js -->
-  <script
-    src="../menu.js?v=ungdomfix1"
-    defer
-    onload="console.log('menu.js LOADED ✅', this.src)"
-    onerror="alert('menu.js FAIL ❌: ' + this.src)">
-  </script>
+  <!-- menu.js (samme som fungerer på ungdom-siden) -->
+  <script src="../menu.js" defer></script>
 </body>
 </html>
