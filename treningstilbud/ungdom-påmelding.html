@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
@@ -12,7 +12,7 @@
   <script>document.documentElement.classList.add('js');</script>
 
   <style>
-    /* Små tillegg – resten kommer fra styles.css (samme som samarbeid.html) */
+    /* Små tillegg – resten kommer fra styles.css */
 
     /* Vis HELE bildet + begrens størrelse */
     .myss-photo{
@@ -25,7 +25,7 @@
       max-height: clamp(220px, 34vw, 420px);
     }
 
-    /* Prisfelt i rolig MySS-stil */
+    /* Prisfelt */
     .price-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
@@ -160,13 +160,38 @@
   </style>
 </head>
 
-<body class="page-samarbeid">
-  <!-- Viktig: Dette skal fylles av menu.js / komponent-loader -->
-  <header data-component="site-header"></header>
+<body class="page-ungdom-pamelding">
+
+  <!-- HEADER / MENY (lagt inn direkte) -->
+  <header class="site-header">
+    <div class="site-header__inner container">
+
+      <a class="site-header__brand" href="../index.html" aria-label="My Strongest Side – Hjem">
+        <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-header__logo" />
+      </a>
+
+      <button class="site-header__toggle" aria-label="Åpne meny" aria-expanded="false" aria-controls="siteNav">
+        <span class="site-header__toggle-lines" aria-hidden="true"></span>
+        <span class="site-header__toggle-text">Meny</span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Hovedmeny">
+        <ul class="site-nav__list">
+          <li><a href="../index.html">Hjem</a></li>
+          <li><a href="../samarbeid.html">Samarbeid</a></li>
+          <li><a href="../frivillig.html">Frivillig</a></li>
+          <li><a href="../presse.html">Presse</a></li>
+          <li><a href="../kontakt.html">Kontakt</a></li>
+          <li class="site-nav__cta"><a href="#pamelding" class="btn">Meld deg på</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
 
   <main>
 
-    <!-- HERO (samme type som samarbeid.html) -->
+    <!-- HERO -->
     <section class="section section--light fade-in">
       <div class="container fade-in delay-1">
         <p class="eyebrow">Ungdom</p>
@@ -175,7 +200,6 @@
           Her finner du pris, datoer, tilgjengelighet og påmelding til ungdomstrening ved Trene Sammen Fantoft.
         </p>
 
-        <!-- Bytt bilde til din fil om du vil -->
         <div class="mt-md fade-in delay-3">
           <img
             src="../bilder/ungdom-hero.jpg"
@@ -187,7 +211,7 @@
       </div>
     </section>
 
-    <!-- INNHOLD (samme struktur som samarbeid.html) -->
+    <!-- INNHOLD -->
     <section class="section fade-in">
       <div class="container partner-list">
 
@@ -277,7 +301,7 @@
         </article>
 
         <!-- Påmelding -->
-        <article class="mt-lg fade-in delay-3 partner-card" id="påmelding">
+        <article class="mt-lg fade-in delay-3 partner-card" id="pamelding">
           <div class="partner-card__logo-wrap">
             <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
           </div>
@@ -299,7 +323,7 @@
         </article>
 
         <!-- Spørsmål -->
-        <article class="mt-lg fade-in delay-3 partner-card" id="spørsmål">
+        <article class="mt-lg fade-in delay-3 partner-card" id="sporsmal">
           <h2 class="mt-sm">Spørsmål<span class="dot">.</span></h2>
 
           <details>
@@ -325,7 +349,7 @@
       </div>
     </section>
 
-    <!-- CTA (samme som samarbeid.html) -->
+    <!-- CTA -->
     <section class="myss-cta-wave fade-in" id="kontakt">
       <div class="myss-cta-wave__inner fade-in delay-1">
         <h2 class="fade-in delay-2">Trenger du avklaring<span class="dot">.</span></h2>
@@ -339,7 +363,7 @@
 
   </main>
 
-  <!-- FOOTER (hardkodet som samarbeid.html, men med ../-stier) -->
+  <!-- FOOTER (ryddet stier) -->
   <footer class="site-footer fade-in delay-1">
     <div class="container site-footer__inner">
 
@@ -352,8 +376,8 @@
         <div>
           <h3 class="site-footer__heading">Våre tjenester</h3>
           <ul class="site-footer__list">
-            <li><a href="voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
-            <li><a href="tett-oppfolging.html">Tett oppfølging</a></li>
+            <li><a href="./voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
+            <li><a href="../tett-oppfolging.html">Tett oppfølging</a></li>
             <li><a href="../frivillig.html">Frivilligprogram</a></li>
           </ul>
         </div>
@@ -409,11 +433,15 @@
       <strong>600 kr / 800 kr</strong>
       <span>CPV-medlem / ikke medlem</span>
     </div>
-    <a class="sticky-signup-bar__button" href="#checkin_registration">Meld deg på</a>
+    <a class="sticky-signup-bar__button" href="#pamelding">Meld deg på</a>
   </div>
 
   <script>
+    // Footer-år + sticky bar skjul når checkin er synlig
     (function() {
+      var yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
       var stickyBar = document.querySelector('.sticky-signup-bar');
       var registration = document.getElementById('checkin_registration');
       if (!('IntersectionObserver' in window) || !stickyBar || !registration) return;
@@ -428,13 +456,12 @@
     })();
   </script>
 
-  <!-- VIKTIG: fortell menu.js at vi er i /treningstilbud/ -->
+  <!-- menu.js (brukes her kun til toggle/nav hvis du allerede har den logikken der) -->
   <script>
     window.MYSS_PREFIX = "../";
     window.__prefix = "../";
   </script>
-
-  <!-- External JS (ONE source) -->
   <script src="../menu.js" defer></script>
 </body>
 </html>
+
