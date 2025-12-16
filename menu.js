@@ -1,5 +1,17 @@
 (() => {
-  const headerTemplate = `
+  const resolvePrefix = () => {
+    if (typeof window !== "undefined") {
+      if (typeof window.MYSS_PREFIX !== "undefined" && window.MYSS_PREFIX !== null)
+        return window.MYSS_PREFIX;
+      if (typeof window.__prefix !== "undefined" && window.__prefix)
+        return window.__prefix;
+      if (window.location.pathname.includes("/treningstilbud/")) return "../";
+      if (window.location.pathname.includes("/qr/")) return "../../";
+    }
+    return "";
+  };
+
+  const headerTemplate = (prefix = "") => `
     <div class="site-header__inner container">
       <div class="site-header__left">
         <button class="site-header__toggle"
@@ -17,13 +29,13 @@
       </div>
 
       <div class="site-header__center">
-        <a href="index.html" class="site-header__logo">
-          <img src="bilder/myss-logo-header.png" alt="My Strongest Side" />
+        <a href="${prefix}index.html" class="site-header__logo">
+          <img src="${prefix}bilder/myss-logo-header.png" alt="My Strongest Side" />
         </a>
       </div>
 
       <div class="site-header__right site-header__actions">
-        <a href="kontakt.html" class="btn btn--primary">Kontakt oss</a>
+        <a href="${prefix}kontakt.html" class="btn btn--primary">Kontakt oss</a>
       </div>
     </div>
 
@@ -44,26 +56,26 @@
               <div class="site-nav__column">
                 <h2 class="site-nav__heading">Våre tjenester</h2>
                 <ul class="site-nav__list">
-                  <li><a href="gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
-                  <li><a href="Individuelloppfølging.html" class="site-nav__link">Individuell oppfølging</a></li>
-                  <li><a href="foresatte.html" class="site-nav__link">Kurs og seminar</a></li>
-                  <li><a href="qr/trening/index.html" class="site-nav__link">QR/NFC treningssystem</a></li>
+                  <li><a href="${prefix}gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
+                  <li><a href="${prefix}Individuelloppfølging.html" class="site-nav__link">Individuell oppfølging</a></li>
+                  <li><a href="${prefix}foresatte.html" class="site-nav__link">Kurs og seminar</a></li>
+                  <li><a href="${prefix}qr/trening/index.html" class="site-nav__link">QR/NFC treningssystem</a></li>
                 </ul>
               </div>
 
               <div class="site-nav__column">
                 <h2 class="site-nav__heading">Informasjon</h2>
                 <ul class="site-nav__list">
-                  <li><a href="presse.html" class="site-nav__link">Presse og media</a></li>
-                  <li><a href="samarbeid.html" class="site-nav__link">Samarbeid</a></li>
+                  <li><a href="${prefix}presse.html" class="site-nav__link">Presse og media</a></li>
+                  <li><a href="${prefix}samarbeid.html" class="site-nav__link">Samarbeid</a></li>
                 </ul>
               </div>
 
               <div class="site-nav__column">
                 <h2 class="site-nav__heading">My Strongest Side</h2>
                 <ul class="site-nav__list">
-                  <li><a href="index.html" class="site-nav__link">Forside</a></li>
-                  <li><a href="kontakt.html" class="site-nav__link">Kontakt</a></li>
+                  <li><a href="${prefix}index.html" class="site-nav__link">Forside</a></li>
+                  <li><a href="${prefix}kontakt.html" class="site-nav__link">Kontakt</a></li>
                 </ul>
               </div>
             </div>
@@ -82,13 +94,17 @@
   }
 
   ready(() => {
+    const prefix = resolvePrefix();
+    window.MYSS_PREFIX = prefix;
+    window.__prefix = prefix;
+
     const root = document.documentElement;
     const body = document.body;
     const mount = document.querySelector("[data-component='site-header']");
 
     if (mount) {
       mount.classList.add("site-header");
-      mount.innerHTML = headerTemplate;
+      mount.innerHTML = headerTemplate(prefix);
     }
 
     const header = mount?.classList.contains("site-header") ? mount : document.querySelector(".site-header");
