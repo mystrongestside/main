@@ -8,11 +8,23 @@
   <meta name="description" content="Påmelding og praktisk informasjon for ungdomstrening ved Trene Sammen Fantoft. Små grupper, trygg veiledning og tydelig opplegg." />
 
   <link rel="icon" type="image/png" href="../favicon.png" />
-  <link rel="stylesheet" href="../styles.css?v=999" />
+
+  <!-- Cache-bust CSS så du faktisk ser endringer -->
+  <link rel="stylesheet" href="../styles.css?v=113-ungdomfix1" />
+
   <script>document.documentElement.classList.add('js');</script>
 
   <style>
-    /* Små tillegg – resten kommer fra styles.css */
+    /* DEBUG badge: hvis du ikke ser denne, er du ikke på riktig fil/cachen vinner */
+    .debug-badge{
+      position:fixed; top:10px; right:10px;
+      z-index:999999;
+      background:#f77c37; color:#fff;
+      padding:.35rem .6rem;
+      border-radius:999px;
+      font: 700 12px/1 system-ui, -apple-system, Segoe UI, sans-serif;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+    }
 
     /* Vis HELE bildet + begrens størrelse */
     .myss-photo{
@@ -70,23 +82,23 @@
     .info-summary__value{ margin:0; font-weight:900; }
     .info-summary__meta{ margin:.2rem 0 0; opacity:.85; }
 
-    /* Datoer som fine kort */
+    /* Datoer som fine kort (tving gjennom med !important) */
     .date-list--grid{
-      list-style:none;
-      padding:0;
-      margin:.75rem 0 0;
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
-      gap:.75rem;
+      list-style:none !important;
+      padding:0 !important;
+      margin:.75rem 0 0 !important;
+      display:grid !important;
+      grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)) !important;
+      gap:.75rem !important;
     }
     .date-list--grid li{
-      margin:0;
-      padding:.9rem 1rem;
-      border-radius:18px;
-      background: rgba(16,82,119,.04);
-      border:1px solid rgba(16,82,119,.16);
-      font-weight:800;
-      line-height:1.35;
+      margin:0 !important;
+      padding:.9rem 1rem !important;
+      border-radius:18px !important;
+      background: rgba(16,82,119,.04) !important;
+      border:1px solid rgba(16,82,119,.16) !important;
+      font-weight:800 !important;
+      line-height:1.35 !important;
     }
 
     /* Agenda */
@@ -167,7 +179,7 @@
       .sticky-signup-bar{ display:flex; }
     }
 
-    /* Header skal alltid ligge over innhold (hvis hero osv. har stacking context) */
+    /* Header over alt */
     .site-header{
       position: sticky;
       top: 0;
@@ -178,12 +190,13 @@
 
 <body class="page-ungdom-pamelding">
 
-  <!-- SLIK SOM SAMARBEID: menu.js injecter header -->
-  <header data-component="site-header"></header>
+  <div class="debug-badge">DEBUG: ungdom-påmelding.html</div>
+
+  <!-- Gjør plassholderen "maks kompatibel" med ulike varianter av menu.js -->
+  <header data-component="site-header" id="siteHeader" data-component-header></header>
 
   <main>
 
-    <!-- HERO -->
     <section class="section section--light fade-in">
       <div class="container fade-in delay-1">
         <p class="eyebrow">Ungdom</p>
@@ -203,11 +216,9 @@
       </div>
     </section>
 
-    <!-- INNHOLD -->
     <section class="section fade-in">
       <div class="container partner-list">
 
-        <!-- Praktisk info -->
         <article class="mt-md fade-in delay-2 partner-card" id="praktisk">
           <div class="partner-card__logo-wrap">
             <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
@@ -292,7 +303,6 @@
           </div>
         </article>
 
-        <!-- Påmelding -->
         <article class="mt-lg fade-in delay-3 partner-card" id="pamelding">
           <div class="partner-card__logo-wrap">
             <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
@@ -314,7 +324,6 @@
             async></script>
         </article>
 
-        <!-- Spørsmål -->
         <article class="mt-lg fade-in delay-3 partner-card" id="sporsmal">
           <h2 class="mt-sm">Spørsmål<span class="dot">.</span></h2>
 
@@ -341,7 +350,6 @@
       </div>
     </section>
 
-    <!-- CTA -->
     <section class="myss-cta-wave fade-in" id="kontakt">
       <div class="myss-cta-wave__inner fade-in delay-1">
         <h2 class="fade-in delay-2">Trenger du avklaring<span class="dot">.</span></h2>
@@ -355,7 +363,6 @@
 
   </main>
 
-  <!-- FOOTER (samme som før, men riktige stier) -->
   <footer class="site-footer fade-in delay-1">
     <div class="container site-footer__inner">
 
@@ -419,7 +426,6 @@
     </div>
   </footer>
 
-  <!-- Sticky bar (mobil) -->
   <div class="sticky-signup-bar" aria-label="Påmelding og pris">
     <div class="sticky-signup-bar__price">
       <strong>600 kr / 800 kr</strong>
@@ -448,13 +454,19 @@
     })();
   </script>
 
-  <!-- Viktig: prefix før menu.js, siden denne siden ligger i /treningstilbud/ -->
+  <!-- Prefix før menu.js -->
   <script>
     window.MYSS_PREFIX = "../";
     window.__prefix = "../";
+    console.log("PREFIX set:", window.MYSS_PREFIX, window.__prefix);
   </script>
 
-  <!-- External JS (ONE source) -->
-  <script src="../menu.js" defer></script>
+  <!-- Cache-bust + hard error reporting for menu.js -->
+  <script
+    src="../menu.js?v=ungdomfix1"
+    defer
+    onload="console.log('menu.js LOADED ✅', this.src)"
+    onerror="alert('menu.js FAIL ❌: ' + this.src)">
+  </script>
 </body>
 </html>
