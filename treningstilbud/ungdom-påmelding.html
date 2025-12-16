@@ -12,7 +12,7 @@
   <script>document.documentElement.classList.add('js');</script>
 
   <style>
-    /* Kun små tillegg – resten skal komme fra styles.css (samme som samarbeid.html) */
+    /* Små tillegg – resten kommer fra styles.css (samme som samarbeid.html) */
 
     /* Vis HELE bildet + begrens størrelse */
     .myss-photo{
@@ -22,10 +22,10 @@
       border-radius:24px;
       object-fit:contain;
       background: rgba(16,82,119,.06);
-      max-height: clamp(240px, 34vw, 420px);
+      max-height: clamp(220px, 34vw, 420px);
     }
 
-    /* Prisfelt i MySS-stil */
+    /* Prisfelt i rolig MySS-stil */
     .price-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
@@ -70,7 +70,7 @@
     .info-summary__value{ margin:0; font-weight:900; }
     .info-summary__meta{ margin:.2rem 0 0; opacity:.85; }
 
-    /* Datoer */
+    /* Datoer grid */
     .date-list--grid{
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
@@ -160,7 +160,8 @@
   </style>
 </head>
 
-<body class="page-ungdom">
+<body class="page-samarbeid">
+  <!-- Viktig: Dette skal fylles av menu.js / komponent-loader -->
   <header data-component="site-header"></header>
 
   <main>
@@ -174,14 +175,19 @@
           Her finner du pris, datoer, tilgjengelighet og påmelding til ungdomstrening ved Trene Sammen Fantoft.
         </p>
 
-        <!-- Valgfritt bilde i hero -->
+        <!-- Bytt bilde til din fil om du vil -->
         <div class="mt-md fade-in delay-3">
-          <img src="../bilder/ungdom-hero.jpg" alt="Ungdomstrening hos My Strongest Side" class="myss-photo" loading="lazy" />
+          <img
+            src="../bilder/ungdom-hero.jpg"
+            alt="Ungdomstrening hos My Strongest Side"
+            class="myss-photo"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
 
-    <!-- PARTNER-LIST (samme struktur som samarbeid.html) -->
+    <!-- INNHOLD (samme struktur som samarbeid.html) -->
     <section class="section fade-in">
       <div class="container partner-list">
 
@@ -283,12 +289,13 @@
 
           <div id="checkin_registration" class="mt-md"></div>
 
-          <script src="https://registration.checkin.no/registration.loader.js"
-                  data-event-id="214654"
-                  data-theme="light"
-                  data-primary-color="#105277"
-                  data-secondary-color="#f77c37"
-                  async></script>
+          <script
+            src="https://registration.checkin.no/registration.loader.js"
+            data-event-id="214654"
+            data-theme="light"
+            data-primary-color="#105277"
+            data-secondary-color="#f77c37"
+            async></script>
         </article>
 
         <!-- Spørsmål -->
@@ -318,7 +325,7 @@
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA (samme som samarbeid.html) -->
     <section class="myss-cta-wave fade-in" id="kontakt">
       <div class="myss-cta-wave__inner fade-in delay-1">
         <h2 class="fade-in delay-2">Trenger du avklaring<span class="dot">.</span></h2>
@@ -335,6 +342,7 @@
   <!-- FOOTER (hardkodet som samarbeid.html, men med ../-stier) -->
   <footer class="site-footer fade-in delay-1">
     <div class="container site-footer__inner">
+
       <div class="site-footer__brand fade-in delay-2">
         <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
         <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
@@ -370,4 +378,63 @@
           <ul class="site-footer__list">
             <li>My Strongest Side AS</li>
             <li>Brages veg 3<br>5221 Nesttun</li>
-            <li>E-post: <a href="
+            <li>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+
+        <div class="site-footer__social">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
+              <img src="../icons/facebook.png" alt="" aria-hidden="true">
+            </a>
+            <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
+              <img src="../icons/instagram.png" alt="" aria-hidden="true">
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Sticky bar (mobil) -->
+  <div class="sticky-signup-bar" aria-label="Påmelding og pris">
+    <div class="sticky-signup-bar__price">
+      <strong>600 kr / 800 kr</strong>
+      <span>CPV-medlem / ikke medlem</span>
+    </div>
+    <a class="sticky-signup-bar__button" href="#checkin_registration">Meld deg på</a>
+  </div>
+
+  <script>
+    (function() {
+      var stickyBar = document.querySelector('.sticky-signup-bar');
+      var registration = document.getElementById('checkin_registration');
+      if (!('IntersectionObserver' in window) || !stickyBar || !registration) return;
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          stickyBar.classList.toggle('is-hidden', entry.isIntersecting);
+        });
+      }, { threshold: 0.1 });
+
+      observer.observe(registration);
+    })();
+  </script>
+
+  <!-- VIKTIG: fortell menu.js at vi er i /treningstilbud/ -->
+  <script>
+    window.MYSS_PREFIX = "../";
+    window.__prefix = "../";
+  </script>
+
+  <!-- External JS (ONE source) -->
+  <script src="../menu.js" defer></script>
+</body>
+</html>
