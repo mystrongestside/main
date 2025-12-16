@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
@@ -70,15 +70,24 @@
     .info-summary__value{ margin:0; font-weight:900; }
     .info-summary__meta{ margin:.2rem 0 0; opacity:.85; }
 
-    /* Datoer grid */
+    /* Datoer som fine kort */
     .date-list--grid{
+      list-style:none;
+      padding:0;
+      margin:.75rem 0 0;
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
-      gap:.35rem .75rem;
-      padding-left: 1.1rem;
-      margin:.6rem 0 0;
+      gap:.75rem;
     }
-    .date-list--grid li{ margin:0; }
+    .date-list--grid li{
+      margin:0;
+      padding:.9rem 1rem;
+      border-radius:18px;
+      background: rgba(16,82,119,.04);
+      border:1px solid rgba(16,82,119,.16);
+      font-weight:800;
+      line-height:1.35;
+    }
 
     /* Agenda */
     .session-agenda{
@@ -157,37 +166,20 @@
       }
       .sticky-signup-bar{ display:flex; }
     }
+
+    /* Header skal alltid ligge over innhold (hvis hero osv. har stacking context) */
+    .site-header{
+      position: sticky;
+      top: 0;
+      z-index: 3000;
+    }
   </style>
 </head>
 
 <body class="page-ungdom-pamelding">
 
-  <!-- HEADER / MENY (lagt inn direkte) -->
-  <header class="site-header">
-    <div class="site-header__inner container">
-
-      <a class="site-header__brand" href="../index.html" aria-label="My Strongest Side – Hjem">
-        <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-header__logo" />
-      </a>
-
-      <button class="site-header__toggle" aria-label="Åpne meny" aria-expanded="false" aria-controls="siteNav">
-        <span class="site-header__toggle-lines" aria-hidden="true"></span>
-        <span class="site-header__toggle-text">Meny</span>
-      </button>
-
-      <nav class="site-nav" id="siteNav" aria-label="Hovedmeny">
-        <ul class="site-nav__list">
-          <li><a href="../index.html">Hjem</a></li>
-          <li><a href="../samarbeid.html">Samarbeid</a></li>
-          <li><a href="../frivillig.html">Frivillig</a></li>
-          <li><a href="../presse.html">Presse</a></li>
-          <li><a href="../kontakt.html">Kontakt</a></li>
-          <li class="site-nav__cta"><a href="#pamelding" class="btn">Meld deg på</a></li>
-        </ul>
-      </nav>
-
-    </div>
-  </header>
+  <!-- SLIK SOM SAMARBEID: menu.js injecter header -->
+  <header data-component="site-header"></header>
 
   <main>
 
@@ -363,7 +355,7 @@
 
   </main>
 
-  <!-- FOOTER (ryddet stier) -->
+  <!-- FOOTER (samme som før, men riktige stier) -->
   <footer class="site-footer fade-in delay-1">
     <div class="container site-footer__inner">
 
@@ -456,12 +448,13 @@
     })();
   </script>
 
-  <!-- menu.js (brukes her kun til toggle/nav hvis du allerede har den logikken der) -->
+  <!-- Viktig: prefix før menu.js, siden denne siden ligger i /treningstilbud/ -->
   <script>
     window.MYSS_PREFIX = "../";
     window.__prefix = "../";
   </script>
+
+  <!-- External JS (ONE source) -->
   <script src="../menu.js" defer></script>
 </body>
 </html>
-
