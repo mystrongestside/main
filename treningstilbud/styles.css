@@ -1,0 +1,1543 @@
+:root{
+  --myss-blue:#105277;
+  --myss-orange:#f77c37;
+  --myss-ink:#182433;
+  --myss-ink-2:#24344d;
+  --myss-footer:#E4E8F2;
+  --myss-white:#ffffff;
+  --nav-top: 62px;
+  --container:1200px;
+  --header-h:96px;
+}
+
+@media (max-width:600px){
+  :root{ --header-h:78px; }
+}
+
+*,
+*::before,
+*::after{ box-sizing:border-box; }
+
+html{
+  scroll-behavior:smooth;
+  scrollbar-gutter:stable;
+}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:clamp(20px,1.2rem + 0.8vw,24px);
+  line-height:1.8;
+  color:var(--myss-ink);
+  background:#fff;
+}
+
+h1,h2,h3,h4,h5,h6,p,ul,ol{ margin-top:0; }
+p{ margin-bottom:1.3rem; }
+
+h1{ font-size:clamp(40px,2.8rem + 1vw,58px); line-height:1.2; margin-bottom:1rem; }
+h2{ font-size:clamp(32px,2.2rem + 0.6vw,44px); line-height:1.3; margin-bottom:.9rem; }
+h3{ font-size:clamp(26px,1.8rem + 0.4vw,32px); margin-bottom:.6rem; }
+
+a{ color:var(--myss-ink-2); text-decoration:none; }
+a:hover,a:focus-visible{ text-decoration:underline; }
+
+:focus-visible{ outline:3px solid var(--myss-orange); outline-offset:3px; }
+
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin-inline:auto;
+  padding-inline:1.5rem;
+}
+
+main{ padding:2.5rem 0 3.5rem; }
+
+.mt-sm{ margin-top:.5rem; }
+.mt-md{ margin-top:1rem; }
+.mt-lg{ margin-top:1.5rem; }
+
+.eyebrow{
+  font-size:.95em;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--myss-orange);
+  font-weight:700;
+  margin-bottom:.5rem;
+}
+
+.dot{ color:var(--myss-orange); margin-left:.1em; }
+
+/* Header */
+.site-header{ 
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  border-bottom:1px solid rgba(0,0,0,.06);
+  isolation:isolate;
+  pointer-events:auto;
+}
+
+.site-header__inner{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:1rem;
+  padding:.75rem 1.5rem;
+}
+
+.site-header__logo img{
+  display:block;
+  height:75px;
+  max-width:190px;
+}
+
+.site-header__toggle{
+  background:none;
+  border:1px solid transparent;
+  padding:.35rem .8rem;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  cursor:pointer;
+  font-size:1rem;
+  line-height:1.2;
+  color:var(--myss-ink);
+  position:relative;
+  z-index:1001;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+
+.site-header__toggle:focus-visible{ border-color:#2f6fed; }
+
+.site-header__toggle-box{
+  width:22px;
+  height:18px;
+  display:inline-flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.site-header__toggle-line{
+  width:100%;
+  height:3px;
+  border-radius:999px;
+  background:currentColor;
+  transition:transform .2s ease, opacity .2s ease;
+}
+
+.site-header__toggle.is-open .site-header__toggle-line:nth-child(1){
+  transform:translateY(7.5px) rotate(45deg);
+}
+.site-header__toggle.is-open .site-header__toggle-line:nth-child(2){ opacity:0; }
+.site-header__toggle.is-open .site-header__toggle-line:nth-child(3){
+  transform:translateY(-7.5px) rotate(-45deg);
+}
+
+.site-header__actions{ display:flex; align-items:center; margin-left:auto; }
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:.6rem 1.5rem;
+  border-radius:999px;
+  border:2px solid transparent;
+  font-weight:600;
+  font-size:.95em;
+  cursor:pointer;
+  text-decoration:none;
+  transition:background-color .15s ease,color .15s ease,border-color .15s ease,transform .1s ease;
+}
+.btn:active{ transform:translateY(1px); }
+
+.btn--primary{
+  background:var(--myss-orange);
+  border-color:var(--myss-orange);
+  color:#fff;
+}
+.btn--primary:hover,
+.btn--primary:focus-visible{
+  background:#e76923;
+  border-color:#e76923;
+  color:#fff;
+  text-decoration:none;
+}
+
+/* Nav (overlay) */
+.site-nav{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  background:var(--myss-white);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translateY(-8px);
+  transition:opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+  overflow:hidden;
+  z-index:2000;
+}
+
+.site-nav.site-nav--open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateY(0);
+  transition:opacity .18s ease, transform .18s ease, visibility 0s;
+}
+
+html.nav-open,
+body.nav-open{ overflow:hidden; }
+
+.site-nav__top{
+  position:sticky;
+  top:0;
+  background:var(--myss-white);
+  border-bottom:1px solid var(--myss-footer);
+  height:var(--nav-top);
+  display:flex;
+  align-items:center;
+  z-index:1;
+}
+
+.site-nav__top-inner{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:0 1.5rem;
+}
+
+.site-nav__brand{
+  font-weight:800;
+  color:var(--myss-blue);
+  font-size:.9rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.site-nav__close{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  border:1px solid var(--myss-footer);
+  background:transparent;
+  color:var(--myss-blue);
+  border-radius:999px;
+  padding:.4rem .75rem;
+  cursor:pointer;
+  font-weight:750;
+  font-size:.9rem;
+}
+
+.site-nav__close:hover,
+.site-nav__close:focus-visible{
+  border-color:var(--myss-blue);
+  outline:none;
+}
+
+.site-nav__close-label{ font-weight:700; }
+
+.site-nav__scroll{
+  height:calc(100vh - var(--nav-top));
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+}
+
+.site-nav__panel{
+  padding:1.75rem 1.5rem 2.5rem;
+  display:flex;
+  justify-content:center;
+}
+
+.site-nav__inner{
+  width:100%;
+  max-width:1180px;
+  padding:2.25rem 2.25rem 2.75rem;
+  background:var(--myss-white);
+  border-radius:22px;
+  box-shadow:0 22px 60px rgba(16,82,119,.08);
+  margin-inline:auto;
+}
+
+@media (max-width:600px){
+  :root{ --nav-top: 64px; }
+  .site-nav__panel{ padding:1.25rem 1rem 2.25rem; }
+  .site-nav__inner{ padding:1.5rem 1.25rem 2.25rem; box-shadow:0 12px 32px rgba(16,82,119,.08); }
+  .site-nav__close-label{ display:none; }
+}
+
+.site-nav__columns{
+  display:grid;
+  gap:2.5rem 4rem;
+}
+
+@media (min-width:900px){
+  .site-nav__columns{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+
+.site-nav__heading{
+  color:var(--myss-blue);
+  font-weight:800;
+  margin:0 0 1.3rem;
+  font-size:.95rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding-bottom:.75rem;
+  border-bottom:1px solid #E4E8F2;
+}
+
+.site-nav__list{ list-style:none; margin:0; padding:0; }
+.site-nav__list li + li{ margin-top:.35rem; }
+
+.site-nav__link{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  color:#182433;
+  font-weight:650;
+  padding:.8rem 1.05rem;
+  min-height:48px;
+  text-decoration:none;
+  font-size:clamp(1.3rem,1.05rem + 0.7vw,1.9rem);
+  line-height:1.35;
+  border-radius:14px;
+  transition:background .18s ease, color .18s ease, box-shadow .18s ease;
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible{
+  color:var(--myss-blue);
+  background:rgba(228,232,242,.6);
+  box-shadow:inset 4px 0 0 0 var(--myss-orange);
+  text-decoration:underline;
+  text-decoration-color:var(--myss-orange);
+  text-decoration-thickness:2px;
+  text-underline-offset:6px;
+}
+
+.nav-editorial{
+  max-width:1160px;
+  padding:2rem 1.75rem 2.85rem;
+  background:none;
+  border-radius:0;
+  box-shadow:none;
+}
+
+.nav-editorial .site-nav__columns{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  column-gap:72px;
+  row-gap:56px;
+  position:relative;
+  padding:.25rem 0;
+}
+
+.nav-editorial .site-nav__columns::before,
+.nav-editorial .site-nav__columns::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:1px;
+  background:linear-gradient(to bottom, rgba(228,232,242,0), rgba(228,232,242,.85) 18%, rgba(228,232,242,.85) 82%, rgba(228,232,242,0));
+  opacity:.9;
+}
+
+.nav-editorial .site-nav__columns::before{ left:33.333%; transform:translateX(-36px); }
+.nav-editorial .site-nav__columns::after{ left:66.666%; transform:translateX(-36px); }
+
+.nav-editorial .site-nav__heading{
+  font-size:1rem;
+  font-weight:800;
+  letter-spacing:.11em;
+  color:var(--myss-blue);
+  margin:.2rem 0 .9rem;
+  padding-bottom:.6rem;
+  border-bottom:1px solid var(--myss-footer);
+  text-transform:uppercase;
+}
+
+.nav-editorial .site-nav__list li + li{ margin-top:.05rem; }
+
+.nav-editorial .site-nav__link{
+  display:block;
+  padding:12px 0;
+  min-height:44px;
+  font-size:clamp(1.75rem,1.25rem + 1vw,2.25rem);
+  font-weight:750;
+  line-height:1.2;
+  color:#182433;
+  border-radius:0;
+  gap:0;
+  transition:color .15s ease, transform .15s ease, text-decoration-color .15s ease;
+}
+
+.nav-editorial .site-nav__link:hover,
+.nav-editorial .site-nav__link:focus-visible{
+  background:none;
+  box-shadow:none;
+  color:#0f4160;
+  text-decoration:underline;
+  text-decoration-color:var(--myss-orange);
+  text-decoration-thickness:1.5px;
+  text-underline-offset:6px;
+  transform:translateY(-1px);
+}
+
+.nav-editorial .site-nav__link:focus-visible{ outline:3px solid var(--myss-orange); outline-offset:3px; }
+
+@media (max-width:900px){
+  .site-nav__panel{ padding:1.4rem 1.1rem 2.25rem; }
+  .nav-editorial{ padding:1.5rem 1.25rem 2.25rem; }
+  .nav-editorial .site-nav__columns{ grid-template-columns:1fr; column-gap:0; row-gap:44px; }
+  .nav-editorial .site-nav__columns::before,
+  .nav-editorial .site-nav__columns::after{ display:none; }
+  .nav-editorial .site-nav__heading{ margin:.1rem 0 .8rem; }
+  .nav-editorial .site-nav__link{ font-size:clamp(1.5rem,1.15rem + 1.8vw,2rem); }
+}
+
+/* Sections */
+.section{ padding:2.5rem 0; }
+.section--light{ background:#fff; }
+
+/* Partners */
+.partner-list article + article{ margin-top:2rem; }
+
+.partner-card{
+  max-width:720px;
+  text-align:left;
+}
+
+.partner-card__logo-wrap{
+  height:72px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+  align-self:flex-start;
+  margin-bottom:14px;
+  text-align:left;
+  margin-right:auto;
+}
+
+.partner-card__logo-wrap .partner-logo{
+  max-height:72px;
+  max-width:220px;
+  width:auto;
+  height:auto;
+  display:block;
+  margin-right:auto;
+  object-fit:contain;
+
+  filter:grayscale(100%);
+  opacity:.85;
+  transition:filter .25s ease, opacity .25s ease, transform .2s ease;
+}
+
+.partner-card:hover .partner-card__logo-wrap .partner-logo,
+.partner-card .partner-logo:hover{
+  filter:grayscale(0%);
+  opacity:1;
+  transform:translateY(-2px);
+}
+
+/* CTA wave */
+.myss-cta-wave{
+  position:relative;
+  background:var(--myss-footer);
+  padding:6rem 0 4rem;
+  margin-top:4rem;
+  overflow:hidden;
+  z-index:0;
+}
+.myss-cta-wave::before{
+  content:"";
+  position:absolute;
+  top:-80px;
+  left:0;
+  width:100%;
+  height:180px;
+  background-repeat:no-repeat;
+  background-position:top center;
+  background-size:cover;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23E4E8F2' d='M0,256 C240,288 480,304 720,288 C960,272 1200,224 1440,192 L1440,0 L0,0 Z'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:-1;
+}
+
+.myss-cta-wave__inner{
+  max-width:900px;
+  margin:0 auto;
+  padding:0 1.5rem;
+  text-align:center;
+}
+.myss-cta-wave h2{
+  font-size:clamp(32px,2.4rem,44px);
+  margin-bottom:1rem;
+  color:var(--myss-ink);
+}
+.myss-cta-wave p{
+  font-size:1.1em;
+  margin-bottom:2.5rem;
+  color:var(--myss-ink);
+}
+.myss-cta-wave__actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:2rem;
+}
+.myss-cta-wave__btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:.9rem 2.4rem;
+  border-radius:999px;
+  background:var(--myss-orange);
+  color:#fff;
+  font-weight:700;
+  font-size:1.05em;
+  text-decoration:none;
+}
+.myss-cta-wave__btn:hover,
+.myss-cta-wave__btn:focus-visible{ background:#e76923; text-decoration:none; }
+
+.myss-cta-wave__email{
+  font-weight:600;
+  font-size:1.05em;
+  color:var(--myss-ink);
+}
+.myss-cta-wave__email:hover,
+.myss-cta-wave__email:focus-visible{ text-decoration:underline; }
+
+/* Footer */
+.site-footer{
+  background:var(--myss-blue);
+  color:var(--myss-footer);
+  padding:3rem 0 2.5rem;
+  margin-top:0;
+}
+.site-footer__inner{
+  display:flex;
+  flex-direction:column;
+  gap:3rem;
+}
+.site-footer__brand{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:.8rem;
+}
+.site-footer__logo{ height:60px; width:auto; display:block; }
+.site-footer__tagline{
+  font-family:"Segoe Script","Bradley Hand","Brush Script MT",cursive;
+  font-size:1.3em;
+  color:var(--myss-footer);
+  margin:.2rem 0 0;
+}
+.site-footer__top{
+  display:grid;
+  gap:2rem;
+}
+@media (min-width:760px){
+  .site-footer__top{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (min-width:1100px){
+  .site-footer__top{ grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+.site-footer__heading{
+  font-size:1.1em;
+  font-weight:700;
+  margin-bottom:.75rem;
+  color:var(--myss-footer);
+}
+.site-footer__list{ list-style:none; margin:0; padding:0; }
+.site-footer__list li + li{ margin-top:.5rem; }
+.site-footer a{ color:rgba(228,232,242,.95); }
+.site-footer a:hover,
+.site-footer a:focus-visible{ text-decoration:underline; }
+
+.site-footer__bottom{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  border-top:1px solid rgba(255,255,255,.2);
+  padding-top:1.5rem;
+  margin-top:.5rem;
+  font-size:.95em;
+}
+@media (min-width:900px){
+  .site-footer__bottom{
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+  }
+}
+.site-footer__meta{ margin:0; }
+
+.site-footer__social{
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+  align-items:flex-start;
+}
+.site-footer__social-label{
+  font-size:28px;
+  font-weight:700;
+  letter-spacing:-.01em;
+  color:var(--myss-footer);
+}
+.site-footer__social-list{
+  display:flex;
+  gap:26px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.social-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:74px;
+  height:74px;
+  border-radius:16px;
+}
+.social-link img{
+  width:56px;
+  height:56px;
+  display:block;
+  object-fit:contain;
+}
+
+/* Fade in */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeInUp .8s ease-out forwards;
+}
+@keyframes fadeInUp{
+  from{ opacity:0; transform:translateY(24px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+/* Mobile */
+@media (max-width:600px){
+  .site-header__inner{ padding:.9rem 1rem; }
+  .site-header__logo img{ height:56px; }
+  .site-header__toggle-label{ font-size:.95rem; }
+  .site-header__actions{ display:none; }
+
+  .section--light .container{ padding-inline:1rem; }
+  h1{ font-size:clamp(30px,2rem + 2vw,38px); }
+  p{ font-size:1.03rem; }
+
+  .partner-card{ max-width:100%; text-align:left; }
+  .partner-card__logo-wrap{
+    height:56px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:flex-start;
+    align-self:flex-start;
+    margin-right:auto;
+    text-align:left;
+  }
+  .partner-logo{ max-height:56px; max-width:200px; margin-right:auto; }
+
+  .myss-cta-wave{ padding:4rem 0 3rem; }
+  .myss-cta-wave__inner{ padding:0 1rem; }
+  .myss-cta-wave h2{ font-size:1.9rem; }
+  .myss-cta-wave__actions{ flex-direction:column; gap:1.2rem; }
+  .myss-cta-wave__btn{ width:100%; padding:1rem 0; font-size:1.1rem; }
+  .myss-cta-wave__email{ font-size:1rem; }
+
+  .site-footer__brand{ align-items:center; text-align:center; }
+  .site-footer__logo{ height:55px; }
+  .site-footer__tagline{ font-size:1.15rem; line-height:1.3; }
+
+  .site-footer__top{ grid-template-columns:1fr; gap:2.2rem; }
+  .site-footer__heading{ text-align:center; }
+  .site-footer__list{ text-align:center; }
+
+  .site-footer__bottom{ text-align:center; gap:1.2rem; }
+  .site-footer__social{ align-items:center; }
+  .site-footer__social-label{ font-size:22px; }
+
+  .social-link{ width:62px; height:62px; }
+  .social-link img{ width:48px; height:48px; }
+}
+
+@media (max-width: 760px){
+  .site-header__inner{ position: relative; justify-content: flex-start; }
+  .site-header__logo{ position: absolute; left: 50%; transform: translateX(-50%); }
+  .site-header__toggle{ position: relative; z-index: 2; }
+}
+/* Midtstill logo på mobil (uten å endre HTML) */
+@media (max-width: 760px){
+  .site-header__inner{
+    position:relative;
+    /* valgfritt men fint: gir stabil høyde */
+    min-height:62px;
+  }
+
+  .site-header__logo{
+    position:absolute !important;
+    left:50% !important;
+    top:50% !important;
+    transform:translate(-50%, -50%) !important;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    z-index:1;
+  }
+
+  /* sørg for at hamburgeren ligger "over" logoen og fortsatt kan klikkes */
+  .site-header__toggle{
+    position:relative;
+    z-index:2;
+  }
+}
+/* Header – ekte midtstilt logo */
+.site-header__inner{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:1rem;
+}
+
+.site-header__left{
+  justify-self:start;
+}
+
+.site-header__center{
+  justify-self:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.site-header__right{
+  justify-self:end;
+}
+
+/* Logo */
+.site-header__logo img{
+  display:block;
+  height:75px;
+  max-width:190px;
+}
+
+/* Mobil */
+@media (max-width:600px){
+  .site-header__logo img{
+    height:56px;
+  }
+
+  /* skjul høyre knapp visuelt,
+     MEN behold plassen slik at logo forblir midtstilt */
+  .site-header__right{
+    visibility:hidden;
+    pointer-events:none;
+  }
+}
+/* Når menyen er åpen: la toggle-knappen ligge over overlayen */
+html.nav-open .site-header__toggle{
+  z-index: 3001; /* må være høyere enn .site-nav (2000) */
+}
+
+/* Valgfritt: skjul close-knappen i overlay, siden vi bruker toggle som close */
+html.nav-open .site-nav__close{
+  display:none;
+}
+
+/* Valgfritt: gjør topbaren litt mer “ren” når close er skjult */
+html.nav-open .site-nav__top-inner{
+  justify-content:flex-start;
+}
+/* Fjern "MENY"-teksten i overlay */
+.site-nav__brand{
+  display:none;
+}
+/* Fjern vertikale delestreker */
+.nav-editorial .site-nav__columns::before,
+.nav-editorial .site-nav__columns::after{
+  display:none;
+}
+
+/* Fjern gamle tynne understreker */
+.site-nav__heading{
+  border-bottom:none;
+  padding-bottom:0;
+}
+
+/* =========================
+   NAV – Mio-inspirert stil
+   ========================= */
+
+/* 1) Fjern "MENY" øverst og unødvendige delestreker */
+.site-nav__brand{ display:none; }
+
+.nav-editorial .site-nav__columns::before,
+.nav-editorial .site-nav__columns::after{ display:none; }
+
+/* 2) Mindre “kort”-følelse i overlay */
+.site-nav__inner{
+  background:transparent;
+  box-shadow:none;
+  border-radius:0;
+  padding-top:1.25rem;
+}
+
+/* 3) Overskrifter: kort, tykk fargelinje under (per kolonne) */
+.site-nav__heading{
+  position:relative;
+  border-bottom:none;
+  padding-bottom:0;
+  margin:0 0 1.25rem;
+  font-size:.95rem;
+  letter-spacing:.08em;
+}
+
+/* default accent */
+.site-nav__heading::after{
+  content:"";
+  display:block;
+  width:86px;       /* “kort strek” */
+  height:6px;       /* litt tykk, som Mio */
+  margin-top:.75rem;
+  border-radius:999px;
+  background:rgba(16,82,119,.25); /* fallback */
+}
+
+/* Kolonne-farger (juster om du vil) */
+.site-nav__column:nth-child(1) .site-nav__heading::after{ background:rgba(247,124,55,.35); }  /* oransje */
+.site-nav__column:nth-child(2) .site-nav__heading::after{ background:rgba(16,82,119,.28); }  /* blå */
+.site-nav__column:nth-child(3) .site-nav__heading::after{ background:rgba(24,36,51,.18); }   /* ink/grå */
+
+/* 4) Lenker: ren liste med lys understrek (ikke “knapp”) */
+.site-nav__link{
+  display:inline-block;
+  padding:0;                 /* fjerner “kort”-padding */
+  min-height:0;
+  font-size:clamp(1.4rem,1.1rem + 1vw,2.1rem);
+  line-height:1.25;
+  font-weight:750;
+  color:#182433;
+  border-radius:0;
+  background:none !important;
+  box-shadow:none !important;
+  text-decoration:none;
+  position:relative;
+}
+
+/* understrek som Mio (lys, litt luft) */
+.site-nav__link::after{
+  content:"";
+  display:block;
+  height:3px;
+  margin-top:.45rem;
+  border-radius:999px;
+  background:rgba(16,82,119,.18); /* default */
+  width:100%;
+}
+
+/* per kolonne understrekfarge */
+.site-nav__column:nth-child(1) .site-nav__link::after{ background:rgba(247,124,55,.22); }
+.site-nav__column:nth-child(2) .site-nav__link::after{ background:rgba(16,82,119,.18); }
+.site-nav__column:nth-child(3) .site-nav__link::after{ background:rgba(24,36,51,.14); }
+
+/* hover/focus: litt sterkere, men fortsatt “klassisk” */
+.site-nav__link:hover,
+.site-nav__link:focus-visible{
+  color:var(--myss-blue);
+  text-decoration:none;
+  transform:none;
+  outline:none;
+}
+
+.site-nav__link:hover::after,
+.site-nav__link:focus-visible::after{
+  background:rgba(16,82,119,.35);
+}
+
+/* 5) Litt mer luft mellom punktene (som Mio) */
+.site-nav__list li + li{ margin-top:.9rem; }
+
+/* 6) Hamburger: BOLD */
+.site-header__toggle{ font-weight:800; }
+.site-header__toggle-label{ font-weight:800; }
+.site-header__toggle-line{ height:3.5px; }
+
+/* 7) (valgfritt) Hvis du vil fjerne top-bar-linjen helt */
+.site-nav__top{ border-bottom:none; }
+/* Tving sticky header tilbake */
+.site-header{
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 5000 !important;
+}
+:root{
+  --header-h: 96px;
+}
+@media (max-width:600px){
+  :root{ --header-h: 78px; }
+}
+
+/* Header følger med (fixed) */
+.site-header{
+  position:fixed;
+  top:0; left:0; right:0;
+  width:100%;
+  z-index:5000;
+  transition: transform .28s ease, opacity .22s ease;
+  will-change: transform, opacity;
+}
+
+/* Innhold under header */
+body{
+  padding-top: var(--header-h);
+}
+
+/* Når vi passerer første tekst -> header fader og glir opp */
+.header-fadeout .site-header{
+  transform: translateY(-110%);
+  opacity: 0;
+  pointer-events: none;
+}
+/* Header: scroll-fade ut (JS styrer variabler) */
+.site-header{
+  will-change: transform, opacity;
+  transform: translateY(var(--hdr-y, 0px));
+  opacity: var(--hdr-o, 1);
+  transition: none; /* vi vil at scrollen skal styre helt */
+}
+
+/* Når menyen er åpen: ikke fade headeren */
+html.nav-open .site-header{
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+/* Overlay: fjern top-bar (MENY + Lukk) for å unngå kollisjon */
+.site-nav__top{
+  display:none;
+}
+
+/* Når top-bar er borte, må scroll-området fylle hele høyden */
+.site-nav__scroll{
+  height:100vh;
+}
+
+/* Sørg for at hamburger/X alltid er klikkbar over overlay */
+html.nav-open .site-header__toggle{
+  position:relative;
+  z-index:3001;
+}
+/* Header fade styres av CSS-variabler fra JS */
+.site-header{
+  opacity: var(--hdr-o, 1) !important;
+  transform: translateY(var(--hdr-y, 0px)) !important;
+  transition: none !important;
+  will-change: transform, opacity;
+}
+
+/* Når meny er åpen: ikke fade (header må være synlig) */
+html.nav-open .site-header{
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+
+/* =====================================================
+   SISTE LAG: Samarbeid-siden trenger sikre overstyringer
+   ===================================================== */
+body.page-samarbeid{
+  padding-top: var(--header-h);
+  outline: none !important;
+}
+
+body.page-samarbeid .site-header{
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: #fff !important;
+  border-bottom: 1px solid rgba(0,0,0,.06) !important;
+  z-index: 6000 !important;
+  opacity: var(--hdr-o, 1) !important;
+  transform: translateY(var(--hdr-y, 0px)) !important;
+  transition: none !important;
+}
+
+body.page-samarbeid.nav-open .site-header,
+html.nav-open body.page-samarbeid .site-header{
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+
+body.page-samarbeid .site-nav{ z-index: 4000; }
+body.page-samarbeid .site-nav__top{ display:flex !important; height:var(--nav-top) !important; }
+body.page-samarbeid .site-nav__scroll{ height:calc(100vh - var(--nav-top)) !important; }
+
+body.page-samarbeid.nav-open .site-header__toggle,
+html.nav-open body.page-samarbeid .site-header__toggle{
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  z-index: 7000 !important;
+}
+
+body.page-samarbeid.nav-open .site-header__toggle-label,
+html.nav-open body.page-samarbeid .site-header__toggle-label{
+  display: inline !important;
+}
+
+/* =====================================================
+   SAMARBEID – Ryddige overstyringer for header/meny
+   ===================================================== */
+body{
+  padding-top: var(--header-h);
+  outline: none !important;
+}
+
+.site-header{
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: #fff !important;
+  border-bottom: 1px solid rgba(0,0,0,.06) !important;
+  z-index: 5000 !important;
+  opacity: var(--hdr-o, 1) !important;
+  transform: translateY(var(--hdr-y, 0px)) !important;
+  transition: none !important;
+}
+
+html.nav-open .site-header{
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+
+.site-nav{ z-index: 4000; }
+.site-nav__top{ display:flex !important; height:var(--nav-top); }
+.site-nav__scroll{ height:calc(100vh - var(--nav-top)); }
+
+html.nav-open .site-header__toggle{
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  z-index: 6000 !important;
+}
+
+html.nav-open .site-header__toggle-label{
+  display: inline !important;
+}
+/* =====================================================
+   HEADER + OVERLAY – RYDDIG, KLASSISK OG KOMPATIBEL
+   ===================================================== */
+
+/* --- Header styres av scroll (JS setter CSS-variabler) --- */
+.site-header{
+  opacity: var(--hdr-o, 1);
+  transform: translateY(var(--hdr-y, 0px));
+  will-change: transform, opacity;
+  transition: none; /* scroll styrer direkte */
+  z-index: 5000;
+}
+
+/* Når menyen er åpen: header skal ALLTID være synlig */
+html.nav-open .site-header{
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+
+/* --- Sørg for at hamburger/X alltid er klikkbar --- */
+html.nav-open .site-header__toggle{
+  position: relative;
+  z-index: 6000;
+}
+
+/* --- Fjern top-bar i overlay (MENY + Lukk) --- */
+.site-nav__top{
+  display: none;
+}
+
+/* Når top-bar er fjernet, la menyen fylle hele høyden */
+.site-nav__scroll{
+  height: 100vh;
+}
+
+/* --- Fjern vertikale delestreker i editorial-nav --- */
+.nav-editorial .site-nav__columns::before,
+.nav-editorial .site-nav__columns::after{
+  display: none;
+}
+
+/* --- Fjern gamle tynne understreker --- */
+.site-nav__heading{
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* --- Overskrifter: kort, klassisk MySS-strek --- */
+.site-nav__heading{
+  position: relative;
+  margin: 0 0 1.3rem;
+  padding-bottom: .6rem;
+}
+
+.site-nav__heading::after{
+  content: "";
+  display: block;
+  width: 90px;
+  height: 6px;
+  margin-top: .75rem;
+  border-radius: 999px;
+  background: rgba(16,82,119,.28); /* MySS blå */
+}
+
+/* Litt variasjon per kolonne (rolig, ikke flashy) */
+.site-nav__column:nth-child(1) .site-nav__heading::after{
+  background: rgba(247,124,55,.32); /* oransje */
+}
+.site-nav__column:nth-child(2) .site-nav__heading::after{
+  background: rgba(16,82,119,.28); /* blå */
+}
+.site-nav__column:nth-child(3) .site-nav__heading::after{
+  background: rgba(24,36,51,.18); /* ink/grå */
+}
+
+/* --- Lenker: ren liste, Mio-aktig, ingen kort/bokser --- */
+.site-nav__link{
+  display: inline-block;
+  padding: 0;
+  min-height: 0;
+  font-size: clamp(1.4rem,1.1rem + 1vw,2.1rem);
+  line-height: 1.25;
+  font-weight: 750;
+  color: #182433;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Lys understrek per lenke */
+.site-nav__link::after{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  margin-top: .45rem;
+  border-radius: 999px;
+  background: rgba(16,82,119,.18);
+}
+
+/* Hover – litt tydeligere, fortsatt klassisk */
+.site-nav__link:hover::after,
+.site-nav__link:focus-visible::after{
+  background: rgba(16,82,119,.35);
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible{
+  color: var(--myss-blue);
+  outline: none;
+}
+
+/* Mer luft mellom punktene */
+.site-nav__list li + li{
+  margin-top: .9rem;
+}
+
+/* --- Hamburger: BOLD og med tyngde --- */
+.site-header__toggle{
+  font-weight: 800;
+}
+
+.site-header__toggle-label{
+  font-weight: 800;
+}
+
+.site-header__toggle-line{
+  height: 3.5px;
+}
+
+/* ========= TVANGS-PATCH (garantert effekt) ========= */
+
+/* 1) Fjern topbaren i overlay (MENY + Lukk) */
+.site-nav__top{ display:none !important; }
+.site-nav__scroll{ height:100vh !important; }
+
+/* 2) Legg X/hamburger trygt oppe til venstre når menyen er åpen */
+html.nav-open .site-header__toggle{
+  position: fixed !important;
+  top: 14px !important;
+  left: 14px !important;
+  z-index: 10000 !important;
+}
+
+/* Skjul teksten ved åpnet meny (så den ikke kræsjer) */
+html.nav-open .site-header__toggle-label{
+  display:none !important;
+}
+
+/* 3) Fjern vertikale delestreker/linjer i editorial-layout */
+.nav-editorial .site-nav__columns::before,
+.nav-editorial .site-nav__columns::after{
+  display:none !important;
+}
+
+/* 4) Overskrifter: kort “Mio-aktig” fargelinje under */
+.nav-editorial .site-nav__heading{
+  border-bottom:none !important;
+  padding-bottom:0 !important;
+  margin:0 0 1.25rem !important;
+  position:relative !important;
+}
+
+.nav-editorial .site-nav__heading::after{
+  content:"" !important;
+  display:block !important;
+  width:90px !important;
+  height:6px !important;
+  margin-top:.75rem !important;
+  border-radius:999px !important;
+  background:rgba(16,82,119,.28) !important;
+}
+
+/* per kolonne (valgfritt, men fint) */
+.nav-editorial .site-nav__column:nth-child(1) .site-nav__heading::after{ background:rgba(247,124,55,.32) !important; }
+.nav-editorial .site-nav__column:nth-child(2) .site-nav__heading::after{ background:rgba(16,82,119,.28) !important; }
+.nav-editorial .site-nav__column:nth-child(3) .site-nav__heading::after{ background:rgba(24,36,51,.18) !important; }
+
+/* 5) Lenker: ren liste + lys understrek (ingen bokser) */
+.nav-editorial .site-nav__link{
+  display:inline-block !important;
+  padding:0 !important;
+  min-height:0 !important;
+  background:none !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  text-decoration:none !important;
+
+  font-size:clamp(1.4rem,1.1rem + 1vw,2.1rem) !important;
+  line-height:1.25 !important;
+  font-weight:750 !important;
+  color:#182433 !important;
+}
+
+.nav-editorial .site-nav__link::after{
+  content:"" !important;
+  display:block !important;
+  width:100% !important;
+  height:3px !important;
+  margin-top:.45rem !important;
+  border-radius:999px !important;
+  background:rgba(16,82,119,.18) !important;
+}
+
+.nav-editorial .site-nav__list li + li{
+  margin-top:.9rem !important;
+}
+
+/* hover */
+.nav-editorial .site-nav__link:hover,
+.nav-editorial .site-nav__link:focus-visible{
+  color:var(--myss-blue) !important;
+  outline:none !important;
+}
+.nav-editorial .site-nav__link:hover::after,
+.nav-editorial .site-nav__link:focus-visible::after{
+  background:rgba(16,82,119,.35) !important;
+}
+
+/* 6) Hamburger: BOLD */
+.site-header__toggle{ font-weight:800 !important; }
+.site-header__toggle-line{ height:3.5px !important; }
+.site-header__toggle-label{ font-weight:800 !important; }
+/* Header-fade: JS setter --hdr-o og --hdr-y */
+.site-header{
+  opacity: var(--hdr-o, 1);
+  transform: translateY(var(--hdr-y, 0px));
+  will-change: transform, opacity;
+}
+
+/* Ikke fade når menyen er åpen */
+html.nav-open .site-header{
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+.site-header{
+  opacity: var(--hdr-o, 1);
+  transform: translateY(var(--hdr-y, 0px));
+  will-change: transform, opacity;
+}
+
+html.nav-open .site-header{
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+}
+/* =====================================================
+   MOBIL HEADER + PARTNERLOGOER (samlet patch)
+   - Hindrer at MYSS-logo kolliderer med "Vis menyen"
+   - Ekte midtstilt logo på mobil
+   - Normaliserer partnerlogoer + optisk justering for Mio
+   ===================================================== */
+
+/* ---------- 1) Header: ekte 3-kolonne layout på mobil ---------- */
+@media (max-width: 760px){
+  .site-header__inner{
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important; /* venstre / midt / høyre */
+    align-items: center !important;
+    gap: .75rem !important;
+  }
+
+  /* Venstre: hamburger + tekst */
+  .site-header__toggle{
+    justify-self: start !important;
+    z-index: 2 !important;
+  }
+
+  /* Midt: logo */
+  .site-header__logo{
+    justify-self: center !important;
+  }
+
+  /* Høyre: behold "spacer" slik at logo alltid er perfekt midtstilt
+     (selv om du skjuler knappen) */
+  .site-header__actions{
+    justify-self: end !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* Litt tryggere logo-størrelse på mobil */
+  .site-header__logo img{
+    max-width: 170px !important;
+    height: 56px !important;
+    width: auto !important;
+  }
+
+  /* Gjør toggle-teksten litt mer kompakt så den ikke presser logoen */
+  .site-header__toggle-label{
+    white-space: nowrap !important;
+    font-size: .95rem !important;
+  }
+}
+
+/* ---------- 2) Partnerlogoer: normaliser plassering og størrelse ---------- */
+.partner-card__logo-wrap{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  height: 72px !important;
+}
+
+.partner-card__logo-wrap .partner-logo{
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-height: 64px !important;
+  max-width: 220px !important;
+  object-fit: contain !important;
+}
+
+/* Mobil: litt mindre høyde så det ser stramt ut */
+@media (max-width: 600px){
+  .partner-card__logo-wrap{
+    height: 60px !important;
+  }
+  .partner-card__logo-wrap .partner-logo{
+    max-height: 56px !important;
+    max-width: 200px !important;
+  }
+}
+
+/* ---------- 3) Optisk justering: Mio ser ofte "for midtstilt" ut ---------- */
+.partner-card__logo-wrap .partner-logo[alt*="Mio"]{
+  transform: translateX(-6px) !important;
+}
+/* ================================
+   MOBIL – samarbeid.html ONLY
+   ================================ */
+@media (max-width: 768px) {
+
+  /* Scope KUN samarbeid-siden */
+  body.page-samarbeid {
+
+    /* ===== HEADER / LOGO / MENY ===== */
+
+    /* Header-layout: hamburger venstre, logo høyre */
+    .site-header__inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+    }
+
+    /* MYSS-logo høyrestilt */
+    .site-header__logo {
+      margin-left: auto !important;
+      margin-right: 0 !important;
+      text-align: right !important;
+    }
+
+    .site-header__logo img {
+      display: block;
+      margin-left: auto !important;
+      max-height: 42px;
+    }
+
+    /* Bedre synlig mobilmeny */
+    .site-nav {
+      background: #ffffff !important;
+      padding: 1.5rem 1.25rem !important;
+    }
+
+    .site-nav a {
+      font-size: 1.15rem;
+      padding: 0.75rem 0;
+      display: block;
+    }
+
+    /* ===== PARTNERLOGOER ===== */
+
+    /* Tving venstrestilling på ALLE partnerlogoer */
+    .partner-card__logo-wrap,
+    .partner-logo {
+      display: flex !important;
+      justify-content: flex-start !important;
+      text-align: left !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+    }
+
+    .partner-logo img {
+      margin-left: 0 !important;
+    }
+
+  }
+
+/* =========================================
+   FORCE MOBILE FIX – samarbeid.html ONLY
+   ========================================= */
+@media (max-width: 768px) {
+/* Scope KUN samarbeid-siden */
+  body.page-samarbeid {
+
+    /* ===== HEADER / LOGO / MENY ===== */
+    .site-header__inner {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+
+    .site-header__logo {
+      margin-left: auto !important;
+      margin-right: 0 !important;
+      text-align: right !important;
+    }
+
+    .site-header__logo img {
+      display: block !important;
+      margin-left: auto !important;
+      max-height: 42px !important;
+      width: auto !important;
+    }
+
+    /* ===== PARTNERLOGOER ===== */
+    .partner-card__logo-wrap {
+      display: flex !important;
+      justify-content: flex-start !important;
+      text-align: left !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+    }
+
+    .partner-card__logo-wrap .partner-logo {
+      margin-left: 0 !important;
+      margin-right: auto !important;
+    }
+  }
+} 
+/* HERO: la bildet beholde naturlige proporsjoner */
+ /* HERO: la bildet beholde naturlige proporsjoner */
+.hero{
+  position: relative;
+  overflow: visible;
+  max-height: none;
+}
+
+.hero-image{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 992px){
+  .hero-image{
+    max-height: 520px;
+  }
+}
+
+/* Overlay beholdes */
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+}
+
+/* Mobil: enda lavere */
+@media (max-width:600px){
+  .hero{ max-height: 220px; }
+  .hero-image{
+    height: 220px;
+    object-position: 50% 40%;
+  }
+}
+
+
+/* CODEX HERO SIZE PATCH */
+.myss-heroimg{
+  max-height: 280px !important;
+  overflow: hidden !important;
+}
+.myss-heroimg img{
+  width: 100% !important;
+  height: 280px !important;
+  object-fit: cover !important;
+  object-position: 50% 35% !important;
+  display: block !important;
+}
+@media (max-width:600px){
+  .myss-heroimg{ max-height: 190px !important; }
+  .myss-heroimg img{ height: 190px !important; object-position: 50% 40% !important; }
+}
+/* END CODEX HERO SIZE PATCH */
+
+
+/* CODEX HERO SIZE PATCH */
+.hero{
+  max-height: 280px !important;
+  overflow: hidden !important;
+}
+.hero .hero-image, .hero-image{
+  width: 100% !important;
+  height: 280px !important;
+  object-fit: cover !important;
+  object-position: 50% 35% !important;
+  display: block !important;
+}
+@media (max-width:600px){
+  .hero{ max-height: 190px !important; }
+  .hero .hero-image, .hero-image{ height: 190px !important; object-position: 50% 40% !important; }
+}
+/* END CODEX HERO SIZE PATCH */
