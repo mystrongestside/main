@@ -14,115 +14,40 @@
 
   <!-- Side-spesifikk styling (samme stil som Tett oppfølging) -->
   <style>
-    /* Tydelige knapper (beholdes hvis du vil bruke senere) */
-    .myss-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
-    .myss-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:.9rem 1.15rem;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:700;
-      line-height:1.1;
-      background:var(--myss-blue);
-      color:#fff;
-      border:2px solid var(--myss-blue);
-      transition:transform .08s ease, filter .2s ease, background .2s ease, color .2s ease;
-    }
-    .myss-btn:hover{ filter:brightness(1.05); transform:translateY(-1px); }
-    .myss-btn:active{ transform:translateY(0); }
-    .myss-btn--outline{
-      background:transparent;
-      color:var(--myss-blue);
-    }
+    /* =========================
+   TJENESTER (desktop fix + orange kicker)
+   ========================= */
 
-    /* HERO video – container-bredde (samme som meny) */
-    .myss-hero-media{
-      width:100%;
-      height:auto;
-      border-radius:24px;
-      aspect-ratio: 16 / 9;     /* hero-look desktop */
-      object-fit:cover;
-      display:block;
-      background: rgba(16,82,119,.06);
-      border: 1px solid rgba(16,82,119,.12);
-    }
-    @media (max-width: 900px){
-      .myss-hero-media{ aspect-ratio: 4 / 3; } /* bedre høyde på mobil */
-    }
-
-    /* Tekst under video (rolig linjelengde) */
-    .myss-hero-text{
-      margin-top: 1.25rem;
-      max-width: 900px;
-    }
-
-    /* Fallback-bilde (kun ved reduce motion / video-feil) */
-    .myss-hero-photo{
-      width:100%;
-      height:auto;
-      border-radius:24px;
-      aspect-ratio: 16 / 9;
-      object-fit:cover;
-      display:block;
-      background: rgba(16,82,119,.06);
-      border: 1px solid rgba(16,82,119,.12);
-    }
-    @media (max-width: 900px){
-      .myss-hero-photo{ aspect-ratio: 4 / 3; }
-    }
-    .myss-hero-photo--fallback{ display:none; }
-
-    @media (prefers-reduced-motion: reduce){
-      .myss-hero-media{ display:none; }
-      .myss-hero-photo--fallback{ display:block; }
-    }
-
-    /* Sørg for at header/meny alltid ligger over */
-    header[data-component="site-header"]{
-      position: relative;
-      z-index: 50;
-    }
-
-    /* Fade-in (scroll-basert) */
-    .js .reveal{
-      opacity:0;
-      transform:translateY(10px);
-      transition:opacity .6s ease, transform .6s ease;
-      will-change:opacity, transform;
-    }
-    .js .reveal.is-visible{
-      opacity:1;
-      transform:none;
-    }
-    .js .reveal.d1{ transition-delay:.05s; }
-    .js .reveal.d2{ transition-delay:.12s; }
-    .js .reveal.d3{ transition-delay:.18s; }
-    .js .reveal.d4{ transition-delay:.24s; }
-
-    /* Tjenester rett under intro */
+/* Grid */
 .myss-services{
   margin-top: 1.25rem;
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
+  max-width: 980px; /* rolig bredde på desktop */
 }
 
 @media (max-width: 900px){
   .myss-services{
     grid-template-columns: 1fr;
+    max-width: none;
   }
 }
 
+/* Kort: gjør at alt “aligner” likt og CTA havner nederst */
 .myss-service-card{
-  display:block;
-  text-decoration:none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
   color: inherit;
+
   border-radius: 20px;
-  padding: 1.05rem 1.05rem;
+  padding: 1.05rem;
+
   background: rgba(16,82,119,.06);
   border: 1px solid rgba(16,82,119,.16);
+
   transition: transform .08s ease, filter .2s ease, background .2s ease;
 }
 
@@ -135,19 +60,24 @@
   transform: translateY(0);
 }
 
+/* Toppseksjon */
 .myss-service-card__top{
   margin-bottom: .4rem;
 }
 
+/* Kicker i MySS-oransje */
 .myss-service-card__kicker{
-  display:inline-block;
+  display: inline-block;
   font-weight: 800;
   font-size: .78rem;
   letter-spacing: .02em;
-  opacity: .85;
   text-transform: uppercase;
+
+  color: #f77c37; /* MySS-orange */
+  opacity: 1;
 }
 
+/* Tittel/tekst */
 .myss-service-card__title{
   margin: .25rem 0 .35rem;
   font-size: 1.15rem;
@@ -159,9 +89,17 @@
   opacity: .92;
 }
 
+/* CTA alltid nederst = pen alignment på desktop */
 .myss-service-card__cta{
+  margin-top: auto;
   font-weight: 800;
   color: var(--myss-blue);
+}
+
+/* Valgfritt: gjør det tydeligere at hele kortet er klikkbart */
+.myss-service-card:focus-visible{
+  outline: 3px solid rgba(247,124,55,.45);
+  outline-offset: 3px;
 }
 
   </style>
