@@ -100,6 +100,70 @@
     .js .reveal.d2{ transition-delay:.12s; }
     .js .reveal.d3{ transition-delay:.18s; }
     .js .reveal.d4{ transition-delay:.24s; }
+
+    /* Tjenester rett under intro */
+.myss-services{
+  margin-top: 1.25rem;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 900px){
+  .myss-services{
+    grid-template-columns: 1fr;
+  }
+}
+
+.myss-service-card{
+  display:block;
+  text-decoration:none;
+  color: inherit;
+  border-radius: 20px;
+  padding: 1.05rem 1.05rem;
+  background: rgba(16,82,119,.06);
+  border: 1px solid rgba(16,82,119,.16);
+  transition: transform .08s ease, filter .2s ease, background .2s ease;
+}
+
+.myss-service-card:hover{
+  filter: brightness(1.02);
+  transform: translateY(-1px);
+}
+
+.myss-service-card:active{
+  transform: translateY(0);
+}
+
+.myss-service-card__top{
+  margin-bottom: .4rem;
+}
+
+.myss-service-card__kicker{
+  display:inline-block;
+  font-weight: 800;
+  font-size: .78rem;
+  letter-spacing: .02em;
+  opacity: .85;
+  text-transform: uppercase;
+}
+
+.myss-service-card__title{
+  margin: .25rem 0 .35rem;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.myss-service-card__text{
+  margin: 0 0 .65rem;
+  opacity: .92;
+}
+
+.myss-service-card__cta{
+  font-weight: 800;
+  color: var(--myss-blue);
+}
+
   </style>
 </head>
 
