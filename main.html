@@ -169,89 +169,117 @@ header[data-component="site-header"]{
   <!-- MENY / HEADER (lastes av menu.js) -->
   <header data-component="site-header"></header>
 
-  <main>
+ <main>
 
-    <!-- HERO: Video øverst (samme bredde som meny = container), tekst rett under -->
-    <section class="section section--light">
-      <div class="container">
+  <!-- HERO: Video øverst, tekst under -->
+  <section class="section section--light">
+    <div class="container">
 
-        <!-- Video først -->
-        <div class="reveal d1">
-          <video
-            class="myss-hero-media"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="bilder/hero-poster.jpg"
-          >
-            <!-- Mobil -->
-            <source src="video/hero-desktop.mp4" type="video/mp4" media="(max-width: 900px)">
-            <!-- Desktop -->
-            <source src="video/hero-desktop.mp4" type="video/mp4" media="(min-width: 901px)">
-          </video>
+      <!-- Video først -->
+      <div class="reveal d1">
+        <video
+          class="myss-hero-media"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="bilder/hero-poster.jpg"
+        >
+          <source src="video/hero-mobile.mp4" type="video/mp4" media="(max-width: 900px)">
+          <source src="video/hero-desktop.mp4" type="video/mp4" media="(min-width: 901px)">
+        </video>
 
-          <!-- Fallback (vises ved reduce motion / video-feil) -->
-          <img
-            src="bilder/hero-poster.jpg"
-            alt="My Strongest Side – inkluderende trening"
-            class="myss-hero-photo myss-hero-photo--fallback"
-            loading="lazy"
-          />
+        <img
+          src="bilder/hero-poster.jpg"
+          alt="My Strongest Side – inkluderende trening"
+          class="myss-hero-photo myss-hero-photo--fallback"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Tekst under video -->
+      <div class="myss-hero-text">
+        <p class="eyebrow reveal d2">My Strongest Side®</p>
+        <h1 class="reveal d3">Gjør trening tilgjengelig for flest mulig</h1>
+        <p class="reveal d4">
+          My Strongest Side® jobber for at flere skal kunne trene i ordinære treningsmiljøer – med
+          <strong>trygghet</strong>, <strong>tilpasning</strong> og <strong>reell inkludering</strong>.
+        </p>
+
+        <!-- TJENESTER -->
+        <div class="myss-block-title">
+          <p class="eyebrow reveal d2">Oversikt</p>
+          <h2 class="reveal d3">Tjenester</h2>
         </div>
 
-        <!-- Tekst under video -->
-<div class="myss-hero-text">
-  <p class="eyebrow reveal d2">My Strongest Side®</p>
-  <h1 class="reveal d3">Gjør trening tilgjengelig for flest mulig</h1>
-  <p class="reveal d4">
-    My Strongest Side® jobber for at flere skal kunne trene i ordinære treningsmiljøer – med
-    <strong>trygghet</strong>, <strong>tilpasning</strong> og <strong>reell inkludering</strong>.
-  </p>
+        <div class="myss-services reveal d4" aria-label="Tjenester">
+          <a class="myss-service-card" href="treningstilbud/">
+            <img src="bilde01.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
+            <div class="myss-service-card__top">
+              <span class="myss-service-card__kicker">Tjeneste</span>
+              <h3 class="myss-service-card__title">Treningstilbud</h3>
+            </div>
+            <p class="myss-service-card__text">Gruppetrener og opplegg med tydelige rammer og tilpasning.</p>
+            <span class="myss-service-card__cta">Les mer →</span>
+          </a>
 
- <div class="myss-services reveal d4" aria-label="Tjenester">
+          <a class="myss-service-card" href="kurs.html">
+            <img src="kurs.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
+            <div class="myss-service-card__top">
+              <span class="myss-service-card__kicker">Kurs</span>
+              <h3 class="myss-service-card__title">Kurs / seminar</h3>
+            </div>
+            <p class="myss-service-card__text">Faglig innhold og formidling for senter, fagpersoner og partnere.</p>
+            <span class="myss-service-card__cta">Les mer →</span>
+          </a>
 
-  <a class="myss-service-card" href="treningstilbud/">
-    <img src="bilde01.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
-    <div class="myss-service-card__top">
-      <span class="myss-service-card__kicker">Tjeneste</span>
-      <h2 class="myss-service-card__title">Treningstilbud</h2>
-    </div>
-    <p class="myss-service-card__text">
-      Gruppetrener og opplegg med tydelige rammer og tilpasning.
-    </p>
-    <span class="myss-service-card__cta">Les mer →</span>
-  </a>
+          <a class="myss-service-card" href="treningssystem.html">
+            <img src="nfc.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
+            <div class="myss-service-card__top">
+              <span class="myss-service-card__kicker">System</span>
+              <h3 class="myss-service-card__title">Treningssystem</h3>
+            </div>
+            <p class="myss-service-card__text">QR/NFC-veiledning på apparater – for trygg og selvstendig trening.</p>
+            <span class="myss-service-card__cta">Les mer →</span>
+          </a>
+        </div>
 
-  <a class="myss-service-card" href="kurs.html">
-    <img src="kurs.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
-    <div class="myss-service-card__top">
-      <span class="myss-service-card__kicker">Kurs</span>
-      <h2 class="myss-service-card__title">Kurs / seminar</h2>
-    </div>
-    <p class="myss-service-card__text">
-      Faglig innhold og formidling for senter, fagpersoner og partnere.
-    </p>
-    <span class="myss-service-card__cta">Les mer →</span>
-  </a>
+        <!-- AKTUELT -->
+        <div class="myss-block-title" style="margin-top:1.5rem;">
+          <p class="eyebrow reveal d2">Nyheter</p>
+          <h2 class="reveal d3">Aktuelt</h2>
+        </div>
 
-  <a class="myss-service-card" href="treningssystem.html">
-    <img src="nfc.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
-    <div class="myss-service-card__top">
-      <span class="myss-service-card__kicker">System</span>
-      <h2 class="myss-service-card__title">Treningssystem</h2>
-    </div>
-    <p class="myss-service-card__text">
-      QR/NFC-veiledning på apparater – laget for trygg og selvstendig trening.
-    </p>
-    <span class="myss-service-card__cta">Les mer →</span>
-  </a>
+        <div class="myss-panel reveal d4">
+          <p><strong>Her legger vi ut oppdateringer</strong> om kurs, samarbeid og det som skjer i MySS.</p>
+          <p style="opacity:.9;">(Du kan senere bytte dette til 2–3 “nyhetskort” eller hente inn fra en egen aktuelt-side.)</p>
+          <div class="myss-actions reveal d4">
+            <a class="myss-btn myss-btn--outline" href="presse.html">Se presse og media</a>
+            <a class="myss-btn" href="samarbeid.html">Samarbeid</a>
+          </div>
+        </div>
 
-</div>
-</section>
-  </main>
+        <!-- KONTAKT -->
+        <div class="myss-block-title" style="margin-top:1.5rem;">
+          <p class="eyebrow reveal d2">Kontakt</p>
+          <h2 class="reveal d3">Lurer du på noe?</h2>
+        </div>
 
+        <div class="myss-panel reveal d4">
+          <p>Send en kort melding – så svarer vi med forslag til videre steg.</p>
+          <div class="myss-actions reveal d4">
+            <a class="myss-btn" href="kontakt.html">Kontakt oss</a>
+            <a class="myss-btn myss-btn--outline" href="mailto:post@mystrongestside.no">post@mystrongestside.no</a>
+          </div>
+        </div>
+
+      </div><!-- /myss-hero-text -->
+
+    </div><!-- /container -->
+  </section>
+
+</main>
   <!-- FOOTER (samme struktur som du bruker) -->
   <footer class="site-footer">
     <div class="container site-footer__inner">
@@ -265,9 +293,9 @@ header[data-component="site-header"]{
         <div>
           <h3 class="site-footer__heading reveal d2">Våre tjenester</h3>
           <ul class="site-footer__list">
-            <li class="reveal d2"><a href="treningstilbud/voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
-            <li class="reveal d3"><a href="treningstilbud/tett-oppfolging.html">Tett oppfølging</a></li>
-            <li class="reveal d4"><a href="frivillig.html">Frivilligprogram</a></li>
+            <li class="reveal d2"><a href="treningstilbud/voksne-lett.html">Treningstilbud/a></li>
+            <li class="reveal d3"><a href="treningstilbud/tett-oppfolging.html">Kurs/seminar</a></li>
+            <li class="reveal d4"><a href="frivillig.html">Treningssystem</a></li>
           </ul>
         </div>
 
