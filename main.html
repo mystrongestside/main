@@ -218,6 +218,45 @@ header[data-component="site-header"]{
   margin: 0;
   opacity: .9;
 }
+    /* =========================
+   AKTUELT – mer kompakt kort
+   ========================= */
+
+/* Selve kortet */
+.myss-aktuelt-card{
+  max-width: 920px;          /* hindrer at det blir for massivt */
+  margin: 0 auto;            /* pent midtstilt */
+}
+
+/* Bildedel: lavere høyde */
+.myss-aktuelt-card__media{
+  max-height: 360px;         /* JUSTER: 280–360 er sweet spot */
+  overflow: hidden;
+}
+
+@media (max-width: 900px){
+  .myss-aktuelt-card__media{
+    max-height: 240px;       /* mindre på mobil */
+  }
+}
+
+/* Bildet fyller rammen, ikke mer */
+.myss-aktuelt-card__media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+
+/* Tekstfeltet under – mer kompakt */
+.myss-aktuelt-card__label{
+  padding: .65rem .85rem;    /* mindre luft */
+}
+
+.myss-aktuelt-card__title{
+  font-size: 1.05rem;        /* litt mindre enn før */
+  line-height: 1.25;
+}
   </style>
 </head>
 
