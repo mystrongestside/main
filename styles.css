@@ -674,35 +674,29 @@ body.nav-open{ overflow:hidden; }
 }
 
 @media (max-width: 760px){
-  .site-header__inner{ position: relative; justify-content: flex-start; }
-  .site-header__logo{ position: absolute; left: 50%; transform: translateX(-50%); }
-  .site-header__toggle{ position: relative; z-index: 2; }
-}
-/* Midtstill logo på mobil (uten å endre HTML) */
-@media (max-width: 760px){
   .site-header__inner{
-    position:relative;
-    /* valgfritt men fint: gir stabil høyde */
-    min-height:62px;
+    position: relative;
+    min-height: 62px;
+  }
+
+  .site-header__center{
+    justify-self: end;
   }
 
   .site-header__logo{
-    position:absolute !important;
-    left:50% !important;
-    top:50% !important;
-    transform:translate(-50%, -50%) !important;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    z-index:1;
+    position: static !important;
+    transform: none !important;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 1;
   }
 
   /* sørg for at hamburgeren ligger "over" logoen og fortsatt kan klikkes */
   .site-header__toggle{
-    position:relative;
-    z-index:2;
+    position: relative;
+    z-index: 2;
   }
 }
 /* Header – ekte midtstilt logo */
