@@ -160,7 +160,7 @@ header[data-component="site-header"]{
   outline: 3px solid rgba(247,124,55,.45);
   outline-offset: 3px;
 }
-/* === Nyhetskort – bilde + teaser (mindre firkantet / penere) === */
+* === Nyhetskort – bilde + teaser (riktig proporsjon) === */
 
 .myss-news-card{
   display: flex;
@@ -169,7 +169,7 @@ header[data-component="site-header"]{
   text-decoration: none;
   color: inherit;
 
-  border-radius: 22px;                 /* mykere form */
+  border-radius: 22px;
   background: rgba(16,82,119,.06);
   border: 1px solid rgba(16,82,119,.16);
   overflow: hidden;
@@ -182,35 +182,21 @@ header[data-component="site-header"]{
   filter: brightness(1.02);
 }
 
-/* Bilde – mindre “kuttet”, mer naturlig utsnitt */
+/* Bilde – IKKE KUTT HODER */
 .myss-news-card__img{
   width: 100%;
   aspect-ratio: 16 / 9;
-  max-height: 300px;                   /* litt mer høyde igjen */
   object-fit: cover;
-  object-position: center top;         /* viktig for gruppebilder/ansikt */
+  object-position: center;   /* nå funker dette igjen */
   display: block;
   background: rgba(16,82,119,.06);
-
-  /* gjør overgangen mykere visuelt */
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 14px;
 }
 
-@media (max-width: 900px){
-  .myss-news-card__img{
-    max-height: 230px;
-    object-position: center top;
-  }
-}
-
-/* Tekstdel – mer kompakt, men “kortfølelse” */
 .myss-news-card__body{
   padding: .75rem 1rem .85rem;
   background: rgba(255,255,255,.65);
 }
 
-/* Kicker */
 .myss-news-card__kicker{
   display: inline-block;
   margin-bottom: .25rem;
@@ -218,17 +204,15 @@ header[data-component="site-header"]{
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .03em;
-  color: #f77c37; /* MySS-oransje */
+  color: #f77c37;
 }
 
-/* Tittel */
 .myss-news-card__title{
   margin: 0 0 .3rem;
   font-size: 1rem;
   line-height: 1.25;
 }
 
-/* Teaser – maks 2 linjer for jevn høyde */
 .myss-news-card__teaser{
   margin: 0;
   opacity: .9;
