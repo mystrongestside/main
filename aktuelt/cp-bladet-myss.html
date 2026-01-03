@@ -12,7 +12,9 @@
 
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- Side-spesifikk styling (artikkel: samme MySS-stil, men lesbar som artikkel) -->
+  <!-- (Valgfritt) base-hint til menu.js hvis du vil bruke den der -->
+  <script>window.MYSS_BASE = "../";</script>
+
   <style>
     /* Sørg for at header/meny alltid ligger over */
     header[data-component="site-header"]{
@@ -39,17 +41,16 @@
     .js .reveal.d4{ transition-delay:.24s; }
 
     /* =========================
-       ARTIKKEL-OPPSETT
+       ARTIKKEL (lesbar som artikkel, men MySS-stil)
        ========================= */
 
-    /* Samme “container”-bredde på hele siden,
-       men artikkelen får egen lesekolonne (70ch) */
+    /* Lesekolonne */
     .myss-prose{
       max-width: 70ch;
       margin: 0 auto;
     }
 
-    /* Lead/ingress */
+    /* Ingress */
     .myss-article-lead{
       margin-top: .6rem;
       max-width: 70ch;
@@ -58,7 +59,7 @@
       opacity: .92;
     }
 
-    /* Byline / meta */
+    /* Meta/Byline */
     .myss-article-byline{
       margin-top: .9rem;
       display:flex;
@@ -70,7 +71,7 @@
     }
     .myss-article-byline .dot{ opacity:.6; }
 
-    /* Avsnitt/rytme */
+    /* Avsnittsrytme */
     .myss-prose p{
       margin: 0 0 1.05rem;
       line-height: 1.75;
@@ -80,7 +81,7 @@
       letter-spacing: -.01em;
     }
 
-    /* Bilde/figure i artikkel (samme “hero”-følelse som resten) */
+    /* Artikkelbilde */
     .myss-article-figure{
       margin-top: 1.1rem;
     }
@@ -103,7 +104,7 @@
       font-size: .95rem;
     }
 
-    /* Quote – samme myke kort-stil */
+    /* Quote */
     blockquote.myss-quote{
       margin: 1.25rem 0;
       padding: 1rem 1.1rem;
@@ -132,17 +133,12 @@
     }
     .myss-factbox li{ margin: .35rem 0; }
 
-    /* CTA på slutten */
+    /* CTA */
     .myss-article-actions{
       margin-top: 1.6rem;
       display:flex;
       gap:.75rem;
       flex-wrap:wrap;
-    }
-
-    /* Litt roligere spacing på mobil */
-    @media (max-width: 900px){
-      .myss-article-actions{ gap:.6rem; }
     }
   </style>
 </head>
@@ -154,7 +150,7 @@
 
   <main>
 
-    <!-- HERO / toppseksjon (samme “section--light” som resten av sidene) -->
+    <!-- HERO / toppseksjon -->
     <section class="section section--light">
       <div class="container">
 
@@ -173,7 +169,7 @@
           <span>Oppdatert: <time datetime="2025-12-27">27. desember 2025</time></span>
         </div>
 
-        <!-- Valgfritt bilde (samme stil som hero-bilde) -->
+        <!-- Bilde (om du vil) -->
         <!--
         <figure class="myss-article-figure reveal d3">
           <img src="../bilder/aktuelt/Gruppebilde1.png"
@@ -224,8 +220,7 @@
 
           <p class="reveal d3">
             Det er etablert et samarbeid med <strong>Mio BPA</strong> for å gjøre det enklere for personer med funksjonsvariasjoner
-            å delta i tilrettelagte treningstilbud. Gjennom brukerstyrt personlig assistanse (BPA) kan flere få praktisk støtte til
-            å delta aktivt i trening og fysisk aktivitet.
+            å delta i tilrettelagte treningstilbud. Gjennom BPA kan flere få praktisk støtte til å delta aktivt i trening og fysisk aktivitet.
           </p>
 
           <p class="reveal d3">
@@ -263,12 +258,67 @@
 
   </main>
 
-  <!-- FOOTER (samme struktur som du bruker ellers) -->
+  <!-- FOOTER – samme struktur som forsiden (bare med ../ på paths) -->
   <footer class="site-footer">
     <div class="container site-footer__inner">
-      <div class="site-footer__bottom">
-        <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+
+      <div class="site-footer__brand reveal d2">
+        <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
+        <p class="site-footer__tagline reveal d3">Gjør trening tilgjengelig for flest mulig</p>
       </div>
+
+      <div class="site-footer__top">
+        <div>
+          <h3 class="site-footer__heading reveal d2">Våre tjenester</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2"><a href="../treningstilbud/">Treningstilbud</a></li>
+            <li class="reveal d3"><a href="../kurs.html">Kurs / seminar</a></li>
+            <li class="reveal d4"><a href="../treningssystem.html">Treningssystem</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading reveal d2">Informasjon</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2"><a href="../presse.html">Presse og media</a></li>
+            <li class="reveal d3"><a href="../samarbeid.html">Samarbeid</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading reveal d2">My Strongest Side</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2"><a href="../kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading reveal d2">Kontakt</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2">My Strongest Side AS</li>
+            <li class="reveal d3">Brages veg 3<br>5221 Nesttun</li>
+            <li class="reveal d3">E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li class="reveal d4">Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__meta reveal d2">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+
+        <div class="site-footer__social reveal d3">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
+              <img src="../icons/facebook.png" alt="" aria-hidden="true">
+            </a>
+            <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
+              <img src="../icons/instagram.png" alt="" aria-hidden="true">
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </footer>
 
