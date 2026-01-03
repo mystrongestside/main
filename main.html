@@ -160,66 +160,102 @@ header[data-component="site-header"]{
   outline: 3px solid rgba(247,124,55,.45);
   outline-offset: 3px;
 }
-* === Nyhetskort – bilde + teaser (riktig proporsjon) === */
-
 .myss-news-card{
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  align-items: stretch;
   text-decoration: none;
   color: inherit;
 
   border-radius: 22px;
-  background: rgba(16,82,119,.06);
-  border: 1px solid rgba(16,82,119,.16);
+  background: #fff;
+  border: 1px solid rgba(36,52,77,.16);
   overflow: hidden;
 
-  transition: transform .08s ease, filter .2s ease;
+  box-shadow: 0 10px 26px rgba(0,0,0,.08);
+  transition: transform .12s ease, box-shadow .2s ease;
+  cursor: pointer;
 }
 
 .myss-news-card:hover{
-  transform: translateY(-1px);
-  filter: brightness(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0,0,0,.14);
 }
 
-/* Bilde – IKKE KUTT HODER */
-.myss-news-card__img{
+/* === BILDE – 50 % === */
+.myss-news-card__media{
   width: 50%;
-  object-fit: cover;
-  object-position: center;   /* nå funker dette igjen */
-  display: block;
   background: rgba(16,82,119,.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.myss-news-card__img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* IKKE kutt */
+  padding: 1rem;
+}
+
+/* === TEKST – 50 % === */
 .myss-news-card__body{
-  padding: .75rem 1rem .85rem;
-  background: rgba(255,255,255,.65);
+  width: 50%;
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+/* Kicker */
 .myss-news-card__kicker{
   display: inline-block;
-  margin-bottom: .25rem;
-  font-size: .7rem;
-  font-weight: 800;
+  margin-bottom: .6rem;
+  font-size: .72rem;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: .03em;
+  letter-spacing: .04em;
   color: #f77c37;
 }
 
+/* Tittel */
 .myss-news-card__title{
-  margin: 0 0 .3rem;
-  font-size: 1rem;
+  margin: 0 0 .5rem;
+  font-size: 1.15rem;
   line-height: 1.25;
 }
 
+/* Teaser */
 .myss-news-card__teaser{
-  margin: 0;
+  margin: 0 0 .9rem;
   opacity: .9;
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* CTA */
+.myss-news-card__cta{
+  margin-top: auto;
+  font-weight: 900;
+  color: var(--myss-blue);
+}
+
+/* === MOBIL: stack === */
+@media (max-width: 900px){
+  .myss-news-card{
+    flex-direction: column;
+  }
+
+  .myss-news-card__media,
+  .myss-news-card__body{
+    width: 100%;
+  }
+
+  .myss-news-card__img{
+    padding: .75rem;
+  }
 }
     
   </style>
@@ -306,38 +342,28 @@ header[data-component="site-header"]{
           </a>
         </div>
 
-        <!-- AKTUELT -->
-        <div class="myss-block-title" style="margin-top:1.5rem;">
-          <p class="eyebrow reveal d2">Aktuelt</p>
-    
-        </div>
+     <a href="artikkel.html" class="myss-news-card">
 
- 
-    <section class="section">
-      <div class="container">
-
-        <div class="myss-news-grid">
-
-          <a class="myss-news-card" href="cp-vestland-viderefores.html">
-
-  <img
-    src="Gruppebilde1.png"
-    alt="Gruppetrening for personer med CP i Vestland"
-    class="myss-news-card__img"
-    loading="lazy"
-  >
+  <div class="myss-news-card__media">
+    <img
+      src="bilder/aktuelt-cp-vestland.jpg"
+      alt="Treningstilbud for personer med CP"
+      class="myss-news-card__img"
+    />
+  </div>
 
   <div class="myss-news-card__body">
-    
-
-    <h2 class="myss-news-card__title">
+    <span class="myss-news-card__kicker">Aktuelt</span>
+    <h3 class="myss-news-card__title">
       Treningstilbud for personer med CP videreføres i Vestland
-    </h2>
+    </h3>
+    <p class="myss-news-card__teaser">
+      My Strongest Side viderefører treningstilbudet i samarbeid med CP-foreningen i Vestland.
+    </p>
+    <span class="myss-news-card__cta">Les mer →</span>
+  </div>
 
-
-      </div><!-- /myss-hero-text -->
-
-    </div><!-- /container -->
+</a>
   </section>
 
 </main>
