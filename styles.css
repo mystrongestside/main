@@ -1394,7 +1394,8 @@ html.nav-open .site-header{
     .site-header__logo img {
       display: block;
       margin-left: auto !important;
-      max-height: 42px;
+      max-height: 56px;
+      width: auto;
     }
 
     /* Bedre synlig mobilmeny */
@@ -1450,7 +1451,7 @@ html.nav-open .site-header{
     .site-header__logo img {
       display: block !important;
       margin-left: auto !important;
-      max-height: 42px !important;
+      max-height: 56px !important;
       width: auto !important;
     }
 
@@ -1541,4 +1542,3 @@ html.nav-open .site-header{
   .hero .hero-image, .hero-image{ height: 190px !important; object-position: 50% 40% !important; }
 }
 /* END CODEX HERO SIZE PATCH */
-
