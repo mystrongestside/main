@@ -7,11 +7,9 @@
   <title>My Strongest Side i CP-bladet | My Strongest Side®</title>
   <meta name="description" content="Kort oppsummering av omtalen i CP-bladet, med sitat og kildehenvisning." />
 
-  <!-- Viktig: gjør alle relative lenker i injisert header riktige fra /aktuelt/ -->
-  <base href="../">
-
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=112" />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../styles.css?v=112" />
+  <link rel="stylesheet" href="../compat.css?v=39" />
 
   <script>document.documentElement.classList.add('js');</script>
 
@@ -31,6 +29,16 @@
     .myss-article-byline .dot{ opacity:.6; }
     .myss-prose p{ margin:0 0 1.05rem; line-height:1.75; }
     .myss-prose h2{ margin:2rem 0 .65rem; letter-spacing:-.01em; }
+
+    .myss-hero-image{
+      margin:0 0 2rem;
+      border-radius:28px;
+      overflow:hidden;
+      background:#f2f4f8;
+      box-shadow:0 18px 45px rgba(16,82,119,.12);
+    }
+    .myss-hero-image img{ display:block; width:100%; height:auto; }
+    .myss-hero-image figcaption{ padding:1rem 1.2rem 1.2rem; font-size:.98rem; opacity:.78; }
 
     blockquote.myss-quote{
       margin:1.25rem 0;
@@ -52,8 +60,6 @@
     .myss-factbox__title{ margin:0 0 .55rem; opacity:.88; }
     .myss-factbox ul{ margin:0; padding-left:1.15rem; }
     .myss-factbox li{ margin:.35rem 0; }
-
-    .myss-article-actions{ margin-top:1.6rem; display:flex; gap:.75rem; flex-wrap:wrap; }
   </style>
 </head>
 
@@ -81,6 +87,11 @@
 
     <section class="section">
       <div class="container">
+        <figure class="myss-hero-image reveal d2">
+          <img src="../Gruppebilde1.png" alt="Deltakere og frivillige samlet i treningsstudio" loading="lazy" />
+          <figcaption>Fellesskap og mestring i gruppetreningene My Strongest Side® arrangerer i Vestland.</figcaption>
+        </figure>
+
         <article class="myss-prose">
           <h2 class="reveal d2">Videreføring og utvidelse</h2>
           <p class="reveal d3">My Strongest Side® ledes av likeperson <strong>Alexander Sviggum</strong>, som også er utdannet ergoterapeut. I høst er tilbudet utvidet fra én til <strong>tre treningsgrupper</strong>.</p>
@@ -111,84 +122,46 @@
           <blockquote class="myss-quote reveal d3">
             <p>«Dette handler om å lære av hverandre og bygge forståelse på tvers av fagområder – og gjøre fysisk aktivitet tilgjengelig og meningsfull for alle.»</p>
           </blockquote>
-          </div>
         </article>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER (samme struktur som du bruker) -->
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-
-      <div class="site-footer__brand reveal d2">
-        <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
-        <p class="site-footer__tagline reveal d3">Gjør trening tilgjengelig for flest mulig</p>
-      </div>
-
-      <div class="site-footer__top">
-        <div>
-          <h3 class="site-footer__heading reveal d2">Våre tjenester</h3>
-          <ul class="site-footer__list">
-            <li class="reveal d2"><a href="treningstilbud/voksne-lett.html">Treningstilbud/a></li>
-            <li class="reveal d3"><a href="treningstilbud/tett-oppfolging.html">Kurs/seminar</a></li>
-            <li class="reveal d4"><a href="frivillig.html">Treningssystem</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="site-footer__heading reveal d2">Informasjon</h3>
-          <ul class="site-footer__list">
-            <li class="reveal d2"><a href="presse.html">Presse og media</a></li>
-            <li class="reveal d3"><a href="samarbeid.html">Samarbeid</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="site-footer__heading reveal d2">My Strongest Side</h3>
-          <ul class="site-footer__list">
-            <li class="reveal d2"><a href="kontakt.html">Kontakt</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="site-footer__heading reveal d2">Kontakt</h3>
-          <ul class="site-footer__list">
-            <li class="reveal d2">My Strongest Side AS</li>
-            <li class="reveal d3">Brages veg 3<br>5221 Nesttun</li>
-            <li class="reveal d3">E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
-            <li class="reveal d4">Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="site-footer__bottom">
-        <p class="site-footer__meta reveal d2">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
-
-        <div class="site-footer__social reveal d3">
-          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
-          <div class="site-footer__social-list">
-            <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
-              <img src="icons/facebook.png" alt="" aria-hidden="true">
-            </a>
-            <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
-              <img src="icons/instagram.png" alt="" aria-hidden="true">
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </footer>
-
-
-  <script src="menu.js" defer></script>
+  <script>
+    window.MYSS_PREFIX = "../";
+    window.__prefix = "../";
+  </script>
+  <script src="../script.js" defer></script>
+  <div id="myss-footer"></div>
+  <script>
+    (function() {
+      var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
+      if (!prefix) {
+        prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
+      }
+      window.MYSS_PREFIX = prefix;
+      window.__prefix = prefix;
+      var target = document.getElementById("myss-footer");
+      if (!target) { return; }
+      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
+        .then(function(r){ return r.text(); })
+        .then(function(html){
+          target.innerHTML = html;
+          target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img){
+            var raw = img.getAttribute("src");
+            if (raw) {
+              img.setAttribute("src", raw.replace("${prefix}", prefix));
+            }
+          });
+        })
+        .catch(function(){
+          target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
+        });
+    })();
+  </script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const y = document.getElementById('year');
-      if (y) y.textContent = new Date().getFullYear();
-
       const els = Array.from(document.querySelectorAll('.reveal'));
       if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('is-visible')); return; }
 
