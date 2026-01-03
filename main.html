@@ -160,7 +160,7 @@ header[data-component="site-header"]{
   outline: 3px solid rgba(247,124,55,.45);
   outline-offset: 3px;
 }
-/* === Nyhetskort – bilde + teaser === */
+/* === Nyhetskort – bilde + teaser (kompakt) === */
 
 .myss-news-card{
   display: flex;
@@ -169,7 +169,7 @@ header[data-component="site-header"]{
   text-decoration: none;
   color: inherit;
 
-  border-radius: 20px;
+  border-radius: 18px; /* litt strammere */
   background: rgba(16,82,119,.06);
   border: 1px solid rgba(16,82,119,.16);
   overflow: hidden;
@@ -182,81 +182,57 @@ header[data-component="site-header"]{
   filter: brightness(1.02);
 }
 
+/* BILDE – lavere visuell dominans */
 .myss-news-card__img{
   width: 100%;
   aspect-ratio: 16 / 9;
+  max-height: 280px;        /* 👈 dette er nøkkelen */
   object-fit: cover;
   display: block;
   background: rgba(16,82,119,.06);
 }
 
-/* Tekstdel */
+@media (max-width: 900px){
+  .myss-news-card__img{
+    max-height: 200px;      /* enda lavere på mobil */
+  }
+}
+
+/* Tekstdel – mindre luft */
 .myss-news-card__body{
-  padding: 1rem 1.05rem 1.15rem;
+  padding: .7rem .85rem .8rem; /* strammere enn før */
 }
 
 /* Kicker */
 .myss-news-card__kicker{
   display: inline-block;
-  margin-bottom: .35rem;
-  font-size: .75rem;
+  margin-bottom: .25rem;
+  font-size: .7rem;         /* litt mindre */
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: .02em;
+  letter-spacing: .03em;
   color: #f77c37; /* MySS-oransje */
 }
 
 /* Tittel */
 .myss-news-card__title{
-  margin: 0 0 .4rem;
-  font-size: 1.1rem;
+  margin: 0 0 .3rem;
+  font-size: 1rem;          /* litt roligere */
   line-height: 1.25;
 }
 
-/* Teaser */
+/* Teaser – maks 2 linjer */
 .myss-news-card__teaser{
   margin: 0;
   opacity: .9;
-}
-    /* =========================
-   AKTUELT – mer kompakt kort
-   ========================= */
 
-/* Selve kortet */
-.myss-aktuelt-card{
-  max-width: 920px;          /* hindrer at det blir for massivt */
-  margin: 0 auto;            /* pent midtstilt */
-}
-
-/* Bildedel: lavere høyde */
-.myss-aktuelt-card__media{
-  max-height: 360px;         /* JUSTER: 280–360 er sweet spot */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;    /* 👈 hindrer høye kort */
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-@media (max-width: 900px){
-  .myss-aktuelt-card__media{
-    max-height: 240px;       /* mindre på mobil */
-  }
-}
-
-/* Bildet fyller rammen, ikke mer */
-.myss-aktuelt-card__media img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  aspect-ratio: 16 / 9;
-}
-
-/* Tekstfeltet under – mer kompakt */
-.myss-aktuelt-card__label{
-  padding: .65rem .85rem;    /* mindre luft */
-}
-
-.myss-aktuelt-card__title{
-  font-size: 1.05rem;        /* litt mindre enn før */
-  line-height: 1.25;
-}
+    
   </style>
 </head>
 
