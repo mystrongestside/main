@@ -160,7 +160,7 @@ header[data-component="site-header"]{
   outline: 3px solid rgba(247,124,55,.45);
   outline-offset: 3px;
 }
-/* === Nyhetskort – bilde + teaser (kompakt) === */
+/* === Nyhetskort – bilde + teaser (mindre firkantet / penere) === */
 
 .myss-news-card{
   display: flex;
@@ -169,7 +169,7 @@ header[data-component="site-header"]{
   text-decoration: none;
   color: inherit;
 
-  border-radius: 18px; /* litt strammere */
+  border-radius: 22px;                 /* mykere form */
   background: rgba(16,82,119,.06);
   border: 1px solid rgba(16,82,119,.16);
   overflow: hidden;
@@ -182,32 +182,39 @@ header[data-component="site-header"]{
   filter: brightness(1.02);
 }
 
-/* BILDE – lavere visuell dominans */
+/* Bilde – mindre “kuttet”, mer naturlig utsnitt */
 .myss-news-card__img{
   width: 100%;
   aspect-ratio: 16 / 9;
-  max-height: 280px;        /* 👈 dette er nøkkelen */
+  max-height: 300px;                   /* litt mer høyde igjen */
   object-fit: cover;
+  object-position: center top;         /* viktig for gruppebilder/ansikt */
   display: block;
   background: rgba(16,82,119,.06);
+
+  /* gjør overgangen mykere visuelt */
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
 }
 
 @media (max-width: 900px){
   .myss-news-card__img{
-    max-height: 200px;      /* enda lavere på mobil */
+    max-height: 230px;
+    object-position: center top;
   }
 }
 
-/* Tekstdel – mindre luft */
+/* Tekstdel – mer kompakt, men “kortfølelse” */
 .myss-news-card__body{
-  padding: .7rem .85rem .8rem; /* strammere enn før */
+  padding: .75rem 1rem .85rem;
+  background: rgba(255,255,255,.65);
 }
 
 /* Kicker */
 .myss-news-card__kicker{
   display: inline-block;
   margin-bottom: .25rem;
-  font-size: .7rem;         /* litt mindre */
+  font-size: .7rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .03em;
@@ -217,21 +224,20 @@ header[data-component="site-header"]{
 /* Tittel */
 .myss-news-card__title{
   margin: 0 0 .3rem;
-  font-size: 1rem;          /* litt roligere */
+  font-size: 1rem;
   line-height: 1.25;
 }
 
-/* Teaser – maks 2 linjer */
+/* Teaser – maks 2 linjer for jevn høyde */
 .myss-news-card__teaser{
   margin: 0;
   opacity: .9;
 
   display: -webkit-box;
-  -webkit-line-clamp: 2;    /* 👈 hindrer høye kort */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
     
   </style>
 </head>
