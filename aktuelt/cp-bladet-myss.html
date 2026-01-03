@@ -7,155 +7,64 @@
   <title>My Strongest Side i CP-bladet | My Strongest Side®</title>
   <meta name="description" content="Kort oppsummering av omtalen i CP-bladet, med sitat og kildehenvisning." />
 
-  <link rel="icon" type="image/png" href="../favicon.png" />
-  <link rel="stylesheet" href="../styles.css?v=112" />
+  <!-- Viktig: gjør alle relative lenker i injisert header riktige fra /aktuelt/ -->
+  <base href="../">
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css?v=112" />
 
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- (Valgfritt) base-hint til menu.js hvis du vil bruke den der -->
-  <script>window.MYSS_BASE = "../";</script>
-
   <style>
-    /* Sørg for at header/meny alltid ligger over */
-    header[data-component="site-header"]{
-      position: relative;
-      z-index: 50;
-    }
+    header[data-component="site-header"]{ position:relative; z-index:50; }
 
-    /* =========================
-       FADE-IN (scroll-basert) – samme som resten
-       ========================= */
-    .js .reveal{
-      opacity:0;
-      transform:translateY(10px);
-      transition:opacity .6s ease, transform .6s ease;
-      will-change:opacity, transform;
-    }
-    .js .reveal.is-visible{
-      opacity:1;
-      transform:none;
-    }
+    .js .reveal{ opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease; }
+    .js .reveal.is-visible{ opacity:1; transform:none; }
     .js .reveal.d1{ transition-delay:.05s; }
     .js .reveal.d2{ transition-delay:.12s; }
     .js .reveal.d3{ transition-delay:.18s; }
     .js .reveal.d4{ transition-delay:.24s; }
 
-    /* =========================
-       ARTIKKEL (lesbar som artikkel, men MySS-stil)
-       ========================= */
-
-    /* Lesekolonne */
-    .myss-prose{
-      max-width: 70ch;
-      margin: 0 auto;
-    }
-
-    /* Ingress */
-    .myss-article-lead{
-      margin-top: .6rem;
-      max-width: 70ch;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      opacity: .92;
-    }
-
-    /* Meta/Byline */
-    .myss-article-byline{
-      margin-top: .9rem;
-      display:flex;
-      flex-wrap:wrap;
-      gap:.5rem;
-      align-items:center;
-      opacity:.75;
-      font-size:.95rem;
-    }
+    .myss-prose{ max-width:70ch; margin:0 auto; }
+    .myss-article-lead{ margin-top:.6rem; font-size:1.1rem; line-height:1.7; opacity:.92; }
+    .myss-article-byline{ margin-top:.9rem; display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; opacity:.75; font-size:.95rem; }
     .myss-article-byline .dot{ opacity:.6; }
+    .myss-prose p{ margin:0 0 1.05rem; line-height:1.75; }
+    .myss-prose h2{ margin:2rem 0 .65rem; letter-spacing:-.01em; }
 
-    /* Avsnittsrytme */
-    .myss-prose p{
-      margin: 0 0 1.05rem;
-      line-height: 1.75;
-    }
-    .myss-prose h2{
-      margin: 2rem 0 .65rem;
-      letter-spacing: -.01em;
-    }
-
-    /* Artikkelbilde */
-    .myss-article-figure{
-      margin-top: 1.1rem;
-    }
-    .myss-article-photo{
-      width:100%;
-      height:auto;
-      border-radius:24px;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      display:block;
-      background: rgba(16,82,119,.06);
-      border: 1px solid rgba(16,82,119,.12);
-    }
-    @media (max-width: 900px){
-      .myss-article-photo{ aspect-ratio: 4 / 3; }
-    }
-    .myss-article-figure figcaption{
-      margin-top: .6rem;
-      opacity: .75;
-      font-size: .95rem;
-    }
-
-    /* Quote */
     blockquote.myss-quote{
-      margin: 1.25rem 0;
-      padding: 1rem 1.1rem;
-      border-radius: 20px;
+      margin:1.25rem 0;
+      padding:1rem 1.1rem;
+      border-radius:20px;
       background: rgba(16,82,119,.06);
       border: 1px solid rgba(16,82,119,.16);
-      font-weight: 700;
+      font-weight:700;
     }
     blockquote.myss-quote p{ margin:0; }
 
-    /* Fakta-boks */
     .myss-factbox{
-      margin: 1.2rem 0 1.4rem;
-      padding: 1rem 1.05rem;
-      border-radius: 20px;
+      margin:1.2rem 0 1.4rem;
+      padding:1rem 1.05rem;
+      border-radius:20px;
       background: rgba(16,82,119,.06);
       border: 1px solid rgba(16,82,119,.16);
     }
-    .myss-factbox__title{
-      margin: 0 0 .55rem;
-      opacity: .88;
-    }
-    .myss-factbox ul{
-      margin: 0;
-      padding-left: 1.15rem;
-    }
-    .myss-factbox li{ margin: .35rem 0; }
+    .myss-factbox__title{ margin:0 0 .55rem; opacity:.88; }
+    .myss-factbox ul{ margin:0; padding-left:1.15rem; }
+    .myss-factbox li{ margin:.35rem 0; }
 
-    /* CTA */
-    .myss-article-actions{
-      margin-top: 1.6rem;
-      display:flex;
-      gap:.75rem;
-      flex-wrap:wrap;
-    }
+    .myss-article-actions{ margin-top:1.6rem; display:flex; gap:.75rem; flex-wrap:wrap; }
   </style>
 </head>
 
 <body class="page-aktuelt-artikkel">
 
-  <!-- MENY / HEADER (lastes av menu.js) -->
   <header data-component="site-header"></header>
 
   <main>
-
-    <!-- HERO / toppseksjon -->
     <section class="section section--light">
       <div class="container">
-
         <p class="eyebrow reveal d1">Aktuelt</p>
-
         <h1 class="reveal d2">Treningstilbud for personer med CP videreføres i Vestland</h1>
 
         <p class="myss-article-lead reveal d3">
@@ -164,47 +73,23 @@
         </p>
 
         <div class="myss-article-byline reveal d4">
-          <span>Kilde: CP-bladet</span>
-          <span class="dot">•</span>
+          <span>Kilde: CP-bladet</span><span class="dot">•</span>
           <span>Oppdatert: <time datetime="2025-12-27">27. desember 2025</time></span>
         </div>
-
-        <!-- Bilde (om du vil) -->
-        <!--
-        <figure class="myss-article-figure reveal d3">
-          <img src="../bilder/aktuelt/Gruppebilde1.png"
-               alt="Gruppetrening i My Strongest Side"
-               class="myss-article-photo"
-               loading="lazy">
-          <figcaption>Foto: [Fotografnavn]</figcaption>
-        </figure>
-        -->
-
       </div>
     </section>
 
-    <!-- Artikkelinnhold -->
     <section class="section">
       <div class="container">
-
         <article class="myss-prose">
-
           <h2 class="reveal d2">Videreføring og utvidelse</h2>
-
-          <p class="reveal d3">
-            My Strongest Side® ledes av likeperson <strong>Alexander Sviggum</strong>, som også er utdannet ergoterapeut.
-            I høst er tilbudet utvidet fra én til <strong>tre treningsgrupper</strong>.
-          </p>
+          <p class="reveal d3">My Strongest Side® ledes av likeperson <strong>Alexander Sviggum</strong>, som også er utdannet ergoterapeut. I høst er tilbudet utvidet fra én til <strong>tre treningsgrupper</strong>.</p>
 
           <blockquote class="myss-quote reveal d3">
             <p>«Vi ser behovet for tilrettelagte treningstilbud, responsen har vært god og vi har tro på at dette blir veldig bra.»</p>
           </blockquote>
 
-          <p class="reveal d3">
-            Hver økt starter med innsjekk og lett oppvarming. Treningen denne sesongen har særlig fokus på apparattrening og grunnøvelsene
-            <strong>knebøy, benkpress og markløft</strong>, tilpasset deltakernes individuelle behov.
-            Gruppene møtes hver torsdag – to grupper i oddetallsuker og én gruppe i partallsuker.
-          </p>
+          <p class="reveal d3">Hver økt starter med innsjekk og lett oppvarming. Treningen denne sesongen har særlig fokus på apparattrening og grunnøvelsene <strong>knebøy, benkpress og markløft</strong>, tilpasset deltakernes individuelle behov. Gruppene møtes hver torsdag – to grupper i oddetallsuker og én gruppe i partallsuker.</p>
 
           <aside class="myss-factbox reveal d3" aria-label="Fakta denne høsten">
             <p class="myss-factbox__title"><strong>Fakta denne høsten</strong></p>
@@ -217,133 +102,47 @@
           </aside>
 
           <h2 class="reveal d2">Samarbeid for økt deltakelse</h2>
-
-          <p class="reveal d3">
-            Det er etablert et samarbeid med <strong>Mio BPA</strong> for å gjøre det enklere for personer med funksjonsvariasjoner
-            å delta i tilrettelagte treningstilbud. Gjennom BPA kan flere få praktisk støtte til å delta aktivt i trening og fysisk aktivitet.
-          </p>
-
-          <p class="reveal d3">
-            Mio tilbyr også <strong>Mio UNG</strong>, et program for ungdom og unge voksne som kombinerer samlinger og digitale møter.
-            Her får deltakerne kunnskap, nettverk og trygghet til å mestre rollen som arbeidsleder og leve mer selvstendig.
-          </p>
+          <p class="reveal d3">Det er etablert et samarbeid med <strong>Mio BPA</strong> for å gjøre det enklere for personer med funksjonsvariasjoner å delta i tilrettelagte treningstilbud.</p>
+          <p class="reveal d3">Mio tilbyr også <strong>Mio UNG</strong>, et program for ungdom og unge voksne som kombinerer samlinger og digitale møter.</p>
 
           <h2 class="reveal d2">Faglig samarbeid med Atterås AS</h2>
-
-          <p class="reveal d3">
-            My Strongest Side AS og <strong>Atterås AS</strong> har inngått et faglig samarbeid for å dele erfaringer og øke kunnskapen
-            om hvordan ortoser og andre ortopediske hjelpemidler kan brukes og tilpasses i forbindelse med trening.
-          </p>
-
-          <p class="reveal d3">
-            Samarbeidet legger til rette for erfaringsutveksling mellom fagpersoner, studenter og treningsveiledere – med mål om å forstå
-            hvordan hjelpemidler påvirker bevegelse, stabilitet og deltakelse, og hvordan små justeringer kan bidra til økt trygghet og mestring.
-          </p>
+          <p class="reveal d3">My Strongest Side AS og <strong>Atterås AS</strong> har inngått et faglig samarbeid for å dele erfaringer og øke kunnskapen om hvordan ortoser og andre ortopediske hjelpemidler kan brukes og tilpasses i forbindelse med trening.</p>
 
           <blockquote class="myss-quote reveal d3">
-            <p>
-              «Dette handler om å lære av hverandre og bygge forståelse på tvers av fagområder – og gjøre fysisk aktivitet tilgjengelig og meningsfull for alle.»
-            </p>
+            <p>«Dette handler om å lære av hverandre og bygge forståelse på tvers av fagområder – og gjøre fysisk aktivitet tilgjengelig og meningsfull for alle.»</p>
           </blockquote>
 
           <div class="myss-article-actions reveal d4">
-            <a class="myss-btn" href="../kontakt.html">Kontakt oss</a>
-            <a class="myss-btn myss-btn--outline" href="../treningstilbud/">Se treningstilbud</a>
+            <a class="myss-btn" href="kontakt.html">Kontakt oss</a>
+            <a class="myss-btn myss-btn--outline" href="treningstilbud/">Se treningstilbud</a>
           </div>
-
         </article>
-
       </div>
     </section>
-
   </main>
 
-  <!-- FOOTER – samme struktur som forsiden (bare med ../ på paths) -->
+  <!-- Bruk samme footer du bruker ellers (nå via base href="../" peker paths til rot riktig) -->
   <footer class="site-footer">
     <div class="container site-footer__inner">
-
-      <div class="site-footer__brand reveal d2">
-        <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
-        <p class="site-footer__tagline reveal d3">Gjør trening tilgjengelig for flest mulig</p>
-      </div>
-
-      <div class="site-footer__top">
-        <div>
-          <h3 class="site-footer__heading reveal d2">Våre tjenester</h3>
-          <ul class="site-footer__list">
-            <li class="reveal d2"><a href="../treningstilbud/">Treningstilbud</a></li>
-            <li class="reveal d3"><a href="../kurs.html">Kurs / seminar</a></li>
-            <li class="reveal d4"><a href="../treningssystem.html">Treningssystem</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="site-footer__heading reveal d2">Informasjon</h3>
-          <ul class="site-footer__list">
-            <li class="reveal d2"><a href="../presse.html">Presse og media</a></li>
-            <li class="reveal d3"><a href="../samarbeid.html">Samarbeid</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="site-footer__heading reveal d2">My Strongest Side</h3>
-          <ul class="site-footer__list">
-            <li class="reveal d2"><a href="../kontakt.html">Kontakt</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="site-footer__heading reveal d2">Kontakt</h3>
-          <ul class="site-footer__list">
-            <li class="reveal d2">My Strongest Side AS</li>
-            <li class="reveal d3">Brages veg 3<br>5221 Nesttun</li>
-            <li class="reveal d3">E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
-            <li class="reveal d4">Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
-          </ul>
-        </div>
-      </div>
-
       <div class="site-footer__bottom">
-        <p class="site-footer__meta reveal d2">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
-
-        <div class="site-footer__social reveal d3">
-          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
-          <div class="site-footer__social-list">
-            <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
-              <img src="../icons/facebook.png" alt="" aria-hidden="true">
-            </a>
-            <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
-              <img src="../icons/instagram.png" alt="" aria-hidden="true">
-            </a>
-          </div>
-        </div>
+        <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
       </div>
-
     </div>
   </footer>
 
-  <!-- External JS -->
-  <script src="../menu.js" defer></script>
+  <script src="menu.js" defer></script>
 
-  <!-- Footer year + reveal observer -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
 
       const els = Array.from(document.querySelectorAll('.reveal'));
-
-      if (!('IntersectionObserver' in window)) {
-        els.forEach(el => el.classList.add('is-visible'));
-        return;
-      }
+      if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('is-visible')); return; }
 
       const io = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
+          if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
         });
       }, { threshold: 0.12 });
 
