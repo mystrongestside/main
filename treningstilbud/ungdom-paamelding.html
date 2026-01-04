@@ -70,12 +70,14 @@
     .highlight-banner__meta{ margin:.2rem 0 0; opacity:.9; }
     .highlight-banner__pill{
       display:inline-flex; align-items:center; justify-content:center;
-      gap:.4rem; padding:.5rem .85rem; border-radius:999px;
+      padding:.5rem .85rem; border-radius:999px;
       background:#f77c37; color:#fff; font-weight:800; letter-spacing:.01em;
       text-align:center;
+      white-space: nowrap;
     }
     @media (max-width:700px){
       .highlight-banner{ grid-template-columns:1fr; }
+      .highlight-banner__pill{ white-space: normal; }
     }
 
     .price-grid{
@@ -94,7 +96,7 @@
     .info-summary{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap:.75rem; margin: 1rem 0 1.5rem;
+      gap:.75rem; margin: 1rem 0 1.2rem;
     }
     .info-summary__item{
       background:#f7fafc; border:1px solid #d7e6ef; border-radius:12px;
@@ -110,7 +112,7 @@
     .card-grid{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap:1rem; margin: 1rem 0 1.4rem;
+      gap:1rem; margin: 1rem 0 1.2rem;
     }
     .card{
       border:1px solid #d7e6ef; background:#fff; border-radius:14px;
@@ -118,18 +120,12 @@
     }
     .card h3{ margin:0 0 .4rem; font-size:1.05rem; }
     .card p{ margin:0; color:#325064; }
-    .pill-row{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.4rem; }
-    .pill{
-      padding:.45rem .7rem; border-radius:999px;
-      background: rgba(16,82,119,.08);
-      border: 1px solid rgba(16,82,119,.14);
-      font-weight:700; color:#0f3252; font-size:.95rem;
-    }
 
     .date-list--grid{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap:.65rem; padding-left:0; list-style:none;
+      margin: .75rem 0 0;
     }
     .date-list--grid li{
       margin:0; padding:.85rem 1rem; border-radius:12px;
@@ -146,7 +142,7 @@
     }
 
     .info-list{
-      list-style:none; padding:0; margin:1rem 0 0;
+      list-style:none; padding:0; margin:.75rem 0 0;
       display:grid; gap:.75rem;
     }
     .info-list li{
@@ -173,13 +169,13 @@
       gap:.75rem; padding:1rem; border-radius:14px;
       background:#0f3252; color:#fff; align-items:center;
       box-shadow:0 16px 32px rgba(15,50,82,.22);
-      margin-top:2rem;
+      margin-top:1.5rem;
     }
     .contact-bar h3{ margin:0; font-size:1.1rem; }
     .contact-bar a{ color:#fff; font-weight:700; }
     .contact-bar__links{ display:flex; gap:1rem; flex-wrap:wrap; }
 
-    /* Fade-in (holdt, men færre “reveal” i HTML) */
+    /* Fade-in (holdt, men mindre “reveal” i HTML) */
     .js .reveal{ opacity:0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; will-change: opacity, transform; }
     .js .reveal.is-visible{ opacity:1; transform:none; }
     .js .reveal.d1{ transition-delay:.05s; }
@@ -198,16 +194,13 @@
       <div class="container myss-hero-grid">
         <div class="reveal d1">
           <p class="eyebrow">Ungdom</p>
-          <h1>Påmelding og praktisk info<span class="dot">.</span></h1>
-          <p>
-            Påmelding, datoer og praktisk info for ungdomstrening (12–15 år) ved Trene Sammen Fantoft.
-            Små grupper, rolig tempo og instruktører som tilpasser øvelser etter behov.
-          </p>
+          <h1>Ungdomstrening (12–15 år)<span class="dot">.</span></h1>
+          <p>Tilpasset styrketrening i små grupper på Trene Sammen Fantoft.</p>
 
-          <div class="myss-badges">
+          <div class="myss-badges" aria-label="Nøkkelinfo">
             <span class="myss-badge"><img src="../icons/goal3.png" alt="" aria-hidden="true">Styrke &amp; mestring</span>
             <span class="myss-badge"><img src="../icons/child.svg" alt="" aria-hidden="true">12–15 år</span>
-            <span class="myss-badge"><img src="../icons/signup.svg" alt="" aria-hidden="true">Små grupper</span>
+            <span class="myss-badge"><img src="../icons/signup.svg" alt="" aria-hidden="true">Maks 8 deltakere</span>
           </div>
 
           <div class="myss-actions">
@@ -217,10 +210,10 @@
 
           <div class="highlight-banner" aria-label="Neste oppstart">
             <div>
-              <p class="highlight-banner__title">Neste oppstart: torsdag 5. mars 2026</p>
-              <p class="highlight-banner__meta">Fantoft · 17:00–18:00 · Oppmøte 16:45</p>
+              <p class="highlight-banner__title">Neste oppstart: tors 5. mars 2026</p>
+              <p class="highlight-banner__meta">Fantoft · 17:00–18:00 (oppmøte 16:45)</p>
             </div>
-            <span class="highlight-banner__pill">Maks 8 deltakere · Tilpasset tempo</span>
+            <span class="highlight-banner__pill">Prøvetime mulig</span>
           </div>
         </div>
 
@@ -229,6 +222,7 @@
             src="../bilder/ungdom-hero.jpg"
             alt="Ungdomstrening hos My Strongest Side"
             class="myss-hero-photo"
+            loading="lazy"
           />
         </div>
       </div>
@@ -240,60 +234,51 @@
 
         <!-- PRAKTISK -->
         <section class="mt-md partner-card reveal d1" id="praktisk">
-          <h2 class="mt-sm">Nyttig informasjon</h2>
-          <p>Kort oppsummert om sted, tidspunkt, pris og tilgjengelighet for sesongen.</p>
+          <h2 class="mt-sm">Praktisk info</h2>
 
-          <div class="price-grid">
+          <div class="price-grid" aria-label="Pris">
             <div class="price-item">150 kr <span>Prøvetime</span></div>
-            <div class="price-item">600 kr <span>CP Vestland medlemspris</span></div>
+            <div class="price-item">600 kr <span>Medlem CP Vestland</span></div>
             <div class="price-item">800 kr <span>Ikke medlem</span></div>
           </div>
 
-          <div class="info-summary">
+          <div class="info-summary" aria-label="Oppsummering">
             <div class="info-summary__item">
-              <p class="info-summary__label">Sted</p>
+              <p class="info-summary__label">Fantoft</p>
               <p class="info-summary__value">Trene Sammen Fantoft</p>
               <p class="info-summary__meta">Fantoftvegen 14, Bergen</p>
             </div>
+
             <div class="info-summary__item">
               <p class="info-summary__label">Tid</p>
               <p class="info-summary__value">17:00–18:00</p>
-              <p class="info-summary__meta">Oppmøte kl. 16:45</p>
+              <p class="info-summary__meta">Oppmøte 16:45</p>
             </div>
+
             <div class="info-summary__item">
               <p class="info-summary__label">Sesong</p>
-              <p class="info-summary__value">Mars 2026 – juni 2026</p>
-              <p class="info-summary__meta">Torsdager annenhver uke</p>
+              <p class="info-summary__value">Mars–juni 2026</p>
+              <p class="info-summary__meta">Annenhver torsdag</p>
             </div>
+
             <div class="info-summary__item">
               <p class="info-summary__label">Gruppestørrelse</p>
               <p class="info-summary__value">Maks 8 deltakere</p>
-              <p class="info-summary__meta">Fast instruktørteam</p>
             </div>
           </div>
 
-          <div class="card-grid">
+          <div class="card-grid" aria-label="Kort">
             <div class="card">
               <h3>Hvorfor ungdomstrening?</h3>
-              <p>Mestringsfokus, trygg progresjon og sosialt fellesskap for ungdom mellom 12–15 år.</p>
-              <div class="pill-row">
-                <span class="pill">Styrke &amp; balanse</span>
-                <span class="pill">Koordinasjon</span>
-                <span class="pill">Sosialt</span>
-              </div>
+              <p>Trygg progresjon og mestring i et sosialt miljø.</p>
             </div>
             <div class="card">
               <h3>Instruktører</h3>
-              <p>Fast team som lærer deltakerne å kjenne og tilpasser øvelser og apparater etter funksjon og dagsform.</p>
-              <div class="pill-row">
-                <span class="pill">Tilgjengelige</span>
-                <span class="pill">Erfarne</span>
-                <span class="pill">Lav terskel</span>
-              </div>
+              <p>Fast team som tilpasser øvelser og apparater.</p>
             </div>
           </div>
 
-          <h3>Datoer denne sesongen</h3>
+          <h3>Datoer</h3>
           <ol class="date-list--grid">
             <li><span>1</span> Torsdag 5. mars 2026</li>
             <li><span>2</span> Torsdag 19. mars 2026</li>
@@ -313,11 +298,11 @@
             </li>
             <li>
               <span class="icon"><img src="../icons/bus.svg" alt="" aria-hidden="true"></span>
-              <div class="info-content">Buss nr. 2 og 3 (holdeplass Fantoft Studentby).</div>
+              <div class="info-content">Buss 2/3 (Fantoft Studentby).</div>
             </li>
             <li>
               <span class="icon"><img src="../icons/parking.svg" alt="" aria-hidden="true"></span>
-              <div class="info-content">HC-parkering: 3 plasser ved MENY Fantoft (ca. 70–90 m).</div>
+              <div class="info-content">HC-parkering ved MENY Fantoft (70–90 m).</div>
             </li>
             <li>
               <span class="icon"><img src="../icons/map.svg" alt="" aria-hidden="true"></span>
@@ -332,31 +317,13 @@
         <section class="mt-lg partner-card reveal d2" id="paamelding">
           <h2 class="mt-sm">Meld deg på</h2>
           <p>
-            Påmelding er åpen. Vi har begrenset kapasitet (maks 8 plasser) og tar kontakt for en kort kartlegging av behov og tilpasninger før oppstart.
-            Oppstart skjer sammen med resten av gruppa.
+            Påmelding er åpen (maks 8 plasser). Vi tar kontakt for kort kartlegging av behov og tilpasninger før oppstart.
+            Prøvetime kan velges i påmeldingen.
           </p>
-
-          <div class="mt-sm">
-            <div class="info-summary__label" aria-hidden="true">Slik fungerer det</div>
-          <ul class="info-list">
-  <li>
-    <span class="icon"><img src="../icons/signup.svg" alt=""></span>
-    <div class="info-content">Send inn påmelding nedenfor.</div>
-  </li>
-  <li>
-    <span class="icon"><img src="../icons/calendar.svg" alt=""></span>
-    <div class="info-content">Vi tar kontakt for en kort kartlegging av behov og tilpasninger før oppstart. Oppstart skjer sammen med resten av gruppa.</div>
-  </li>
-  <li>
-    <span class="icon"><img src="../icons/info-time.svg" alt=""></span>
-    <div class="info-content">Prøvetime er valgfritt og kan velges i påmeldingen.</div>
-  </li>
-</ul>
-          </div>
 
           <div id="checkin_registration" class="mt-md"></div>
 
-          <!-- Robust embed: last i <head> for å unngå race / rare CMS-issues -->
+          <!-- Checkin embed (robust): last i <head> for å unngå timing-problemer -->
           <script>
             (function () {
               var s = document.createElement('script');
@@ -376,9 +343,9 @@
           </noscript>
         </section>
 
-        <!-- FAQ -->
+        <!-- FAQ / KONTAKT -->
         <section class="mt-lg partner-card reveal d3" id="sporsmal">
-          <h2 class="mt-sm">Spørsmål<span class="dot">.</span></h2>
+          <h2 class="mt-sm">Spørsmål?</h2>
 
           <details>
             <summary>Hva hvis jeg bruker hjelpemidler eller rullestol?</summary>
@@ -395,10 +362,10 @@
             <p>Instruktørene vurderer sammen med deg hvilke øvelser som fungerer best ut fra funksjon og målsetting.</p>
           </details>
 
-          <div class="contact-bar" aria-label="Kontakt oss">
+          <div class="contact-bar" aria-label="Kontakt">
             <div>
-              <h3>Vil du snakke med oss først?</h3>
-              <p style="margin:.2rem 0 0; opacity:.9;">Ring oss eller send en e-post – vi svarer raskt.</p>
+              <h3>Kontakt</h3>
+              <p style="margin:.2rem 0 0; opacity:.9;">Telefon eller e-post.</p>
             </div>
             <div class="contact-bar__links">
               <a href="tel:+4741439384">+47 41 43 93 84</a>
@@ -496,7 +463,6 @@
           }
         });
       }, { threshold: 0.2 });
-
       els.forEach(el => io.observe(el));
     });
   </script>
