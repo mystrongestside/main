@@ -3,668 +3,463 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Lett funksjonsvariasjon | My Strongest Side®</title>
-  <meta name="description" content="Styrketrening i små grupper for voksne med lett funksjonsvariasjon – rolig tempo, tett oppfølging og faste veiledere." />
+  <meta name="description" content="Styrketrening i små grupper for voksne med lett funksjonsvariasjon – rolig tempo, tilpasninger og faste veiledere." />
+
   <link rel="icon" type="image/png" href="../favicon.png" />
-  <link rel="stylesheet" href="../styles.css?v=112">
+  <link rel="stylesheet" href="../styles.css?v=112" />
   <script>document.documentElement.classList.add('js');</script>
 
   <style>
-    :root {
-      --myss-white: #ffffff;
-      --myss-orange: #f77c37;
-      --myss-blue: #24344d;
-      --myss-soft: #e4e8f2;
-      --myss-ink: #24344d;
-      --myss-shadow: rgba(16, 82, 119, 0.12);
+    /* ===== Knapper (samme stil som Tett oppfølging) ===== */
+    .myss-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
+    .myss-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.9rem 1.15rem;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      line-height:1.1;
+      background:var(--myss-blue);
+      color:#fff;
+      border:2px solid var(--myss-blue);
+      transition:transform .08s ease, filter .2s ease, background .2s ease, color .2s ease;
+    }
+    .myss-btn:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+    .myss-btn:active{ transform:translateY(0); }
+    .myss-btn--outline{ background:transparent; color:var(--myss-blue); }
+
+    /* ===== HERO-grid (samme prinsipp som Tett oppfølging) ===== */
+    .myss-hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:2rem;
+      align-items:center;
+    }
+    @media (max-width: 900px){
+      .myss-hero-grid{ grid-template-columns:1fr; }
     }
 
-    .ribbon--open { background-color: #3cb371; }
-    .dot { position: static !important; margin-left: 0.1em; }
+    /* ===== Bilder: vis hele bildet + ikke for stort ===== */
+    .myss-hero-photo,
+    .youth-frame img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:24px;
 
-    body { background: var(--myss-white); }
+      /* Hele bildet synlig (ingen cropping) */
+      object-fit:contain;
 
-    .hero--simple {
-      background: radial-gradient(circle at top left, rgba(247,124,55,0.25), transparent 40%),
-                  radial-gradient(circle at 65% 25%, rgba(16,82,119,0.2), transparent 55%),
-                  linear-gradient(135deg, var(--myss-white) 0%, var(--myss-soft) 65%, #24344d 100%);
-      padding: 4rem 0 3rem !important;
-    }
-    .hero--simple .hero__content {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .hero__tagline {
-      font-size: 1rem;
-      margin-top: .65rem;
-      color: var(--myss-blue);
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    .hero__lede {
-      max-width: 640px;
-      margin: 1rem auto 0;
-      font-size: 1.12rem;
-      color: var(--myss-ink);
-      line-height: 1.6;
-    }
-    .hero__chips {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: .6rem;
-      margin: 1.75rem auto 0;
-      padding: 0;
-      list-style: none;
-    }
-    .hero__chips li {
-      background: rgba(16,82,119,0.08);
-      border: 1px solid rgba(16,82,119,0.12);
-      border-radius: 999px;
-      padding: .4rem 1rem;
-      font-weight: 600;
-      font-size: .95rem;
-      color: var(--myss-ink);
-    }
-    .hero__cta {
-      margin-top: 2.25rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .btn-myss {
-      background: var(--myss-orange);
-      color: #ffffff;
-      padding: .9rem 1.85rem;
-      border-radius: 999px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 15px 35px rgba(247,124,55,0.35);
-      transition: transform .25s ease, box-shadow .25s ease;
-      border: 0;
-    }
-    .btn-myss:hover,
-    .btn-myss:focus-visible {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(247,124,55,0.45);
-    }
-    .btn-myss--ghost {
-      background: #fff;
-      border: 1px solid rgba(16,82,119,0.15);
-      box-shadow: none;
-      color: var(--myss-blue);
+      /* Ramme/luft når contain gir tomrom */
+      background: rgba(16,82,119,.06);
     }
 
-    .section-divider {
-      border: 0;
-      border-top: 1px solid #ffffff;
-      margin: 2.5rem auto;
-      width: min(760px, 100%);
+    /* Hero: begrens høyde så det ikke blir enormt på desktop */
+    .myss-hero-photo{
+      max-height: clamp(260px, 38vw, 420px);
+      aspect-ratio: auto;
     }
 
-    .section--split { padding-top: 0; }
-    .split {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      align-items: center;
-    }
-    .split--reverse { direction: rtl; }
-    .split--reverse > * { direction: ltr; }
-    .split__text h3 {
-      font-size: 1.6rem;
-      margin-bottom: .9rem;
-      color: var(--myss-blue);
-    }
-    .split__text p {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: var(--myss-ink);
-    }
-    .split__image { position: relative; }
-    .image-frame {
-      border-radius: 1.5rem;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 25px 70px var(--myss-shadow);
-    }
-    .image-frame img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-      height: 320px;
-    }
-    .image-tag {
-      position: absolute;
-      bottom: 1rem;
-      left: 1rem;
-      background: rgba(255,255,255,0.9);
-      color: var(--myss-ink);
-      font-weight: 600;
-      padding: .45rem .85rem;
-      border-radius: 999px;
-      font-size: .9rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    /* Split-bilder: litt lavere */
+    .youth-frame img{
+      max-height: clamp(220px, 32vw, 360px);
     }
 
-    .info-chips {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1rem;
-      margin-top: 1.25rem;
+    /* ===== Små “chips” (enkel, robust) ===== */
+    .youth-chips{
+      list-style:none;
+      padding:0;
+      margin:1rem 0 0;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
     }
-    
-.info-chips span {
-  background: #ffffff;
-  border-radius: .9rem;
-  padding: .85rem 1rem;
-  border: 1px solid #f77c37;   /* tykkere + oransje */
-  font-weight: 600;
-  color: var(--myss-ink);
-}
-
-    .cta-panel {
-      background: linear-gradient(120deg, var(--myss-blue), #0f3957);
-      color: #fff;
-      border-radius: 1.5rem;
-      padding: 2.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      align-items: center;
-    }
-    .cta-panel p {
-      margin: 0;
-      font-size: 1.05rem;
-    }
-    .cta-panel strong { color: var(--myss-orange); }
-
-    .section--stories { background: var(--myss-soft); }
-    .story-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-    
-    .story-card {
-      background: #fff;
-      border-radius: 1.25rem;
-      padding: 1.5rem;
-      box-shadow: 0 20px 50px var(--myss-shadow);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .story-card img {
-      border-radius: 1rem;
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .story-card h3 { margin: 0; font-size: 1.25rem; color: var(--myss-blue); }
-
-    .section--gallery h2 { text-align: center; margin-bottom: 1.5rem; }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .gallery-grid figure { margin: 0; }
-    .gallery-grid img {
-      width: 100%;
-      height: 170px;
-      object-fit: cover;
-      border-radius: .75rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,.08);
-    }
-    .gallery-grid figcaption {
-      margin-top: .5rem;
-      font-size: .9rem;
-      color: #42566d;
+    .youth-chips li{
+      padding:.45rem .75rem;
+      border-radius:999px;
+      border:1px solid rgba(16,82,119,.18);
+      background:rgba(16,82,119,.06);
+      font-weight:700;
+      font-size: .95em;
     }
 
-    .js [data-scroll-fade] {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .6s ease, transform .6s ease;
+    /* ===== Split-layout (enkelt) ===== */
+    .youth-split{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:2rem;
+      align-items:center;
     }
-    .js [data-scroll-fade].is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .js [data-scroll-fade] {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-      }
-    }
-
-    .link-arrow {
-      font-weight: 600;
-      color: var(--myss-blue);
-      text-decoration: none;
-      border-bottom: 2px solid var(--myss-blue);
-      padding-bottom: 0.1rem;
-    }
-    .link-arrow::after { content: " →"; }
-    .link-arrow:hover { opacity: 0.85; }
-
-    .marquee__row span + span { margin-left: .35rem; }
-    .marquee__row[aria-hidden="true"] { display: none; }
-
-    .floating-cta {
-      position: fixed;
-      right: 2rem;
-      bottom: 2rem;
-      z-index: 20;
-      display: none;
-      text-decoration: none;
-    }
-    @media (min-width: 960px) {
-      .floating-cta { display: inline-flex; }
+    .youth-split--reverse{ grid-auto-flow:dense; }
+    .youth-split--reverse .youth-split__text{ grid-column:2; }
+    .youth-split--reverse .youth-frame{ grid-column:1; }
+    @media (max-width: 900px){
+      .youth-split{ grid-template-columns:1fr; }
+      .youth-split--reverse .youth-split__text,
+      .youth-split--reverse .youth-frame{ grid-column:auto; }
     }
 
-    /* Skjul topp-CTA på desktop – floating-knappen er nok */
-    @media (min-width: 960px) {
-      .page--lett .navbar-right {
-        display: none !important;
-      }
+    .youth-infochips{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+    .youth-infochips span{
+      padding:.45rem .75rem;
+      border-radius:999px;
+      border:1px solid rgba(16,82,119,.18);
+      background:rgba(16,82,119,.04);
+      font-weight:700;
+      font-size:.95em;
+    }
+    .youth-infochips--grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:.75rem;
+      margin-top:1rem;
+    }
+    @media (max-width: 700px){
+      .youth-infochips--grid{ grid-template-columns:1fr; }
     }
 
-    @media (max-width: 720px) {
-      .hero--simple { padding: 2.5rem 0 1.5rem !important; }
-      .hero__content { max-width: 92%; }
-      .image-frame img { height: 250px; }
-      .cta-panel { padding: 1.75rem; }
-    }
-    .hero--simple {
-      background: var(--myss-blue);
-      padding: clamp(5rem, 10vw, 7rem) 1rem clamp(4rem, 9vw, 6rem);
-      text-align: center;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .youth-frame{ margin:0; }
+    .youth-frame__tag{
+      display:inline-block;
+      margin-top:.6rem;
+      padding:.35rem .65rem;
+      border-radius:999px;
+      background:rgba(16,82,119,.06);
+      border:1px solid rgba(16,82,119,.16);
+      font-weight:700;
+      font-size:.95em;
+      opacity:.9;
     }
 
-    .hero__content {
-      max-width: 780px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.25rem;
-      text-align: center;
+    /* ===== Kortboks ===== */
+    .youth-card{
+      border-radius:24px;
+      padding:1.25rem;
+      border:1px solid rgba(16,82,119,.16);
+      background:rgba(16,82,119,.04);
     }
 
-    .hero__season {
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      font-weight: 600;
-      margin: 0;
-      opacity: 0.95;
+    /* ===== Reveal (samme som Tett oppfølging) ===== */
+    .js .reveal{
+      opacity:0;
+      transform:translateY(10px);
+      transition:opacity .6s ease, transform .6s ease;
+      will-change:opacity, transform;
     }
-
-    .hero--simple h1 {
-      font-size: 2.6rem;
-      font-weight: 800;
-      line-height: 1.3;
-      margin: 0;
-      color: #ffffff;
-    }
-
-    .hero__subtitle {
-      font-size: 1.15rem;
-      line-height: 1.8;
-      color: #f5f7fa;
-      max-width: 640px;
-      margin: 0;
-    }
-
-.btn-main {
-  display: inline-block;
-  background: var(--myss-orange);
-  color: #ffffff;
-  padding: 1.25rem 2.2rem;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.2s ease;
-}
-
-.btn-main:hover {
-  background: #e86d2d;
-}
-
-/* Mobilforbedring */
-@media (max-width: 720px) {
-      .hero--simple {
-        padding: 4rem 1rem 3.5rem 1rem;
-      }
-      .hero--simple h1 {
-        font-size: 1.9rem;
-      }
-      .hero__subtitle {
-        font-size: 1.05rem;
-      }
-}
-
+    .js .reveal.is-visible{ opacity:1; transform:none; }
+    .js .reveal.d1{ transition-delay:.05s; }
+    .js .reveal.d2{ transition-delay:.12s; }
+    .js .reveal.d3{ transition-delay:.18s; }
+    .js .reveal.d4{ transition-delay:.24s; }
   </style>
 </head>
 
 <body class="page--lett">
-<header id="myss-header" data-component="site-header"></header>
 
-<main>
-  <section class="hero hero--simple">
-  <div class="container hero__content">
-
-    <p class="hero__season">Pågående sesong · September 2025 – Januar 2026</p>
-
-    <h1>Gruppetrening for personer med lett funksjonsvariasjon<span class="dot">.</span></h1>
-
-    <p class="hero__subtitle">
-      Styrketrening i små grupper – rolig tempo, tilpasninger og faste veiledere.
-    </p>
-
-    <p class="hero__subtitle" style="max-width:540px;">
-      Meld deg på nå og sikre plass til kurset med oppstart i mars.
-    </p>
-
-  </div>
-</section>
-
- <div class="container" aria-hidden="true">
-    <hr class="section-divider">
-  </div>
-
-  <section class="section section--split">
-    <div class="container split">
-      <div class="split__text" data-scroll-fade>
-        <h3>Tren med trygghet</h3>
-        <p>
-         Vi starter hver økt med å sjekke dagsform og hva du trenger der og da. Du får rolig og ryddig oppfølging gjennom hele timen.
-        </p>
-        <div class="info-chips">
-          <span>Skreddersydd program</span>
-          <span>Tempo som passer deg</span>
-          <span>Rom for pauser</span>
-        </div>
-      </div>
-      <div class="split__image" data-scroll-fade>
-        <div class="image-frame">
-          <img src="../bilde01.jpg" alt="Veileder som støtter deltaker i styrkeapparat">
-          <div class="image-tag">Teknikkstøtte i apparat</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section section--mentors">
-    <div class="container">
-      <h2 data-scroll-fade>Veiledere med relevant fagbakgrunn</h2>
-      <p data-scroll-fade>
-        Fysio- og ergoterapistudenter fra HVL er faste veiledere gjennom sesongen. De blir kjent med deg, følger utviklingen din og justerer øvelsene underveis.
-      </p>
-      <p data-scroll-fade>
-        På enkelte økter deltar også Alexander Sviggum, som viser hvordan styrkeløft-teknikk kan tilpasses vanlige hverdagsbevegelser.
-      </p>
-
-      <div class="media-stack">
-        <!-- Kort 1: Veiledere -->
-        <figure class="media-card" data-scroll-fade>
-          <img src="../bilder/studenter.png"
-               alt="Frivillige veiledere og studenter ved My Strongest Side">
-          <figcaption class="media-chip">
-            Frivillige får faglig påfyll via NorCP-kurs
-          </figcaption>
-        </figure>
-
-        <!-- Kort 2: Fellesskap + CTA -->
-        <figure class="media-card" data-scroll-fade>
-          <img src="../bilder/Gruppebilde1.png"
-               alt="Deltakere og veiledere samlet etter treningsøkt">
-          <figcaption class="media-chip media-chip--left">
-            Fellesskap hver økt
-          </figcaption>
-          </a>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <div class="marquee" role="region" aria-label="Kjerneverdier">
-    <div class="marquee__wrap">
-      <div class="marquee__row">
-        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-      </div>
-      <div class="marquee__row" aria-hidden="true">
-        <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-        <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-        <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-      </div>
-    </div>
-  </div>
-
-  
-
-  <section class="section" id="kursinnhold">
-    <div class="container surface-card stack">
-      <h2 data-scroll-fade>Kurs: Styrketrening for voksne med lett funksjonsvariasjon</h2>
-
-      <h3 data-scroll-fade>Hvem passer kurset for?</h3>
-      <p data-scroll-fade>
-        Kurset er for voksne med lett funksjonsvariasjon som trener på senter eller vil komme i gang, men ønsker et rolig miljø
-        med forutsigbar støtte.
-      </p>
-      <p data-scroll-fade>
-        Flere av deltakerne har cerebral parese eller nevrologiske og muskelrelaterte utfordringer. Fellesnevneren er behovet for
-        trygge rammer der vi sammen finner løsninger som fungerer i hverdagen.
-      </p>
-
-      <h3 data-scroll-fade>Hva gjør vi?</h3>
-      <p data-scroll-fade>
-        Vi jobber med grunnleggende styrkeøvelser, balanse og bevegelighet. Vi tester små justeringer og finner måter å trene på
-        som kjennes gode ut for deg.
-      </p>
-
-      <div class="info-chips" style="margin-top:1.75rem;">
-        <span>Sted: Trene Sammen Fantoft</span>
-        <span>Varighet: ca. 60 minutter</span>
-        <span>Hyppighet: Annenhver torsdag</span>
-        <span>Kostnad: Fra 600,- for en sesong </span>
+  <!-- ===== HEADER (beholder menyen din) ===== -->
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <div class="site-header__left">
+        <button class="site-header__toggle"
+          aria-label="Åpne meny"
+          aria-expanded="false"
+          aria-controls="hovedmeny"
+          type="button">
+          <span class="site-header__toggle-box" aria-hidden="true">
+            <span class="site-header__toggle-line"></span>
+            <span class="site-header__toggle-line"></span>
+            <span class="site-header__toggle-line"></span>
+          </span>
+          <span class="site-header__toggle-label">Vis menyen</span>
+        </button>
       </div>
 
-      <h3 data-scroll-fade>Hvordan foregår øktene?</h3>
-      <p data-scroll-fade>
-        Vi møtes annenhver torsdag på <strong>Trene Sammen Fantoft</strong>. Hver økt varer rundt 60 minutter og består av
-        oppvarming, styrke med veiledning og en rolig avslutning.
-      </p>
-      <p data-scroll-fade>
-        Veilederne fører en enkel logg slik at vi husker hva som fungerte sist. På den måten bygger vi videre fra gang til gang.
-      </p>
-
-      <div class="icon-header" data-scroll-fade>
-        <img src="../icons/icon-faglig.svg" alt="Faglig ikon" class="icon-faglig">
-        <h3 data-scroll-fade>Faglig grunnlag</h3>
-      </div>
-      <p data-scroll-fade>
-        Tilbudet bygger på anbefalinger fra <strong>Norsk kvalitets- og oppfølgingsregister for cerebral parese (NorCP)</strong>
-        og fagmiljøer innen nevrologi og rehabilitering. Som ergoterapeut og likeperson har Alexander fokus på hvordan små
-        justeringer i omgivelser, utstyr og aktivitet kan gi stor effekt.
-      </p>
-
-      <h3 data-scroll-fade>Om oss</h3>
-      <p data-scroll-fade>
-        My Strongest Side® kombinerer fagkompetanse med egne erfaringer fra å trene i miljøer som ikke alltid er tilrettelagt.
-        Vi ønsker å vise at styrketrening kan være tilgjengelig og trygg – også når kroppen har andre behov.
-      </p>
-
-      <p style="margin-top:2rem;" data-scroll-fade>
-        <a class="link-arrow" href="lett-påmelding.html">
-          Se praktisk informasjon og påmelding
+      <div class="site-header__center">
+        <a href="../index.html" class="site-header__logo">
+          <img src="../bilder/myss-logo-header.png" alt="My Strongest Side" />
         </a>
-      </p>
-    </div>
-  </section>
+      </div>
 
-  <section class="section">
-    <div class="container" data-scroll-fade>
-      <div class="cta-panel">
+      <div class="site-header__right site-header__actions">
+        <a href="../kontakt.html" class="btn btn--primary">Kontakt oss</a>
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Hovedmeny" id="hovedmeny">
+      <div class="site-nav__top">
+        <div class="site-nav__top-inner container">
+          <div class="site-nav__brand">Meny</div>
+          <button class="site-nav__close" type="button" aria-label="Lukk menyen">
+            ✕ <span class="site-nav__close-label">Lukk menyen</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="site-nav__scroll">
+        <div class="site-nav__panel">
+          <div class="site-nav__inner container nav-editorial">
+            <div class="site-nav__columns">
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">Våre tjenester</h2>
+                <ul class="site-nav__list">
+                  <li><a href="../gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
+                  <li><a href="../Individuelloppfølging.html" class="site-nav__link">Individuell oppfølging</a></li>
+                  <li><a href="../foresatte.html" class="site-nav__link">Kurs og seminar</a></li>
+                  <li><a href="../qr/trening/index.html" class="site-nav__link">QR/NFC treningssystem</a></li>
+                </ul>
+              </div>
+
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">Informasjon</h2>
+                <ul class="site-nav__list">
+                  <li><a href="../presse.html" class="site-nav__link">Presse og media</a></li>
+                  <li><a href="../samarbeid.html" class="site-nav__link">Samarbeid</a></li>
+                </ul>
+              </div>
+
+              <div class="site-nav__column">
+                <h2 class="site-nav__heading">My Strongest Side</h2>
+                <ul class="site-nav__list">
+                  <li><a href="../index.html" class="site-nav__link">Forside</a></li>
+                  <li><a href="../kontakt.html" class="site-nav__link">Kontakt</a></li>
+                </ul>
+              </div>
+            </div><!-- /columns -->
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO (samme oppsett-stil som Tett oppfølging) ===== -->
+    <section class="section section--light">
+      <div class="container myss-hero-grid">
+
         <div>
-        <h2 style="margin-top:0; color:#fff;" data-scroll-fade>Klar for å bli med?</h2>
-          <p data-scroll-fade>
-            Vi åpner for små grupper (kohorter) slik at veilederne får tid til hver enkelt. Send inn påmeldingen og få en kort prat før oppstart.
+          <p class="eyebrow reveal d1">Voksne</p>
+          <h1 class="reveal d2">Gruppetrening for voksne med lett funksjonsvariasjon<span class="dot">.</span></h1>
+
+          <p class="reveal d3" style="opacity:.95;">
+            Styrketrening i små grupper med rolig tempo og tydelige tilpasninger. Faste veiledere følger deg gjennom sesongen.
           </p>
-          <p data-scroll-fade><strong>Neste kurs starter mars 2026.</strong></p>
+
+          <ul class="youth-chips reveal d4" aria-label="Kort oppsummert">
+            <li>Små grupper</li>
+            <li>Tilpasninger</li>
+            <li>Rolig tempo</li>
+            <li>Faste veiledere</li>
+          </ul>
+
+          <div class="myss-actions reveal d4">
+            <a class="myss-btn" href="lett-påmelding.html">Se påmelding</a>
+            <a class="myss-btn myss-btn--outline" href="mailto:post@mystrongestside.no">Still et spørsmål</a>
+          </div>
         </div>
-        <div class="hero__cta" data-scroll-fade>
-          <a class="btn-myss" href="lett-påmelding.html">Meld deg på nå</a>
-          <a class="btn-myss btn-myss--ghost" href="mailto:post@mystrongestside.no">Still et spørsmål</a>
+
+        <div class="reveal d2">
+          <img
+            src="../bilde01.jpg"
+            alt="Veileder som støtter deltaker i styrkeapparat"
+            class="myss-hero-photo"
+            loading="lazy"
+          />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SPLIT 1 ===== -->
+    <section class="section">
+      <div class="container youth-split">
+
+        <div class="youth-split__text reveal d2">
+          <h2>Tren med trygghet</h2>
+          <p>
+            Vi starter hver økt med å sjekke dagsform og hva du trenger der og da. Du får rolig og ryddig oppfølging gjennom hele timen,
+            og det er alltid rom for pauser.
+          </p>
+
+          <div class="youth-infochips">
+            <span>Skreddersydd program</span>
+            <span>Tempo som passer deg</span>
+            <span>Rom for pauser</span>
+          </div>
+        </div>
+
+        <figure class="youth-frame reveal d3">
+          <img src="../bilde01.jpg" alt="Teknikkstøtte i apparat" loading="lazy">
+          <figcaption class="youth-frame__tag">Teknikkstøtte i apparat</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ===== SPLIT 2 ===== -->
+    <section class="section section--light">
+      <div class="container youth-split youth-split--reverse">
+
+        <div class="youth-split__text reveal d2">
+          <h2>Veiledere med relevant fagbakgrunn</h2>
+          <p>
+            Fysio- og ergoterapistudenter fra HVL er faste veiledere gjennom sesongen. De blir kjent med deg, følger utviklingen din og
+            justerer øvelsene underveis.
+          </p>
+          <p style="opacity:.9;">
+            På enkelte økter deltar også Alexander Sviggum, som viser hvordan styrkeløft-teknikk kan tilpasses vanlige hverdagsbevegelser.
+          </p>
+        </div>
+
+        <figure class="youth-frame reveal d3">
+          <img src="../bilder/studenter.png" alt="Veiledere og studenter" loading="lazy">
+          <figcaption class="youth-frame__tag">Faste veiledere</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ===== KORT INFO ===== -->
+    <section class="section" id="tilbud">
+      <div class="container youth-card reveal d2">
+        <h2>Tilbudet i korte trekk</h2>
+
+        <h3>Hvem passer det for?</h3>
+        <p>
+          For voksne med lett funksjonsvariasjon som trener på senter eller vil komme i gang, men ønsker et rolig miljø
+          med forutsigbar støtte.
+        </p>
+
+        <h3>Hvordan foregår øktene?</h3>
+        <p>
+          Vi jobber med grunnleggende styrkeøvelser, balanse og bevegelighet. Vi tester små justeringer og finner måter å trene på
+          som kjennes gode ut for deg.
+        </p>
+
+        <h3>Faglig grunnlag</h3>
+        <p>
+          Tilbudet bygger på anbefalinger fra Norsk kvalitets- og oppfølgingsregister for cerebral parese (NorCP) og fagmiljøer innen
+          nevrologi og rehabilitering.
+        </p>
+
+        <div class="youth-infochips youth-infochips--grid">
+          <span>Sted: Trene Sammen Fantoft</span>
+          <span>Varighet: ca. 60 min</span>
+          <span>Hyppighet: Annenhver torsdag</span>
+          <span>Pris: fra 600,- pr sesong</span>
+        </div>
+
+        <div class="myss-actions" style="margin-top:1.1rem;">
+          <a class="myss-btn" href="lett-påmelding.html">Se praktisk info og påmelding</a>
+          <a class="myss-btn myss-btn--outline" href="mailto:post@mystrongestside.no">Spørsmål</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="myss-cta-wave" id="cta">
+      <div class="myss-cta-wave__inner">
+        <h2 class="reveal d2">Klar for å bli med<span class="dot">.</span></h2>
+        <p class="reveal d3">Send påmelding – vi tar en kort prat før oppstart for å sikre gode tilpasninger.</p>
+        <div class="myss-cta-wave__actions reveal d4">
+          <a href="lett-påmelding.html" class="myss-cta-wave__btn">Se påmelding</a>
+          <a href="mailto:post@mystrongestside.no" class="myss-cta-wave__email">post@mystrongestside.no</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER (som du hadde) ===== -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <img src="../bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
+        <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
+      </div>
+
+      <div class="site-footer__top">
+        <div>
+          <h3 class="site-footer__heading">Våre tjenester</h3>
+          <ul class="site-footer__list">
+            <li><a href="voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
+            <li><a href="tett-oppfolging.html">Tett oppfølging</a></li>
+            <li><a href="../frivillig.html">Frivilligprogram</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">Informasjon</h3>
+          <ul class="site-footer__list">
+            <li><a href="../presse.html">Presse og media</a></li>
+            <li><a href="../samarbeid.html">Samarbeid</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">My Strongest Side</h3>
+          <ul class="site-footer__list">
+            <li><a href="../kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">Kontakt</h3>
+          <ul class="site-footer__list">
+            <li>My Strongest Side AS</li>
+            <li>Brages veg 3<br>5221 Nesttun</li>
+            <li>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+        <div class="site-footer__social">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
+              <img src="../icons/facebook.png" alt="" aria-hidden="true">
+            </a>
+            <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
+              <img src="../icons/instagram.png" alt="" aria-hidden="true">
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </section>
- 
+  </footer>
 
-  <section class="section section--stories">
-    <div class="container stack" style="gap:2rem;">
-      <h2 data-scroll-fade>Slik kan en økt se ut</h2>
-      <div class="story-grid">
-        <article class="story-card" data-scroll-fade>
-          <img src="../bilder/hero-large.jpg" alt="Rolig oppvarming ved kabelapparat">
-          <div>  
-            <h3>Myk start</h3>
-            <p>Vi bruker de første minuttene på å lande, puste og justere utstyr. Veilederen hjelper deg med posisjoner og eventuelle hjelpemidler.</p>
-          </div>
-        </article>
-        <article class="story-card" data-scroll-fade>
-          <img src="../bilde01.jpg" alt="Veileder gir tegn i knebøy">
-          <div>
-            <h3>Styrke med støtte</h3>
-            <p>Det er alltid en trygg hånd tilgjengelig. Vi bruker strikk, blokker og apparater for å sikre god teknikk og mestring.</p>
-          </div>
-        </article>
-        <article class="story-card" data-scroll-fade>
-          <img src="../bilder/Amir samtaler.png" alt="Amir har en samtale med deltagere">
-          <div>
-            <h3>Pauseprat og plan</h3>
-            <p>Mellom settene noterer vi hva som fungerer og legger en enkel plan for neste økt. Fellesskapet og humoren får like mye plass som kiloene.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+  <!-- Meny (beholder den som fungerer) -->
+  <script src="../menu.js" defer></script>
 
-  <div class="container" aria-hidden="true">
-    <hr class="section-divider">
-  </div>
+  <!-- Reveal -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const els = Array.from(document.querySelectorAll('.reveal'));
 
-  <section class="section section--gallery">
-    <div class="container">
-      <h2 data-scroll-fade>Fra øktene våre</h2>
-      <p data-scroll-fade style="text-align:center;margin-bottom:1.5rem;">Slik kan en vanlig økt hos oss se ut.</p>
-      <div class="gallery-grid">
-        <figure data-scroll-fade>
-          <img src="../bilder/Benkpress.png" alt="Deltaker som trener benkpress med veiledning">
-          <figcaption>Veiledet benkpress med Amir i bakgrunnen.</figcaption>
-        </figure>
-        <figure data-scroll-fade>
-          <img src="../bilder/løfteteknikk2.png" alt="Tilpasset styrketrening i apparat">
-          <figcaption>Tilpasning av knebøy gir trygg teknikk med overføringsverdi til andre øvelser.</figcaption>
-        </figure>
-        <figure data-scroll-fade>
-          <img src="../bilder/løfteteknikk.png" alt="Veileder som hjelper deltaker med løfteteknikk">
-          <figcaption>Detaljene i teknikken fanges opp underveis.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
 
-  <div class="container" aria-hidden="true">
-    <hr class="section-divider">
-  </div>
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
 
-  <section class="section faq">
-    <div class="container surface-card stack">
-      <h2 data-scroll-fade>Ofte stilte spørsmål</h2>
-
-      <details data-scroll-fade>
-        <summary data-scroll-fade>Hva hvis jeg bruker rullestol?</summary>
-        <p data-scroll-fade>
-          Denne gruppen er dessverre ikke tilrettelagt for rullestolbrukere.
-          Hvis du trenger mer individuell tilpasning, kan
-          <a href="https://www.mystrongestside.no/treningstilbud/tett-oppfolging.html" target="_blank">Tett oppfølging</a>
-          være et bedre alternativ. Der tilpasses øvelser og apparater etter funksjon og behov med flere veiledere tilgjengelig.
-        </p>
-      </details>
-
-      <details data-scroll-fade>
-        <summary data-scroll-fade>Kan jeg ta med ledsager eller BPA?</summary>
-        <p data-scroll-fade>
-          Ja. Ledsager, BPA eller verge er velkommen uten ekstra kostnad. Si ifra i påmeldingen, så vet vi hvem som kommer sammen med deg.
-        </p>
-      </details>
-
-      <details data-scroll-fade>
-        <summary data-scroll-fade>Må jeg ha trent før?</summary>
-        <p data-scroll-fade>
-          Nei. Vi tilpasser nivået etter deg og starter rolig slik at du kjenner mestring fra første økt.
-        </p>
-      </details>
-
-      <details data-scroll-fade>
-        <summary data-scroll-fade>Hvordan tilpasses øvelsene?</summary>
-        <p data-scroll-fade>
-          Vi starter med en kort prat om mål og utfordringer. Deretter prøver vi ut øvelser, gjør justeringer og evaluerer underveis slik at du kjenner deg trygg.
-        </p>
-      </details>
-
-      <p data-scroll-fade>
-        Har du flere spørsmål, eller vil du melde deg på?
-        <br>
-        <a class="link-arrow" href="lett-påmelding.html">
-          Se praktisk info og påmelding
-        </a>
-      </p>
-    </div>
-  </section>
-</main>
-
-<a class="btn-myss floating-cta" href="lett-påmelding.html">Meld deg på</a>
-
-<div id="myss-footer"></div>
-<script>
-  (function(){
-    var fadeTargets = Array.prototype.slice.call(document.querySelectorAll('[data-scroll-fade]'));
-    if (!fadeTargets.length) return;
-    var reveal = function(el){ el.classList.add('is-visible'); };
-    if (!('IntersectionObserver' in window)) {
-      fadeTargets.forEach(reveal);
-      return;
-    }
-    var fadeObserver = new IntersectionObserver(function(entries, obs){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting) {
-          reveal(entry.target);
-          obs.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.2
+      els.forEach(el => io.observe(el));
     });
-    fadeTargets.forEach(function(el){ fadeObserver.observe(el); });
-  })();
-</script>
-<script src="../script.js?v=42" defer></script>
-<script src="../marquee-guard.js?v=36" defer></script>
+  </script>
+
 </body>
 </html>
