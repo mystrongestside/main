@@ -209,6 +209,33 @@
     .js .reveal.d2{ transition-delay:.12s; }
     .js .reveal.d3{ transition-delay:.18s; }
     .js .reveal.d4{ transition-delay:.24s; }
+
+    /* ===== Checkin embed: mobil-sikker ===== */
+    #checkin_registration{
+      width: 100%;
+      overflow: visible;
+      min-height: 760px; /* gir plass mens den laster */
+    }
+    /* liten "laster..."-fallback hvis embed ikke har rendret ennå */
+    #checkin_registration:empty::before{
+      content: "Laster påmelding …";
+      display: block;
+      padding: .9rem 1rem;
+      border-radius: 14px;
+      border: 1px solid rgba(16,82,119,.16);
+      background: rgba(16,82,119,.04);
+      font-weight: 800;
+      color: var(--myss-blue);
+      opacity: .85;
+    }
+    #checkin_registration iframe{
+      width: 100% !important;
+      max-width: 100% !important;
+      border: 0;
+    }
+    @media (max-width: 900px){
+      #checkin_registration{ min-height: 980px; }
+    }
   </style>
 </head>
 
@@ -365,23 +392,24 @@
 
         <div id="checkin_registration" style="margin-top:1rem;"></div>
 
-        <script>
-          (function () {
-            var s = document.createElement('script');
-            s.src = 'https://registration.checkin.no/registration.loader.js';
-            s.async = true;
-            s.crossOrigin = 'anonymous';
-            s.setAttribute('data-event-id', '214663');
-            s.setAttribute('data-theme', 'light');
-            s.setAttribute('data-primary-color', '#105277');
-            s.setAttribute('data-secondary-color', '#f77c37');
-            document.head.appendChild(s);
-          })();
+        <script
+          src="https://registration.checkin.no/registration.loader.js"
+          data-event-id="214663"
+          data-theme="light"
+          data-primary-color="#105277"
+          data-secondary-color="#f77c37"
+          async>
         </script>
 
         <noscript>
           <p>For å melde deg på må JavaScript være aktivert i nettleseren.</p>
         </noscript>
+
+        <p style="margin-top:.75rem;">
+          <a href="https://event.checkin.no/214663" target="_blank" rel="noopener">
+            Åpne påmeldingen i egen fane →
+          </a>
+        </p>
 
         <div class="myss-actions" style="margin-top:1rem;">
           <a class="myss-btn myss-btn--outline" href="#praktisk">Se praktisk info</a>
