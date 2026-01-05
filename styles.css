@@ -1518,6 +1518,40 @@ html.nav-open .site-header{
 }
 /* END CODEX HERO SIZE PATCH */
 
+/* === INFO-PUNKTER (ikke klikkbare) === */
+.myss-points{
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+}
+
+.myss-points li{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(16,82,119,.06);
+  border: 1px solid rgba(16,82,119,.14);
+  cursor: default;
+  user-select: none;
+  pointer-events: none; /* viktig: skal ikke oppleves klikkbart */
+}
+
+.myss-points li::before{
+  content: "✓";
+  font-weight: 800;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+@media (max-width: 520px){
+  .myss-points{ grid-template-columns: 1fr; }
+}
+
 
 /* CODEX HERO SIZE PATCH */
 .hero{
