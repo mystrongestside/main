@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treningssystemet | My Strongest Side®</title>
+  <meta name="description" content="MySS treningssystem gir enkel, trygg apparatveiledning via QR/NFC – laget for tydelighet, trygghet og gjennomføring." />
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css?v=112" />
+
+  <script>document.documentElement.classList.add('js');</script>
+
+  <style>
+    .myss-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
+    .myss-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.9rem 1.15rem;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      line-height:1.1;
+      background:var(--myss-blue);
+      color:#fff;
+      border:2px solid var(--myss-blue);
+      transition:transform .08s ease, filter .2s ease, background .2s ease, color .2s ease;
+    }
+    .myss-btn:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+    .myss-btn:active{ transform:translateY(0); }
+    .myss-btn--outline{
+      background:transparent;
+      color:var(--myss-blue);
+    }
+
+    .myss-hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:2rem;
+      align-items:center;
+    }
+    @media (max-width: 900px){
+      .myss-hero-grid{ grid-template-columns:1fr; }
+    }
+    .myss-hero-photo{
+      width:100%;
+      height:auto;
+      border-radius:24px;
+      aspect-ratio: 4 / 3;
+      object-fit:cover;
+      display:block;
+    }
+
+    .myss-infobox{
+      margin-top:1rem;
+      padding:1.1rem 1.1rem;
+      border-radius:20px;
+      background:rgba(16,82,119,.06);
+      border:1px solid rgba(16,82,119,.16);
+    }
+    .myss-infobox p{ margin:.55rem 0; }
+    .myss-muted{ opacity:.85; }
+
+    .myss-card-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:1.5rem;
+      margin-top:1.5rem;
+    }
+    .myss-card{
+      padding:1.5rem;
+      border-radius:22px;
+      background:#fff;
+      box-shadow:0 16px 40px rgba(13,39,54,.08);
+      border:1px solid rgba(16,82,119,.08);
+    }
+
+    .myss-steps{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:1.25rem;
+    }
+    .myss-step{
+      padding:1.2rem;
+      border-radius:18px;
+      background:rgba(16,82,119,.06);
+      border:1px solid rgba(16,82,119,.12);
+    }
+    .myss-step span{
+      display:inline-flex;
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      align-items:center;
+      justify-content:center;
+      background:var(--myss-blue);
+      color:#fff;
+      font-weight:700;
+      margin-bottom:.75rem;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:1.25rem;
+      margin-top:1.5rem;
+    }
+    .gallery-grid figure{ margin:0; }
+    .gallery-grid img{
+      width:100%;
+      height:auto;
+      border-radius:18px;
+      display:block;
+      aspect-ratio: 4 / 3;
+      object-fit:cover;
+      box-shadow:0 14px 32px rgba(13,39,54,.12);
+    }
+    .gallery-grid figcaption{
+      margin-top:.6rem;
+      font-size:.95rem;
+      color:#4a4a4a;
+    }
+
+    .js .reveal{
+      opacity:0;
+      transform:translateY(10px);
+      transition:opacity .6s ease, transform .6s ease;
+      will-change:opacity, transform;
+    }
+    .js .reveal.is-visible{
+      opacity:1;
+      transform:none;
+    }
+    .js .reveal.d1{ transition-delay:.05s; }
+    .js .reveal.d2{ transition-delay:.12s; }
+    .js .reveal.d3{ transition-delay:.18s; }
+    .js .reveal.d4{ transition-delay:.24s; }
+  </style>
+</head>
+
+<body class="page-treningssystem">
+
+  <header data-component="site-header"></header>
+
+  <main>
+
+    <section class="section section--light">
+      <div class="container myss-hero-grid">
+
+        <div>
+          <p class="eyebrow reveal d1">Treningssystemet</p>
+          <h1 class="reveal d2">Treningssystemet som gjør apparattrening lettere å bruke</h1>
+          <p class="reveal d3">
+            Skann en kode på apparatet og få enkel veiledning. Bygget for tydelighet, trygghet og
+            gjennomføring – spesielt når du trenger tilpasninger.
+          </p>
+
+          <div class="myss-infobox reveal d3">
+            <p class="myss-muted">
+              MySS treningssystem er en digital veiledning koblet til treningsapparater via QR/NFC.
+              Når du skanner en kode, får du enkel og tydelig støtte til å bruke apparatet trygt.
+            </p>
+          </div>
+
+          <div class="myss-actions reveal d4">
+            <a class="myss-btn" href="samarbeid.html">For treningssentre – samarbeid / book demo</a>
+            <a class="myss-btn myss-btn--outline" href="#slik-fungerer-det">For deltakere – slik fungerer det</a>
+          </div>
+        </div>
+
+        <div class="reveal d2">
+          <img
+            src="nfc.jpg"
+            alt="Person som skanner QR/NFC på treningsapparat"
+            class="myss-hero-photo"
+            loading="lazy"
+          />
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section section--light" id="om-treningssystemet">
+      <div class="container">
+        <p class="eyebrow reveal d1">Hva er det?</p>
+        <h2 class="reveal d2">En trygg, digital veileder koblet til apparater</h2>
+        <p class="reveal d3">
+          <strong>MySS treningssystem</strong> er en digital veiledning som kobles til utvalgte treningsapparater via QR/NFC.
+          Målet er at flere kan bruke apparater riktig og trygt – med forslag til enkle tilpasninger der det trengs.
+        </p>
+        <p class="reveal d3">
+          Dette gjør det lettere å komme i gang uten å føle seg “til bry”, forstå innstillingene på apparatet
+          og trene i eget tempo.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--light" id="slik-fungerer-det">
+      <div class="container">
+        <p class="eyebrow reveal d1">Slik fungerer det</p>
+        <h2 class="reveal d2">Tre enkle steg</h2>
+
+        <ul class="myss-steps reveal d3">
+          <li class="myss-step">
+            <span>1</span>
+            <h3>Skann QR/NFC på apparatet</h3>
+            <p>Start med å skanne koden på utvalgte apparater – direkte fra mobilen.</p>
+          </li>
+          <li class="myss-step">
+            <span>2</span>
+            <h3>Se kort veiledning</h3>
+            <p>Få en kort og tydelig veiledning med video, tekst eller bilde.</p>
+          </li>
+          <li class="myss-step">
+            <span>3</span>
+            <h3>Tilpass og be om hjelp ved behov</h3>
+            <p>Følg enkle tips for tilpasning – eller be om oppfølging dersom du ønsker det.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container">
+        <p class="eyebrow reveal d1">Når du skanner</p>
+        <h2 class="reveal d2">Dette får du når du skanner</h2>
+
+        <div class="myss-card-grid">
+          <div class="myss-card reveal d2">
+            <h3>Hva øvelsen gjør</h3>
+            <p>En kort forklaring på hvorfor øvelsen er nyttig og hvilke muskler som jobber.</p>
+          </div>
+          <div class="myss-card reveal d3">
+            <h3>Slik gjør du det trygt</h3>
+            <p>Position, bevegelse og tempo – forklart på et lett språk.</p>
+          </div>
+          <div class="myss-card reveal d4">
+            <h3>Vanlige justeringer</h3>
+            <p>Enkle tilpasninger som gjør øvelsen mer behagelig og tilgjengelig.</p>
+          </div>
+          <div class="myss-card reveal d4">
+            <h3>Når du bør få hjelp</h3>
+            <p>Kort og tydelig informasjon om når det er lurt å be om støtte.</p>
+          </div>
+        </div>
+
+        <div class="myss-infobox reveal d3">
+          <p class="myss-muted">
+            Innholdet er laget for å være lett å følge, og skal støtte trygg gjennomføring –
+            ikke erstatte faglig vurdering eller individuell oppfølging.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container">
+        <p class="eyebrow reveal d1">Slik ser det ut</p>
+        <h2 class="reveal d2">Visuelle glimt fra løsningen</h2>
+        <div class="gallery-grid reveal d3">
+          <figure>
+            <img src="nfc1.jpg" alt="NFC-tagg på treningsapparat" loading="lazy" />
+            <figcaption>QR/NFC-koder monteres på utvalgte apparater.</figcaption>
+          </figure>
+          <figure>
+            <img src="bilde01.jpg" alt="Bruker som følger en veiledning på mobilen" loading="lazy" />
+            <figcaption>Tydelig veiledning på mobil i treningssituasjonen.</figcaption>
+          </figure>
+          <figure>
+            <img src="bilde02.jpg" alt="Treningsapparat i et lyst treningsmiljø" loading="lazy" />
+            <figcaption>Apparater blir lettere å bruke når innstillingene er forklart.</figcaption>
+          </figure>
+          <figure>
+            <img src="bilde03.jpg" alt="Detalj av treningsapparat med fokus på tilpasning" loading="lazy" />
+            <figcaption>Enkle tilpasninger som gjør trening tryggere og mer tilgjengelig.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="målgrupper">
+      <div class="container">
+        <p class="eyebrow reveal d1">Hvem er det for?</p>
+        <h2 class="reveal d2">For deltakere og treningssentre</h2>
+
+        <div class="myss-card-grid">
+          <article class="myss-card reveal d2">
+            <h3>For personer med funksjonsvariasjoner</h3>
+            <p>Nyttig når du trenger litt mer tid, tydelighet eller tilpasning.</p>
+            <p>Fungerer både for nybegynnere og erfarne.</p>
+          </article>
+          <article class="myss-card reveal d3">
+            <h3>For treningssentre</h3>
+            <p>Gir ansatte et felles utgangspunkt og øker tilgjengelighet uten store ombygginger.</p>
+            <p>Kan brukes i inkluderende treningstilbud.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container">
+        <p class="eyebrow reveal d1">Kvalitet og ansvar</p>
+        <h2 class="reveal d2">Faglig forankring uten unødvendige detaljer</h2>
+        <div class="myss-card-grid">
+          <div class="myss-card reveal d2">
+            <h3>Faglig forankret</h3>
+            <p>Utvikles med støtte fra ergo- og fysioterapi, samt treningserfaring i praksis.</p>
+          </div>
+          <div class="myss-card reveal d3">
+            <h3>Samarbeid i pilot</h3>
+            <p>Utvikles og testes i samarbeid med relevante miljøer og brukere.</p>
+          </div>
+          <div class="myss-card reveal d4">
+            <h3>Universell utforming</h3>
+            <p>Enkel språkføring og tilgjengelighet ligger til grunn for alt innhold.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container">
+        <p class="eyebrow reveal d1">Pilotstatus</p>
+        <h2 class="reveal d2">Pilot nå – klar for å skalere videre</h2>
+        <p class="reveal d3">
+          Vi tester løsningen på utvalgte apparater og samler erfaringer for å gjøre den mer presis
+          og lett å bruke. Målet er en løsning som kan skaleres til flere apparater og flere treningsmiljøer.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container">
+        <p class="eyebrow reveal d1">Neste steg</p>
+        <h2 class="reveal d2">Vil du være pilotsenter?</h2>
+        <p class="reveal d3">
+          Book demo, ta kontakt eller se treningstilbudet vårt for å lære mer om hvordan MySS treningssystem kan brukes.
+        </p>
+        <div class="myss-actions reveal d4">
+          <a class="myss-btn" href="kontakt.html">Book demo / ta kontakt</a>
+          <a class="myss-btn myss-btn--outline" href="treningstilbud.html">Se treningstilbudet vårt</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+
+      <div class="site-footer__brand reveal d2">
+        <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
+        <p class="site-footer__tagline reveal d3">Gjør trening tilgjengelig for flest mulig</p>
+      </div>
+
+      <div class="site-footer__top">
+        <div>
+          <h3 class="site-footer__heading reveal d2">Våre tjenester</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2"><a href="treningstilbud/voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
+            <li class="reveal d3"><a href="gruppetrening.html">Gruppetrening</a></li>
+            <li class="reveal d4"><a href="frivillig.html">Frivilligprogram</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading reveal d2">Informasjon</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2"><a href="presse.html">Presse og media</a></li>
+            <li class="reveal d3"><a href="samarbeid.html">Samarbeid</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading reveal d2">My Strongest Side</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2"><a href="kontakt.html">Kontakt</a></li>
+            <li class="reveal d3"><a href="hvem-moter-du.html">Teamet</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading reveal d2">Kontakt</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2">My Strongest Side AS</li>
+            <li class="reveal d3">Brages veg 3<br>5221 Nesttun</li>
+            <li class="reveal d3">E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li class="reveal d4">Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__meta reveal d2">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+
+        <div class="site-footer__social reveal d3">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
+              <img src="icons/facebook.png" alt="" aria-hidden="true">
+            </a>
+            <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
+              <img src="icons/instagram.png" alt="" aria-hidden="true">
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="menu.js" defer></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const els = Array.from(document.querySelectorAll('.reveal'));
+
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      els.forEach(el => io.observe(el));
+    });
+  </script>
+
+</body>
+</html>
