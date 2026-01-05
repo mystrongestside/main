@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Tilpasset trening for funksjonsvariasjoner | My Strongest Side®</title>
+  <title>Tilpasset trening for ungdom med  funksjonsvariasjoner | My Strongest Side®</title>
   <meta name="description" content="Trygg styrketrening i små grupper, med tilpasninger og faste veiledere. Rolig tempo, tydelige forklaringer og god oppfølging." />
 
   <link rel="icon" type="image/png" href="../favicon.png" />
@@ -12,7 +12,7 @@
   <script>document.documentElement.classList.add('js');</script>
 
   <style>
-    /* ===== Knapper (samme stil som Tett oppfølging) ===== */
+ 
     .myss-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
     .myss-btn{
       display:inline-flex;
@@ -31,8 +31,7 @@
     .myss-btn:hover{ filter:brightness(1.05); transform:translateY(-1px); }
     .myss-btn:active{ transform:translateY(0); }
     .myss-btn--outline{ background:transparent; color:var(--myss-blue); }
-
-    /* ===== HERO-grid (samme prinsipp som Tett oppfølging) ===== */
+ 
     .myss-hero-grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -43,7 +42,7 @@
       .myss-hero-grid{ grid-template-columns:1fr; }
     }
 
-    /* ===== Bilder: vis hele bildet + ikke for stort ===== */
+ 
     .myss-hero-photo,
     .youth-frame img{
       width:100%;
@@ -51,20 +50,19 @@
       display:block;
       border-radius:24px;
 
-      /* Hele bildet synlig (ingen cropping) */
+ 
       object-fit:contain;
 
-      /* Ramme/luft når contain gir tomrom */
+    
       background: rgba(16,82,119,.06);
     }
 
-    /* Hero: begrens høyde så det ikke blir enormt på desktop */
-    .myss-hero-photo{
+     .myss-hero-photo{
       max-height: clamp(260px, 38vw, 420px);
       aspect-ratio: auto;
     }
 
-    /* Split-bilder: litt lavere */
+ 
     .youth-frame img{
       max-height: clamp(220px, 32vw, 360px);
     }
@@ -143,7 +141,7 @@
       background:rgba(16,82,119,.04);
     }
 
-    /* ===== Reveal (samme som Tett oppfølging) ===== */
+    /* ===== Reveal   ===== */
     .js .reveal{
       opacity:0;
       transform:translateY(10px);
@@ -160,7 +158,7 @@
 
 <body class="page-ungdom">
 
-  <!-- ===== HEADER (beholder menyen din) ===== -->
+  <!-- ===== HEADER (beholder menyen) ===== -->
   <header class="site-header">
     <div class="site-header__inner container">
       <div class="site-header__left">
@@ -243,7 +241,7 @@
 
         <div>
           <p class="eyebrow reveal d1">Ungdom</p>
-          <h1 class="reveal d2">Tilpasset trening for funksjonsvariasjoner<span class="dot">.</span></h1>
+          <h1 class="reveal d2">Tilpasset trening for ungdom med funksjonsvariasjoner 
 
           <p class="reveal d3" style="opacity:.95;">
             Trygg styrketrening i små grupper, med tilpasninger og faste veiledere. Rolig tempo, tydelige forklaringer og god oppfølging.
@@ -262,17 +260,11 @@
 
           <div class="myss-actions reveal d4">
             <a class="myss-btn" href="ungdom-paamelding.html">Se påmelding</a>
-            <a class="myss-btn myss-btn--outline" href="mailto:post@mystrongestside.no">Still et spørsmål</a>
+            <a class="myss-btn myss-btn--outline" href="kontakt.html">Still et spørsmål</a>
           </div>
         </div>
 
-        <div class="reveal d2">
-          <img
-            src="../bilde01.jpg"
-            alt="Veileder som støtter ungdom i styrkeapparat"
-            class="myss-hero-photo"
-            loading="lazy"
-          />
+      
         </div>
 
       </div>
