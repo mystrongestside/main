@@ -4,156 +4,306 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Om oss | My Strongest Side®</title>
-  <meta name="description" content="My Strongest Side® gjør styrketrening tilgjengelig for flest mulig – med faglig forankring, trygghet og fellesskap i sentrum.">
+  <meta name="description" content="My Strongest Side® gjør styrketrening tilgjengelig for flest mulig – med faglig forankring, trygghet og fellesskap i sentrum." />
 
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="styles.css?v=112">
-  <link rel="stylesheet" href="compat.css?v=39">
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css?v=112" />
+
+  <script>document.documentElement.classList.add('js');</script>
+
+  <style>
+    .myss-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
+    .myss-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.9rem 1.15rem;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      line-height:1.1;
+      background:var(--myss-blue);
+      color:#fff;
+      border:2px solid var(--myss-blue);
+      transition:transform .08s ease, filter .2s ease, background .2s ease, color .2s ease;
+    }
+    .myss-btn:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+    .myss-btn:active{ transform:translateY(0); }
+    .myss-btn--outline{
+      background:transparent;
+      color:var(--myss-blue);
+    }
+
+    .myss-hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:2rem;
+      align-items:center;
+    }
+    @media (max-width: 900px){
+      .myss-hero-grid{ grid-template-columns:1fr; }
+    }
+    .myss-hero-photo{
+      width:100%;
+      height:auto;
+      border-radius:24px;
+      aspect-ratio: 4 / 3;
+      object-fit:cover;
+      display:block;
+    }
+
+    .myss-infobox{
+      margin-top:1rem;
+      padding:1.1rem 1.1rem;
+      border-radius:20px;
+      background:rgba(16,82,119,.06);
+      border:1px solid rgba(16,82,119,.16);
+    }
+    .myss-infobox p{ margin:.55rem 0; }
+    .myss-muted{ opacity:.85; }
+
+    .js .reveal{
+      opacity:0;
+      transform:translateY(10px);
+      transition:opacity .6s ease, transform .6s ease;
+      will-change:opacity, transform;
+    }
+    .js .reveal.is-visible{
+      opacity:1;
+      transform:none;
+    }
+    .js .reveal.d1{ transition-delay:.05s; }
+    .js .reveal.d2{ transition-delay:.12s; }
+    .js .reveal.d3{ transition-delay:.18s; }
+    .js .reveal.d4{ transition-delay:.24s; }
+  </style>
 </head>
-<body>
+
+<body class="page-om-oss">
+
   <header data-component="site-header"></header>
 
   <main>
-    <section class="hero">
-      <img src="bilder/hero-large.jpg" alt="Trening og fellesskap på My Strongest Side" class="hero-image">
-      <div class="hero-overlay">
-        <h1>Gjør trening tilgjengelig for flest mulig<span class="dot">.</span></h1>
-        <p class="hero-subtext">Med mestring, trygghet og fellesskap i sentrum.</p>
-      </div>
-    </section>
 
-    <div class="marquee force-animate" role="region" aria-label="MyStrongestSide statements">
-      <div class="marquee__wrap">
-        <div class="marquee__row">
-          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-        </div>
-        <div class="marquee__row" aria-hidden="true">
-          <span>Tilrettelagt.</span><span>Fellesskap.</span><span>Trygt.</span><span>Kompetanse.</span>
-          <span>Tilhørighet.</span><span>Mestring.</span><span>Åpent for alle.</span><span>Kunnskap.</span>
-          <span>Universelt.</span><span>Inkluderende.</span><span>Sertifisert.</span><span>Standardisert.</span>
-          <span>Enkelt.</span><span>Profesjonelt.</span><span>Tilgjengelig.</span><span>Godkjent.</span>
-        </div>
-      </div>
-    </div>
-    <section class="section">
-      <div class="container">
-        <article class="surface-card stack">
-          <h2>Et inkluderende treningsmiljø</h2>
-          <p>
-            <strong>My Strongest Side®</strong> gjør styrketrening mulig for flest mulig.
-            Noen har behov for varige tilpasninger, andre trenger det bare i en periode.
-            Hos oss handler det om å finne løsninger som gjør at du kan trene trygt, oppleve mestring
-            og få lyst til å komme tilbake.
+    <section class="section section--light">
+      <div class="container myss-hero-grid">
+
+        <div>
+          <p class="eyebrow reveal d1">Om oss</p>
+          <h1 class="reveal d2">Gjør trening tilgjengelig for flest mulig</h1>
+          <p class="reveal d3">
+            My Strongest Side® bygger et inkluderende treningsmiljø med mestring, trygghet og fellesskap i sentrum.
+            Vi skaper løsninger som gjør at flere kan trene på sin måte – i sitt tempo, med riktig støtte.
           </p>
 
-          <p>
-            Treningen foregår i små grupper på vanlige treningssentre, med veiledning fra fagpersoner og
-            frivillige som ser deg og tilpasser øvelsene etter behov.
-          </p>
-
-          <h3>Navnet</h3>
-          <p>
-            Vi tror at alle har en sterk side.
-            Ofte handler det bare om å finne fram til den – med de riktige hjelpemidlene,
-            god oppfølging og et miljø der du kan være deg selv.
-            <strong>My Strongest Side®</strong> handler derfor ikke bare om styrke i kroppen,
-            men også om styrken du finner når du opplever mestring og fellesskap.
-          </p>
-
-          <h3>Bak initiativet</h3>
-          <p>
-            <strong>My Strongest Side®</strong> ble startet av <strong>Alexander Mjøs Sviggum</strong>,
-            ergoterapeut og styrkeløfter med cerebral parese.
-            Gjennom både helsearbeid og egen trening erfarte han hvor mye trygghet og tilpasning betyr – og hvor viktig det er
-            med et tilbud som ser hele mennesket, ikke bare diagnosen.
-          </p>
-
-          <p>
-            Prosjektet drives i dag videre av et engasjert team av fagpersoner, studenter og frivillige, som sammen utvikler og
-            leder treningsøktene.
-            Teamet består av ergoterapi- og fysioterapistudenter fra Høgskulen på Vestlandet, personlige trenere og frivillige med
-            ulike erfaringer – alle med et felles mål om å gjøre trening mer inkluderende og universelt utformet.
-          </p>
-
-          <p>
-            Gjennom samarbeidet mellom helsefag, treningssentre og organisasjoner skaper vi møteplasser der deltakere kan oppleve
-            mestring, trygghet og fellesskap.
-            Sammen gjør vi styrketrening mulig for flere.
-          </p>
-          <h3>FNs bærekraftsmål</h3>
-          <p>
-            My Strongest Side støtter arbeidet med FNs bærekraftsmål, spesielt:
-          </p>
-
-          <div class="sdg-wrapper">
-            <div class="sdg-item">
-              <img src="${prefix}icons/goal3.png"
-                   alt="FNs bærekraftsmål 3: God helse og livskvalitet"
-                   class="sdg-icon">
-              <div class="sdg-text">
-                <strong>Mål 3: God helse og livskvalitet</strong><br>
-                Sikre god helse og fremme livskvalitet for alle, uansett alder.
-              </div>
-            </div>
-
-            <div class="sdg-item">
-              <img src="${prefix}icons/goal10.png"
-                   alt="FNs bærekraftsmål 10: Mindre ulikhet"
-                   class="sdg-icon">
-              <div class="sdg-text">
-                <strong>Mål 10: Mindre ulikhet</strong><br>
-                Redusere ulikhet i og mellom land, og sikre sosial og politisk inkludering for alle.
-              </div>
-            </div>
+          <div class="myss-infobox reveal d3">
+            <p class="myss-muted">
+              <strong>Visjon:</strong> Flere skal oppleve at styrketrening er mulig, forståelig og trygt.
+            </p>
           </div>
 
-          <p class="sdg-footnote">
-            Kilde: FNs bærekraftsmål 3 «God helse og livskvalitet» og mål 10 «Mindre ulikhet»,
-            slik de er definert i FNs 2030-agenda og formidlet av FN-systemet i Norge (fn.no).
-          </p>
+          <div class="myss-actions reveal d4">
+            <a class="myss-btn" href="#om-oss">Les mer om oss</a>
+            <a class="myss-btn myss-btn--outline" href="kontakt.html">Kontakt oss</a>
+          </div>
+        </div>
 
-          <p>
-            <strong>Målet vårt er enkelt:</strong><br>
-            At flest mulig skal kunne trene – på sin måte, i sitt tempo
-            og med den støtten de trenger.
-          </p>
-        </article>
+        <div class="reveal d2">
+          <img
+            src="bilder/hero-large.jpg"
+            alt="Trening og fellesskap på My Strongest Side"
+            class="myss-hero-photo"
+            loading="lazy"
+          />
+        </div>
+
       </div>
     </section>
+
+    <section class="section section--light" id="om-oss">
+      <div class="container">
+        <p class="eyebrow reveal d1">Om oss</p>
+        <h2 class="reveal d2">Et inkluderende treningsmiljø</h2>
+        <p class="reveal d3">
+          <strong>My Strongest Side®</strong> gjør styrketrening mulig for flest mulig. Noen har behov for varige tilpasninger,
+          andre trenger det bare i en periode. Hos oss handler det om å finne løsninger som gjør at du kan trene trygt, oppleve
+          mestring og få lyst til å komme tilbake.
+        </p>
+        <p class="reveal d3">
+          Treningen foregår i små grupper på vanlige treningssentre, med veiledning fra fagpersoner og frivillige som ser deg og
+          tilpasser øvelsene etter behov.
+        </p>
+
+        <div class="partner-list mt-md">
+          <article class="mt-md partner-card">
+            <h3 class="mt-sm reveal d2">Navnet</h3>
+            <p class="reveal d3">
+              Vi tror at alle har en sterk side. Ofte handler det bare om å finne fram til den – med de riktige hjelpemidlene,
+              god oppfølging og et miljø der du kan være deg selv. <strong>My Strongest Side®</strong> handler derfor ikke bare om
+              styrke i kroppen, men også om styrken du finner når du opplever mestring og fellesskap.
+            </p>
+          </article>
+
+          <article class="mt-lg partner-card">
+            <h3 class="mt-sm reveal d2">Bak initiativet</h3>
+            <p class="reveal d3">
+              <strong>My Strongest Side®</strong> ble startet av <strong>Alexander Mjøs Sviggum</strong>, ergoterapeut og styrkeløfter
+              med cerebral parese. Gjennom både helsearbeid og egen trening erfarte han hvor mye trygghet og tilpasning betyr – og
+              hvor viktig det er med et tilbud som ser hele mennesket, ikke bare diagnosen.
+            </p>
+            <p class="reveal d3">
+              Prosjektet drives i dag videre av et engasjert team av fagpersoner, studenter og frivillige, som sammen utvikler og
+              leder treningsøktene. Teamet består av ergoterapi- og fysioterapistudenter fra Høgskulen på Vestlandet, personlige
+              trenere og frivillige med ulike erfaringer – alle med et felles mål om å gjøre trening mer inkluderende og universelt
+              utformet.
+            </p>
+            <p class="reveal d3">
+              Gjennom samarbeidet mellom helsefag, treningssentre og organisasjoner skaper vi møteplasser der deltakere kan oppleve
+              mestring, trygghet og fellesskap. Sammen gjør vi styrketrening mulig for flere.
+            </p>
+          </article>
+
+          <article class="mt-lg partner-card">
+            <h3 class="mt-sm reveal d2">FNs bærekraftsmål</h3>
+            <p class="reveal d3">
+              My Strongest Side støtter arbeidet med FNs bærekraftsmål, spesielt:
+            </p>
+
+            <div class="sdg-wrapper reveal d3">
+              <div class="sdg-item">
+                <img
+                  src="icons/goal3.png"
+                  alt="FNs bærekraftsmål 3: God helse og livskvalitet"
+                  class="sdg-icon"
+                >
+                <div class="sdg-text">
+                  <strong>Mål 3: God helse og livskvalitet</strong><br>
+                  Sikre god helse og fremme livskvalitet for alle, uansett alder.
+                </div>
+              </div>
+
+              <div class="sdg-item">
+                <img
+                  src="icons/goal10.png"
+                  alt="FNs bærekraftsmål 10: Mindre ulikhet"
+                  class="sdg-icon"
+                >
+                <div class="sdg-text">
+                  <strong>Mål 10: Mindre ulikhet</strong><br>
+                  Redusere ulikhet i og mellom land, og sikre sosial og politisk inkludering for alle.
+                </div>
+              </div>
+            </div>
+
+            <p class="sdg-footnote reveal d3">
+              Kilde: FNs bærekraftsmål 3 «God helse og livskvalitet» og mål 10 «Mindre ulikhet»,
+              slik de er definert i FNs 2030-agenda og formidlet av FN-systemet i Norge (fn.no).
+            </p>
+
+            <p class="reveal d3">
+              <strong>Målet vårt er enkelt:</strong><br>
+              At flest mulig skal kunne trene – på sin måte, i sitt tempo
+              og med den støtten de trenger.
+            </p>
+          </article>
+        </div>
+
+        <div class="myss-actions reveal d4" style="margin-top:1.25rem;">
+          <a class="myss-btn" href="treningstilbud.html">Se treningstilbud</a>
+          <a class="myss-btn myss-btn--outline" href="kontakt.html">Ta kontakt</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <script src="script.js" defer></script>
-  <div id="myss-footer"></div>
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+
+      <div class="site-footer__brand reveal d2">
+        <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
+        <p class="site-footer__tagline reveal d3">Gjør trening tilgjengelig for flest mulig</p>
+      </div>
+
+      <div class="site-footer__top">
+        <div>
+          <h3 class="site-footer__heading reveal d2">Våre tjenester</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2"><a href="treningstilbud/voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
+            <li class="reveal d3"><a href="gruppetrening.html">Gruppetrening</a></li>
+            <li class="reveal d4"><a href="frivillig.html">Frivilligprogram</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading reveal d2">Informasjon</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2"><a href="presse.html">Presse og media</a></li>
+            <li class="reveal d3"><a href="samarbeid.html">Samarbeid</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading reveal d2">My Strongest Side</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2"><a href="kontakt.html">Kontakt</a></li>
+            <li class="reveal d3"><a href="hvem-moter-du.html">Teamet</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading reveal d2">Kontakt</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2">My Strongest Side AS</li>
+            <li class="reveal d3">Brages veg 3<br>5221 Nesttun</li>
+            <li class="reveal d3">E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li class="reveal d4">Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__meta reveal d2">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+
+        <div class="site-footer__social reveal d3">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
+              <img src="icons/facebook.png" alt="" aria-hidden="true">
+            </a>
+            <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
+              <img src="icons/instagram.png" alt="" aria-hidden="true">
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="menu.js" defer></script>
+
   <script>
-    (function() {
-      var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
-      if (!prefix) {
-        prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
+    document.addEventListener('DOMContentLoaded', () => {
+      const els = Array.from(document.querySelectorAll('.reveal'));
+
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
       }
-      window.MYSS_PREFIX = prefix;
-      window.__prefix = prefix;
-      var target = document.getElementById("myss-footer");
-      if (!target) { return; }
-      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-        .then(function(r){ return r.text(); })
-        .then(function(html){
-          target.innerHTML = html;
-          target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img){
-            var raw = img.getAttribute("src");
-            if (raw) {
-              img.setAttribute("src", raw.replace("${prefix}", prefix));
-            }
-          });
-        })
-        .catch(function(){
-          // Minimal fallback hvis fetch feiler
-          target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
         });
-    })();
+      }, { threshold: 0.12 });
+
+      els.forEach(el => io.observe(el));
+    });
   </script>
-  <script src="marquee-guard.js?v=36" defer></script>
+
 </body>
 </html>
