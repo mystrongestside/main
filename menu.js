@@ -57,7 +57,6 @@
                 <h2 class="site-nav__heading">Våre tjenester</h2>
                 <ul class="site-nav__list">
                   <li><a href="${prefix}gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
-                  <li><a href="${prefix}Individuelloppfølging.html" class="site-nav__link">Hvem møter du</a></li>
                   <li><a href="${prefix}foresatte.html" class="site-nav__link">Kurs og seminar</a></li>
                   <li><a href="${prefix}qr/trening/index.html" class="site-nav__link">QR/NFC treningssystem</a></li>
                 </ul>
@@ -66,6 +65,7 @@
               <div class="site-nav__column">
                 <h2 class="site-nav__heading">Informasjon</h2>
                 <ul class="site-nav__list">
+                  <li><a href="${prefix}Individuelloppfølging.html" class="site-nav__link">Teamet</a></li>
                   <li><a href="${prefix}presse.html" class="site-nav__link">Presse og media</a></li>
                   <li><a href="${prefix}samarbeid.html" class="site-nav__link">Samarbeid</a></li>
                 </ul>
