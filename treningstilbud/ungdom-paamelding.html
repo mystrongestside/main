@@ -51,18 +51,38 @@
       object-fit:contain; /* ingen cropping */
     }
 
-    /* ===== Chips ===== */
-    .youth-chips{
-      list-style:none; padding:0; margin:1rem 0 0;
-      display:flex; flex-wrap:wrap; gap:.5rem;
+    /* === TEST: info-punkter (ikke klikkbare) === */
+    .myss-points{
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 14px;
     }
-    .youth-chips li{
-      padding:.45rem .75rem;
-      border-radius:999px;
-      border:1px solid rgba(16,82,119,.18);
-      background:rgba(16,82,119,.06);
-      font-weight:800;
-      font-size:.95em;
+
+    .myss-points li{
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(16,82,119,.06);
+      border: 1px solid rgba(16,82,119,.14);
+      cursor: default;
+      user-select: none;
+      pointer-events: none; /* viktig: skal ikke oppleves klikkbart */
+    }
+
+    .myss-points li::before{
+      content: "✓";
+      font-weight: 800;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 520px){
+      .myss-points{ grid-template-columns: 1fr; }
     }
 
     /* ===== Topplinker (anker-nav) ===== */
@@ -333,7 +353,7 @@
             Du kan trene sittende eller stående – vi tilpasser øvelser, utstyr og tempo. Passer også for deg som trenger litt mer tid, pauser eller ekstra trygghet.
           </p>
 
-          <ul class="youth-chips reveal d4" aria-label="Kort oppsummert">
+          <ul class="myss-points reveal d4" aria-label="Hva du kan forvente">
             <li>Små grupper</li>
             <li>Tilpasninger</li>
             <li>Rolig tempo</li>
