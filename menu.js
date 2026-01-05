@@ -65,6 +65,7 @@
               <div class="site-nav__column">
                 <h2 class="site-nav__heading">Informasjon</h2>
                 <ul class="site-nav__list">
+                  <li><a href="${prefix}om-oss.html" class="site-nav__link">Om oss</a></li>
                   <li><a href="${prefix}Individuelloppfølging.html" class="site-nav__link">Teamet</a></li>
                   <li><a href="${prefix}presse.html" class="site-nav__link">Presse og media</a></li>
                   <li><a href="${prefix}samarbeid.html" class="site-nav__link">Samarbeid</a></li>
