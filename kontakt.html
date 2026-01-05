@@ -8,23 +8,26 @@
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css?v=112">
-  <link rel="stylesheet" href="compat.css?v=39">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body class="page-kontakt">
   <header data-component="site-header"></header>
 
   <main>
-    <section class="hero">
-      <img src="bilder/hero-large.jpg" alt="Trening og fellesskap på My Strongest Side" class="hero-image">
-      <div class="hero-overlay">
-        <h1>Gjør trening tilgjengelig for flest mulig<span class="dot">.</span></h1>
-        <p class="hero-subtext">Med mestring, trygghet og fellesskap i sentrum.</p>
+    <section class="section section--light fade-in">
+      <div class="container fade-in delay-1">
+        <p class="eyebrow">Kontakt</p>
+        <h1 class="fade-in delay-2">Ta kontakt med oss</h1>
+        <p class="fade-in delay-3">
+          Vi svarer gjerne på spørsmål om treningstilbudene våre, samarbeid eller hvordan du kan komme i gang.
+          Send oss en melding, så følger vi opp så raskt vi kan.
+        </p>
       </div>
     </section>
 
-    <section class="contact-section">
-      <div class="container">
-        <div class="contact-card">
+    <section class="section fade-in">
+      <div class="container contact-grid">
+        <article class="contact-card fade-in delay-2">
           <h2>Send oss en melding</h2>
           <form id="contactForm" action="https://formspree.io/f/mldpqkrg" method="POST" data-js="contact-form">
             <div class="form-group">
@@ -43,51 +46,83 @@
               <label for="message">Melding</label>
               <textarea id="message" name="message" rows="5" required placeholder="Skriv meldingen din her..."></textarea>
             </div>
-            <button type="submit" class="btn-pill btn-pill--orange">Send melding</button>
+            <button type="submit" class="btn btn--primary">Send melding</button>
             <div class="form-feedback" hidden data-js="form-feedback"></div>
           </form>
-        </div>
+        </article>
 
-        <div class="contact-info">
+        <aside class="contact-info fade-in delay-3">
           <h3>Kontaktinformasjon</h3>
           <p><strong>My Strongest Side AS</strong></p>
           <p>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></p>
           <p>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></p>
           <p>Adresse: Brages veg 3, 5221 Nesttun</p>
-        </div>
+        </aside>
       </div>
     </section>
   </main>
 
-  <script src="script.js" defer></script>
-  <div id="myss-footer"></div>
-  <script>
-    (function() {
-      var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
-      if (!prefix) {
-        prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
-      }
-      window.MYSS_PREFIX = prefix;
-      window.__prefix = prefix;
-      var target = document.getElementById("myss-footer");
-      if (!target) { return; }
-      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-        .then(function(r){ return r.text(); })
-        .then(function(html){
-          target.innerHTML = html;
-          target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img){
-            var raw = img.getAttribute("src");
-            if (raw) {
-              img.setAttribute("src", raw.replace("${prefix}", prefix));
-            }
-          });
-        })
-        .catch(function(){
-          // Minimal fallback hvis fetch feiler
-          target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
-        });
-    })();
-  </script>
-  <script src="marquee-guard.js?v=36" defer></script>
+  <footer class="site-footer fade-in delay-1">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand fade-in delay-2">
+        <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
+        <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
+      </div>
+
+      <div class="site-footer__top">
+        <div>
+          <h3 class="site-footer__heading">Våre tjenester</h3>
+          <ul class="site-footer__list">
+            <li><a href="treningstilbud/voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
+            <li><a href="treningstilbud/tett-oppfolging.html">Tett oppfølging</a></li>
+            <li><a href="frivillig.html">Frivilligprogram</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">Informasjon</h3>
+          <ul class="site-footer__list">
+            <li><a href="presse.html">Presse og media</a></li>
+            <li><a href="samarbeid.html">Samarbeid</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">My Strongest Side</h3>
+          <ul class="site-footer__list">
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">Kontakt</h3>
+          <ul class="site-footer__list">
+            <li>My Strongest Side AS</li>
+            <li>Brages veg 3<br />5221 Nesttun</li>
+            <li>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+
+        <div class="site-footer__social">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
+              <img src="icons/facebook.png" alt="" aria-hidden="true" />
+            </a>
+            <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
+              <img src="icons/instagram.png" alt="" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="menu.js" defer></script>
 </body>
 </html>
