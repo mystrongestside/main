@@ -5,11 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Kurs og seminar | My Strongest Side®</title>
-  <meta name="description" content="Kurs og seminarer som gir foresatte, BPA og fagmiljø trygghet, kunnskap og praktiske verktøy for tilrettelagt trening og hverdagsmestring." />
+  <meta name="description" content="Kalender for kurs og seminarer fra My Strongest Side®." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="styles.css?v=110" />
   <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Side-spesifikk (kan flyttes til styles.css) -->
+  <style>
+    /* === Kurs/seminar: kalender + tomtilstand === */
+    .myss-empty-state{
+      border-radius: 22px;
+      border: 1px solid rgba(16,82,119,.18);
+      background: rgba(16,82,119,.06);
+      padding: 18px 18px;
+      max-width: 980px;
+    }
+    .myss-empty-state h3{ margin: 0 0 6px; }
+    .myss-empty-state p{ margin: 0 0 14px; opacity: .95; }
+    .myss-empty-actions{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .myss-calendar-embed{
+      margin-top: 16px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(16,82,119,.18);
+      background: #fff;
+    }
+    .myss-calendar-note{
+      margin-top: 10px;
+      opacity: .8;
+      max-width: 80ch;
+      font-size: .98rem;
+    }
+  </style>
 </head>
 
 <body class="page-samarbeid">
@@ -20,65 +53,58 @@
     <section class="section section--light fade-in">
       <div class="container fade-in delay-1">
         <p class="eyebrow">Kurs og seminar</p>
-        <h1 class="fade-in delay-2">Faglig påfyll som gir trygghet i trening og hverdagsmestring</h1>
-        <p class="fade-in delay-3">
-          My Strongest Side® tilbyr kurs og seminarer for foresatte, BPA og fagmiljø. Vi deler praktiske verktøy, gode
-          rutiner og erfaringer som gjør det enklere å legge til rette for trygge treningsøkter og aktiv deltakelse.
+        <h1 class="fade-in delay-2">Kalender</h1>
+        <p class="fade-in delay-3" style="max-width: 75ch; opacity: .95;">
+          Her publiserer vi kommende kurs og seminarer. Akkurat nå er det ingen planlagte datoer.
         </p>
       </div>
     </section>
 
-    <!-- TILBUD -->
-    <section class="section fade-in">
-      <div class="container partner-list">
+    <!-- KALENDER -->
+    <section class="section fade-in" id="kalender">
+      <div class="container">
+        <div class="myss-block-title">
+          <p class="eyebrow reveal d2">Kommende</p>
+          <h2 class="reveal d3">Kurs og seminar</h2>
+        </div>
 
-        <article class="mt-md fade-in delay-2 partner-card">
-          <div class="partner-card__logo-wrap">
-            <img src="bilder/løfteteknikk.png" alt="Kurs i løfteteknikk" class="partner-logo" />
-          </div>
+        <!-- TOMT NÅ (vises når det ikke finnes arrangement) -->
+        <div class="myss-empty-state reveal d4" role="status" aria-live="polite">
+          <h3>Ingen aktiviteter akkurat nå</h3>
           <p>
-            Praktisk kurs i løfteteknikk og ergonomi med fokus på trygge forflytninger, smarte hjelpemidler og forebygging
-            av belastningsskader i hverdagen.
+            Vi legger ut nye datoer fortløpende. Vil du ha beskjed når noe publiseres, kan du melde interesse.
           </p>
-          <p class="mt-sm">
-            <a href="kontakt.html#kurs">Be om kursopplegg</a>
-          </p>
-        </article>
-
-        <article class="mt-lg fade-in delay-3 partner-card">
-          <div class="partner-card__logo-wrap">
-            <img src="bilder/manual.png" alt="Seminar om treningsrutiner" class="partner-logo" />
+          <div class="myss-empty-actions">
+            <a class="myss-btn" href="kontakt.html#kurs">Meld interesse</a>
+            <a class="myss-btn myss-btn--ghost" href="mailto:post@mystrongestside.no">Send e-post</a>
           </div>
-          <p>
-            Seminar for fagmiljø og treningsveiledere om tilrettelegging, kommunikasjon og hvordan vi skaper mestring og
-            motivasjon i treningssituasjoner.
+          <p class="myss-calendar-note">
+            Når kalenderen er aktiv, vil arrangementene vises her (som kalender eller liste).
           </p>
-          <p class="mt-sm">
-            <a href="kontakt.html#kurs">Book seminar</a>
-          </p>
-        </article>
+        </div>
 
-        <article class="mt-lg fade-in delay-3 partner-card">
-          <div class="partner-card__logo-wrap">
-            <img src="bilder/studenter.png" alt="Webinar for foresatte og BPA" class="partner-logo" />
-          </div>
-          <p>
-            Korte digitale webinarer for foresatte og BPA med temaer som hverdagsmestring, styrketrening og hvordan
-            støtte den som trener til å bygge gode vaner.
-          </p>
-          <p class="mt-sm">
-            <a href="kontakt.html#kurs">Meld interesse</a>
-          </p>
-        </article>
-
+        <!-- KALENDER-EMBED (aktiver når du har en kalender-URL) -->
+        <!--
+        <div class="myss-calendar-embed reveal d4">
+          <iframe
+            title="My Strongest Side – kurs og seminar"
+            src="PUTT_INN_KALENDER_EMBED_URL_HER"
+            style="border:0;"
+            width="100%"
+            height="720"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        -->
       </div>
     </section>
 
     <!-- CTA -->
     <section class="myss-cta-wave fade-in" id="kurs">
       <div class="myss-cta-wave__inner fade-in delay-1">
-        <h2 class="fade-in delay-2">Vil du høre mer<span class="dot">.</span></h2>
-        <p class="fade-in delay-3">Ta kontakt for å skreddersy kurs eller seminarer som passer deres behov.</p>
+        <h2 class="fade-in delay-2">Kontakt<span class="dot">.</span></h2>
+        <p class="fade-in delay-3">Ta kontakt hvis dere ønsker kurs/seminar eller vil settes på interesseliste.</p>
 
         <div class="myss-cta-wave__actions fade-in delay-3">
           <a href="kontakt.html#kurs" class="myss-cta-wave__btn">Kontakt oss</a>
