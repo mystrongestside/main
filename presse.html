@@ -6,27 +6,30 @@
   <title>Presse og media | My Strongest Side®</title>
   <meta name="description" content="Finn pressemateriell, bilder, logoer og kontaktinformasjon for My Strongest Side®. Ressurser for presse, samarbeidspartnere og sponsorer." />
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=112">
-  <link rel="stylesheet" href="compat.css?v=39">
+  <link rel="stylesheet" href="styles.css?v=112" />
+  <script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body class="page-presse">
   <header data-component="site-header"></header>
 
   <main>
-    <section class="press-hero">
-      <div class="container press-hero__grid">
-        <div class="press-hero__content">
-          <p class="press-hero__eyebrow">Presse og media</p>
-          <h1>Presserom<span class="dot">.</span></h1>
-          <p class="press-hero__lead">
-            Her finner du pressemateriell, omtaler og kontaktinformasjon for presse og samarbeidspartnere.
-            Vi ønsker å bidra til økt bevissthet om universell utforming, trening og inkludering – og deler gjerne erfaringene fra prosjektet My Strongest Side®.
-          </p>
-          <div class="press-hero__actions" role="group" aria-label="Snarveier til pressemateriell">
-            <a class="btn-pill btn-pill--orange" href="https://www.mystrongestside.no/presse/MyStrongestSide_logo.zip">Last ned logo</a>
-            <a class="btn-secondary" href="presse/pressebilder.zip">Last ned pressebilder</a>
-          </div>
+    <section class="section section--light fade-in">
+      <div class="container fade-in delay-1">
+        <p class="eyebrow">Presse og media</p>
+        <h1 class="fade-in delay-2">Presserom<span class="dot">.</span></h1>
+        <p class="fade-in delay-3">
+          Her finner du pressemateriell, omtaler og kontaktinformasjon for presse og samarbeidspartnere.
+          Vi ønsker å bidra til økt bevissthet om universell utforming, trening og inkludering – og deler gjerne erfaringene fra prosjektet My Strongest Side®.
+        </p>
+        <div class="myss-cta-wave__actions fade-in delay-3" role="group" aria-label="Snarveier til pressemateriell">
+          <a class="myss-cta-wave__btn" href="https://www.mystrongestside.no/presse/MyStrongestSide_logo.zip">Last ned logo</a>
+          <a class="myss-cta-wave__email" href="presse/pressebilder.zip">Last ned pressebilder</a>
         </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="container">
         <figure class="press-hero__media">
           <img src="Gruppebilde1.png" alt="Frivillige og deltakere fra My Strongest Side smilende i treningsstudio" loading="lazy" />
           <figcaption>My Strongest Side-teamet møter deltakere i inkluderende treningsøkter.</figcaption>
@@ -34,7 +37,7 @@
       </div>
     </section>
 
-    <section class="section press-contact">
+    <section class="section fade-in press-contact">
       <div class="container">
         <article class="surface-card stack press-card" aria-labelledby="press-contact-heading">
           <h2 id="press-contact-heading">Pressekontakt</h2>
@@ -59,7 +62,7 @@
       </div>
     </section>
 
-    <section class="section press-material" aria-labelledby="press-material-heading">
+    <section class="section fade-in press-material" aria-labelledby="press-material-heading">
       <div class="container stack">
         <div class="press-section-heading">
           <h2 id="press-material-heading">Pressemateriell</h2>
@@ -67,8 +70,8 @@
         </div>
         <div class="press-material__grid">
           <article class="surface-card press-download">
-          <h3>Logoer</h3>
-          <p>Primær logo leveres kun i PDF-format sammen med retningslinjer for bruk.</p>
+            <h3>Logoer</h3>
+            <p>Primær logo leveres kun i PDF-format sammen med retningslinjer for bruk.</p>
             <a class="btn-pill btn-pill--orange" href="https://www.mystrongestside.no/presse/MyStrongestSide_logo.zip">Last ned logo (ZIP)</a>
           </article>
           <article class="surface-card press-download">
@@ -85,7 +88,7 @@
       </div>
     </section>
 
-    <section class="section press-gallery" aria-labelledby="press-gallery-heading">
+    <section class="section fade-in press-gallery" aria-labelledby="press-gallery-heading">
       <div class="container stack">
         <div class="press-section-heading">
           <h2 id="press-gallery-heading">Bildeutvalg</h2>
@@ -108,19 +111,17 @@
       </div>
     </section>
 
-    <section class="section press-mentions" aria-labelledby="press-mentions-heading">
+    <section class="section fade-in press-mentions" aria-labelledby="press-mentions-heading">
       <div class="container stack">
         <div class="press-section-heading">
           <h2 id="press-mentions-heading">I media</h2>
           <p>Et utvalg av artikler og omtaler om vårt arbeid med universell styrketrening.</p>
         </div>
-        <ul class="press-mentions__list">
-       
-           
+        <ul class="press-mentions__list"></ul>
       </div>
     </section>
 
-    <section class="section press-facts" aria-labelledby="press-facts-heading">
+    <section class="section fade-in press-facts" aria-labelledby="press-facts-heading">
       <div class="container">
         <article class="surface-card stack" id="press-facts-heading">
           <h2>Om prosjektet</h2>
@@ -136,45 +137,79 @@
       </div>
     </section>
 
-    <section class="section press-cta" aria-labelledby="press-cta-heading">
-      <div class="container press-cta__inner">
-        <div>
-          <h2 id="press-cta-heading">Trenger du noe mer?</h2>
-          <p>Ta kontakt dersom du trenger tilpassede bilder, faglige kilder eller ønsker å besøke en av våre økter.</p>
+    <section class="myss-cta-wave fade-in" aria-labelledby="press-cta-heading">
+      <div class="myss-cta-wave__inner fade-in delay-1">
+        <h2 id="press-cta-heading" class="fade-in delay-2">Trenger du noe mer<span class="dot">.</span></h2>
+        <p class="fade-in delay-3">Ta kontakt dersom du trenger tilpassede bilder, faglige kilder eller ønsker å besøke en av våre økter.</p>
+        <div class="myss-cta-wave__actions fade-in delay-3">
+          <a class="myss-cta-wave__btn" href="mailto:post@mystrongestside.no">Kontakt pressekontakt</a>
+          <a class="myss-cta-wave__email" href="mailto:post@mystrongestside.no">post@mystrongestside.no</a>
         </div>
-        <a class="btn-pill btn-pill--orange" href="mailto:post@mystrongestside.no">Kontakt pressekontakt</a>
       </div>
     </section>
   </main>
 
-  <script src="script.js" defer></script>
-  <div id="myss-footer"></div>
-  <script>
-    (function() {
-      var prefix = (typeof window.MYSS_PREFIX !== "undefined") ? window.MYSS_PREFIX : (window.__prefix || "");
-      if (!prefix) {
-        prefix = window.location.pathname.indexOf("/treningstilbud/") !== -1 ? "../" : "";
-      }
-      window.MYSS_PREFIX = prefix;
-      window.__prefix = prefix;
-      var target = document.getElementById("myss-footer");
-      if (!target) { return; }
-      fetch(prefix + "partials/footer.html", { cache: "no-cache" })
-        .then(function(r){ return r.text(); })
-        .then(function(html){
-          target.innerHTML = html;
-          target.querySelectorAll('img[src*="${prefix}"]').forEach(function(img){
-            var raw = img.getAttribute("src");
-            if (raw) {
-              img.setAttribute("src", raw.replace("${prefix}", prefix));
-            }
-          });
-        })
-        .catch(function(){
-          target.innerHTML = '<footer class="myss-footer"><div class="footer-container"><div class="footer-logo"><div class="footer-center"><div class="myss-circle-badge"><svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><defs><path id="badgeCirclePath--footer-fallback" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text class="badge-text"><textPath href="#badgeCirclePath--footer-fallback" xlink:href="#badgeCirclePath--footer-fallback" startOffset="0%">• MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE® • MY STRONGEST SIDE®</textPath></text></svg><img src="'+prefix+'logo-orange.png" alt="My Strongest Side" class="badge-logo"></div><p class="footer-tagline">Gjør trening tilgjengelig for flest mulig.</p></div></div></div><p class="footer-copy">© 2025 My Strongest Side® – Alle rettigheter forbeholdt</p></footer>';
-        });
-    })();
-  </script>
-  <script src="marquee-guard.js?v=36" defer></script>
+  <footer class="site-footer fade-in delay-1">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand fade-in delay-2">
+        <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
+        <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
+      </div>
+
+      <div class="site-footer__top">
+        <div>
+          <h3 class="site-footer__heading">Våre tjenester</h3>
+          <ul class="site-footer__list">
+            <li><a href="treningstilbud/voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
+            <li><a href="treningstilbud/tett-oppfolging.html">Tett oppfølging</a></li>
+            <li><a href="frivillig.html">Frivilligprogram</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">Informasjon</h3>
+          <ul class="site-footer__list">
+            <li><a href="presse.html">Presse og media</a></li>
+            <li><a href="samarbeid.html">Samarbeid</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">My Strongest Side</h3>
+          <ul class="site-footer__list">
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">Kontakt</h3>
+          <ul class="site-footer__list">
+            <li>My Strongest Side AS</li>
+            <li>Brages veg 3<br />5221 Nesttun</li>
+            <li>E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li>Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+
+        <div class="site-footer__social">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
+              <img src="icons/facebook.png" alt="" aria-hidden="true" />
+            </a>
+            <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
+              <img src="icons/instagram.png" alt="" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="menu.js" defer></script>
 </body>
 </html>
