@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Tett oppfølging | My Strongest Side®</title>
-  <meta name="description" content="Individuell oppfølging er et tilleggstilbud med begrenset kapasitet. Send forespørsel om enkelttime eller digital 1:1 oppfølging (min. 3 mnd)." />
+  <title>Hvem møter du? | My Strongest Side®</title>
+  <meta name="description" content="Bli kjent med teamet i My Strongest Side® – mennesker med kompetanse, erfaring og et tydelig mål: trygg og tilgjengelig trening for flest mulig." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="styles.css?v=112" />
@@ -73,21 +73,15 @@
       background: rgba(16,82,119,.06);
     }
 
-    /* Pris-boks (rolig, tydelig verdi) */
-    .myss-pricebox{
+    /* Mini “fakta”-boks */
+    .myss-infobox{
       margin-top:1rem;
       padding:1.1rem 1.1rem;
       border-radius:20px;
       background:rgba(16,82,119,.06);
       border:1px solid rgba(16,82,119,.16);
     }
-    .myss-pricebox p{ margin:.55rem 0; }
-    .myss-pricebox ul{ margin:.5rem 0 0; padding-left:1.1rem; }
-    .myss-pricebox li{ margin:.25rem 0; }
-    .myss-note{
-      margin-top:.75rem;
-      font-weight:700;
-    }
+    .myss-infobox p{ margin:.55rem 0; }
     .myss-muted{ opacity:.85; }
 
     /* Fade-in (scroll-basert) */
@@ -108,7 +102,7 @@
   </style>
 </head>
 
-<body class="page-tett-oppfolging">
+<body class="page-hvem-moter-du">
 
   <header data-component="site-header"></header>
 
@@ -119,137 +113,33 @@
       <div class="container myss-hero-grid">
 
         <div>
-          <p class="eyebrow reveal d1">Individuell oppfølging</p>
-          <h1 class="reveal d2">Tett oppfølging – som et tilleggstilbud</h1>
+          <p class="eyebrow reveal d1">Team</p>
+          <h1 class="reveal d2">Hvem møter du hos My Strongest Side®?</h1>
           <p class="reveal d3">
-            Dette er et <strong>tilleggstilbud</strong> for deg som ønsker 1:1 oppfølging ved siden av trening i hverdagen.
-            My Strongest Side® har først og fremst fokus på gruppetilbud og tilgjengelig trening for flere – derfor har vi
-            <strong>begrenset kapasitet</strong> på individuelle timer.
+            My Strongest Side® handler ikke om “one size fits all”.
+            Du møter folk som bryr seg om trygghet, mestring og reell tilpasning – uansett nivå og funksjonsvariasjoner.
           </p>
 
+          <div class="myss-infobox reveal d3">
+            <p class="myss-muted">
+              <strong>Merk:</strong> Vi bygger først og fremst gruppetilbudet. Individuelle tilbud kommer senere når kapasiteten er på plass.
+            </p>
+          </div>
+
           <div class="myss-actions reveal d4">
-            <a class="myss-btn" href="#tilbud">Se tilbud</a>
-            <a class="myss-btn myss-btn--outline" href="kontakt.html#tett-oppfolging">Send forespørsel</a>
+            <a class="myss-btn" href="#hvem-er-vi">Les om teamet</a>
+            <a class="myss-btn myss-btn--outline" href="kontakt.html">Kontakt oss</a>
           </div>
         </div>
 
         <div class="reveal d2">
           <img
             src="bilder/tett-oppfolging-hero.jpg"
-            alt="Individuell oppfølging og tilpasset styrketrening hos My Strongest Side"
+            alt="Teamet i My Strongest Side"
             class="myss-hero-photo"
             loading="lazy"
           />
         </div>
-
-      </div>
-    </section>
-
-    <!-- TILBUD -->
-    <section class="section" id="tilbud">
-      <div class="container partner-list">
-
-        <!-- Enkelttime -->
-        <article class="mt-md partner-card">
-          <div class="partner-card__logo-wrap reveal d1">
-            <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
-          </div>
-
-          <h2 class="mt-sm reveal d2">Enkelttime (fysisk eller digital)</h2>
-          <p class="reveal d3">
-            En individuell time gir deg en trygg start, en konkret plan og tydelige øvelser du mestrer.
-            Vi tilpasser etter mål, erfaring, dagsform og eventuelle hensyn.
-          </p>
-
-          <ul class="mt-sm">
-            <li class="reveal d2">Personlig veiledning 1:1</li>
-            <li class="reveal d3">Tilpasning av øvelser og progresjon</li>
-            <li class="reveal d4">Program du kan følge videre</li>
-          </ul>
-
-          <p class="mt-sm reveal d2"><strong>Veiledende pris:</strong> fra kr 899,- per time</p>
-
-          <div class="myss-actions reveal d3">
-            <a class="myss-btn" href="kontakt.html#tett-oppfolging">Send forespørsel om enkelttime</a>
-            <a class="myss-btn myss-btn--outline" href="mailto:post@mystrongestside.no">Spør på e-post</a>
-          </div>
-        </article>
-
-        <!-- Digital oppfølging -->
-        <article class="mt-lg partner-card">
-          <div class="partner-card__logo-wrap reveal d1">
-            <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
-          </div>
-
-          <h2 class="mt-sm reveal d2">Digital oppfølging (1:1)</h2>
-          <p class="reveal d3">
-            For deg som ønsker kontinuitet: vi følger deg opp digitalt og justerer programmet underveis.
-            Passer både for deg som trener på senter, hjemme, eller ønsker struktur mellom økter.
-          </p>
-
-          <ul class="mt-sm">
-            <li class="reveal d2">Individuelt treningsprogram</li>
-            <li class="reveal d3">Jevnlig justering og progresjon</li>
-            <li class="reveal d4">Tydelige mål og realistisk opplegg</li>
-          </ul>
-
-          <!-- Pris: tydelig verdi + min. 3 mnd -->
-          <div class="myss-pricebox reveal d2">
-            <p class="reveal d2 myss-muted">
-              Oppstart er en <strong>engangssum</strong> fordi vi bygger opplegget (kartlegging + program).
-              Månedsprisen er for <strong>1:1 oppfølging</strong> og justeringer over tid – ikke “betaling for det samme”.
-            </p>
-
-            <p class="reveal d3"><strong>✔ Oppstart (engangssum): 2 500 kr</strong></p>
-            <ul class="mt-sm">
-              <li class="reveal d2">1:1 kartlegging av mål, nivå og hensyn</li>
-              <li class="reveal d3">Skreddersydd program du kan følge</li>
-              <li class="reveal d4">Plan for progresjon og prioritering</li>
-            </ul>
-
-            <p class="reveal d3" style="margin-top:.9rem;"><strong>✔ Oppfølging: 1 800 kr / mnd</strong></p>
-            <ul class="mt-sm">
-              <li class="reveal d2">1:1 oppfølging og justering av program</li>
-              <li class="reveal d3">Konkrete anbefalinger for videre progresjon</li>
-              <li class="reveal d4">Fast månedlig gjennomgang (digitalt)</li>
-            </ul>
-
-            <p class="myss-note reveal d3">Minimum 3 måneder.</p>
-
-            <div class="myss-actions reveal d3">
-              <a class="myss-btn" href="kontakt.html#tett-oppfolging">Send forespørsel</a>
-              <a class="myss-btn myss-btn--outline" href="mailto:post@mystrongestside.no">Spør på e-post</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Velg coach -->
-        <article class="mt-lg partner-card">
-          <div class="partner-card__logo-wrap reveal d1">
-            <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="partner-logo" />
-          </div>
-
-          <h2 class="mt-sm reveal d2">Hvem vil du booke?</h2>
-          <p class="reveal d3">
-            Du kan velge å booke Amir, Alexander – eller begge sammen.
-            Vi finner en løsning som passer målene dine og hvordan du liker å bli fulgt opp.
-          </p>
-
-          <ul class="mt-sm">
-            <li class="reveal d2"><strong>Amir:</strong> fokus på teknikk, progresjon og trygg gjennomføring</li>
-            <li class="reveal d3"><strong>Alexander:</strong> helhetlig tilpasning og oppfølging med ergoterapeutisk blikk</li>
-            <li class="reveal d4"><strong>Amir + Alexander:</strong> ekstra tett oppfølging og to faglige perspektiver</li>
-          </ul>
-
-          <p class="mt-sm reveal d2 myss-muted">
-            Tips: Skriv gjerne om mål, erfaring, eventuelle hjelpemidler/ortoser, og om du ønsker fysisk eller digital oppfølging.
-          </p>
-
-          <div class="myss-actions reveal d3">
-            <a class="myss-btn" href="kontakt.html#tett-oppfolging">Send forespørsel</a>
-            <a class="myss-btn myss-btn--outline" href="#hvem-er-vi">Les om oss</a>
-          </div>
-        </article>
 
       </div>
     </section>
@@ -261,7 +151,7 @@
         <h2 class="reveal d2">Hvem møter du?</h2>
         <p class="reveal d3">
           My Strongest Side® kombinerer prestasjonserfaring og helsefaglig kompetanse.
-          Målet er alltid det samme: trygg, forståelig og målrettet trening – tilpasset deg.
+          Målet er alltid det samme: trygg, forståelig og inkluderende trening – tilpasset deg.
         </p>
 
         <div class="partner-list mt-md">
@@ -270,17 +160,17 @@
           <article class="mt-md partner-card">
             <h3 class="mt-sm reveal d2">Hvem er Alexander</h3>
             <p class="reveal d3">
-              <strong>Alexander Sviggum</strong> er <strong>daglig leder og eier</strong> av My Strongest Side AS, og <strong>nyutdannet ergoterapeut</strong>
-              med oppdatert kompetanse innen <strong>aktivitet, funksjon, tilrettelegging og deltakelse</strong>. Han har cerebral parese og lang egen erfaring
+              <strong>Alexander Sviggum</strong> er <strong>daglig leder og eier</strong> av My Strongest Side AS, og <strong>ergoterapeut</strong>
+              med kompetanse innen <strong>aktivitet, funksjon, tilrettelegging og deltakelse</strong>. Han har cerebral parese og lang egen erfaring
               med tilrettelagt trening.
             </p>
             <p class="reveal d3">
-              Alexander trener styrkeløft og er <strong>rangert som 5. plass i NM i sin funksjonsfriske klasse</strong>. I My Strongest Side kombinerer han
-              konkurranseerfaring og helsefaglig perspektiv for å utvikle trygge og målrettede treningsopplegg, der øvelser, dosering og progresjon tilpasses den enkelte.
+              Alexander trener styrkeløft og bruker erfaringen fra konkurranse og treningsmiljø til å bygge opp økter som er
+              <strong>tydelige, trygge og gjennomførbare</strong> – der øvelser og progresjon tilpasses personen, ikke omvendt.
             </p>
             <p class="reveal d4">
-              Som ergoterapeut er Alexander spesielt opptatt av sammenhengen mellom <strong>trening og hverdagsmestring</strong>, og hvordan gode løsninger kan redusere
-              barrierer i miljøet – slik at flere kan trene i vanlige treningsarenaer over tid.
+              Som ergoterapeut er Alexander spesielt opptatt av sammenhengen mellom <strong>trening og hverdagsmestring</strong>, og hvordan små grep i
+              miljø og tilrettelegging kan senke terskelen for å trene i vanlige treningsarenaer over tid.
             </p>
 
             <img
@@ -297,18 +187,17 @@
 
             <p class="reveal d3">
               <strong>Amir Asadollahzadeh</strong> er hovedtrener i My Strongest Side, med bachelorgrad i kroppsøving og solid kompetanse innen treningsplanlegging,
-              bevegelseslære og individuell tilpasning. Han kombinerer faglig trygghet med lang erfaring fra styrketrening på høyt nivå.
+              bevegelseslære og tilpasning. Han kombinerer faglig trygghet med lang erfaring fra styrketrening på høyt nivå.
             </p>
 
             <p class="reveal d3">
-              Amir er <strong>norgesmester i styrkeløft i 66&nbsp;kg-klassen (utstyrsfritt)</strong> og har også konkurrert internasjonalt i en av de mest
-              konkurransepregede vektklassene. Prestasjonene hans vitner om høy teknisk kvalitet, god forståelse for belastningsstyring og evne til langsiktig progresjon.
+              Amir er <strong>norgesmester i styrkeløft i 66&nbsp;kg-klassen (utstyrsfritt)</strong> og er kjent for å være ekstremt tydelig på teknikk,
+              belastningsstyring og kvalitet i gjennomføringen.
             </p>
 
             <p class="reveal d4">
-              Han har fulgt My Strongest Side-gruppene gjennom flere sesonger og er kjent for økter med høy kvalitet: god struktur, trygge rammer, tydelig progresjon og
-              presise tilpasninger. I individuell oppfølging jobber Amir målrettet med teknikk, riktig mengde trening over tid og progresjon, med mål om å gi deltakerne et
-              treningsopplegg som er trygt, realistisk og motiverende å følge.
+              I My Strongest Side er Amir opptatt av at deltakerne skal oppleve <strong>mestring</strong> og få et opplegg som er
+              <strong>realistisk å følge</strong> – med struktur, ro og gode tilpasninger underveis.
             </p>
 
             <img
@@ -320,21 +209,12 @@
           </article>
 
         </div>
-      </div>
-    </section>
 
-    <!-- CTA -->
-    <section class="myss-cta-wave" id="book">
-      <div class="myss-cta-wave__inner">
-        <h2 class="reveal d2">Sjekk tilgjengelighet<span class="dot">.</span></h2>
-        <p class="reveal d3">
-          Ønsker du å høre om dette kan passe for deg? Send en kort forespørsel med mål, erfaring og om du ønsker fysisk eller digitalt –
-          så svarer vi med forslag til opplegg og tilgjengelighet.
-        </p>
-        <div class="myss-cta-wave__actions reveal d4">
-          <a href="kontakt.html#tett-oppfolging" class="myss-btn">Send forespørsel</a>
-          <a href="mailto:post@mystrongestside.no" class="myss-btn myss-btn--outline">post@mystrongestside.no</a>
+        <div class="myss-actions reveal d4" style="margin-top:1.25rem;">
+          <a class="myss-btn" href="kontakt.html">Ta kontakt</a>
+          <a class="myss-btn myss-btn--outline" href="gruppetrening.html">Se gruppetilbud</a>
         </div>
+
       </div>
     </section>
 
@@ -354,7 +234,7 @@
           <h3 class="site-footer__heading reveal d2">Våre tjenester</h3>
           <ul class="site-footer__list">
             <li class="reveal d2"><a href="treningstilbud/voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
-            <li class="reveal d3"><a href="treningstilbud/tett-oppfolging.html">Tett oppfølging</a></li>
+            <li class="reveal d3"><a href="gruppetrening.html">Gruppetrening</a></li>
             <li class="reveal d4"><a href="frivillig.html">Frivilligprogram</a></li>
           </ul>
         </div>
@@ -371,6 +251,7 @@
           <h3 class="site-footer__heading reveal d2">My Strongest Side</h3>
           <ul class="site-footer__list">
             <li class="reveal d2"><a href="kontakt.html">Kontakt</a></li>
+            <li class="reveal d3"><a href="hvem-moter-du.html">Hvem møter du?</a></li>
           </ul>
         </div>
 
@@ -432,3 +313,4 @@
 
 </body>
 </html>
+
