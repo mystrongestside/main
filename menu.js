@@ -57,8 +57,8 @@
                 <h2 class="site-nav__heading">Våre tjenester</h2>
                 <ul class="site-nav__list">
                   <li><a href="${prefix}gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
-                  <li><a href="${prefix}Individuelloppfølging.html" class="site-nav__link">Individuell oppfølging</a></li>
-                  <li><a href="${prefix}kurs og seminar.html" class="site-nav__link">Kurs og seminar</a></li>
+                  <li><a href="${prefix}Individuelloppfølging.html" class="site-nav__link">Hvem møter du</a></li>
+                  <li><a href="${prefix}foresatte.html" class="site-nav__link">Kurs og seminar</a></li>
                   <li><a href="${prefix}qr/trening/index.html" class="site-nav__link">QR/NFC treningssystem</a></li>
                 </ul>
               </div>
