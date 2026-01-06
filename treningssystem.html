@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Treningssystemet | My Strongest Side®</title>
-  <meta name="description" content="MySS treningssystem gir enkel, trygg apparatveiledning via QR/NFC – laget for tydelighet, trygghet og gjennomføring." />
+  <meta name="description" content="MySS treningssystem gir apparatveiledning via QR/NFC – med faglig forankring, tydelighet og tilpasning etter behov." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="styles.css?v=112" />
@@ -103,6 +103,44 @@
       margin-bottom:.75rem;
     }
 
+    /* “Merke”-boks */
+    .myss-mark{
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      padding:.5rem .85rem;
+      border-radius:999px;
+      border:1px solid rgba(16,82,119,.20);
+      background:rgba(16,82,119,.06);
+      font-weight:700;
+      color:var(--myss-blue);
+      margin-bottom:.75rem;
+    }
+    .myss-mark__dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--myss-orange, #f77c37);
+      box-shadow:0 0 0 4px rgba(247,124,55,.18);
+    }
+
+    /* “Velg behov”-liste (enkel, IP-trygg) */
+    .myss-choice{
+      list-style:none;
+      padding:0;
+      margin:1rem 0 0;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:1rem;
+    }
+    .myss-choice li{
+      padding:1.05rem 1.1rem;
+      border-radius:18px;
+      background:rgba(16,82,119,.06);
+      border:1px solid rgba(16,82,119,.12);
+    }
+    .myss-choice strong{ display:block; margin-bottom:.25rem; }
+
     .gallery-grid{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -123,27 +161,6 @@
       margin-top:.6rem;
       font-size:.95rem;
       color:#4a4a4a;
-    }
-
-    /* Enkel “merke”-boks */
-    .myss-mark{
-      display:inline-flex;
-      align-items:center;
-      gap:.55rem;
-      padding:.5rem .85rem;
-      border-radius:999px;
-      border:1px solid rgba(16,82,119,.20);
-      background:rgba(16,82,119,.06);
-      font-weight:700;
-      color:var(--myss-blue);
-      margin-bottom:.75rem;
-    }
-    .myss-mark__dot{
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:var(--myss-orange, #f77c37);
-      box-shadow:0 0 0 4px rgba(247,124,55,.18);
     }
 
     .js .reveal{
@@ -175,16 +192,16 @@
 
         <div>
           <p class="eyebrow reveal d1">Treningssystemet</p>
-          <h1 class="reveal d2">MySS-merket viser at trening er tilrettelagt</h1>
+          <h1 class="reveal d2">MySS-merket betyr tydelig veiledning og tilpasning etter behov</h1>
           <p class="reveal d3">
-            Ser du <strong>My Strongest Side®</strong>, betyr det at du finner tydelige instruksjoner,
-            forutsigbar veiledning og et miljø som tar hensyn. Du trener i ditt tempo, med støtte ved behov.
+            MySS treningssystem er utviklet av fagpersoner og testet i praksis i My Strongest Side®.
+            Målet er enkelt: gjøre apparattrening lettere å forstå og tryggere å gjennomføre – uten unødvendig kompleksitet.
           </p>
 
           <div class="myss-infobox reveal d3">
             <p class="myss-muted">
-              <strong>MySS treningssystem</strong> er en digital veiledning koblet til treningsapparater via QR/NFC.
-              Skann en kode og få kort, konkret støtte til å bruke apparatet trygt – med forslag til vanlige tilpasninger når det trengs.
+              <strong>Hvordan det fungerer:</strong> Skann QR/NFC på apparatet og velg det som passer for deg
+              (for eksempel “kort og enkel”, “mer forklaring” eller “tilpasningstips”). Veiledningen du får er basert på valget ditt.
             </p>
           </div>
 
@@ -206,38 +223,40 @@
       </div>
     </section>
 
-    <!-- MERKET / TILLIT -->
+    <!-- ETOS / MERKET -->
     <section class="section section--light" id="merket">
       <div class="container">
         <p class="eyebrow reveal d1">Hva betyr merket?</p>
-        <h2 class="reveal d2">Et felles nivå for tilgjengelighet og veiledning</h2>
+        <h2 class="reveal d2">Et felles nivå for trygghet og kvalitet</h2>
 
         <div class="myss-card-grid">
           <article class="myss-card reveal d2">
-            <div class="myss-mark"><span class="myss-mark__dot" aria-hidden="true"></span>Trygghet</div>
+            <div class="myss-mark"><span class="myss-mark__dot" aria-hidden="true"></span>Faglig forankring</div>
             <p>
-              Veiledningen er laget for å redusere usikkerhet rundt innstillinger og utførelse, slik at flere kan gjennomføre økten.
+              Innholdet er laget med utgangspunkt i ergoterapi/fysioterapi og treningserfaring i praksis.
+              Det betyr tydelige beskrivelser, fokus på gjennomføring og hensyn til ulike behov.
             </p>
           </article>
 
           <article class="myss-card reveal d3">
-            <div class="myss-mark"><span class="myss-mark__dot" aria-hidden="true"></span>Tilpasning</div>
+            <div class="myss-mark"><span class="myss-mark__dot" aria-hidden="true"></span>Tilpasning etter behov</div>
             <p>
-              Du får forslag til enkle justeringer som kan gjøre øvelsen mer gjennomførbar, uten at det blir unødvendig komplisert.
+              Du velger selv hvilken type veiledning du ønsker. Systemet gir deg informasjon i et nivå som passer
+              for situasjonen din – fra “kort og enkel” til mer støtte og tilpasningstips.
             </p>
           </article>
 
           <article class="myss-card reveal d4">
-            <div class="myss-mark"><span class="myss-mark__dot" aria-hidden="true"></span>Tydelighet</div>
+            <div class="myss-mark"><span class="myss-mark__dot" aria-hidden="true"></span>Gjennomførbart</div>
             <p>
-              Kort og konkret informasjon som er lett å bruke der og da – med mulighet for å be om oppfølging ved behov.
+              Målet er at flere faktisk får gjennomført økten. Derfor er veiledningen kort, konkret og lett å bruke der og da.
             </p>
           </article>
         </div>
 
         <div class="myss-infobox reveal d3">
           <p class="myss-muted">
-            Systemet er laget for vanlige treningsmiljøer. Det handler i stor grad om forutsigbarhet, kunnskap og små grep som senker terskelen.
+            <strong>Prinsipp:</strong> Du skal kunne trene i ditt tempo, med støtte ved behov – og slippe å føle at du må “forklare deg” for å komme i gang.
           </p>
         </div>
       </div>
@@ -253,8 +272,30 @@
           Målet er at flere kan bruke apparater riktig og trygt – med forslag til enkle tilpasninger der det trengs.
         </p>
         <p class="reveal d3">
-          Det kan gjøre det lettere å komme i gang, forstå innstillingene på apparatet og trene i eget tempo.
+          Dette kan gjøre det lettere å komme i gang, forstå innstillingene på apparatet og trene mer selvstendig.
         </p>
+
+        <!-- NYTT: Velg behov -->
+        <ul class="myss-choice reveal d3" aria-label="Velg behov og få veiledning deretter">
+          <li>
+            <strong>Kort og enkel</strong>
+            Rask forklaring som tar deg i gang på under ett minutt.
+          </li>
+          <li>
+            <strong>Mer forklaring</strong>
+            Litt mer detaljer om posisjon, bevegelse og vanlige feil.
+          </li>
+          <li>
+            <strong>Tilpasningstips</strong>
+            Forslag til enkle justeringer når du trenger mer støtte eller alternativ gjennomføring.
+          </li>
+        </ul>
+
+        <div class="myss-infobox reveal d3">
+          <p class="myss-muted">
+            Innholdet er ment som støtte i treningssituasjonen, og erstatter ikke individuell oppfølging eller faglig vurdering.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -272,13 +313,13 @@
           </li>
           <li class="myss-step">
             <span>2</span>
-            <h3>Se kort veiledning</h3>
-            <p>Få en kort veiledning med video, tekst eller bilde.</p>
+            <h3>Velg behov</h3>
+            <p>Velg nivået som passer: kort, mer forklaring eller tilpasningstips.</p>
           </li>
           <li class="myss-step">
             <span>3</span>
-            <h3>Tilpass ved behov</h3>
-            <p>Følg enkle tips, og be om oppfølging dersom du ønsker det.</p>
+            <h3>Følg veiledningen</h3>
+            <p>Bruk veiledningen underveis. Be om oppfølging dersom du ønsker det.</p>
           </li>
         </ul>
       </div>
@@ -307,12 +348,6 @@
             <h3>Når du bør få hjelp</h3>
             <p>En kort påminnelse om når det er lurt å be om støtte.</p>
           </div>
-        </div>
-
-        <div class="myss-infobox reveal d3">
-          <p class="myss-muted">
-            Innholdet er ment som støtte i treningssituasjonen, og erstatter ikke individuell oppfølging eller faglig vurdering.
-          </p>
         </div>
       </div>
     </section>
@@ -361,40 +396,6 @@
             <p>Kan brukes i inkluderende treningstilbud.</p>
           </article>
         </div>
-      </div>
-    </section>
-
-    <!-- KVALITET -->
-    <section class="section section--light">
-      <div class="container">
-        <p class="eyebrow reveal d1">Kvalitet og ansvar</p>
-        <h2 class="reveal d2">Utviklet for å være lett å bruke</h2>
-        <div class="myss-card-grid">
-          <div class="myss-card reveal d2">
-            <h3>Faglig forankret</h3>
-            <p>Utvikles med støtte fra ergo- og fysioterapi, samt treningserfaring i praksis.</p>
-          </div>
-          <div class="myss-card reveal d3">
-            <h3>Samarbeid i pilot</h3>
-            <p>Testes og forbedres i samarbeid med brukere og relevante miljøer.</p>
-          </div>
-          <div class="myss-card reveal d4">
-            <h3>Universell utforming</h3>
-            <p>Enkel språkføring og tilgjengelighet ligger til grunn for innholdet.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PILOT -->
-    <section class="section section--light">
-      <div class="container">
-        <p class="eyebrow reveal d1">Pilotstatus</p>
-        <h2 class="reveal d2">Pilot nå – videreutvikles fortløpende</h2>
-        <p class="reveal d3">
-          Vi tester løsningen på utvalgte apparater og samler erfaringer for å gjøre den mer presis
-          og lett å bruke. Målet er å kunne utvide til flere apparater og flere treningsmiljøer.
-        </p>
       </div>
     </section>
 
