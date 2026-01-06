@@ -2119,4 +2119,112 @@ footer .footer-col h3{
 @media (max-width: 900px){
   .site-footer__social-bottom{ justify-content: flex-start; }
 }
+  /* =========================
+   MYSS Footer – global patch
+   (legg HELT NEDERST i styles.css)
+   ========================= */
+
+.site-footer{
+  background:#105277 !important;
+  color:#fff !important;
+}
+
+/* Brand */
+.site-footer__brand{
+  margin-bottom: 1.25rem;
+}
+
+.site-footer__logo{
+  height:48px !important;
+  width:auto !important;
+  display:block !important;
+}
+
+.site-footer__tagline{
+  margin: .6rem 0 0;
+  opacity: .9;
+}
+
+/* TOP = kolonner (HTML bruker site-footer__top) */
+.site-footer__top{
+  display:grid !important;
+  grid-template-columns: repeat(4, minmax(0,1fr)) !important; /* tjenester, info, myss, kontakt */
+  gap: 2.5rem !important;
+  align-items: start !important;
+}
+
+/* Mobil */
+@media (max-width:900px){
+  .site-footer__top{
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+    gap: 1.75rem !important;
+  }
+}
+@media (max-width:520px){
+  .site-footer__top{
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+}
+
+/* Lister: ingen bullets + ryddig spacing */
+.site-footer__list{
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.site-footer__list li{
+  margin: .15rem 0 !important;
+}
+.site-footer__link,
+.site-footer__list a{
+  color: rgba(255,255,255,.92) !important;
+  text-decoration: none;
+}
+.site-footer__list a:hover{
+  color: #fff !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* BOTTOM = alltid synlig + layout */
+.site-footer__bottom{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap: 1rem !important;
+  margin-top: 1.75rem !important;
+  padding-top: 1.25rem !important;
+  border-top: 1px solid rgba(255,255,255,.18) !important;
+}
+
+/* Mobil: stack */
+@media (max-width:900px){
+  .site-footer__bottom{
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+
+/* Sosiale ikoner */
+.site-footer__social-list{
+  display:flex !important;
+  gap:.75rem !important;
+  align-items:center !important;
+}
+.social-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.12);
+}
+.social-link img{
+  width: 22px;
+  height: 22px;
+  display:block;
+}
+
 
