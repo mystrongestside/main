@@ -2030,4 +2030,93 @@ footer .footer-col h3{
 @media (max-width:900px){
   .site-footer__social-bottom{ justify-content:flex-start !important; }
 }
+/* =========================
+   FOOTER – mobile fix (kompakt, ryddig)
+   Legg denne HELT NEDERST i styles.css
+   ========================= */
+
+/* Generelt: ikke la footer arve "meny-størrelse" */
+.site-footer h3,
+.site-footer a,
+.site-footer li{
+  letter-spacing: normal;
+}
+
+/* Fjern bullets og unngå gigantiske mellomrom */
+.site-footer ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-footer__list li{ margin: 0; }
+
+/* Linker: normal størrelse + klikkvennlig uten å bli enorme */
+.site-footer__link{
+  display: inline-block;
+  padding: .35rem 0;
+  font-size: 1rem;
+  line-height: 1.35;
+  opacity: .92;
+  text-decoration: none;
+}
+
+/* Titler: ned fra "mega" */
+.site-footer__title,
+.site-footer h3{
+  font-size: 1.05rem;
+  line-height: 1.2;
+  margin: 0 0 .5rem;
+}
+
+/* Logo i footer: ikke la den bli en gigantisk blokk */
+.site-footer__logo{
+  height: 34px;
+  width: auto;
+}
+
+/* GRID: desktop som før, men på mobil: 1 kolonne + strammere padding */
+@media (max-width: 900px){
+  .site-footer__inner{
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .site-footer__grid{
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Viktig: venstrejuster alt i footer på mobil */
+  .site-footer,
+  .site-footer__col,
+  .site-footer__col *{
+    text-align: left !important;
+  }
+}
+
+/* Kontakt (uten bullets) – hvis du fortsatt bruker UL et sted */
+.site-footer__contact{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.site-footer__contact li{ margin: .25rem 0; }
+
+/* Sosiale nederst i kontakt-kolonnen (desktop høyre, mobil venstre) */
+.site-footer__contact-wrap{
+  display: flex;
+  flex-direction: column;
+}
+.site-footer__social-bottom{
+  margin-top: auto;
+  display: flex;
+  gap: .75rem;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: .85rem;
+}
+@media (max-width: 900px){
+  .site-footer__social-bottom{ justify-content: flex-start; }
+}
 
