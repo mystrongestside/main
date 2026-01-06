@@ -85,7 +85,34 @@
     .js .reveal.d2{ transition-delay:.12s; }
     .js .reveal.d3{ transition-delay:.18s; }
     .js .reveal.d4{ transition-delay:.24s; }
+
+    /* ===== SDG (kun denne siden) ===== */
+    .sdg-wrapper{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .sdg-item{
+      display:flex;
+      gap: 1rem;
+      align-items:flex-start;
+    }
+    .sdg-icon{
+      width: 72px;     /* desktop */
+      max-width: 72px;
+      height: auto;
+      flex: 0 0 auto;
+      display:block;
+    }
+    @media (max-width: 600px){
+      .sdg-icon{
+        width: 48px;   /* mobil */
+        max-width: 48px;
+      }
+    }
   </style>
+
   <!-- Cookiebot (cookies/GDPR) -->
   <script id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
@@ -201,14 +228,12 @@
                 <img
                   src="icons/goal3.png"
                   alt="FNs bærekraftsmål 3: God helse og livskvalitet"
-                     class="myss-hero-photo"
-            loading="lazy"
+                  class="sdg-icon"
+                  loading="lazy"
                 >
                 <div class="sdg-text">
                   <strong>Mål 3: God helse og livskvalitet</strong><br>
                   Sikre god helse og fremme livskvalitet for alle, uansett alder.
-                     class="myss-hero-photo"
-            loading="lazy"
                 </div>
               </div>
 
@@ -217,6 +242,7 @@
                   src="icons/goal10.png"
                   alt="FNs bærekraftsmål 10: Mindre ulikhet"
                   class="sdg-icon"
+                  loading="lazy"
                 >
                 <div class="sdg-text">
                   <strong>Mål 10: Mindre ulikhet</strong><br>
@@ -279,7 +305,6 @@
             <a class="social-link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener" aria-label="Instagram">
               <img src="/icons/instagram.png" alt="" aria-hidden="true">
             </a>
-        
           </div>
         </div>
 
@@ -312,10 +337,10 @@
     });
   </script>
   <script src="/components/footer-links.js?v=114" defer></script>
-<style>
-  .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
-  .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }
-  .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
-</style>
+  <style>
+    .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
+    .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }
+    .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
+  </style>
 </body>
 </html>
