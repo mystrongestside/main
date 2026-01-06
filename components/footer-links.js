@@ -46,7 +46,7 @@
 
     mount("[data-footer-links-brand]", "My Strongest Side", [
       { label: "Kontakt", href: "/kontakt.html" },
-      { label: "Teamet", href: "/hvem-moter-du.html" }             // hvis det er riktig url hos deg
+      { label: "Teamet", href: "/Individuelloppfølging.html" }             // hvis det er riktig url hos deg
     ]);
   };
 
