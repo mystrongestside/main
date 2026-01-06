@@ -7,266 +7,255 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-LK0WY59R15');
   </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>My Strongest Side®</title>
   <meta name="description" content="My Strongest Side® jobber for at flere skal kunne trene i ordinære treningsmiljøer – med trygghet, tilpasning og reell inkludering." />
 
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=112" />
+  <!-- Root-relative paths = fungerer på alle undersider -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles.css?v=112" />
 
   <script>document.documentElement.classList.add('js');</script>
 
   <!-- Side-spesifikk styling (samme stil som Tett oppfølging) -->
   <style>
-   /* =========================
-   HERO video + tekst
-   ========================= */
+    /* =========================
+       HERO video + tekst
+       ========================= */
 
-.myss-hero-media{
-  width:100%;
-  height:auto;
-  border-radius:24px;
-  aspect-ratio: 16 / 9;
-  object-fit:cover;
-  display:block;
-  background: rgba(16,82,119,.06);
-  border: 1px solid rgba(16,82,119,.12);
-}
-@media (max-width: 900px){
-  .myss-hero-media{ aspect-ratio: 4 / 3; }
-}
+    .myss-hero-media{
+      width:100%;
+      height:auto;
+      border-radius:24px;
+      aspect-ratio: 16 / 9;
+      object-fit:cover;
+      display:block;
+      background: rgba(16,82,119,.06);
+      border: 1px solid rgba(16,82,119,.12);
+    }
+    @media (max-width: 900px){
+      .myss-hero-media{ aspect-ratio: 4 / 3; }
+    }
 
-.myss-hero-text{
-  margin-top: 1.25rem;
-  max-width: 900px;
-}
+    .myss-hero-text{
+      margin-top: 1.25rem;
+      max-width: 900px;
+    }
 
-/* Fallback-bilde */
-.myss-hero-photo{
-  width:100%;
-  height:auto;
-  border-radius:24px;
-  aspect-ratio: 16 / 9;
-  object-fit:cover;
-  display:block;
-  background: rgba(16,82,119,.06);
-  border: 1px solid rgba(16,82,119,.12);
-}
-@media (max-width: 900px){
-  .myss-hero-photo{ aspect-ratio: 4 / 3; }
-}
-.myss-hero-photo--fallback{ display:none; }
+    /* Fallback-bilde */
+    .myss-hero-photo{
+      width:100%;
+      height:auto;
+      border-radius:24px;
+      aspect-ratio: 16 / 9;
+      object-fit:cover;
+      display:block;
+      background: rgba(16,82,119,.06);
+      border: 1px solid rgba(16,82,119,.12);
+    }
+    @media (max-width: 900px){
+      .myss-hero-photo{ aspect-ratio: 4 / 3; }
+    }
+    .myss-hero-photo--fallback{ display:none; }
 
-@media (prefers-reduced-motion: reduce){
-  .myss-hero-media{ display:none; }
-  .myss-hero-photo--fallback{ display:block; }
-}
+    @media (prefers-reduced-motion: reduce){
+      .myss-hero-media{ display:none; }
+      .myss-hero-photo--fallback{ display:block; }
+    }
 
-/* Sørg for at header/meny alltid ligger over */
-header[data-component="site-header"]{
-  position: relative;
-  z-index: 50;
-}
+    /* Sørg for at header/meny alltid ligger over */
+    header[data-component="site-header"]{
+      position: relative;
+      z-index: 50;
+    }
 
-/* =========================
-   FADE-IN (scroll-basert)
-   ========================= */
+    /* =========================
+       FADE-IN (scroll-basert)
+       ========================= */
 
-.js .reveal{
-  opacity:0;
-  transform:translateY(10px);
-  transition:opacity .6s ease, transform .6s ease;
-  will-change:opacity, transform;
-}
-.js .reveal.is-visible{
-  opacity:1;
-  transform:none;
-}
-.js .reveal.d1{ transition-delay:.05s; }
-.js .reveal.d2{ transition-delay:.12s; }
-.js .reveal.d3{ transition-delay:.18s; }
-.js .reveal.d4{ transition-delay:.24s; }
+    .js .reveal{
+      opacity:0;
+      transform:translateY(10px);
+      transition:opacity .6s ease, transform .6s ease;
+      will-change:opacity, transform;
+    }
+    .js .reveal.is-visible{
+      opacity:1;
+      transform:none;
+    }
+    .js .reveal.d1{ transition-delay:.05s; }
+    .js .reveal.d2{ transition-delay:.12s; }
+    .js .reveal.d3{ transition-delay:.18s; }
+    .js .reveal.d4{ transition-delay:.24s; }
 
-/* =========================
-   TJENESTER (desktop fix + orange kicker)
-   ========================= */
+    /* =========================
+       TJENESTER (grid)
+       ========================= */
 
-.myss-services{
-  margin-top: 1.25rem;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  max-width: 980px;
-}
+    .myss-services{
+      margin-top: 1.25rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      max-width: 980px;
+    }
 
-@media (max-width: 900px){
-  .myss-services{
-    grid-template-columns: 1fr;
-    max-width: none;
-  }
-}
+    @media (max-width: 900px){
+      .myss-services{
+        grid-template-columns: 1fr;
+        max-width: none;
+      }
+    }
 
-.myss-service-card{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
+    .myss-service-card{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
 
-  border-radius: 20px;
-  padding: 1.05rem;
+      border-radius: 20px;
+      padding: 1.05rem;
 
-  background: rgba(16,82,119,.06);
-  border: 1px solid rgba(16,82,119,.16);
+      background: rgba(16,82,119,.06);
+      border: 1px solid rgba(16,82,119,.16);
 
-  transition: transform .08s ease, filter .2s ease, background .2s ease;
-}
+      transition: transform .08s ease, filter .2s ease, background .2s ease;
+    }
 
-.myss-service-card:hover{
-  filter: brightness(1.02);
-  transform: translateY(-1px);
-}
+    .myss-service-card:hover{
+      filter: brightness(1.02);
+      transform: translateY(-1px);
+    }
 
-.myss-service-card:active{
-  transform: translateY(0);
-}
+    .myss-service-card:active{
+      transform: translateY(0);
+    }
 
-.myss-service-card__top{ margin-bottom: .4rem; }
+    .myss-service-card__top{ margin-bottom: .4rem; }
 
-.myss-service-card__kicker{
-  display: inline-block;
-  font-weight: 800;
-  font-size: .78rem;
-  letter-spacing: .02em;
-  text-transform: uppercase;
-  color: #f77c37;   /* MySS-orange */
-  opacity: 1;
-}
+    .myss-service-card__title{
+      margin: .25rem 0 .35rem;
+      font-size: 1.15rem;
+      line-height: 1.2;
+    }
 
-.myss-service-card__title{
-  margin: .25rem 0 .35rem;
-  font-size: 1.15rem;
-  line-height: 1.2;
-}
+    .myss-service-card__text{
+      margin: 0 0 .65rem;
+      opacity: .92;
+    }
 
-.myss-service-card__text{
-  margin: 0 0 .65rem;
-  opacity: .92;
-}
-
-.myss-service-card__cta{
-  margin-top: auto;
-  font-weight: 800;
-  color: var(--myss-blue);
-}
-
-.myss-service-card:focus-visible{
-  outline: 3px solid rgba(247,124,55,.45);
-  outline-offset: 3px;
-}
- /* === NYHETSKORT (50/50) – samme stil som tjenestekort === */
-
-.myss-news-card{
-  display:flex;
-  align-items:stretch;
-  text-decoration:none;
-  color:inherit;
-
-  border-radius:20px;
-  background: rgba(16,82,119,.06);
-  border: 1px solid rgba(16,82,119,.16);
-  overflow:hidden;
-
-  transition: transform .08s ease, filter .2s ease;
-}
-
-.myss-news-card:hover{
-  transform: translateY(-1px);
-  filter: brightness(1.02);
-}
-
-/* Venstre: media 50% */
-.myss-news-card__media{
-  width:50%;
-  min-height: 220px;                 /* gjør kortet mer “kompakt og pent” */
-  background: rgba(16,82,119,.06);
-  border-right: 1px solid rgba(16,82,119,.16);
-  overflow:hidden;
-}
-
-.myss-news-card__img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit: cover;                  /* ser penest ut i 50/50 */
-  object-position: 50% 25%;           /* mindre sjanse for hodekutt */
-}
-
-/* Høyre: tekst 50% */
-.myss-news-card__body{
-  width:50%;
-  padding: 1rem 1.1rem;
-  display:flex;
-  flex-direction:column;
-  gap:.4rem;
-}
-
-.myss-news-card__kicker{
-  display:inline-block;
-  font-size:.72rem;
-  font-weight:900;
-  text-transform:uppercase;
-  letter-spacing:.04em;
-  color:#f77c37;
-}
-
-.myss-news-card__title{
-  margin:0;
-  font-size:1.05rem;
-  line-height:1.25;
-}
-
-.myss-news-card__teaser{
-  margin:0;
-  opacity:.9;
-
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-}
-
-.myss-news-card__cta{
-  margin-top:auto;
-  font-weight:900;
-  color: var(--myss-blue);
-}
-
-/* Mobil: stack */
-@media (max-width: 900px){
-  .myss-news-card{ flex-direction:column; }
-  .myss-news-card__media,
-  .myss-news-card__body{ width:100%; }
-  .myss-news-card__media{
-    min-height: 180px;
-    border-right: none;
-    border-bottom: 1px solid rgba(16,82,119,.16);
-  }
-}
     .myss-service-card__cta{
-  margin-bottom: 1.5rem;
-}
+      margin-top: auto;
+      font-weight: 800;
+      color: var(--myss-blue);
+      margin-bottom: 1.5rem; /* mer luft */
+    }
 
-.myss-block-title{
-  margin-top: 2.5rem;
-}
+    .myss-service-card:focus-visible{
+      outline: 3px solid rgba(247,124,55,.45);
+      outline-offset: 3px;
+    }
 
+    .myss-block-title{
+      margin-top: 2.5rem;
+    }
+
+    /* =========================
+       NYHETSKORT (50/50)
+       ========================= */
+
+    .myss-news-card{
+      display:flex;
+      align-items:stretch;
+      text-decoration:none;
+      color:inherit;
+
+      border-radius:20px;
+      background: rgba(16,82,119,.06);
+      border: 1px solid rgba(16,82,119,.16);
+      overflow:hidden;
+
+      transition: transform .08s ease, filter .2s ease;
+    }
+
+    .myss-news-card:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+    }
+
+    .myss-news-card__media{
+      width:50%;
+      min-height: 220px;
+      background: rgba(16,82,119,.06);
+      border-right: 1px solid rgba(16,82,119,.16);
+      overflow:hidden;
+    }
+
+    .myss-news-card__img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit: cover;
+      object-position: 50% 25%;
+    }
+
+    .myss-news-card__body{
+      width:50%;
+      padding: 1rem 1.1rem;
+      display:flex;
+      flex-direction:column;
+      gap:.4rem;
+    }
+
+    .myss-news-card__kicker{
+      display:inline-block;
+      font-size:.72rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      color:#f77c37;
+    }
+
+    .myss-news-card__title{
+      margin:0;
+      font-size:1.05rem;
+      line-height:1.25;
+    }
+
+    .myss-news-card__teaser{
+      margin:0;
+      opacity:.9;
+
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+
+    .myss-news-card__cta{
+      margin-top:auto;
+      font-weight:900;
+      color: var(--myss-blue);
+    }
+
+    @media (max-width: 900px){
+      .myss-news-card{ flex-direction:column; }
+      .myss-news-card__media,
+      .myss-news-card__body{ width:100%; }
+      .myss-news-card__media{
+        min-height: 180px;
+        border-right: none;
+        border-bottom: 1px solid rgba(16,82,119,.16);
+      }
+    }
   </style>
+
   <!-- Cookiebot (cookies/GDPR) -->
   <script id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
@@ -280,110 +269,109 @@ header[data-component="site-header"]{
   <!-- MENY / HEADER (lastes av menu.js) -->
   <header data-component="site-header"></header>
 
- <main>
+  <main>
 
-  <!-- HERO: Video øverst, tekst under -->
-  <section class="section section--light">
-    <div class="container">
+    <!-- HERO: Video øverst, tekst under -->
+    <section class="section section--light">
+      <div class="container">
 
-      <!-- Video først -->
-      <div class="reveal d1">
-        <video
-          class="myss-hero-media"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="metadata"
-          poster="bilder/hero-poster.jpg"
-        >
-          <source src="video/hero-desktop.mp4" type="video/mp4" media="(max-width: 900px)">
-          <source src="video/hero-desktop.mp4" type="video/mp4" media="(min-width: 901px)">
-        </video>
+        <div class="reveal d1">
+          <video
+            class="myss-hero-media"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/bilder/hero-poster.jpg"
+          >
+            <!-- NB: Hvis du har egen mobilfil, bytt src til hero-mobile.mp4 -->
+            <source src="/video/hero-desktop.mp4" type="video/mp4">
+          </video>
 
-        <img
-          src="bilder/hero-poster.jpg"
-          alt="My Strongest Side – inkluderende trening"
-          class="myss-hero-photo myss-hero-photo--fallback"
-          loading="lazy"
-        />
+          <img
+            src="/bilder/hero-poster.jpg"
+            alt="My Strongest Side – inkluderende trening"
+            class="myss-hero-photo myss-hero-photo--fallback"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="myss-hero-text">
+          <p class="eyebrow reveal d2">My Strongest Side®</p>
+          <h1 class="reveal d3">Gjør trening tilgjengelig for flest mulig</h1>
+          <p class="reveal d4">
+            My Strongest Side® jobber for at flere skal kunne trene i ordinære treningsmiljøer – med
+            <strong>trygghet</strong>, <strong>tilpasning</strong> og <strong>reell inkludering</strong>.
+          </p>
+
+          <!-- TJENESTER -->
+          <div class="myss-block-title">
+            <p class="eyebrow reveal d2">Våre tjenester</p>
+          </div>
+
+          <div class="myss-services reveal d4" aria-label="Tjenester">
+            <a class="myss-service-card" href="/gruppetrening.html">
+              <img src="/bilde01.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
+              <div class="myss-service-card__top">
+                <h3 class="myss-service-card__title">Treningstilbud</h3>
+              </div>
+              <p class="myss-service-card__text">Gruppetrener og opplegg med tydelige rammer og tilpasning.</p>
+              <span class="myss-service-card__cta">Les mer →</span>
+            </a>
+
+            <a class="myss-service-card" href="/kurs-og-seminar.html">
+              <img src="/kurs.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
+              <div class="myss-service-card__top">
+                <h3 class="myss-service-card__title">Kurs / seminar</h3>
+              </div>
+              <p class="myss-service-card__text">Faglig innhold og formidling for senter, fagpersoner og partnere.</p>
+              <span class="myss-service-card__cta">Les mer →</span>
+            </a>
+
+            <a class="myss-service-card" href="/treningssystem.html">
+              <img src="/nfc1.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
+              <div class="myss-service-card__top">
+                <h3 class="myss-service-card__title">Treningssystem</h3>
+              </div>
+              <p class="myss-service-card__text">QR/NFC-veiledning på apparater – for trygg og selvstendig trening.</p>
+              <span class="myss-service-card__cta">Les mer →</span>
+            </a>
+          </div>
+
+          <!-- AKTUELT -->
+          <div class="myss-block-title">
+            <p class="eyebrow reveal d2">Aktuelt</p>
+          </div>
+
+          <!-- Bruker NYHETSKORT (50/50) her -->
+          <a class="myss-news-card reveal d4" href="/aktuelt/cp-bladet-myss.html" aria-label="Les artikkel: Treningstilbud for personer med CP videreføres i Vestland">
+            <div class="myss-news-card__media">
+              <img src="/Gruppebilde1.png" alt="" aria-hidden="true" class="myss-news-card__img">
+            </div>
+
+            <div class="myss-news-card__body">
+              <span class="myss-news-card__kicker">Nyhet</span>
+              <h3 class="myss-news-card__title">Treningstilbud for personer med CP videreføres i Vestland</h3>
+              <p class="myss-news-card__teaser">
+                CP-foreningen Vestland viderefører avtalen med My Strongest Side®. Denne høsten deltar 18 personer fordelt på tre treningsgrupper, støttet av frivillige og fagpersoner.
+              </p>
+              <span class="myss-news-card__cta">Les mer →</span>
+            </div>
+          </a>
+
+        </div>
       </div>
+    </section>
 
-      <!-- Tekst under video -->
-      <div class="myss-hero-text">
-        <p class="eyebrow reveal d2">My Strongest Side®</p>
-        <h1 class="reveal d3">Gjør trening tilgjengelig for flest mulig</h1>
-        <p class="reveal d4">
-          My Strongest Side® jobber for at flere skal kunne trene i ordinære treningsmiljøer – med
-          <strong>trygghet</strong>, <strong>tilpasning</strong> og <strong>reell inkludering</strong>.
-        </p>
+  </main>
 
-        <!-- TJENESTER -->
-        <div class="myss-block-title">
-          <p class="eyebrow reveal d2">Våre tjenester</p>
-      
-        </div>
-
-        <div class="myss-services reveal d4" aria-label="Tjenester">
-          <a class="myss-service-card" href="gruppetrening.html">
-            <img src="bilde01.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
-            <div class="myss-service-card__top">
-               
-              <h3 class="myss-service-card__title">Treningstilbud</h3>
-            </div>
-            <p class="myss-service-card__text">Gruppetrener og opplegg med tydelige rammer og tilpasning.</p>
-            <span class="myss-service-card__cta">Les mer →</span>
-          </a>
-
-          <a class="myss-service-card" href="kurs og seminar.html">
-            <img src="kurs.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
-            <div class="myss-service-card__top">
-         
-              <h3 class="myss-service-card__title">Kurs / seminar</h3>
-            </div>
-            <p class="myss-service-card__text">Faglig innhold og formidling for senter, fagpersoner og partnere.</p>
-            <span class="myss-service-card__cta">Les mer →</span>
-          </a>
-
-          <a class="myss-service-card" href="treningssystem.html">
-            <img src="nfc1.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
-            <div class="myss-service-card__top">
-       
-              <h3 class="myss-service-card__title">Treningssystem</h3>
-            </div>
-            <p class="myss-service-card__text">QR/NFC-veiledning på apparater – for trygg og selvstendig trening.</p>
-            <span class="myss-service-card__cta">Les mer →</span>
-          </a>
-        </div>
-
-        <!-- AKTUELT -->
-        <div class="myss-block-title">
-          <p class="eyebrow reveal d2">Aktuelt</p>
-      
-        </div>
-
-        <div class="myss-services reveal d4" aria-label="Aktuelt">
-          <a class="myss-service-card" href="aktuelt/cp-bladet-myss.html">
-            <img src="Gruppebilde1.png" alt="" aria-hidden="true" class="myss-service-card__img">
-            <div class="myss-service-card__top">
-               
-              <h3 class="myss-service-card__title">Treningstilbud for personer med CP videreføres i Vestland</h3>
-            </div>
-            <p class="myss-service-card__text">CP-foreningen Vestland viderefører avtalen med My Strongest Side®. Denne høsten deltar 18 personer fordelt på tre treningsgrupper, støttet av frivillige og fagpersoner.</p>
-            <span class="myss-service-card__cta">Les mer →</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-  <!-- FOOTER (samme struktur som du bruker) -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container site-footer__inner">
 
       <div class="site-footer__brand reveal d2">
-        <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
+        <img src="/bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
         <p class="site-footer__tagline reveal d3">Gjør trening tilgjengelig for flest mulig</p>
       </div>
 
@@ -391,17 +379,17 @@ header[data-component="site-header"]{
         <div>
           <h3 class="site-footer__heading reveal d2">Våre tjenester</h3>
           <ul class="site-footer__list">
-            <li class="reveal d2"><a href="treningstilbud/voksne-lett.html">Treningstilbud</a></li>
-            <li class="reveal d3"><a href="treningstilbud/tett-oppfolging.html">Kurs/seminar</a></li>
-            <li class="reveal d4"><a href="frivillig.html">Treningssystem</a></li>
+            <li class="reveal d2"><a href="/gruppetrening.html">Treningstilbud</a></li>
+            <li class="reveal d3"><a href="/kurs-og-seminar.html">Kurs / seminar</a></li>
+            <li class="reveal d4"><a href="/treningssystem.html">Treningssystem</a></li>
           </ul>
         </div>
 
         <div>
           <h3 class="site-footer__heading reveal d2">Informasjon</h3>
           <ul class="site-footer__list">
-            <li class="reveal d2"><a href="presse.html">Presse og media</a></li>
-            <li class="reveal d3"><a href="samarbeid.html">Samarbeid</a></li>
+            <li class="reveal d2"><a href="/presse.html">Presse og media</a></li>
+            <li class="reveal d3"><a href="/samarbeid.html">Samarbeid</a></li>
             <li class="reveal d2"><a href="/personvern.html">Personvern</a></li>
           </ul>
         </div>
@@ -409,7 +397,7 @@ header[data-component="site-header"]{
         <div>
           <h3 class="site-footer__heading reveal d2">My Strongest Side</h3>
           <ul class="site-footer__list">
-            <li class="reveal d2"><a href="kontakt.html">Kontakt</a></li>
+            <li class="reveal d2"><a href="/kontakt.html">Kontakt</a></li>
           </ul>
         </div>
 
@@ -431,10 +419,10 @@ header[data-component="site-header"]{
           <span class="site-footer__social-label">Følg oss i sosiale medier</span>
           <div class="site-footer__social-list">
             <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
-              <img src="icons/facebook.png" alt="" aria-hidden="true">
+              <img src="/icons/facebook.png" alt="" aria-hidden="true">
             </a>
             <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
-              <img src="icons/instagram.png" alt="" aria-hidden="true">
+              <img src="/icons/instagram.png" alt="" aria-hidden="true">
             </a>
           </div>
         </div>
@@ -444,7 +432,7 @@ header[data-component="site-header"]{
   </footer>
 
   <!-- External JS (ONE source) -->
-  <script src="menu.js" defer></script>
+  <script src="/menu.js" defer></script>
 
   <!-- Fade-in observer -->
   <script>
