@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Treningssystemet | My Strongest Side®</title>
-  <meta name="description" content="MySS treningssystem gir enkel, trygg apparatveiledning via QR/NFC – laget for tydelighet, trygghet og gjennomføring." />
+  <meta name="description" content="MySS treningssystem gir enkel, trygg apparatveiledning via QR/NFC – og viser at her er du velkommen, trygg og inkludert." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="styles.css?v=112" />
@@ -125,6 +125,27 @@
       color:#4a4a4a;
     }
 
+    /* Enkel “merke”-boks (uten å lage ny global stil) */
+    .myss-mark{
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      padding:.5rem .85rem;
+      border-radius:999px;
+      border:1px solid rgba(16,82,119,.20);
+      background:rgba(16,82,119,.06);
+      font-weight:700;
+      color:var(--myss-blue);
+      margin-bottom:.75rem;
+    }
+    .myss-mark__dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--myss-orange, #f77c37);
+      box-shadow:0 0 0 4px rgba(247,124,55,.18);
+    }
+
     .js .reveal{
       opacity:0;
       transform:translateY(10px);
@@ -148,21 +169,22 @@
 
   <main>
 
+    <!-- HERO -->
     <section class="section section--light">
       <div class="container myss-hero-grid">
 
         <div>
           <p class="eyebrow reveal d1">Treningssystemet</p>
-          <h1 class="reveal d2">Treningssystemet som gjør apparattrening lettere å bruke</h1>
+          <h1 class="reveal d2">Når du ser My Strongest Side®, skal du vite at du hører til</h1>
           <p class="reveal d3">
-            Skann en kode på apparatet og få enkel veiledning. Bygget for tydelighet, trygghet og
-            gjennomføring – spesielt når du trenger tilpasninger.
+            Merket betyr én ting: <strong>trygg trening, tydelig veiledning og et miljø som tar hensyn.</strong>
+            Her kan du trene i ditt tempo – med støtte som gjør det lettere å gjennomføre.
           </p>
 
           <div class="myss-infobox reveal d3">
             <p class="myss-muted">
-              MySS treningssystem er en digital veiledning koblet til treningsapparater via QR/NFC.
-              Når du skanner en kode, får du enkel og tydelig støtte til å bruke apparatet trygt.
+              <strong>MySS treningssystem</strong> er en digital veiledning koblet til treningsapparater via QR/NFC.
+              Skann en kode og få enkel, konkret støtte til å bruke apparatet trygt – med forslag til vanlige tilpasninger når det trengs.
             </p>
           </div>
 
@@ -184,12 +206,51 @@
       </div>
     </section>
 
+    <!-- MERKET / TILLIT -->
+    <section class="section section--light" id="merket">
+      <div class="container">
+        <p class="eyebrow reveal d1">Hva betyr merket?</p>
+        <h2 class="reveal d2">Et signal om trygghet, tilhørighet og tydelighet</h2>
+
+        <div class="myss-card-grid">
+          <article class="myss-card reveal d2">
+            <div class="myss-mark"><span class="myss-mark__dot" aria-hidden="true"></span>Trygghet</div>
+            <p>
+              Du skal slippe å “gjette” på innstillinger og utførelse. Vi gjør det lettere å starte riktig og trene med ro.
+            </p>
+          </article>
+
+          <article class="myss-card reveal d3">
+            <div class="myss-mark"><span class="myss-mark__dot" aria-hidden="true"></span>Tilhørighet</div>
+            <p>
+              Her er det plass til flere måter å trene på. Du blir møtt med respekt – og du trenger ikke forklare deg for å være med.
+            </p>
+          </article>
+
+          <article class="myss-card reveal d4">
+            <div class="myss-mark"><span class="myss-mark__dot" aria-hidden="true"></span>Tydelighet</div>
+            <p>
+              Kort, konkret veiledning som er lett å følge i øyeblikket – slik at trening blir mer gjennomførbart i praksis.
+            </p>
+          </article>
+        </div>
+
+        <div class="myss-infobox reveal d3">
+          <p class="myss-muted">
+            Vi bygger løsninger for vanlige treningsmiljøer – der tilgjengelighet handler like mye om <strong>kunnskap, forutsigbarhet og små grep</strong>,
+            som om fysiske tilpasninger.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HVA ER DET -->
     <section class="section section--light" id="om-treningssystemet">
       <div class="container">
         <p class="eyebrow reveal d1">Hva er det?</p>
         <h2 class="reveal d2">En trygg, digital veileder koblet til apparater</h2>
         <p class="reveal d3">
-          <strong>MySS treningssystem</strong> er en digital veiledning som kobles til utvalgte treningsapparater via QR/NFC.
+          <strong>MySS treningssystem</strong> kobles til utvalgte treningsapparater via QR/NFC.
           Målet er at flere kan bruke apparater riktig og trygt – med forslag til enkle tilpasninger der det trengs.
         </p>
         <p class="reveal d3">
@@ -199,6 +260,7 @@
       </div>
     </section>
 
+    <!-- STEG -->
     <section class="section section--light" id="slik-fungerer-det">
       <div class="container">
         <p class="eyebrow reveal d1">Slik fungerer det</p>
@@ -224,6 +286,7 @@
       </div>
     </section>
 
+    <!-- HVA FÅR DU -->
     <section class="section section--light">
       <div class="container">
         <p class="eyebrow reveal d1">Når du skanner</p>
@@ -236,7 +299,7 @@
           </div>
           <div class="myss-card reveal d3">
             <h3>Slik gjør du det trygt</h3>
-            <p>Position, bevegelse og tempo – forklart på et lett språk.</p>
+            <p>Posisjon, bevegelse og tempo – forklart på et lett språk.</p>
           </div>
           <div class="myss-card reveal d4">
             <h3>Vanlige justeringer</h3>
@@ -250,13 +313,14 @@
 
         <div class="myss-infobox reveal d3">
           <p class="myss-muted">
-            Innholdet er laget for å være lett å følge, og skal støtte trygg gjennomføring –
+            Innholdet er laget for å støtte trygg gjennomføring i treningssituasjonen –
             ikke erstatte faglig vurdering eller individuell oppfølging.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- GALLERI -->
     <section class="section section--light">
       <div class="container">
         <p class="eyebrow reveal d1">Slik ser det ut</p>
@@ -282,6 +346,7 @@
       </div>
     </section>
 
+    <!-- MÅLGRUPPER -->
     <section class="section section--light" id="målgrupper">
       <div class="container">
         <p class="eyebrow reveal d1">Hvem er det for?</p>
@@ -302,10 +367,11 @@
       </div>
     </section>
 
+    <!-- KVALITET -->
     <section class="section section--light">
       <div class="container">
         <p class="eyebrow reveal d1">Kvalitet og ansvar</p>
-        <h2 class="reveal d2">Faglig forankring uten unødvendige detaljer</h2>
+        <h2 class="reveal d2">Faglig forankring – lett å bruke i praksis</h2>
         <div class="myss-card-grid">
           <div class="myss-card reveal d2">
             <h3>Faglig forankret</h3>
@@ -317,12 +383,13 @@
           </div>
           <div class="myss-card reveal d4">
             <h3>Universell utforming</h3>
-            <p>Enkel språkføring og tilgjengelighet ligger til grunn for alt innhold.</p>
+            <p>Enkel språkføring og tilgjengelighet ligger til grunn for innholdet.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- PILOT -->
     <section class="section section--light">
       <div class="container">
         <p class="eyebrow reveal d1">Pilotstatus</p>
@@ -334,6 +401,7 @@
       </div>
     </section>
 
+    <!-- CTA -->
     <section class="section section--light">
       <div class="container">
         <p class="eyebrow reveal d1">Neste steg</p>
