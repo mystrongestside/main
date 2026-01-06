@@ -2857,12 +2857,35 @@ html.nav-open .site-header {
 	}
 
 	/* Tving orgnr-linja synlig */
-	.site-footer__meta {
-		display: block !important;
-		margin: 0 !important;
-		opacity: .9 !important;
-		visibility: visible !important;
+.site-footer__meta {
+	display: block !important;
+	margin: 0 !important;
+	opacity: .9 !important;
+	visibility: visible !important;
+}
+
+/* ===================================================== FOOTER – MOBILE CENTER ALIGN ===================================================== */
+@media (max-width: 700px) {
+	.site-footer__brand {
+		align-items: center !important;
+		text-align: center !important;
 	}
+
+	.site-footer__top,
+	.site-footer__top > * {
+		text-align: center !important;
+		justify-items: center !important;
+	}
+
+	.site-footer__bottom {
+		align-items: center !important;
+		text-align: center !important;
+	}
+
+	.site-footer__social {
+		justify-content: center !important;
+	}
+}
 
 	/* Ikoner: normal stÃ¸rrelse pÃ¥ desktop */
 	.site-footer .social-link {
