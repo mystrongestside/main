@@ -2120,111 +2120,100 @@ footer .footer-col h3{
   .site-footer__social-bottom{ justify-content: flex-start; }
 }
   /* =========================
-   MYSS Footer – global patch
-   (legg HELT NEDERST i styles.css)
+   MYSS FOOTER – GLOBAL (alle sider)
    ========================= */
 
 .site-footer{
-  background:#105277 !important;
-  color:#fff !important;
+  background:#105277;
+  color:#fff;
 }
 
 /* Brand */
-.site-footer__brand{
-  margin-bottom: 1.25rem;
-}
-
 .site-footer__logo{
-  height:48px !important;
-  width:auto !important;
-  display:block !important;
+  height:48px;
+  width:auto;
+  display:block;
 }
 
 .site-footer__tagline{
-  margin: .6rem 0 0;
-  opacity: .9;
+  margin:.6rem 0 0;
+  opacity:.9;
 }
 
-/* TOP = kolonner (HTML bruker site-footer__top) */
+/* TOP = kolonnene */
 .site-footer__top{
-  display:grid !important;
-  grid-template-columns: repeat(4, minmax(0,1fr)) !important; /* tjenester, info, myss, kontakt */
-  gap: 2.5rem !important;
-  align-items: start !important;
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr)); /* tjenester, info, myss, kontakt */
+  gap:2.5rem;
+  align-items:start;
 }
 
-/* Mobil */
-@media (max-width:900px){
-  .site-footer__top{
-    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
-    gap: 1.75rem !important;
-  }
-}
-@media (max-width:520px){
-  .site-footer__top{
-    grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
-  }
-}
-
-/* Lister: ingen bullets + ryddig spacing */
+/* Lister */
 .site-footer__list{
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  list-style:none;
+  padding:0;
+  margin:0;
 }
 .site-footer__list li{
-  margin: .15rem 0 !important;
+  margin:.15rem 0;
 }
-.site-footer__link,
 .site-footer__list a{
-  color: rgba(255,255,255,.92) !important;
-  text-decoration: none;
+  color: rgba(255,255,255,.92);
+  text-decoration:none;
 }
 .site-footer__list a:hover{
-  color: #fff !important;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  color:#fff;
+  text-decoration:underline;
+  text-underline-offset:4px;
 }
 
-/* BOTTOM = alltid synlig + layout */
+/* BOTTOM */
 .site-footer__bottom{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:space-between !important;
-  gap: 1rem !important;
-  margin-top: 1.75rem !important;
-  padding-top: 1.25rem !important;
-  border-top: 1px solid rgba(255,255,255,.18) !important;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  margin-top:1.75rem;
+  padding-top:1.25rem;
+  border-top:1px solid rgba(255,255,255,.18);
 }
 
-/* Mobil: stack */
-@media (max-width:900px){
-  .site-footer__bottom{
-    flex-direction: column !important;
-    align-items: flex-start !important;
-  }
-}
-
-/* Sosiale ikoner */
+/* Sosiale */
 .site-footer__social-list{
-  display:flex !important;
-  gap:.75rem !important;
-  align-items:center !important;
+  display:flex;
+  gap:.75rem;
+  align-items:center;
 }
 .social-link{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
+  width:40px;
+  height:40px;
+  border-radius:12px;
   background: rgba(255,255,255,.12);
 }
 .social-link img{
-  width: 22px;
-  height: 22px;
+  width:22px;
+  height:22px;
   display:block;
 }
 
+/* Mobil */
+@media (max-width:900px){
+  .site-footer__top{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:1.75rem;
+  }
+  .site-footer__bottom{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+@media (max-width:520px){
+  .site-footer__top{
+    grid-template-columns:1fr;
+    gap:1.25rem;
+  }
+}
 
