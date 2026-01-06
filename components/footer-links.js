@@ -13,25 +13,24 @@
     services: `
       <h3 class="footer-title">Våre tjenester</h3>
       <ul class="footer-list">
-        <li><a href="${prefix}gruppetrening.html">Gruppetrening på apparat</a></li>
-        <li><a href="${prefix}kurs og seminar.html">Kurs og seminar</a></li>
-        <li><a href="${prefix}treningssystem.html">QR/NFC treningssystem</a></li>
+        <li><a href="${prefix}treningstilbud/voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
+        <li><a href="${prefix}gruppetrening.html">Gruppetrening</a></li>
+        <li><a href="${prefix}frivillig.html">Frivilligprogram</a></li>
       </ul>
     `,
     info: `
       <h3 class="footer-title">Informasjon</h3>
       <ul class="footer-list">
-        <li><a href="${prefix}om-oss.html">Om oss</a></li>
-        <li><a href="${prefix}Individuelloppfølging.html">Teamet</a></li>
         <li><a href="${prefix}presse.html">Presse og media</a></li>
         <li><a href="${prefix}samarbeid.html">Samarbeid</a></li>
+        <li><a href="${prefix}personvern.html">Personvern</a></li>
       </ul>
     `,
     brand: `
       <h3 class="footer-title">My Strongest Side</h3>
       <ul class="footer-list">
-        <li><a href="${prefix}index.html">Forside</a></li>
         <li><a href="${prefix}kontakt.html">Kontakt</a></li>
+        <li><a href="${prefix}Individuelloppfølging.html">Teamet</a></li>
       </ul>
     `,
     legacy: `
@@ -39,27 +38,26 @@
         <div class="footer-col">
           <h3 class="footer-title">Våre tjenester</h3>
           <ul class="footer-list">
-            <li><a href="${prefix}gruppetrening.html">Gruppetrening på apparat</a></li>
-            <li><a href="${prefix}kurs og seminar.html">Kurs og seminar</a></li>
-            <li><a href="${prefix}treningssystem.html">QR/NFC treningssystem</a></li>
+            <li><a href="${prefix}treningstilbud/voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
+            <li><a href="${prefix}gruppetrening.html">Gruppetrening</a></li>
+            <li><a href="${prefix}frivillig.html">Frivilligprogram</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h3 class="footer-title">Informasjon</h3>
           <ul class="footer-list">
-            <li><a href="${prefix}om-oss.html">Om oss</a></li>
-            <li><a href="${prefix}Individuelloppfølging.html">Teamet</a></li>
             <li><a href="${prefix}presse.html">Presse og media</a></li>
             <li><a href="${prefix}samarbeid.html">Samarbeid</a></li>
+            <li><a href="${prefix}personvern.html">Personvern</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h3 class="footer-title">My Strongest Side</h3>
           <ul class="footer-list">
-            <li><a href="${prefix}index.html">Forside</a></li>
             <li><a href="${prefix}kontakt.html">Kontakt</a></li>
+            <li><a href="${prefix}Individuelloppfølging.html">Teamet</a></li>
           </ul>
         </div>
       </div>

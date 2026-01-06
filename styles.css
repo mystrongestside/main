@@ -581,7 +581,7 @@ body.nav-open{ overflow:hidden; }
 .site-footer{
   background:var(--myss-blue);
   color:var(--myss-footer);
-  padding:3rem 0 2.5rem;
+  padding:3.5rem 0;
   margin-top:0;
 }
 .site-footer__inner{
@@ -613,16 +613,20 @@ body.nav-open{ overflow:hidden; }
   .site-footer__top{ grid-template-columns:repeat(4,minmax(0,1fr)); }
 }
 .site-footer__heading{
-  font-size:1.1em;
+  font-size:1.4rem;
   font-weight:700;
-  margin-bottom:.75rem;
+  margin-bottom:1.2rem;
   color:var(--myss-footer);
 }
 .site-footer__list{ list-style:none; margin:0; padding:0; }
-.site-footer__list li + li{ margin-top:.5rem; }
+.site-footer__list li + li{ margin-top:.9rem; }
 .site-footer a{ color:rgba(228,232,242,.95); }
 .site-footer a:hover,
 .site-footer a:focus-visible{ text-decoration:underline; }
+.footer-col--contact .site-footer__list li:nth-child(3) a{
+  display:block;
+  margin-top:.35rem;
+}
 
 /* === FIX: footer-lenker (gjenbruker site-nav-klasser, men resettes kun i footer) === */
 footer [data-footer-links] .site-nav__columns{
@@ -665,54 +669,7 @@ footer [data-footer-links] .site-nav__link:hover{ text-decoration:underline; }
 }
 
 .site-footer__bottom{
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-  border-top:1px solid rgba(255,255,255,.2);
-  padding-top:1.5rem;
-  margin-top:.5rem;
-  font-size:.95em;
-}
-@media (min-width:900px){
-  .site-footer__bottom{
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-  }
-}
-.site-footer__meta{ margin:0; }
-
-.site-footer__social{
-  display:flex;
-  flex-direction:column;
-  gap:.6rem;
-  align-items:flex-start;
-}
-.site-footer__social-label{
-  font-size:28px;
-  font-weight:700;
-  letter-spacing:-.01em;
-  color:var(--myss-footer);
-}
-.site-footer__social-list{
-  display:flex;
-  gap:26px;
-  align-items:center;
-  flex-wrap:wrap;
-}
-.social-link{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:74px;
-  height:74px;
-  border-radius:16px;
-}
-.social-link img{
-  width:56px;
-  height:56px;
-  display:block;
-  object-fit:contain;
+  display:none;
 }
 
 /* Fade in */
@@ -1691,6 +1648,9 @@ footer .footer-links-grid{
 footer .footer-title{
   margin: 0 0 1.25rem;
   line-height: 1.2;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--myss-footer);
 }
 
 footer .footer-list{
@@ -1698,7 +1658,7 @@ footer .footer-list{
   padding:0;
   margin:0;
   display:grid;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 @media (max-width: 1100px){
