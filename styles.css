@@ -3135,7 +3135,7 @@ html.nav-open .site-header {
     grid-template-columns: 1fr !important;
   }
 }
-/* Footer: sosiale ikoner – tving størrelse */
+/* === Footer: sosiale ikoner === */
 .site-footer__social-list{
   display:flex;
   gap: 14px;
@@ -3147,15 +3147,15 @@ html.nav-open .site-header {
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width: 44px;
-  height: 44px;
+  width: 36px;   /* juster størrelse her */
+  height: 36px;
 }
 
 .site-footer__social-list .social-link img{
-  width: 44px !important;
-  height: 44px !important;
-  max-width: 44px;
-  max-height: 44px;
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px;
+  max-height: 36px;
   object-fit: contain;
   display:block;
 }
