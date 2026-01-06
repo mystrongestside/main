@@ -2216,4 +2216,44 @@ footer .footer-col h3{
     gap:1.25rem;
   }
 }
+  /* === FOOTER OVERRIDE (matcher HTML: __top + __bottom) === */
+.site-footer{ background:#105277 !important; color:#fff !important; }
+
+.site-footer__top{
+  display:grid !important;
+  grid-template-columns:repeat(4, minmax(0,1fr)) !important;
+  gap:2.5rem !important;
+  align-items:start !important;
+}
+
+.site-footer__list{
+  list-style:none !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+
+.site-footer__bottom{
+  display:flex !important;             /* dette er ofte det som mangler */
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:1rem !important;
+  margin-top:1.75rem !important;
+  padding-top:1.25rem !important;
+  border-top:1px solid rgba(255,255,255,.18) !important;
+}
+
+.site-footer__social-list{
+  display:flex !important;
+  gap:.75rem !important;
+  align-items:center !important;
+}
+
+@media (max-width:900px){
+  .site-footer__top{ grid-template-columns:repeat(2, minmax(0,1fr)) !important; }
+  .site-footer__bottom{ flex-direction:column !important; align-items:flex-start !important; }
+}
+@media (max-width:520px){
+  .site-footer__top{ grid-template-columns:1fr !important; }
+}
+
 
