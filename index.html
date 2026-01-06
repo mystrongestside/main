@@ -75,29 +75,30 @@
     }
 
     /* =========================
-   FADE-IN (trygg: alltid synlig)
-   ========================= */
+       FADE-IN (trygg: alltid synlig)
+       ========================= */
 
-/* Default: alltid synlig */
-.reveal{
-  opacity:1;
-  transform:none;
-}
+    /* Default: alltid synlig */
+    .reveal{
+      opacity:1;
+      transform:none;
+    }
 
-/* Når JS faktisk legger på is-visible: spill animasjon */
-@keyframes myssFadeUp{
-  from{ opacity:0; transform:translateY(10px); }
-  to{ opacity:1; transform:none; }
-}
+    /* Når JS faktisk legger på is-visible: spill animasjon */
+    @keyframes myssFadeUp{
+      from{ opacity:0; transform:translateY(10px); }
+      to{ opacity:1; transform:none; }
+    }
 
-.js .reveal.is-visible{
-  animation: myssFadeUp .6s ease both;
-}
+    .js .reveal.is-visible{
+      animation: myssFadeUp .6s ease both;
+    }
 
-.js .reveal.d1{ animation-delay:.05s; }
-.js .reveal.d2{ animation-delay:.12s; }
-.js .reveal.d3{ animation-delay:.18s; }
-.js .reveal.d4{ animation-delay:.24s; }
+    .js .reveal.d1{ animation-delay:.05s; }
+    .js .reveal.d2{ animation-delay:.12s; }
+    .js .reveal.d3{ animation-delay:.18s; }
+    .js .reveal.d4{ animation-delay:.24s; }
+
     /* =========================
        TJENESTER (grid)
        ========================= */
@@ -259,20 +260,34 @@
         border-bottom: 1px solid rgba(16,82,119,.16);
       }
     }
-    /* === TJENESTEKORT: sørg for stabilt format ved refresh === */
-.myss-service-card__img{
-  width: 100%;
-  height: 170px;          /* fast høyde = ikke “super stort” */
-  display: block;
-  object-fit: cover;       /* crop pent */
-  border-radius: 16px;
-  margin-bottom: .75rem;
-  background: rgba(16,82,119,.06);
-}
 
-@media (max-width: 900px){
-  .myss-service-card__img{ height: 150px; }
-}
+    /* === TJENESTEKORT: sørg for stabilt format ved refresh === */
+    .myss-service-card__img{
+      width: 100%;
+      height: 170px;
+      display: block;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: .75rem;
+      background: rgba(16,82,119,.06);
+    }
+
+    @media (max-width: 900px){
+      .myss-service-card__img{ height: 150px; }
+    }
+
+    /* ===== FOOTER LOGO (enkelt + safe, kun denne siden) ===== */
+    .site-footer__top{
+      margin-bottom: 1.25rem;
+    }
+    .site-footer__brand{
+      display:inline-block;
+    }
+    .site-footer__logo{
+      height: 46px;
+      width: auto;
+      display:block;
+    }
   </style>
 
   <!-- Cookiebot (cookies/GDPR) -->
@@ -304,7 +319,6 @@
             preload="metadata"
             poster="/bilder/hero-poster.jpg"
           >
-            <!-- NB: Hvis du har egen mobilfil, bytt src til hero-mobile.mp4 -->
             <source src="/video/hero-desktop.mp4" type="video/mp4">
           </video>
 
@@ -363,7 +377,6 @@
             <p class="eyebrow reveal d2">Aktuelt</p>
           </div>
 
-          <!-- Bruker NYHETSKORT (50/50) her -->
           <a class="myss-news-card reveal d4" href="/aktuelt/cp-bladet-myss.html" aria-label="Les artikkel: Treningstilbud for personer med CP videreføres i Vestland">
             <div class="myss-news-card__media">
               <img src="/Gruppebilde1.png" alt="" aria-hidden="true" class="myss-news-card__img">
@@ -385,63 +398,69 @@
 
   </main>
 
- 
- <footer class="site-footer" role="contentinfo">
-  <div class="site-footer__inner container">
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner container">
 
-    <nav class="site-footer__grid" aria-label="Bunnmeny">
-      <div class="site-footer__col">
-        <div data-footer-links-services></div>
+      <!-- ✅ LOGO OVER KOLONNENE -->
+      <div class="site-footer__top">
+        <a class="site-footer__brand" href="/" aria-label="Til forsiden">
+          <img class="site-footer__logo" src="/myss-logo-footer.png" alt="My Strongest Side">
+        </a>
       </div>
 
-      <div class="site-footer__col">
-        <div data-footer-links-info></div>
-      </div>
+      <nav class="site-footer__grid" aria-label="Bunnmeny">
+        <div class="site-footer__col">
+          <div data-footer-links-services></div>
+        </div>
 
-      <div class="site-footer__col">
-        <div data-footer-links-brand></div>
-      </div>
+        <div class="site-footer__col">
+          <div data-footer-links-info></div>
+        </div>
 
-      <div class="site-footer__col">
-        <h3 class="site-footer__title">Kontakt</h3>
-        <ul class="site-footer__list">
-          <li>My Strongest Side AS</li>
-          <li>Brages veg 3</li>
-          <li>5221 Nesttun</li>
-          <li>
-            E-post:
-            <a class="site-footer__link" href="mailto:post@mystrongestside.no">post@mystrongestside.no</a>
-          </li>
-          <li>
-            Telefon:
-            <a class="site-footer__link" href="tel:+4741439384">+47 41 43 93 84</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+        <div class="site-footer__col">
+          <div data-footer-links-brand></div>
+        </div>
 
-    <div class="site-footer__bottom">
-      <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+        <div class="site-footer__col">
+          <h3 class="site-footer__title">Kontakt</h3>
+          <ul class="site-footer__list">
+            <li>My Strongest Side AS</li>
+            <li>Brages veg 3</li>
+            <li>5221 Nesttun</li>
+            <li>
+              E-post:
+              <a class="site-footer__link" href="mailto:post@mystrongestside.no">post@mystrongestside.no</a>
+            </li>
+            <li>
+              Telefon:
+              <a class="site-footer__link" href="tel:+4741439384">+47 41 43 93 84</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-      <div class="site-footer__social">
-        <span class="site-footer__social-label">Følg oss i sosiale medier</span>
-        <div class="site-footer__social-list">
-          <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
-            <img src="/icons/facebook.png" alt="" aria-hidden="true">
-          </a>
-          <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
-            <img src="/icons/instagram.png" alt="" aria-hidden="true">
-          </a>
+      <div class="site-footer__bottom">
+        <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+
+        <div class="site-footer__social">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
+              <img src="/icons/facebook.png" alt="" aria-hidden="true">
+            </a>
+            <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
+              <img src="/icons/instagram.png" alt="" aria-hidden="true">
+            </a>
+          </div>
         </div>
       </div>
+
     </div>
+  </footer>
 
-  </div>
-</footer>
+  <script src="/menu.js?v=113" defer></script>
+  <script src="/components/footer-links.js?v=114" defer></script>
 
-
- <script src="/menu.js?v=113" defer></script>
-<script src="/components/footer-links.js?v=114" defer></script>
   <!-- Fade-in observer -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
