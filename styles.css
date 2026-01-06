@@ -1979,4 +1979,55 @@ footer .footer-col h3{
   margin:0;
   opacity:.9;
 }
+  /* ===== FOOTER: TVANGSSSTYRING ===== */
+.site-footer{
+  background:#105277 !important;
+  color:#fff !important;
+}
+
+.site-footer__grid{
+  display:grid !important;
+  grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+  gap:2.5rem !important;
+  align-items: stretch !important;   /* viktig for å få "push til bunn" */
+}
+
+@media (max-width:900px){
+  .site-footer__grid{
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+}
+@media (max-width:520px){
+  .site-footer__grid{ grid-template-columns:1fr !important; }
+}
+
+/* Kontakt-kolonnen må være "full høyde" for å kunne dytte sosiale ned */
+.site-footer__contact-wrap{
+  display:flex !important;
+  flex-direction:column !important;
+  min-height: 240px !important; /* gir faktisk høyde å jobbe med */
+}
+
+/* IKKE bullets: vi bruker div-linjer i stedet for ul */
+.site-footer__contact-lines{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:.28rem !important;
+  margin-top:.25rem !important;
+}
+
+/* Sosiale: helt nederst, høyre */
+.site-footer__social-bottom{
+  margin-top:auto !important;
+  display:flex !important;
+  gap:.75rem !important;
+  justify-content:flex-end !important;
+  align-items:center !important;
+  padding-top:.9rem !important;
+}
+
+/* Mobil: mer naturlig venstre */
+@media (max-width:900px){
+  .site-footer__social-bottom{ justify-content:flex-start !important; }
+}
 
