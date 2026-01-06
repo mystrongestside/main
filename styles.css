@@ -672,6 +672,63 @@ footer [data-footer-links] .site-nav__link:hover{ text-decoration:underline; }
   display:none;
 }
 
+/* === MySS Footer (4 kolonner som i skjermbildet) === */
+.site-footer{
+  background: #105277; /* matcher skjermbildet */
+  color: rgba(255,255,255,.92);
+}
+
+.site-footer__inner{
+  padding: 3rem 0;
+}
+
+.site-footer__grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 3rem;
+  align-items: start;
+}
+
+.site-footer__title{
+  margin: 0 0 1.25rem;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: #fff;
+  letter-spacing: .2px;
+}
+
+.site-footer__list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.site-footer__text{
+  display: grid;
+  gap: .55rem;
+}
+
+.site-footer__link{
+  color: rgba(255,255,255,.92);
+  text-decoration: none;
+}
+
+.site-footer__link:hover,
+.site-footer__link:focus-visible{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Mobil: stack i 1 kolonne (ryddig) */
+@media (max-width: 900px){
+  .site-footer__grid{
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 /* Fade in */
 .fade-in{
   opacity:0;
