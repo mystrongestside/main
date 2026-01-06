@@ -22,31 +22,24 @@
     <div class="site-footer__inner container">
       <div class="site-footer__grid" role="navigation" aria-label="Bunnmeny">
         
-        <div class="site-footer__col">
-          <h3 class="site-footer__title">Våre tjenester</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="${p}treningstilbud/voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
-            <li><a class="site-footer__link" href="${p}gruppetrening.html">Gruppetrening</a></li>
-            <li><a class="site-footer__link" href="${p}frivilligprogram.html">Frivilligprogram</a></li>
-          </ul>
-        </div>
+    
 
-        <div class="site-footer__col">
-          <h3 class="site-footer__title">Informasjon</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="${p}presse-og-media.html">Presse og media</a></li>
-            <li><a class="site-footer__link" href="${p}samarbeid.html">Samarbeid</a></li>
-            <li><a class="site-footer__link" href="${p}personvern.html">Personvern</a></li>
-          </ul>
-        </div>
+       <div class="site-footer__col">
+  <h3 class="site-footer__title">Informasjon</h3>
+  <nav class="site-footer__nav" aria-label="Informasjon">
+    <a class="site-footer__link" href="${p}presse-og-media.html">Presse og media</a>
+    <a class="site-footer__link" href="${p}samarbeid.html">Samarbeid</a>
+    <a class="site-footer__link" href="${p}personvern.html">Personvern</a>
+  </nav>
+</div>
 
-        <div class="site-footer__col">
-          <h3 class="site-footer__title">My Strongest Side</h3>
-          <ul class="site-footer__list">
-            <li><a class="site-footer__link" href="${p}kontakt.html">Kontakt</a></li>
-            <li><a class="site-footer__link" href="${p}teamet.html">Teamet</a></li>
-          </ul>
-        </div>
+<div class="site-footer__col">
+  <h3 class="site-footer__title">My Strongest Side</h3>
+  <nav class="site-footer__nav" aria-label="My Strongest Side">
+    <a class="site-footer__link" href="${p}kontakt.html">Kontakt</a>
+    <a class="site-footer__link" href="${p}teamet.html">Teamet</a>
+  </nav>
+</div>
 
         <div class="site-footer__col">
           <h3 class="site-footer__title">Kontakt</h3>
