@@ -60,6 +60,27 @@
         </div>
 
       </div>
+
+      <div class="site-footer__bottom">
+        <div class="site-footer__social">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+              <img src="/icons/facebook.png" alt="" aria-hidden="true">
+            </a>
+            <a class="social-link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener" aria-label="Instagram">
+              <img src="/icons/instagram.png" alt="" aria-hidden="true">
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <img src="/icons/linkedin.png" alt="" aria-hidden="true">
+            </a>
+          </div>
+        </div>
+
+        <p class="site-footer__meta">
+          © <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053
+        </p>
+      </div>
     </div>
   `;
 
