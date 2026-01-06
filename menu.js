@@ -59,6 +59,7 @@
                   <li><a href="${prefix}gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
                   <li><a href="${prefix}kurs og seminar.html" class="site-nav__link">Kurs og seminar</a></li>
                   <li><a href="${prefix}qr/trening/index.html" class="site-nav__link">QR/NFC treningssystem</a></li>
+                  <li><a href="${prefix}treningssystem.html" class="site-nav__link">Treningssystem</a></li>
                 </ul>
               </div>
 
