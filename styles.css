@@ -624,6 +624,46 @@ body.nav-open{ overflow:hidden; }
 .site-footer a:hover,
 .site-footer a:focus-visible{ text-decoration:underline; }
 
+/* === FIX: footer-lenker (gjenbruker site-nav-klasser, men resettes kun i footer) === */
+footer [data-footer-links] .site-nav__columns{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:2rem;
+  align-items:start;
+}
+
+footer [data-footer-links] .site-nav__column{ min-width:0; }
+
+footer [data-footer-links] .site-nav__heading{
+  font-size:1rem;
+  line-height:1.2;
+  margin:0 0 .75rem;
+}
+
+footer [data-footer-links] .site-nav__list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:.5rem;
+}
+
+footer [data-footer-links] .site-nav__link{
+  display:inline-block;
+  font-size:1rem;
+  line-height:1.35;
+  text-decoration:none;
+}
+
+footer [data-footer-links] .site-nav__link:hover{ text-decoration:underline; }
+
+@media (max-width:900px){
+  footer [data-footer-links] .site-nav__columns{
+    grid-template-columns:1fr;
+    gap:1.25rem;
+  }
+}
+
 .site-footer__bottom{
   display:flex;
   flex-direction:column;
