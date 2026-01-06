@@ -2594,4 +2594,50 @@ footer .footer-col h3{
   margin:0 !important;
   opacity:.9 !important;
 }
+  /* =========================
+   FIX: Footer-ikoner (bulletproof)
+   legg HELT nederst i styles.css
+   ========================= */
+
+.site-footer .site-footer__social-bottom,
+.site-footer .site-footer__social-list{
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  gap:.75rem !important;
+}
+
+/* Ikke la lenker bli “full bredde” */
+.site-footer a.social-link{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  width:44px !important;
+  height:44px !important;
+  flex:0 0 44px !important;
+
+  padding:0 !important;
+  margin:0 !important;
+  border-radius:12px !important;
+  background: rgba(255,255,255,.12) !important;
+
+  transform:none !important;
+}
+
+/* Tving ikon-størrelse uansett hva resten av CSS sier */
+.site-footer a.social-link img{
+  display:block !important;
+  width:22px !important;
+  height:22px !important;
+  max-width:22px !important;
+  max-height:22px !important;
+  object-fit:contain !important;
+
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  transform:none !important;
+}
+
 
