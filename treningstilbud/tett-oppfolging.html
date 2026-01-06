@@ -410,9 +410,6 @@
             <a class="social-link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener" aria-label="Instagram">
               <img src="/icons/instagram.png" alt="" aria-hidden="true">
             </a>
-            <a class="social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <img src="/icons/linkedin.png" alt="" aria-hidden="true">
-            </a>
           </div>
         </div>
 
@@ -447,6 +444,10 @@
       els.forEach(el => io.observe(el));
     });
   </script>
-
+<style>
+  .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
+  .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }
+  .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
+</style>
 </body>
 </html>
