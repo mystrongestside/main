@@ -2639,5 +2639,8 @@ footer .footer-col h3{
   border:0 !important;
   transform:none !important;
 }
+  .site-footer__contact .site-footer__social-bottom{
+  flex-wrap:nowrap !important;
+}
 
 
