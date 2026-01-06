@@ -9,36 +9,62 @@
     return "";
   };
 
-  const footerLinksHTML = (prefix = "") => `
-    <div class="footer-links-grid">
-      <div class="footer-col">
-        <h3 class="footer-title">Våre tjenester</h3>
-        <ul class="footer-list">
-          <li><a href="${prefix}gruppetrening.html">Gruppetrening på apparat</a></li>
-          <li><a href="${prefix}kurs og seminar.html">Kurs og seminar</a></li>
-          <li><a href="${prefix}treningssystem.html">QR/NFC treningssystem</a></li>
-        </ul>
-      </div>
+  const footerLinksHTML = (prefix = "") => ({
+    services: `
+      <h3 class="footer-title">Våre tjenester</h3>
+      <ul class="footer-list">
+        <li><a href="${prefix}gruppetrening.html">Gruppetrening på apparat</a></li>
+        <li><a href="${prefix}kurs og seminar.html">Kurs og seminar</a></li>
+        <li><a href="${prefix}treningssystem.html">QR/NFC treningssystem</a></li>
+      </ul>
+    `,
+    info: `
+      <h3 class="footer-title">Informasjon</h3>
+      <ul class="footer-list">
+        <li><a href="${prefix}om-oss.html">Om oss</a></li>
+        <li><a href="${prefix}Individuelloppfølging.html">Teamet</a></li>
+        <li><a href="${prefix}presse.html">Presse og media</a></li>
+        <li><a href="${prefix}samarbeid.html">Samarbeid</a></li>
+      </ul>
+    `,
+    brand: `
+      <h3 class="footer-title">My Strongest Side</h3>
+      <ul class="footer-list">
+        <li><a href="${prefix}index.html">Forside</a></li>
+        <li><a href="${prefix}kontakt.html">Kontakt</a></li>
+      </ul>
+    `,
+    legacy: `
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h3 class="footer-title">Våre tjenester</h3>
+          <ul class="footer-list">
+            <li><a href="${prefix}gruppetrening.html">Gruppetrening på apparat</a></li>
+            <li><a href="${prefix}kurs og seminar.html">Kurs og seminar</a></li>
+            <li><a href="${prefix}treningssystem.html">QR/NFC treningssystem</a></li>
+          </ul>
+        </div>
 
-      <div class="footer-col">
-        <h3 class="footer-title">Informasjon</h3>
-        <ul class="footer-list">
-          <li><a href="${prefix}om-oss.html">Om oss</a></li>
-          <li><a href="${prefix}Individuelloppfølging.html">Teamet</a></li>
-          <li><a href="${prefix}presse.html">Presse og media</a></li>
-          <li><a href="${prefix}samarbeid.html">Samarbeid</a></li>
-        </ul>
-      </div>
+        <div class="footer-col">
+          <h3 class="footer-title">Informasjon</h3>
+          <ul class="footer-list">
+            <li><a href="${prefix}om-oss.html">Om oss</a></li>
+            <li><a href="${prefix}Individuelloppfølging.html">Teamet</a></li>
+            <li><a href="${prefix}presse.html">Presse og media</a></li>
+            <li><a href="${prefix}samarbeid.html">Samarbeid</a></li>
+          </ul>
+        </div>
 
-      <div class="footer-col">
-        <h3 class="footer-title">My Strongest Side</h3>
-        <ul class="footer-list">
-          <li><a href="${prefix}index.html">Forside</a></li>
-          <li><a href="${prefix}kontakt.html">Kontakt</a></li>
-        </ul>
+        <div class="footer-col">
+          <h3 class="footer-title">My Strongest Side</h3>
+          <ul class="footer-list">
+            <li><a href="${prefix}index.html">Forside</a></li>
+            <li><a href="${prefix}kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  `;
+    `,
+  });
 
   const ready = (fn) => {
     if (document.readyState === "loading") {
@@ -51,10 +77,27 @@
     window.MYSS_PREFIX = prefix;
     window.__prefix = prefix;
 
-    const slot = document.querySelector("[data-footer-links]");
-    if (!slot) return;
+    const sections = footerLinksHTML(prefix);
+    const servicesSlots = document.querySelectorAll("[data-footer-links-services]");
+    const infoSlots = document.querySelectorAll("[data-footer-links-info]");
+    const brandSlots = document.querySelectorAll("[data-footer-links-brand]");
+    const legacySlot = document.querySelector("[data-footer-links]");
 
-    slot.innerHTML = footerLinksHTML(prefix);
+    if (servicesSlots.length || infoSlots.length || brandSlots.length) {
+      servicesSlots.forEach((slot) => {
+        slot.innerHTML = sections.services;
+      });
+      infoSlots.forEach((slot) => {
+        slot.innerHTML = sections.info;
+      });
+      brandSlots.forEach((slot) => {
+        slot.innerHTML = sections.brand;
+      });
+    } else if (legacySlot) {
+      legacySlot.innerHTML = sections.legacy;
+    } else {
+      return;
+    }
 
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
