@@ -9,49 +9,37 @@
     return "";
   };
 
-  const footerLinksHTML = (prefix = "", trainingPrefix = "", wrapTop = false) => `
-    ${wrapTop ? '<div class="site-footer__top">' : ""}
-      <div>
-        <h3 class="site-footer__heading">Våre tjenester</h3>
-        <ul class="site-footer__list">
-          <li><a href="${trainingPrefix}voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
-          <li><a href="${prefix}gruppetrening.html">Gruppetrening</a></li>
-          <li><a href="${prefix}frivillig.html">Frivilligprogram</a></li>
+  const footerLinksHTML = (prefix = "") => `
+    <div class="site-nav__columns">
+      <div class="site-nav__column">
+        <h2 class="site-nav__heading">Våre tjenester</h2>
+        <ul class="site-nav__list">
+          <li><a href="${prefix}gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
+          <li><a href="${prefix}kurs og seminar.html" class="site-nav__link">Kurs og seminar</a></li>
+          <li><a href="${prefix}treningssystem.html" class="site-nav__link">QR/NFC treningssystem</a></li>
         </ul>
       </div>
 
-      <div>
-        <h3 class="site-footer__heading">Informasjon</h3>
-        <ul class="site-footer__list">
-          <li><a href="${prefix}presse.html">Presse og media</a></li>
-          <li><a href="${prefix}samarbeid.html">Samarbeid</a></li>
-          <li><a href="${prefix}personvern.html">Personvern</a></li>
+      <div class="site-nav__column">
+        <h2 class="site-nav__heading">Informasjon</h2>
+        <ul class="site-nav__list">
+          <li><a href="${prefix}om-oss.html" class="site-nav__link">Om oss</a></li>
+          <li><a href="${prefix}Individuelloppfølging.html" class="site-nav__link">Teamet</a></li>
+          <li><a href="${prefix}presse.html" class="site-nav__link">Presse og media</a></li>
+          <li><a href="${prefix}samarbeid.html" class="site-nav__link">Samarbeid</a></li>
         </ul>
       </div>
 
-      <div>
-        <h3 class="site-footer__heading">My Strongest Side</h3>
-        <ul class="site-footer__list">
-          <li><a href="${prefix}kontakt.html">Kontakt</a></li>
-          <li><a href="${prefix}Individuelloppfølging.html">Teamet</a></li>
+      <div class="site-nav__column">
+        <h2 class="site-nav__heading">My Strongest Side</h2>
+        <ul class="site-nav__list">
+          <li><a href="${prefix}index.html" class="site-nav__link">Forside</a></li>
+          <li><a href="${prefix}kontakt.html" class="site-nav__link">Kontakt</a></li>
         </ul>
       </div>
-    ${wrapTop ? "</div>" : ""}
+    </div>
   `;
 
-  const footerLinksCompactHTML = (prefix = "", trainingPrefix = "") => `
-    <h4>Våre tjenester</h4>
-    <a href="${trainingPrefix}voksne-lett.html">Voksne – lett funksjonsvariasjon</a>
-    <a href="${prefix}gruppetrening.html">Gruppetrening</a>
-    <a href="${prefix}frivillig.html">Frivilligprogram</a>
-    <h4>Informasjon</h4>
-    <a href="${prefix}presse.html">Presse og media</a>
-    <a href="${prefix}samarbeid.html">Samarbeid</a>
-    <a href="${prefix}personvern.html">Personvern</a>
-    <h4>My Strongest Side</h4>
-    <a href="${prefix}kontakt.html">Kontakt</a>
-    <a href="${prefix}Individuelloppfølging.html">Teamet</a>
-  `;
   const ready = (fn) => {
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", fn, { once: true });
@@ -60,8 +48,6 @@
 
   ready(() => {
     const prefix = resolvePrefix();
-    const isTraining = window.location.pathname.includes("/treningstilbud/");
-    const trainingPrefix = isTraining ? "" : `${prefix}treningstilbud/`;
     window.MYSS_PREFIX = prefix;
     window.__prefix = prefix;
 
@@ -69,12 +55,7 @@
     if (!slot) return;
 
     if (!slot.innerHTML || !slot.innerHTML.trim()) {
-      if (slot.closest(".footer-links") && !slot.closest(".site-footer__top")) {
-        slot.innerHTML = footerLinksCompactHTML(prefix, trainingPrefix);
-      } else {
-        const wrapTop = !slot.closest(".site-footer__top");
-        slot.innerHTML = footerLinksHTML(prefix, trainingPrefix, wrapTop);
-      }
+      slot.innerHTML = footerLinksHTML(prefix);
     }
 
     const yearEl = document.getElementById("year");
