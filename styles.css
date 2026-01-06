@@ -3135,3 +3135,27 @@ html.nav-open .site-header {
     grid-template-columns: 1fr !important;
   }
 }
+/* Footer: sosiale ikoner – tving størrelse */
+.site-footer__social-list{
+  display:flex;
+  gap: 14px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.site-footer__social-list .social-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 44px;
+  height: 44px;
+}
+
+.site-footer__social-list .social-link img{
+  width: 44px !important;
+  height: 44px !important;
+  max-width: 44px;
+  max-height: 44px;
+  object-fit: contain;
+  display:block;
+}
