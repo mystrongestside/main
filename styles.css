@@ -2255,5 +2255,159 @@ footer .footer-col h3{
 @media (max-width:520px){
   .site-footer__top{ grid-template-columns:1fr !important; }
 }
+  /* =========================================================
+   MYSS FOOTER – ENESTE STANDARD (GLOBAL)
+   Bruker HTML: __brand + __top + __bottom
+   ========================================================= */
+
+.site-footer{
+  background: var(--myss-blue, #105277) !important;
+  color: rgba(255,255,255,.92) !important;
+  padding: 3.25rem 0 2.25rem !important;
+}
+
+.site-footer__inner{
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2.25rem !important;
+}
+
+/* Brand */
+.site-footer__brand{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: .65rem !important;
+}
+
+.site-footer__logo{
+  height: 48px !important;
+  width: auto !important;
+  display: block !important;
+}
+
+.site-footer__tagline{
+  margin: 0 !important;
+  opacity: .9 !important;
+}
+
+/* Top: kolonner */
+.site-footer__top{
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0,1fr)) !important;
+  gap: 2.5rem !important;
+  align-items: start !important;
+}
+
+@media (max-width: 1100px){
+  .site-footer__top{
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 700px){
+  .site-footer__top{
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Titler + lister */
+.site-footer__title,
+.site-footer__heading{
+  margin: 0 0 .75rem !important;
+  font-size: 1.05rem !important;
+  line-height: 1.2 !important;
+  font-weight: 900 !important;
+  color: #fff !important;
+}
+
+.site-footer__list{
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  gap: .6rem !important;
+}
+
+.site-footer__list li{
+  margin: 0 !important;
+}
+
+.site-footer__link,
+.site-footer a{
+  color: rgba(255,255,255,.92) !important;
+  text-decoration: none !important;
+}
+
+.site-footer__link:hover,
+.site-footer a:hover,
+.site-footer__link:focus-visible,
+.site-footer a:focus-visible{
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+}
+
+/* Bottom: ALLTID synlig */
+.site-footer__bottom{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem 1.5rem !important;
+  padding-top: 1.25rem !important;
+  border-top: 1px solid rgba(255,255,255,.16) !important;
+}
+
+@media (max-width: 700px){
+  .site-footer__bottom{
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+
+.site-footer__meta{
+  margin: 0 !important;
+  opacity: .9 !important;
+}
+
+/* Sosiale */
+.site-footer__social{
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: .75rem 1rem !important;
+  align-items: center !important;
+}
+
+.site-footer__social-label{
+  font-weight: 800 !important;
+  opacity: .9 !important;
+}
+
+.site-footer__social-list{
+  display: flex !important;
+  gap: .75rem !important;
+  align-items: center !important;
+}
+
+.social-link{
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 12px !important;
+  background: rgba(255,255,255,.12) !important;
+}
+
+.social-link img{
+  width: 22px !important;
+  height: 22px !important;
+  display: block !important;
+}
+
+/* 🔥 IMPORTANT: slå av gamle "display:none" hvis de finnes */
+.site-footer__bottom{ display:flex !important; }
+
 
 
