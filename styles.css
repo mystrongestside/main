@@ -1671,6 +1671,10 @@ html.nav-open .site-header{
 /* END CODEX HERO SIZE PATCH */
 
 /* === Footer layout som referansebildet === */
+footer .site-footer__top{
+  display:block;
+}
+
 footer .footer-grid{
   display:grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 1.25fr); /* lenker + kontakt */
