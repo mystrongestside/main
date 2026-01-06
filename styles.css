@@ -1669,3 +1669,38 @@ html.nav-open .site-header{
   .hero .hero-image, .hero-image{ height: 190px !important; object-position: 50% 40% !important; }
 }
 /* END CODEX HERO SIZE PATCH */
+
+/* === Footer layout som referansebildet === */
+footer .footer-grid{
+  display:grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1.25fr); /* lenker + kontakt */
+  gap: 3rem;
+  align-items:start;
+}
+
+footer .footer-links-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 lenkekolonner */
+  gap: 3rem;
+}
+
+footer .footer-title{
+  margin: 0 0 1.25rem;
+  line-height: 1.2;
+}
+
+footer .footer-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap: 1.25rem;
+}
+
+@media (max-width: 1100px){
+  footer .footer-grid{ grid-template-columns: 1fr; gap: 2.5rem; }
+  footer .footer-links-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 2.5rem; }
+}
+@media (max-width: 700px){
+  footer .footer-links-grid{ grid-template-columns: 1fr; gap: 2rem; }
+}
