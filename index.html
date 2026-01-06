@@ -22,7 +22,7 @@
 
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- Side-spesifikk styling (samme stil som Tett oppfølging) -->
+  <!-- Side-spesifikk styling -->
   <style>
     /* =========================
        HERO video + tekst
@@ -261,7 +261,7 @@
       }
     }
 
-    /* === TJENESTEKORT: sørg for stabilt format ved refresh === */
+    /* === TJENESTEKORT: stabilt format ved refresh === */
     .myss-service-card__img{
       width: 100%;
       height: 170px;
@@ -276,54 +276,42 @@
       .myss-service-card__img{ height: 150px; }
     }
 
-    /* ===== FOOTER LOGO (enkelt + safe, kun denne siden) ===== */
-    .site-footer__top{
-      margin-bottom: 1.25rem;
-    }
-    .site-footer__brand{
-      display:inline-block;
-    }
-    .site-footer__logo{
-      height: 46px;
-      width: auto;
-      display:block;
-    }
     /* ===== FORCE footer layout + social (override alt annet) ===== */
-.site-footer{ background:#105277 !important; color:#fff !important; }
+    .site-footer{ background:#105277 !important; color:#fff !important; }
 
-.site-footer__topbar{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:space-between !important;
-  gap:1rem !important;
-  margin-bottom:1.5rem !important;
-}
+    .site-footer__topbar{
+      display:flex !important;
+      align-items:center !important;
+      justify-content:space-between !important;
+      gap:1rem !important;
+      margin-bottom:1.5rem !important;
+    }
 
-.site-footer__logo{
-  height:48px !important;
-  width:auto !important;
-  display:block !important;
-}
+    .site-footer__logo{
+      height:48px !important;
+      width:auto !important;
+      display:block !important;
+    }
 
-.site-footer__social-list{
-  display:flex !important;
-  gap:.75rem !important;
-  align-items:center !important;
-}
+    .site-footer__social-list{
+      display:flex !important;
+      gap:.75rem !important;
+      align-items:center !important;
+    }
 
-.site-footer__grid{
-  display:grid !important;
-  grid-template-columns:repeat(4, minmax(0,1fr)) !important;
-  gap:2.5rem !important;
-}
+    .site-footer__grid{
+      display:grid !important;
+      grid-template-columns:repeat(3, minmax(0,1fr)) !important; /* 3 kolonner nå */
+      gap:2.5rem !important;
+    }
 
-@media (max-width:900px){
-  .site-footer__topbar{ flex-direction:column !important; align-items:flex-start !important; }
-  .site-footer__grid{ grid-template-columns:repeat(2, minmax(0,1fr)) !important; }
-}
-@media (max-width:520px){
-  .site-footer__grid{ grid-template-columns:1fr !important; }
-}
+    @media (max-width:900px){
+      .site-footer__topbar{ flex-direction:column !important; align-items:flex-start !important; }
+      .site-footer__grid{ grid-template-columns:repeat(2, minmax(0,1fr)) !important; }
+    }
+    @media (max-width:520px){
+      .site-footer__grid{ grid-template-columns:1fr !important; }
+    }
   </style>
 
   <!-- Cookiebot (cookies/GDPR) -->
@@ -389,7 +377,8 @@
               <span class="myss-service-card__cta">Les mer →</span>
             </a>
 
-            <a class="myss-service-card" href="/kurs og seminar.html">
+            <!-- NB: mellomrom i filnavn = kodes som %20 -->
+            <a class="myss-service-card" href="/kurs%20og%20seminar.html">
               <img src="/kurs.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
               <div class="myss-service-card__top">
                 <h3 class="myss-service-card__title">Kurs / seminar</h3>
@@ -434,60 +423,39 @@
 
   </main>
 
-<footer class="site-footer">
-  <div class="site-footer__inner container">
+  <!-- FOOTER: ingen "tjenester" i footer. Logo + sosiale + 2 JS-kolonner + kontakt -->
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
 
-    <div class="site-footer__topbar">
-      <img class="site-footer__logo" src="/myss-logo-footer.png" alt="My Strongest Side">
+      <div class="site-footer__topbar">
+        <img class="site-footer__logo" src="/myss-logo-footer.png" alt="My Strongest Side">
 
-      <div class="site-footer__social-list">
-        <a href="https://www.facebook.com/" target="_blank">Facebook</a>
-        <a href="https://www.instagram.com/mystrongestside/" target="_blank">Instagram</a>
-        <a href="https://www.linkedin.com/company/my-strongest-side/" target="_blank">LinkedIn</a>
+        <div class="site-footer__social-list">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.linkedin.com/company/my-strongest-side/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
+
+      <div class="site-footer__grid">
+        <div data-footer-links-info></div>
+
+        <div data-footer-links-brand></div>
+
+        <div>
+          <h3>Kontakt</h3>
+          <ul>
+            <li>My Strongest Side AS</li>
+            <li>Brages veg 3</li>
+            <li>5221 Nesttun</li>
+            <li><a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li><a href="tel:+4741439384">+47 41 43 93 84</a></li>
+          </ul>
+        </div>
+      </div>
+
     </div>
-
-    <div class="site-footer__grid">
-      <div>
-        <h3>Våre tjenester</h3>
-        <ul>
-          <li><a href="/treningstilbud/voksne-lett.html">Voksne – lett funksjonsvariasjon</a></li>
-          <li><a href="/gruppetrening.html">Gruppetrening</a></li>
-          <li><a href="/frivilligprogram.html">Frivilligprogram</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Informasjon</h3>
-        <ul>
-          <li><a href="/presse-og-media.html">Presse og media</a></li>
-          <li><a href="/samarbeid.html">Samarbeid</a></li>
-          <li><a href="/personvern.html">Personvern</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>My Strongest Side</h3>
-        <ul>
-          <li><a href="/kontakt.html">Kontakt</a></li>
-          <li><a href="/teamet.html">Teamet</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Kontakt</h3>
-        <ul>
-          <li>My Strongest Side AS</li>
-          <li>Brages veg 3</li>
-          <li>5221 Nesttun</li>
-          <li><a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
-          <li><a href="tel:+4741439384">+47 41 43 93 84</a></li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</footer>
+  </footer>
 
   <script src="/menu.js?v=113" defer></script>
   <script src="/components/footer-links.js?v=114" defer></script>
