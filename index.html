@@ -10,124 +10,262 @@
 
     gtag('config', 'G-LK0WY59R15');
   </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Strongest Side® – Midlertidig vedlikehold</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>My Strongest Side®</title>
+  <meta name="description" content="My Strongest Side® jobber for at flere skal kunne trene i ordinære treningsmiljøer – med trygghet, tilpasning og reell inkludering." />
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css?v=112" />
+
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Side-spesifikk styling (samme stil som Tett oppfølging) -->
   <style>
-    :root {
-      --blue: #105277;
-      --orange: #f77c37;
-      --ice: #E4E8F2;
-      --white: #ffffff;
-    }
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      align-items: center;
-      background: var(--ice);
-      color: var(--blue);
-      display: flex;
-      font-family: "Arial", "Helvetica Neue", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      justify-content: center;
-      margin: 0;
-      min-height: 100vh;
-      padding: 24px;
-      text-align: center;
-    }
-    .maintenance {
-      background: var(--white);
-      border: 2px solid var(--blue);
-      border-radius: 24px;
-      box-shadow: 0 22px 45px rgba(16, 82, 119, 0.18);
-      max-width: 520px;
-      padding: clamp(2rem, 4vw, 3rem);
-      width: min(520px, 100%);
-    }
-    .maintenance__logo {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      border: 2px solid var(--orange);
-      border-radius: 999px;
-      color: var(--orange);
-      padding: 0.35rem 1rem;
-      margin-bottom: 1rem;
-      font-size: 0.85rem;
-    }
-    h1 {
-      color: var(--blue);
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      line-height: 1.2;
-      margin-bottom: 0.75rem;
-    }
-    p {
-      color: rgba(16, 82, 119, 0.88);
-      font-size: 1.05rem;
-      line-height: 1.6;
-      margin: 0 auto 1.25rem;
-      max-width: 46ch;
-    }
-    .status-tag {
-      background: rgba(247, 124, 55, 0.1);
-      border-radius: 999px;
-      color: var(--orange);
-      display: inline-flex;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      margin-bottom: 1rem;
-      padding: 0.4rem 1.1rem;
-      text-transform: uppercase;
-    }
-    ul {
-      color: rgba(16, 82, 119, 0.9);
-      font-size: 0.95rem;
-      line-height: 1.5;
-      list-style: none;
-      margin: 0 0 1.5rem;
-      padding: 0;
-      text-align: left;
-    }
-    ul li {
-      align-items: center;
-      display: flex;
-      gap: 0.65rem;
-      margin-bottom: 0.75rem;
-    }
-    ul li::before {
-      content: "•";
-      color: var(--orange);
-      font-size: 1.2rem;
-      line-height: 1;
-    }
-    .cta {
-      background: var(--orange);
-      border: 0;
-      border-radius: 12px;
-      color: var(--white);
-      cursor: pointer;
-      display: inline-flex;
-      font-size: 1rem;
-      font-weight: 600;
-      justify-content: center;
-      margin-bottom: 0.75rem;
-      padding: 0.85rem 1.75rem;
-      text-decoration: none;
-      transition: opacity 0.2s ease;
-    }
-    .cta:hover,
-    .cta:focus-visible {
-      opacity: 0.9;
-    }
-    .help-text {
-      color: rgba(16, 82, 119, 0.7);
-      font-size: 0.95rem;
-      margin: 0;
-    }
+   /* =========================
+   HERO video + tekst
+   ========================= */
+
+.myss-hero-media{
+  width:100%;
+  height:auto;
+  border-radius:24px;
+  aspect-ratio: 16 / 9;
+  object-fit:cover;
+  display:block;
+  background: rgba(16,82,119,.06);
+  border: 1px solid rgba(16,82,119,.12);
+}
+@media (max-width: 900px){
+  .myss-hero-media{ aspect-ratio: 4 / 3; }
+}
+
+.myss-hero-text{
+  margin-top: 1.25rem;
+  max-width: 900px;
+}
+
+/* Fallback-bilde */
+.myss-hero-photo{
+  width:100%;
+  height:auto;
+  border-radius:24px;
+  aspect-ratio: 16 / 9;
+  object-fit:cover;
+  display:block;
+  background: rgba(16,82,119,.06);
+  border: 1px solid rgba(16,82,119,.12);
+}
+@media (max-width: 900px){
+  .myss-hero-photo{ aspect-ratio: 4 / 3; }
+}
+.myss-hero-photo--fallback{ display:none; }
+
+@media (prefers-reduced-motion: reduce){
+  .myss-hero-media{ display:none; }
+  .myss-hero-photo--fallback{ display:block; }
+}
+
+/* Sørg for at header/meny alltid ligger over */
+header[data-component="site-header"]{
+  position: relative;
+  z-index: 50;
+}
+
+/* =========================
+   FADE-IN (scroll-basert)
+   ========================= */
+
+.js .reveal{
+  opacity:0;
+  transform:translateY(10px);
+  transition:opacity .6s ease, transform .6s ease;
+  will-change:opacity, transform;
+}
+.js .reveal.is-visible{
+  opacity:1;
+  transform:none;
+}
+.js .reveal.d1{ transition-delay:.05s; }
+.js .reveal.d2{ transition-delay:.12s; }
+.js .reveal.d3{ transition-delay:.18s; }
+.js .reveal.d4{ transition-delay:.24s; }
+
+/* =========================
+   TJENESTER (desktop fix + orange kicker)
+   ========================= */
+
+.myss-services{
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 980px;
+}
+
+@media (max-width: 900px){
+  .myss-services{
+    grid-template-columns: 1fr;
+    max-width: none;
+  }
+}
+
+.myss-service-card{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+
+  border-radius: 20px;
+  padding: 1.05rem;
+
+  background: rgba(16,82,119,.06);
+  border: 1px solid rgba(16,82,119,.16);
+
+  transition: transform .08s ease, filter .2s ease, background .2s ease;
+}
+
+.myss-service-card:hover{
+  filter: brightness(1.02);
+  transform: translateY(-1px);
+}
+
+.myss-service-card:active{
+  transform: translateY(0);
+}
+
+.myss-service-card__top{ margin-bottom: .4rem; }
+
+.myss-service-card__kicker{
+  display: inline-block;
+  font-weight: 800;
+  font-size: .78rem;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: #f77c37;   /* MySS-orange */
+  opacity: 1;
+}
+
+.myss-service-card__title{
+  margin: .25rem 0 .35rem;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.myss-service-card__text{
+  margin: 0 0 .65rem;
+  opacity: .92;
+}
+
+.myss-service-card__cta{
+  margin-top: auto;
+  font-weight: 800;
+  color: var(--myss-blue);
+}
+
+.myss-service-card:focus-visible{
+  outline: 3px solid rgba(247,124,55,.45);
+  outline-offset: 3px;
+}
+ /* === NYHETSKORT (50/50) – samme stil som tjenestekort === */
+
+.myss-news-card{
+  display:flex;
+  align-items:stretch;
+  text-decoration:none;
+  color:inherit;
+
+  border-radius:20px;
+  background: rgba(16,82,119,.06);
+  border: 1px solid rgba(16,82,119,.16);
+  overflow:hidden;
+
+  transition: transform .08s ease, filter .2s ease;
+}
+
+.myss-news-card:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+/* Venstre: media 50% */
+.myss-news-card__media{
+  width:50%;
+  min-height: 220px;                 /* gjør kortet mer “kompakt og pent” */
+  background: rgba(16,82,119,.06);
+  border-right: 1px solid rgba(16,82,119,.16);
+  overflow:hidden;
+}
+
+.myss-news-card__img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit: cover;                  /* ser penest ut i 50/50 */
+  object-position: 50% 25%;           /* mindre sjanse for hodekutt */
+}
+
+/* Høyre: tekst 50% */
+.myss-news-card__body{
+  width:50%;
+  padding: 1rem 1.1rem;
+  display:flex;
+  flex-direction:column;
+  gap:.4rem;
+}
+
+.myss-news-card__kicker{
+  display:inline-block;
+  font-size:.72rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:#f77c37;
+}
+
+.myss-news-card__title{
+  margin:0;
+  font-size:1.05rem;
+  line-height:1.25;
+}
+
+.myss-news-card__teaser{
+  margin:0;
+  opacity:.9;
+
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.myss-news-card__cta{
+  margin-top:auto;
+  font-weight:900;
+  color: var(--myss-blue);
+}
+
+/* Mobil: stack */
+@media (max-width: 900px){
+  .myss-news-card{ flex-direction:column; }
+  .myss-news-card__media,
+  .myss-news-card__body{ width:100%; }
+  .myss-news-card__media{
+    min-height: 180px;
+    border-right: none;
+    border-bottom: 1px solid rgba(16,82,119,.16);
+  }
+}
+    .myss-service-card__cta{
+  margin-bottom: 1.5rem;
+}
+
+.myss-block-title{
+  margin-top: 2.5rem;
+}
+
   </style>
   <!-- Cookiebot (cookies/GDPR) -->
   <script id="Cookiebot"
@@ -136,21 +274,228 @@
           data-blockingmode="auto"
           type="text/javascript"></script>
 </head>
-<body>
-  <main class="maintenance" role="status" aria-live="polite">
-    <span class="maintenance__logo">My Strongest Side®</span>
-    <span class="status-tag">Kort pause</span>
-    <h1>Vi gjør nettsiden klar for neste økt</h1>
-    <p>
-      Vi finpusser løsningen slik at du får en ryddig oversikt over nye kurs og aktiviteter.
-      Takk for tålmodigheten – vi er straks tilbake.
-    </p>
-    <ul>
-      <li>Nye datoer legges ut så snart planene er spikret.</li>
-      <li>Du kan fortsatt nå oss for spørsmål om tilbud og påmelding.</li>
-    </ul>
-    <a class="cta" href="mailto:post@mystrongestside.no">Send oss en e-post</a>
-    <p class="help-text">Eller ring oss via kontaktinformasjonen på MyStrongestSide.no.</p>
-  </main>
+
+<body class="page-home">
+
+  <!-- MENY / HEADER (lastes av menu.js) -->
+  <header data-component="site-header"></header>
+
+ <main>
+
+  <!-- HERO: Video øverst, tekst under -->
+  <section class="section section--light">
+    <div class="container">
+
+      <!-- Video først -->
+      <div class="reveal d1">
+        <video
+          class="myss-hero-media"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="bilder/hero-poster.jpg"
+        >
+          <source src="video/hero-desktop.mp4" type="video/mp4" media="(max-width: 900px)">
+          <source src="video/hero-desktop.mp4" type="video/mp4" media="(min-width: 901px)">
+        </video>
+
+        <img
+          src="bilder/hero-poster.jpg"
+          alt="My Strongest Side – inkluderende trening"
+          class="myss-hero-photo myss-hero-photo--fallback"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Tekst under video -->
+      <div class="myss-hero-text">
+        <p class="eyebrow reveal d2">My Strongest Side®</p>
+        <h1 class="reveal d3">Gjør trening tilgjengelig for flest mulig</h1>
+        <p class="reveal d4">
+          My Strongest Side® jobber for at flere skal kunne trene i ordinære treningsmiljøer – med
+          <strong>trygghet</strong>, <strong>tilpasning</strong> og <strong>reell inkludering</strong>.
+        </p>
+
+        <!-- TJENESTER -->
+        <div class="myss-block-title">
+          <p class="eyebrow reveal d2">Våre tjenester</p>
+      
+        </div>
+
+        <div class="myss-services reveal d4" aria-label="Tjenester">
+          <a class="myss-service-card" href="treningstilbud/">
+            <img src="bilde01.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
+            <div class="myss-service-card__top">
+               
+              <h3 class="myss-service-card__title">Treningstilbud</h3>
+            </div>
+            <p class="myss-service-card__text">Gruppetrener og opplegg med tydelige rammer og tilpasning.</p>
+            <span class="myss-service-card__cta">Les mer →</span>
+          </a>
+
+          <a class="myss-service-card" href="kurs.html">
+            <img src="kurs.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
+            <div class="myss-service-card__top">
+         
+              <h3 class="myss-service-card__title">Kurs / seminar</h3>
+            </div>
+            <p class="myss-service-card__text">Faglig innhold og formidling for senter, fagpersoner og partnere.</p>
+            <span class="myss-service-card__cta">Les mer →</span>
+          </a>
+
+          <a class="myss-service-card" href="treningssystem.html">
+            <img src="nfc1.jpg" alt="" aria-hidden="true" class="myss-service-card__img">
+            <div class="myss-service-card__top">
+       
+              <h3 class="myss-service-card__title">Treningssystem</h3>
+            </div>
+            <p class="myss-service-card__text">QR/NFC-veiledning på apparater – for trygg og selvstendig trening.</p>
+            <span class="myss-service-card__cta">Les mer →</span>
+          </a>
+        </div>
+   </a>
+                <!-- TJENESTER -->
+        <div class="myss-block-title">
+          <p class="eyebrow reveal d2">Aktuelt</p>
+      
+        </div>
+
+        <div class="myss-services reveal d4" aria-label="Tjenester">
+          <a class="myss-service-card" href="../aktuelt
+/cp-bladet-myss.html ">
+            <img src="Gruppebilde1.png" alt="" aria-hidden="true" class="myss-service-card__img">
+            <div class="myss-service-card__top">
+               
+              <h3 class="myss-service-card__title">Treningstilbud for personer med CP videreføres i Vestland</h3>
+            </div>
+            <p class="myss-service-card__text">CP-foreningen Vestland viderefører avtalen med My Strongest Side®. Denne høsten deltar 18 personer fordelt på tre treningsgrupper, støttet av frivillige og fagpersoner.</p>
+            <span class="myss-service-card__cta">Les mer →</span>
+          </a>
+
+
+</a>
+ 
+  </section>
+
+</main>
+  <!-- FOOTER (samme struktur som du bruker) -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+
+      <div class="site-footer__brand reveal d2">
+        <img src="bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
+        <p class="site-footer__tagline reveal d3">Gjør trening tilgjengelig for flest mulig</p>
+      </div>
+
+      <div class="site-footer__top">
+        <div>
+          <h3 class="site-footer__heading reveal d2">Våre tjenester</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2"><a href="treningstilbud/voksne-lett.html">Treningstilbud/a></li>
+            <li class="reveal d3"><a href="treningstilbud/tett-oppfolging.html">Kurs/seminar</a></li>
+            <li class="reveal d4"><a href="frivillig.html">Treningssystem</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading reveal d2">Informasjon</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2"><a href="presse.html">Presse og media</a></li>
+            <li class="reveal d3"><a href="samarbeid.html">Samarbeid</a></li>
+            <li class="reveal d2"><a href="/personvern.html">Personvern</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading reveal d2">My Strongest Side</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2"><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading reveal d2">Kontakt</h3>
+          <ul class="site-footer__list">
+            <li class="reveal d2">My Strongest Side AS</li>
+            <li class="reveal d3">Brages veg 3<br>5221 Nesttun</li>
+            <li class="reveal d3">E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></li>
+            <li class="reveal d4">Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__meta reveal d2">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+
+        <div class="site-footer__social reveal d3">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="social-link" href="https://www.facebook.com/" aria-label="Facebook">
+              <img src="icons/facebook.png" alt="" aria-hidden="true">
+            </a>
+            <a class="social-link" href="https://www.instagram.com/mystrongestside/" aria-label="Instagram">
+              <img src="icons/instagram.png" alt="" aria-hidden="true">
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- External JS (ONE source) -->
+  <script src="menu.js" defer></script>
+
+  <!-- Fade-in observer -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+
+      const els = Array.from(document.querySelectorAll('.reveal'));
+
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      els.forEach(el => io.observe(el));
+    });
+  </script>
+
+  <!-- Autoplay-sikring + fallback ved error -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const v = document.querySelector('.myss-hero-media');
+      const fallback = document.querySelector('.myss-hero-photo--fallback');
+      if (!v) return;
+
+      const tryPlay = () => {
+        const p = v.play();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      };
+
+      tryPlay();
+      window.addEventListener('touchstart', tryPlay, { passive:true, once:true });
+      window.addEventListener('scroll', tryPlay, { passive:true, once:true });
+
+      v.addEventListener('error', () => {
+        if (fallback) fallback.style.display = 'block';
+        v.style.display = 'none';
+      }, { once:true });
+    });
+  </script>
+
 </body>
 </html>
