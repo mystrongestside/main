@@ -3061,9 +3061,38 @@ html.nav-open .site-header {
 		transform: none !important;
 	}
 
-	.site-footer__contact .site-footer__social-bottom {
-		flex-wrap: nowrap !important;
+.site-footer__contact .site-footer__social-bottom {
+	flex-wrap: nowrap !important;
+}
+
+/* ========================= Footer socials: kompakt på mobil ========================= */
+@media (max-width: 700px) {
+	.site-footer__social {
+		gap: .5rem .75rem !important;
 	}
+
+	.site-footer__social-label {
+		font-size: 1rem !important;
+	}
+
+	.site-footer .site-footer__social-list {
+		gap: .5rem !important;
+	}
+
+	.site-footer a.social-link {
+		width: 36px !important;
+		height: 36px !important;
+		flex: 0 0 36px !important;
+		border-radius: 10px !important;
+	}
+
+	.site-footer a.social-link img {
+		width: 18px !important;
+		height: 18px !important;
+		max-width: 18px !important;
+		max-height: 18px !important;
+	}
+}
 	/* =========================================================
    UNIVERSAL MEGA MENU (Safari/Chrome/Firefox)
    Overstyrer evt. flex/columns som kan kollapse i Safari.
