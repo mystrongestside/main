@@ -24,9 +24,10 @@
         
     
 
-       <div class="site-footer__col">
+<div class="site-footer__col">
   <h3 class="site-footer__title">Informasjon</h3>
   <nav class="site-footer__nav" aria-label="Informasjon">
+    <a class="site-footer__link" href="${p}om-oss.html">Om oss</a>
     <a class="site-footer__link" href="${p}presse-og-media.html">Presse og media</a>
     <a class="site-footer__link" href="${p}samarbeid.html">Samarbeid</a>
     <a class="site-footer__link" href="${p}personvern.html">Personvern</a>
