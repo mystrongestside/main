@@ -33,6 +33,10 @@ const API_KEY = process.env.CHECKIN_API_KEY;
 const CUSTOMER_ID = parseInt(process.env.CHECKIN_CUSTOMER_ID, 10);
 const PORT = Number(process.env.PORT) || 3000;
 const FETCH_TIMEOUT_MS = Number(process.env.CHECKIN_TIMEOUT_MS) || 5000;
+const MISSING_CONFIG = [];
+
+if (!API_KEY) MISSING_CONFIG.push('CHECKIN_API_KEY');
+if (!Number.isInteger(CUSTOMER_ID)) MISSING_CONFIG.push('CHECKIN_CUSTOMER_ID');
 
 // Dine tre MyStrongestSide-eventer
 const EVENTS = {
@@ -110,6 +114,13 @@ async function getCheckinCounts() {
 
 const server = createServer(async (req, res) => {
   if (req.method === 'GET' && req.url && req.url.startsWith('/api/checkin-counts')) {
+    if (MISSING_CONFIG.length > 0) {
+      console.error('Mangler påkrevde miljøvariabler:', MISSING_CONFIG.join(', '));
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Manglende serverkonfigurasjon' }));
+      return;
+    }
+
     try {
       const data = await getCheckinCounts();
       res.writeHead(200, { 'Content-Type': 'application/json' });
