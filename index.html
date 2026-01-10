@@ -1,20 +1,23 @@
  <!DOCTYPE html>
 <html lang="no">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LK0WY59R15"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LK0WY59R15');
-  </script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Normaliser /index.html -> / (før analytics, så GA ikke rekker å fyre på /index.html) -->
+  <script>
+    (function () {
+      if (location.pathname.endsWith("/index.html")) {
+        location.replace(location.pathname.replace(/index\.html$/, ""));
+      }
+    })();
+  </script>
+
   <title>My Strongest Side®</title>
   <meta name="description" content="My Strongest Side® jobber for at flere skal kunne trene i ordinære treningsmiljøer – med trygghet, tilpasning og reell inkludering." />
+
+  <!-- Canonical (ryddig for SEO + statistikk) -->
+  <link rel="canonical" href="https://mystrongestside.no/" />
 
   <!-- Root-relative paths = fungerer på alle undersider -->
   <link rel="icon" type="image/png" href="/favicon.png" />
@@ -22,7 +25,22 @@
 
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- Side-spesifikk styling -->
+  <!-- Cookiebot (må ligge før script du vil blokkere/avhengiggjøre av samtykke) -->
+  <script id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="918da94c-47e9-4fc0-9939-763b0c22c63d"
+          data-blockingmode="auto"
+          type="text/javascript"></script>
+
+  <!-- Google tag (GA4) - blokkeres til "Statistikk" er samtykket -->
+  <script type="text/plain" data-cookieconsent="statistics" async
+          src="https://www.googletagmanager.com/gtag/js?id=G-LK0WY59R15"></script>
+  <script type="text/plain" data-cookieconsent="statistics">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LK0WY59R15');
+  </script>
   <style>
     /* =========================
        HERO video + tekst
