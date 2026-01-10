@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Normaliser /index.html -> / (før analytics, så GA ikke rekker å fyre på /index.html) -->
   <script>
-    (function () {
-      if (location.pathname.endsWith("/index.html")) {
-        location.replace(location.pathname.replace(/index\.html$/, ""));
-      }
-    })();
-  </script>
-
+  (function () {
+    if (location.pathname.endsWith("/index.html")) {
+      var newPath = location.pathname.replace(/index\.html$/, "");
+      location.replace(newPath + location.search + location.hash);
+    }
+  })();
+</script>
+ 
   <title>My Strongest Side®</title>
   <meta name="description" content="My Strongest Side® jobber for at flere skal kunne trene i ordinære treningsmiljøer – med trygghet, tilpasning og reell inkludering." />
 
