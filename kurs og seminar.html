@@ -7,9 +7,9 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-LK0WY59R15');
   </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -20,7 +20,6 @@
   <link rel="stylesheet" href="styles.css?v=110" />
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- Side-spesifikk (kan flyttes til styles.css) -->
   <style>
     /* === Kurs/seminar: kalender + tomtilstand === */
     .myss-empty-state{
@@ -51,7 +50,11 @@
       max-width: 80ch;
       font-size: .98rem;
     }
+
+    /* Skjules når vi har arrangement */
+    .myss-hidden{ display:none !important; }
   </style>
+
   <!-- Cookiebot (cookies/GDPR) -->
   <script id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
@@ -83,8 +86,13 @@
           <h2 class="reveal d3">Kurs og seminar</h2>
         </div>
 
+        <!-- CHECKIN.NO EMBED -->
+        <div class="myss-calendar-embed reveal d4" style="padding: 10px;">
+          <div id="checkin_event_index"></div>
+        </div>
+
         <!-- TOMT NÅ (vises når det ikke finnes arrangement) -->
-        <div class="myss-empty-state reveal d4" role="status" aria-live="polite">
+        <div class="myss-empty-state reveal d4" id="myss-empty-state" role="status" aria-live="polite">
           <h3>Ingen aktiviteter akkurat nå</h3>
           <p>
             Vi legger ut nye datoer fortløpende. Vil du ha beskjed når noe publiseres, kan du melde interesse.
@@ -98,20 +106,6 @@
           </p>
         </div>
 
-        <!-- KALENDER-EMBED (aktiver når du har en kalender-URL) -->
-        <!--
-        <div class="myss-calendar-embed reveal d4">
-          <iframe
-            title="My Strongest Side – kurs og seminar"
-            src="PUTT_INN_KALENDER_EMBED_URL_HER"
-            style="border:0;"
-            width="100%"
-            height="720"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-        -->
       </div>
     </section>
 
@@ -173,12 +167,69 @@
     </div>
   </footer>
 
-  <!-- External JS (ONE source) --><script src="menu.js" defer></script>
+  <!-- External JS -->
+  <script src="menu.js" defer></script>
   <script src="/components/footer-links.js?v=114" defer></script>
-<style>
-  .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
-  .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }
-  .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
-</style>
+
+  <style>
+    .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
+    .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }
+    .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
+  </style>
+
+  <script>
+    // Checkin.no konfig
+    document.customerId = 16927;
+    document.calendarConfig = {
+      openRegistrationModal: true,
+      view: "TILE",
+      showSearch: true,
+      showTopics: true,
+      showViewToggle: true,
+      showOnlyForm: false,
+      language: "nb",
+      topics: null,
+      style: {
+        searchButtonBgColor: "rgba(28, 43, 57, 1)",
+        searchButtonTextColor: "rgba(255, 255, 255, 1)",
+        searchButtonBorderRadius: 3,
+        topicBadgeBgColor: "rgba(85, 96, 106, 1)",
+        topicBadgeTextColor: "rgba(255, 255, 255, 1)",
+        topicBadgeBorderRadius: 3,
+        headerTextColor: "rgba(28, 43, 57, 1)",
+        bodyTextColor: "rgba(28, 43, 57, 1)",
+        backgroundColor: "rgba(255, 255, 255, 1)",
+        eventTileColor: "rgba(28, 43, 57, 0)"
+      }
+    };
+
+    // Skjul tomtilstand hvis Checkin faktisk viser arrangement
+    (function(){
+      const empty = document.getElementById("myss-empty-state");
+      const host = document.getElementById("checkin_event_index");
+      if (!empty || !host) return;
+
+      let tries = 0;
+      const maxTries = 40;
+
+      const t = setInterval(function(){
+        tries++;
+
+        const hasContent = host.querySelector("*");
+        if (hasContent) {
+          empty.classList.add("myss-hidden");
+          clearInterval(t);
+          return;
+        }
+
+        if (tries >= maxTries) {
+          clearInterval(t);
+        }
+      }, 250);
+    })();
+  </script>
+
+  <!-- Cookiebot: sett nødvendige scripts til nødvendig hvis den blokkerer -->
+  <script data-cookieconsent="necessary" async src="https://static.checkin.no/loaders/eventindex/loader.js"></script>
 </body>
 </html>
