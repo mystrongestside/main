@@ -1,354 +1,178 @@
-<!DOCTYPE html>
-<html lang="no">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<main>
+  <section class="section section--light">
+    <div class="container">
 
-  <script>
-  (function () {
-    if (location.pathname.endsWith("/index.html")) {
-      var newPath = location.pathname.replace(/index\.html$/, "");
-      location.replace(newPath + location.search + location.hash);
-    }
-  })();
-  </script>
-
-  <title>TRENING FOR FLEST MULIG | Seminar 28. februar 2026 | My Strongest Side®</title>
-  <meta name="description" content="Velkommen til seminar ved Høgskulen på Vestlandet lørdag 28. februar 2026, der vi markerer pilotstart for My Strongest Side® QR og NFC treningssystem. Lunsj er inkludert." />
-
-  <link rel="canonical" href="https://mystrongestside.no/trening-for-flest-mulig.html" />
-
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="stylesheet" href="/styles.css?v=1200" />
-
-  <script>document.documentElement.classList.add('js');</script>
-
-  <script id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid="918da94c-47e9-4fc0-9939-763b0c22c63d"
-          data-blockingmode="auto"
-          type="text/javascript"></script>
-
-  <script type="text/plain" data-cookieconsent="statistics" async
-          src="https://www.googletagmanager.com/gtag/js?id=G-LK0WY59R15"></script>
-  <script type="text/plain" data-cookieconsent="statistics">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LK0WY59R15');
-  </script>
-
-  <style>
-    header[data-component="site-header"]{
-      position: relative;
-      z-index: 50;
-    }
-
-    .myss-hero-photo{
-      width:100%;
-      height:auto;
-      border-radius:24px;
-      aspect-ratio: 16 / 9;
-      object-fit:cover;
-      display:block;
-      background: rgba(16,82,119,.06);
-      border: 1px solid rgba(16,82,119,.12);
-    }
-    @media (max-width: 900px){
-      .myss-hero-photo{ aspect-ratio: 4 / 3; }
-    }
-
-    .myss-hero-text{
-      margin-top: 1.25rem;
-      max-width: 980px;
-    }
-
-    .reveal{ opacity:1; transform:none; }
-    @keyframes myssFadeUp{
-      from{ opacity:0; transform:translateY(10px); }
-      to{ opacity:1; transform:none; }
-    }
-    .js .reveal.is-visible{ animation: myssFadeUp .6s ease both; }
-    .js .reveal.d1{ animation-delay:.05s; }
-    .js .reveal.d2{ animation-delay:.12s; }
-    .js .reveal.d3{ animation-delay:.18s; }
-    .js .reveal.d4{ animation-delay:.24s; }
-
-    .myss-services{
-      margin-top: 1.25rem;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      max-width: 980px;
-    }
-    @media (max-width: 900px){
-      .myss-services{ grid-template-columns: 1fr; max-width: none; }
-    }
-
-    .myss-service-card{
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      text-decoration: none;
-      color: inherit;
-      border-radius: 20px;
-      padding: 1.05rem;
-      background: rgba(16,82,119,.06);
-      border: 1px solid rgba(16,82,119,.16);
-      transition: transform .08s ease, filter .2s ease, background .2s ease;
-    }
-    .myss-service-card:hover{ filter: brightness(1.02); transform: translateY(-1px); }
-    .myss-service-card:active{ transform: translateY(0); }
-    .myss-service-card:focus-visible{
-      outline: 3px solid rgba(247,124,55,.45);
-      outline-offset: 3px;
-    }
-    .myss-service-card__title{
-      margin: .25rem 0 .35rem;
-      font-size: 1.15rem;
-      line-height: 1.2;
-    }
-    .myss-service-card__text{ margin: 0 0 .65rem; opacity: .92; }
-    .myss-service-card__cta{
-      margin-top: auto;
-      font-weight: 800;
-      color: var(--myss-blue);
-      margin-bottom: .25rem;
-    }
-
-    .myss-cta-row{
-      display:flex;
-      gap:.75rem;
-      flex-wrap:wrap;
-      margin-top: 1rem;
-    }
-    .myss-cta{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-      font-weight:900;
-      padding:.75rem 1rem;
-      border-radius: 16px;
-      border: 1px solid rgba(16,82,119,.16);
-      background: rgba(16,82,119,.06);
-      color: var(--myss-blue);
-      transition: transform .08s ease, filter .2s ease;
-    }
-    .myss-cta:hover{ filter: brightness(1.02); transform: translateY(-1px); }
-    .myss-cta:active{ transform: translateY(0); }
-    .myss-cta--primary{
-      background: rgba(247,124,55,.14);
-      border: 1px solid rgba(247,124,55,.35);
-    }
-
-    .myss-list{
-      margin: .75rem 0 0;
-      padding-left: 1.1rem;
-      max-width: 980px;
-    }
-
-    .myss-note{ margin-top: .9rem; opacity: .9; }
-
-    .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
-    .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }
-    .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
-  </style>
-</head>
-
-<body class="page-home">
-
-  <header data-component="site-header"></header>
-
-  <main>
-    <section class="section section--light">
-      <div class="container">
-
-        <div class="reveal d1">
-          <img
-            src="/kurs.jpg"
-            alt="Seminar ved Høgskulen på Vestlandet 28. februar 2026"
-            class="myss-hero-photo"
-            loading="eager"
-          />
-        </div>
-
-        <div class="myss-hero-text">
-          <p class="eyebrow reveal d2">TRENING FOR FLEST MULIG</p>
-          <h1 class="reveal d3">My Strongest Side® lanserer QR og NFC treningssystem pilot</h1>
-
-          <p class="reveal d4">
-            Velkommen til seminar ved Høgskulen på Vestlandet lørdag 28. februar 2026, der vi markerer pilotstart for
-            My Strongest Side® QR og NFC treningssystem. Lunsj er inkludert.
-          </p>
-
-          <div class="myss-cta-row reveal d4">
-            <a class="myss-cta myss-cta--primary" href="https://www.mystrongestside.no/kurs%20og%20seminar.html?fbclid=IwY2xjawPYgC1leHRuA2FlbQIxMABicmlkETF2a3NTcXQ0TVZBVFFnajkyc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHkNpc7IwNT3lSg883uafjv-AwFX4KqTz52fVdeggjfHagOF1aN3RXGMoIInt_aem_ISDGe6JAKB2g6ZInRTGPOQ&eventRegistrationId=216540">Meld deg på</a>
-            <a class="myss-cta" href="#program">Se program</a>
-            <a class="myss-cta" href="#bidragsytere">Bidragsytere</a>
-          </div>
-
-          <div style="height: 1.75rem;"></div>
-
-          <p class="eyebrow reveal d2">Om seminaret</p>
-          <p class="reveal d3">
-            Seminaret er planlagt som en faglig og praktisk markering av løsningen, og skal samle deltakere, fagmiljø,
-            samarbeidspartnere og andre relevante aktører. Hensikten er å tydeliggjøre bakgrunn, formål og forventet nytte av løsningen,
-            samt hvordan piloten skal gjennomføres og evalueres.
-          </p>
-
-          <div class="myss-services reveal d4" aria-label="Hovedpunkter">
-            <div class="myss-service-card" role="group" aria-label="Trygghet og mestring">
-              <h3 class="myss-service-card__title">Trygghet og mestring</h3>
-              <p class="myss-service-card__text">Fokus på struktur, tilpasning og tydelige instruksjoner som senker barrierer for deltakelse.</p>
-              <span class="myss-service-card__cta">Kjernen i løsningen →</span>
-            </div>
-
-            <div class="myss-service-card" role="group" aria-label="Innlegg og demonstrasjon">
-              <h3 class="myss-service-card__title">Innlegg og demonstrasjon</h3>
-              <p class="myss-service-card__text">Korte innlegg, erfaringsperspektiv og demonstrasjon av My Strongest Side® QR og NFC treningssystem.</p>
-              <span class="myss-service-card__cta">Slik fungerer det →</span>
-            </div>
-
-            <div class="myss-service-card" role="group" aria-label="Pilot og evaluering">
-              <h3 class="myss-service-card__title">Pilot og evaluering</h3>
-              <p class="myss-service-card__text">Rammer for gjennomføring og hvordan piloten skal følges opp og evalueres i praksis.</p>
-              <span class="myss-service-card__cta">Hva som måles →</span>
-            </div>
-          </div>
-
-          <div style="height: 2.2rem;"></div>
-
-          <p id="program" class="eyebrow reveal d2">Program og innhold</p>
-          <p class="reveal d3">
-            Programmet vil bestå av korte innlegg, erfaringsperspektiv og demonstrasjon av My Strongest Side® QR og NFC treningssystem.
-            Det legges vekt på trygghet, mestring og redusert behov for støtte ved apparatbasert trening i ordinære treningsmiljøer.
-          </p>
-
-          <ul class="myss-list reveal d4">
-            <li>Velkommen og rammer for dagen</li>
-            <li>Bakgrunn og formål med treningssystemet</li>
-            <li>Demonstrasjon av løsning i praksis</li>
-            <li>Erfaringsperspektiv og dialog</li>
-            <li>Pilotgjennomføring og evaluering</li>
-            <li>Spørsmål og veien videre</li>
-          </ul>
-
-          <div style="height: 2.2rem;"></div>
-
-          <p id="bidragsytere" class="eyebrow reveal d2">Bidragsytere</p>
-
-          <h2 class="reveal d3" style="margin-top: .25rem;">Alexander Sviggum</h2>
-          <p class="reveal d4">
-            Grunnlegger av My Strongest Side® og ergoterapeut. Presenterer bakgrunnen for satsingen, utviklingen av treningssystemet,
-            samt rammer for pilotgjennomføring og evaluering.
-          </p>
-
-          <h2 class="reveal d3" style="margin-top: 1.25rem;">Einar Steensnæs</h2>
-          <p class="reveal d4">
-            Bidrar med perspektiver på hvordan tilgjengelighet og inkludering kan løftes fra intensjon til praksis, med blikk for menneskerettigheter og samfunnsutvikling.
-          </p>
-
-          <h2 class="reveal d3" style="margin-top: 1.25rem;">Sissel Garnes</h2>
-          <p class="reveal d4">
-            Psykolog. Holder innlegget «Trygghet, mestring og motivasjon». Hun deler et personlig og faglig perspektiv fra å leve med CP,
-            med fokus på trygghet i aktivitet, og på hvordan struktur og tilpasning kan senke barrierer for deltakelse og gjennomføring av trening i ordinære treningsmiljøer.
-          </p>
-
-          <h2 class="reveal d3" style="margin-top: 1.25rem;">Mio BPA</h2>
-          <p class="reveal d4">
-            Samarbeidspartner. Bidrar med perspektiver på hvordan praktisk tilrettelegging og assistanse kan gjøre det enklere for flere å delta på egne premisser og gjennomføre trening over tid.
-          </p>
-
-          <p class="myss-note reveal d4"><em>Flere bidragsytere lanseres 1. februar 2026.</em></p>
-
-          <div style="height: 2.2rem;"></div>
-
-          <p class="eyebrow reveal d2">Påmelding</p>
-          <p class="reveal d3">
-            Påmelding skjer via påmeldingssiden. Du kan også sende en kort beskjed dersom du ønsker å løfte et spørsmål, et perspektiv,
-            eller noe du mener bør inn i programmet.
-          </p>
-
-          <div class="myss-cta-row reveal d4">
-            <a class="myss-cta myss-cta--primary" href="https://www.mystrongestside.no/kurs%20og%20seminar.html?fbclid=IwY2xjawPYgC1leHRuA2FlbQIxMABicmlkETF2a3NTcXQ0TVZBVFFnajkyc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHkNpc7IwNT3lSg883uafjv-AwFX4KqTz52fVdeggjfHagOF1aN3RXGMoIInt_aem_ISDGe6JAKB2g6ZInRTGPOQ&eventRegistrationId=216540">Gå til påmelding</a>
-            <a class="myss-cta" href="mailto:post@mystrongestside.no?subject=Seminar%2028.%20februar%202026%20-%20innspill">Send innspill på e post</a>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="site-footer__inner container">
-      <div class="site-footer__brand">
-        <img src="/bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
-        <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
+      <div class="reveal d1">
+        <img
+          src="/kurs.jpg"
+          alt="Seminar ved Høgskulen på Vestlandet 28. februar 2026"
+          class="myss-hero-photo"
+          loading="eager"
+        />
       </div>
 
-      <div class="site-footer__top">
-        <div data-footer-links-services></div>
-        <div data-footer-links-info></div>
-        <div data-footer-links-brand></div>
+      <div class="myss-hero-text">
+        <p class="eyebrow reveal d2">TRENING FOR FLEST MULIG</p>
+        <h1 class="reveal d3">My Strongest Side® lanserer pilot for QR og NFC basert treningssystem</h1>
 
-        <div class="site-footer__contact">
-          <h3 class="site-footer__title">Kontakt</h3>
-          <div class="site-footer__contact-lines">
-            <div>My Strongest Side AS</div>
-            <div>Brages veg 3<br>5221 Nesttun</div>
-            <div>E post: <a class="site-footer__link" href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></div>
-            <div>Telefon: <a class="site-footer__link" href="tel:+4741439384">+47 41 43 93 84</a></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="site-footer__bottom">
-        <div class="site-footer__social">
-          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
-          <div class="site-footer__social-list">
-            <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
-              <img src="/icons/facebook.png" alt="" aria-hidden="true">
-            </a>
-            <a class="social-link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener" aria-label="Instagram">
-              <img src="/icons/instagram.png" alt="" aria-hidden="true">
-            </a>
-          </div>
-        </div>
-
-        <p class="site-footer__meta">
-          © <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053
+        <p class="reveal d4">
+          Velkommen til seminar ved Høgskulen på Vestlandet lørdag 28. februar 2026, der vi markerer pilotstart for
+          My Strongest Side® QR og NFC treningssystem. Lunsj er inkludert.
         </p>
+
+        <div class="myss-services reveal d4" aria-label="Nøkkelinformasjon">
+          <div class="myss-service-card" role="group" aria-label="Dato">
+            <div class="myss-service-card__top">
+              <h3 class="myss-service-card__title">Dato</h3>
+            </div>
+            <p class="myss-service-card__text">Lørdag 28. februar 2026</p>
+          </div>
+
+          <div class="myss-service-card" role="group" aria-label="Sted">
+            <div class="myss-service-card__top">
+              <h3 class="myss-service-card__title">Sted</h3>
+            </div>
+            <p class="myss-service-card__text">Høgskulen på Vestlandet, Campus Kronstad, Bergen</p>
+          </div>
+
+          <div class="myss-service-card" role="group" aria-label="Påmelding">
+            <div class="myss-service-card__top">
+              <h3 class="myss-service-card__title">Påmelding</h3>
+            </div>
+            <p class="myss-service-card__text">Plass er begrenset. Se påmeldingssiden for detaljer.</p>
+          </div>
+        </div>
+
+        <div class="myss-cta-row reveal d4" style="margin-top: 1rem;">
+          <a
+            class="myss-cta myss-cta--primary"
+            href="https://www.mystrongestside.no/kurs%20og%20seminar.html?fbclid=IwY2xjawPYgC1leHRuA2FlbQIxMABicmlkETF2a3NTcXQ0TVZBVFFnajkyc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHkNpc7IwNT3lSg883uafjv-AwFX4KqTz52fVdeggjfHagOF1aN3RXGMoIInt_aem_ISDGe6JAKB2g6ZInRTGPOQ&eventRegistrationId=216540"
+          >
+            Påmelding
+          </a>
+          <a class="myss-cta" href="#program">Program</a>
+          <a class="myss-cta" href="#praktisk">Praktisk info</a>
+        </div>
+
+        <div class="myss-block-title" style="margin-top: 2.25rem;">
+          <p class="eyebrow reveal d2">Bakgrunn og hensikt</p>
+        </div>
+
+        <p class="reveal d3">
+          Personer med funksjonsvariasjoner møter ofte unødvendige barrierer i treningsmiljøer. My Strongest Side® bygger et inkluderende treningsmiljø der flere kan trene trygt,
+          med tydelige tilpasninger, rolig tempo og støtte som fungerer i praksis.
+        </p>
+
+        <p class="reveal d4">
+          Seminaret samler deltakere, fagmiljø, samarbeidspartnere og andre relevante aktører. Målet er å tydeliggjøre bakgrunn, formål og forventet nytte av løsningen,
+          samt hvordan piloten skal gjennomføres og evalueres.
+        </p>
+
+        <div class="myss-block-title" style="margin-top: 2.25rem;">
+          <p id="program" class="eyebrow reveal d2">Program</p>
+        </div>
+
+        <p class="reveal d3">
+          Programmet består av korte innlegg, erfaringsperspektiv og demonstrasjon av My Strongest Side® QR og NFC treningssystem.
+          Vi vektlegger trygghet, mestring og redusert behov for støtte ved apparatbasert trening i ordinære treningsmiljøer.
+        </p>
+
+        <ul class="myss-list reveal d4">
+          <li>Velkommen og rammer for dagen</li>
+          <li>Bakgrunn for satsingen og hva piloten skal teste</li>
+          <li>Demonstrasjon av QR og NFC treningssystemet</li>
+          <li>Trygghet, mestring og motivasjon i praksis</li>
+          <li>Praktisk tilrettelegging og assistanse over tid</li>
+          <li>Pilotgjennomføring og evaluering</li>
+          <li>Spørsmål, dialog og veien videre</li>
+        </ul>
+
+        <p class="reveal d4" style="margin-top: .9rem; opacity: .9;">
+          Detaljert tidsplan publiseres på påmeldingssiden.
+        </p>
+
+        <div class="myss-block-title" style="margin-top: 2.25rem;">
+          <p class="eyebrow reveal d2">Bidragsytere</p>
+        </div>
+
+        <h2 class="reveal d3" style="margin-top: .25rem;">Alexander Sviggum</h2>
+        <p class="reveal d4">
+          Grunnlegger av My Strongest Side® og ergoterapeut. Presenterer bakgrunnen for satsingen, hvordan treningssystemet er utviklet,
+          samt rammer for pilotgjennomføring og evaluering.
+        </p>
+
+        <h2 class="reveal d3" style="margin-top: 1.15rem;">Einar Steensnæs</h2>
+        <p class="reveal d4">
+          Deler perspektiver på hvordan tilgjengelighet og inkludering kan løftes fra intensjon til praksis, med blikk for menneskerettigheter og samfunnsutvikling.
+        </p>
+
+        <h2 class="reveal d3" style="margin-top: 1.15rem;">Sissel Garnes</h2>
+        <p class="reveal d4">
+          Psykolog. Holder innlegget «Trygghet, mestring og motivasjon». Hun deler et personlig og faglig perspektiv fra å leve med CP,
+          med fokus på trygghet i aktivitet og på hvordan struktur og tilpasning kan senke barrierer for deltakelse og gjennomføring av trening i ordinære treningsmiljøer.
+        </p>
+
+        <h2 class="reveal d3" style="margin-top: 1.15rem;">Mio BPA</h2>
+        <p class="reveal d4">
+          Samarbeidspartner. Bidrar med perspektiver på hvordan praktisk tilrettelegging og assistanse kan gjøre det enklere for flere å delta på egne premisser
+          og gjennomføre trening over tid.
+        </p>
+
+        <p class="reveal d4" style="margin-top: .9rem; opacity: .9;">
+          Flere bidragsytere lanseres 1. februar 2026.
+        </p>
+
+        <div class="myss-block-title" style="margin-top: 2.25rem;">
+          <p id="praktisk" class="eyebrow reveal d2">Praktisk informasjon</p>
+        </div>
+
+        <div class="myss-services reveal d4" aria-label="Praktisk">
+          <div class="myss-service-card" role="group" aria-label="Lunsj">
+            <div class="myss-service-card__top">
+              <h3 class="myss-service-card__title">Lunsj</h3>
+            </div>
+            <p class="myss-service-card__text">Lunsj er inkludert for påmeldte deltakere.</p>
+          </div>
+
+          <div class="myss-service-card" role="group" aria-label="Tilrettelegging">
+            <div class="myss-service-card__top">
+              <h3 class="myss-service-card__title">Tilrettelegging</h3>
+            </div>
+            <p class="myss-service-card__text">Gi beskjed i påmelding om behov, så tilpasser vi best mulig.</p>
+          </div>
+
+          <div class="myss-service-card" role="group" aria-label="Spørsmål">
+            <div class="myss-service-card__top">
+              <h3 class="myss-service-card__title">Spørsmål eller innspill</h3>
+            </div>
+            <p class="myss-service-card__text">Send gjerne innspill til program og innhold på e post.</p>
+          </div>
+        </div>
+
+        <div class="myss-cta-row reveal d4" style="margin-top: 1rem;">
+          <a
+            class="myss-cta myss-cta--primary"
+            href="https://www.mystrongestside.no/kurs%20og%20seminar.html?fbclid=IwY2xjawPYgC1leHRuA2FlbQIxMABicmlkETF2a3NTcXQ0TVZBVFFnajkyc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHkNpc7IwNT3lSg883uafjv-AwFX4KqTz52fVdeggjfHagOF1aN3RXGMoIInt_aem_ISDGe6JAKB2g6ZInRTGPOQ&eventRegistrationId=216540"
+          >
+            Gå til påmelding
+          </a>
+          <a class="myss-cta" href="mailto:post@mystrongestside.no?subject=Seminar%2028.%20februar%202026%20-%20innspill">Send e post</a>
+        </div>
+
+        <div class="myss-block-title" style="margin-top: 2.25rem;">
+          <p class="eyebrow reveal d2">Reise og parkering</p>
+        </div>
+
+        <p class="reveal d3">
+          Campus Kronstad ligger rett ved Bybanen. Holdeplassen Kronstad betjenes av linje 1 og linje 2.  [oai_citation:0‡skyss.no](https://www.skyss.no/reise/rutetider/rutetabell-bybanen/?utm_source=chatgpt.com)
+        </p>
+
+        <p class="reveal d4">
+          Kommer du med bil, anbefales det å beregne ekstra tid. Bruk påmeldingssiden for oppdatert informasjon om oppmøte og praktiske detaljer.
+        </p>
+
       </div>
+
     </div>
-  </footer>
-
-  <script src="/menu.js?v=113" defer></script>
-  <script src="/components/footer-links.js?v=114" defer></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const y = document.getElementById('year');
-      if (y) y.textContent = new Date().getFullYear();
-
-      const els = Array.from(document.querySelectorAll('.reveal'));
-      if (!('IntersectionObserver' in window)) {
-        els.forEach(el => el.classList.add('is-visible'));
-        return;
-      }
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-
-      els.forEach(el => io.observe(el));
-    });
-  </script>
-
-</body>
-</html>
+  </section>
+</main>
