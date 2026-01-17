@@ -4,116 +4,132 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <script>
+  (function () {
+    if (location.pathname.endsWith("/index.html")) {
+      var newPath = location.pathname.replace(/index\.html$/, "");
+      location.replace(newPath + location.search + location.hash);
+    }
+  })();
+  </script>
+
   <title>TRENING FOR FLEST MULIG | Seminar 28. februar 2026 | My Strongest Side®</title>
   <meta name="description" content="Velkommen til seminar ved Høgskulen på Vestlandet lørdag 28. februar 2026, der vi markerer pilotstart for My Strongest Side® QR og NFC treningssystem. Lunsj er inkludert." />
-</head>
 
-<body>
+  <!-- Canonical -->
+  <link rel="canonical" href="https://mystrongestside.no/trening-for-flest-mulig.html" />
 
-  <main>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles.css?v=1200" />
 
-    <img src="bilder/hero-large.jpg" alt="My Strongest Side, inkluderende trening" />
+  <script>document.documentElement.classList.add('js');</script>
 
-    <p><strong>TRENING FOR FLEST MULIG</strong></p>
-    <h1>My Strongest Side® lanserer QR og NFC treningssystem pilot</h1>
+  <script id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="918da94c-47e9-4fc0-9939-763b0c22c63d"
+          data-blockingmode="auto"
+          type="text/javascript"></script>
 
-    <p>
-      Velkommen til seminar ved Høgskulen på Vestlandet lørdag 28. februar 2026, der vi markerer pilotstart for
-      My Strongest Side® QR og NFC treningssystem. Lunsj er inkludert.
-    </p>
+  <script type="text/plain" data-cookieconsent="statistics" async
+          src="https://www.googletagmanager.com/gtag/js?id=G-LK0WY59R15"></script>
+  <script type="text/plain" data-cookieconsent="statistics">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LK0WY59R15');
+  </script>
 
-    <p>
-      <img src="icons/calendar.svg" alt="" /> <strong>Dato:</strong> Lørdag 28. februar 2026
-      <br />
-      <img src="icons/clock.svg" alt="" /> <strong>Sted:</strong> Høgskulen på Vestlandet
-    </p>
+  <style>
+    header[data-component="site-header"]{
+      position: relative;
+      z-index: 50;
+    }
 
-    <p>
-      <a href="https://www.mystrongestside.no/kurs%20og%20seminar.html?eventRegistrationId=216540">Meld deg på</a>
-      <span> </span>
-      <a href="#program">Se program</a>
-    </p>
+    /* HERO bilde */
+    .myss-hero-photo{
+      width:100%;
+      height:auto;
+      border-radius:24px;
+      aspect-ratio: 16 / 9;
+      object-fit:cover;
+      display:block;
+      background: rgba(16,82,119,.06);
+      border: 1px solid rgba(16,82,119,.12);
+    }
+    @media (max-width: 900px){
+      .myss-hero-photo{ aspect-ratio: 4 / 3; }
+    }
 
-    <h2>Om seminaret</h2>
-    <p>
-      Seminaret er planlagt som en faglig og praktisk markering av løsningen, og skal samle deltakere, fagmiljø,
-      samarbeidspartnere og andre relevante aktører. Hensikten er å tydeliggjøre bakgrunn, formål og forventet nytte av løsningen,
-      samt hvordan piloten skal gjennomføres og evalueres.
-    </p>
+    .myss-hero-text{
+      margin-top: 1.25rem;
+      max-width: 980px;
+    }
 
-    <h2 id="program">Program og innhold</h2>
-    <p>
-      Programmet vil bestå av korte innlegg, erfaringsperspektiv og demonstrasjon av My Strongest Side® QR og NFC treningssystem.
-      Det legges vekt på trygghet, mestring og redusert behov for støtte ved apparatbasert trening i ordinære treningsmiljøer.
-    </p>
+    /* Fade in (samme mønster som forsiden) */
+    .reveal{ opacity:1; transform:none; }
+    @keyframes myssFadeUp{
+      from{ opacity:0; transform:translateY(10px); }
+      to{ opacity:1; transform:none; }
+    }
+    .js .reveal.is-visible{ animation: myssFadeUp .6s ease both; }
+    .js .reveal.d1{ animation-delay:.05s; }
+    .js .reveal.d2{ animation-delay:.12s; }
+    .js .reveal.d3{ animation-delay:.18s; }
+    .js .reveal.d4{ animation-delay:.24s; }
 
-    <ul>
-      <li>Velkommen og rammer for dagen</li>
-      <li>Bakgrunn og formål med My Strongest Side® QR og NFC treningssystem</li>
-      <li>Demonstrasjon av løsningen</li>
-      <li>Erfaringsperspektiv og dialog</li>
-      <li>Pilotgjennomføring og evaluering</li>
-      <li>Spørsmål og veien videre</li>
-    </ul>
+    /* Enkle kort i samme visuelle språk */
+    .myss-grid{
+      margin-top: 1.25rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      max-width: 980px;
+    }
+    @media (max-width: 900px){
+      .myss-grid{ grid-template-columns: 1fr; max-width: none; }
+    }
 
-    <h2>Bidragsytere</h2>
+    .myss-card{
+      border-radius: 20px;
+      padding: 1.05rem;
+      background: rgba(16,82,119,.06);
+      border: 1px solid rgba(16,82,119,.16);
+    }
 
-    <h3>Alexander Sviggum</h3>
-    <p>
-      Grunnlegger av My Strongest Side® og ergoterapeut. Presenterer bakgrunnen for satsingen, hvordan treningssystemet er utviklet,
-      samt rammer for pilotgjennomføring og evaluering.
-    </p>
+    .myss-card h3{
+      margin: .25rem 0 .35rem;
+      font-size: 1.05rem;
+      line-height: 1.25;
+    }
 
-    <h3>Einar Steensnæs</h3>
-    <p>
-      Deltar som bidragsyter på seminaret. Han er kjent for sitt engasjement for menneskerettigheter og samfunnsutvikling,
-      og vil dele perspektiver på hvordan tilgjengelighet og inkludering kan løftes fra intensjon til praksis.
-    </p>
+    .myss-card p{ margin: 0; opacity: .92; }
 
-    <h3>Sissel Garnes</h3>
-    <p>
-      Psykolog. Holder innlegget «Trygghet, mestring og motivasjon». Hun deler et personlig og faglig perspektiv fra å leve med CP,
-      med fokus på trygghet i aktivitet, og på hvordan struktur og tilpasning kan senke barrierer for deltakelse og gjennomføring
-      av trening i ordinære treningsmiljøer.
-    </p>
+    .myss-kicker{
+      display:inline-block;
+      font-size:.72rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      color:#f77c37;
+      margin-bottom:.35rem;
+    }
 
-    <h3>Mio BPA</h3>
-    <p>
-      Mio BPA er en del av arrangementet som samarbeidspartner, og vil bidra med perspektiver på hvordan praktisk tilrettelegging
-      og assistanse kan gjøre det enklere for flere å delta på egne premisser og gjennomføre trening over tid.
-    </p>
+    .myss-cta-row{
+      display:flex;
+      gap:.75rem;
+      flex-wrap:wrap;
+      margin-top: 1rem;
+    }
 
-    <p><em>Flere bidragsytere lanseres 1. februar 2026.</em></p>
-
-    <h2>Påmelding</h2>
-    <p>
-      Påmelding skjer via påmeldingssiden. Du kan også sende en kort beskjed dersom du ønsker å løfte et spørsmål, et perspektiv,
-      eller noe du mener bør inn i programmet.
-    </p>
-
-    <p>
-      <a href="https://www.mystrongestside.no/kurs%20og%20seminar.html?eventRegistrationId=216540">Gå til påmelding</a>
-      <br />
-      <a href="mailto:post@mystrongestside.no?subject=Seminar%2028.%20februar%202026%20-%20innspill">Send innspill på e-post</a>
-    </p>
-
-    <img src="bilder/hero-small.jpg" alt="My Strongest Side" onerror="this.style.display='none'" />
-
-    <h2>Kontakt</h2>
-    <p>
-      My Strongest Side AS<br />
-      Brages veg 3<br />
-      5221 Nesttun
-    </p>
-
-    <p>
-      E-post: <a href="mailto:post@mystrongestside.no">post@mystrongestside.no</a><br />
-      Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a>
-    </p>
-
-    <p>© My Strongest Side AS · Org.nr 935 786 053</p>
-
-  </main>
-
-</body>
-</html>
+    .myss-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      font-weight:900;
+      padding:.75rem 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(16,82,119,.16);
+      background: rgba(16,82,119,.06);
+      color: var(--myss-blue);
+      transition: transform .08s ease,
