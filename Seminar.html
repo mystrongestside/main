@@ -102,6 +102,7 @@
 
     .myss-cta-row{
       display:flex;
+      align-items: center;
       gap:.75rem;
       flex-wrap:wrap;
       margin-top: 1rem;
@@ -179,6 +180,35 @@
     .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
     .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }
     .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
+
+    @media (max-width: 900px){
+      /* Unngå at "Kontakt oss" blir stående alene */
+      .myss-cta-row{ gap: .6rem; }
+      .myss-cta{ padding: .7rem .9rem; border-radius: 16px; }
+
+      /* Sticky påmelding nederst på mobil */
+      .myss-cta-row{
+        position: sticky;
+        bottom: .75rem;
+        z-index: 60;
+        background: rgba(255,255,255,.92);
+        backdrop-filter: blur(8px);
+        padding: .6rem;
+        border-radius: 18px;
+        border: 1px solid rgba(16,82,119,.12);
+        box-shadow: 0 14px 34px rgba(0,0,0,.10);
+      }
+
+      .myss-cta--primary{
+        flex: 1 1 auto;
+        min-width: 180px;
+      }
+
+      /* Gjør de andre til sekundære og la dem wrap pent */
+      .myss-cta:not(.myss-cta--primary){
+        flex: 0 0 auto;
+      }
+    }
   </style>
 </head>
 
