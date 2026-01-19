@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <script>
-  (function () {
-    if (location.pathname.endsWith("/index.html")) {
-      var newPath = location.pathname.replace(/index\.html$/, "");
-      location.replace(newPath + location.search + location.hash);
-    }
-  })();
+    (function () {
+      if (location.pathname.endsWith("/index.html")) {
+        var newPath = location.pathname.replace(/index\.html$/, "");
+        location.replace(newPath + location.search + location.hash);
+      }
+    })();
   </script>
 
   <title>TRENING FOR FLEST MULIG | Seminar 28. februar 2026 | My Strongest Side®</title>
@@ -20,7 +20,7 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/styles.css?v=1200" />
 
-  <script>document.documentElement.classList.add('js');</script>
+  <script>document.documentElement.classList.add("js");</script>
 
   <script id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
@@ -33,20 +33,20 @@
   <script type="text/plain" data-cookieconsent="statistics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LK0WY59R15');
+    gtag("js", new Date());
+    gtag("config", "G-LK0WY59R15");
   </script>
 
   <style>
     header[data-component="site-header"]{ position: relative; z-index: 50; }
 
     .myss-hero-photo{
-      width:100%;
-      height:auto;
-      border-radius:24px;
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
       aspect-ratio: 16 / 9;
-      object-fit:cover;
-      display:block;
+      object-fit: cover;
+      display: block;
       background: rgba(16,82,119,.06);
       border: 1px solid rgba(16,82,119,.12);
     }
@@ -56,16 +56,19 @@
 
     .myss-hero-text{ margin-top: 1.25rem; max-width: 980px; }
 
-    .reveal{ opacity:1; transform:none; }
+    .js .reveal{ opacity: 0; transform: translateY(10px); }
     @keyframes myssFadeUp{
-      from{ opacity:0; transform:translateY(10px); }
+      from{ opacity:0; transform: translateY(10px); }
       to{ opacity:1; transform:none; }
     }
-    .js .reveal.is-visible{ animation: myssFadeUp .6s ease both; }
-    .js .reveal.d1{ animation-delay:.05s; }
-    .js .reveal.d2{ animation-delay:.12s; }
-    .js .reveal.d3{ animation-delay:.18s; }
-    .js .reveal.d4{ animation-delay:.24s; }
+    .js .reveal.is-visible{ animation: myssFadeUp .6s ease both; opacity: 1; transform: none; }
+    .js .reveal.d1{ animation-delay: .05s; }
+    .js .reveal.d2{ animation-delay: .12s; }
+    .js .reveal.d3{ animation-delay: .18s; }
+    .js .reveal.d4{ animation-delay: .24s; }
+
+    .myss-section{ margin-top: 2.1rem; }
+    .myss-lead{ opacity: .92; }
 
     .myss-services{
       margin-top: 1.1rem;
@@ -82,7 +85,6 @@
       display: flex;
       flex-direction: column;
       height: 100%;
-      text-decoration: none;
       color: inherit;
       border-radius: 20px;
       padding: 1.05rem;
@@ -93,27 +95,45 @@
     .myss-service-card:hover{ filter: brightness(1.02); transform: translateY(-1px); }
     .myss-service-card:active{ transform: translateY(0); }
 
+    .myss-service-card__head{
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      margin-bottom: .35rem;
+    }
+    .myss-ico{
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      flex: 0 0 auto;
+      opacity: .95;
+    }
+
     .myss-service-card__title{
-      margin: .25rem 0 .35rem;
-      font-size: 1.15rem;
+      margin: 0;
+      font-size: 1.12rem;
       line-height: 1.2;
     }
     .myss-service-card__text{ margin: 0 0 .65rem; opacity: .92; }
 
+    .myss-kv-line{ margin: .2rem 0; opacity: .92; }
+    .myss-kv-label{ font-weight: 900; color: var(--myss-blue); }
+
     .myss-cta-row{
-      display:flex;
+      display: flex;
       align-items: center;
-      gap:.75rem;
-      flex-wrap:wrap;
+      gap: .75rem;
+      flex-wrap: wrap;
       margin-top: 1rem;
+      max-width: 980px;
     }
     .myss-cta{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-      font-weight:900;
-      padding:.75rem 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 900;
+      padding: .75rem 1rem;
       border-radius: 16px;
       border: 1px solid rgba(16,82,119,.16);
       background: rgba(16,82,119,.06);
@@ -122,6 +142,7 @@
     }
     .myss-cta:hover{ filter: brightness(1.02); transform: translateY(-1px); }
     .myss-cta:active{ transform: translateY(0); }
+
     .myss-cta--primary{
       background: #F77C37;
       border: 1px solid rgba(0,0,0,.08);
@@ -134,7 +155,6 @@
     .myss-cta--primary:hover{ filter: brightness(1.03); transform: translateY(-2px); }
     .myss-cta--primary:active{ transform: translateY(0); box-shadow: 0 6px 14px rgba(0,0,0,.10); }
 
-    .myss-block-title{ margin-top: 2.2rem; }
     .myss-list{ margin: .75rem 0 0; padding-left: 1.1rem; max-width: 980px; }
 
     .myss-details{
@@ -153,40 +173,15 @@
     }
     .myss-details summary::-webkit-details-marker{ display:none; }
 
-    .myss-kv-line{ margin: .2rem 0; opacity: .92; }
-    .myss-kv-label{ font-weight: 900; color: var(--myss-blue); }
-
-    .-row{
-      display:flex;
-      gap: 1rem;
-      align-items:center;
-      flex-wrap:wrap;
-      margin-top: .75rem;
-      max-width: 980px;
-    }
-    .myss-logo{
-      height: 60px;
-      width: auto;
-      display:block;
-      object-fit: contain;
-    }
-    @media (max-width: 900px){
-      .myss-cta--primary{ width: 100%; }
-      .myss-logo{ height: 38px; }
-    }
-
-    .myss-ico{width:18px;height:18px;display:inline-block;vertical-align:-3px;margin-right:.45rem;object-fit:contain;}
+    .myss-note{ margin-top: .9rem; opacity: .9; }
 
     .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
     .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }
     .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
 
     @media (max-width: 900px){
-      /* Unngå at "Kontakt oss" blir stående alene */
-      .myss-cta-row{ gap: .6rem; }
-      .myss-cta{ padding: .7rem .9rem; border-radius: 16px; }
+      .myss-cta--primary{ width: 100%; }
 
-      /* Sticky påmelding nederst på mobil */
       .myss-cta-row{
         position: sticky;
         bottom: .75rem;
@@ -197,23 +192,21 @@
         border-radius: 18px;
         border: 1px solid rgba(16,82,119,.12);
         box-shadow: 0 14px 34px rgba(0,0,0,.10);
+        gap: .6rem;
       }
-
       .myss-cta--primary{
         flex: 1 1 auto;
         min-width: 180px;
       }
-
-      /* Gjør de andre til sekundære og la dem wrap pent */
       .myss-cta:not(.myss-cta--primary){
         flex: 0 0 auto;
+        padding: .7rem .9rem;
       }
     }
   </style>
 </head>
 
 <body class="page-home">
-
   <header data-component="site-header"></header>
 
   <main>
@@ -226,49 +219,53 @@
             alt="Seminar 28. februar 2026"
             class="myss-hero-photo"
             loading="eager"
+            decoding="async"
+            fetchpriority="high"
           />
         </div>
 
         <div class="myss-hero-text">
-
-          
           <h1 class="reveal d3">Seminar: pilotstart for My Strongest Side® QR og NFC treningssystem</h1>
 
-          <p class="reveal d4">
-            Seminar ved Høgskulen på Vestlandet, Campus Kronstad, lørdag 28. februar 2026.
-            Lunsj er inkludert.
+          <p class="reveal d4 myss-lead">
+            Seminar ved Høgskulen på Vestlandet, Campus Kronstad, lørdag 28. februar 2026. Lunsj er inkludert.
           </p>
 
-          <section class="seminar-info">
-            <h2>Om seminaret</h2>
+          <section class="myss-section" aria-labelledby="om-seminaret">
+            <h2 id="om-seminaret" class="reveal d3">Om seminaret</h2>
 
-            <p>
+            <p class="reveal d4">
               Dette er seminaret for deg som jobber i treningsbransjen eller innen rehabilitering, for deg som forsker eller underviser, er student, leverandør eller samarbeidspartner, og for deg som selv har funksjonsvariasjoner og er opptatt av trygg trening i ordinære treningsmiljøer.
             </p>
 
-            <p>
-              Altfor ofte faller mennesker utenfor trening, ikke fordi de mangler vilje, men fordi apparattrening kan oppleves utydelig, utrygg og vanskelig å tilpasse. Veiledning blir ofte personavhengig, og kvaliteten varierer med hvem som er på jobb, hvilken kompetanse som er tilgjengelig, og hvor mye tid som faktisk er til stede på gulvet. Det påvirker både brukerens trygghet og muligheten til å trene mer selvstendig, og det er krevende for ansatte og veiledere som ønsker å gjøre en god jobb.
+            <p class="reveal d4">
+              Altfor ofte faller mennesker utenfor trening, ikke fordi de mangler vilje, men fordi apparattrening kan oppleves utydelig, utrygg og vanskelig å tilpasse. Veiledning blir ofte personavhengig, og kvaliteten varierer med hvem som er på jobb, hvilken kompetanse som er tilgjengelig, og hvor mye tid som faktisk er til stede på gulvet.
             </p>
 
-            <p>
+            <p class="reveal d4">
               My Strongest Side® lanserer derfor et QR og NFC treningssystem for apparattrening. Ved å skanne en kode på apparatet får brukeren tydelige instruksjoner, trygghetsråd og konkrete forslag til tilpasninger. Målet er å gjøre trening mer forståelig, mer håndterbar og mer meningsfull, samtidig som ansatte og veiledere får støtte gjennom en mer konsistent struktur for tilrettelegging.
             </p>
 
-            <p>
+            <p class="reveal d4">
               Seminaret markerer pilotstart og samler ulike miljøer for å dele perspektiver, få innspill og vise løsningen i praksis. Det blir faglige innlegg, refleksjon og demonstrasjon.
             </p>
           </section>
 
           <div class="myss-services reveal d4" aria-label="Nøkkelinformasjon">
             <div class="myss-service-card" role="group" aria-label="Dato og tid">
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/calendar.svg" alt="" aria-hidden="true">Dato og tid</h3>
+              <div class="myss-service-card__head">
+                <img class="myss-ico" src="/ikon/calendar.svg" alt="" aria-hidden="true" width="20" height="20" />
+                <h3 class="myss-service-card__title">Dato og tid</h3>
+              </div>
               <p class="myss-service-card__text">Lørdag 28. februar 2026</p>
               <p class="myss-kv-line"><span class="myss-kv-label">Tid:</span> kl. 11:00 til ca. 15:00</p>
             </div>
 
             <div class="myss-service-card" role="group" aria-label="Sted">
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/location.svg" alt="" aria-hidden="true">Sted</h3>
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/pin.svg" alt="" aria-hidden="true">Sted</h3>
+              <div class="myss-service-card__head">
+                <img class="myss-ico" src="/ikon/pin.svg" alt="" aria-hidden="true" width="20" height="20" />
+                <h3 class="myss-service-card__title">Sted</h3>
+              </div>
               <p class="myss-service-card__text">Høgskulen på Vestlandet, Campus Kronstad</p>
               <p class="myss-kv-line"><span class="myss-kv-label">Oppmøte:</span> ved hovedinngangen</p>
             </div>
@@ -276,7 +273,7 @@
 
           <div class="myss-cta-row reveal d4">
             <a class="myss-cta myss-cta--primary"
-               href="https://www.mystrongestside.no/kurs%20og%20seminar.html?fbclid=IwY2xjawPYgC1leHRuA2FlbQIxMABicmlkETF2a3NTcXQ0TVZBVFFnajkyc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHkNpc7IwNT3lSg883uafjv-AwFX4KqTz52fVdeggjfHagOF1aN3RXGMoIInt_aem_ISDGe6JAKB2g6ZInRTGPOQ&eventRegistrationId=216540">
+               href="https://www.mystrongestside.no/kurs%20og%20seminar.html?eventRegistrationId=216540">
               Påmelding
             </a>
             <a class="myss-cta" href="#program">Program</a>
@@ -287,198 +284,198 @@
             <a class="myss-cta" href="#kontakt">Kontakt oss</a>
           </div>
 
-          <div class="myss-block-title">
-            <p id="pilot" class="eyebrow reveal d2">Om piloten</p>
-          </div>
+          <section class="myss-section" id="pilot" aria-labelledby="pilot-tittel">
+            <h2 id="pilot-tittel" class="reveal d3">Om piloten</h2>
 
-          <p class="reveal d3">
-            My Strongest Side® utvikler en QR basert løsning som gjør apparattrening mer forståelig og tilgjengelig for personer
-            med cerebral parese og lignende nevrologiske tilstander. Prosjektet bygger videre på fem gjennomførte sesonger, og
-            totalt 19 deltakere i alderen 12 til 78 år.
-          </p>
-
-          <p class="reveal d4">
-            I piloten testes QR koder på utvalgte treningsapparater. Brukeren får treningsinstruksjoner, forslag til egnede
-            hjelpemidler og praktiske råd for gjennomføring. Løsningen er utviklet med tanke på overføringsverdi til flere
-            diagnoser og tjenester på sikt.
-          </p>
-
-          <div class="myss-services reveal d4" aria-label="Pilotfakta">
-            <div class="myss-service-card" role="group" aria-label="Målgruppe">
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/wheelchair.svg" alt="" aria-hidden="true">Målgruppe</h3>
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/users.svg" alt="" aria-hidden="true">Målgruppe</h3>
-              <p class="myss-service-card__text">Personer med CP og lignende nevrologiske tilstander</p>
-            </div>
-
-            <div class="myss-service-card" role="group" aria-label="Innhold">
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/signup.svg" alt="" aria-hidden="true">Hva brukeren får</h3>
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/qr.svg" alt="" aria-hidden="true">Hva brukeren får</h3>
-              <p class="myss-service-card__text">Instruksjon, veiledning og forslag til egnede hjelpemidler via QR</p>
-            </div>
-
-            <div class="myss-service-card" role="group" aria-label="Pilotarenaer">
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/info-place.svg" alt="" aria-hidden="true">Pilotarenaer</h3>
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/gym.svg" alt="" aria-hidden="true">Pilotarenaer</h3>
-              <p class="myss-service-card__text">Trene Sammen Fantoft og Energisenteret ved Haukeland universitetssjukehus</p>
-            </div>
-          </div>
-
-          <div class="myss-block-title">
-            <p id="program" class="eyebrow reveal d2">Foreløpig program</p>
-          </div>
-
-          <details class="myss-details reveal d3" open>
-            <summary>Trykk for å vise eller skjule program</summary>
-
-            <p class="myss-kv-line" style="margin-top:.6rem;">
-              Merk: Dette er foreløpig program. Flere innledere og detaljer publiseres fortløpende.
+            <p class="reveal d3">
+              My Strongest Side® utvikler en QR basert løsning som gjør apparattrening mer forståelig og tilgjengelig for personer med cerebral parese og lignende nevrologiske tilstander. Prosjektet bygger videre på fem gjennomførte sesonger og totalt 19 deltakere i alderen 12 til 78 år.
             </p>
 
-            <ul class="myss-list">
-              <li><strong>Kl. 10:30</strong> Dørene åpner, registrering</li>
-              <li><strong>Kl. 11:00</strong> Velkommen og åpning, Alexander Mjøs Sviggum, My Strongest Side®</li>
-              <li><strong>Kl. 11:06</strong> Hilsen fra vertskap og fagmiljø, innleder annonseres</li>
-              <li><strong>Kl. 11:10</strong> Perspektiv fra brukerorganisasjon, innleder annonseres</li>
-              <li><strong>Kl. 11:25</strong> Trygghet, mestring og motivasjon, psykolog Sissel Garnes</li>
-              <li><strong>Kl. 12:10</strong> Lunsj og mingling</li>
-              <li><strong>Kl. 13:10</strong> Verdier, likeverd og muligheten til å delta, Einar Steensnæs</li>
-              <li><strong>Kl. 13:55</strong> Trening, CP og tilpasning, prinsipper for trygg progresjon, innleder annonseres</li>
-              <li><strong>Kl. 14:15</strong> Presentasjon og demonstrasjon av My Strongest Side® QR og NFC treningssystem for apparattrening, Alexander Mjøs Sviggum</li>
-              <li><strong>Kl. 14:30</strong> Mio BPA</li>
-              <li><strong>Kl. 14:40</strong> Korte samarbeidspartnerinnlegg, innledere annonseres</li>
-              <li><strong>Kl. 14:50</strong> Oppsummering, spørsmål og veien videre</li>
-              <li><strong>Kl. 15:00</strong> Avslutning</li>
-            </ul>
-          </details>
+            <p class="reveal d4">
+              I piloten testes QR koder på utvalgte treningsapparater. Brukeren får treningsinstruksjoner, forslag til egnede hjelpemidler og praktiske råd for gjennomføring. Løsningen er utviklet med tanke på overføringsverdi til flere diagnoser og tjenester på sikt.
+            </p>
 
-          <div class="myss-block-title">
-            <p id="priser" class="eyebrow reveal d2">Priser</p>
-          </div>
+            <div class="myss-services reveal d4" aria-label="Pilotfakta">
+              <div class="myss-service-card" role="group" aria-label="Målgruppe">
+                <div class="myss-service-card__head">
+                  <img class="myss-ico" src="/ikon/users.svg" alt="" aria-hidden="true" width="20" height="20" />
+                  <h3 class="myss-service-card__title">Målgruppe</h3>
+                </div>
+                <p class="myss-service-card__text">Personer med CP og lignende nevrologiske tilstander</p>
+              </div>
 
-          <p class="reveal d3">
-            Pris avhenger av billettype. Lunsj og drikke er inkludert.
-          </p>
+              <div class="myss-service-card" role="group" aria-label="Hva brukeren får">
+                <div class="myss-service-card__head">
+                  <img class="myss-ico" src="/ikon/qr.svg" alt="" aria-hidden="true" width="20" height="20" />
+                  <h3 class="myss-service-card__title">Hva brukeren får</h3>
+                </div>
+                <p class="myss-service-card__text">Instruksjon, veiledning og forslag til egnede hjelpemidler via QR</p>
+              </div>
 
-          <div class="myss-services reveal d4" aria-label="Priser">
-            <div class="myss-service-card" role="group" aria-label="Redusert pris">
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/info-price.svg" alt="" aria-hidden="true">Redusert pris</h3>
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/student.svg" alt="" aria-hidden="true">Redusert pris</h3>
-              <p class="myss-service-card__text">
-                Studenter, CP medlemmer, pårørende og My Strongest Side deltakere.
-              </p>
-              <p class="myss-kv-line"><span class="myss-kv-label">Pris:</span> 100 kr</p>
-            </div>
-
-            <div class="myss-service-card" role="group" aria-label="Ordinær pris">
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/price.svg" alt="" aria-hidden="true">Ordinær pris</h3>
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/person.svg" alt="" aria-hidden="true">Ordinær pris</h3>
-              <p class="myss-service-card__text">Andre deltakere.</p>
-              <p class="myss-kv-line"><span class="myss-kv-label">Pris:</span> 300 kr</p>
-            </div>
-
-            <div class="myss-service-card" role="group" aria-label="Kontakt">
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/assist.svg" alt="" aria-hidden="true">Kontakt</h3>
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/mail.svg" alt="" aria-hidden="true">Kontakt</h3>
-              <p class="myss-service-card__text">
-                Spørsmål om billettype eller pris. Ta kontakt med oss.
-              </p>
-              <div class="myss-cta-row" style="margin-top:.4rem;">
-                <a class="myss-cta" href="#kontakt">Kontakt oss</a>
+              <div class="myss-service-card" role="group" aria-label="Pilotarenaer">
+                <div class="myss-service-card__head">
+                  <img class="myss-ico" src="/ikon/gym.svg" alt="" aria-hidden="true" width="20" height="20" />
+                  <h3 class="myss-service-card__title">Pilotarenaer</h3>
+                </div>
+                <p class="myss-service-card__text">Trene Sammen Fantoft og Energisenteret ved Haukeland universitetssjukehus</p>
               </div>
             </div>
-          </div>
+          </section>
 
-          <p class="reveal d4" style="margin-top: .9rem; opacity: .92;">
-            Studenter kan bli bedt om å vise gyldig studentbevis ved oppmøte.
-          </p>
+          <section class="myss-section" id="program" aria-labelledby="program-tittel">
+            <h2 id="program-tittel" class="reveal d3">Foreløpig program</h2>
 
-          <div class="myss-block-title">
-            <p id="reise" class="eyebrow reveal d2">Reise</p>
-          </div>
+            <details class="myss-details reveal d3" open>
+              <summary>Trykk for å vise eller skjule program</summary>
 
-          <div class="myss-services reveal d4" aria-label="Reise">
-            <div class="myss-service-card" role="group" aria-label="Til Campus Kronstad">
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/bus.svg" alt="" aria-hidden="true">Til Campus Kronstad</h3>
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/tram.svg" alt="" aria-hidden="true">Til Campus Kronstad</h3>
-              <p class="myss-service-card__text">
-                Vi anbefaler Bybanen linje 1 eller 2 til stoppet Kronstad.
-                Du finner oss rett innenfor hovedinngangen til Høgskulen på Vestlandet, som ligger like ved stoppet.
+              <p class="myss-kv-line" style="margin-top:.6rem;">
+                Merk: Dette er foreløpig program. Flere innledere og detaljer publiseres fortløpende.
               </p>
+
+              <ul class="myss-list">
+                <li><strong>Kl. 10:30</strong> Dørene åpner, registrering</li>
+                <li><strong>Kl. 11:00</strong> Velkommen og åpning, Alexander Mjøs Sviggum, My Strongest Side®</li>
+                <li><strong>Kl. 11:06</strong> Hilsen fra vertskap og fagmiljø, innleder annonseres</li>
+                <li><strong>Kl. 11:10</strong> Perspektiv fra brukerorganisasjon, innleder annonseres</li>
+                <li><strong>Kl. 11:25</strong> Trygghet, mestring og motivasjon, psykolog Sissel Garnes</li>
+                <li><strong>Kl. 12:10</strong> Lunsj og mingling</li>
+                <li><strong>Kl. 13:10</strong> Verdier, likeverd og muligheten til å delta, Einar Steensnæs</li>
+                <li><strong>Kl. 13:55</strong> Trening, CP og tilpasning, prinsipper for trygg progresjon, innleder annonseres</li>
+                <li><strong>Kl. 14:15</strong> Presentasjon og demonstrasjon av My Strongest Side® QR og NFC treningssystem for apparattrening, Alexander Mjøs Sviggum</li>
+                <li><strong>Kl. 14:30</strong> Mio BPA</li>
+                <li><strong>Kl. 14:40</strong> Korte samarbeidspartnerinnlegg, innledere annonseres</li>
+                <li><strong>Kl. 14:50</strong> Oppsummering, spørsmål og veien videre</li>
+                <li><strong>Kl. 15:00</strong> Avslutning</li>
+              </ul>
+            </details>
+          </section>
+
+          <section class="myss-section" id="priser" aria-labelledby="priser-tittel">
+            <h2 id="priser-tittel" class="reveal d3">Priser</h2>
+
+            <p class="reveal d3">Pris avhenger av billettype. Lunsj og drikke er inkludert.</p>
+
+            <div class="myss-services reveal d4" aria-label="Priser">
+              <div class="myss-service-card" role="group" aria-label="Redusert pris">
+                <div class="myss-service-card__head">
+                  <img class="myss-ico" src="/ikon/student.svg" alt="" aria-hidden="true" width="20" height="20" />
+                  <h3 class="myss-service-card__title">Redusert pris</h3>
+                </div>
+                <p class="myss-service-card__text">Studenter, CP medlemmer, pårørende og My Strongest Side® deltakere.</p>
+                <p class="myss-kv-line"><span class="myss-kv-label">Pris:</span> 100 kr</p>
+              </div>
+
+              <div class="myss-service-card" role="group" aria-label="Ordinær pris">
+                <div class="myss-service-card__head">
+                  <img class="myss-ico" src="/ikon/users.svg" alt="" aria-hidden="true" width="20" height="20" />
+                  <h3 class="myss-service-card__title">Ordinær pris</h3>
+                </div>
+                <p class="myss-service-card__text">Andre deltakere.</p>
+                <p class="myss-kv-line"><span class="myss-kv-label">Pris:</span> 300 kr</p>
+              </div>
+
+              <div class="myss-service-card" role="group" aria-label="Kontakt om pris">
+                <div class="myss-service-card__head">
+                  <img class="myss-ico" src="/ikon/mail.svg" alt="" aria-hidden="true" width="20" height="20" />
+                  <h3 class="myss-service-card__title">Kontakt</h3>
+                </div>
+                <p class="myss-service-card__text">Spørsmål om billettype eller pris. Ta kontakt med oss.</p>
+                <div class="myss-cta-row" style="margin-top:.4rem;">
+                  <a class="myss-cta" href="#kontakt">Kontakt oss</a>
+                </div>
+              </div>
             </div>
 
-            <div class="myss-service-card" role="group" aria-label="Fra Flesland">
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/map.svg" alt="" aria-hidden="true">Fra Flesland</h3>
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/plane.svg" alt="" aria-hidden="true">Fra Flesland</h3>
-              <p class="myss-service-card__text">
-                Bybanen linje 1 går fra Flesland til Bergen sentrum. Derfra kan du reise videre med Bybanen til stoppet Kronstad.
-                Flybussen er et alternativ til Bergen sentrum.
-              </p>
+            <p class="reveal d4 myss-note">Studenter kan bli bedt om å vise gyldig studentbevis ved oppmøte.</p>
+          </section>
+
+          <section class="myss-section" id="reise" aria-labelledby="reise-tittel">
+            <h2 id="reise-tittel" class="reveal d3">Reise</h2>
+
+            <div class="myss-services reveal d4" aria-label="Reise">
+              <div class="myss-service-card" role="group" aria-label="Til Campus Kronstad">
+                <div class="myss-service-card__head">
+                  <img class="myss-ico" src="/ikon/tram.svg" alt="" aria-hidden="true" width="20" height="20" />
+                  <h3 class="myss-service-card__title">Til Campus Kronstad</h3>
+                </div>
+                <p class="myss-service-card__text">
+                  Vi anbefaler Bybanen linje 1 eller 2 til stoppet Kronstad. Du finner oss rett innenfor hovedinngangen til Høgskulen på Vestlandet, som ligger like ved stoppet.
+                </p>
+              </div>
+
+              <div class="myss-service-card" role="group" aria-label="Fra Flesland">
+                <div class="myss-service-card__head">
+                  <img class="myss-ico" src="/ikon/plane.svg" alt="" aria-hidden="true" width="20" height="20" />
+                  <h3 class="myss-service-card__title">Fra Flesland</h3>
+                </div>
+                <p class="myss-service-card__text">
+                  Bybanen linje 1 går fra Flesland til Bergen sentrum. Derfra kan du reise videre med Bybanen til stoppet Kronstad. Flybussen er et alternativ til Bergen sentrum.
+                </p>
+              </div>
+
+              <div class="myss-service-card" role="group" aria-label="Hotell">
+                <div class="myss-service-card__head">
+                  <img class="myss-ico" src="/ikon/hotel.svg" alt="" aria-hidden="true" width="20" height="20" />
+                  <h3 class="myss-service-card__title">Hotell</h3>
+                </div>
+                <p class="myss-service-card__text">
+                  Vi har ikke eget konferansehotell. Vi anbefaler hotell i Bergen sentrum med enkel tilgang til Bybanen.
+                </p>
+              </div>
             </div>
 
-            <div class="myss-service-card" role="group" aria-label="Hotell">
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/place.svg" alt="" aria-hidden="true">Hotell</h3>
-              <h3 class="myss-service-card__title"><img class="myss-ico" src="/icons/hotel.svg" alt="" aria-hidden="true">Hotell</h3>
-              <p class="myss-service-card__text">
-                Vi har ikke eget konferansehotell. Vi anbefaler hotell i Bergen sentrum med enkel tilgang til Bybanen.
-              </p>
-            </div>
-          </div>
+            <details class="myss-details reveal d4">
+              <summary>Hotellforslag</summary>
 
-          <details class="myss-details reveal d4">
-            <summary>Hotellforslag</summary>
+              <p class="myss-kv-line" style="margin-top:.6rem;"><span class="myss-kv-label">Nær Danmarksplass:</span></p>
+              <ul class="myss-list">
+                <li>Citybox Danmarksplass</li>
+                <li>Magic Hotel Solheimsviken</li>
+                <li>Moxy Bergen</li>
+              </ul>
 
-            <p class="myss-kv-line" style="margin-top:.6rem;"><span class="myss-kv-label">Nær Danmarksplass:</span></p>
-            <ul class="myss-list">
-              <li>Citybox Danmarksplass</li>
-              <li>Magic Hotel Solheimsviken</li>
-              <li>Moxy Bergen</li>
-            </ul>
+              <p class="myss-kv-line" style="margin-top:.6rem;"><span class="myss-kv-label">Nær Bystasjonen:</span></p>
+              <ul class="myss-list">
+                <li>Scandic Ørnen</li>
+                <li>Citybox Bergen</li>
+              </ul>
 
-            <p class="myss-kv-line" style="margin-top:.6rem;"><span class="myss-kv-label">Nær Bystasjonen:</span></p>
-            <ul class="myss-list">
-              <li>Scandic Ørnen</li>
-              <li>Citybox Bergen</li>
-            </ul>
+              <p class="myss-kv-line" style="margin-top:.6rem;"><span class="myss-kv-label">Nær Nonneseter og togstasjonen:</span></p>
+              <ul class="myss-list">
+                <li>Grand Hotel Terminus</li>
+                <li>Sander K Hotel</li>
+              </ul>
 
-            <p class="myss-kv-line" style="margin-top:.6rem;"><span class="myss-kv-label">Nær Nonneseter og togstasjonen:</span></p>
-            <ul class="myss-list">
-              <li>Grand Hotel Terminus</li>
-              <li>Sander K Hotel</li>
-            </ul>
+              <p class="myss-kv-line" style="margin-top:.6rem;"><span class="myss-kv-label">Nær Byparken:</span></p>
+              <ul class="myss-list">
+                <li>Scandic Byparken</li>
+                <li>Hotel Norge by Scandic</li>
+                <li>Magic Hotel Xhibition</li>
+                <li>Scandic Bergen City</li>
+              </ul>
+            </details>
+          </section>
 
-            <p class="myss-kv-line" style="margin-top:.6rem;"><span class="myss-kv-label">Nær Byparken:</span></p>
-            <ul class="myss-list">
-              <li>Scandic Byparken</li>
-              <li>Hotel Norge by Scandic</li>
-              <li>Magic Hotel Xhibition</li>
-              <li>Scandic Bergen City</li>
-            </ul>
-          </details>
+          <section class="myss-section" id="bidragsytere" aria-labelledby="bidragsytere-tittel">
+            <h2 id="bidragsytere-tittel" class="reveal d3">Bidragsytere</h2>
 
-          <div class="myss-block-title">
-            <p id="bidragsytere" class="eyebrow reveal d2">Bidragsytere</p>
-          </div>
+            <h3 class="reveal d3" style="margin-top: .25rem;">Alexander Sviggum</h3>
+            <p class="reveal d4">
+              Alexander Sviggum, grunnlegger av My Strongest Side® og ergoterapeut, presenterer bakgrunnen for satsingen og hvordan treningssystemet er utviklet, samt rammer for pilotgjennomføring og evaluering.
+            </p>
 
-          <h2 class="reveal d3" style="margin-top: .25rem;">Alexander Sviggum</h2>
-          <p class="reveal d4">
-            Alexander Sviggum, grunnlegger av My Strongest Side® og ergoterapeut, vil presentere bakgrunnen for satsingen og hvordan treningssystemet er utviklet, samt rammer for pilotgjennomføring og evaluering.
-          </p>
+            <h3 class="reveal d3" style="margin-top: 1.15rem;">Einar Steensnæs</h3>
+            <p class="reveal d4">
+              Einar Steensnæs, tidligere statsråd, deltar som bidragsyter på seminaret. Han er kjent for sitt engasjement for menneskerettigheter og samfunnsutvikling, og deler perspektiver på hvordan tilgjengelighet og inkludering kan løftes fra intensjon til praksis.
+            </p>
 
-          <h2 class="reveal d3" style="margin-top: 1.15rem;">Einar Steensnæs</h2>
-          <p class="reveal d4">
-           Einar Steensnæs, tidligere statsråd,deltar som bidragsyter på seminaret. Han er kjent for sitt engasjement for menneskerettigheter og samfunnsutvikling, og vil dele perspektiver på hvordan tilgjengelighet og inkludering kan løftes fra intensjon til praksis.
-          </p>
+            <h3 class="reveal d3" style="margin-top: 1.15rem;">Sissel Garnes</h3>
+            <p class="reveal d4">
+              Psykolog Sissel Garnes holder innlegget «Trygghet, mestring og motivasjon». Hun deler et personlig og faglig perspektiv fra å leve med CP, med fokus på trygghet i aktivitet, og på hvordan struktur og tilpasning kan senke barrierer for deltakelse og gjennomføring av trening i ordinære treningsmiljøer.
+            </p>
 
-          <h2 class="reveal d3" style="margin-top: 1.15rem;">Sissel Garnes</h2>
-          <p class="reveal d4">
-            Psykolog Sissel Garnes holder innlegget «Trygghet, mestring og motivasjon». Hun deler et personlig og faglig perspektiv fra å leve med CP, med fokus på trygghet i aktivitet, og på hvordan struktur og tilpasning kan senke barrierer for deltakelse og gjennomføring av trening i ordinære treningsmiljøer.
-          </p>
-
-          <p class="reveal d4" style="margin-top: .9rem; opacity:.9;">
-            Flere bidragsytere lanseres 1. februar 2026.
-          </p>
- 
-          </div>
+            <p class="reveal d4 myss-note">Flere bidragsytere lanseres 1. februar 2026.</p>
+          </section>
 
         </div>
       </div>
@@ -501,7 +498,7 @@
           <h3 class="site-footer__title">Kontakt</h3>
           <div class="site-footer__contact-lines">
             <div>My Strongest Side AS</div>
-            <div>Brages veg 3<br>5221 Nesttun</div>
+            <div>Brages veg 3<br />5221 Nesttun</div>
             <div>E post: <a class="site-footer__link" href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></div>
             <div>Telefon: <a class="site-footer__link" href="tel:+4741439384">+47 41 43 93 84</a></div>
           </div>
@@ -513,10 +510,10 @@
           <span class="site-footer__social-label">Følg oss i sosiale medier</span>
           <div class="site-footer__social-list">
             <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
-              <img src="/icons/facebook.png" alt="" aria-hidden="true">
+              <img src="/icons/facebook.png" alt="" aria-hidden="true" />
             </a>
             <a class="social-link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener" aria-label="Instagram">
-              <img src="/icons/instagram.png" alt="" aria-hidden="true">
+              <img src="/icons/instagram.png" alt="" aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -532,20 +529,20 @@
   <script src="/components/footer-links.js?v=114" defer></script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const y = document.getElementById('year');
+    document.addEventListener("DOMContentLoaded", () => {
+      const y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
 
-      const els = Array.from(document.querySelectorAll('.reveal'));
-      if (!('IntersectionObserver' in window)) {
-        els.forEach(el => el.classList.add('is-visible'));
+      const els = Array.from(document.querySelectorAll(".reveal"));
+      if (!("IntersectionObserver" in window)) {
+        els.forEach(el => el.classList.add("is-visible"));
         return;
       }
 
       const io = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            entry.target.classList.add("is-visible");
             io.unobserve(entry.target);
           }
         });
@@ -554,6 +551,5 @@
       els.forEach(el => io.observe(el));
     });
   </script>
-
 </body>
 </html>
