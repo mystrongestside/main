@@ -140,6 +140,8 @@
       color: var(--myss-blue);
       transition: transform .08s ease, filter .2s ease;
     }
+    .myss-cta{ text-decoration: none !important; }
+    .myss-cta:visited{ color: var(--myss-blue); }
     .myss-cta:hover{ filter: brightness(1.02); transform: translateY(-1px); }
     .myss-cta:active{ transform: translateY(0); }
 
@@ -156,6 +158,21 @@
     .myss-cta--primary:active{ transform: translateY(0); box-shadow: 0 6px 14px rgba(0,0,0,.10); }
 
     .myss-list{ margin: .75rem 0 0; padding-left: 1.1rem; max-width: 980px; }
+    .myss-list{
+      list-style: none;
+      padding-left: 0;
+      margin: .75rem 0 0;
+    }
+    .myss-list li{
+      padding: .65rem 0;
+      border-bottom: 1px solid rgba(16,82,119,.12);
+    }
+    .myss-list li:last-child{ border-bottom: 0; }
+    .myss-list li strong{
+      display: inline-block;
+      min-width: 6.6rem;
+      color: var(--myss-blue);
+    }
 
     .myss-details{
       max-width: 980px;
@@ -182,7 +199,8 @@
     @media (max-width: 900px){
       .myss-cta--primary{ width: 100%; }
 
-      .myss-cta-row{
+      /* Sticky gjelder kun hovedraden */
+      .myss-cta-row--sticky{
         position: sticky;
         bottom: .75rem;
         z-index: 60;
@@ -194,11 +212,23 @@
         box-shadow: 0 14px 34px rgba(0,0,0,.10);
         gap: .6rem;
       }
-      .myss-cta--primary{
+
+      /* Inline rader skal aldri bli sticky */
+      .myss-cta-row--inline{
+        position: static;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        padding: 0;
+        border-radius: 0;
+      }
+
+      .myss-cta-row--sticky .myss-cta--primary{
         flex: 1 1 auto;
         min-width: 180px;
       }
-      .myss-cta:not(.myss-cta--primary){
+
+      .myss-cta-row--sticky .myss-cta:not(.myss-cta--primary){
         flex: 0 0 auto;
         padding: .7rem .9rem;
       }
@@ -271,7 +301,7 @@
             </div>
           </div>
 
-          <div class="myss-cta-row reveal d4">
+          <div class="myss-cta-row myss-cta-row--sticky reveal d4">
             <a class="myss-cta myss-cta--primary"
                href="https://www.mystrongestside.no/kurs%20og%20seminar.html?eventRegistrationId=216540">
               Påmelding
@@ -380,7 +410,7 @@
                   <h3 class="myss-service-card__title">Kontakt</h3>
                 </div>
                 <p class="myss-service-card__text">Spørsmål om billettype eller pris. Ta kontakt med oss.</p>
-                <div class="myss-cta-row" style="margin-top:.4rem;">
+                <div class="myss-cta-row myss-cta-row--inline" style="margin-top:.4rem;">
                   <a class="myss-cta" href="#kontakt">Kontakt oss</a>
                 </div>
               </div>
