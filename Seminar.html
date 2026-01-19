@@ -57,97 +57,121 @@
     .myss-hero-text{ margin-top: 1.25rem; max-width: 980px; }
 
     .myss-eventcard{
-      margin-top: 1.5rem;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1.25rem;
+      margin-top: 1rem;
       max-width: 980px;
-      padding: 1.25rem 1.35rem;
-      border-radius: 24px;
-      border: 1px solid rgba(16,82,119,.18);
-      background: rgba(16,82,119,.05);
-      box-shadow: 0 16px 32px rgba(16,82,119,.12);
-      align-items: center;
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1.2rem;
+      padding: 1.2rem;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 1px solid rgba(16,82,119,.14);
+      box-shadow: 0 10px 26px rgba(0,0,0,.06);
     }
     .myss-eventcard__date{
-      min-width: 90px;
-      border-radius: 18px;
-      background: #0b2a3a;
-      color: #fff;
-      text-align: center;
-      padding: .85rem .6rem;
-      display: grid;
-      gap: .1rem;
-      letter-spacing: .02em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .35rem;
+      padding: 1rem .75rem;
+      border-right: 2px solid rgba(16,82,119,.16);
     }
     .myss-eventcard__day{
-      font-size: 2.3rem;
-      font-weight: 800;
+      font-size: 3.1rem;
       line-height: 1;
+      font-weight: 900;
+      color: var(--myss-blue);
     }
     .myss-eventcard__month{
-      text-transform: uppercase;
-      font-weight: 700;
-      font-size: .9rem;
+      font-size: 1.2rem;
+      font-weight: 900;
+      text-transform: lowercase;
+      color: var(--myss-blue);
+      letter-spacing: .02em;
     }
     .myss-eventcard__year{
-      font-size: .95rem;
-      opacity: .85;
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--myss-blue);
+      opacity: .9;
     }
     .myss-eventcard__title{
-      margin: 0 0 .45rem;
-      font-size: 1.4rem;
+      margin: 0 0 .6rem;
+      font-size: 1.65rem;
+      line-height: 1.15;
     }
     .myss-eventcard__meta{
       margin: 0;
       display: grid;
-      gap: .35rem;
+      gap: .5rem;
     }
     .myss-eventcard__row{
       display: grid;
-      grid-template-columns: minmax(84px, auto) 1fr;
-      gap: .6rem;
-      align-items: baseline;
+      grid-template-columns: 90px 1fr;
+      gap: 1rem;
+      align-items: start;
     }
-    .myss-eventcard__row dt{
-      font-weight: 800;
+    .myss-eventcard__meta dt{
+      font-weight: 900;
       color: var(--myss-blue);
     }
-    .myss-eventcard__row dd{
+    .myss-eventcard__meta dd{
       margin: 0;
-      opacity: .9;
+      font-weight: 700;
+      opacity: .95;
     }
     .myss-eventcard__actions{
-      margin-top: .75rem;
       display: flex;
+      gap: .75rem;
       flex-wrap: wrap;
-      gap: .65rem;
+      margin-top: .9rem;
     }
     .myss-eventcard__btn{
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      padding: .75rem 1.1rem;
+      border-radius: 999px;
+      border: 2px solid rgba(16,82,119,.9);
       text-decoration: none;
-      font-weight: 800;
-      padding: .65rem .9rem;
-      border-radius: 14px;
-      border: 1px solid rgba(16,82,119,.18);
+      font-weight: 900;
       color: var(--myss-blue);
-      background: #fff;
+      background: transparent;
       transition: transform .08s ease, filter .2s ease;
     }
     .myss-eventcard__btn:hover{ filter: brightness(1.02); transform: translateY(-1px); }
     .myss-eventcard__btn:active{ transform: translateY(0); }
     .myss-eventcard__btn--primary{
-      background: #F77C37;
-      border: 1px solid rgba(0,0,0,.08);
-      color: #0b2a3a;
-      box-shadow: 0 10px 20px rgba(0,0,0,.10);
+      background: rgba(16,82,119,.06);
     }
     .myss-eventcard__deadline{
-      margin: .8rem 0 0;
-      font-size: .98rem;
-      opacity: .85;
+      margin: .9rem 0 0;
+      opacity: .92;
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px){
+      .myss-eventcard{
+        grid-template-columns: 1fr;
+        gap: .9rem;
+        padding: 1rem;
+      }
+      .myss-eventcard__date{
+        border-right: 0;
+        border-bottom: 2px solid rgba(16,82,119,.16);
+        padding: .9rem .75rem;
+      }
+      .myss-eventcard__row{
+        grid-template-columns: 80px 1fr;
+        gap: .75rem;
+      }
+      .myss-eventcard__title{
+        font-size: 1.35rem;
+      }
+      .myss-eventcard__btn{
+        width: 100%;
+      }
     }
 
     .js .reveal{ opacity: 0; transform: translateY(10px); }
