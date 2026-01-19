@@ -56,6 +56,100 @@
 
     .myss-hero-text{ margin-top: 1.25rem; max-width: 980px; }
 
+    .myss-eventcard{
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.25rem;
+      max-width: 980px;
+      padding: 1.25rem 1.35rem;
+      border-radius: 24px;
+      border: 1px solid rgba(16,82,119,.18);
+      background: rgba(16,82,119,.05);
+      box-shadow: 0 16px 32px rgba(16,82,119,.12);
+      align-items: center;
+    }
+    .myss-eventcard__date{
+      min-width: 90px;
+      border-radius: 18px;
+      background: #0b2a3a;
+      color: #fff;
+      text-align: center;
+      padding: .85rem .6rem;
+      display: grid;
+      gap: .1rem;
+      letter-spacing: .02em;
+    }
+    .myss-eventcard__day{
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .myss-eventcard__month{
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: .9rem;
+    }
+    .myss-eventcard__year{
+      font-size: .95rem;
+      opacity: .85;
+    }
+    .myss-eventcard__title{
+      margin: 0 0 .45rem;
+      font-size: 1.4rem;
+    }
+    .myss-eventcard__meta{
+      margin: 0;
+      display: grid;
+      gap: .35rem;
+    }
+    .myss-eventcard__row{
+      display: grid;
+      grid-template-columns: minmax(84px, auto) 1fr;
+      gap: .6rem;
+      align-items: baseline;
+    }
+    .myss-eventcard__row dt{
+      font-weight: 800;
+      color: var(--myss-blue);
+    }
+    .myss-eventcard__row dd{
+      margin: 0;
+      opacity: .9;
+    }
+    .myss-eventcard__actions{
+      margin-top: .75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+    }
+    .myss-eventcard__btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 800;
+      padding: .65rem .9rem;
+      border-radius: 14px;
+      border: 1px solid rgba(16,82,119,.18);
+      color: var(--myss-blue);
+      background: #fff;
+      transition: transform .08s ease, filter .2s ease;
+    }
+    .myss-eventcard__btn:hover{ filter: brightness(1.02); transform: translateY(-1px); }
+    .myss-eventcard__btn:active{ transform: translateY(0); }
+    .myss-eventcard__btn--primary{
+      background: #F77C37;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #0b2a3a;
+      box-shadow: 0 10px 20px rgba(0,0,0,.10);
+    }
+    .myss-eventcard__deadline{
+      margin: .8rem 0 0;
+      font-size: .98rem;
+      opacity: .85;
+    }
+
     .js .reveal{ opacity: 0; transform: translateY(10px); }
     @keyframes myssFadeUp{
       from{ opacity:0; transform: translateY(10px); }
@@ -232,6 +326,13 @@
         flex: 0 0 auto;
         padding: .7rem .9rem;
       }
+
+      .myss-eventcard{
+        grid-template-columns: 1fr;
+      }
+      .myss-eventcard__date{
+        width: fit-content;
+      }
     }
   </style>
 </head>
@@ -252,6 +353,41 @@
             decoding="async"
             fetchpriority="high"
           />
+        </div>
+
+        <div class="myss-eventcard reveal d2" aria-label="Nøkkelinfo om seminaret">
+          <div class="myss-eventcard__date" aria-hidden="true">
+            <div class="myss-eventcard__day">28</div>
+            <div class="myss-eventcard__month">feb</div>
+            <div class="myss-eventcard__year">2026</div>
+          </div>
+          <div class="myss-eventcard__body">
+            <h2 class="myss-eventcard__title">Seminar: Trening for flest mulig</h2>
+            <dl class="myss-eventcard__meta">
+              <div class="myss-eventcard__row">
+                <dt>Sted</dt>
+                <dd>Høgskulen på Vestlandet, Campus Kronstad</dd>
+              </div>
+              <div class="myss-eventcard__row">
+                <dt>Start</dt>
+                <dd>28.02.2026 kl. 11:00</dd>
+              </div>
+              <div class="myss-eventcard__row">
+                <dt>Slutt</dt>
+                <dd>28.02.2026 kl. 15:00</dd>
+              </div>
+            </dl>
+            <div class="myss-eventcard__actions">
+              <a class="myss-eventcard__btn myss-eventcard__btn--primary"
+                 href="https://www.mystrongestside.no/kurs%20og%20seminar.html?eventRegistrationId=216540">
+                Meld deg på
+              </a>
+              <a class="myss-eventcard__btn" href="#program">Se program</a>
+            </div>
+            <p class="myss-eventcard__deadline">
+              Påmeldingsfrist: <strong>Oppdateres</strong>
+            </p>
+          </div>
         </div>
 
         <div class="myss-hero-text">
