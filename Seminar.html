@@ -122,9 +122,16 @@
     .myss-cta:hover{ filter: brightness(1.02); transform: translateY(-1px); }
     .myss-cta:active{ transform: translateY(0); }
     .myss-cta--primary{
-      background: rgba(247,124,55,.14);
-      border: 1px solid rgba(247,124,55,.35);
+      background: #F77C37;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #0b2a3a;
+      box-shadow: 0 10px 22px rgba(0,0,0,.10);
+      padding: .9rem 1.15rem;
+      font-size: 1.02rem;
+      border-radius: 18px;
     }
+    .myss-cta--primary:hover{ filter: brightness(1.03); transform: translateY(-2px); }
+    .myss-cta--primary:active{ transform: translateY(0); box-shadow: 0 6px 14px rgba(0,0,0,.10); }
 
     .myss-block-title{ margin-top: 2.2rem; }
     .myss-list{ margin: .75rem 0 0; padding-left: 1.1rem; max-width: 980px; }
@@ -163,6 +170,7 @@
       object-fit: contain;
     }
     @media (max-width: 900px){
+      .myss-cta--primary{ width: 100%; }
       .myss-logo{ height: 38px; }
     }
 
