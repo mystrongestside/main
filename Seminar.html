@@ -56,6 +56,14 @@
 
     .myss-hero-text{ margin-top: 1.25rem; max-width: 980px; }
 
+    .myss-ingress{
+      max-width: 980px;
+      margin: .9rem 0 0;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: rgba(16,24,40,.88);
+    }
+
     .myss-eventcard{
       margin-top: 1rem;
       max-width: 980px;
@@ -150,6 +158,78 @@
       opacity: .92;
       font-weight: 700;
     }
+
+    .myss-cta-btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .95rem 1.15rem;
+      border-radius: 16px;
+      font-weight: 750;
+      text-decoration: none;
+      border: 1px solid rgba(16,24,40,.12);
+      box-shadow: 0 10px 24px rgba(16,24,40,.08);
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+    .myss-cta-btn--physical{
+      background: #0b1220;
+      color: #ffffff;
+      border-color: rgba(11,18,32,.22);
+    }
+    .myss-cta-btn--digital{
+      background: #ffffff;
+      color: #0b1220;
+    }
+    .myss-cta-hint{
+      font-size: .95rem;
+      color: rgba(16,24,40,.72);
+      margin: 0;
+    }
+
+    .myss-sticky-cta{
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 999;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(16,24,40,.10);
+      padding: .75rem .9rem;
+      display: none;
+    }
+    .myss-sticky-cta__inner{
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      gap: .6rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .myss-sticky-cta .myss-cta-btn{
+      flex: 1 1 0;
+      min-width: 0;
+      padding: .9rem .8rem;
+      border-radius: 14px;
+      box-shadow: 0 10px 18px rgba(16,24,40,.10);
+    }
+    @media (max-width: 860px){
+      .myss-sticky-cta{ display: block; }
+      body{ padding-bottom: 92px; }
+    }
+
+    .myss-speaker-lines{
+      margin: .6rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: .35rem;
+      color: rgba(16,24,40,.78);
+      font-size: .98rem;
+      line-height: 1.5;
+    }
+    .myss-speaker-lines strong{ color: rgba(16,24,40,.92); }
 
     @media (max-width: 900px){
       .myss-eventcard{
@@ -418,12 +498,48 @@
           </div>
         </div>
 
+        <div class="myss-sticky-cta" role="region" aria-label="Påmelding, alltid synlig">
+          <div class="myss-sticky-cta__inner">
+            <a class="myss-cta-btn myss-cta-btn--physical"
+               href="https://www.mystrongestside.no/kurs%20og%20seminar.html?eventRegistrationId=216937"
+               aria-label="Fysisk påmelding, knapp nederst">
+              Fysisk påmelding
+            </a>
+            <a class="myss-cta-btn myss-cta-btn--digital"
+               href="https://www.mystrongestside.no/kurs%20og%20seminar.html?eventRegistrationId=216937"
+               aria-label="Digital påmelding, knapp nederst">
+              Digital påmelding
+            </a>
+          </div>
+        </div>
+
         <div class="myss-hero-text">
           <h1 class="reveal d3">Seminar: pilotstart for My Strongest Side® QR og NFC treningssystem</h1>
 
           <p class="reveal d4 myss-lead">
             Seminar ved Høgskulen på Vestlandet, Campus Kronstad, lørdag 28. februar 2026. Lunsj er inkludert.
           </p>
+
+          <p class="reveal d4 myss-ingress">
+            Velkommen til en faglig og praktisk markering av pilotstart for My Strongest Side® sitt QR og NFC treningssystem for apparattrening.
+            Seminaret samler treningsbransjen, rehabiliteringsmiljøer, fagpersoner, studenter, leverandører og personer med funksjonsvariasjoner som ønsker tryggere og mer selvstendig trening i ordinære treningsmiljøer.
+          </p>
+
+          <div class="myss-cta-row reveal d4" aria-label="Påmelding">
+            <a class="myss-cta-btn myss-cta-btn--physical"
+               href="https://www.mystrongestside.no/kurs%20og%20seminar.html?eventRegistrationId=216937"
+               aria-label="Fysisk påmelding">
+              Fysisk påmelding
+            </a>
+            <a class="myss-cta-btn myss-cta-btn--digital"
+               href="https://www.mystrongestside.no/kurs%20og%20seminar.html?eventRegistrationId=216937"
+               aria-label="Digital påmelding">
+              Digital påmelding
+            </a>
+            <p class="myss-cta-hint">
+              Fysisk billett gir plass i salen og lunsj. Digital billett gir tilgang til direktesending og opptak i etterkant.
+            </p>
+          </div>
 
           <section class="myss-section" aria-labelledby="om-seminaret">
             <h2 id="om-seminaret" class="reveal d3">Om seminaret</h2>
