@@ -50,6 +50,22 @@
       max-width: 80ch;
       font-size: .98rem;
     }
+    .myss-prices{
+      margin-top: 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(16,82,119,.18);
+      background: rgba(16,82,119,.06);
+      padding: 18px 18px;
+      max-width: 980px;
+    }
+    .myss-prices h3{ margin: 0 0 10px; }
+    .myss-price-list{
+      margin: 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 6px;
+      opacity: .95;
+    }
 
     /* Skjules når vi har arrangement */
     .myss-hidden{ display:none !important; }
@@ -89,6 +105,16 @@
         <!-- CHECKIN.NO EMBED -->
         <div class="myss-calendar-embed reveal d4" style="padding: 10px;">
           <div id="checkin_event_index"></div>
+        </div>
+
+        <div class="myss-prices reveal d4" aria-labelledby="priser-title">
+          <h3 id="priser-title">Priser</h3>
+          <ul class="myss-price-list">
+            <li>Gratis for deltakere i My Strongest Side.</li>
+            <li>100,- for medlemmer av CP-foreningen frem til 12. februar.</li>
+            <li>100,- for studenter.</li>
+            <li>Early bird for andre: 150,- før 12. februar, 300,- etterpå.</li>
+          </ul>
         </div>
 
         <!-- TOMT NÅ (vises når det ikke finnes arrangement) -->
