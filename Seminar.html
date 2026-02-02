@@ -439,6 +439,124 @@
       }
     }
   </style>
+
+  <style>
+    :root{
+      --page-max: 920px;
+      --radius: 14px;
+      --shadow: 0 10px 28px rgba(0,0,0,.08);
+      --border: 1px solid rgba(0,0,0,.08);
+    }
+
+    body{
+      line-height: 1.65;
+      letter-spacing: .1px;
+      text-rendering: optimizeLegibility;
+    }
+
+    main, .main, .content, .container, article{
+      max-width: var(--page-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    body > *{
+      word-break: break-word;
+    }
+
+    h1, h2, h3{
+      line-height: 1.2;
+      margin: 0 0 10px 0;
+    }
+
+    h1{ font-size: clamp(28px, 3.2vw, 40px); }
+    h2{ font-size: clamp(20px, 2.4vw, 26px); margin-top: 34px; }
+    h3{ font-size: 18px; margin-top: 18px; }
+
+    p{ margin: 0 0 12px 0; }
+    ul{ margin: 10px 0 14px 18px; }
+    li{ margin: 6px 0; }
+
+    section, .card, .box, .panel{
+      background: rgba(255,255,255,.85);
+      border: var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      margin: 18px 0;
+    }
+
+    a{
+      text-underline-offset: 3px;
+    }
+
+    a.btn, a.button, .btn a{
+      display: inline-block;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: var(--border);
+      box-shadow: 0 8px 18px rgba(0,0,0,.10);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 8px 10px 0 0;
+    }
+
+    .facts{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .fact{
+      border: var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,.75);
+    }
+    .fact .k{
+      font-size: 13px;
+      opacity: .75;
+      margin-bottom: 3px;
+    }
+    .fact .v{
+      font-weight: 650;
+    }
+
+    .price-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .price-card{
+      border: var(--border);
+      border-radius: 14px;
+      padding: 14px 14px;
+      background: rgba(255,255,255,.78);
+    }
+
+    .price-card .title{
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .price-card .price{
+      font-size: 20px;
+      font-weight: 800;
+      margin: 8px 0 6px 0;
+    }
+    .muted{
+      opacity: .78;
+      font-size: 14px;
+    }
+
+    @media (max-width: 720px){
+      .facts{ grid-template-columns: 1fr; }
+      .price-grid{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body class="page-home">
@@ -500,53 +618,35 @@
             </p>
           </div>
         </div>
-          <section class="myss-section" id="priser" aria-labelledby="priser-tittel">
-            <h2 id="priser-tittel" class="reveal d3">Priser</h2>
+          <section class="seminar-prices" id="priser">
+            <h2>Priser</h2>
+            <p class="muted">Lunsj og drikke er inkludert på fysisk billett. Digital billett inkluderer direktesending og opptak.</p>
 
-            <p class="reveal d3">Pris avhenger av billettype. Lunsj og drikke er inkludert.</p>
-
- 
-            <div class="myss-services reveal d4" aria-label="Priser">
-              <div class="myss-service-card" role="group" aria-label="Gratis pris">
-                <div class="myss-service-card__head">
-                  <img class="myss-ico" src="/ikon/person.svg" alt="" aria-hidden="true" width="20" height="20" />
-                  <h3 class="myss-service-card__title">Redusert pris</h3>
-                </div>
-                <p class="myss-service-card__text">Deltakere i My Strongest Side.</p>
-                <p class="myss-kv-line"><span class="myss-kv-label">Pris:</span> 100 kr</p>
+            <div class="price-grid">
+              <div class="price-card">
+                <div class="title">My Strongest Side deltakere</div>
+                <div class="price">100 kr</div>
+                <div class="muted">Fysisk deltakelse</div>
               </div>
 
-              <div class="myss-service-card" role="group" aria-label="Redusert pris">
-                <div class="myss-service-card__head">
-                  <img class="myss-ico" src="/ikon/student.svg" alt="" aria-hidden="true" width="20" height="20" />
-                  <h3 class="myss-service-card__title">Redusert pris</h3>
-                </div>
-                <p class="myss-service-card__text">Medlemmer av CP-foreningen (frem til 12. februar) og studenter.</p>
-                <p class="myss-kv-line"><span class="myss-kv-label">Pris:</span> 100 kr</p>
+              <div class="price-card">
+                <div class="title">CP foreningen medlemmer og studenter</div>
+                <div class="price">100 kr</div>
+                <div class="muted">Gjelder til og med 12. februar</div>
               </div>
 
-              <div class="myss-service-card" role="group" aria-label="Ordinær pris">
-                <div class="myss-service-card__head">
-                  <img class="myss-ico" src="/ikon/users.svg" alt="" aria-hidden="true" width="20" height="20" />
-                  <h3 class="myss-service-card__title">Ordinær pris</h3>
-                </div>
-                <p class="myss-service-card__text">Andre deltakere.</p>
-                <p class="myss-kv-line"><span class="myss-kv-label">Pris:</span> 150 kr før 12. februar, deretter 300 kr</p>
+              <div class="price-card">
+                <div class="title">Ordinær pris</div>
+                <div class="price">150 kr</div>
+                <div class="muted">Før 12. februar, deretter 300 kr</div>
               </div>
 
-              <div class="myss-service-card" role="group" aria-label="Kontakt om pris">
-                <div class="myss-service-card__head">
-                  <img class="myss-ico" src="/ikon/mail.svg" alt="" aria-hidden="true" width="20" height="20" />
-                  <h3 class="myss-service-card__title">Kontakt</h3>
-                </div>
-                <p class="myss-service-card__text">Spørsmål om billettype eller pris. Ta kontakt med oss.</p>
-                <div class="myss-cta-row myss-cta-row--inline" style="margin-top:.4rem;">
-                  <a class="myss-cta" href="#kontakt">Kontakt oss</a>
-                </div>
+              <div class="price-card">
+                <div class="title">Digital deltakelse</div>
+                <div class="price">50 kr</div>
+                <div class="muted">Dekker administrasjon og teknisk gjennomføring</div>
               </div>
             </div>
-
-            <p class="reveal d4 myss-note">Studenter kan bli bedt om å vise gyldig studentbevis ved oppmøte.</p>
           </section>
 <!-- DIGITAL BILLETT / STREAM -->
 <div class="reveal d2" style="max-width:72ch;border:1px solid rgba(36,52,77,.18);border-radius:16px;padding:16px 18px;background:#fff;">
@@ -574,6 +674,27 @@
 
         <div class="myss-hero-text">
           <h1 class="reveal d3">Seminar: pilotstart for My Strongest Side®</h1>
+
+          <section class="seminar-facts">
+            <div class="facts">
+              <div class="fact">
+                <div class="k">Dato</div>
+                <div class="v">Lørdag 28. februar 2026</div>
+              </div>
+              <div class="fact">
+                <div class="k">Tid</div>
+                <div class="v">11:00 til ca. 15:00</div>
+              </div>
+              <div class="fact">
+                <div class="k">Sted</div>
+                <div class="v">Høgskulen på Vestlandet, Campus Kronstad (K2)</div>
+              </div>
+              <div class="fact">
+                <div class="k">Påmeldingsfrist</div>
+                <div class="v">Torsdag 12. februar</div>
+              </div>
+            </div>
+          </section>
 
           <p class="reveal d4 myss-lead">Høgskulen på Vestlandet, Campus Kronstad, lørdag 28. februar 2026. Lunsj er inkludert.</p>
 
