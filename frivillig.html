@@ -197,6 +197,30 @@
     object-fit:contain !important;
   }
 </style>
+  <style>
+    .myss-cta-apply{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 18px;
+      font-weight: 900;
+      text-decoration: none;
+      background: #F77C37;
+      color: #0b2a3a;
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: 0 12px 26px rgba(0,0,0,.12);
+      letter-spacing: .2px;
+    }
+    .myss-cta-apply:hover{ filter: brightness(1.03); transform: translateY(-1px); }
+    .myss-cta-apply:active{ transform: translateY(0); }
+    .myss-cta-apply:focus{ outline: 3px solid rgba(247,124,55,.35); outline-offset: 3px; }
+
+    @media (max-width: 720px){
+      .myss-cta-apply{ width: 100%; }
+    }
+  </style>
 </head>
 
 <body class="page-home">
@@ -218,7 +242,7 @@
           </p>
 
           <div class="myss-actions">
-            <a class="btn-primary" href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide" target="_blank" rel="noopener">Søk som frivillig</a>
+            <a class="myss-cta-apply" href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide" target="_blank" rel="noopener">Søk som frivillig</a>
             <a class="btn-secondary" href="#kurs">Kurs frivillige får gratis</a>
             <a class="btn-secondary" href="#kontakt">Kontakt</a>
           </div>
