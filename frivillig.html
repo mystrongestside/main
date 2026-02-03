@@ -110,9 +110,36 @@
 
   .myss-actions{
     display: flex;
-    gap: 12px;
+    gap: 14px;
     flex-wrap: wrap;
-    margin-top: 8px;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .myss-actions a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 18px;
+    border-radius: 18px;
+    font-weight: 900;
+    text-decoration: none;
+    border: 1px solid rgba(16,82,119,.18);
+    background: #ffffff;
+    color: var(--myss-blue);
+    box-shadow: 0 10px 22px rgba(0,0,0,.08);
+  }
+  .myss-actions a.btn-primary{
+    background: #F77C37;
+    color: #0b2a3a;
+    border-color: rgba(0,0,0,.08);
+  }
+  .myss-actions a:hover{
+    transform: translateY(-1px);
+    filter: brightness(1.03);
+  }
+  @media (max-width: 720px){
+    .myss-actions{ display: grid; }
+    .myss-actions a{ width: 100%; }
   }
 
   .myss-grid{
@@ -197,30 +224,6 @@
     object-fit:contain !important;
   }
 </style>
-  <style>
-    .myss-cta-apply{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 18px;
-      border-radius: 18px;
-      font-weight: 900;
-      text-decoration: none;
-      background: #F77C37;
-      color: #0b2a3a;
-      border: 1px solid rgba(0,0,0,.08);
-      box-shadow: 0 12px 26px rgba(0,0,0,.12);
-      letter-spacing: .2px;
-    }
-    .myss-cta-apply:hover{ filter: brightness(1.03); transform: translateY(-1px); }
-    .myss-cta-apply:active{ transform: translateY(0); }
-    .myss-cta-apply:focus{ outline: 3px solid rgba(247,124,55,.35); outline-offset: 3px; }
-
-    @media (max-width: 720px){
-      .myss-cta-apply{ width: 100%; }
-    }
-  </style>
 </head>
 
 <body class="page-home">
@@ -242,7 +245,7 @@
           </p>
 
           <div class="myss-actions">
-            <a class="myss-cta-apply" href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide" target="_blank" rel="noopener">Søk som frivillig</a>
+            <a class="btn-primary" href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide" target="_blank" rel="noopener">Søk som frivillig</a>
             <a class="btn-secondary" href="#kurs">Kurs frivillige får gratis</a>
             <a class="btn-secondary" href="#kontakt">Kontakt</a>
           </div>
