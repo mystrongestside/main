@@ -66,99 +66,226 @@
     }
   </style>
 
+<style>
+  /* Hindrer at første innhold havner under sticky header */
+  main{ padding-top: 88px; }
+  @media (max-width: 720px){ main{ padding-top: 76px; } }
+  :target{ scroll-margin-top: 96px; }
+
+  /* MySS frivillig design */
+  .myss-wrap{ max-width: 980px; margin: 0 auto; }
+  .myss-hero{ display: grid; gap: 16px; align-items: start; }
+  .myss-hero__img{
+    width: 100%;
+    height: auto;
+    border-radius: 22px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    background: rgba(16,82,119,.06);
+    border: 1px solid rgba(16,82,119,.12);
+  }
+  @media (max-width: 900px){
+    .myss-hero__img{ aspect-ratio: 4 / 3; }
+  }
+
+  .myss-kicker{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900;
+    color: var(--myss-blue);
+    opacity: .95;
+  }
+  .myss-kicker__dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #F77C37;
+    box-shadow: 0 10px 20px rgba(0,0,0,.10);
+    flex: 0 0 auto;
+  }
+
+  .myss-lead{ max-width: 72ch; opacity: .92; }
+
+  .myss-actions{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .myss-grid{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+  @media (max-width: 960px){
+    .myss-grid{ grid-template-columns: 1fr; }
+  }
+
+  .myss-card{
+    border-radius: 20px;
+    padding: 16px;
+    background: rgba(16,82,119,.06);
+    border: 1px solid rgba(16,82,119,.16);
+    height: 100%;
+  }
+  .myss-card h2, .myss-card h3{ margin-top: 0; }
+
+  .myss-bullets{
+    margin: 10px 0 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  .myss-bullets li{
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(16,82,119,.12);
+  }
+  .myss-bullets li:last-child{ border-bottom: 0; }
+
+  .myss-coursebox{
+    border-radius: 22px;
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid rgba(16,82,119,.14);
+    box-shadow: 0 10px 26px rgba(0,0,0,.06);
+    margin-top: 14px;
+    max-width: 980px;
+  }
+  .myss-coursebox__tag{
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 999px;
+    font-weight: 900;
+    background: rgba(247,124,55,.14);
+    color: rgba(16,24,40,.92);
+    border: 1px solid rgba(0,0,0,.06);
+  }
+  .myss-list{
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0 0;
+  }
+  .myss-list li{
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(16,82,119,.12);
+  }
+  .myss-list li:last-child{ border-bottom: 0; }
+  .myss-list strong{
+    display: inline-block;
+    min-width: 7.2rem;
+    color: var(--myss-blue);
+    font-weight: 900;
+  }
+
+  /* Footer ikoner mellomstor */
+  .site-footer__social-list{ display:flex !important; gap:12px !important; align-items:center !important; }
+  .site-footer__social-list .social-link{
+    width:34px !important;
+    height:34px !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+  .site-footer__social-list .social-link img{
+    width:28px !important;
+    height:28px !important;
+    display:block !important;
+    object-fit:contain !important;
+  }
+</style>
 </head>
 
 <body class="page-home">
   <header data-component="site-header"></header>
 
   <main>
-    <section class="section">
-      <div class="container stack">
-        <h1>Frivillig</h1>
+  <section class="section section--light">
+    <div class="container myss-wrap">
+      <div class="myss-hero">
+        <img class="myss-hero__img" src="/bilder/hero-large.jpg" alt="Trening og fellesskap hos My Strongest Side" loading="eager" decoding="async" fetchpriority="high" />
 
-        <p>
-          My Strongest Side tilbyr tilrettelagt styrketrening for personer med funksjonsvariasjoner,
-          kronisk sykdom eller andre behov som gjør vanlig trening lite tilgjengelig.
-          Som frivillig er du med og skaper trygghet, mestring og flyt i øktene.
-        </p>
+        <div>
+          <div class="myss-kicker"><span class="myss-kicker__dot" aria-hidden="true"></span>Frivillig i My Strongest Side</div>
+          <h1 style="margin-top:10px;">Bli med og gjør trening tryggere og mer tilgjengelig</h1>
 
-        <p>
-          Målet vårt er at trening skal oppleves mulig, forståelig og trygt, for flere.
-        </p>
-
-        <p class="stack" style="gap: 10px;">
-          <a
-            href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide"
-            class="btn-primary"
-            target="_blank"
-            rel="noopener">Søk som frivillig</a>
-
-          <a href="/kontakt.html" class="btn-secondary">Kontakt oss</a>
-        </p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container stack">
-        <h2>Hvem ser vi etter?</h2>
-        <p>
-          Vi ser etter mennesker som liker å bidra i et inkluderende miljø, og som ønsker å gjøre styrketrening mer tilgjengelig.
-        </p>
-        <ul class="bullets">
-          <li>Ergoterapi og fysioterapistudenter</li>
-          <li>Personlige trenere og instruktører</li>
-          <li>Andre som ønsker å bidra til trygg og tilpasset trening</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container stack">
-        <h2>Hva gjør du som frivillig?</h2>
-        <ul class="bullets">
-          <li>Veileder deltakere i apparater og basisøvelser, med enkle tilpasninger</li>
-          <li>Bidrar til ro og struktur mellom stasjoner, slik at økten blir forutsigbar</li>
-          <li>Støtter med logistikk, registrering og tilrettelegging av utstyr</li>
-        </ul>
-        <p>
-          Du får tydelige rammer og oppgaver som er tilpasset erfaring og trygghet i rollen.
-        </p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container stack">
-        <h2>Dette får du</h2>
-        <ul class="bullets">
-          <li>Innføring i hvordan vi jobber med tilpasning i styrkerommet</li>
-          <li>Tverrfaglig fellesskap med studenter og fagpersoner</li>
-          <li>Attest og relevant erfaring</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container stack">
-        <div class="surface-card stack">
-          <h2>Klart for å bidra?</h2>
-          <p>Fyll ut skjemaet, så tar vi kontakt fortløpende.</p>
-          <p>
-            <a
-              href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide"
-              class="btn-primary"
-              target="_blank"
-              rel="noopener">Søk som frivillig</a>
+          <p class="myss-lead">
+            Som frivillig bidrar du til struktur, flyt og mestring i øktene.
+            Du får tydelige rammer, opplæring og et tverrfaglig fellesskap.
           </p>
 
-          <h3>Kontakt</h3>
-          <p>
-            E post: <a href="mailto:alexander@mystrongestside.no">alexander@mystrongestside.no</a><br />
-            Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a>
-          </p>
+          <div class="myss-actions">
+            <a class="btn-primary" href="https://www.cognitoforms.com/MyStrongestSide1/FrivilligeMyStrongestSide" target="_blank" rel="noopener">Søk som frivillig</a>
+            <a class="btn-secondary" href="#kurs">Kurs frivillige får gratis</a>
+            <a class="btn-secondary" href="#kontakt">Kontakt</a>
+          </div>
         </div>
       </div>
-    </section>
-  </main>
+
+      <div class="myss-grid" style="margin-top:18px;">
+        <div class="myss-card">
+          <h2>Hvem ser vi etter?</h2>
+          <ul class="myss-bullets">
+            <li>Ergoterapi og fysioterapistudenter</li>
+            <li>Personlige trenere og instruktører</li>
+            <li>Andre som vil bidra til trygg og tilpasset styrketrening</li>
+          </ul>
+        </div>
+
+        <div class="myss-card">
+          <h2>Hva gjør du?</h2>
+          <ul class="myss-bullets">
+            <li>Veileder deltakere i apparater og basisøvelser med enkle tilpasninger</li>
+            <li>Bidrar til ro og forutsigbarhet mellom stasjoner</li>
+            <li>Støtter med logistikk, registrering og tilrettelegging av utstyr</li>
+          </ul>
+        </div>
+
+        <div class="myss-card">
+          <h2>Dette får du</h2>
+          <ul class="myss-bullets">
+            <li>Innføring i hvordan vi jobber med tilpasning i styrkerommet</li>
+            <li>Tverrfaglig fellesskap med fagpersoner og studenter</li>
+            <li>Attest og relevant erfaring</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="myss-coursebox" id="kurs" aria-label="Kurs frivillige får gratis">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <span class="myss-coursebox__tag">Gratis for frivillige</span>
+          <h2 style="margin:0;">Kurs og seminar</h2>
+        </div>
+
+        <p style="margin-top:10px;opacity:.92;max-width:72ch;">
+          Frivillige i My Strongest Side får gratis tilgang til våre kurs og seminarer.
+        </p>
+
+        <ul class="myss-list">
+          <li><strong>28. februar</strong> Seminar: Trening for flest mulig</li>
+          <li><strong>3. april</strong> Treningslære</li>
+          <li><strong>9. mai</strong> Aktivitetsregulering</li>
+          <li><strong>22. mai</strong> Kommunikasjonskurs</li>
+        </ul>
+
+        <p style="margin-top:12px;opacity:.88;">
+          Du får mer info om innhold og oppmøte etter at du har meldt interesse.
+        </p>
+      </div>
+
+      <div class="myss-coursebox" id="kontakt" aria-label="Kontakt">
+        <h2 style="margin:0 0 10px;">Kontakt</h2>
+        <p style="margin:0;">
+          E post: <a href="mailto:alexander@mystrongestside.no">alexander@mystrongestside.no</a><br />
+          Telefon: <a href="tel:+4741439384">+47 41 43 93 84</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
 
   <!-- Footer: samme løsning som Seminar.html (statisk footer + footer-links.js) -->
   <footer class="site-footer" id="kontakt">
