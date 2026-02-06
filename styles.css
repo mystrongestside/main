@@ -128,6 +128,20 @@ main {
 	margin-left: .1em;
 }
 
+.myss-hero-photo{
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  object-position:center !important;
+}
+
+.myss-hero-photo,
+.myss-hero-photo *{
+  clip:auto !important;
+}
+
 /* Header */
 .site-header {
 	position: sticky;
