@@ -647,6 +647,53 @@ main{
 
 </style>
 
+<style>
+/* myss-clean-2026 v1 */
+
+/* Gjør hurtigvalg lett og funksjonelt */
+.myss-actions{
+  margin-top:12px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.myss-actions .myss-btn--primary{
+  padding:12px 14px;
+  border-radius:14px;
+}
+.myss-link{
+  color:rgba(255,255,255,.82);
+  text-decoration:none;
+  font-weight:850;
+}
+.myss-link:hover{ text-decoration:underline; }
+
+/* Desktop: ikke skyv knapper opp i hjørnet */
+@media (min-width: 701px){
+  .myss-actions{ justify-content:flex-end; }
+}
+
+/* Mobil: stablet og full bredde */
+@media (max-width: 700px){
+  .myss-actions{ width:100%; justify-content:flex-start; }
+  .myss-actions .myss-btn{ width:100%; }
+  .myss-link{ color:rgba(255,255,255,.86); }
+}
+
+/* Korthandlinger: én tydelig primær, resten roligere */
+.card-buttons{
+  justify-content:flex-start !important;
+}
+.btn-link{
+  border:1px solid rgba(15,23,42,.12) !important;
+  background:#fff !important;
+}
+
+/* Valgfritt: fjern ribbon hvis det er samme tekst på alle kort */
+.ribbon-diagonal{ display:none !important; }
+</style>
+
 </head>
 
 <body class="page--index">
@@ -682,21 +729,15 @@ main{
       <div class="myss-chip__v">Prøvetime 150 kr · Sesong fra 600 kr</div>
     </div>
 
-    <div class="myss-chip myss-chip--wide">
+  <div class="myss-chip myss-chip--wide">
       <div class="myss-chip__k">Grupper</div>
       <div class="myss-chip__v"><span class="myss-tag">Ungdom</span><span class="myss-tag">Voksne lett</span><span class="myss-tag">Voksne tett oppfølging</span></div>
     </div>
   </div>
 
-  <div class="myss-cta" role="region" aria-label="Hurtigvalg">
-    <div class="myss-cta__text">
-      <div class="myss-cta__title">Velg gruppe og meld deg på</div>
-      <div class="myss-cta__sub">Trygg oppstart, faste veiledere og tydelig struktur. Du får ro til å lære i eget tempo.</div>
-    </div>
-    <div class="myss-cta__actions" role="group" aria-label="Hurtigknapper">
-      <a class="myss-btn myss-btn--primary" href="#grupper">Se grupper</a>
-      <a class="myss-btn myss-btn--ghost" href="#praktisk">Praktisk info</a>
-    </div>
+  <div class="myss-actions" role="group" aria-label="Hurtigvalg">
+    <a class="myss-btn myss-btn--primary" href="#grupper">Se grupper</a>
+    <a class="myss-link" href="#praktisk">Praktisk info</a>
   </div>
 </section>
 <section id="praktisk" class="accordion" aria-label="Innhold i sesongen">
