@@ -179,33 +179,49 @@
   }
 }
 
-/* Nøkkelinfo rad */
-.keyfacts{
-  max-width:1100px;
-  margin:1.1rem auto 1rem;
-}
+/* keyfacts-compact v1 */
+.keyfacts{ max-width:1100px; margin:16px auto 14px; }
 .keyfacts__grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-  gap:.9rem;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:12px;
 }
+@media (max-width: 980px){
+  .keyfacts__grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px){
+  .keyfacts__grid{ grid-template-columns:1fr; }
+}
+
 .keyfacts__item{
-  background:#f9fafb;
-  border:2px solid rgba(36,52,77,.12);
+  background:#fff;
+  border:1px solid rgba(36,52,77,.14);
   border-radius:14px;
-  padding:1rem 1.05rem;
+  padding:12px 12px;
+  box-shadow:0 1px 6px rgba(0,0,0,.06);
 }
+
 .keyfacts__label{
-  font-size:.85rem;
-  font-weight:700;
-  opacity:.8;
-  margin-bottom:.25rem;
+  font-size:.82rem;
+  font-weight:800;
+  letter-spacing:.2px;
   color:#24344d;
+  opacity:.78;
+  margin:0 0 6px;
 }
+
 .keyfacts__value{
   color:#24344d;
-  font-weight:600;
+  font-weight:700;
+  font-size:1.02rem;
   line-height:1.35;
+  margin:0;
+  max-width:28ch;
+}
+
+.keyfacts__item .keyfacts__value br{ display:none; }
+@media (max-width: 980px){
+  .keyfacts__item .keyfacts__value br{ display:inline; }
 }
 
 /* Accordion for detaljer */
@@ -297,7 +313,9 @@
             </div>
             <div class="keyfacts__item">
               <div class="keyfacts__label">Grupper</div>
-              <div class="keyfacts__value">Tilrettelagt styrketrening i små grupper, med struktur, rolig tempo og støtte underveis. Velg gruppen som passer behovet ditt.</div>
+              <div class="keyfacts__value">Tilrettelagt styrketrening i små grupper.<br>
+Rolig tempo, struktur og støtte underveis.<br>
+Velg gruppen som passer behovet ditt.</div>
             </div>
           </div>
         </section>
