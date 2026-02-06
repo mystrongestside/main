@@ -179,54 +179,68 @@
   }
 }
 
-/* Praktisk info boks */
-.practical-box{
+/* Nøkkelinfo rad */
+.keyfacts{
   max-width:1100px;
-  margin:1.25rem auto 1.25rem;
-  padding:1.1rem 1.25rem;
+  margin:1.1rem auto 1rem;
+}
+.keyfacts__grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:.9rem;
+}
+.keyfacts__item{
   background:#f9fafb;
   border:2px solid rgba(36,52,77,.12);
-  border-left:6px solid #f77c37;
   border-radius:14px;
+  padding:1rem 1.05rem;
+}
+.keyfacts__label{
+  font-size:.85rem;
+  font-weight:700;
+  opacity:.8;
+  margin-bottom:.25rem;
   color:#24344d;
 }
-.practical-box h2{
-  font-size:1.1rem;
-  margin:0 0 .6rem;
-}
-.practical-box p{
-  margin:.35rem 0;
-  opacity:.95;
-}
-.practical-box strong{
-  font-weight:700;
+.keyfacts__value{
+  color:#24344d;
+  font-weight:600;
+  line-height:1.35;
 }
 
-/* Seksjon: Hva får du som deltaker */
-.season-box{
+/* Accordion for detaljer */
+.accordion{
   max-width:1100px;
   margin:0 auto 1.25rem;
-  padding:1.1rem 1.25rem;
+}
+.accordion__item{
   background:#ffffff;
   border:2px solid rgba(36,52,77,.12);
-  border-left:6px solid #24344d;
   border-radius:14px;
+  margin:.75rem 0;
+  overflow:hidden;
+}
+.accordion__summary{
+  cursor:pointer;
+  padding:1rem 1.05rem;
+  font-weight:700;
+  color:#24344d;
+  list-style:none;
+}
+.accordion__summary::-webkit-details-marker{ display:none; }
+.accordion__content{
+  padding:0 1.05rem 1rem;
   color:#24344d;
 }
-.season-box h2{
-  font-size:1.1rem;
-  margin:0 0 .75rem;
+.accordion__content ul{
+  margin:.25rem 0 0 1.1rem;
 }
-.season-box h3{
-  font-size:1rem;
-  margin:1rem 0 .5rem;
-}
-.season-box ul{
-  margin:.25rem 0 .75rem 1.1rem;
-}
-.season-box li{
+.accordion__content li{
   margin:.35rem 0;
   line-height:1.45;
+}
+.accordion__item[open] .accordion__summary{
+  border-bottom:2px solid rgba(247,124,55,.35);
 }
 
   </style>
@@ -254,26 +268,50 @@
         <p>Trygg styrketrening i små grupper, med tilpasninger og faste veiledere. Rolig tempo, tydelige forklaringer og god oppfølging.</p>
         <p>Du kan trene sittende eller stående – vi tilpasser øvelser, utstyr og tempo. Passer også for deg som trenger litt mer tid, pauser eller ekstra trygghet.</p>
 
-        <div class="practical-box" aria-label="Praktisk informasjon">
-          <h2>Praktisk info</h2>
-          <p><strong>Hvor:</strong> Trene Sammen Fantoft</p>
-          <p><strong>Når:</strong> Torsdager fra 17:00</p>
-          <p><strong>Pris:</strong> Prøvetime 150 kr · Sesongpris fra 600 kr</p>
-          <p><strong>Målgruppe:</strong> For deg som ønsker tilrettelagt styrketrening i ordinært treningssenter, og som kan ha fysiske funksjonsvariasjoner som nedsatt bevegelighet, syn eller hørsel, eller bare trenger litt mer støtte for å trene trygt og selvstendig.</p>
-        </div>
+        <section class="keyfacts" aria-label="Nøkkelinfo">
+          <div class="keyfacts__grid">
+            <div class="keyfacts__item">
+              <div class="keyfacts__label">Hvor</div>
+              <div class="keyfacts__value">Trene Sammen Fantoft</div>
+            </div>
+            <div class="keyfacts__item">
+              <div class="keyfacts__label">Når</div>
+              <div class="keyfacts__value">Torsdager fra 17:00</div>
+            </div>
+            <div class="keyfacts__item">
+              <div class="keyfacts__label">Pris</div>
+              <div class="keyfacts__value">Prøvetime 150 kr. Sesongpris fra 600 kr</div>
+            </div>
+            <div class="keyfacts__item">
+              <div class="keyfacts__label">Målgruppe</div>
+              <div class="keyfacts__value">For deg som ønsker tilrettelagt trening og litt mer støtte for å trene trygt og selvstendig. Eksempelvis ved nedsatt bevegelighet, syn eller hørsel</div>
+            </div>
+          </div>
+        </section>
 
-        <section class="season-box" aria-label="Hva får du som deltaker">
-          <h2>Hva får du som deltaker</h2>
-          <h3>Trygge rammer og tydelig oppfølging</h3>
-          <ul>
-            <li>Trygg styrketrening i små grupper, med tilpasninger og faste veiledere.</li>
-            <li>Rolig tempo, tydelige forklaringer og god oppfølging.</li>
-          </ul>
-          <h3>Tilpasset trening for deg</h3>
-          <ul>
-            <li>Du kan trene sittende eller stående – vi tilpasser øvelser, utstyr og tempo.</li>
-            <li>Passer også for deg som trenger litt mer tid, pauser eller ekstra trygghet.</li>
-          </ul>
+        <section class="accordion" aria-label="Innhold i sesongen">
+          <details class="accordion__item">
+            <summary class="accordion__summary">Treningssystem My Strongest Side</summary>
+            <div class="accordion__content">
+              <ul>
+                <li>Opplæring og oppfølging via My Strongest Side systemet, med QR og NFC basert veiledning og struktur for trygg gjennomføring</li>
+                <li>Treningsprogram i ExorLive, tilgjengelig i app, og oppdatert etter hver økt</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__summary">Felles tiltak i sesongen</summary>
+            <div class="accordion__content">
+              <ul>
+                <li>Oppstartsseminar 28. februar ved Høgskulen på Vestlandet, med bidrag fra blant annet Einar Steensnæs og Sissel Garnes</li>
+                <li>3. april: Kurs i treningslære. Lokasjon avklares</li>
+                <li>9. mai: Kurs i aktivitetsbalanse, inkludert pizza. Lokasjon avklares</li>
+                <li>Kursene gjennomføres av Alexander Sviggum som del av faglig bidrag som ergoterapeut</li>
+                <li>Psykolog bidrar i tillegg med et kort opplegg med fem gode vaner til deltakerne</li>
+              </ul>
+            </div>
+          </details>
         </section>
       </div>
 
