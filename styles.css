@@ -3199,3 +3199,20 @@ html.nav-open .site-header {
 .card-fit strong{
   font-weight: 700;
 }
+
+/* myss: included-block-start */
+.myss-included{
+  margin: 24px 0;
+  padding: 18px 18px 10px;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 18px;
+  background: rgba(255,255,255,.70);
+}
+.myss-included h2{ margin-top: 0; }
+.myss-included ul{ margin: 10px 0 0 18px; }
+.myss-note{
+  margin-top: 10px;
+  font-size: .95rem;
+}
+.myss-note a{ text-decoration: underline; }
+/* myss: included-block-end */
