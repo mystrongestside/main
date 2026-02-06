@@ -694,6 +694,44 @@ main{
 .ribbon-diagonal{ display:none !important; }
 </style>
 
+<style>
+/* myss-cta-in-bar v1 */
+
+/* Infobar med 4 felt på topp: hvor, når, pris, knapp */
+.myss-infobar__grid{
+  grid-template-columns:repeat(12, minmax(0, 1fr)) !important;
+}
+
+.myss-infobar__grid > .myss-chip:nth-child(1){ grid-column:span 4 !important; }
+.myss-infobar__grid > .myss-chip:nth-child(2){ grid-column:span 3 !important; }
+.myss-infobar__grid > .myss-chip:nth-child(3){ grid-column:span 3 !important; border-right:1px solid rgba(15,23,42,.08) !important; }
+.myss-infobar__grid > .myss-chip:nth-child(4){ grid-column:span 2 !important; border-right:none !important; }
+
+/* CTA chip */
+.myss-chip--cta .myss-chip__k{ opacity:0; }
+.myss-chip--cta .myss-chip__v{ width:100%; display:flex; justify-content:flex-end; }
+.myss-chip--cta .myss-btn--primary{
+  width:100%;
+  padding:12px 14px;
+  border-radius:16px;
+  font-size:1rem;
+  box-shadow:0 10px 22px rgba(0,0,0,.18);
+}
+
+/* Grupper på egen rad under */
+.myss-chip--wide{ grid-column:span 12 !important; }
+
+/* Mobil: alt på egen linje, knapp full bredde */
+@media (max-width: 980px){
+  .myss-infobar__grid{ grid-template-columns:1fr !important; gap:10px !important; }
+  .myss-infobar__grid > .myss-chip:nth-child(1),
+  .myss-infobar__grid > .myss-chip:nth-child(2),
+  .myss-infobar__grid > .myss-chip:nth-child(3),
+  .myss-infobar__grid > .myss-chip:nth-child(4){ grid-column:auto !important; }
+  .myss-chip--cta .myss-chip__v{ justify-content:flex-start; }
+}
+</style>
+
 </head>
 
 <body class="page--index">
@@ -729,15 +767,17 @@ main{
       <div class="myss-chip__v">Prøvetime 150 kr · Sesong fra 600 kr</div>
     </div>
 
-  <div class="myss-chip myss-chip--wide">
+    <div class="myss-chip myss-chip--cta">
+      <div class="myss-chip__k">&nbsp;</div>
+      <div class="myss-chip__v">
+        <a class="myss-btn myss-btn--primary" href="#grupper">Se grupper</a>
+      </div>
+    </div>
+
+    <div class="myss-chip myss-chip--wide">
       <div class="myss-chip__k">Grupper</div>
       <div class="myss-chip__v"><span class="myss-tag">Ungdom</span><span class="myss-tag">Voksne lett</span><span class="myss-tag">Voksne tett oppfølging</span></div>
     </div>
-  </div>
-
-  <div class="myss-actions" role="group" aria-label="Hurtigvalg">
-    <a class="myss-btn myss-btn--primary" href="#grupper">Se grupper</a>
-    <a class="myss-link" href="#praktisk">Praktisk info</a>
   </div>
 </section>
 <section id="praktisk" class="accordion" aria-label="Innhold i sesongen">
