@@ -185,6 +185,23 @@
           data-cbid="918da94c-47e9-4fc0-9939-763b0c22c63d"
           data-blockingmode="auto"
           type="text/javascript"></script>
+
+<style id="myss-compact-accordions">
+  .myss-keyfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+  .myss-kf{padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:14px}
+  .myss-kf__label{font-size:.85rem;opacity:.7;margin:0 0 6px}
+  .myss-kf__value{font-size:1rem;line-height:1.25;margin:0}
+  .myss-kf__muted{opacity:.75;font-size:.92rem}
+  details.myss-accordion{border:1px solid rgba(0,0,0,.12);border-radius:14px;padding:10px 12px;margin:12px 0}
+  details.myss-accordion > summary{cursor:pointer;font-weight:650;list-style:none}
+  details.myss-accordion > summary::-webkit-details-marker{display:none}
+  details.myss-accordion > summary:after{content:"+";float:right;opacity:.6}
+  details.myss-accordion[open] > summary:after{content:"×"}
+  .myss-accordion__body{margin-top:10px}
+  .myss-primary-cta{margin:10px 0 14px}
+  .myss-primary-cta a{display:inline-block}
+</style>
+
 </head>
 
 <body class="page-ungdom">
@@ -315,6 +332,24 @@
       <div class="container youth-split">
 
         <div class="youth-split__text reveal d2">
+          <section class="myss-keyfacts" aria-label="Nøkkelinfo">
+            <div class="myss-kf">
+              <p class="myss-kf__label">Sted</p>
+              <p class="myss-kf__value">Trene Sammen Fantoft</p>
+            </div>
+            <div class="myss-kf">
+              <p class="myss-kf__label">Varighet</p>
+              <p class="myss-kf__value">Ca. 60 min</p>
+            </div>
+            <div class="myss-kf">
+              <p class="myss-kf__label">Hyppighet</p>
+              <p class="myss-kf__value">Annenhver torsdag</p>
+            </div>
+            <div class="myss-kf">
+              <p class="myss-kf__label">Pris</p>
+              <p class="myss-kf__value">Fra 600 kr per sesong</p>
+            </div>
+          </section>
           <h2>Tren med trygghet</h2>
           <p>
             Vi starter hver økt med å sjekke dagsform og behov. Du får rolig og ryddig oppfølging hele veien,
@@ -379,24 +414,28 @@
         </div>
 
         <!-- myss: inkludert-ungdom-start -->
-<section class="myss-section myss-included" style="text-align:left; width:100%; max-width:100%; margin:18px 0 0;">
-  <h3 style="margin:18px 0 8px;">Dette inngår i ungdomstilbudet</h3>
-  <ul style="margin:0 0 16px; padding-left:1.2em; line-height:1.7;">
-    <li>Treningssystemet My Strongest Side® med veiledning ved apparatene</li>
-    <li>Treningsprogram i app, oppdatert etter hver økt.</li>
-  </ul>
+        <section class="myss-section myss-included" style="text-align:left; width:100%; max-width:100%; margin:18px 0 0;">
+          <h3 style="margin:18px 0 8px;">Dette inngår i ungdomstilbudet</h3>
+          <ul style="margin:0 0 16px; padding-left:1.2em; line-height:1.7;">
+            <li>Treningssystemet My Strongest Side® med veiledning ved apparatene</li>
+            <li>Treningsprogram i app, oppdatert etter hver økt.</li>
+          </ul>
 
-  <h3 style="margin:0 0 8px;">Seminar og kurs</h3>
-  <p class="myss-note" style="margin:0 0 12px; line-height:1.6;">
-    Seminar og kurs kommer i tillegg og meldes på separat. Seminaret koster 100 kr. Kun seminaret kan meldes på nå. Kurs åpnes senere.
-  </p>
-  <ul style="margin:0; padding-left:1.2em; line-height:1.7;">
-    <li>Fagseminar 28. februar ved Høgskulen på Vestlandet (HVL). Påmelding på <a href="/Seminar.html">seminarsiden</a></li>
-    <li>Kurs i treningslære 3. april. Påmelding publiseres senere</li>
-    <li>Kurs i aktivitetsbalanse 9. mai. Påmelding publiseres senere</li>
-  </ul>
-</section>
-<!-- myss: inkludert-ungdom-end -->
+          <details class="myss-accordion" id="seminar-kurs">
+            <summary>Seminar og kurs</summary>
+            <div class="myss-accordion__body">
+              <p class="myss-note" style="margin:0 0 12px; line-height:1.6;">
+                Seminar og kurs kommer i tillegg og meldes på separat. Seminaret koster 100 kr. Kun seminaret kan meldes på nå. Kurs åpnes senere.
+              </p>
+              <ul style="margin:0; padding-left:1.2em; line-height:1.7;">
+                <li>Fagseminar 28. februar ved Høgskulen på Vestlandet (HVL). Påmelding på <a href="/Seminar.html">seminarsiden</a></li>
+                <li>Kurs i treningslære 3. april. Påmelding publiseres senere</li>
+                <li>Kurs i aktivitetsbalanse 9. mai. Påmelding publiseres senere</li>
+              </ul>
+            </div>
+          </details>
+        </section>
+        <!-- myss: inkludert-ungdom-end -->
 
         <div class="myss-actions" style="margin-top:1.1rem;">
           <a class="myss-btn" href="ungdom-paamelding.html">Se praktisk info og påmelding</a>
@@ -411,7 +450,8 @@
         <p class="reveal d3">Send påmelding – vi tar en kort prat før oppstart for å sikre gode tilpasninger.</p>
         <div class="myss-cta-wave__actions reveal d4">
           <a href="ungdom-paamelding.html" class="myss-cta-wave__btn">Se påmelding</a>
-       <a class="myss-btn myss-btn--outline" href="../kontakt.html">Spørsmål?</a>        </div>
+          <a class="myss-btn myss-btn--outline" href="../kontakt.html">Spørsmål?</a>
+        </div>
       </div>
     </section>
 
@@ -493,5 +533,21 @@
 </style>
 
   <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
+
+<script id="myss-open-details-on-hash">
+(function(){
+  function openDetailsForHash(){
+    var id = location.hash ? location.hash.slice(1) : "";
+    if(!id) return;
+    var el = document.getElementById(id);
+    if(!el) return;
+    var d = el.closest ? el.closest("details") : null;
+    if(d) d.open = true;
+  }
+  window.addEventListener("hashchange", openDetailsForHash);
+  openDetailsForHash();
+})();
+</script>
+
 </body>
 </html>
