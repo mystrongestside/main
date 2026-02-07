@@ -3234,4 +3234,4 @@ html.nav-open .site-header {
 #instagram.instagram { padding: 28px 0; }
 #instagram .ig-fallback { margin: 0 0 12px; opacity: .9; }
 #instagram .ig-fallback a { font-weight: 800; }
-#instagram [class*="elfsight-app-"] { min-height: 180px; }
+#instagram .sk-instagram-feed { min-height: 180px; }
