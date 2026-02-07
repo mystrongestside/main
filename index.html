@@ -46,6 +46,10 @@
        HERO video + tekst
        ========================= */
 
+    .myss-hero-media-wrap{
+      position: relative;
+    }
+
     .myss-hero-media{
       width:100%;
       height:auto;
@@ -58,6 +62,45 @@
     }
     @media (max-width: 900px){
       .myss-hero-media{ aspect-ratio: 4 / 3; }
+    }
+
+    .myss-hero-overlay{
+      position: absolute;
+      left: 1.5rem;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      max-width: 560px;
+      padding: 1rem 1.25rem;
+      border-radius: 18px;
+      background: rgba(16, 82, 119, 0.6);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .myss-hero-overlay__text{
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .myss-hero-overlay__btn{
+      align-self: flex-start;
+    }
+
+    @media (max-width: 900px){
+      .myss-hero-overlay{
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        padding: 0.9rem 1rem;
+      }
+      .myss-hero-overlay__text{
+        font-size: 1rem;
+      }
     }
 
     .myss-hero-text{
@@ -309,7 +352,7 @@
     <section class="section section--light">
       <div class="container">
 
-        <div class="reveal d1">
+        <div class="reveal d1 myss-hero-media-wrap">
           <video
             class="myss-hero-media"
             autoplay
@@ -328,6 +371,15 @@
             class="myss-hero-photo myss-hero-photo--fallback"
             loading="lazy"
           />
+
+          <div class="myss-hero-overlay" aria-label="Gratis prøvetime">
+            <p class="myss-hero-overlay__text">
+              Gratis prøvetime med PT og faglig veiledning 🧡
+            </p>
+            <a class="btn btn--primary myss-hero-overlay__btn" href="/kontakt.html">
+              Book gratis prøvetime
+            </a>
+          </div>
         </div>
 
         <div class="myss-hero-text">
