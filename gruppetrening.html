@@ -759,6 +759,52 @@ img, svg, video, iframe { max-width: 100%; height: auto; }
 }
 /* myss: gruppetrening-mobile-fix-end */
 </style>
+<style>
+/* myss: infobar-grid-fix-start */
+/* Løser iPhone-overflow: 4. chip (CTA) plasseres riktig, og "Grupper"-tags får wrap */
+.myss-infobar__grid{
+  display:grid !important;
+  grid-template-columns:repeat(12, minmax(0, 1fr)) !important;
+}
+
+.myss-chip{ min-width:0 !important; }
+.myss-chip__v{ min-width:0 !important; }
+
+.myss-chip--where{ grid-column:span 4 !important; }
+.myss-chip--when{  grid-column:span 3 !important; }
+.myss-chip--price{ grid-column:span 3 !important; }
+.myss-chip--cta{   grid-column:span 2 !important; }
+
+/* Viktig: alltid full bredde uansett hvor den havner i auto-placement */
+.myss-chip--wide{ grid-column:1 / -1 !important; }
+
+/* Tving wrap for tags, slik at "Voksne tett oppfølging" ikke kuttes */
+.myss-chip--wide .myss-chip__v{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+  max-width:100% !important;
+}
+
+/* Mobil: alt i én kolonne */
+@media (max-width: 980px){
+  .myss-infobar__grid{
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+  }
+  .myss-chip,
+  .myss-chip--where,
+  .myss-chip--when,
+  .myss-chip--price,
+  .myss-chip--cta,
+  .myss-chip--wide{
+    grid-column:1 / -1 !important;
+    border-right:none !important;
+  }
+  .myss-chip--cta .myss-chip__v{ justify-content:flex-start !important; }
+}
+/* myss: infobar-grid-fix-end */
+</style>
 </head>
 
 <body class="page--index">
@@ -779,17 +825,17 @@ img, svg, video, iframe { max-width: 100%; height: auto; }
         
 <section class="myss-infobar" aria-label="Praktisk informasjon">
   <div class="myss-infobar__grid">
-    <div class="myss-chip">
+    <div class="myss-chip myss-chip--where">
       <div class="myss-chip__k">Hvor</div>
       <div class="myss-chip__v">Trene Sammen Fantoft</div>
     </div>
 
-    <div class="myss-chip">
+    <div class="myss-chip myss-chip--when">
       <div class="myss-chip__k">Når</div>
       <div class="myss-chip__v">Torsdager</div>
     </div>
 
-    <div class="myss-chip">
+    <div class="myss-chip myss-chip--price">
       <div class="myss-chip__k">Pris</div>
       <div class="myss-chip__v">Prøvetime 150 kr · Sesong fra 600 kr</div>
     </div>
