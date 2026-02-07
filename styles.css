@@ -3202,17 +3202,31 @@ html.nav-open .site-header {
 
 /* myss: included-block-start */
 .myss-included{
-  margin: 24px 0;
-  padding: 18px 18px 10px;
+  margin: 32px auto 24px;
+  padding: 20px 18px 12px;
   border: 1px solid rgba(0,0,0,.08);
   border-radius: 18px;
   background: rgba(255,255,255,.70);
+  text-align: center;
+  max-width: 920px;
 }
-.myss-included h2{ margin-top: 0; }
-.myss-included ul{ margin: 10px 0 0 18px; }
-.myss-note{
-  margin-top: 10px;
+.myss-included h2{
+  margin: 0 0 10px;
+}
+.myss-included h3{
+  margin: 18px 0 8px;
+  font-size: 1.05rem;
+}
+.myss-included .myss-note{
+  margin: 0 auto 8px;
+  max-width: 70ch;
   font-size: .95rem;
 }
-.myss-note a{ text-decoration: underline; }
+.myss-included ul{
+  margin: 10px auto 0;
+  padding-left: 18px;
+  text-align: left;
+  display: inline-block;
+}
+.myss-included a{ text-decoration: underline; }
 /* myss: included-block-end */
