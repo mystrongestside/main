@@ -277,6 +277,22 @@
           data-cbid="918da94c-47e9-4fc0-9939-763b0c22c63d"
           data-blockingmode="auto"
           type="text/javascript"></script>
+
+<style id="myss-compact-accordions">
+  .myss-keyfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+  .myss-kf{padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:14px}
+  .myss-kf__label{font-size:.85rem;opacity:.7;margin:0 0 6px}
+  .myss-kf__value{font-size:1rem;line-height:1.25;margin:0}
+  .myss-kf__muted{opacity:.75;font-size:.92rem}
+  details.myss-accordion{border:1px solid rgba(0,0,0,.12);border-radius:14px;padding:10px 12px;margin:12px 0}
+  details.myss-accordion > summary{cursor:pointer;font-weight:650;list-style:none}
+  details.myss-accordion > summary::-webkit-details-marker{display:none}
+  details.myss-accordion > summary:after{content:"+";float:right;opacity:.6}
+  details.myss-accordion[open] > summary:after{content:"×"}
+  .myss-accordion__body{margin-top:10px}
+  .myss-primary-cta{margin:10px 0 14px}
+</style>
+
 </head>
 
 <body class="page-tett-paamelding">
@@ -378,10 +394,10 @@
           </ul>
 
           <div class="youth-toplinks reveal d4">
-            <a href="#paamelding">Start påmelding</a>
-            <a href="#praktisk">Praktisk info</a>
+            <a href="#paamelding">Start påmelding</a> <a href="tett-oppfolging.html">Tilbake til info</a>
+            <a href="#praktisk-info">Praktisk info</a>
             <a href="#datoer">Datoer</a>
-            <a href="#faq">Spørsmål og svar</a>
+            <a href="#spoersmaal">Spørsmål og svar</a>
           </div>
  
 
@@ -407,47 +423,8 @@
 
         <div class="youth-grid" aria-label="Kort oppsummert">
           <div class="youth-mini">
-            <h3>Oppstart</h3>
-            <p class="big">Torsdag 12. mars 2026</p>
-            <p style="margin-top:.35rem; opacity:.9;">Oppmøte kl. 16:45</p>
-          </div>
-
-          <div class="youth-mini">
-            <h3>Sted</h3>
-            <p class="big">Trene Sammen Fantoft</p>
-            <p style="margin-top:.35rem; opacity:.9;">Fantoftvegen 14, Bergen</p>
-          </div>
-
-          <div class="youth-mini">
-            <h3>Pris</h3>
-            <p class="big">Fra 600 kr</p>
-            <p style="margin-top:.35rem; opacity:.9;">Prøvetime: 150 kr</p>
-          </div>
-        </div>
-
-        <div id="checkin_registration" style="margin-top:1rem;"></div>
-
-        <script
-          src="https://registration.checkin.no/registration.loader.js"
-          data-event-id="215779"
-          data-theme="light"
-          data-primary-color="#105277"
-          data-secondary-color="#f77c37"
-          async>
-        </script>
-
-        <noscript>
-          <p>For å melde deg på må JavaScript være aktivert i nettleseren.</p>
-        </noscript>
-      </div>
-    </section>
-
-    <!-- ===== PRAKTISK (for de som trenger mer trygging) ===== -->
-    <section class="section section--light" id="praktisk">
-      <div class="container youth-card reveal d2">
-        <h2>Praktisk info</h2>
-
-        <div class="price-grid" aria-label="Pris">
+            <section class="myss-keyfacts" aria-label="Nøkkelinfo"><div class="myss-kf"><p class="myss-kf__label">Oppstart</p><p class="myss-kf__value">Torsdag 12. mars 2026<span class="myss-kf__muted"><br>Oppmøte kl. 16:45</span></p></div><div class="myss-kf"><p class="myss-kf__label">Tid</p><p class="myss-kf__value">17:00–18:00</p></div><div class="myss-kf"><p class="myss-kf__label">Sted</p><p class="myss-kf__value">Trene Sammen Fantoft<span class="myss-kf__muted"><br>Fantoftvegen 14, Bergen</span></p></div><div class="myss-kf"><p class="myss-kf__label">Pris</p><p class="myss-kf__value">Fra 600 kr<span class="myss-kf__muted"><br>Prøvetime: 150 kr</span></p></div><div class="myss-kf"><p class="myss-kf__label">Sesong</p><p class="myss-kf__value">Mars 2026 – Juni 2026</p></div><div class="myss-kf"><p class="myss-kf__label">Gruppestørrelse</p><p class="myss-kf__value">Maks 8 deltakere</p></div></section><div class="myss-primary-cta"><a href="#paamelding">Start påmelding</a></div>
+<details class="myss-accordion" id="praktisk-info"><summary>Praktisk info</summary><div class="myss-accordion__body"><div class="price-grid" aria-label="Pris">
           <div class="youth-mini">
             <h3>Prøvetime</h3>
             <p class="big">150 kr</p>
@@ -498,10 +475,7 @@
 
     <!-- ===== DATOER ===== -->
     <section class="section" id="datoer">
-      <div class="container youth-card reveal d2">
-        <h2>Datoer denne sesongen</h2>
-
-        <ol class="date-list--grid">
+      <div class="container youth-card reveal d2"></div></details><details class="myss-accordion" id="datoer"><summary>Datoer for alle økter</summary><div class="myss-accordion__body"><ol class="date-list--grid">
           <li><span>1</span> Torsdag 12. mars 2026</li>
           <li><span>2</span> Torsdag 26. mars 2026</li>
           <li><span>3</span> Torsdag 9. april 2026</li>
@@ -516,10 +490,7 @@
 
     <!-- ===== TILGJENGELIGHET ===== -->
     <section class="section section--light" id="tilgjengelighet">
-      <div class="container youth-card reveal d2">
-        <h2>Tilgjengelighet og praktisk info</h2>
-
-        <ul class="info-list">
+      <div class="container youth-card reveal d2"></div></details><details class="myss-accordion" id="tilgjengelighet"><summary>Tilgjengelighet og transport</summary><div class="myss-accordion__body"><ul class="info-list">
           <li>
             <span class="icon"><img src="../icons/wheelchair.svg" alt="Tilgjengelighet ikon"></span>
             <div class="info-content">Trinnfri inngang, heis og HC-toalett</div>
@@ -548,10 +519,7 @@
 
     <!-- ===== FAQ ===== -->
     <section class="section" id="faq">
-      <div class="container youth-card reveal d2">
-        <h2>Ofte stilte spørsmål</h2>
-
-        <div class="youth-faq">
+      <div class="container youth-card reveal d2"></div></details><details class="myss-accordion" id="spoersmaal"><summary>Spørsmål og svar</summary><div class="myss-accordion__body"><div class="youth-faq">
           <details>
             <summary>Hva hvis jeg bruker hjelpemidler eller rullestol?</summary>
             <div class="answer">
@@ -575,9 +543,7 @@
         <a class="myss-btn myss-btn--outline" href="../kontakt.html">Still et spørsmål</a>
         </div>
       </div>
-    </section>
-
-  </main>
+    </section></div></details></main>
 
   <!-- ===== Sticky CTA (mobil) ===== -->
   <div class="myss-sticky" role="region" aria-label="Hurtig påmelding">
@@ -664,5 +630,21 @@
 </style>
 
   <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
+
+<script id="myss-open-details-on-hash">
+(function(){
+  function openDetailsForHash(){
+    var id = location.hash ? location.hash.slice(1) : "";
+    if(!id) return;
+    var el = document.getElementById(id);
+    if(!el) return;
+    var d = el.closest ? el.closest("details") : null;
+    if(d) d.open = true;
+  }
+  window.addEventListener("hashchange", openDetailsForHash);
+  openDetailsForHash();
+})();
+</script>
+
 </body>
 </html>
