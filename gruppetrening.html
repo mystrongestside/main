@@ -732,6 +732,48 @@ main{
 }
 </style>
 
+<style>
+/* myss: gruppetrening-mobile-fix-start */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+}
+
+.myss-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.myss-cta > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: normal;
+}
+
+@media (max-width: 720px) {
+  main, .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .myss-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .myss-cta > a {
+    width: 100%;
+  }
+}
+/* myss: gruppetrening-mobile-fix-end */
+</style>
 </head>
 
 <body class="page--index">
