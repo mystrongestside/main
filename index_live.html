@@ -28,6 +28,33 @@
           data-cbid="918da94c-47e9-4fc0-9939-763b0c22c63d"
           data-blockingmode="auto"
           type="text/javascript"></script>
+<style>
+/* myss: gruppetrening-mobile-fix-start */
+*, *::before, *::after { box-sizing: border-box; }
+img, svg, video, iframe { max-width: 100%; height: auto; }
+
+/* Viktig: la grid kunne krympe på små skjermer */
+.offers-grid{
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Mobil: alltid én kolonne, aldri horisontal overflow */
+@media (max-width: 700px){
+  .offers-grid{ grid-template-columns: 1fr !important; }
+  .training-card{ min-width: 0 !important; }
+}
+
+/* Unngå dobbel horisontal padding (som klemmer innholdet) */
+@media (max-width: 980px){
+  .container{ padding-left: 16px; padding-right: 16px; }
+  main{ padding-left: 0; padding-right: 0; }
+}
+/* myss: gruppetrening-mobile-fix-end */
+</style>
 </head>
 
 <body class="page--index">
