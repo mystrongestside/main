@@ -297,6 +297,23 @@
           data-cbid="918da94c-47e9-4fc0-9939-763b0c22c63d"
           data-blockingmode="auto"
           type="text/javascript"></script>
+
+<style id="myss-compact-accordions">
+  .myss-keyfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+  .myss-kf{padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:14px}
+  .myss-kf__label{font-size:.85rem;opacity:.7;margin:0 0 6px}
+  .myss-kf__value{font-size:1rem;line-height:1.25;margin:0}
+  .myss-kf__muted{opacity:.75;font-size:.92rem}
+  details.myss-accordion{border:1px solid rgba(0,0,0,.12);border-radius:14px;padding:10px 12px;margin:12px 0}
+  details.myss-accordion > summary{cursor:pointer;font-weight:650;list-style:none}
+  details.myss-accordion > summary::-webkit-details-marker{display:none}
+  details.myss-accordion > summary:after{content:"+";float:right;opacity:.6}
+  details.myss-accordion[open] > summary:after{content:"×"}
+  .myss-accordion__body{margin-top:10px}
+  .myss-primary-cta{margin:10px 0 14px}
+  .myss-primary-cta a{display:inline-block}
+</style>
+
 </head>
 
 <body class="page-ungdom-paamelding">
@@ -422,25 +439,60 @@
 
     <section class="section section--light" id="inngar">
       <div class="container youth-card reveal d2">
+        <section class="myss-keyfacts" aria-label="Nøkkelinfo">
+          <div class="myss-kf">
+            <p class="myss-kf__label">Oppstart</p>
+            <p class="myss-kf__value">Torsdag 5. mars 2026<span class="myss-kf__muted"><br>Oppmøte 16:45</span></p>
+          </div>
+          <div class="myss-kf">
+            <p class="myss-kf__label">Tid</p>
+            <p class="myss-kf__value">17:00–18:00</p>
+          </div>
+          <div class="myss-kf">
+            <p class="myss-kf__label">Sted</p>
+            <p class="myss-kf__value">Trene Sammen Fantoft<span class="myss-kf__muted"><br>Fantoftvegen 14, Bergen</span></p>
+          </div>
+          <div class="myss-kf">
+            <p class="myss-kf__label">Pris</p>
+            <p class="myss-kf__value">Fra 600 kr<span class="myss-kf__muted"><br>Prøvetime: 150 kr</span></p>
+          </div>
+          <div class="myss-kf">
+            <p class="myss-kf__label">Hyppighet</p>
+            <p class="myss-kf__value">Annenhver torsdag<span class="myss-kf__muted"><br>Mars–juni 2026</span></p>
+          </div>
+          <div class="myss-kf">
+            <p class="myss-kf__label">Kapasitet</p>
+            <p class="myss-kf__value">Maks 8</p>
+          </div>
+        </section>
+        <div class="myss-primary-cta">
+          <a href="https://event.checkin.no/214663" target="_blank" rel="noopener">
+            Åpne påmeldingen i egen fane →
+          </a>
+        </div>
         <h2>Dette inngår i ungdomstilbudet</h2>
         <ul class="included-list">
           <li>Treningssystemet My Strongest Side® med veiledning ved apparatene</li>
           <li>Treningsprogram i app, oppdatert etter hver økt</li>
         </ul>
 
-        <h3>Seminar og kurs</h3>
-        <p>
-          Seminar og kurs kommer i tillegg og meldes på separat.
-          Seminaret koster 100 kr.
-          Kun seminaret kan meldes på nå.
-          Kurs åpnes senere.
-        </p>
+        <details class="myss-accordion" id="seminar-kurs">
+          <summary>Seminar og kurs</summary>
+          <div class="myss-accordion__body">
+            <p>
+              Seminar og kurs kommer i tillegg og meldes på separat.
+              Seminaret koster 100 kr.
+              Kun seminaret kan meldes på nå.
+              Kurs åpnes senere.
+            </p>
 
-        <ul class="included-list">
-          <li>Fagseminar 28. februar ved Høgskulen på Vestlandet (HVL)</li>
-          <li>Kurs i treningslære 3. april</li>
-          <li>Kurs i aktivitetsbalanse 9. mai</li>
-        </ul>
+            <ul class="included-list">
+              <li>Fagseminar 28. februar ved Høgskulen på Vestlandet (HVL)</li>
+              <li>Kurs i treningslære 3. april</li>
+              <li>Kurs i aktivitetsbalanse 9. mai</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
     <!-- ===== PÅMELDING FØRST (konvertering) ===== -->
@@ -450,26 +502,6 @@
         <p style="opacity:.92;">
           Vi tar inn maks 8 deltakere. Prøvetime kan velges i påmeldingen.
         </p>
-
-        <div class="youth-grid" aria-label="Kort oppsummert">
-          <div class="youth-mini">
-            <h3>Oppstart</h3>
-            <p class="big">Torsdag 5. mars 2026</p>
-            <p style="margin-top:.35rem; opacity:.9;">Oppmøte 16:45</p>
-          </div>
-
-          <div class="youth-mini">
-            <h3>Sted</h3>
-            <p class="big">Trene Sammen Fantoft</p>
-            <p style="margin-top:.35rem; opacity:.9;">Fantoftvegen 14, Bergen</p>
-          </div>
-
-          <div class="youth-mini">
-            <h3>Pris</h3>
-            <p class="big">Fra 600 kr</p>
-            <p style="margin-top:.35rem; opacity:.9;">Prøvetime: 150 kr</p>
-          </div>
-        </div>
         <p style="margin-top:.75rem; opacity:.9;">
           Tilpasning: Vi tilpasser øvelser, utstyr og tempo (sittende/stående, pauser ved behov).
         </p>
@@ -490,143 +522,145 @@
 <p class="myss-note">Hvis påmeldingen ikke åpner seg, bruk kontaktsiden: <a href="/kontakt.html">Kontakt</a>.</p>
 
         </noscript>
-<p style="margin-top:.75rem;">
-          <a href="https://event.checkin.no/214663" target="_blank" rel="noopener">
-            Åpne påmeldingen i egen fane →
-          </a>
-        </p>
-
-        <div class="myss-actions" style="margin-top:1rem;">
-          <a class="myss-btn myss-btn--outline" href="#praktisk">Se praktisk info</a>
-          <a class="myss-btn myss-btn--outline" href="#faq">Spørsmål og svar</a>
-        </div>
       </div>
     </section>
 
     <!-- ===== PRAKTISK (for de som trenger mer trygging) ===== -->
     <section class="section section--light" id="praktisk">
       <div class="container youth-card reveal d2">
-        <h2>Praktisk info</h2>
+        <details class="myss-accordion" id="praktisk-info">
+          <summary>Praktisk info</summary>
+          <div class="myss-accordion__body">
+            <div class="price-grid" aria-label="Pris">
+              <div class="youth-mini">
+                <h3>Prøvetime</h3>
+                <p class="big">150 kr</p>
+                <p style="opacity:.9;">For å teste opplegget</p>
+              </div>
+              <div class="youth-mini">
+                <h3>Medlem CP Vestland</h3>
+                <p class="big">600 kr</p>
+                <p style="opacity:.9;">Sesong (8 økter)</p>
+              </div>
+              <div class="youth-mini">
+                <h3>Ikke medlem</h3>
+                <p class="big">800 kr</p>
+                <p style="opacity:.9;">Sesong (8 økter)</p>
+              </div>
+            </div>
 
-        <div class="price-grid" aria-label="Pris">
-          <div class="youth-mini">
-            <h3>Prøvetime</h3>
-            <p class="big">150 kr</p>
-            <p style="opacity:.9;">For å teste opplegget</p>
-          </div>
-          <div class="youth-mini">
-            <h3>Medlem CP Vestland</h3>
-            <p class="big">600 kr</p>
-            <p style="opacity:.9;">Sesong (8 økter)</p>
-          </div>
-          <div class="youth-mini">
-            <h3>Ikke medlem</h3>
-            <p class="big">800 kr</p>
-            <p style="opacity:.9;">Sesong (8 økter)</p>
-          </div>
-        </div>
+            <div class="youth-grid" style="margin-top:1rem;">
+              <div class="youth-mini">
+                <h3>Tid</h3>
+                <p class="big">17:00–18:00</p>
+                <p style="opacity:.9;">Oppmøte 16:45</p>
+              </div>
+              <div class="youth-mini">
+                <h3>Hyppighet</h3>
+                <p class="big">Annenhver torsdag</p>
+                <p style="opacity:.9;">Mars–juni 2026</p>
+              </div>
+              <div class="youth-mini">
+                <h3>Kapasitet</h3>
+                <p class="big">Maks 8</p>
+                <p style="opacity:.9;">Små grupper</p>
+              </div>
 
-        <div class="youth-grid" style="margin-top:1rem;">
-          <div class="youth-mini">
-            <h3>Tid</h3>
-            <p class="big">17:00–18:00</p>
-            <p style="opacity:.9;">Oppmøte 16:45</p>
+              <div class="youth-mini" style="grid-column: 1 / -1;">
+                <h3>Oppbygging av økten</h3>
+                <ul class="session-agenda" aria-label="Innhold i økten">
+                  <li>Felles oppvarming</li>
+                  <li>Individuelt tilpasset trening</li>
+                  <li>Felles nedtrapping</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="youth-mini">
-            <h3>Hyppighet</h3>
-            <p class="big">Annenhver torsdag</p>
-            <p style="opacity:.9;">Mars–juni 2026</p>
-          </div>
-          <div class="youth-mini">
-            <h3>Kapasitet</h3>
-            <p class="big">Maks 8</p>
-            <p style="opacity:.9;">Små grupper</p>
-          </div>
-
-          <div class="youth-mini" style="grid-column: 1 / -1;">
-            <h3>Oppbygging av økten</h3>
-            <ul class="session-agenda" aria-label="Innhold i økten">
-              <li>Felles oppvarming</li>
-              <li>Individuelt tilpasset trening</li>
-              <li>Felles nedtrapping</li>
-            </ul>
-          </div>
-        </div>
+        </details>
       </div>
     </section>
 
     <!-- ===== DATOER ===== -->
     <section class="section" id="datoer">
       <div class="container youth-card reveal d2">
-        <h2>Datoer (8 økter)</h2>
-
-        <ol class="date-list--grid">
-          <li><span>1</span> Torsdag 5. mars 2026</li>
-          <li><span>2</span> Torsdag 19. mars 2026</li>
-          <li><span>3</span> Torsdag 2. april 2026</li>
-          <li><span>4</span> Torsdag 16. april 2026</li>
-          <li><span>5</span> Torsdag 30. april 2026</li>
-          <li><span>6</span> Torsdag 14. mai 2026</li>
-          <li><span>7</span> Torsdag 28. mai 2026</li>
-          <li><span>8</span> Torsdag 11. juni 2026</li>
-        </ol>
+        <details class="myss-accordion" id="datoer-detaljer">
+          <summary>Datoer for alle økter</summary>
+          <div class="myss-accordion__body">
+            <ol class="date-list--grid">
+              <li><span>1</span> Torsdag 5. mars 2026</li>
+              <li><span>2</span> Torsdag 19. mars 2026</li>
+              <li><span>3</span> Torsdag 2. april 2026</li>
+              <li><span>4</span> Torsdag 16. april 2026</li>
+              <li><span>5</span> Torsdag 30. april 2026</li>
+              <li><span>6</span> Torsdag 14. mai 2026</li>
+              <li><span>7</span> Torsdag 28. mai 2026</li>
+              <li><span>8</span> Torsdag 11. juni 2026</li>
+            </ol>
+          </div>
+        </details>
       </div>
     </section>
 
     <!-- ===== TILGJENGELIGHET ===== -->
     <section class="section section--light" id="tilgjengelighet">
       <div class="container youth-card reveal d2">
-        <h2>Tilgjengelighet og transport</h2>
-
-        <ul class="info-list">
-          <li>
-            <span class="icon"><img src="../icons/wheelchair.svg" alt="" aria-hidden="true"></span>
-            <div class="info-content">Trinnfri inngang, heis og HC-toalett.</div>
-          </li>
-          <li>
-            <span class="icon"><img src="../icons/bus.svg" alt="" aria-hidden="true"></span>
-            <div class="info-content">Buss 2 eller 3 – holdeplass: Fantoft Studentby.</div>
-          </li>
-          <li>
-            <span class="icon"><img src="../icons/parking.svg" alt="" aria-hidden="true"></span>
-            <div class="info-content">HC-parkering ved MENY Fantoft (ca. 70–90 m).</div>
-          </li>
-          <li>
-            <span class="icon"><img src="../icons/map.svg" alt="" aria-hidden="true"></span>
-            <div class="info-content">
-              <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" target="_blank" rel="noopener">Se kart</a>
-            </div>
-          </li>
-        </ul>
+        <details class="myss-accordion" id="tilgjengelighet-detaljer">
+          <summary>Tilgjengelighet og transport</summary>
+          <div class="myss-accordion__body">
+            <ul class="info-list">
+              <li>
+                <span class="icon"><img src="../icons/wheelchair.svg" alt="" aria-hidden="true"></span>
+                <div class="info-content">Trinnfri inngang, heis og HC-toalett.</div>
+              </li>
+              <li>
+                <span class="icon"><img src="../icons/bus.svg" alt="" aria-hidden="true"></span>
+                <div class="info-content">Buss 2 eller 3 – holdeplass: Fantoft Studentby.</div>
+              </li>
+              <li>
+                <span class="icon"><img src="../icons/parking.svg" alt="" aria-hidden="true"></span>
+                <div class="info-content">HC-parkering ved MENY Fantoft (ca. 70–90 m).</div>
+              </li>
+              <li>
+                <span class="icon"><img src="../icons/map.svg" alt="" aria-hidden="true"></span>
+                <div class="info-content">
+                  <a href="https://maps.google.com/?q=Fantoftvegen+14+Bergen" target="_blank" rel="noopener">Se kart</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
 
     <!-- ===== FAQ ===== -->
     <section class="section" id="faq">
       <div class="container youth-card reveal d2">
-        <h2>Spørsmål og svar</h2>
+        <details class="myss-accordion" id="spoersmaal-detaljer">
+          <summary>Spørsmål og svar</summary>
+          <div class="myss-accordion__body">
+            <div class="youth-faq">
+              <details>
+                <summary>Jeg bruker hjelpemidler eller rullestol – går det?</summary>
+                <div class="answer">Ja. Lokalet er universelt utformet, og vi tilpasser øvelser og apparater etter behov.</div>
+              </details>
 
-        <div class="youth-faq">
-          <details>
-            <summary>Jeg bruker hjelpemidler eller rullestol – går det?</summary>
-            <div class="answer">Ja. Lokalet er universelt utformet, og vi tilpasser øvelser og apparater etter behov.</div>
-          </details>
+              <details>
+                <summary>Kan jeg ta med ledsager/assistent?</summary>
+                <div class="answer">Ja, ledsager/assistent/verge er velkommen – uten ekstra kostnad.</div>
+              </details>
 
-          <details>
-            <summary>Kan jeg ta med ledsager/assistent?</summary>
-            <div class="answer">Ja, ledsager/assistent/verge er velkommen – uten ekstra kostnad.</div>
-          </details>
+              <details>
+                <summary>Hvordan tilpasses øvelsene?</summary>
+                <div class="answer">Vi tilpasser ut fra funksjon og mål – og justerer underveis etter dagsform.</div>
+              </details>
+            </div>
 
-          <details>
-            <summary>Hvordan tilpasses øvelsene?</summary>
-            <div class="answer">Vi tilpasser ut fra funksjon og mål – og justerer underveis etter dagsform.</div>
-          </details>
-        </div>
-
-        <div class="myss-actions" style="margin-top:1rem;">
-          <a class="myss-btn" href="#paamelding">Meld deg på</a>
-         <a class="myss-btn myss-btn--outline" href="../kontakt.html">Spørsmål?</a>
-        </div>
+            <div class="myss-actions" style="margin-top:1rem;">
+              <a class="myss-btn" href="#paamelding">Meld deg på</a>
+             <a class="myss-btn myss-btn--outline" href="../kontakt.html">Spørsmål?</a>
+            </div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -756,5 +790,21 @@
     });
     /* myss: ungdom-sticky-toggle-end */
   </script>
+
+<script id="myss-open-details-on-hash">
+(function(){
+  function openDetailsForHash(){
+    var id = location.hash ? location.hash.slice(1) : "";
+    if(!id) return;
+    var el = document.getElementById(id);
+    if(!el) return;
+    var d = el.closest ? el.closest("details") : null;
+    if(d) d.open = true;
+  }
+  window.addEventListener("hashchange", openDetailsForHash);
+  openDetailsForHash();
+})();
+</script>
+
 </body>
 </html>
