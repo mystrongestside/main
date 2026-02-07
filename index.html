@@ -506,6 +506,10 @@
     <!-- Elfsight Instagram feed nederst -->
     <section id="instagram" class="instagram">
       <h2>Instagram</h2>
+      <p class="ig-fallback" data-ig-fallback>
+        Hvis du ikke ser Instagram feeden her, kan det skyldes samtykke til markedsføring eller blokkering i nettleser.
+        <a href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener">Åpne Instagram</a>.
+      </p>
       <div class="elfsight-app-531a86f3-2afd-47d4-b89f-36d59f567e0b" data-elfsight-app-lazy></div>
     </section>
 
@@ -611,6 +615,51 @@
   .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
 </style><p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
 
-<script src="https://elfsightcdn.com/platform.js" data-cookieconsent="ignore"></script>
+<script type="text/plain" data-cookieconsent="marketing" src="https://elfsightcdn.com/platform.js" async data-myss-elfsight="1"></script>
+<script>
+(function(){
+  var root = document.getElementById('instagram');
+  if (!root) return;
+
+  var fallback = root.querySelector('[data-ig-fallback]');
+  function hideFallbackIfRendered(){
+    var rendered = root.querySelector('iframe, .eapps-instagram-feed, [class*="eapps-"], [class*="elfsight-"]');
+    if (rendered && fallback) fallback.style.display = 'none';
+  }
+
+  function ensureLoaded(){
+    if (document.querySelector('script[data-myss-elfsight-live="1"]')) return;
+
+    var s = document.createElement('script');
+    s.src = 'https://elfsightcdn.com/platform.js';
+    s.async = true;
+    s.setAttribute('data-myss-elfsight-live','1');
+    s.setAttribute('data-cookieconsent','ignore');
+    s.onload = function(){ setTimeout(hideFallbackIfRendered, 1200); };
+    s.onerror = function(){ console.warn('MySS: Elfsight ble blokkert eller feilet å laste'); };
+    document.body.appendChild(s);
+  }
+
+  function marketingOk(){
+    try {
+      if (!window.Cookiebot || !Cookiebot.consent) return false;
+      return !!Cookiebot.consent.marketing;
+    } catch(e){
+      return false;
+    }
+  }
+
+  if (marketingOk()) ensureLoaded();
+
+  window.addEventListener('CookiebotOnAccept', function(){
+    if (marketingOk()) ensureLoaded();
+  });
+  window.addEventListener('CookiebotOnConsentReady', function(){
+    if (marketingOk()) ensureLoaded();
+  });
+
+  setTimeout(hideFallbackIfRendered, 5000);
+})();
+</script>
 </body>
 </html>
