@@ -293,6 +293,21 @@
   .myss-primary-cta{margin:10px 0 14px}
 </style>
 
+
+<style id="myss-compact-layout">
+  .myss-keyfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+  .myss-kf{padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:14px}
+  .myss-kf__label{font-size:.85rem;opacity:.7;margin:0 0 6px}
+  .myss-kf__value{font-size:1rem;line-height:1.25;margin:0}
+  .myss-kf__muted{opacity:.75;font-size:.92rem}
+  details.myss-accordion{border:1px solid rgba(0,0,0,.12);border-radius:14px;padding:10px 12px;margin:12px 0}
+  details.myss-accordion > summary{cursor:pointer;font-weight:650;list-style:none}
+  details.myss-accordion > summary::-webkit-details-marker{display:none}
+  details.myss-accordion > summary:after{content:"+";float:right;opacity:.6}
+  details.myss-accordion[open] > summary:after{content:"×"}
+  .myss-accordion__body{margin-top:10px}
+</style>
+
 </head>
 
 <body class="page-tett-paamelding">
@@ -394,7 +409,7 @@
           </ul>
 
           <div class="youth-toplinks reveal d4">
-            <a href="#paamelding">Start påmelding</a> <a href="tett-oppfolging.html">Tilbake til info</a>
+            <a href="#meld-deg-pa">Start påmelding</a> <a href="tett-oppfolging.html">Tilbake til info</a>
             <a href="#praktisk-info">Praktisk info</a>
             <a href="#datoer">Datoer</a>
             <a href="#spoersmaal">Spørsmål og svar</a>
@@ -417,7 +432,7 @@
     <!-- ===== PÅMELDING FØRST (konvertering) ===== -->
     <section class="section" id="paamelding">
       <div class="container youth-card reveal d2">
-        <h2>Meld deg på</h2>
+        <h2 id="meld-deg-pa">Meld deg på</h2>
         <p style="opacity:.92;">Sikre deg plass til neste sesong via skjemaet.</p>
         <p style="opacity:.92;">Plasser er fordelt denne sesongen, men du kan sende inn påmelding nå, så prioriterer vi deg på neste kurs.</p>
 
