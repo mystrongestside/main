@@ -171,6 +171,22 @@
           data-cbid="918da94c-47e9-4fc0-9939-763b0c22c63d"
           data-blockingmode="auto"
           type="text/javascript"></script>
+
+<style id="myss-compact-accordions">
+  .myss-keyfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+  .myss-kf{padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:14px}
+  .myss-kf__label{font-size:.85rem;opacity:.7;margin:0 0 6px}
+  .myss-kf__value{font-size:1rem;line-height:1.25;margin:0}
+  .myss-kf__muted{opacity:.75;font-size:.92rem}
+  details.myss-accordion{border:1px solid rgba(0,0,0,.12);border-radius:14px;padding:10px 12px;margin:12px 0}
+  details.myss-accordion > summary{cursor:pointer;font-weight:650;list-style:none}
+  details.myss-accordion > summary::-webkit-details-marker{display:none}
+  details.myss-accordion > summary:after{content:"+";float:right;opacity:.6}
+  details.myss-accordion[open] > summary:after{content:"×"}
+  .myss-accordion__body{margin-top:10px}
+  .myss-primary-cta{margin:10px 0 14px}
+</style>
+
 </head>
 
 <body class="page--lett">
@@ -463,5 +479,21 @@
 </style>
 
   <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
+
+<script id="myss-open-details-on-hash">
+(function(){
+  function openDetailsForHash(){
+    var id = location.hash ? location.hash.slice(1) : "";
+    if(!id) return;
+    var el = document.getElementById(id);
+    if(!el) return;
+    var d = el.closest ? el.closest("details") : null;
+    if(d) d.open = true;
+  }
+  window.addEventListener("hashchange", openDetailsForHash);
+  openDetailsForHash();
+})();
+</script>
+
 </body>
 </html>
