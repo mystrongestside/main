@@ -503,14 +503,14 @@
       </div>
     </section>
 
-    <!-- Elfsight Instagram feed nederst -->
+    <!-- Instagram feed nederst -->
     <section id="instagram" class="instagram">
       <h2>Instagram</h2>
       <p class="ig-fallback" data-ig-fallback>
-        Hvis du ikke ser Instagram feeden her, kan det skyldes samtykke til markedsføring eller blokkering i nettleser.
+        Hvis du ikke ser feeden, kan det skyldes samtykke til markedsføring eller blokkering i nettleser.
         <a href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener">Åpne Instagram</a>.
       </p>
-      <div class="elfsight-app-531a86f3-2afd-47d4-b89f-36d59f567e0b" data-elfsight-app-lazy></div>
+      <div class="sk-instagram-feed" data-embed-id="25652202"></div>
     </section>
 
   </main>
@@ -615,7 +615,6 @@
   .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
 </style><p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
 
-<script type="text/plain" data-cookieconsent="marketing" src="https://elfsightcdn.com/platform.js" async data-myss-elfsight="1"></script>
 <script>
 (function(){
   var root = document.getElementById('instagram');
@@ -623,43 +622,22 @@
 
   var fallback = root.querySelector('[data-ig-fallback]');
   function hideFallbackIfRendered(){
-    var rendered = root.querySelector('iframe, .eapps-instagram-feed, [class*="eapps-"], [class*="elfsight-"]');
+    var rendered = root.querySelector('iframe');
     if (rendered && fallback) fallback.style.display = 'none';
   }
 
-  function ensureLoaded(){
-    if (document.querySelector('script[data-myss-elfsight-live="1"]')) return;
-
-    var s = document.createElement('script');
-    s.src = 'https://elfsightcdn.com/platform.js';
-    s.async = true;
-    s.setAttribute('data-myss-elfsight-live','1');
-    s.setAttribute('data-cookieconsent','ignore');
-    s.onload = function(){ setTimeout(hideFallbackIfRendered, 1200); };
-    s.onerror = function(){ console.warn('MySS: Elfsight ble blokkert eller feilet å laste'); };
-    document.body.appendChild(s);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hideFallbackIfRendered);
+  } else {
+    hideFallbackIfRendered();
   }
 
-  function marketingOk(){
-    try {
-      if (!window.Cookiebot || !Cookiebot.consent) return false;
-      return !!Cookiebot.consent.marketing;
-    } catch(e){
-      return false;
-    }
-  }
-
-  if (marketingOk()) ensureLoaded();
-
-  window.addEventListener('CookiebotOnAccept', function(){
-    if (marketingOk()) ensureLoaded();
-  });
-  window.addEventListener('CookiebotOnConsentReady', function(){
-    if (marketingOk()) ensureLoaded();
-  });
+  var observer = new MutationObserver(hideFallbackIfRendered);
+  observer.observe(root, { childList: true, subtree: true });
 
   setTimeout(hideFallbackIfRendered, 5000);
 })();
 </script>
+<script type="text/plain" data-cookieconsent="marketing" src="https://widgets.sociablekit.com/instagram-feed/widget.js" defer></script>
 </body>
 </html>
