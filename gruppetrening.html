@@ -741,7 +741,7 @@ html, body {
 *, *::before, *::after {
   box-sizing: border-box;
 }
-img, svg, video {
+img, svg, video, iframe {
   max-width: 100%;
   height: auto;
 }
@@ -759,17 +759,38 @@ img, svg, video {
   white-space: normal;
 }
 
-@media (max-width: 720px) {
-  main, .container {
+@media (max-width: 980px) {
+  main, .container, .wrap, .page, .content {
     padding-left: 16px;
     padding-right: 16px;
   }
+}
+
+@media (max-width: 860px) {
+  /* Tving vanlige grids til én kolonne */
+  [class*="grid"], [class*="cards"], [class*="card-grid"], [class*="offer"] {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  /* Vanlige to-kolonne hero layouts */
+  [class*="hero"], [class*="split"], [class*="two"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stabler knapper på mobil */
   .myss-cta {
     flex-direction: column;
     align-items: stretch;
   }
   .myss-cta > a {
     width: 100%;
+  }
+
+  /* Hvis noen kort har min-width som skaper scroll */
+  .card, [class*="card"], [class*="kort"] {
+    min-width: 0 !important;
   }
 }
 /* myss: gruppetrening-mobile-fix-end */
