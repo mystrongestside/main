@@ -231,6 +231,65 @@
     @media (max-width: 900px){
       #checkin_registration{ min-height: 980px; }
     }
+
+    /* myss: ungdom-mobile-fix-start */
+
+    /* Liste i "inngår" */
+    .included-list{
+      margin:.6rem 0 0 1.15rem;
+    }
+    .included-list li{ margin:.35rem 0; }
+
+    .session-agenda{
+      margin:.6rem 0 0 1.15rem;
+    }
+    .session-agenda li{ margin:.35rem 0; }
+
+    /* Hindre at overskrifter blir ekstremt store på mobil */
+    @media (max-width: 600px){
+      .youth-card h2{
+        font-size: clamp(1.55rem, 7vw, 2.05rem);
+        line-height: 1.12;
+      }
+      .youth-card h3{
+        font-size: 1.12rem;
+        line-height: 1.2;
+      }
+    }
+
+    /* Sticky CTA: mindre, tryggere, tar hensyn til safe area */
+    .myss-sticky.is-hidden{ display:none !important; }
+
+    @media (max-width: 900px){
+      .myss-sticky{
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      }
+      body{
+        padding-bottom: calc(78px + env(safe-area-inset-bottom));
+      }
+      .myss-sticky__inner{
+        gap: 10px;
+      }
+      .myss-sticky__text{
+        font-size: .95rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .myss-sticky .myss-btn{
+        padding: .75rem 1rem;
+        border-radius: 18px;
+      }
+    }
+
+    /* Små skjermer: fjern tekst, full bredde på knappen */
+    @media (max-width: 420px){
+      .myss-sticky__text{ display:none; }
+      .myss-sticky__inner{ justify-content: flex-end; }
+      .myss-sticky .myss-btn{ width: 100%; }
+    }
+
+    /* myss: ungdom-mobile-fix-end */
   </style>
   <!-- Cookiebot (cookies/GDPR) -->
   <script id="Cookiebot"
@@ -320,36 +379,36 @@
   <main>
 
     <!-- ===== HERO (samme oppsett-stil som Tett oppfølging) ===== -->
-<section class="section section--light">
-  <div class="container myss-hero-grid">
-    <div>
-      <p class="eyebrow reveal d1">Ungdom</p>
+    <section class="section section--light">
+      <div class="container myss-hero-grid">
+        <div>
+          <p class="eyebrow reveal d1">Ungdom</p>
 
-      <h1 class="reveal d2">My Strongest Side® – Tilpasset trening for ungdom (12 til 15 år) med funksjonsvariasjoner</h1>
+          <h1 class="reveal d2">My Strongest Side® – Tilpasset trening for ungdom (12 til 15 år) med funksjonsvariasjoner</h1>
 
-      <p class="reveal d3" style="opacity:.95;">
-        Trygg styrketrening i små grupper, med tilpasninger og faste veiledere. Rolig tempo, tydelige forklaringer og god oppfølging.
-      </p>
+          <p class="reveal d3" style="opacity:.95;">
+            Trygg styrketrening i små grupper, med tilpasninger og faste veiledere. Rolig tempo, tydelige forklaringer og god oppfølging.
+          </p>
 
-      <p class="reveal d3" style="opacity:.95;">
-        Du kan trene sittende eller stående – vi tilpasser øvelser, utstyr og tempo. Passer også for deg som trenger litt mer tid, pauser eller ekstra trygghet.
-      </p>
+          <p class="reveal d3" style="opacity:.95;">
+            Du kan trene sittende eller stående – vi tilpasser øvelser, utstyr og tempo. Passer også for deg som trenger litt mer tid, pauser eller ekstra trygghet.
+          </p>
 
-      <ul class="myss-points" aria-label="Hva du kan forvente">
-        <li>Små grupper</li>
-        <li>Tilpasninger</li>
-        <li>Rolig tempo</li>
-        <li>Faste veiledere</li>
-        <li>Trygg oppstart</li>
-      </ul>
+          <ul class="myss-points" aria-label="Hva du kan forvente">
+            <li>Små grupper</li>
+            <li>Tilpasninger</li>
+            <li>Rolig tempo</li>
+            <li>Faste veiledere</li>
+            <li>Trygg oppstart</li>
+          </ul>
 
-     <div class="myss-actions reveal d4">
+          <div class="myss-actions reveal d4">
             <a class="myss-btn" href="#paamelding">Meld deg på</a>
             <a class="myss-btn myss-btn--outline" href="barn-ungdom.html">Tilbake til info</a>
           </div>
         </div>
 
-   <div class="reveal d2">
+        <div class="reveal d2">
           <div class="media-frame">
             <img
               src="../bilder/tett-oppfolging-hero.jpg"
@@ -358,23 +417,15 @@
             />
           </div>
         </div>
-     
-  </div>
-</section>
+      </div>
+    </section>
 
-      
- 
-<section class="hero">
-  <div class="container">
-    <div class="hero-text">
-      <!-- eksisterende tekst -->
-
-      <!-- FLYTT DENNE HIT -->
-      <section class="myss-section myss-included">
+    <section class="section section--light" id="inngar">
+      <div class="container youth-card reveal d2">
         <h2>Dette inngår i ungdomstilbudet</h2>
-        <ul>
+        <ul class="included-list">
           <li>Treningssystemet My Strongest Side® med veiledning ved apparatene</li>
-          <li>Treningsprogram i app, oppdatert etter hver økt.</li>
+          <li>Treningsprogram i app, oppdatert etter hver økt</li>
         </ul>
 
         <h3>Seminar og kurs</h3>
@@ -385,19 +436,13 @@
           Kurs åpnes senere.
         </p>
 
-        <ul>
+        <ul class="included-list">
           <li>Fagseminar 28. februar ved Høgskulen på Vestlandet (HVL)</li>
           <li>Kurs i treningslære 3. april</li>
           <li>Kurs i aktivitetsbalanse 9. mai</li>
         </ul>
-      </section>
-    </div>
-
-    <div class="hero-image">
-      <!-- bilde -->
-    </div>
-  </div>
-</section>
+      </div>
+    </section>
     <!-- ===== PÅMELDING FØRST (konvertering) ===== -->
     <section class="section" id="paamelding">
       <div class="container youth-card reveal d2">
@@ -497,7 +542,7 @@
             <p class="big">Maks 8</p>
             <p style="opacity:.9;">Små grupper</p>
           </div>
-        <div class="youth-grid" style="margin-top:1rem;">
+
           <div class="youth-mini" style="grid-column: 1 / -1;">
             <h3>Oppbygging av økten</h3>
             <ul class="session-agenda" aria-label="Innhold i økten">
@@ -590,7 +635,7 @@
   <!-- ===== Sticky CTA (mobil) ===== -->
   <div class="myss-sticky" role="region" aria-label="Hurtig påmelding">
     <div class="myss-sticky__inner">
-      <div class="myss-sticky__text">Ungdom 12–15 · Fantoft</div>
+      <div class="myss-sticky__text">Ungdom 12 15 Fantoft</div>
       <a class="myss-btn" href="#paamelding">Meld deg på</a>
     </div>
   </div>
@@ -672,5 +717,44 @@
 </style>
 
   <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
+  <script>
+    /* myss: ungdom-sticky-toggle-start */
+    document.addEventListener('DOMContentLoaded', () => {
+      const bar = document.querySelector('.myss-sticky');
+      if (!bar) return;
+
+      let heroIn = false;
+      let formIn = false;
+
+      const hide = () => bar.classList.add('is-hidden');
+      const show = () => bar.classList.remove('is-hidden');
+      const update = () => (heroIn || formIn) ? hide() : show();
+
+      const hero = document.querySelector('main > section');
+      const form = document.querySelector('#paamelding');
+
+      if (!('IntersectionObserver' in window)) {
+        show();
+        return;
+      }
+
+      if (hero) {
+        new IntersectionObserver((entries) => {
+          heroIn = !!entries[0] && entries[0].isIntersecting;
+          update();
+        }, { threshold: 0.25 }).observe(hero);
+      }
+
+      if (form) {
+        new IntersectionObserver((entries) => {
+          formIn = !!entries[0] && entries[0].isIntersecting;
+          update();
+        }, { threshold: 0.15 }).observe(form);
+      }
+
+      update();
+    });
+    /* myss: ungdom-sticky-toggle-end */
+  </script>
 </body>
 </html>
