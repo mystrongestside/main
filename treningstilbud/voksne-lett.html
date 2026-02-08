@@ -7,21 +7,20 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-LK0WY59R15');
   </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Lett funksjonsvariasjon | My Strongest Side</title>
-  <meta name="description" content="Styrketrening i små grupper for voksne med lett funksjonsvariasjon – rolig tempo, tilpasninger og faste veiledere." />
+  <meta name="description" content="Styrketrening i små grupper for voksne med lett funksjonsvariasjon, rolig tempo, tilpasninger og faste veiledere." />
 
   <link rel="icon" type="image/png" href="../favicon.png" />
   <link rel="stylesheet" href="../styles.css?v=113" />
   <script>document.documentElement.classList.add('js');</script>
 
   <style>
-    /* ===== Knapper (samme stil som Tett oppfølging) ===== */
     .myss-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
     .myss-btn{
       display:inline-flex;
@@ -41,7 +40,6 @@
     .myss-btn:active{ transform:translateY(0); }
     .myss-btn--outline{ background:transparent; color:var(--myss-blue); }
 
-    /* ===== HERO-grid (samme prinsipp som Tett oppfølging) ===== */
     .myss-hero-grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -52,33 +50,16 @@
       .myss-hero-grid{ grid-template-columns:1fr; }
     }
 
-    /* ===== Bilder: vis hele bildet + ikke for stort ===== */
-    .myss-hero-photo,
     .youth-frame img{
       width:100%;
       height:auto;
       display:block;
       border-radius:24px;
-
-      /* Hele bildet synlig (ingen cropping) */
       object-fit:contain;
-
-      /* Ramme/luft når contain gir tomrom */
       background: rgba(16,82,119,.06);
-    }
-
-    /* Hero: begrens høyde så det ikke blir enormt på desktop */
-    .myss-hero-photo{
-      max-height: clamp(260px, 38vw, 420px);
-      aspect-ratio: auto;
-    }
-
-    /* Split-bilder: litt lavere */
-    .youth-frame img{
       max-height: clamp(220px, 32vw, 360px);
     }
 
-    /* ===== Små “chips” (enkel, robust) ===== */
     .youth-chips{
       list-style:none;
       padding:0;
@@ -96,7 +77,6 @@
       font-size: .95em;
     }
 
-    /* ===== Split-layout (enkelt) ===== */
     .youth-split{
       display:grid;
       grid-template-columns: 1.05fr .95fr;
@@ -144,7 +124,6 @@
       opacity:.9;
     }
 
-    /* ===== Kortboks ===== */
     .youth-card{
       border-radius:24px;
       padding:1.25rem;
@@ -152,7 +131,6 @@
       background:rgba(16,82,119,.04);
     }
 
-    /* ===== Reveal (samme som Tett oppfølging) ===== */
     .js .reveal{
       opacity:0;
       transform:translateY(10px);
@@ -164,7 +142,22 @@
     .js .reveal.d2{ transition-delay:.12s; }
     .js .reveal.d3{ transition-delay:.18s; }
     .js .reveal.d4{ transition-delay:.24s; }
+
+    .media-frame{
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(16,82,119,.16);
+      background: rgba(16,82,119,.06);
+      aspect-ratio: 16 / 9;
+    }
+    .media-frame img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:contain;
+    }
   </style>
+
   <!-- Cookiebot (cookies/GDPR) -->
   <script id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
@@ -172,41 +165,26 @@
           data-blockingmode="auto"
           type="text/javascript"></script>
 
-<style id="myss-compact-accordions">
-  .myss-keyfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
-  .myss-kf{padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:14px}
-  .myss-kf__label{font-size:.85rem;opacity:.7;margin:0 0 6px}
-  .myss-kf__value{font-size:1rem;line-height:1.25;margin:0}
-  .myss-kf__muted{opacity:.75;font-size:.92rem}
-  details.myss-accordion{border:1px solid rgba(0,0,0,.12);border-radius:14px;padding:10px 12px;margin:12px 0}
-  details.myss-accordion > summary{cursor:pointer;font-weight:650;list-style:none}
-  details.myss-accordion > summary::-webkit-details-marker{display:none}
-  details.myss-accordion > summary:after{content:"+";float:right;opacity:.6}
-  details.myss-accordion[open] > summary:after{content:"×"}
-  .myss-accordion__body{margin-top:10px}
-  .myss-primary-cta{margin:10px 0 14px}
-</style>
-
-
-<style id="myss-compact-layout">
-  .myss-keyfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
-  .myss-kf{padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:14px}
-  .myss-kf__label{font-size:.85rem;opacity:.7;margin:0 0 6px}
-  .myss-kf__value{font-size:1rem;line-height:1.25;margin:0}
-  .myss-kf__muted{opacity:.75;font-size:.92rem}
-  details.myss-accordion{border:1px solid rgba(0,0,0,.12);border-radius:14px;padding:10px 12px;margin:12px 0}
-  details.myss-accordion > summary{cursor:pointer;font-weight:650;list-style:none}
-  details.myss-accordion > summary::-webkit-details-marker{display:none}
-  details.myss-accordion > summary:after{content:"+";float:right;opacity:.6}
-  details.myss-accordion[open] > summary:after{content:"×"}
-  .myss-accordion__body{margin-top:10px}
-</style>
+  <style id="myss-compact-accordions">
+    .myss-keyfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+    .myss-kf{padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:14px}
+    .myss-kf__label{font-size:.85rem;opacity:.7;margin:0 0 6px}
+    .myss-kf__value{font-size:1rem;line-height:1.25;margin:0}
+    .myss-kf__muted{opacity:.75;font-size:.92rem}
+    details.myss-accordion{border:1px solid rgba(0,0,0,.12);border-radius:14px;padding:10px 12px;margin:12px 0}
+    details.myss-accordion > summary{cursor:pointer;font-weight:650;list-style:none}
+    details.myss-accordion > summary::-webkit-details-marker{display:none}
+    details.myss-accordion > summary:after{content:"+";float:right;opacity:.6}
+    details.myss-accordion[open] > summary:after{content:"×"}
+    .myss-accordion__body{margin-top:10px}
+    .myss-primary-cta{margin:10px 0 14px}
+    .myss-primary-cta a{display:inline-block}
+  </style>
 
 </head>
 
 <body class="page--lett">
 
-  <!-- ===== HEADER (beholder menyen din) ===== -->
   <header class="site-header">
     <div class="site-header__inner container">
       <div class="site-header__left">
@@ -274,7 +252,7 @@
                   <li><a href="../kontakt.html" class="site-nav__link">Kontakt</a></li>
                 </ul>
               </div>
-            </div><!-- /columns -->
+            </div>
           </div>
         </div>
       </div>
@@ -283,50 +261,70 @@
 
   <main>
 
-  <!-- ===== HERO (samme oppsett-stil som Tett oppfølging) ===== -->
-<section class="section section--light">
-  <div class="container myss-hero-grid">
+    <section class="section section--light">
+      <div class="container myss-hero-grid">
 
-    <div>
-      <p class="eyebrow reveal d1">Voksne</p>
+        <div>
+          <p class="eyebrow reveal d1">Voksne</p>
 
-      <h1 class="reveal d2">
-        My Strongest Side® – Tilrettelagt trening for voksne med behov for enkle tilpasninger
-      </h1>
+          <h1 class="reveal d2">
+            My Strongest Side®: Tilrettelagt trening for voksne med behov for enkle tilpasninger
+          </h1>
 
-      <p class="reveal d3" style="opacity:.95;">
-        Styrketrening i små grupper med rolig tempo og tydelige tilpasninger. Faste veiledere følger deg gjennom sesongen.
-      </p>
+          <p class="reveal d3" style="opacity:.95;">
+            Styrketrening i små grupper med rolig tempo og tydelige tilpasninger. Faste veiledere følger deg gjennom sesongen.
+          </p>
 
-      <ul class="myss-points" aria-label="Hva du kan forvente">
-        <li>Små grupper</li>
-        <li>Tilpasninger</li>
-        <li>Rolig tempo</li>
-        <li>Faste veiledere</li>
-      </ul>
+          <ul class="myss-points" aria-label="Hva du kan forvente">
+            <li>Små grupper</li>
+            <li>Tilpasninger</li>
+            <li>Rolig tempo</li>
+            <li>Faste veiledere</li>
+          </ul>
 
-      <div class="myss-actions reveal d4">
-        <a class="myss-btn" href="lett-påmelding.html">Se påmelding</a>
-        <a class="myss-btn myss-btn--outline" href="../kontakt.html">Still et spørsmål</a>
+          <div class="myss-actions reveal d4">
+            <a class="myss-btn" href="lett-påmelding.html">Se påmelding</a>
+            <a class="myss-btn myss-btn--outline" href="../kontakt.html">Still et spørsmål</a>
+          </div>
+        </div>
+
+        <div class="reveal d2">
+          <div class="media-frame">
+            <img
+              src="../bilde01.jpg"
+              alt="Veileder som støtter deltaker i styrkeapparat"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
       </div>
-    </div>
+    </section>
 
-    <div class="reveal d2">
-      <img
-        src="../bilde01.jpg"
-        alt="Veileder som støtter deltaker i styrkeapparat"
-        class="myss-hero-photo"
-        loading="lazy"
-      />
-    </div>
-
-  </div>
-</section>
-    <!-- ===== SPLIT 1 ===== -->
     <section class="section">
       <div class="container youth-split">
 
         <div class="youth-split__text reveal d2">
+
+          <section class="myss-keyfacts" aria-label="Nøkkelinfo">
+            <div class="myss-kf">
+              <p class="myss-kf__label">Sted</p>
+              <p class="myss-kf__value">Trene Sammen Fantoft</p>
+            </div>
+            <div class="myss-kf">
+              <p class="myss-kf__label">Varighet</p>
+              <p class="myss-kf__value">Ca. 60 min</p>
+            </div>
+            <div class="myss-kf">
+              <p class="myss-kf__label">Hyppighet</p>
+              <p class="myss-kf__value">Annenhver torsdag</p>
+            </div>
+            <div class="myss-kf">
+              <p class="myss-kf__label">Pris</p>
+              <p class="myss-kf__value">Fra 600 kr per sesong</p>
+            </div>
+          </section>
+
           <h2>Tren med trygghet</h2>
           <p>
             Vi starter hver økt med å sjekke dagsform og hva du trenger der og da. Du får rolig og ryddig oppfølging gjennom hele timen,
@@ -340,22 +338,20 @@
           </div>
         </div>
 
-        
       </div>
     </section>
 
-    <!-- ===== SPLIT 2 ===== -->
     <section class="section section--light">
       <div class="container youth-split youth-split--reverse">
 
         <div class="youth-split__text reveal d2">
           <h2>Veiledere med relevant fagbakgrunn</h2>
           <p>
-            Fysio- og ergoterapistudenter fra HVL er faste veiledere gjennom sesongen. De blir kjent med deg, følger utviklingen din og
+            Fysio og ergoterapistudenter fra HVL er faste veiledere gjennom sesongen. De blir kjent med deg, følger utviklingen din og
             justerer øvelsene underveis.
           </p>
           <p style="opacity:.9;">
-            På enkelte økter deltar også Alexander Sviggum, som viser hvordan styrkeløft-teknikk kan tilpasses vanlige hverdagsbevegelser.
+            På enkelte økter deltar også Alexander Sviggum, som viser hvordan teknikk kan tilpasses vanlige hverdagsbevegelser.
           </p>
         </div>
 
@@ -367,7 +363,6 @@
       </div>
     </section>
 
-    <!-- ===== KORT INFO ===== -->
     <section class="section" id="tilbud">
       <div class="container youth-card reveal d2">
         <h2>Tilbudet i korte trekk</h2>
@@ -386,7 +381,7 @@
 
         <h3>Faglig grunnlag</h3>
         <p>
-          Tilbudet bygger på anbefalinger fra Norsk kvalitets- og oppfølgingsregister for cerebral parese (NorCP) og fagmiljøer innen
+          Tilbudet bygger på anbefalinger fra Norsk kvalitets og oppfølgingsregister for cerebral parese (NorCP) og fagmiljøer innen
           nevrologi og rehabilitering.
         </p>
 
@@ -394,31 +389,53 @@
           <span>Sted: Trene Sammen Fantoft</span>
           <span>Varighet: ca. 60 min</span>
           <span>Hyppighet: Annenhver torsdag</span>
-          <span>Pris: fra 600,- pr sesong</span>
+          <span>Pris: fra 600 kr per sesong</span>
         </div>
+
+        <!-- myss: inkludert-lett-start -->
+        <section class="myss-section myss-included" style="text-align:left; width:100%; max-width:100%; margin:18px 0 0;">
+          <h3 style="margin:18px 0 8px;">Dette inngår i tilbudet</h3>
+          <ul style="margin:0 0 16px; padding-left:1.2em; line-height:1.7;">
+            <li>Treningssystemet My Strongest Side® med veiledning ved apparatene</li>
+            <li>Treningsprogram i app, oppdatert etter hver økt</li>
+          </ul>
+
+          <details class="myss-accordion" id="seminar-kurs">
+            <summary>Seminar og kurs</summary>
+            <div class="myss-accordion__body">
+              <p class="myss-note" style="margin:0 0 12px; line-height:1.6;">
+                Seminar og kurs kommer i tillegg. Du melder deg på separat. Seminaret koster 100 kr. Kun seminaret kan meldes på nå. Kurs åpnes senere.
+              </p>
+              <ul style="margin:0; padding-left:1.2em; line-height:1.7;">
+                <li>Fagseminar 28. februar ved Høgskulen på Vestlandet (HVL). Påmelding på <a href="/Seminar.html">seminarsiden</a></li>
+                <li>Kurs i treningslære 3. april. Påmelding publiseres senere</li>
+                <li>Kurs i aktivitetsbalanse 9. mai. Påmelding publiseres senere</li>
+              </ul>
+            </div>
+          </details>
+        </section>
+        <!-- myss: inkludert-lett-end -->
 
         <div class="myss-actions" style="margin-top:1.1rem;">
           <a class="myss-btn" href="lett-påmelding.html">Se praktisk info og påmelding</a>
-        <a class="myss-btn myss-btn--outline" href="../kontakt.html">Still et spørsmål</a>
+          <a class="myss-btn myss-btn--outline" href="../kontakt.html">Still et spørsmål</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== CTA ===== -->
     <section class="myss-cta-wave" id="cta">
       <div class="myss-cta-wave__inner">
         <h2 class="reveal d2">Klar for å bli med<span class="dot">.</span></h2>
-        <p class="reveal d3">Send påmelding – vi tar en kort prat før oppstart for å sikre gode tilpasninger.</p>
+        <p class="reveal d3">Send påmelding. Vi tar en kort prat før oppstart for å sikre gode tilpasninger.</p>
         <div class="myss-cta-wave__actions reveal d4">
           <a href="lett-påmelding.html" class="myss-cta-wave__btn">Se påmelding</a>
-        <a class="myss-btn myss-btn--outline" href="../kontakt.html">Still et spørsmål</a>
+          <a class="myss-btn myss-btn--outline" href="../kontakt.html">Still et spørsmål</a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ===== FOOTER (som du hadde) ===== -->
   <footer class="site-footer">
     <div class="site-footer__inner container">
       <div class="site-footer__brand">
@@ -462,9 +479,8 @@
     </div>
   </footer>
 
-  <!-- Meny (beholder den som fungerer) --><script src="../menu.js" defer></script>
+  <script src="../menu.js" defer></script>
 
-  <!-- Reveal -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const els = Array.from(document.querySelectorAll('.reveal'));
@@ -484,31 +500,36 @@
       }, { threshold: 0.12 });
 
       els.forEach(el => io.observe(el));
+
+      var y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
     });
   </script>
+
   <script src="/components/footer-links.js?v=114" defer></script>
-<style>
-  .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
-  .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }
-  .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
-</style>
+
+  <style>
+    .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
+    .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }
+    .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
+  </style>
 
   <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
 
-<script id="myss-open-details-on-hash">
-(function(){
-  function openDetailsForHash(){
-    var id = location.hash ? location.hash.slice(1) : "";
-    if(!id) return;
-    var el = document.getElementById(id);
-    if(!el) return;
-    var d = el.closest ? el.closest("details") : null;
-    if(d) d.open = true;
-  }
-  window.addEventListener("hashchange", openDetailsForHash);
-  openDetailsForHash();
-})();
-</script>
+  <script id="myss-open-details-on-hash">
+    (function(){
+      function openDetailsForHash(){
+        var id = location.hash ? location.hash.slice(1) : "";
+        if(!id) return;
+        var el = document.getElementById(id);
+        if(!el) return;
+        var d = el.closest ? el.closest("details") : null;
+        if(d) d.open = true;
+      }
+      window.addEventListener("hashchange", openDetailsForHash);
+      openDetailsForHash();
+    })();
+  </script>
 
 </body>
 </html>
