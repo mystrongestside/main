@@ -64,6 +64,51 @@
 }
 .ribbon--alert{ background:#f77c37; }
 
+/* myss: course-category-banners-start */
+.course-banner{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index:4;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  background:rgba(15,23,42,.92);
+  color:#fff;
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:.78rem;
+  line-height:1.2;
+  pointer-events:none;
+  backdrop-filter:saturate(110%) blur(6px);
+}
+
+.course-banner::before{
+  content:"";
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  background:var(--accent,#f77c37);
+  box-shadow:0 0 0 3px rgba(247,124,55,.24);
+  flex:0 0 auto;
+}
+
+.course-banner--ungdom{ background:rgba(29,43,67,.92); }
+.course-banner--lett{   background:rgba(31,74,135,.92); }
+.course-banner--tett{   background:rgba(15,23,42,.92); }
+
+@media (max-width:600px){
+  .course-banner{
+    padding:9px 10px;
+    font-size:.72rem;
+    letter-spacing:.10em;
+  }
+}
+/* myss: course-category-banners-end */
+
 /* Info-panel (dato + tid) */
 .info-panel{
   display:flex; flex-wrap:wrap; gap:1rem; align-items:flex-start;
@@ -885,6 +930,7 @@ img, svg, video, iframe { max-width: 100%; height: auto; }
           <article class="training-card" data-gruppe="ungdom" aria-labelledby="kurs-ungdom-tittel">
             <div class="course-card__media">
               <img src="bilde01.jpg" alt="Ungdom trener sammen under veiledning på treningssenter" loading="lazy" decoding="async">
+              <div class="course-banner course-banner--ungdom" aria-hidden="true">UNGDOM</div>
               <div class="ribbon-diagonal">Åpent for påmelding</div>
             </div>
 
@@ -915,6 +961,7 @@ img, svg, video, iframe { max-width: 100%; height: auto; }
           <article class="training-card" data-gruppe="voksne-lett" aria-labelledby="kurs-voksne-lett-tittel">
             <div class="course-card__media">
               <img src="bilder/hero-large.jpg" alt="Voksne trener med lett oppfølging i styrkerommet" loading="lazy" decoding="async">
+              <div class="course-banner course-banner--lett" aria-hidden="true">VOKSNE MED ENKLE TILPASNINGER</div>
           <div class="ribbon-diagonal">Åpent for påmelding</div>
             </div>
 
@@ -947,6 +994,7 @@ img, svg, video, iframe { max-width: 100%; height: auto; }
           <article class="training-card" data-gruppe="voksne-tett" aria-labelledby="kurs-voksne-tett-tittel">
             <div class="course-card__media">
               <img src="bilde02.jpg" alt="Deltaker får tett veiledning i styrkerommet" loading="lazy" decoding="async">
+              <div class="course-banner course-banner--tett" aria-hidden="true">VOKSNE SOM ØNSKER TETT OPPFØLGING</div>
           <div class="ribbon-diagonal">Åpent for påmelding</div>
             </div>
 
