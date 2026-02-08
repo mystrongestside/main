@@ -347,6 +347,29 @@
     @media (max-width: 900px){
       .myss-service-card__img{ height: 150px; }
     }
+
+    /* myss: instagram-compact-start */
+    .instagram{
+      padding: 2.25rem 0;
+    }
+    .instagram .container{
+      max-width: 980px;
+    }
+    .instagram .sk-instagram-feed{
+      width: 100%;
+      max-width: 980px;
+      margin: 1rem auto 0;
+    }
+    .instagram iframe{
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    @media (max-width: 600px){
+      .instagram{
+        padding: 1.75rem 0;
+      }
+    }
+    /* myss: instagram-compact-end */
   </style>
 
  
@@ -505,12 +528,14 @@
 
     <!-- Instagram feed nederst -->
     <section id="instagram" class="instagram">
-      <h2>Instagram</h2>
-      <p class="ig-fallback" data-ig-fallback>
-        Hvis du ikke ser feeden, kan det skyldes samtykke til markedsføring eller blokkering i nettleser.
-        <a href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener">Åpne Instagram</a>.
-      </p>
-      <div class="sk-instagram-feed" data-embed-id="25652202"></div>
+      <div class="container">
+        <h2>Instagram</h2>
+        <p class="ig-fallback" data-ig-fallback>
+          Hvis du ikke ser feeden, kan det skyldes samtykke til markedsføring eller blokkering i nettleser.
+          <a href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener">Åpne Instagram</a>.
+        </p>
+        <div class="sk-instagram-feed" data-embed-id="25652202"></div>
+      </div>
     </section>
 
   </main>
