@@ -134,6 +134,9 @@
       .myss-hero-photo{ aspect-ratio: 4 / 3; }
     }
     .myss-hero-photo--fallback{ display:none; }
+    /* myss: hero-video-ios-fallback */
+    body.video-failed .myss-hero-photo--fallback{ display:block; }
+    body.video-failed .myss-hero-media{ display:none; }
 
     @media (prefers-reduced-motion: reduce){
       .myss-hero-media{ display:none; }
@@ -393,6 +396,7 @@
             muted
             loop
             playsinline
+            webkit-playsinline
             preload="metadata"
             poster="/bilder/hero-poster.jpg"
           >
@@ -612,26 +616,38 @@
     });
   </script>
 
-  <!-- Autoplay-sikring + fallback ved error -->
+  <!-- myss: hero-video-ios-fallback-js -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const v = document.querySelector('.myss-hero-media');
       const fallback = document.querySelector('.myss-hero-photo--fallback');
       if (!v) return;
 
+      const markFailed = () => {
+        document.body.classList.add('video-failed');
+      };
+
       const tryPlay = () => {
-        const p = v.play();
-        if (p && typeof p.catch === 'function') p.catch(() => {});
+        try{
+          const p = v.play();
+          if (p && typeof p.catch === 'function') p.catch(() => {});
+        }catch(e){}
       };
 
       tryPlay();
+
       window.addEventListener('touchstart', tryPlay, { passive:true, once:true });
       window.addEventListener('scroll', tryPlay, { passive:true, once:true });
 
-      v.addEventListener('error', () => {
-        if (fallback) fallback.style.display = 'block';
-        v.style.display = 'none';
-      }, { once:true });
+      v.addEventListener('error', markFailed, { once:true });
+
+      /* iOS Safari feiler ofte "stille" uten error.
+         Hvis video ikke har startet raskt, vis fallback. */
+      setTimeout(() => {
+        if (v.paused || v.readyState < 2) {
+          markFailed();
+        }
+      }, 350);
     });
   </script>
  <style>
