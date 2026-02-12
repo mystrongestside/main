@@ -402,6 +402,12 @@
           >
             <source src="/video/hero-desktop.mp4" type="video/mp4">
           </video>
+          <img
+            class="myss-hero-photo myss-hero-photo--fallback"
+            src="/bilder/hero-poster.jpg"
+            alt=""
+            aria-hidden="true"
+          />
 
       
 
@@ -619,6 +625,7 @@
       if (!v) return;
 
       const markFailed = () => {
+        if (v.readyState >= 2) return;
         document.body.classList.add('video-failed');
       };
 
@@ -639,10 +646,10 @@
       /* iOS Safari feiler ofte "stille" uten error.
          Hvis video ikke har startet raskt, vis fallback. */
       setTimeout(() => {
-        if (v.paused || v.readyState < 2) {
+        if (v.readyState < 2) {
           markFailed();
         }
-      }, 350);
+      }, 2500);
     });
   </script>
  <style>
