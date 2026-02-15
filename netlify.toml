@@ -7,12 +7,12 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
-    Content-Security-Policy-Report-Only = "default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self' https://formspree.io https://*.netlify.app; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://widgets.sociablekit.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://formspree.io https://www.google-analytics.com; frame-src 'self' https://www.instagram.com https://widgets.sociablekit.com; upgrade-insecure-requests; report-to csp-endpoint"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy-Report-Only = "default-src 'self'; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-src 'self'; upgrade-insecure-requests"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Frame-Options = "DENY"
-    Permissions-Policy = "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=(), interest-cohort=()"
+    Permissions-Policy = "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=(), fullscreen=(), serial=(), xr-spatial-tracking=(), interest-cohort=()"
     Cross-Origin-Opener-Policy = "same-origin"
     Cross-Origin-Resource-Policy = "same-origin"
 
@@ -36,10 +36,11 @@
   [headers.values]
     Cache-Control = "public, max-age=300, must-revalidate"
 
-# TODO(CSP): Whitelist only domains that are strictly required after auditing runtime violations:
-# - https://www.googletagmanager.com (Google Analytics script)
+# TODO(CSP report-only): basert på audit i docs/security-audit.md må følgende domener evt whitelistes ved behov:
+# - https://www.googletagmanager.com (GA script)
 # - https://www.google-analytics.com (analytics beacons)
-# - https://widgets.sociablekit.com (Instagram widget script)
-# - https://www.instagram.com (embedded instagram content)
-# - https://formspree.io (legacy contact endpoint if used)
-# - https://*.netlify.app (Netlify Forms fallback endpoints if used)
+# - https://widgets.sociablekit.com (Instagram widget)
+# - https://registration.checkin.no og https://static.checkin.no (Checkin embeds)
+# - https://mystrongestside.us19.list-manage.com (Mailchimp subscribe form)
+# - https://consent.cookiebot.com (legacy Cookiebot script på eldre sider)
+# - https://event.checkin.no (direkte påmeldingslenker dersom policy senere strammes til enforce)

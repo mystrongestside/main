@@ -15,16 +15,55 @@
     <section class="section section--light">
       <div class="container">
         <h1>Informasjonskapsler (cookies)</h1>
-        <p>Vi bruker nødvendige cookies for å levere nettstedet. Valgfrie cookies (statistikk og tredjeparts-innhold) brukes kun etter samtykke.</p>
+        <p>Denne siden forklarer hvilke cookies/lokal lagring som brukes, hvorfor de brukes, og hvordan du kan endre samtykke.</p>
 
-        <h2>Hva lagres?</h2>
-        <ul>
-          <li><strong>Nødvendig:</strong> lokal lagring av samtykkevalg (<code>myss_cookie_consent_v1</code>).</li>
-          <li><strong>Valgfritt:</strong> tredjepartsinnhold som Instagram-feed og analyseverktøy.</li>
-        </ul>
+        <h2>Cookie- og tredjepartsoversikt</h2>
+        <div style="overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; min-width:760px;">
+            <thead>
+              <tr>
+                <th style="text-align:left; border-bottom:1px solid #ddd; padding:.6rem;">Navn / tjeneste</th>
+                <th style="text-align:left; border-bottom:1px solid #ddd; padding:.6rem;">Type</th>
+                <th style="text-align:left; border-bottom:1px solid #ddd; padding:.6rem;">Formål</th>
+                <th style="text-align:left; border-bottom:1px solid #ddd; padding:.6rem;">Lagringstid</th>
+                <th style="text-align:left; border-bottom:1px solid #ddd; padding:.6rem;">Behandlingsgrunnlag</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;"><code>myss_cookie_consent_v1</code> (localStorage)</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Nødvendig</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Lagrer samtykkevalg</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Til brukeren nullstiller nettleserdata</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Berettiget interesse</td>
+              </tr>
+              <tr>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Google Analytics (via gtag.js)</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Statistikk</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Måle bruk av nettsiden for forbedring</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">I henhold til leverandørinnstillinger</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Samtykke</td>
+              </tr>
+              <tr>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">SociableKIT Instagram widget</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Markedsføring / innhold</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Vise Instagram-feed på forsiden</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Settes av tredjepart etter samtykke</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Samtykke</td>
+              </tr>
+              <tr>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Netlify Forms (kontaktskjema)</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Nødvendig tjeneste</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Motta og behandle henvendelser</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Så lenge nødvendig for oppfølging</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Avtale/forespørsel</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <h2>Endre samtykke</h2>
-        <p>Trykk på knappen under for å endre samtykkevalg. Når du nullstiller, vises banneret på nytt ved neste sidevisning.</p>
+        <p>Trykk på knappen under for å nullstille samtykkevalg. Banneret vises da på nytt ved neste sideinnlasting.</p>
         <button id="resetConsent" class="btn btn--primary" type="button">Endre cookie-samtykke</button>
       </div>
     </section>
