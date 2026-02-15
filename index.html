@@ -22,24 +22,20 @@
   <!-- Root-relative paths = fungerer på alle undersider -->
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/styles.css?v=1200" />
+  <link rel="stylesheet" href="/assets/css/cookie-consent.css" />
 
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- Cookiebot (må ligge før script du vil blokkere/avhengiggjøre av samtykke) -->
-  <script id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid="918da94c-47e9-4fc0-9939-763b0c22c63d"
-          data-blockingmode="auto"
-          type="text/javascript"></script>
-
   <!-- Google tag (GA4) - blokkeres til "Statistikk" er samtykket -->
-  <script type="text/plain" data-cookieconsent="statistics" async
-          src="https://www.googletagmanager.com/gtag/js?id=G-LK0WY59R15"></script>
-  <script type="text/plain" data-cookieconsent="statistics">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LK0WY59R15');
+  <script data-consent-category="analytics" data-consent-src="https://www.googletagmanager.com/gtag/js?id=G-LK0WY59R15" defer></script>
+  <script>
+    document.addEventListener('myss:consent-changed', function (event) {
+      if (!event.detail || !event.detail.analytics) return;
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LK0WY59R15');
+    });
   </script>
   <style>
     /* =========================
@@ -528,8 +524,9 @@
         <h2>Instagram</h2>
         <p class="ig-fallback" data-ig-fallback>
           Hvis du ikke ser feeden, kan det skyldes samtykke til markedsføring eller blokkering i nettleser.
-          <a href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener">Åpne Instagram</a>.
+          <a href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener noreferrer">Åpne Instagram</a>.
         </p>
+        <div class="embed-consent-placeholder" data-consent-placeholder>Instagram-feed er blokkert inntil du godtar valgfrie cookies på <a href="/cookies.html">cookies-siden</a>.</div>
         <div class="sk-instagram-feed" data-embed-id="25652202"></div>
       </div>
     </section>
@@ -563,10 +560,10 @@
         <div class="site-footer__social">
           <span class="site-footer__social-label">Følg oss i sosiale medier</span>
           <div class="site-footer__social-list">
-            <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <img src="/icons/facebook.png" alt="" aria-hidden="true">
             </a>
-            <a class="social-link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener" aria-label="Instagram">
+            <a class="social-link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <img src="/icons/instagram.png" alt="" aria-hidden="true">
             </a>
           </div>
@@ -637,6 +634,7 @@
   setTimeout(hideFallbackIfRendered, 5000);
 })();
 </script>
-<script type="text/plain" data-cookieconsent="marketing" src="https://widgets.sociablekit.com/instagram-feed/widget.js" defer></script>
+<script data-consent-category="marketing" data-consent-src="https://widgets.sociablekit.com/instagram-feed/widget.js" defer></script>
+<script src="/assets/js/cookie-consent.js" defer></script>
 </body>
 </html>

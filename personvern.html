@@ -17,14 +17,9 @@
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="styles.css?v=112" />
+  <link rel="stylesheet" href="/assets/css/cookie-consent.css" />
 
   <script>document.documentElement.classList.add('js');</script>
-  <!-- Cookiebot (cookies/GDPR) -->
-  <script id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid="918da94c-47e9-4fc0-9939-763b0c22c63d"
-          data-blockingmode="auto"
-          type="text/javascript"></script>
 </head>
 <body class="page-personvern">
   <header data-component="site-header"></header>
@@ -33,44 +28,34 @@
     <section class="section section--light">
       <div class="container">
         <h1>Personvern</h1>
-        <p>
-          My Strongest Side® AS er behandlingsansvarlig for personopplysninger som behandles via nettstedet vårt.
-          Har du spørsmål om personvern kan du kontakte oss på
-          <a href="mailto:alexander@mystrongestside.no">alexander@mystrongestside.no</a>.
-        </p>
+        <p>My Strongest Side® AS er behandlingsansvarlig for personopplysninger på dette nettstedet. Kontakt oss på <a href="mailto:alexander@mystrongestside.no">alexander@mystrongestside.no</a>.</p>
 
-        <h2>Hva vi samler inn</h2>
-        <p>
-          Vi samler inn informasjon du selv gir oss, som navn, kontaktinformasjon og eventuelle opplysninger du oppgir
-          i skjemaer eller ved påmelding til aktiviteter.
-        </p>
+        <h2>Tredjepartsressurser og formål</h2>
+        <ul>
+          <li><strong>Google Tag Manager / Google Analytics</strong> (statistikk): måler bruk av sider for forbedring av nettstedet.</li>
+          <li><strong>SociableKIT Instagram-embed</strong> (markedsføring/innhold): viser Instagram-innhold på forsiden etter samtykke.</li>
+          <li><strong>Netlify Forms</strong> (drift av kontaktskjema): mottar og behandler henvendelser sendt via kontaktskjema.</li>
+        </ul>
 
-        <h2>Formål</h2>
-        <p>
-          Opplysningene brukes til å følge opp henvendelser, administrere påmeldinger, levere tjenester og gi deg relevant
-          informasjon om våre tilbud.
-        </p>
+        <h2>Behandlingsgrunnlag</h2>
+        <ul>
+          <li><strong>Berettiget interesse</strong>: grunnleggende drift, sikkerhet og feilretting.</li>
+          <li><strong>Samtykke</strong>: analyse og markedsføring/tredjepartsinnhold aktiveres først etter samtykke.</li>
+          <li><strong>Avtale/forespørsel</strong>: oppfølging av henvendelser sendt via skjema eller e-post.</li>
+        </ul>
 
-        <h2>Tredjeparter</h2>
-        <p>
-          Vi deler kun opplysninger med tredjeparter når det er nødvendig for å levere tjenestene våre, og da kun med
-          leverandører som behandler data på våre vegne.
-        </p>
+        <h2>Lagringstid</h2>
+        <ul>
+          <li>Samtykkevalg i nettleser (<code>localStorage</code>): lagres til brukeren nullstiller eller tømmer nettleserdata.</li>
+          <li>Kontaktskjema-data: lagres så lenge det er nødvendig for å følge opp henvendelsen, deretter slettes eller anonymiseres.</li>
+          <li>Analyse-data: i henhold til leverandørens standard retention-innstillinger og våre konfigurerte begrensninger.</li>
+        </ul>
 
-        <h2>Lagring</h2>
-        <p>
-          Vi lagrer personopplysninger så lenge det er nødvendig for formålet de ble samlet inn for, eller så lenge vi er
-          pålagt etter lov. Du kan be om innsyn eller sletting når som helst.
-        </p>
+        <h2>Hvordan endre samtykke</h2>
+        <p>Du kan når som helst endre samtykke ved å gå til <a href="/cookies.html">cookies-siden</a> og nullstille valget.</p>
 
         <h2>Dine rettigheter</h2>
-        <p>
-          Du har rett til innsyn, retting, sletting og å trekke tilbake samtykke. Ta kontakt med oss hvis du ønsker å benytte
-          dine rettigheter.
-        </p>
-
-        <h2>Cookies</h2>
-        <script id="CookieDeclaration" src="https://consent.cookiebot.com/918da94c-47e9-4fc0-9939-763b0c22c63d/cd.js" type="text/javascript" async></script>
+        <p>Du har rett til innsyn, retting, sletting, begrensning, dataportabilitet og å protestere. Du kan også klage til Datatilsynet.</p>
       </div>
     </section>
   </main>
@@ -102,10 +87,10 @@
         <div class="site-footer__social">
           <span class="site-footer__social-label">Følg oss i sosiale medier</span>
           <div class="site-footer__social-list">
-            <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <img src="/icons/facebook.png" alt="" aria-hidden="true">
             </a>
-            <a class="social-link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener" aria-label="Instagram">
+            <a class="social-link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <img src="/icons/instagram.png" alt="" aria-hidden="true">
             </a>
    
@@ -121,6 +106,7 @@
 
   <script src="components/footer-links.js" defer></script>
   <script src="menu.js" defer></script>
+  <script src="/assets/js/cookie-consent.js" defer></script>
   <style>
   .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
   .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }

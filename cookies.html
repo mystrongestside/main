@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookies | My Strongest Side</title>
+  <meta name="description" content="Informasjon om cookies og samtykke hos My Strongest Side." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css?v=112" />
+  <link rel="stylesheet" href="/assets/css/cookie-consent.css" />
+</head>
+<body>
+  <header data-component="site-header"></header>
+  <main>
+    <section class="section section--light">
+      <div class="container">
+        <h1>Informasjonskapsler (cookies)</h1>
+        <p>Vi bruker nødvendige cookies for å levere nettstedet. Valgfrie cookies (statistikk og tredjeparts-innhold) brukes kun etter samtykke.</p>
+
+        <h2>Hva lagres?</h2>
+        <ul>
+          <li><strong>Nødvendig:</strong> lokal lagring av samtykkevalg (<code>myss_cookie_consent_v1</code>).</li>
+          <li><strong>Valgfritt:</strong> tredjepartsinnhold som Instagram-feed og analyseverktøy.</li>
+        </ul>
+
+        <h2>Endre samtykke</h2>
+        <p>Trykk på knappen under for å endre samtykkevalg. Når du nullstiller, vises banneret på nytt ved neste sidevisning.</p>
+        <button id="resetConsent" class="btn btn--primary" type="button">Endre cookie-samtykke</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
+      <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+    </div>
+  </footer>
+
+  <script src="/menu.js" defer></script>
+  <script src="/components/footer-links.js" defer></script>
+  <script src="/assets/js/cookie-consent.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+      var btn = document.getElementById('resetConsent');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        if (window.myssConsent) {
+          window.myssConsent.reset();
+          alert('Samtykke er nullstilt. Last siden på nytt for å velge på nytt.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

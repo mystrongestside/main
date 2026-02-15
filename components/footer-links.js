@@ -41,7 +41,8 @@
     mount("[data-footer-links-info]", "Informasjon", [
       { label: "Presse og media", href: "/presse.html" },          // hvis du bruker presse.html
       { label: "Samarbeid", href: "/samarbeid.html" },
-      { label: "Personvern", href: "/personvern.html" }
+      { label: "Personvern", href: "/personvern.html" },
+      { label: "Cookies", href: "/cookies.html" }
     ]);
 
     mount("[data-footer-links-brand]", "My Strongest Side", [
