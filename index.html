@@ -22,7 +22,7 @@
   <!-- Root-relative paths = fungerer på alle undersider -->
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/styles.css?v=1200" />
-  <link rel="stylesheet" href="/assets/css/cookie-consent.css" />
+  <link rel="stylesheet" href="/assets/consent.css" />
 
   <script>document.documentElement.classList.add('js');</script>
 
@@ -526,10 +526,10 @@
           Hvis du ikke ser feeden, kan det skyldes samtykke til markedsføring eller blokkering i nettleser.
           <a href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener noreferrer">Åpne Instagram</a>.
         </p>
-        <div class="embed-consent-placeholder" data-consent-placeholder data-consent-category="marketing">
+        <div class="embed-consent-placeholder" data-instagram-placeholder>
           <p>Instagram-feed er blokkert inntil du gir samtykke til markedsføringscookies.</p>
           <div class="embed-consent-placeholder__actions">
-            <button type="button" class="btn btn--primary" data-consent-accept="marketing">Vis Instagram</button>
+            <button type="button" class="btn btn--primary" data-instagram-load>Vis Instagram</button>
             <a href="/cookies.html" class="btn btn--ghost">Administrer cookies</a>
           </div>
         </div>
@@ -617,30 +617,7 @@
   .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
 </style><p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
 
-<script>
-(function(){
-  var root = document.getElementById('instagram');
-  if (!root) return;
-
-  var fallback = root.querySelector('[data-ig-fallback]');
-  function hideFallbackIfRendered(){
-    var rendered = root.querySelector('iframe');
-    if (rendered && fallback) fallback.style.display = 'none';
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', hideFallbackIfRendered);
-  } else {
-    hideFallbackIfRendered();
-  }
-
-  var observer = new MutationObserver(hideFallbackIfRendered);
-  observer.observe(root, { childList: true, subtree: true });
-
-  setTimeout(hideFallbackIfRendered, 5000);
-})();
-</script>
 <script data-consent-category="marketing" data-consent-src="https://widgets.sociablekit.com/instagram-feed/widget.js" defer></script>
-<script src="/assets/js/cookie-consent.js" defer></script>
+<script src="/assets/consent.js" defer></script>
 </body>
 </html>

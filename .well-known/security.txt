@@ -1,0 +1,4 @@
+Contact: mailto:post@mystrongestside.no
+Preferred-Languages: no
+Policy: https://mystrongestside.no/SECURITY.md
+Expires: 2026-08-15T00:00:00Z

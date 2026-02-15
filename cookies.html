@@ -4,90 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cookies | My Strongest Side</title>
-  <meta name="description" content="Informasjon om cookies og samtykke hos My Strongest Side." />
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=112" />
-  <link rel="stylesheet" href="/assets/css/cookie-consent.css" />
+  <meta name="description" content="Oversikt over nødvendige og valgfrie cookies/samtykke hos My Strongest Side." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles.css?v=112" />
+  <link rel="stylesheet" href="/assets/consent.css">
 </head>
 <body>
   <header data-component="site-header"></header>
+
   <main>
     <section class="section section--light">
       <div class="container">
-        <h1>Informasjonskapsler (cookies)</h1>
-        <p>Denne siden forklarer hvilke cookies/lokal lagring som brukes, hvorfor de brukes, og hvordan du kan endre samtykke.</p>
+        <h1>Cookies og samtykke</h1>
+        <p>Cookies og localStorage er små datafiler som brukes for å få nettsider til å fungere og for å tilby valgfritt innhold. På My Strongest Side bruker vi både nødvendige og valgfrie lagringsmekanismer.</p>
 
-        <h2>Cookie- og tredjepartsoversikt</h2>
+        <h2>Oversikt</h2>
         <div style="overflow-x:auto;">
-          <table style="width:100%; border-collapse:collapse; min-width:760px;">
+          <table style="width:100%; border-collapse:collapse; min-width:720px;">
             <thead>
               <tr>
-                <th style="text-align:left; border-bottom:1px solid #ddd; padding:.6rem;">Navn / tjeneste</th>
-                <th style="text-align:left; border-bottom:1px solid #ddd; padding:.6rem;">Type</th>
+                <th style="text-align:left; border-bottom:1px solid #ddd; padding:.6rem;">Hva</th>
+                <th style="text-align:left; border-bottom:1px solid #ddd; padding:.6rem;">Kategori</th>
                 <th style="text-align:left; border-bottom:1px solid #ddd; padding:.6rem;">Formål</th>
                 <th style="text-align:left; border-bottom:1px solid #ddd; padding:.6rem;">Lagringstid</th>
-                <th style="text-align:left; border-bottom:1px solid #ddd; padding:.6rem;">Behandlingsgrunnlag</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;"><code>myss_cookie_consent_v1</code> (localStorage)</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;"><code>myss_consent</code> (localStorage)</td>
                 <td style="padding:.6rem; border-bottom:1px solid #eee;">Nødvendig</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Lagrer samtykkevalg</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Til brukeren nullstiller nettleserdata</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Berettiget interesse</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Husker samtykkevalg for nødvendige, statistikk og markedsføring.</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Inntil du sletter nettleserdata eller endrer samtykke.</td>
               </tr>
               <tr>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Google Analytics (via gtag.js)</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Statistikk</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Måle bruk av nettsiden for forbedring</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">I henhold til leverandørinnstillinger</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Samtykke</td>
-              </tr>
-              <tr>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">SociableKIT Instagram widget</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Markedsføring / innhold</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Vise Instagram-feed på forsiden</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Settes av tredjepart etter samtykke</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Samtykke</td>
-              </tr>
-              <tr>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Netlify Forms (kontaktskjema)</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Nødvendig tjeneste</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Motta og behandle henvendelser</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Så lenge nødvendig for oppfølging</td>
-                <td style="padding:.6rem; border-bottom:1px solid #eee;">Avtale/forespørsel</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Instagram embed (SociableKIT)</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Markedsføring</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Viser Instagram-feed på forsiden.</td>
+                <td style="padding:.6rem; border-bottom:1px solid #eee;">Lastes kun etter samtykke og når du velger «Vis Instagram».</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h2>Endre samtykke</h2>
-        <p>Trykk på knappen under for å nullstille samtykkevalg. Banneret vises da på nytt ved neste sideinnlasting.</p>
-        <button id="resetConsent" class="btn btn--primary" type="button">Endre cookie-samtykke</button>
+        <h2>Hvordan endre samtykke</h2>
+        <p>Du kan når som helst nullstille samtykkevalget. Da vises banneret på nytt.</p>
+        <button id="resetConsent" class="btn btn--primary" type="button">Endre samtykke</button>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner container">
-      <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
-    </div>
-  </footer>
-
   <script src="/menu.js" defer></script>
   <script src="/components/footer-links.js" defer></script>
-  <script src="/assets/js/cookie-consent.js" defer></script>
+  <script src="/assets/consent.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var y = document.getElementById('year');
-      if (y) y.textContent = new Date().getFullYear();
       var btn = document.getElementById('resetConsent');
       if (!btn) return;
       btn.addEventListener('click', function () {
-        if (window.myssConsent) {
-          window.myssConsent.reset();
-          alert('Samtykke er nullstilt. Last siden på nytt for å velge på nytt.');
+        if (window.MySSConsent && window.MySSConsent.reset) {
+          window.MySSConsent.reset();
+          alert('Samtykke er nullstilt.');
         }
       });
     });
