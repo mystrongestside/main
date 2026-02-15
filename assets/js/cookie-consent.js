@@ -14,26 +14,35 @@
     document.dispatchEvent(new CustomEvent('myss:consent-changed', { detail: consent }));
   }
 
-  function allowMarketing() {
-    return !!getConsent().marketing;
+  function allowCategory(category) {
+    return !!getConsent()[category];
   }
 
-  function hasCategory(category) {
-    var consent = getConsent();
-    return !!consent[category];
+  function buildIframeFromPlaceholder(node) {
+    var src = node.dataset.consentIframeSrc;
+    if (!src || node.dataset.loaded === 'true') return;
+
+    var iframe = document.createElement('iframe');
+    iframe.src = src;
+    iframe.loading = 'lazy';
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    iframe.width = node.dataset.iframeWidth || '100%';
+    iframe.height = node.dataset.iframeHeight || '500';
+    iframe.title = node.dataset.iframeTitle || 'Tredjepartsinnhold';
+    if (node.dataset.iframeAllow) iframe.setAttribute('allow', node.dataset.iframeAllow);
+    if (node.dataset.iframeSandbox) iframe.setAttribute('sandbox', node.dataset.iframeSandbox);
+
+    node.innerHTML = '';
+    node.appendChild(iframe);
+    node.dataset.loaded = 'true';
   }
 
   function activateDeferredEmbeds() {
-    if (allowMarketing()) {
-      document.querySelectorAll('[data-consent-placeholder]').forEach(function (el) {
-        el.hidden = true;
-      });
-    }
-
     document.querySelectorAll('script[data-consent-src][data-consent-category]').forEach(function (node) {
       var category = node.dataset.consentCategory;
-      if (!hasCategory(category)) return;
+      if (!allowCategory(category)) return;
       if (node.dataset.loaded === 'true') return;
+
       var script = document.createElement('script');
       script.src = node.dataset.consentSrc;
       script.defer = true;
@@ -41,12 +50,25 @@
       node.dataset.loaded = 'true';
       node.replaceWith(script);
     });
+
+    document.querySelectorAll('[data-consent-iframe-src][data-consent-category]').forEach(function (node) {
+      var category = node.dataset.consentCategory;
+      if (!allowCategory(category)) return;
+      buildIframeFromPlaceholder(node);
+    });
+
+    document.querySelectorAll('[data-consent-placeholder]').forEach(function (el) {
+      var category = el.dataset.consentCategory || 'marketing';
+      el.hidden = allowCategory(category);
+    });
   }
 
-  function showPlaceholdersIfBlocked() {
-    if (allowMarketing()) return;
-    document.querySelectorAll('[data-consent-placeholder]').forEach(function (el) {
-      el.hidden = false;
+  function enforceSafeBlankLinks() {
+    document.querySelectorAll('a[target="_blank"]').forEach(function (link) {
+      var rel = (link.getAttribute('rel') || '').toLowerCase().split(/\s+/).filter(Boolean);
+      if (rel.indexOf('noopener') === -1) rel.push('noopener');
+      if (rel.indexOf('noreferrer') === -1) rel.push('noreferrer');
+      link.setAttribute('rel', rel.join(' ').trim());
     });
   }
 
@@ -77,26 +99,38 @@
       }
       banner.remove();
       activateDeferredEmbeds();
-      showPlaceholdersIfBlocked();
     });
 
     document.body.appendChild(banner);
   }
 
+  function wireConsentButtons() {
+    document.querySelectorAll('[data-consent-accept]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var category = button.dataset.consentAccept || 'marketing';
+        var current = getConsent();
+        current.necessary = true;
+        current[category] = true;
+        current.updatedAt = new Date().toISOString();
+        setConsent(current);
+      });
+    });
+  }
+
   window.myssConsent = {
     get: getConsent,
     set: setConsent,
-    reset: function () { localStorage.removeItem(CONSENT_KEY); },
+    reset: function () { localStorage.removeItem(CONSENT_KEY); }
   };
 
   document.addEventListener('DOMContentLoaded', function () {
+    enforceSafeBlankLinks();
+    wireConsentButtons();
     buildBanner();
     activateDeferredEmbeds();
-    showPlaceholdersIfBlocked();
   });
 
   document.addEventListener('myss:consent-changed', function () {
     activateDeferredEmbeds();
-    showPlaceholdersIfBlocked();
   });
 })();

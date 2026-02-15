@@ -102,10 +102,21 @@
     const root = document.documentElement;
     const body = document.body;
 
+    const enforceSafeBlankLinks = () => {
+      document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+        const rel = new Set((link.getAttribute('rel') || '').toLowerCase().split(/\s+/).filter(Boolean));
+        rel.add('noopener');
+        rel.add('noreferrer');
+        link.setAttribute('rel', Array.from(rel).join(' '));
+      });
+    };
+
     const updateFooterYear = () => {
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = String(new Date().getFullYear());
     };
+
+    enforceSafeBlankLinks();
 
     // 1) Finn mount – eller lag en hvis den mangler (slutt på “ingenting skjer”)
     let mount = document.querySelector("[data-component='site-header']");

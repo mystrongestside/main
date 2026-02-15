@@ -11,12 +11,15 @@ Inkluder gjerne:
 - Berørte URL-er/sider
 - Forslag til avhjelping
 
-Vi bekrefter mottak så raskt som mulig og følger opp fortløpende.
+## Forventet responstid
+- **Bekreftelse på mottak:** innen 2 virkedager.
+- **Første vurdering/triage:** innen 5 virkedager.
+- **Løpende statusoppdatering:** minst ukentlig for åpne saker til de er lukket.
 
 ## Intern sikkerhetssjekkliste (kort)
-- [ ] Oppdater tredjepartsbiblioteker og fjern ubrukte scripts.
-- [ ] Gjennomgå CSP-rapporter og stram inn policyen.
-- [ ] Verifiser at alle `target="_blank"` har `rel="noopener noreferrer"`.
-- [ ] Test samtykkebanner og blokkering av embeds uten samtykke.
-- [ ] Sjekk at kontaktskjema avviser bots (honeypot) og validerer input.
-- [ ] Bekreft at sikkerhetsheadere fortsatt sendes i produksjon.
+- [ ] Verifiser at Netlify sender alle sikkerhetsheadere i produksjon.
+- [ ] Gå gjennom CSP report-only brudd og whitelist kun nødvendige domener.
+- [ ] Bekreft at tredjeparts embeds er blokkert uten samtykke.
+- [ ] Test at kontaktskjema bruker honeypot + enkel rate limiting + Netlify spam protection.
+- [ ] Sjekk at `target="_blank"` alltid kombineres med `rel="noopener noreferrer"`.
+- [ ] Kontroller at personvern- og cookies-dokumentasjon er oppdatert.
