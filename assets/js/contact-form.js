@@ -27,6 +27,45 @@ document.addEventListener('DOMContentLoaded', function () {
     return list.filter(function (ts) { return now - ts < WINDOW_MS; });
   }
 
+  function validateFields() {
+    var name = form.querySelector('#name');
+    var email = form.querySelector('#email');
+    var phone = form.querySelector('#phone');
+    var message = form.querySelector('#message');
+
+    if (!name || !email || !message) return true;
+
+    if (name.value.trim().length < 2 || name.value.trim().length > 120) {
+      name.setCustomValidity('Navn må være mellom 2 og 120 tegn.');
+      name.reportValidity();
+      return false;
+    }
+    name.setCustomValidity('');
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+      email.setCustomValidity('Skriv inn en gyldig e-postadresse.');
+      email.reportValidity();
+      return false;
+    }
+    email.setCustomValidity('');
+
+    if (phone && phone.value.trim() && !/^[0-9+()\s-]{6,20}$/.test(phone.value.trim())) {
+      phone.setCustomValidity('Telefon må være 6-20 tegn og kan inneholde tall, +, mellomrom eller bindestrek.');
+      phone.reportValidity();
+      return false;
+    }
+    if (phone) phone.setCustomValidity('');
+
+    if (message.value.trim().length < 10 || message.value.trim().length > 2000) {
+      message.setCustomValidity('Meldingen må være mellom 10 og 2000 tegn.');
+      message.reportValidity();
+      return false;
+    }
+    message.setCustomValidity('');
+
+    return true;
+  }
+
   form.addEventListener('submit', function (event) {
     var hp = form.querySelector('input[name="company"]');
     if (hp && hp.value.trim() !== '') {
@@ -55,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    if (!form.checkValidity()) {
+    if (!validateFields() || !form.checkValidity()) {
       event.preventDefault();
       form.reportValidity();
       return;

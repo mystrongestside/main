@@ -1,0 +1,64 @@
+.myss-consent-banner {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 9999;
+  background: #102f45;
+  color: #fff;
+  border: 1px solid #4f87aa;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  padding: 1rem;
+}
+
+.myss-consent-banner[hidden] { display: none; }
+
+.myss-consent-banner__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.myss-consent-banner__text {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 0.98rem;
+}
+
+.myss-consent-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.myss-consent-btn {
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  min-height: 44px;
+}
+
+.myss-consent-btn--necessary { background: #fff; color: #102f45; }
+.myss-consent-btn--stats { background: #bee3f8; color: #0c2434; }
+.myss-consent-btn--marketing { background: #f4a261; color: #2a1608; }
+
+.myss-consent-btn:focus-visible,
+.embed-consent-placeholder button:focus-visible,
+.embed-consent-placeholder a:focus-visible {
+  outline: 3px solid #ffd166;
+  outline-offset: 2px;
+}
+
+.embed-consent-placeholder {
+  border: 1px dashed #0f5277;
+  border-radius: 12px;
+  padding: 1rem;
+  background: rgba(16, 82, 119, 0.05);
+}
+
+.embed-consent-placeholder[hidden] { display: none; }
