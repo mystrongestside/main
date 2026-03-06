@@ -25,9 +25,9 @@
   <title>Tilpasset trening for funksjonsvariasjoner | My Strongest Side</title>
   <meta name="description" content="Trygg styrketrening i små grupper, med tilpasninger og faste veiledere. Rolig tempo, tydelige forklaringer og god oppfølging." />
 
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=999" />
-  <link rel="stylesheet" href="/assets/consent.css" />
+  <link rel="icon" type="image/png" href="favicon.png?v=1001" />
+  <link rel="stylesheet" href="styles.css?v=1001" />
+  <link rel="stylesheet" href="/assets/consent.css?v=1001" />
 
   <style>
     :root{
@@ -701,11 +701,13 @@
 </head>
 
 <body class="page--index">
+  <!-- FIL: gruppetrening.html -->
   <header data-component="site-header"></header>
 
-  <main>
+  <main data-page="gruppetrening" data-version="1001">
+    <div style="display:none" id="debug-gruppetrening">gruppetrening.html lastet</div>
     <section class="myss-heroimg" aria-label="Bilde">
-      <img src="bilder/hero-large.jpg" alt="My Strongest Side" loading="eager" decoding="async">
+      <img src="bilder/hero-large.jpg?v=1001" alt="My Strongest Side" loading="eager" decoding="async">
     </section>
 
     <section id="treningstilbud" class="section section--light section--offers">
@@ -853,17 +855,18 @@
         <div id="grupper" class="offers-grid">
           <article class="training-card" data-gruppe="ungdom" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Ledige plasser" aria-labelledby="kurs-ungdom-tittel">
             <div class="course-card__media">
-              <img src="bilde01.jpg" alt="Ungdom trener sammen under veiledning på treningssenter" loading="lazy" decoding="async">
+              <img src="bilde01.jpg?v=1001" alt="Ungdom trener sammen under veiledning på treningssenter" loading="lazy" decoding="async">
               <div class="course-banner course-banner--ungdom" aria-hidden="true">UNGDOM</div>
             </div>
 
             <div class="info-panel" data-gruppe="ungdom">
               <div class="info-item">
-                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
+                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <!-- .date-info overskrives av JavaScript -->
                 <div class="date-info"><strong>Neste økt:</strong><br>-</div>
               </div>
               <div class="info-item">
-                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
+                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
                 <div><strong>Tid:</strong><br>Torsdager 17:00-18:00 · Varighet 1 time</div>
               </div>
             </div>
@@ -873,6 +876,7 @@
               <p>Mestring, glede og fellesskap for 12 til 15 år. Trygg introduksjon til apparater og basisøvelser, ledet av <strong>Alexander</strong> og <strong>Amir</strong> med studenter fra HVL. Tilbudet passer og tilpasses ungdom med funksjonsvariasjoner.</p>
               <p class="card-fit"><strong>Passer for deg som:</strong> ønsker tydelige rammer, mer støtte under økten og faste veiledere.</p>
 
+              <!-- [data-role="price-line"] overskrives av JavaScript -->
               <p class="info-line" data-role="price-line"></p>
 
               <div class="card-buttons" role="group">
@@ -884,17 +888,17 @@
 
           <article class="training-card" data-gruppe="voksne-lett" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="8 ledige plasser" aria-labelledby="kurs-voksne-lett-tittel">
             <div class="course-card__media">
-              <img src="bilder/hero-large.jpg" alt="Voksne trener med lett oppfølging i styrkerommet" loading="lazy" decoding="async">
+              <img src="bilder/hero-large.jpg?v=1001" alt="Voksne trener med lett oppfølging i styrkerommet" loading="lazy" decoding="async">
               <div class="course-banner course-banner--lett" aria-hidden="true">VOKSNE MED ENKLE TILPASNINGER</div>
             </div>
 
             <div class="info-panel" data-gruppe="voksne-lett">
               <div class="info-item">
-                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
+                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
                 <div class="date-info"><strong>Neste økt:</strong><br>-</div>
               </div>
               <div class="info-item">
-                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
+                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
                 <div><strong>Tid:</strong><br>Torsdager 18:15-19:15 · Varighet 1 time</div>
               </div>
             </div>
@@ -915,17 +919,17 @@
 
           <article class="training-card" data-gruppe="voksne-tett" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Begrensede plasser" aria-labelledby="kurs-voksne-tett-tittel">
             <div class="course-card__media">
-              <img src="bilde02.jpg" alt="Deltaker får tett veiledning i styrkerommet" loading="lazy" decoding="async">
+              <img src="bilde02.jpg?v=1001" alt="Deltaker får tett veiledning i styrkerommet" loading="lazy" decoding="async">
               <div class="course-banner course-banner--tett" aria-hidden="true">VOKSNE SOM ØNSKER TETT OPPFØLGING</div>
             </div>
 
             <div class="info-panel" data-gruppe="voksne-tett">
               <div class="info-item">
-                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
+                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
                 <div class="date-info"><strong>Neste økt:</strong><br>-</div>
               </div>
               <div class="info-item">
-                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
+                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
                 <div><strong>Tid:</strong><br>Torsdager 17:00-18:00 · Varighet 1 time</div>
               </div>
             </div>
@@ -946,17 +950,17 @@
 
           <article class="training-card" data-gruppe="sotra-ungdom" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Ledige plasser" aria-labelledby="kurs-sotra-ungdom-tittel">
             <div class="course-card__media">
-              <img src="bilde01.jpg" alt="Ungdom trener sammen under veiledning på Sotra Sportsenter" loading="lazy" decoding="async">
+              <img src="bilde01.jpg?v=1001" alt="Ungdom trener sammen under veiledning på Sotra Sportsenter" loading="lazy" decoding="async">
               <div class="course-banner course-banner--ungdom" aria-hidden="true">UNGDOM · SOTRA SPORTSENTER</div>
             </div>
 
             <div class="info-panel" data-gruppe="sotra-ungdom">
               <div class="info-item">
-                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
+                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
                 <div class="date-info"><strong>Neste økt:</strong><br>-</div>
               </div>
               <div class="info-item">
-                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
+                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
                 <div><strong>Tid:</strong><br>Fredager 17:00-18:00 · Varighet 1 time</div>
               </div>
             </div>
@@ -977,17 +981,17 @@
 
           <article class="training-card" data-gruppe="sotra-voksne-lett" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Ledige plasser" aria-labelledby="kurs-sotra-voksne-lett-tittel">
             <div class="course-card__media">
-              <img src="bilder/hero-large.jpg" alt="Voksne trener med enkle tilpasninger på Sotra Sportsenter" loading="lazy" decoding="async">
+              <img src="bilder/hero-large.jpg?v=1001" alt="Voksne trener med enkle tilpasninger på Sotra Sportsenter" loading="lazy" decoding="async">
               <div class="course-banner course-banner--lett" aria-hidden="true">VOKSNE MED ENKLE TILPASNINGER · SOTRA SPORTSENTER</div>
             </div>
 
             <div class="info-panel" data-gruppe="sotra-voksne-lett">
               <div class="info-item">
-                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
+                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
                 <div class="date-info"><strong>Neste økt:</strong><br>-</div>
               </div>
               <div class="info-item">
-                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
+                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
                 <div><strong>Tid:</strong><br>Fredager 17:00-18:00 · Varighet 1 time</div>
               </div>
             </div>
@@ -1008,17 +1012,17 @@
 
           <article class="training-card" data-gruppe="sotra-voksne-tett" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Begrensede plasser" aria-labelledby="kurs-sotra-voksne-tett-tittel">
             <div class="course-card__media">
-              <img src="bilde02.jpg" alt="Deltaker får tett veiledning på Sotra Sportsenter" loading="lazy" decoding="async">
+              <img src="bilde02.jpg?v=1001" alt="Deltaker får tett veiledning på Sotra Sportsenter" loading="lazy" decoding="async">
               <div class="course-banner course-banner--tett" aria-hidden="true">VOKSNE SOM ØNSKER TETT OPPFØLGING · SOTRA SPORTSENTER</div>
             </div>
 
             <div class="info-panel" data-gruppe="sotra-voksne-tett">
               <div class="info-item">
-                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
+                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
                 <div class="date-info"><strong>Neste økt:</strong><br>-</div>
               </div>
               <div class="info-item">
-                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
+                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
                 <div><strong>Tid:</strong><br>Fredager 18:15-19:15 · Varighet 1 time</div>
               </div>
             </div>
@@ -1044,7 +1048,7 @@
   <footer class="site-footer">
     <div class="site-footer__inner container">
       <div class="site-footer__brand">
-        <img src="/bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
+        <img src="/bilder/myss-logo-footer.png?v=1001" alt="My Strongest Side" class="site-footer__logo" />
         <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
       </div>
 
@@ -1069,16 +1073,17 @@
           <span class="site-footer__social-label">Følg oss i sosiale medier</span>
           <div class="site-footer__social-list">
             <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <img src="/icons/facebook.png" alt="" aria-hidden="true">
+              <img src="/icons/facebook.png?v=1001" alt="" aria-hidden="true">
             </a>
             <a class="social-link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <img src="/icons/instagram.png" alt="" aria-hidden="true">
+              <img src="/icons/instagram.png?v=1001" alt="" aria-hidden="true">
             </a>
           </div>
         </div>
 
         <p class="site-footer__meta">
-          © <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053
+          © <!-- #year overskrives av JavaScript -->
+          <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053
         </p>
       </div>
 
@@ -1086,9 +1091,9 @@
     </div>
   </footer>
 
-  <script src="menu.js" defer></script>
-  <script src="/components/footer-links.js?v=114" defer></script>
-  <script src="/assets/consent.js" defer></script>
+  <script src="menu.js?v=1001" defer></script>
+  <script src="/components/footer-links.js?v=1001" defer></script>
+  <script src="/assets/consent.js?v=1001" defer></script>
 
   <script>
     const treninger = [
@@ -1129,6 +1134,7 @@
         .toUpperCase();
 
     document.addEventListener('DOMContentLoaded', () => {
+      // Oppdaterer #year fra JavaScript dersom elementet finnes.
       const yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -1139,6 +1145,7 @@
         const panel = document.querySelector(`.info-panel[data-gruppe="${gruppe}"]`);
         if (!panel) return;
 
+        // Oppdaterer .date-info fra JavaScript dersom elementet finnes.
         const badge = panel.querySelector('.date-info');
         if (!badge) return;
 
@@ -1155,6 +1162,7 @@
       });
 
       document.querySelectorAll('.training-card').forEach(card => {
+        // Oppdaterer [data-role="price-line"] fra JavaScript dersom elementet finnes.
         const line = card.querySelector('[data-role="price-line"]');
         if (!line) return;
 
