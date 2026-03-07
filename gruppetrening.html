@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
@@ -31,27 +31,25 @@
       --myss-blue-dark:#0c2d48;
       --myss-blue:#2f7fbf;
       --myss-orange:#f28c28;
-      --bg:#f7f9fc;
-      --card:#ffffff;
-      --text:#132235;
-      --muted:#5a6b7d;
+      --bg:#ffffff;
+      --surface:#f8fafc;
+      --text:#142234;
+      --muted:#5b6b7c;
       --line:rgba(15,23,42,.10);
-      --radius:20px;
-      --radius-sm:14px;
-      --shadow:0 10px 30px rgba(15,23,42,.06);
-      --maxw:1160px;
+      --radius:22px;
+      --shadow:0 10px 30px rgba(15,23,42,.05);
+      --maxw:1180px;
+      --textw:760px;
     }
 
     *{ box-sizing:border-box; }
-
-    html{ scroll-behavior:smooth; }
 
     body.page--gruppetrening{
       margin:0;
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
       color:var(--text);
       background:var(--bg);
-      line-height:1.6;
+      line-height:1.65;
     }
 
     img{
@@ -60,7 +58,7 @@
     }
 
     .container{
-      width:min(var(--maxw), calc(100% - 32px));
+      width:min(var(--maxw), calc(100% - 40px));
       margin:0 auto;
     }
 
@@ -69,249 +67,162 @@
     }
 
     .hero-media__frame{
-      position:relative;
       overflow:hidden;
       border-radius:28px;
-      background:#dfe8f1;
-      box-shadow:var(--shadow);
+      background:#dde6ef;
     }
 
     .hero-media__frame img{
       width:100%;
-      aspect-ratio:16/6.2;
+      aspect-ratio:16/6;
       object-fit:cover;
       object-position:center 42%;
     }
 
-    .hero{
-      padding:42px 0 24px;
+    .article{
+      padding:40px 0 70px;
     }
 
-    .hero__inner{
-      max-width:860px;
+    .article__header{
+      max-width:var(--textw);
+      margin:0 auto 28px;
     }
 
-    .eyebrow{
-      display:inline-block;
-      margin-bottom:14px;
-      padding:8px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:#fff;
-      color:var(--myss-blue-dark);
-      font-size:.82rem;
-      font-weight:700;
-      letter-spacing:.02em;
-      text-transform:uppercase;
-    }
-
-    .hero h1{
-      margin:0 0 16px;
-      font-size:clamp(2.1rem, 4vw, 4rem);
-      line-height:1.04;
-      color:var(--myss-blue-dark);
-      letter-spacing:-.03em;
-    }
-
-    .hero .lead{
-      margin:0 0 14px;
-      font-size:1.15rem;
-      color:var(--text);
-      max-width:760px;
-    }
-
-    .hero p{
+    .article__kicker{
       margin:0 0 12px;
+      font-size:.86rem;
+      font-weight:700;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      color:var(--myss-blue-dark);
+    }
+
+    .article__header h1{
+      margin:0 0 16px;
+      font-size:clamp(2.2rem, 4.8vw, 4.2rem);
+      line-height:1.02;
+      letter-spacing:-.035em;
+      color:var(--myss-blue-dark);
+    }
+
+    .article__lead{
+      margin:0 0 10px;
+      font-size:1.18rem;
+      color:var(--text);
+    }
+
+    .article__intro{
+      margin:0;
       font-size:1rem;
       color:var(--muted);
-      max-width:760px;
     }
 
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:24px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:46px;
-      padding:0 18px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:700;
-      border:1px solid transparent;
-      transition:.2s ease;
-    }
-
-    .btn-primary{
-      background:var(--myss-blue-dark);
-      color:#fff;
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-1px);
-    }
-
-    .btn-secondary{
-      background:#fff;
-      color:var(--myss-blue-dark);
-      border-color:var(--line);
-    }
-
-    .btn-secondary:hover{
-      background:#f8fbff;
-    }
-
-    .meta-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:14px;
-      margin-top:28px;
-    }
-
-    .meta-card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:18px;
-      box-shadow:var(--shadow);
-    }
-
-    .meta-card__label{
-      margin:0 0 6px;
-      font-size:.82rem;
-      font-weight:700;
-      letter-spacing:.02em;
-      text-transform:uppercase;
-      color:var(--myss-blue-dark);
-    }
-
-    .meta-card__value{
-      margin:0;
+    .article__meta{
+      max-width:var(--textw);
+      margin:22px auto 0;
+      padding-top:16px;
+      border-top:1px solid var(--line);
       color:var(--muted);
+      font-size:.96rem;
     }
 
-    .section{
-      padding:22px 0 54px;
+    .article__body{
+      max-width:var(--textw);
+      margin:0 auto;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:22px;
-      align-items:start;
+    .article section{
+      padding:26px 0;
+      border-top:1px solid var(--line);
     }
 
-    .panel{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:28px;
-      box-shadow:var(--shadow);
+    .article section:first-of-type{
+      border-top:0;
+      padding-top:0;
     }
 
-    .panel h2{
-      margin:0 0 16px;
-      font-size:1.5rem;
+    .article h2{
+      margin:0 0 14px;
+      font-size:1.55rem;
       line-height:1.15;
       letter-spacing:-.02em;
       color:var(--myss-blue-dark);
     }
 
-    .panel h3{
-      margin:0 0 8px;
+    .article h3{
+      margin:22px 0 8px;
       font-size:1.08rem;
       color:var(--myss-blue-dark);
     }
 
-    .panel p{
+    .article p{
       margin:0 0 14px;
       color:var(--muted);
     }
 
-    .checklist{
-      display:grid;
-      gap:10px;
-      margin:20px 0 0;
+    .article ul{
+      margin:0;
+      padding-left:20px;
+      color:var(--muted);
     }
 
-    .check{
-      padding:14px 16px;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background:#fff;
-      color:var(--text);
+    .article li + li{
+      margin-top:8px;
     }
 
-    .group-list{
+    .group{
+      padding:18px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .group:first-child{
+      border-top:0;
+      padding-top:0;
+    }
+
+    .practical{
       display:grid;
       gap:14px;
-      margin-top:18px;
+      margin-top:10px;
     }
 
-    .group-card{
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:18px;
-      background:#fff;
-    }
-
-    .group-card p:last-child{
-      margin-bottom:0;
-    }
-
-    .simple-list{
-      display:grid;
-      gap:12px;
-      margin-top:18px;
-    }
-
-    .simple-item{
+    .practical__item{
       padding:16px 18px;
-      background:#fff;
       border:1px solid var(--line);
-      border-radius:18px;
+      border-radius:16px;
+      background:var(--surface);
     }
 
-    .simple-item strong{
+    .practical__item strong{
       display:block;
-      margin-bottom:6px;
+      margin-bottom:4px;
       color:var(--myss-blue-dark);
     }
 
-    .contact-card{
-      margin-top:18px;
-      padding:22px;
-      background:linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
-      border:1px solid #d8e4ef;
+    .contact-box{
+      margin-top:8px;
+      padding:22px 24px;
+      border:1px solid var(--line);
       border-radius:20px;
+      background:var(--surface);
+      box-shadow:var(--shadow);
     }
 
-    .contact-card h2{
-      margin:0 0 10px;
-      font-size:1.35rem;
+    .contact-box p:last-child{
+      margin-bottom:0;
     }
 
-    .contact-card p{
-      margin:0 0 12px;
-    }
-
-    .contact-card a{
+    .contact-box a{
       color:var(--myss-blue-dark);
       font-weight:700;
       text-decoration:none;
     }
 
-    .contact-card a:hover{
+    .contact-box a:hover{
       text-decoration:underline;
     }
 
     .site-footer{
-      margin-top:12px;
       background:#0c2d48;
       color:#dbe7f2;
     }
@@ -392,19 +303,13 @@
       font-size:.95rem;
     }
 
-    @media (max-width: 920px){
-      .meta-grid,
-      .grid,
+    @media (max-width: 800px){
+      .hero-media__frame img{
+        aspect-ratio:16/9;
+      }
+
       .site-footer__top{
         grid-template-columns:1fr;
-      }
-
-      .hero-media__frame img{
-        aspect-ratio:16/9.5;
-      }
-
-      .panel{
-        padding:22px;
       }
     }
   </style>
@@ -421,140 +326,116 @@
       </div>
     </section>
 
-    <section class="hero">
+    <article class="article">
       <div class="container">
-        <div class="hero__inner">
-          <span class="eyebrow">Gruppetrening</span>
-          <h1>Styrketrening med tilpasning, trygghet og oppfølging</h1>
-
-          <p class="lead">
-            Har du nedsatt funksjonsevne og ønsker å trene i et ordinært treningssenter med lettere tilpasninger eller tett veiledning?
+        <header class="article__header">
+          <p class="article__kicker">Gruppetrening</p>
+          <h1>Styrketrening med tilpasning og oppfølging</h1>
+          <p class="article__lead">
+            Har du nedsatt funksjonsevne og ønsker å trene med lettere tilpasninger eller tett veiledning?
           </p>
-
-          <p>
-            My Strongest Side tilbyr gruppetrening for deg som ønsker et tryggere og mer oversiktlig treningsopplegg, enten du vil komme i gang for første gang eller trenger mer støtte underveis.
+          <p class="article__intro">
+            My Strongest Side tilbyr gruppetrening i ordinære treningssentre for deg som ønsker et tryggere og mer oversiktlig treningsopplegg. Tilbudet passer for deg som vil komme i gang med styrketrening, eller som ønsker mer støtte underveis.
           </p>
-
-          <p>
-            Du kan trene hos oss på Trene Sammen Fantoft og Sotra Sportsenter. Vi trener på torsdager og fredager.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#kontakt">Ta kontakt</a>
-            <a class="btn btn-secondary" href="#grupper">Se gruppene</a>
+          <div class="article__meta">
+            Trening på torsdager og fredager · Trene Sammen Fantoft og Sotra Sportsenter
           </div>
+        </header>
 
-          <div class="meta-grid">
-            <div class="meta-card">
-              <p class="meta-card__label">Målgruppe</p>
-              <p class="meta-card__value">Deg som ønsker lettere tilpasninger eller tett veiledning</p>
-            </div>
-            <div class="meta-card">
-              <p class="meta-card__label">Treningsdager</p>
-              <p class="meta-card__value">Torsdager og fredager</p>
-            </div>
-            <div class="meta-card">
-              <p class="meta-card__label">Sted</p>
-              <p class="meta-card__value">Trene Sammen Fantoft og Sotra Sportsenter</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="grid">
-          <article class="panel">
+        <div class="article__body">
+          <section>
             <h2>Hvem passer tilbudet for?</h2>
             <p>
-              Dette tilbudet er for deg som ønsker å trene i et ordinært treningssenter, men som samtidig har behov for et mer tilrettelagt opplegg.
+              Tilbudet er for deg som ønsker å trene i et ordinært treningssenter, men som samtidig har behov for et mer tilrettelagt opplegg.
+            </p>
+            <ul>
+              <li>Du ønsker lettere tilpasninger under trening</li>
+              <li>Du ønsker mer struktur, støtte og trygghet underveis</li>
+              <li>Du ønsker å komme i gang med styrketrening i ditt eget tempo</li>
+              <li>Du ønsker et mer inkluderende og oversiktlig treningsmiljø</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Våre treningsgrupper</h2>
+
+            <div class="group">
+              <h3>Ungdomsgruppe 12 til 15 år</h3>
+              <p>
+                For deg som ønsker en trygg introduksjon til styrketrening, med fokus på grunnleggende øvelser, trygg bruk av utstyr og gode treningsopplevelser.
+              </p>
+            </div>
+
+            <div class="group">
+              <h3>Gruppetrening fra 16 år og oppover</h3>
+              <p>
+                For deg som ønsker å trene i gruppe med lettere tilpasninger. Denne gruppen passer for deg som klarer mye selv, men som har nytte av tydelige rammer og oppfølging underveis.
+              </p>
+            </div>
+
+            <div class="group">
+              <h3>Trening med tett oppfølging fra 16 år</h3>
+              <p>
+                For deg som ønsker mer støtte gjennom hele økten. Denne gruppen passer for deg som har behov for tettere veiledning, mer struktur og mer hjelp til gjennomføring.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h2>Hva får du som deltaker?</h2>
+            <p>
+              Du får et tilbud som er utviklet for å gjøre trening mer tilgjengelig, mer oversiktlig og lettere å følge opp over tid.
             </p>
 
-            <div class="checklist">
-              <div class="check">Du ønsker lettere tilpasninger under trening</div>
-              <div class="check">Du ønsker mer struktur, støtte og trygghet underveis</div>
-              <div class="check">Du ønsker å komme i gang med styrketrening i ditt eget tempo</div>
-              <div class="check">Du ønsker et mer inkluderende og oversiktlig treningsmiljø</div>
-            </div>
+            <h3>Tæpp og tren™, en del av MY STRONGEST SIDE®</h3>
+            <p>
+              Et tilrettelagt treningssystem som gjør det enklere å bruke apparater og treningsutstyr.
+            </p>
 
-            <h2 id="grupper" style="margin-top:30px;">Våre treningsgrupper</h2>
+            <h3>Treningsprogram i app</h3>
+            <p>
+              Du får tilgang til treningsprogram som gjør det lettere å følge opp treningen og se egen utvikling.
+            </p>
 
-            <div class="group-list">
-              <div class="group-card">
-                <h3>Ungdomsgruppe 12 til 15 år</h3>
-                <p>
-                  For deg som ønsker en trygg introduksjon til styrketrening, med fokus på grunnleggende øvelser, trygg bruk av utstyr og gode treningsopplevelser.
-                </p>
-              </div>
+            <h3>5 gode vaner</h3>
+            <p>
+              Innhold utviklet av psykolog Sissel Garnes, med fokus på motivasjon, mestring og varige treningsvaner.
+            </p>
 
-              <div class="group-card">
-                <h3>Gruppetrening fra 16 år og oppover</h3>
-                <p>
-                  For deg som ønsker å trene i gruppe med lettere tilpasninger. Denne gruppen passer for deg som klarer mye selv, men som har nytte av tydelige rammer og oppfølging underveis.
-                </p>
-              </div>
+            <h3>Oppfølging fra ergo- og fysioterapistudenter</h3>
+            <p>
+              Deltakere kan få oppfølging fra studenter ved Høgskulen på Vestlandet i samarbeid med My Strongest Side.
+            </p>
+          </section>
 
-              <div class="group-card">
-                <h3>Trening med tett oppfølging fra 16 år</h3>
-                <p>
-                  For deg som ønsker mer støtte gjennom hele økten. Denne gruppen passer for deg som har behov for tettere veiledning, mer struktur og mer hjelp til gjennomføring.
-                </p>
-              </div>
-            </div>
+          <section>
+            <h2>Slik foregår treningen</h2>
+            <p>
+              En typisk treningsøkt kan bestå av 15 minutter oppvarming, 45 minutter styrketrening og 15 minutter felles avslutning. Opplegget kan variere noe mellom gruppene, men felles for alle er fokus på tilrettelegging, trygghet og gode treningsopplevelser.
+            </p>
+          </section>
 
-            <h2 style="margin-top:30px;">Hva får du som deltaker?</h2>
-
-            <div class="simple-list">
-              <div class="simple-item">
-                <strong>Tæpp og tren™, en del av MY STRONGEST SIDE®</strong>
-                Et tilrettelagt treningssystem som gjør det enklere å bruke apparater og treningsutstyr.
-              </div>
-
-              <div class="simple-item">
-                <strong>Treningsprogram i app</strong>
-                Du får tilgang til treningsprogram som gjør det lettere å følge opp treningen og se egen utvikling.
-              </div>
-
-              <div class="simple-item">
-                <strong>5 gode vaner</strong>
-                Innhold utviklet av psykolog Sissel Garnes, med fokus på motivasjon, mestring og varige treningsvaner.
-              </div>
-
-              <div class="simple-item">
-                <strong>Oppfølging fra ergo- og fysioterapistudenter</strong>
-                Deltakere kan få oppfølging fra studenter ved Høgskulen på Vestlandet i samarbeid med My Strongest Side.
-              </div>
-            </div>
-          </article>
-
-          <aside class="panel">
+          <section>
             <h2>Praktisk informasjon</h2>
-
-            <div class="simple-list">
-              <div class="simple-item">
+            <div class="practical">
+              <div class="practical__item">
                 <strong>Når trener vi?</strong>
                 Torsdager og fredager.
               </div>
-
-              <div class="simple-item">
+              <div class="practical__item">
                 <strong>Hvor trener vi?</strong>
                 Trene Sammen Fantoft og Sotra Sportsenter.
               </div>
-
-              <div class="simple-item">
-                <strong>Slik kan en treningsøkt se ut</strong>
-                15 min oppvarming, 45 min styrketrening og 15 min felles avslutning.
-              </div>
-
-              <div class="simple-item">
+              <div class="practical__item">
                 <strong>Usikker på hvilken gruppe som passer?</strong>
                 Ta kontakt, så finner vi et opplegg som passer best mulig for deg.
               </div>
             </div>
+          </section>
 
-            <div class="contact-card" id="kontakt">
-              <h2>Kontakt</h2>
+          <section>
+            <h2>Kontakt</h2>
+            <div class="contact-box">
               <p>
                 Ønsker du å delta, kan du ta kontakt med <strong>Alexander Sviggum</strong>.
               </p>
@@ -567,10 +448,10 @@
                 <a href="mailto:alexander@mystrongestside.no">alexander@mystrongestside.no</a>
               </p>
             </div>
-          </aside>
+          </section>
         </div>
       </div>
-    </section>
+    </article>
   </main>
 
   <footer class="site-footer">
