@@ -1,1 +1,45 @@
-deploy
+# Oppdatere mystrongestside.no (Netlify)
+
+## 1) Sjekk at endringer faktisk er committed
+
+```bash
+git status
+git add .
+git commit -m "Beskriv endringen"
+```
+
+## 2) Push til riktig repo/branch
+
+```bash
+git remote -v
+git push origin main
+```
+
+Hvis `git remote -v` er tom, er ikke repo koblet til GitHub enda.
+Legg til remote først:
+
+```bash
+git remote add origin <GITHUB_REPO_URL>
+git push -u origin main
+```
+
+## 3) Trigger deploy i Netlify
+
+- Åpne Netlify → prosjekt for mystrongestside.no.
+- Sjekk at riktig branch bygges (`main`).
+- Klikk **Trigger deploy → Deploy site** hvis auto-deploy ikke starter.
+
+## 4) Hvis siden ser "ikke oppdatert" ut
+
+1. Hard refresh i nettleser (`Ctrl+F5` / `Cmd+Shift+R`).
+2. Test i inkognito-vindu.
+3. Vent 1–5 min (HTML har kort cache).
+4. Ved CSS/JS-endringer: øk versjonsparameter i HTML, f.eks.
+   - fra `/styles.css?v=1201`
+   - til `/styles.css?v=1202`
+
+## 5) Vanlige feil
+
+- **Ingen deploy i Netlify:** repo er ikke koblet, eller push gikk til feil branch.
+- **Deploy feiler:** sjekk Deploy logs i Netlify.
+- **Kun www fungerer / redirect-problemer:** verifiser DNS og domenekonfig i Netlify.
