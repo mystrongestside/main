@@ -1,1 +1,469 @@
- 
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="918da94c-47e9-4fc0-9939-763b0c22c63d" data-blockingmode="auto" type="text/javascript" async></script>
+
+  <script>
+    (function () {
+      if (location.hostname === "www.mystrongestside.no") {
+        location.replace(location.protocol + "//mystrongestside.no" + location.pathname + location.search + location.hash);
+      }
+    })();
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LK0WY59R15"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LK0WY59R15');
+  </script>
+
+  <title>Tilpasset trening for funksjonsvariasjoner | My Strongest Side</title>
+  <meta name="description" content="Trygg styrketrening i små grupper, med tilpasninger og faste veiledere. Rolig tempo, tydelige forklaringer og god oppfølging." />
+
+  <link rel="icon" type="image/png" href="favicon.png?v=1001" />
+  <link rel="stylesheet" href="styles.css?v=1001" />
+  <link rel="stylesheet" href="/assets/consent.css?v=1001" />
+
+  <style>
+    :root{
+      --ink:#0f172a;
+      --ink-2:#24344d;
+      --muted:#475569;
+      --soft:#f6f7fb;
+      --soft-2:#f9fafb;
+      --line:rgba(15,23,42,.10);
+      --line-2:rgba(36,52,77,.14);
+      --card:#ffffff;
+      --accent:#f77c37;
+      --accent-dark:#e86f2d;
+      --radius:22px;
+      --radius-2:16px;
+      --shadow-sm:0 2px 12px rgba(0,0,0,.06);
+      --shadow-md:0 10px 24px rgba(15,23,42,.06);
+      --shadow-lg:0 16px 42px rgba(0,0,0,.14);
+    }
+
+    *,
+    *::before,
+    *::after{
+      box-sizing:border-box;
+    }
+@@ -679,55 +679,57 @@
+
+    @media (min-width:600px){
+      .course-card__media{
+        aspect-ratio:16/6;
+      }
+    }
+
+    @media (min-width:900px){
+      .offers-grid{
+        max-width:1100px;
+        margin-inline:auto;
+      }
+
+      .course-card__media{
+        aspect-ratio:16/7;
+      }
+
+      .course-card__media img{
+        object-position:50% 45%;
+      }
+    }
+  </style>
+</head>
+
+<body class="page--index">
+  <!-- FIL: gruppetrening.html -->
+  <header data-component="site-header"></header>
+
+  <main data-page="gruppetrening" data-version="1001">
+    <div style="display:none" id="debug-gruppetrening">gruppetrening.html lastet</div>
+    <section class="myss-heroimg" aria-label="Bilde">
+      <img src="bilder/hero-large.jpg?v=1001" alt="My Strongest Side" loading="eager" decoding="async">
+    </section>
+
+    <section id="treningstilbud" class="section section--light section--offers">
+      <div class="container">
+        <h1>My Strongest Side® - Tilpasset trening for funksjonsvariasjoner</h1>
+        <p>Trygg styrketrening i små grupper, med individuelle tilpasninger og faste veiledere. Rolig tempo, tydelige forklaringer og god oppfølging.<br>Tilbudet er utviklet for og tilpasses personer med ulike funksjonsvariasjoner, med fokus på trygg gjennomføring, mestring og progresjon i ordinære treningsmiljøer.</p>
+
+        <section class="myss-infobar" aria-label="Praktisk informasjon">
+          <div class="myss-infobar__grid">
+            <div class="myss-chip myss-chip--where">
+              <div class="myss-chip__k">Hvor</div>
+              <div class="myss-chip__v">Trene Sammen Fantoft og Sotra Sportsenter<br>Tilrettelagt gruppetrening i ordinære treningsmiljøer</div>
+            </div>
+
+            <div class="myss-chip myss-chip--when">
+              <div class="myss-chip__k">Når</div>
+              <div class="myss-chip__v">Torsdager og fredager</div>
+            </div>
+
+            <div class="myss-chip myss-chip--price">
+              <div class="myss-chip__k">Pris</div>
+              <div class="myss-chip__v">Prøvetime gratis · Sesong fra 600 kr</div>
+            </div>
+
+            <div class="myss-chip myss-chip--cta">
+@@ -831,350 +833,356 @@
+
+            <section>
+              <h3>Hvorfor delta?</h3>
+              <p>For mange kan terskelen for å starte med trening være høy. My Strongest Side ønsker å gjøre denne overgangen tryggere og enklere.</p>
+              <p>Gjennom gruppetrening ønsker vi å bidra til at flere får mulighet til å være fysisk aktive i et miljø preget av trygghet, fellesskap og mestring. Målet er ikke bare å trene, men å oppleve at trening kan være noe en ønsker å fortsette med over tid.</p>
+            </section>
+
+            <section>
+              <h3>Hvor trener vi?</h3>
+              <ul>
+                <li>Trene Sammen Fantoft</li>
+                <li>Sotra Sportsenter</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Arrangør</h3>
+              <p>My Strongest Side</p>
+            </section>
+          </div>
+        </section>
+
+        <div id="grupper" class="offers-grid">
+          <article class="training-card" data-gruppe="ungdom" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Ledige plasser" aria-labelledby="kurs-ungdom-tittel">
+            <div class="course-card__media">
+              <img src="bilde01.jpg?v=1001" alt="Ungdom trener sammen under veiledning på treningssenter" loading="lazy" decoding="async">
+              <div class="course-banner course-banner--ungdom" aria-hidden="true">UNGDOM</div>
+            </div>
+
+            <div class="info-panel" data-gruppe="ungdom">
+              <div class="info-item">
+                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <!-- .date-info overskrives av JavaScript -->
+                <div class="date-info"><strong>Neste økt:</strong><br>-</div>
+              </div>
+              <div class="info-item">
+                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <div><strong>Tid:</strong><br>Torsdager 17:00-18:00 · Varighet 1 time</div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 id="kurs-ungdom-tittel">Ungdom</h3>
+              <p>Mestring, glede og fellesskap for 12 til 15 år. Trygg introduksjon til apparater og basisøvelser, ledet av <strong>Alexander</strong> og <strong>Amir</strong> med studenter fra HVL. Tilbudet passer og tilpasses ungdom med funksjonsvariasjoner.</p>
+              <p class="card-fit"><strong>Passer for deg som:</strong> ønsker tydelige rammer, mer støtte under økten og faste veiledere.</p>
+
+              <!-- [data-role="price-line"] overskrives av JavaScript -->
+              <p class="info-line" data-role="price-line"></p>
+
+              <div class="card-buttons" role="group">
+                <a href="https://mystrongestside.no/treningstilbud/ungdom-paamelding.html" class="btn btn-primary">Meld deg på</a>
+                <a href="https://mystrongestside.no/treningstilbud/barn-ungdom.html" class="btn btn-link">Les mer</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="training-card" data-gruppe="voksne-lett" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="8 ledige plasser" aria-labelledby="kurs-voksne-lett-tittel">
+            <div class="course-card__media">
+              <img src="bilder/hero-large.jpg?v=1001" alt="Voksne trener med lett oppfølging i styrkerommet" loading="lazy" decoding="async">
+              <div class="course-banner course-banner--lett" aria-hidden="true">VOKSNE MED ENKLE TILPASNINGER</div>
+            </div>
+
+            <div class="info-panel" data-gruppe="voksne-lett">
+              <div class="info-item">
+                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <div class="date-info"><strong>Neste økt:</strong><br>-</div>
+              </div>
+              <div class="info-item">
+                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <div><strong>Tid:</strong><br>Torsdager 18:15-19:15 · Varighet 1 time</div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 id="kurs-voksne-lett-tittel">Voksne lett</h3>
+              <p>Små og trygge økter med rolig progresjon og tydelige øvelser. For deg som trenger enkle tilpasninger. Ledes av PT <strong>Amir</strong> og ergoterapeut <strong>Alexander</strong> sammen med studenter. Tilbudet passer og tilpasses voksne med funksjonsvariasjoner.</p>
+              <p class="card-fit"><strong>Passer for deg som:</strong> klarer deg mye selv, men har nytte av små justeringer, rolig tempo og korte avklaringer underveis.</p>
+
+              <p class="info-line" data-role="price-line"></p>
+
+              <div class="card-buttons" role="group">
+                <a href="https://mystrongestside.no/treningstilbud/lett-påmelding.html" class="btn btn-primary">Meld deg på</a>
+                <a href="https://mystrongestside.no/treningstilbud/voksne-lett.html" class="btn btn-link">Les mer</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="training-card" data-gruppe="voksne-tett" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Begrensede plasser" aria-labelledby="kurs-voksne-tett-tittel">
+            <div class="course-card__media">
+              <img src="bilde02.jpg?v=1001" alt="Deltaker får tett veiledning i styrkerommet" loading="lazy" decoding="async">
+              <div class="course-banner course-banner--tett" aria-hidden="true">VOKSNE SOM ØNSKER TETT OPPFØLGING</div>
+            </div>
+
+            <div class="info-panel" data-gruppe="voksne-tett">
+              <div class="info-item">
+                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <div class="date-info"><strong>Neste økt:</strong><br>-</div>
+              </div>
+              <div class="info-item">
+                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <div><strong>Tid:</strong><br>Torsdager 17:00-18:00 · Varighet 1 time</div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 id="kurs-voksne-tett-tittel">Voksne tett oppfølging</h3>
+              <p>For deg som ønsker mer veiledning, støtte og tilpasning. Små grupper, forutsigbar struktur og rolig progresjon. Ledes av fysioterapeut og PT i samarbeid med <strong>Alexander</strong> og studenter. Tilbudet passer og tilpasses voksne med funksjonsvariasjoner.</p>
+              <p class="card-fit"><strong>Passer for deg som:</strong> ønsker tettere veiledning gjennom hele økten, mer hjelp til oppsett og trygg gjennomføring.</p>
+
+              <p class="info-line" data-role="price-line"></p>
+
+              <div class="card-buttons" role="group">
+                <a href="https://mystrongestside.no/treningstilbud/tett-påmelding.html" class="btn btn-primary">Meld deg på</a>
+                <a href="https://mystrongestside.no/treningstilbud/tett-oppfolging.html" class="btn btn-link">Les mer</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="training-card" data-gruppe="sotra-ungdom" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Ledige plasser" aria-labelledby="kurs-sotra-ungdom-tittel">
+            <div class="course-card__media">
+              <img src="bilde01.jpg?v=1001" alt="Ungdom trener sammen under veiledning på Sotra Sportsenter" loading="lazy" decoding="async">
+              <div class="course-banner course-banner--ungdom" aria-hidden="true">UNGDOM · SOTRA SPORTSENTER</div>
+            </div>
+
+            <div class="info-panel" data-gruppe="sotra-ungdom">
+              <div class="info-item">
+                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <div class="date-info"><strong>Neste økt:</strong><br>-</div>
+              </div>
+              <div class="info-item">
+                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <div><strong>Tid:</strong><br>Fredager 17:00-18:00 · Varighet 1 time</div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 id="kurs-sotra-ungdom-tittel">Ungdom Sotra</h3>
+              <p>Mestring, glede og fellesskap for 12 til 15 år på Sotra Sportsenter. Trygg introduksjon til apparater og basisøvelser, med fokus på tydelige rammer, støtte og gode treningsopplevelser. Tilbudet passer og tilpasses ungdom med funksjonsvariasjoner.</p>
+              <p class="card-fit"><strong>Passer for deg som:</strong> ønsker en trygg start med faste veiledere, rolig tempo og oppfølging underveis.</p>
+
+              <p class="info-line" data-role="price-line"></p>
+
+              <div class="card-buttons" role="group">
+                <a href="https://mystrongestside.no/treningstilbud/ungdom-paamelding.html" class="btn btn-primary">Meld deg på</a>
+                <a href="https://mystrongestside.no/treningstilbud/barn-ungdom.html" class="btn btn-link">Les mer</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="training-card" data-gruppe="sotra-voksne-lett" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Ledige plasser" aria-labelledby="kurs-sotra-voksne-lett-tittel">
+            <div class="course-card__media">
+              <img src="bilder/hero-large.jpg?v=1001" alt="Voksne trener med enkle tilpasninger på Sotra Sportsenter" loading="lazy" decoding="async">
+              <div class="course-banner course-banner--lett" aria-hidden="true">VOKSNE MED ENKLE TILPASNINGER · SOTRA SPORTSENTER</div>
+            </div>
+
+            <div class="info-panel" data-gruppe="sotra-voksne-lett">
+              <div class="info-item">
+                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <div class="date-info"><strong>Neste økt:</strong><br>-</div>
+              </div>
+              <div class="info-item">
+                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <div><strong>Tid:</strong><br>Fredager 17:00-18:00 · Varighet 1 time</div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 id="kurs-sotra-voksne-lett-tittel">Voksne lett Sotra</h3>
+              <p>Små og trygge økter på Sotra Sportsenter med rolig progresjon og tydelige øvelser. For deg som trenger enkle tilpasninger og ønsker å trene i et inkluderende miljø med støtte underveis. Tilbudet passer og tilpasses voksne med funksjonsvariasjoner.</p>
+              <p class="card-fit"><strong>Passer for deg som:</strong> klarer deg mye selv, men har nytte av små justeringer, rolig tempo og korte avklaringer underveis.</p>
+
+              <p class="info-line" data-role="price-line"></p>
+
+              <div class="card-buttons" role="group">
+                <a href="https://mystrongestside.no/treningstilbud/lett-påmelding.html" class="btn btn-primary">Meld deg på</a>
+                <a href="https://mystrongestside.no/treningstilbud/voksne-lett.html" class="btn btn-link">Les mer</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="training-card" data-gruppe="sotra-voksne-tett" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Begrensede plasser" aria-labelledby="kurs-sotra-voksne-tett-tittel">
+            <div class="course-card__media">
+              <img src="bilde02.jpg?v=1001" alt="Deltaker får tett veiledning på Sotra Sportsenter" loading="lazy" decoding="async">
+              <div class="course-banner course-banner--tett" aria-hidden="true">VOKSNE SOM ØNSKER TETT OPPFØLGING · SOTRA SPORTSENTER</div>
+            </div>
+
+            <div class="info-panel" data-gruppe="sotra-voksne-tett">
+              <div class="info-item">
+                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <div class="date-info"><strong>Neste økt:</strong><br>-</div>
+              </div>
+              <div class="info-item">
+                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <div><strong>Tid:</strong><br>Fredager 18:15-19:15 · Varighet 1 time</div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 id="kurs-sotra-voksne-tett-tittel">Voksne tett oppfølging Sotra</h3>
+              <p>For deg som ønsker mer veiledning, støtte og tilpasning på Sotra Sportsenter. Små grupper, forutsigbar struktur og rolig progresjon gjør det lettere å kjenne seg trygg i treningen. Tilbudet passer og tilpasses voksne med funksjonsvariasjoner.</p>
+              <p class="card-fit"><strong>Passer for deg som:</strong> ønsker tettere veiledning gjennom hele økten, mer hjelp til oppsett og trygg gjennomføring.</p>
+
+              <p class="info-line" data-role="price-line"></p>
+
+              <div class="card-buttons" role="group">
+                <a href="https://mystrongestside.no/treningstilbud/tett-påmelding.html" class="btn btn-primary">Meld deg på</a>
+                <a href="https://mystrongestside.no/treningstilbud/tett-oppfolging.html" class="btn btn-link">Les mer</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
+      <div class="site-footer__brand">
+        <img src="/bilder/myss-logo-footer.png?v=1001" alt="My Strongest Side" class="site-footer__logo" />
+        <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
+      </div>
+
+      <div class="site-footer__top">
+        <div data-footer-links-services></div>
+        <div data-footer-links-info></div>
+        <div data-footer-links-brand></div>
+
+        <div class="site-footer__contact">
+          <h3 class="site-footer__title">Kontakt</h3>
+          <div class="site-footer__contact-lines">
+            <div>My Strongest Side AS</div>
+            <div>Brages veg 3<br>5221 Nesttun</div>
+            <div>E-post: <a class="site-footer__link" href="mailto:post@mystrongestside.no">post@mystrongestside.no</a></div>
+            <div>Telefon: <a class="site-footer__link" href="tel:+4741439384">+47 41 43 93 84</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="site-footer__social">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <img src="/icons/facebook.png?v=1001" alt="" aria-hidden="true">
+            </a>
+            <a class="social-link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <img src="/icons/instagram.png?v=1001" alt="" aria-hidden="true">
+            </a>
+          </div>
+        </div>
+
+        <p class="site-footer__meta">
+          © <!-- #year overskrives av JavaScript -->
+          <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053
+        </p>
+      </div>
+
+      <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js?v=1001" defer></script>
+  <script src="/components/footer-links.js?v=1001" defer></script>
+  <script src="/assets/consent.js?v=1001" defer></script>
+
+  <script>
+    const treninger = [
+      { gruppe: 'ungdom', datoer: [
+        '2026-03-05','2026-03-19','2026-04-02','2026-04-16',
+        '2026-04-30','2026-05-14','2026-05-28','2026-06-11'
+      ]},
+      { gruppe: 'voksne-lett', datoer: [
+        '2026-03-05','2026-03-19','2026-04-02','2026-04-16',
+        '2026-04-30','2026-05-14','2026-05-28','2026-06-11'
+      ]},
+      { gruppe: 'voksne-tett', datoer: [
+        '2026-03-12','2026-03-26','2026-04-09','2026-04-23',
+        '2026-05-07','2026-05-21','2026-06-11','2026-06-25'
+      ]},
+      { gruppe: 'sotra-ungdom', datoer: [
+        '2026-03-13','2026-03-27','2026-04-10','2026-04-24',
+        '2026-05-08','2026-05-22','2026-06-05','2026-06-19'
+      ]},
+      { gruppe: 'sotra-voksne-lett', datoer: [
+        '2026-03-13','2026-03-27','2026-04-10','2026-04-24',
+        '2026-05-08','2026-05-22','2026-06-05','2026-06-19'
+      ]},
+      { gruppe: 'sotra-voksne-tett', datoer: [
+        '2026-03-13','2026-03-27','2026-04-10','2026-04-24',
+        '2026-05-08','2026-05-22','2026-06-05','2026-06-19'
+      ]}
+    ];
+
+    const parseDate = str => {
+      const [y, m, d] = str.split('-').map(Number);
+      return new Date(y, m - 1, d);
+    };
+
+    const formatDate = d =>
+      d.toLocaleDateString('no-NO', { day:'2-digit', month:'short' })
+        .replace('.', '')
+        .toUpperCase();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Oppdaterer #year fra JavaScript dersom elementet finnes.
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      treninger.forEach(({ gruppe, datoer }) => {
+        const panel = document.querySelector(`.info-panel[data-gruppe="${gruppe}"]`);
+        if (!panel) return;
+
+        // Oppdaterer .date-info fra JavaScript dersom elementet finnes.
+        const badge = panel.querySelector('.date-info');
+        if (!badge) return;
+
+        const parsed = datoer.map(parseDate).sort((a, b) => a - b);
+        const next = parsed.find(d => d >= today);
+
+        if (!next) {
+          badge.innerHTML = `<strong>Neste økt:</strong><br>Sesongen er avsluttet`;
+          return;
+        }
+
+        const remaining = parsed.filter(d => d >= today).length;
+        badge.innerHTML = `<strong>Neste økt:</strong><br>${formatDate(next)} · ${remaining} økter igjen`;
+      });
+
+      document.querySelectorAll('.training-card').forEach(card => {
+        // Oppdaterer [data-role="price-line"] fra JavaScript dersom elementet finnes.
+        const line = card.querySelector('[data-role="price-line"]');
+        if (!line) return;
+
+        const price = (card.getAttribute('data-price') || '').trim();
+        const spots = (card.getAttribute('data-spots') || '').trim();
+
+        if (!price && !spots) {
+          line.remove();
+          return;
+        }
+
+        const parts = [];
+        if (price) parts.push(price);
+        if (spots) parts.push(spots);
+
+        line.innerHTML = parts.join(' · ')
+          .replace('GRATIS', '<strong>GRATIS</strong>')
+          .replace(/600 kr/g, '<strong>600 kr</strong>');
+      });
+    });
+  </script>
+</body>
+</html>
+
