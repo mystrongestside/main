@@ -9,25 +9,70 @@
       }
     })();
   </script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LK0WY59R15"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-LK0WY59R15');
   </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kontakt | My Strongest Side</title>
-  <meta name="description" content="Kontakt My Strongest Side – vi gjør styrketrening tilgjengelig for flest mulig med trygghet, fellesskap og tilpasning i sentrum.">
+  <meta name="description" content="Kontakt My Strongest Side, vi gjør styrketrening tilgjengelig for flest mulig med trygghet, fellesskap og tilpasning i sentrum.">
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css?v=112">
   <link rel="stylesheet" href="/assets/consent.css">
   <script>document.documentElement.classList.add('js');</script>
+
+  <style>
+    .hp-field {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      clip: rect(0 0 0 0) !important;
+      clip-path: inset(50%) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .contact-help-text {
+      margin: 0 0 1.25rem 0;
+      color: var(--muted, #475569);
+    }
+
+    .contact-quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 1.25rem 0;
+    }
+
+    .contact-quick-links button {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      background: #fff;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .contact-quick-links button:hover,
+    .contact-quick-links button:focus-visible {
+      border-color: rgba(15, 23, 42, 0.28);
+      outline: none;
+    }
+  </style>
 </head>
+
 <body class="page-kontakt">
   <header data-component="site-header"></header>
 
@@ -37,7 +82,7 @@
         <p class="eyebrow">Kontakt</p>
         <h1 class="fade-in delay-2">Ta kontakt med oss</h1>
         <p class="fade-in delay-3">
-          Vi svarer gjerne på spørsmål om treningstilbudene våre, samarbeid eller hvordan du kan komme i gang.
+          Vi svarer gjerne på spørsmål om gruppetrening, treningstilbud, samarbeid eller hvordan du kan komme i gang.
           Send oss en melding, så følger vi opp så raskt vi kan.
         </p>
       </div>
@@ -46,32 +91,56 @@
     <section class="section fade-in">
       <div class="container contact-grid">
         <article class="contact-card fade-in delay-2">
-          <h2>Send oss en melding</h2>
+          <h2>Ta kontakt om gruppetrening</h2>
+          <p class="contact-help-text">
+            Har du spørsmål om treningsgruppene våre, eller ønsker du å melde interesse for en av gruppene?
+            Send oss en melding, så tar vi kontakt.
+          </p>
+
+          <div class="contact-quick-links" aria-label="Hurtigvalg for melding">
+            <button type="button" data-message-template="Jeg ønsker informasjon om ungdomsgruppen (12–15 år).">Ungdomsgruppen</button>
+            <button type="button" data-message-template="Jeg ønsker informasjon om gruppetrening fra 16 år og oppover.">Fra 16 år</button>
+            <button type="button" data-message-template="Jeg ønsker informasjon om trening med tett oppfølging fra 16 år.">Tett oppfølging</button>
+            <button type="button" data-message-template="Jeg ønsker å høre mer om samarbeid med My Strongest Side.">Samarbeid</button>
+          </div>
+
           <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="company" data-js="contact-form">
             <input type="hidden" name="form-name" value="contact" />
             <input type="hidden" name="formStartedAt" value="" />
+
             <p class="hp-field" aria-hidden="true">
-              <label>Ikke fyll ut dette feltet: <input name="company" autocomplete="off" tabindex="-1" /></label>
+              <label for="company">Ikke fyll ut dette feltet</label>
+              <input id="company" name="company" autocomplete="off" tabindex="-1" />
             </p>
+
             <div class="form-group">
               <label for="name">Navn</label>
-              <input type="text" id="name" name="name" required minlength="2" maxlength="120" placeholder="Ditt navn" />
+              <input type="text" id="name" name="name" required minlength="2" maxlength="120" placeholder="Ditt navn" autocomplete="name" />
             </div>
+
             <div class="form-group">
               <label for="email">E-post</label>
-              <input type="email" id="email" name="email" required maxlength="160" placeholder="din@epost.no" />
+              <input type="email" id="email" name="email" required maxlength="160" placeholder="din@epost.no" autocomplete="email" />
             </div>
+
             <div class="form-group">
               <label for="phone">Telefon (valgfritt)</label>
-              <input type="tel" id="phone" name="phone" pattern="^[0-9+()\s-]{6,20}$" maxlength="20" placeholder="+47 ..." />
+              <input type="tel" id="phone" name="phone" pattern="^[0-9+()\s-]{6,20}$" maxlength="20" placeholder="+47 ..." autocomplete="tel" />
             </div>
+
             <div class="form-group">
               <label for="message">Melding</label>
-              <textarea id="message" name="message" rows="5" required minlength="10" maxlength="2000" placeholder="Skriv meldingen din her..."></textarea>
+              <textarea id="message" name="message" rows="5" required minlength="10" maxlength="2000" placeholder="Fortell kort hva du lurer på, eller hvilken gruppe du er interessert i."></textarea>
             </div>
+
             <button type="submit" class="btn btn--primary">Send melding</button>
             <div class="form-feedback" hidden data-js="form-feedback"></div>
-            <p class="form-privacy-note">Ved innsending lagrer vi kontaktinformasjonen din for å kunne svare på henvendelsen. Opplysningene slettes normalt innen 12 måneder. Les mer i <a href="/personvern.html">personvernerklæringen</a>.</p>
+
+            <p class="form-privacy-note">
+              Ved innsending lagrer vi kontaktinformasjonen din for å kunne svare på henvendelsen.
+              Opplysningene slettes normalt innen 12 måneder. Les mer i
+              <a href="/personvern.html">personvernerklæringen</a>.
+            </p>
           </form>
         </article>
 
@@ -127,15 +196,40 @@
         </p>
       </div>
     </div>
-  </footer><script src="menu.js" defer></script>
+  </footer>
+
+  <script src="menu.js" defer></script>
   <script src="/components/footer-links.js?v=114" defer></script>
-<script src="/assets/consent.js" defer></script>
-<script src="/assets/js/contact-form.js" defer></script>
-<style>
-  .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
-  .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }
-  .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
-</style>
+  <script src="/assets/consent.js" defer></script>
+  <script src="/assets/js/contact-form.js" defer></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const buttons = document.querySelectorAll('[data-message-template]');
+      const messageField = document.getElementById('message');
+
+      buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          const text = button.getAttribute('data-message-template') || '';
+          if (!messageField) return;
+
+          if (messageField.value.trim() === '') {
+            messageField.value = text + ' ';
+          } else {
+            messageField.value = text + '\n\n' + messageField.value.trim();
+          }
+
+          messageField.focus();
+        });
+      });
+    });
+  </script>
+
+  <style>
+    .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
+    .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }
+    .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
+  </style>
 
   <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
 </body>
