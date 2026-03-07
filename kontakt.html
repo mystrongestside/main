@@ -22,7 +22,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kontakt | My Strongest Side</title>
-  <meta name="description" content="Kontakt My Strongest Side, vi gjør styrketrening tilgjengelig for flest mulig med trygghet, fellesskap og tilpasning i sentrum.">
+  <meta name="description" content="Kontakt My Strongest Side for spørsmål om trening, tilrettelegging og samarbeid. Vi svarer deltakere, pårørende, fagpersoner og samarbeidspartnere.">
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css?v=112">
@@ -30,6 +30,25 @@
   <script>document.documentElement.classList.add('js');</script>
 
   <style>
+    .page-kontakt {
+      --contact-ink: #0f172a;
+      --contact-subtle: #334155;
+      --contact-muted: #64748b;
+      --contact-line: #cbd5e1;
+      --contact-line-strong: #94a3b8;
+      --contact-bg: #ffffff;
+      --contact-alt: #f8fafc;
+      --contact-focus: #0369a1;
+      --contact-radius: 0.4rem;
+      font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--contact-ink);
+      background: var(--contact-bg);
+    }
+
+    .page-kontakt :where(h1, h2, h3, p, li, label, input, textarea, button, a) {
+      font-family: inherit;
+    }
+
     .skip-link {
       position: absolute;
       left: 1rem;
@@ -38,9 +57,9 @@
       background: #0f172a;
       color: #ffffff;
       padding: 0.75rem 1rem;
-      border-radius: 0.6rem;
+      border-radius: 0.25rem;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 600;
       transition: top 0.2s ease;
     }
 
@@ -64,17 +83,20 @@
       margin: 0 !important;
     }
 
+    #main-content {
+      padding-block: clamp(1.25rem, 2vw, 2rem) clamp(3rem, 6vw, 5rem);
+    }
+
     .contact-hero {
-      padding-top: clamp(1rem, 2vw, 1.5rem);
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
     }
 
     .contact-hero-media {
-      margin: 0 0 clamp(1.5rem, 3vw, 2rem);
-      border-radius: 1.2rem;
+      margin: 0;
+      border-radius: 0.25rem;
       overflow: hidden;
-      border: 1px solid #dbe2ea;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
-      background: #e2e8f0;
+      border: 1px solid var(--contact-line);
+      background: #dce3eb;
       aspect-ratio: 16 / 7;
     }
 
@@ -82,176 +104,253 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 38%;
+      object-position: center 40%;
       display: block;
     }
 
-    .contact-hero-content {
-      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-      border-radius: 1.2rem;
-      border: 1px solid #dbe2ea;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
-      padding: clamp(1.25rem, 3vw, 2rem);
+    .contact-hero-copy {
+      margin-top: clamp(1.4rem, 3vw, 2rem);
+      max-width: 72ch;
+    }
+
+    .contact-eyebrow {
+      margin: 0 0 0.65rem;
+      font-size: 0.875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--contact-muted);
     }
 
     .contact-hero h1 {
-      max-width: 22ch;
-      margin: 0 0 1rem;
+      margin: 0;
+      font-size: clamp(2rem, 4.2vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      max-width: 20ch;
+      font-weight: 700;
+      color: var(--contact-ink);
     }
 
-    .contact-hero p {
-      max-width: 70ch;
-      color: #334155;
-      font-size: 1.08rem;
-      line-height: 1.7;
+    .contact-lead {
+      margin: 1rem 0 0;
+      font-size: clamp(1.0625rem, 1.5vw, 1.1875rem);
+      line-height: 1.65;
+      color: var(--contact-subtle);
+    }
+
+    .contact-section {
+      padding-top: clamp(1.8rem, 3vw, 2.8rem);
+      border-top: 1px solid var(--contact-line);
+    }
+
+    .contact-intro {
+      margin-bottom: clamp(2rem, 4vw, 2.75rem);
+      max-width: 72ch;
+    }
+
+    .contact-intro h2 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.5rem, 2.2vw, 1.875rem);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      font-weight: 700;
+    }
+
+    .contact-intro p {
       margin: 0;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--contact-subtle);
     }
 
     .contact-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-      gap: clamp(1.25rem, 3vw, 2rem);
+      grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+      gap: clamp(1.75rem, 4vw, 3.5rem);
       align-items: start;
     }
 
-    .contact-panel,
-    .contact-info-card {
-      background: #ffffff;
-      border: 1px solid #dbe2ea;
-      border-radius: 1.15rem;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    .contact-form-wrap h3,
+    .contact-info h3 {
+      margin: 0 0 1rem;
+      font-size: 1.3125rem;
+      line-height: 1.3;
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
-    .contact-panel {
-      padding: clamp(1.25rem, 3vw, 2rem);
-    }
-
-    .contact-panel h2 {
-      margin-top: 0;
-      margin-bottom: 0.75rem;
+    .contact-help-text,
+    .contact-reassurance,
+    .form-privacy-note,
+    .contact-info p,
+    .contact-info li {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--contact-subtle);
     }
 
     .contact-help-text {
-      margin: 0 0 1.35rem 0;
-      color: #334155;
-      line-height: 1.65;
+      margin: 0 0 1rem;
     }
 
     .contact-next-step {
       margin: 0 0 0.8rem;
-      color: #0f172a;
-      font-weight: 700;
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      color: var(--contact-muted);
+      font-weight: 500;
     }
 
     .contact-quick-links {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.85rem;
-      margin: 0 0 1.7rem;
+      gap: 0.6rem;
+      margin: 0 0 1.4rem;
     }
 
     .contact-quick-links button {
-      border: 1px solid #b8c7d9;
-      background: #f8fafc;
-      border-radius: 1rem;
-      padding: 1.1rem 1.05rem;
+      border: 1px solid var(--contact-line-strong);
+      background: transparent;
+      border-radius: var(--contact-radius);
+      padding: 0.85rem 0.9rem;
       text-align: left;
-      font: inherit;
+      font-size: 0.95rem;
       font-weight: 600;
-      color: #0f172a;
       line-height: 1.4;
+      color: var(--contact-ink);
       cursor: pointer;
-      min-height: 4rem;
-      transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      min-height: 3rem;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
     }
 
     .contact-quick-links button:hover {
-      border-color: #64748b;
-      background: #f1f5f9;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+      border-color: #475569;
+      background: var(--contact-alt);
     }
 
-    .contact-quick-links button:focus-visible {
-      border-color: #92400e;
+    .contact-reassurance {
+      margin: 1rem 0 1.35rem;
+      padding: 0;
+      color: var(--contact-subtle);
     }
 
-    .contact-sidebar {
-      display: grid;
-      gap: 1rem;
+    .contact-form-wrap .form-group {
+      margin-bottom: 1rem;
     }
 
-    .contact-info-card {
-      padding: 1.3rem 1.3rem 1.2rem;
+    .contact-form-wrap label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: 0.9375rem;
+      line-height: 1.35;
+      font-weight: 600;
+      color: var(--contact-ink);
     }
 
-    .contact-info-card h3 {
-      margin-top: 0;
-      margin-bottom: 0.75rem;
-      font-size: 1.15rem;
+    .contact-form-wrap input,
+    .contact-form-wrap textarea {
+      width: 100%;
+      border: 1px solid var(--contact-line-strong);
+      border-radius: var(--contact-radius);
+      background: #fff;
+      color: var(--contact-ink);
+      padding: 0.75rem 0.85rem;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
-    .contact-info-card p,
-    .contact-info-card li {
-      color: #1e293b;
-      line-height: 1.65;
+    .contact-form-wrap textarea {
+      resize: vertical;
+      min-height: 9rem;
     }
 
-    .contact-info-card p {
-      margin: 0 0 0.4rem;
-    }
-
-    .contact-info-card ul {
-      margin: 0;
-      padding-left: 1.15rem;
-      display: grid;
-      gap: 0.5rem;
-    }
-
-    :where(a, button, input, textarea):focus-visible {
-      outline: 3px solid #f59e0b;
-      outline-offset: 2px;
-      box-shadow: 0 0 0 2px #ffffff;
+    .contact-form-wrap .btn--primary {
+      border-radius: 0.3rem;
+      min-height: 3rem;
+      padding: 0.7rem 1.15rem;
+      font-weight: 700;
+      margin-top: 0.25rem;
     }
 
     input::placeholder,
     textarea::placeholder {
-      color: #64748b;
+      color: var(--contact-muted);
       opacity: 1;
     }
 
     .form-feedback {
-      margin-top: 1rem;
-      color: #0f172a;
+      margin-top: 0.85rem;
+      font-size: 0.95rem;
+      color: var(--contact-ink);
       font-weight: 600;
     }
 
-    .contact-reassurance {
-      margin: 1.1rem 0 1.4rem;
-      padding: 0.9rem 1rem;
-      border-radius: 0.9rem;
-      border: 1px solid #c8d6e5;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.6;
-    }
-
     .form-privacy-note {
-      color: #334155;
-      line-height: 1.6;
+      margin-top: 1rem;
+      max-width: 62ch;
+      font-size: 0.9375rem;
     }
 
-    @media (max-width: 900px) {
+    .contact-info {
+      border-left: 1px solid var(--contact-line);
+      padding-left: clamp(1rem, 2vw, 1.75rem);
+    }
+
+    .contact-info section + section {
+      margin-top: 1.6rem;
+      padding-top: 1.6rem;
+      border-top: 1px solid var(--contact-line);
+    }
+
+    .contact-info h4 {
+      margin: 0 0 0.55rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--contact-muted);
+      font-weight: 600;
+    }
+
+    .contact-info p {
+      margin: 0 0 0.5rem;
+    }
+
+    .contact-info ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    :where(a, button, input, textarea):focus-visible {
+      outline: 3px solid var(--contact-focus);
+      outline-offset: 2px;
+      box-shadow: none;
+    }
+
+    @media (max-width: 960px) {
+      .contact-hero-media {
+        aspect-ratio: 16 / 8.5;
+      }
+
       .contact-layout {
         grid-template-columns: 1fr;
       }
 
-      .contact-hero-media {
-        aspect-ratio: 16 / 9;
+      .contact-info {
+        border-left: 0;
+        border-top: 1px solid var(--contact-line);
+        padding-left: 0;
+        padding-top: 1.6rem;
       }
     }
 
     @media (max-width: 640px) {
+      .contact-hero-media {
+        aspect-ratio: 16 / 10;
+      }
+
       .contact-quick-links {
         grid-template-columns: 1fr;
       }
@@ -268,27 +367,32 @@
   <header data-component="site-header"></header>
 
   <main id="main-content">
-    <section class="section section--light fade-in contact-hero">
-      <div class="container fade-in delay-1">
-        <figure class="contact-hero-media">
-          <img src="/bilder/tett-oppfolging-hero.jpg" alt="Trener følger opp deltaker i styrketrening" loading="eager" decoding="async" />
-        </figure>
-
-        <div class="contact-hero-content">
-          <p class="eyebrow">Kontakt</p>
-          <h1 class="fade-in delay-2">Har du spørsmål om trening, tilrettelegging eller gruppetilbud?</h1>
-          <p class="fade-in delay-3">
-            Ta kontakt dersom du ønsker å melde interesse, stille spørsmål eller høre mer om hvordan My Strongest Side kan bidra.
-            Vi svarer gjerne deltakere, pårørende, fagpersoner og samarbeidspartnere.
-          </p>
-        </div>
+    <section class="container contact-hero">
+      <figure class="contact-hero-media">
+        <img src="/bilder/tett-oppfolging-hero.jpg" alt="Trener følger opp en deltaker tett under styrketrening i treningssal" loading="eager" decoding="async" />
+      </figure>
+      <div class="contact-hero-copy">
+        <p class="contact-eyebrow">Kontakt</p>
+        <h1>Kontakt oss om trening, tilrettelegging eller samarbeid</h1>
+        <p class="contact-lead">
+          Vi svarer deltakere, pårørende, fagpersoner og samarbeidspartnere som ønsker konkret informasjon om tilbud,
+          oppfølging eller neste steg.
+        </p>
       </div>
     </section>
 
-    <section class="section fade-in">
-      <div class="container contact-layout">
-        <article class="contact-panel fade-in delay-2">
-          <h2>Send oss en melding</h2>
+    <section class="container contact-section" aria-labelledby="contact-intro-heading">
+      <div class="contact-intro">
+        <h2 id="contact-intro-heading">Hvem siden er for – og hva du kan ta kontakt om</h2>
+        <p>
+          Denne siden er laget for deg som vurderer tilbud hos My Strongest Side, følger opp en deltaker,
+          representerer et fagmiljø eller ønsker samarbeid. Bruk skjemaet under, så følger vi opp raskt og ryddig.
+        </p>
+      </div>
+
+      <div class="contact-layout">
+        <article class="contact-form-wrap" aria-labelledby="contact-form-heading">
+          <h3 id="contact-form-heading">Send oss en melding</h3>
           <p class="contact-help-text">
             Du kan bruke skjemaet for å melde interesse for gruppetrening, spørre om tilrettelegging eller ta kontakt om samarbeid.
           </p>
@@ -301,11 +405,10 @@
             <button type="button" data-message-template="Jeg ønsker å ta kontakt om samarbeid." aria-label="Ta kontakt om samarbeid">Ta kontakt om samarbeid</button>
           </div>
 
-
-
-          <div class="contact-reassurance" aria-label="Trygghet ved kontakt">
+          <p class="contact-reassurance" aria-label="Trygghet ved kontakt">
             Det er lav terskel for å ta kontakt. Du trenger ikke vite nøyaktig hva du skal skrive – vi hjelper deg videre steg for steg.
-          </div>
+          </p>
+
           <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="company" data-js="contact-form">
             <input type="hidden" name="form-name" value="contact" />
             <input type="hidden" name="formStartedAt" value="" />
@@ -332,7 +435,7 @@
 
             <div class="form-group">
               <label for="message">Hva ønsker du hjelp med?</label>
-              <textarea id="message" name="message" rows="5" required minlength="10" maxlength="2000" placeholder="Skriv gjerne kort hva det gjelder, så følger vi deg opp videre."></textarea>
+              <textarea id="message" name="message" rows="6" required minlength="10" maxlength="2000" placeholder="Skriv gjerne kort hva det gjelder, så følger vi deg opp videre."></textarea>
             </div>
 
             <button type="submit" class="btn btn--primary">Send melding</button>
@@ -346,17 +449,18 @@
           </form>
         </article>
 
-        <aside class="contact-sidebar fade-in delay-3" aria-label="Kontaktinformasjon og henvendelser">
-          <section class="contact-info-card">
-            <h3>Kontaktinformasjon</h3>
-            <p><strong>My Strongest Side® AS</strong></p>
+        <aside class="contact-info" aria-label="Kontaktinformasjon og henvendelser">
+          <h3>Kontaktinformasjon</h3>
+
+          <section aria-labelledby="contact-company-heading">
+            <h4 id="contact-company-heading">My Strongest Side® AS</h4>
             <p><a href="/kontakt.html">Send e-post</a></p>
             <p>Ring oss på <a href="tel:+4741439384">+47 41 43 93 84</a></p>
             <p>Brages veg 3, 5221 Nesttun</p>
           </section>
 
-          <section class="contact-info-card">
-            <h3>Dette kan du ta kontakt om</h3>
+          <section aria-labelledby="contact-topics-heading">
+            <h4 id="contact-topics-heading">Dette kan du ta kontakt om</h4>
             <ul>
               <li>Gruppetrening for ungdom og voksne</li>
               <li>Tilrettelegging ved syns- eller bevegelsesutfordringer</li>
@@ -364,8 +468,8 @@
             </ul>
           </section>
 
-          <section class="contact-info-card" aria-label="Svar og oppfølging">
-            <h3>Trygg oppfølging</h3>
+          <section aria-labelledby="contact-follow-up-heading">
+            <h4 id="contact-follow-up-heading">Trygg oppfølging</h4>
             <p>Hos oss er det lav terskel for å ta kontakt, enten du er deltaker, pårørende eller fagperson.</p>
             <p>Vi følger opp henvendelser så raskt vi kan, og hjelper deg med neste steg.</p>
           </section>
