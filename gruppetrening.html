@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gruppetrening | My Strongest Side</title>
-  <meta name="description" content="Gruppetrening for deg med nedsatt funksjonsevne som ønsker lettere tilpasninger eller tett veiledning i ordinære treningssentre." />
+  <meta name="description" content="Gruppetrening for deg som ønsker lettere tilpasninger eller tett veiledning i ordinære treningssentre." />
 
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="918da94c-47e9-4fc0-9939-763b0c22c63d" data-blockingmode="auto" type="text/javascript" async></script>
 
@@ -28,33 +28,57 @@
 
   <style>
     :root{
-      --myss-blue-dark:#0c2d48;
-      --myss-blue:#2f7fbf;
-      --myss-orange:#f28c28;
+      --navy:#0c2d48;
+      --navy-2:#173d5c;
+      --orange:#f28c28;
+
       --bg:#ffffff;
-      --surface:#f8fafc;
-      --text:#142234;
-      --muted:#5b6b7c;
-      --line:rgba(15,23,42,.10);
-      --radius:22px;
-      --shadow:0 10px 30px rgba(15,23,42,.05);
+      --surface:#f7f7f5;
+      --border:rgba(15,23,42,.10);
+
+      --text:#111827;
+      --muted:#4b5563;
+
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius-md:16px;
+      --radius-sm:12px;
+
+      --shadow:0 10px 28px rgba(15,23,42,.06);
+
       --maxw:1180px;
       --textw:760px;
+
+      --fs-hero:clamp(2.5rem, 5vw, 4.6rem);
+      --fs-h2:clamp(1.6rem, 2vw, 2rem);
+      --fs-h3:1.125rem;
+      --fs-lead:1.125rem;
+      --fs-body:1rem;
+      --fs-small:.95rem;
     }
 
-    *{ box-sizing:border-box; }
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
 
     body.page--gruppetrening{
       margin:0;
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      color:var(--text);
       background:var(--bg);
+      color:var(--text);
+      font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size:var(--fs-body);
       line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
 
     img{
-      max-width:100%;
       display:block;
+      max-width:100%;
     }
 
     .container{
@@ -63,67 +87,70 @@
     }
 
     .hero-media{
-      padding:18px 0 0;
+      padding:20px 0 0;
     }
 
     .hero-media__frame{
       overflow:hidden;
-      border-radius:28px;
-      background:#dde6ef;
+      border-radius:var(--radius-xl);
+      background:#d8d8d8;
     }
 
     .hero-media__frame img{
       width:100%;
-      aspect-ratio:16/6;
+      aspect-ratio:16 / 6;
       object-fit:cover;
       object-position:center 42%;
     }
 
     .article{
-      padding:40px 0 70px;
+      padding:48px 0 72px;
     }
 
     .article__header{
       max-width:var(--textw);
-      margin:0 auto 28px;
+      margin:0 auto 36px;
     }
 
     .article__kicker{
-      margin:0 0 12px;
-      font-size:.86rem;
+      margin:0 0 14px;
+      color:var(--navy);
+      font-size:.82rem;
       font-weight:700;
-      letter-spacing:.04em;
+      letter-spacing:.08em;
       text-transform:uppercase;
-      color:var(--myss-blue-dark);
     }
 
     .article__header h1{
-      margin:0 0 16px;
-      font-size:clamp(2.2rem, 4.8vw, 4.2rem);
+      margin:0 0 18px;
+      color:var(--navy);
+      font-size:var(--fs-hero);
       line-height:1.02;
-      letter-spacing:-.035em;
-      color:var(--myss-blue-dark);
+      letter-spacing:-.04em;
+      font-weight:800;
     }
 
     .article__lead{
-      margin:0 0 10px;
-      font-size:1.18rem;
+      margin:0 0 14px;
       color:var(--text);
+      font-size:var(--fs-lead);
+      line-height:1.5;
+      font-weight:500;
     }
 
     .article__intro{
       margin:0;
-      font-size:1rem;
       color:var(--muted);
+      font-size:var(--fs-body);
     }
 
     .article__meta{
       max-width:var(--textw);
-      margin:22px auto 0;
+      margin:24px auto 0;
       padding-top:16px;
-      border-top:1px solid var(--line);
+      border-top:1px solid var(--border);
       color:var(--muted);
-      font-size:.96rem;
+      font-size:var(--fs-small);
     }
 
     .article__body{
@@ -132,32 +159,36 @@
     }
 
     .article section{
-      padding:26px 0;
-      border-top:1px solid var(--line);
+      padding:30px 0;
+      border-top:1px solid var(--border);
     }
 
     .article section:first-of-type{
-      border-top:0;
       padding-top:0;
+      border-top:0;
     }
 
     .article h2{
       margin:0 0 14px;
-      font-size:1.55rem;
-      line-height:1.15;
+      color:var(--navy);
+      font-size:var(--fs-h2);
+      line-height:1.12;
       letter-spacing:-.02em;
-      color:var(--myss-blue-dark);
+      font-weight:750;
     }
 
     .article h3{
       margin:22px 0 8px;
-      font-size:1.08rem;
-      color:var(--myss-blue-dark);
+      color:var(--navy);
+      font-size:var(--fs-h3);
+      line-height:1.3;
+      font-weight:700;
     }
 
     .article p{
       margin:0 0 14px;
       color:var(--muted);
+      font-size:var(--fs-body);
     }
 
     .article ul{
@@ -172,38 +203,44 @@
 
     .group{
       padding:18px 0;
-      border-top:1px solid var(--line);
+      border-top:1px solid var(--border);
     }
 
     .group:first-child{
-      border-top:0;
       padding-top:0;
+      border-top:0;
+    }
+
+    .group p:last-child{
+      margin-bottom:0;
     }
 
     .practical{
       display:grid;
-      gap:14px;
-      margin-top:10px;
+      gap:12px;
+      margin-top:8px;
     }
 
     .practical__item{
-      padding:16px 18px;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background:var(--surface);
+      padding:18px 20px;
+      border:1px solid var(--border);
+      border-radius:var(--radius-md);
+      background:#fff;
     }
 
     .practical__item strong{
       display:block;
       margin-bottom:4px;
-      color:var(--myss-blue-dark);
+      color:var(--navy);
+      font-size:.98rem;
+      font-weight:700;
     }
 
     .contact-box{
-      margin-top:8px;
-      padding:22px 24px;
-      border:1px solid var(--line);
-      border-radius:20px;
+      margin-top:10px;
+      padding:24px;
+      border:1px solid var(--border);
+      border-radius:var(--radius-lg);
       background:var(--surface);
       box-shadow:var(--shadow);
     }
@@ -213,9 +250,9 @@
     }
 
     .contact-box a{
-      color:var(--myss-blue-dark);
-      font-weight:700;
+      color:var(--navy);
       text-decoration:none;
+      font-weight:700;
     }
 
     .contact-box a:hover{
@@ -223,19 +260,19 @@
     }
 
     .site-footer{
-      background:#0c2d48;
+      background:var(--navy);
       color:#dbe7f2;
     }
 
     .site-footer__inner{
-      padding:34px 0 24px;
+      padding:36px 0 24px;
     }
 
     .site-footer__top{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:24px;
-      margin-top:16px;
+      margin-top:18px;
     }
 
     .site-footer__logo{
@@ -246,16 +283,19 @@
     .site-footer__tagline{
       margin:10px 0 0;
       color:#c9d7e6;
+      font-size:.98rem;
     }
 
     .site-footer__title{
       margin:0 0 10px;
       color:#fff;
       font-size:1rem;
+      font-weight:700;
     }
 
     .site-footer__contact-lines div{
       margin-bottom:8px;
+      font-size:.98rem;
     }
 
     .site-footer__link{
@@ -281,6 +321,7 @@
     .site-footer__social-label{
       display:block;
       margin-bottom:8px;
+      font-size:.95rem;
     }
 
     .site-footer__social-list{
@@ -296,20 +337,24 @@
     .myss-legal,
     .site-footer__meta{
       color:#c9d7e6;
+      font-size:.95rem;
     }
 
     .myss-legal{
       margin:16px 0 0;
-      font-size:.95rem;
     }
 
     @media (max-width: 800px){
       .hero-media__frame img{
-        aspect-ratio:16/9;
+        aspect-ratio:16 / 9;
       }
 
       .site-footer__top{
         grid-template-columns:1fr;
+      }
+
+      .article{
+        padding:38px 0 56px;
       }
     }
   </style>
@@ -332,10 +377,10 @@
           <p class="article__kicker">Gruppetrening</p>
           <h1>Styrketrening med tilpasning og oppfølging</h1>
           <p class="article__lead">
-            Har du nedsatt funksjonsevne og ønsker å trene med lettere tilpasninger eller tett veiledning?
+            Har du nedsatt funksjonsevne og ønsker å trene i et ordinært treningssenter med lettere tilpasninger eller tett veiledning?
           </p>
           <p class="article__intro">
-            My Strongest Side tilbyr gruppetrening i ordinære treningssentre for deg som ønsker et tryggere og mer oversiktlig treningsopplegg. Tilbudet passer for deg som vil komme i gang med styrketrening, eller som ønsker mer støtte underveis.
+            My Strongest Side tilbyr gruppetrening for deg som ønsker et tryggere og mer oversiktlig treningsopplegg. Tilbudet passer for deg som vil komme i gang med styrketrening, eller som ønsker mer støtte underveis.
           </p>
           <div class="article__meta">
             Trening på torsdager og fredager · Trene Sammen Fantoft og Sotra Sportsenter
@@ -350,9 +395,9 @@
             </p>
             <ul>
               <li>Du ønsker lettere tilpasninger under trening</li>
-              <li>Du ønsker mer struktur, støtte og trygghet underveis</li>
+              <li>Du ønsker tett veiledning eller mer støtte underveis</li>
               <li>Du ønsker å komme i gang med styrketrening i ditt eget tempo</li>
-              <li>Du ønsker et mer inkluderende og oversiktlig treningsmiljø</li>
+              <li>Du ønsker et mer oversiktlig og inkluderende treningsmiljø</li>
             </ul>
           </section>
 
@@ -422,10 +467,12 @@
                 <strong>Når trener vi?</strong>
                 Torsdager og fredager.
               </div>
+
               <div class="practical__item">
                 <strong>Hvor trener vi?</strong>
                 Trene Sammen Fantoft og Sotra Sportsenter.
               </div>
+
               <div class="practical__item">
                 <strong>Usikker på hvilken gruppe som passer?</strong>
                 Ta kontakt, så finner vi et opplegg som passer best mulig for deg.
