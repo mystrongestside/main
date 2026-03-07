@@ -80,5 +80,14 @@
       });
     });
   </script>
+
+<script src="/menu.js?v=113" defer></script>
+<script src="/components/footer-links.js?v=114" defer></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
+  });
+</script>
 </body>
 </html>
