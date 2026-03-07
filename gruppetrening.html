@@ -1,4 +1,6 @@
- <head>
+<!DOCTYPE html>
+<html lang="no">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -23,9 +25,9 @@
   <title>Tilpasset trening for funksjonsvariasjoner | My Strongest Side</title>
   <meta name="description" content="Trygg styrketrening i små grupper, med tilpasninger og faste veiledere. Rolig tempo, tydelige forklaringer og god oppfølging." />
 
-  <link rel="icon" type="image/png" href="favicon.png?v=1001" />
-  <link rel="stylesheet" href="styles.css?v=1001" />
-  <link rel="stylesheet" href="/assets/consent.css?v=1001" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css?v=999" />
+  <link rel="stylesheet" href="/assets/consent.css" />
 
   <style>
     :root{
@@ -51,7 +53,629 @@
     *::after{
       box-sizing:border-box;
     }
-@@ -679,55 +679,57 @@
+
+    img,
+    svg,
+    video,
+    iframe{
+      max-width:100%;
+      height:auto;
+    }
+
+    body{
+      background:var(--soft);
+    }
+
+    main{
+      padding:26px 0 56px;
+    }
+
+    .myss-heroimg{
+      width:100%;
+      border-radius:0;
+      overflow:visible;
+      margin:0 0 18px;
+    }
+
+    .myss-heroimg img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      object-position:center;
+      display:block;
+    }
+
+    @media (min-width:900px){
+      .myss-heroimg{
+        width:50%;
+        max-height:50vh;
+        margin:0 auto 18px;
+        overflow:hidden;
+      }
+
+      .myss-heroimg img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+      }
+    }
+
+    #treningstilbud .container{
+      max-width:1100px;
+      background:var(--card);
+      border:1px solid rgba(15,23,42,.08);
+      border-radius:var(--radius);
+      padding:26px 22px 22px;
+      box-shadow:0 18px 45px rgba(15,23,42,.06);
+    }
+
+    #treningstilbud h1{
+      color:var(--ink);
+      letter-spacing:-.02em;
+      line-height:1.06;
+      margin:6px 0 10px;
+      font-size:clamp(2rem, 3.2vw, 3.1rem);
+    }
+
+    #treningstilbud > .container > p{
+      color:var(--muted);
+      max-width:74ch;
+      line-height:1.65;
+      font-size:1.06rem;
+      margin:10px 0 0;
+    }
+
+    .myss-infobar{
+      margin:18px 0 16px;
+    }
+
+    .myss-infobar__grid{
+      background:#fbfcff;
+      border:1px solid rgba(15,23,42,.08);
+      border-radius:var(--radius-2);
+      padding:10px;
+      display:grid;
+      grid-template-columns:repeat(12, minmax(0, 1fr));
+      gap:0;
+    }
+
+    .myss-chip{
+      min-width:0;
+      background:transparent;
+      border:none;
+      box-shadow:none;
+      padding:10px 12px;
+      border-right:1px solid rgba(15,23,42,.08);
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .myss-chip__k{
+      font-size:.78rem;
+      font-weight:900;
+      letter-spacing:.2px;
+      color:var(--muted);
+      text-transform:uppercase;
+    }
+
+    .myss-chip__v{
+      min-width:0;
+      color:var(--ink);
+      font-weight:850;
+      line-height:1.25;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .myss-chip--where{ grid-column:span 4; }
+    .myss-chip--when{ grid-column:span 3; }
+    .myss-chip--price{ grid-column:span 3; }
+    .myss-chip--cta{
+      grid-column:span 2;
+      border-right:none;
+    }
+
+    .myss-chip--cta .myss-chip__k{
+      opacity:0;
+    }
+
+    .myss-chip--cta .myss-chip__v{
+      width:100%;
+      display:flex;
+      justify-content:flex-end;
+    }
+
+    .myss-chip--wide{
+      grid-column:1 / -1;
+      border-right:none;
+      border-top:1px solid rgba(15,23,42,.08);
+      margin-top:6px;
+      padding-top:12px;
+    }
+
+    .myss-tag{
+      display:inline-flex;
+      align-items:center;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(15,23,42,.10);
+      background:#ffffff;
+      color:var(--ink);
+      font-weight:850;
+      font-size:.95rem;
+    }
+
+    .myss-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      padding:12px 14px;
+      border-radius:16px;
+      font-weight:950;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,.18);
+    }
+
+    .myss-btn--primary{
+      background:var(--accent);
+      border-color:rgba(0,0,0,.02);
+      color:#fff;
+      box-shadow:0 10px 22px rgba(0,0,0,.18);
+    }
+
+    .myss-btn--primary:hover,
+    .myss-btn--primary:focus-visible{
+      background:var(--accent-dark);
+    }
+
+    .accordion{
+      max-width:1100px;
+      margin:0 auto 1.25rem;
+    }
+
+    .accordion__item{
+      border:1px solid rgba(15,23,42,.08);
+      border-radius:var(--radius-2);
+      box-shadow:0 10px 24px rgba(15,23,42,.06);
+      overflow:hidden;
+      background:#fff;
+      margin:.75rem 0;
+    }
+
+    .accordion__summary{
+      cursor:pointer;
+      padding:14px 14px;
+      background:#fbfcff;
+      font-weight:950;
+      color:var(--ink-2);
+      list-style:none;
+      position:relative;
+    }
+
+    .accordion__summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .accordion__summary::after{
+      content:"+";
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      width:28px;
+      height:28px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(36,52,77,.06);
+      color:var(--ink-2);
+      font-weight:950;
+    }
+
+    .accordion__item[open] .accordion__summary::after{
+      content:"−";
+    }
+
+    .accordion__content{
+      padding:0 1.05rem 1rem;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .accordion__content ul{
+      margin:.25rem 0 0 1.1rem;
+    }
+
+    .accordion__content li{
+      margin:.35rem 0;
+      line-height:1.45;
+    }
+
+    .group-training{
+      max-width:1100px;
+      margin:0 auto 1.5rem;
+      padding:0 16px;
+    }
+
+    .group-training__box{
+      background:#fff;
+      border:1px solid rgba(15,23,42,.08);
+      border-radius:16px;
+      box-shadow:0 10px 24px rgba(15,23,42,.06);
+      padding:22px 20px;
+    }
+
+    .group-training h2{
+      color:#0f172a;
+      margin:0 0 .9rem;
+      font-size:clamp(1.6rem, 2.3vw, 2.2rem);
+      line-height:1.1;
+    }
+
+    .group-training h3{
+      color:#24344d;
+      margin:1.35rem 0 .45rem;
+      font-size:1.18rem;
+    }
+
+    .group-training h4{
+      color:#24344d;
+      margin:1rem 0 .35rem;
+      font-size:1rem;
+    }
+
+    .group-training p,
+    .group-training li{
+      color:#475569;
+      line-height:1.65;
+      font-size:1rem;
+    }
+
+    .group-training ul{
+      margin:.35rem 0 0 1.15rem;
+      padding:0;
+    }
+
+    .group-training section + section{
+      margin-top:.45rem;
+    }
+
+    .offers-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:1.25rem;
+      align-items:stretch;
+      max-width:1100px;
+      margin:0 auto;
+      padding-left:16px;
+      padding-right:16px;
+    }
+
+    .training-card{
+      position:relative;
+      background:#fff;
+      border-radius:18px;
+      border:1px solid var(--line-2);
+      box-shadow:0 2px 14px rgba(0,0,0,.08);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      transition:transform .25s ease, box-shadow .25s ease;
+      min-width:0;
+    }
+
+    .training-card:hover{
+      transform:translateY(-2px);
+      box-shadow:var(--shadow-lg);
+    }
+
+    .course-card__media{
+      position:relative;
+      border-radius:18px 18px 0 0;
+      overflow:hidden;
+      aspect-ratio:16/10;
+    }
+
+    .course-card__media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:50% 45%;
+      display:block;
+      pointer-events:none;
+    }
+
+    .course-banner{
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      z-index:4;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      background:rgba(15,23,42,.92);
+      color:#fff;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+      line-height:1.2;
+      pointer-events:none;
+      backdrop-filter:saturate(110%) blur(6px);
+    }
+
+    .course-banner::before{
+      content:"";
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 0 3px rgba(247,124,55,.24);
+      flex:0 0 auto;
+    }
+
+    .course-banner--ungdom{ background:rgba(29,43,67,.92); }
+    .course-banner--lett{ background:rgba(31,74,135,.92); }
+    .course-banner--tett{ background:rgba(15,23,42,.92); }
+
+    .ribbon-diagonal{
+      display:none;
+    }
+
+    .info-panel{
+      display:flex;
+      flex-wrap:wrap;
+      gap:1rem;
+      align-items:flex-start;
+      background:#f9fafb;
+      border-top:2px solid #f77c37;
+      border-radius:0 0 18px 18px;
+      padding:1rem 1.25rem;
+      color:#24344d;
+      font-size:.95rem;
+      line-height:1.4;
+      z-index:3;
+    }
+
+    .info-item{
+      display:flex;
+      align-items:center;
+      gap:.6rem;
+      flex:1 1 220px;
+      min-width:180px;
+    }
+
+    .info-item img.icon{
+      width:22px;
+      height:22px;
+      flex-shrink:0;
+      filter:brightness(0) saturate(100%) invert(25%) sepia(80%) saturate(450%) hue-rotate(170deg) brightness(85%);
+    }
+
+    .card-body{
+      padding:1.6rem 1.3rem 1.5rem;
+      position:relative;
+      z-index:5;
+    }
+
+    .card-body h3{
+      color:#24344d;
+      font-size:1.25rem;
+      font-weight:700;
+      margin-bottom:.6rem;
+    }
+
+    .card-body p{
+      color:#24344d;
+      font-size:1rem;
+      margin:.5rem 0;
+      opacity:.9;
+    }
+
+    .card-fit{
+      margin:.75rem 0 0;
+      padding:.8rem .9rem;
+      background:#f9fafb;
+      border:2px solid rgba(36,52,77,.10);
+      border-left:6px solid rgba(247,124,55,.85);
+      border-radius:12px;
+      color:#24344d;
+      line-height:1.45;
+    }
+
+    .info-line{
+      margin-top:1rem;
+      font-size:.95rem;
+      color:#24344d;
+    }
+
+    .card-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.9rem;
+      justify-content:flex-start;
+      margin-top:1.6rem;
+      z-index:10;
+    }
+
+    .btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      text-decoration:none;
+      font-weight:600;
+      border-radius:12px;
+      padding:1rem 1.6rem;
+      transition:all .25s ease;
+      text-align:center;
+      flex:1 1 220px;
+      max-width:none;
+      box-shadow:0 1px 4px rgba(0,0,0,.08);
+    }
+
+    .btn:focus-visible{
+      outline:3px solid #24344d;
+      outline-offset:3px;
+    }
+
+    .btn-primary{
+      background:#f77c37;
+      color:#fff;
+      border:none;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible{
+      background:#e86f2d;
+      box-shadow:0 3px 10px rgba(0,0,0,.15);
+    }
+
+    .btn-link{
+      color:#24344d;
+      font-weight:600;
+      opacity:1;
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff;
+    }
+
+    .btn-link:hover,
+    .btn-link:focus-visible{
+      text-decoration:underline;
+      background:#f3f4f6;
+    }
+
+    .site-footer__social-list{
+      display:flex !important;
+      gap:14px !important;
+      align-items:center !important;
+    }
+
+    .site-footer__social-list .social-link{
+      width:36px !important;
+      height:36px !important;
+      display:inline-flex !important;
+    }
+
+    .site-footer__social-list .social-link img{
+      width:36px !important;
+      height:36px !important;
+      display:block !important;
+      object-fit:contain !important;
+    }
+
+    .myss-legal{
+      text-align:center;
+      color:var(--muted);
+      font-size:.95rem;
+      margin:18px 0 0;
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      .training-card,
+      .btn{
+        transition:none;
+      }
+
+      .training-card:hover{
+        transform:none;
+      }
+    }
+
+    @media (max-width:980px){
+      .container{
+        padding-left:16px;
+        padding-right:16px;
+      }
+
+      main{
+        padding-left:0;
+        padding-right:0;
+      }
+
+      .myss-infobar__grid{
+        grid-template-columns:1fr;
+        gap:10px;
+      }
+
+      .myss-chip,
+      .myss-chip--where,
+      .myss-chip--when,
+      .myss-chip--price,
+      .myss-chip--cta,
+      .myss-chip--wide{
+        grid-column:1 / -1;
+        border-right:none;
+      }
+
+      .myss-chip{
+        border-bottom:1px solid rgba(15,23,42,.08);
+        padding:10px 10px;
+      }
+
+      .myss-chip--wide{
+        border-top:none;
+        margin-top:0;
+        padding-top:10px;
+      }
+
+      .myss-chip:last-child{
+        border-bottom:none;
+      }
+
+      .myss-chip--cta .myss-chip__v{
+        justify-content:flex-start;
+      }
+    }
+
+    @media (max-width:700px){
+      .group-training{
+        padding:0 16px;
+      }
+
+      .group-training__box{
+        padding:18px 16px;
+      }
+
+      .offers-grid{
+        grid-template-columns:1fr;
+      }
+
+      .card-buttons{
+        flex-direction:column;
+        align-items:center;
+      }
+
+      .card-buttons .btn{
+        width:100%;
+        max-width:340px;
+        flex:0 0 auto;
+        border-radius:14px;
+        padding:1.05rem 1.2rem;
+        font-size:1.075rem;
+        box-sizing:border-box;
+        -webkit-tap-highlight-color:transparent;
+      }
+
+      .course-card__media{
+        aspect-ratio:4/3;
+      }
+
+      .course-card__media img{
+        object-position:50% 55%;
+      }
+
+      .course-banner{
+        padding:9px 10px;
+        font-size:.72rem;
+        letter-spacing:.10em;
+      }
+    }
 
     @media (min-width:600px){
       .course-card__media{
@@ -77,13 +701,11 @@
 </head>
 
 <body class="page--index">
-  <!-- FIL: gruppetrening.html -->
   <header data-component="site-header"></header>
 
-  <main data-page="gruppetrening" data-version="1001">
-    <div style="display:none" id="debug-gruppetrening">gruppetrening.html lastet</div>
+  <main>
     <section class="myss-heroimg" aria-label="Bilde">
-      <img src="bilder/hero-large.jpg?v=1001" alt="My Strongest Side" loading="eager" decoding="async">
+      <img src="bilder/hero-large.jpg" alt="My Strongest Side" loading="eager" decoding="async">
     </section>
 
     <section id="treningstilbud" class="section section--light section--offers">
@@ -109,7 +731,103 @@
             </div>
 
             <div class="myss-chip myss-chip--cta">
-@@ -831,350 +833,356 @@
+              <div class="myss-chip__k">&nbsp;</div>
+              <div class="myss-chip__v">
+                <a class="myss-btn myss-btn--primary" href="#grupper">Se grupper</a>
+              </div>
+            </div>
+
+            <div class="myss-chip myss-chip--wide">
+              <div class="myss-chip__k">Grupper</div>
+              <div class="myss-chip__v">
+                <span class="myss-tag">Ungdom</span>
+                <span class="myss-tag">Voksne lett</span>
+                <span class="myss-tag">Voksne tett oppfølging</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="praktisk" class="accordion" aria-label="Innhold i sesongen">
+          <details class="accordion__item">
+            <summary class="accordion__summary">Oppfølging</summary>
+            <div class="accordion__content">
+              <ul>
+                <li>Opplæring og oppfølging via My Strongest Side-systemet, med QR- og NFC-basert veiledning og struktur for trygg gjennomføring</li>
+                <li>Treningsprogram tilgjengelig i app, oppdatert etter hver økt</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__summary">Felles samlinger for alle deltakere</summary>
+            <div class="accordion__content">
+              <ul>
+                <li>Oppstartsseminar 28. februar ved Høgskulen på Vestlandet, med bidrag fra blant annet Einar Steensnæs og Sissel Garnes</li>
+                <li>3. april: Kurs i treningslære. Lokasjon avklares</li>
+                <li>9. mai: Kurs i aktivitetsbalanse, inkludert pizza. Lokasjon avklares</li>
+                <li>Kursene gjennomføres av Alexander Sviggum som del av faglig bidrag som ergoterapeut</li>
+                <li>Psykolog bidrar i tillegg med et kort opplegg med fem gode vaner til deltakerne</li>
+              </ul>
+            </div>
+          </details>
+        </section>
+
+        <section class="group-training" aria-label="Informasjon om gruppetrening">
+          <div class="group-training__box">
+            <h2>Gruppetrening hos My Strongest Side</h2>
+
+            <p>My Strongest Side tilbyr tilrettelagte treningsgrupper i ordinære treningssentre for deg som ønsker å komme i gang med styrketrening, trene sammen med andre og få oppfølging underveis.</p>
+
+            <p>Vi har trening på Trene Sammen Fantoft og Sotra Sportsenter, og tilbudet er bygget opp slik at deltakerne kan få et opplegg som passer best mulig ut fra alder, erfaring og behov for støtte.</p>
+
+            <p>Hos oss er målet å skape et trygt, inkluderende og motiverende treningsmiljø der flere kan oppleve mestring, treningsglede og utvikling i eget tempo.</p>
+
+            <section>
+              <h3>Våre treningsgrupper</h3>
+
+              <h4>Ungdomsgruppen (12-15 år)</h4>
+              <p>For ungdom som ønsker å bli kjent med styrketrening i et trygt og inkluderende miljø. Her har vi fokus på grunnleggende øvelser, trygg bruk av utstyr, mestring og bevegelsesglede.</p>
+
+              <h4>Gruppetrening fra 16 år og oppover</h4>
+              <p>For deg som ønsker å komme i gang med styrketrening eller videreutvikle deg i et inkluderende treningsmiljø. Treningen tilpasses den enkelte, med fokus på teknikk, trygghet, mestring og progresjon.</p>
+
+              <h4>Trening med tett oppfølging fra 16 år</h4>
+              <p>For deg som ønsker mer støtte og veiledning under treningen. Her legger vi til rette for tett oppfølging, struktur og individuelle tilpasninger, slik at du kan trene i ditt eget tempo og oppleve trygghet og mestring.</p>
+            </section>
+
+            <section>
+              <h3>Hva får du som deltaker?</h3>
+
+              <h4>Tæpp og tren™, en del av MY STRONGEST SIDE®</h4>
+              <p>Et tilrettelagt treningssystem som gjør det enklere å bruke apparater og treningsutstyr i treningssenter.</p>
+
+              <h4>Treningsprogram i app</h4>
+              <p>Du får tilgang til treningsprogram som gjør det lettere å følge opp treningen og holde oversikt over egen utvikling.</p>
+
+              <h4>5 gode vaner</h4>
+              <p>Innhold utviklet av psykolog Sissel Garnes, med fokus på motivasjon, mestring og gode strategier for å skape varige treningsvaner.</p>
+
+              <h4>Oppfølging fra ergo- og fysioterapistudenter</h4>
+              <p>Deltakere kan få oppfølging fra ergo- og fysioterapistudenter ved Høgskulen på Vestlandet, i samarbeid med My Strongest Side.</p>
+            </section>
+
+            <section>
+              <h3>Slik foregår en treningsøkt</h3>
+              <p>En typisk treningsøkt kan være bygget opp slik:</p>
+              <ul>
+                <li>15 min oppvarming</li>
+                <li>45 min styrketrening</li>
+                <li>15 min felles avslutning</li>
+              </ul>
+              <p>Opplegget kan variere noe mellom gruppene, men felles for alle er fokus på tilrettelegging, deltakelse og gode opplevelser med trening.</p>
+            </section>
+
+            <section>
+              <h3>Hvem passer tilbudet for?</h3>
+              <p>Tilbudet passer for personer med synsnedsettelse, fysiske funksjonsvariasjoner eller andre som ønsker et tilrettelagt og inkluderende treningstilbud i ordinære treningssentre.</p>
+              <p>Deltakerne kan ha ulik erfaring med trening. Noen ønsker å prøve styrketrening for første gang, mens andre ønsker å utvikle seg videre med støtte og veiledning underveis.</p>
+            </section>
 
             <section>
               <h3>Hvorfor delta?</h3>
@@ -135,18 +853,17 @@
         <div id="grupper" class="offers-grid">
           <article class="training-card" data-gruppe="ungdom" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Ledige plasser" aria-labelledby="kurs-ungdom-tittel">
             <div class="course-card__media">
-              <img src="bilde01.jpg?v=1001" alt="Ungdom trener sammen under veiledning på treningssenter" loading="lazy" decoding="async">
+              <img src="bilde01.jpg" alt="Ungdom trener sammen under veiledning på treningssenter" loading="lazy" decoding="async">
               <div class="course-banner course-banner--ungdom" aria-hidden="true">UNGDOM</div>
             </div>
 
             <div class="info-panel" data-gruppe="ungdom">
               <div class="info-item">
-                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
-                <!-- .date-info overskrives av JavaScript -->
+                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
                 <div class="date-info"><strong>Neste økt:</strong><br>-</div>
               </div>
               <div class="info-item">
-                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
                 <div><strong>Tid:</strong><br>Torsdager 17:00-18:00 · Varighet 1 time</div>
               </div>
             </div>
@@ -156,7 +873,6 @@
               <p>Mestring, glede og fellesskap for 12 til 15 år. Trygg introduksjon til apparater og basisøvelser, ledet av <strong>Alexander</strong> og <strong>Amir</strong> med studenter fra HVL. Tilbudet passer og tilpasses ungdom med funksjonsvariasjoner.</p>
               <p class="card-fit"><strong>Passer for deg som:</strong> ønsker tydelige rammer, mer støtte under økten og faste veiledere.</p>
 
-              <!-- [data-role="price-line"] overskrives av JavaScript -->
               <p class="info-line" data-role="price-line"></p>
 
               <div class="card-buttons" role="group">
@@ -168,17 +884,17 @@
 
           <article class="training-card" data-gruppe="voksne-lett" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="8 ledige plasser" aria-labelledby="kurs-voksne-lett-tittel">
             <div class="course-card__media">
-              <img src="bilder/hero-large.jpg?v=1001" alt="Voksne trener med lett oppfølging i styrkerommet" loading="lazy" decoding="async">
+              <img src="bilder/hero-large.jpg" alt="Voksne trener med lett oppfølging i styrkerommet" loading="lazy" decoding="async">
               <div class="course-banner course-banner--lett" aria-hidden="true">VOKSNE MED ENKLE TILPASNINGER</div>
             </div>
 
             <div class="info-panel" data-gruppe="voksne-lett">
               <div class="info-item">
-                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
                 <div class="date-info"><strong>Neste økt:</strong><br>-</div>
               </div>
               <div class="info-item">
-                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
                 <div><strong>Tid:</strong><br>Torsdager 18:15-19:15 · Varighet 1 time</div>
               </div>
             </div>
@@ -199,17 +915,17 @@
 
           <article class="training-card" data-gruppe="voksne-tett" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Begrensede plasser" aria-labelledby="kurs-voksne-tett-tittel">
             <div class="course-card__media">
-              <img src="bilde02.jpg?v=1001" alt="Deltaker får tett veiledning i styrkerommet" loading="lazy" decoding="async">
+              <img src="bilde02.jpg" alt="Deltaker får tett veiledning i styrkerommet" loading="lazy" decoding="async">
               <div class="course-banner course-banner--tett" aria-hidden="true">VOKSNE SOM ØNSKER TETT OPPFØLGING</div>
             </div>
 
             <div class="info-panel" data-gruppe="voksne-tett">
               <div class="info-item">
-                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
                 <div class="date-info"><strong>Neste økt:</strong><br>-</div>
               </div>
               <div class="info-item">
-                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
                 <div><strong>Tid:</strong><br>Torsdager 17:00-18:00 · Varighet 1 time</div>
               </div>
             </div>
@@ -230,17 +946,17 @@
 
           <article class="training-card" data-gruppe="sotra-ungdom" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Ledige plasser" aria-labelledby="kurs-sotra-ungdom-tittel">
             <div class="course-card__media">
-              <img src="bilde01.jpg?v=1001" alt="Ungdom trener sammen under veiledning på Sotra Sportsenter" loading="lazy" decoding="async">
+              <img src="bilde01.jpg" alt="Ungdom trener sammen under veiledning på Sotra Sportsenter" loading="lazy" decoding="async">
               <div class="course-banner course-banner--ungdom" aria-hidden="true">UNGDOM · SOTRA SPORTSENTER</div>
             </div>
 
             <div class="info-panel" data-gruppe="sotra-ungdom">
               <div class="info-item">
-                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
                 <div class="date-info"><strong>Neste økt:</strong><br>-</div>
               </div>
               <div class="info-item">
-                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
                 <div><strong>Tid:</strong><br>Fredager 17:00-18:00 · Varighet 1 time</div>
               </div>
             </div>
@@ -261,17 +977,17 @@
 
           <article class="training-card" data-gruppe="sotra-voksne-lett" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Ledige plasser" aria-labelledby="kurs-sotra-voksne-lett-tittel">
             <div class="course-card__media">
-              <img src="bilder/hero-large.jpg?v=1001" alt="Voksne trener med enkle tilpasninger på Sotra Sportsenter" loading="lazy" decoding="async">
+              <img src="bilder/hero-large.jpg" alt="Voksne trener med enkle tilpasninger på Sotra Sportsenter" loading="lazy" decoding="async">
               <div class="course-banner course-banner--lett" aria-hidden="true">VOKSNE MED ENKLE TILPASNINGER · SOTRA SPORTSENTER</div>
             </div>
 
             <div class="info-panel" data-gruppe="sotra-voksne-lett">
               <div class="info-item">
-                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
                 <div class="date-info"><strong>Neste økt:</strong><br>-</div>
               </div>
               <div class="info-item">
-                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
                 <div><strong>Tid:</strong><br>Fredager 17:00-18:00 · Varighet 1 time</div>
               </div>
             </div>
@@ -292,17 +1008,17 @@
 
           <article class="training-card" data-gruppe="sotra-voksne-tett" data-price="Prøvetime GRATIS · Sesongpris fra 600 kr" data-spots="Begrensede plasser" aria-labelledby="kurs-sotra-voksne-tett-tittel">
             <div class="course-card__media">
-              <img src="bilde02.jpg?v=1001" alt="Deltaker får tett veiledning på Sotra Sportsenter" loading="lazy" decoding="async">
+              <img src="bilde02.jpg" alt="Deltaker får tett veiledning på Sotra Sportsenter" loading="lazy" decoding="async">
               <div class="course-banner course-banner--tett" aria-hidden="true">VOKSNE SOM ØNSKER TETT OPPFØLGING · SOTRA SPORTSENTER</div>
             </div>
 
             <div class="info-panel" data-gruppe="sotra-voksne-tett">
               <div class="info-item">
-                <img src="icons/calendar.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <img src="icons/calendar.svg" class="icon" alt="" aria-hidden="true">
                 <div class="date-info"><strong>Neste økt:</strong><br>-</div>
               </div>
               <div class="info-item">
-                <img src="icons/clock.svg?v=1001" class="icon" alt="" aria-hidden="true">
+                <img src="icons/clock.svg" class="icon" alt="" aria-hidden="true">
                 <div><strong>Tid:</strong><br>Fredager 18:15-19:15 · Varighet 1 time</div>
               </div>
             </div>
@@ -328,7 +1044,7 @@
   <footer class="site-footer">
     <div class="site-footer__inner container">
       <div class="site-footer__brand">
-        <img src="/bilder/myss-logo-footer.png?v=1001" alt="My Strongest Side" class="site-footer__logo" />
+        <img src="/bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" />
         <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
       </div>
 
@@ -353,17 +1069,16 @@
           <span class="site-footer__social-label">Følg oss i sosiale medier</span>
           <div class="site-footer__social-list">
             <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <img src="/icons/facebook.png?v=1001" alt="" aria-hidden="true">
+              <img src="/icons/facebook.png" alt="" aria-hidden="true">
             </a>
             <a class="social-link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <img src="/icons/instagram.png?v=1001" alt="" aria-hidden="true">
+              <img src="/icons/instagram.png" alt="" aria-hidden="true">
             </a>
           </div>
         </div>
 
         <p class="site-footer__meta">
-          © <!-- #year overskrives av JavaScript -->
-          <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053
+          © <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053
         </p>
       </div>
 
@@ -371,9 +1086,9 @@
     </div>
   </footer>
 
-  <script src="menu.js?v=1001" defer></script>
-  <script src="/components/footer-links.js?v=1001" defer></script>
-  <script src="/assets/consent.js?v=1001" defer></script>
+  <script src="menu.js" defer></script>
+  <script src="/components/footer-links.js?v=114" defer></script>
+  <script src="/assets/consent.js" defer></script>
 
   <script>
     const treninger = [
@@ -414,7 +1129,6 @@
         .toUpperCase();
 
     document.addEventListener('DOMContentLoaded', () => {
-      // Oppdaterer #year fra JavaScript dersom elementet finnes.
       const yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -425,7 +1139,6 @@
         const panel = document.querySelector(`.info-panel[data-gruppe="${gruppe}"]`);
         if (!panel) return;
 
-        // Oppdaterer .date-info fra JavaScript dersom elementet finnes.
         const badge = panel.querySelector('.date-info');
         if (!badge) return;
 
@@ -442,7 +1155,6 @@
       });
 
       document.querySelectorAll('.training-card').forEach(card => {
-        // Oppdaterer [data-role="price-line"] fra JavaScript dersom elementet finnes.
         const line = card.querySelector('[data-role="price-line"]');
         if (!line) return;
 
@@ -466,4 +1178,3 @@
   </script>
 </body>
 </html>
-
