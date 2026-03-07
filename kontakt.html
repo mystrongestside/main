@@ -499,7 +499,11 @@
         <div class="site-footer__contact-lines">
           <div>My Strongest Side AS</div>
           <div>Brages veg 3<br />5221 Nesttun</div>
-          <div><a class="site-footer__link" href="/kontakt.html">Meld interesse eller still spørsmål</a></div>
+          <div>
+            <a class="site-footer__link" href="/kontakt.html">
+              Meld interesse eller still spørsmål
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -529,47 +533,41 @@
         </div>
       </div>
 
-      <p class="site-footer__meta">
-        © <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053
-      </p>
+      <div class="site-footer__meta-wrap">
+        <p class="site-footer__meta">
+          © <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053
+        </p>
+        <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
+      </div>
     </div>
   </div>
 </footer>
 
-<p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
-
-  <script src="menu.js" defer></script>
-  <script src="/components/footer-links.js?v=114" defer></script>
-  <script src="/assets/consent.js" defer></script>
-  <script src="/assets/js/contact-form.js" defer></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const buttons = document.querySelectorAll('[data-message-template]');
-      const messageField = document.getElementById('message');
-
-      buttons.forEach(function (button) {
-        button.addEventListener('click', function () {
-          const text = button.getAttribute('data-message-template') || '';
-          if (!messageField) return;
-
-          if (messageField.value.trim() === '') {
-            messageField.value = text + ' ';
-          } else {
-            messageField.value = text + '\n\n' + messageField.value.trim();
-          }
-
-          messageField.focus();
-        });
-      });
-    });
-  </script>
-
-  <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
-
 <script src="/menu.js?v=113" defer></script>
+<script src="/components/footer-links.js?v=114" defer></script>
+<script src="/assets/consent.js" defer></script>
+<script src="/assets/js/contact-form.js" defer></script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll("[data-message-template]");
+    const messageField = document.getElementById("message");
+
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const text = button.getAttribute("data-message-template") || "";
+        if (!messageField) return;
+
+        if (messageField.value.trim() === "") {
+          messageField.value = text + " ";
+        } else {
+          messageField.value = text + "\n\n" + messageField.value.trim();
+        }
+
+        messageField.focus();
+      });
+    });
+
     var y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
   });
