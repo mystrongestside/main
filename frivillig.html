@@ -399,5 +399,12 @@
 
   <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
   <script src="/assets/consent.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
+  });
+</script>
 </body>
 </html>
