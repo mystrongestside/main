@@ -39,15 +39,16 @@
     ]);
 
     mount("[data-footer-links-info]", "Informasjon", [
-      { label: "Presse og media", href: "/presse.html" },          // hvis du bruker presse.html
+      { label: "Presse og media", href: "/presse.html" },
       { label: "Samarbeid", href: "/samarbeid.html" },
       { label: "Personvern", href: "/personvern.html" },
+      { label: "Salgsvilkår", href: "/salgsvilkar.html" },
       { label: "Cookies", href: "/cookies.html" }
     ]);
 
     mount("[data-footer-links-brand]", "My Strongest Side", [
       { label: "Kontakt", href: "/kontakt.html" },
-      { label: "Teamet", href: "/Individuelloppfølging.html" }             // hvis det er riktig url hos deg
+      { label: "Teamet", href: "/Individuelloppfølging.html" }
     ]);
   };
 
