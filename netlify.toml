@@ -4,6 +4,12 @@
 [build.environment]
   NODE_VERSION = "20"
 
+[[redirects]]
+  from = "/*"
+  to = "/vedlikehold.html"
+  status = 200
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
