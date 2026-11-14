@@ -58,7 +58,7 @@
                 <ul class="site-nav__list">
                   <li><a href="${prefix}gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
                   <li><a href="${prefix}kurs og seminar.html" class="site-nav__link">Kurs og seminar</a></li>
-                  <li><a href="${prefix}treningssystem.html" class="site-nav__link">QR/NFC treningssystem</a></li>
+                  <li><a href="${prefix}treningssystem.html" class="site-nav__link">Tæpp og tren</a></li>
                 </ul>
               </div>
 
@@ -102,7 +102,7 @@
       <nav class="site-header__snarveier" aria-label="Snarveier">
         <a href="${prefix}gruppetrening.html">Gruppetrening på apparat</a>
         <a href="${prefix}kurs og seminar.html">Kurs og seminar</a>
-        <a href="${prefix}treningssystem.html">QR/NFC treningssystem</a>
+        <a href="${prefix}treningssystem.html">Tæpp og tren</a>
         <a href="${prefix}om-oss.html">Om oss</a>
       </nav>
       <a href="${prefix}kontakt.html" class="knapp-rolig knapp-rolig--lav site-header__kontakt">Kontakt oss</a>
@@ -126,7 +126,7 @@
           <ul class="site-nav__list">
             ${navLink2026(prefix, "gruppetrening.html", "Gruppetrening på apparat")}
             ${navLink2026(prefix, "kurs og seminar.html", "Kurs og seminar")}
-            ${navLink2026(prefix, "treningssystem.html", "QR/NFC treningssystem")}
+            ${navLink2026(prefix, "treningssystem.html", "Tæpp og tren")}
           </ul>
         </div>
         <div class="site-nav__column">
