@@ -825,6 +825,11 @@ textarea {
   object-fit: cover;
 }
 
+/* Svart-hvitt bilde */
+.foto--sh img {
+  filter: grayscale(1);
+}
+
 /* Bilde som går helt ut til kanten på mobil */
 .foto--kant {
   margin-inline: calc(-1 * var(--w-gutter));
