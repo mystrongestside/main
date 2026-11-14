@@ -821,6 +821,11 @@ textarea {
   object-position: var(--fokus, 50% 50%);
 }
 
+/* Kvadratisk utsnitt */
+.foto--kvadrat {
+  aspect-ratio: 1 / 1;
+}
+
 /* Svart-hvitt bilde */
 .foto--sh img {
   filter: grayscale(1);
