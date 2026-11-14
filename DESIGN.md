@@ -32,7 +32,7 @@ Mørkt parti er standard. Lyst parti (`.lys`) brukes der det er mye å lese.
 | `--tt-text` | `#FFFFFF` | Titler og knappetekst på mørkt |
 | `--tt-text-soft` | `#E3EDF3` | Brødtekst på mørkt |
 | `--tt-text-muted` | `#C9D9E3` | Hjelpetekst på mørkt |
-| `--tt-accent` | `#F77C37` | Hovedknappen |
+| `--tt-accent` | `#F77C37` | Hovedknappen og trinn-tallene |
 | `--tt-on-accent` | `#0B1F2C` | Tekst og pil på oransje, tekst i skjemafelt |
 | `--tt-accent-text` | `#FFB58C` | Overlinjen og små overskrifter i meny og bunnfelt |
 | `--tt-line` | hvit 55 % | Kant på rolige knapper på mørkt |
@@ -51,7 +51,8 @@ Reglene bruker `--c-`variablene (`--c-title`, `--c-text`, `--c-muted`,
 `--c-line`, `--c-ring`, `--c-surface`, `--c-focus`). De peker på mørke eller
 lyse verdier etter hvilket parti innholdet står i.
 
-1. Oransje brukes bare til hovedknappen. Én oransje knapp per side.
+1. Oransje brukes bare til hovedknappen og til trinn-tallene på Tæpp og
+   tren-siden. Én oransje knapp per side. Trinn-tall står bare på mørk bakgrunn.
 2. Hvit tekst står aldri på oransje. Bruk `--tt-on-accent`.
 3. Oransje tekst (`--tt-accent-text`) brukes bare på mørkt.
 4. Ingen nye fargekoder i reglene. Trengs en ny farge, legges den inn som
@@ -74,6 +75,8 @@ Sju størrelser. De tre største vokser med skjermbredden.
 | `--w-type-small` | 15 px | Overlinje, hjelpetekst |
 | `--w-type-micro` | 13 px | Linjen nederst i bunnfeltet |
 
+`--w-type-number` (64 – 88 px) er bare for trinn-tallet (`.trinn`), som i appen.
+
 1. Én stor tittel per side. Venstrestilt.
 2. Overlinjen er kort, i vanlig setningsform, og brukes bare øverst på siden
    og der den gir ny informasjon. Ikke store bokstaver, ikke over hver bolk.
@@ -93,7 +96,8 @@ Mellom bolker: 56 px på mobil og 104 px på PC (`--w-section`).
 4. Flater med farge er bare for ting man kan trykke på.
 5. På PC står tittelen til venstre og innholdet til høyre (`.to-delt`).
 6. Lister med korte punkter skrives som ledd med strek imellom (`.ledd`),
-   ikke som bokser.
+   ikke som bokser. Stikkord uten forklaring står i to spalter (`.punkter`).
+   De skal ikke se ut som knapper.
 
 ## Knapper og lenker
 
@@ -167,7 +171,8 @@ bånd fra appen. Siden skal ikke være mørk hele veien ned.
 
 Underside: topp, mørkt felt med overlinje, tittel og ingress (`.sidetopp`),
 lyst parti med lesestoffet, eventuelt et mørkt felt til slutt med
-hovedknappen, og bunnfelt.
+hovedknappen, og bunnfelt. Hovedknappen står der sidens viktigste handling
+først dukker opp. Andre knapper på siden er rolige.
 
 ## Slik legges en side om
 
@@ -182,4 +187,5 @@ hovedknappen, og bunnfelt.
 
 Sider som ikke er lagt om, ser ut som før.
 
-Lagt om per 14.11.2026: forsiden, Gruppetrening og Kontakt.
+Lagt om per 14.11.2026: forsiden, Gruppetrening, Kontakt, Tæpp og tren,
+Om oss og Teamet.

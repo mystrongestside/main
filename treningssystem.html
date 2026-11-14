@@ -24,342 +24,64 @@
   <meta name="description" content="MySS treningssystem gir apparatveiledning via QR/NFC – med faglig forankring, tydelighet og tilpasning etter behov." />
 
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=112" />
+  <link rel="preload" href="/assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/css/myss-2026.css?v=8" />
 
   <script>document.documentElement.classList.add('js');</script>
-
-  <style>
-    .myss-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
-    .myss-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:.9rem 1.15rem;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:700;
-      line-height:1.1;
-      background:var(--myss-blue);
-      color:#fff;
-      border:2px solid var(--myss-blue);
-      transition:transform .08s ease, filter .2s ease, background .2s ease, color .2s ease;
-    }
-    .myss-btn:hover{ filter:brightness(1.05); transform:translateY(-1px); }
-    .myss-btn:active{ transform:translateY(0); }
-    .myss-btn--outline{
-      background:transparent;
-      color:var(--myss-blue);
-    }
-
-    .myss-hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:2rem;
-      align-items:center;
-    }
-    @media (max-width: 900px){
-      .myss-hero-grid{ grid-template-columns:1fr; }
-    }
-    .myss-hero-photo{
-      width:100%;
-      height:auto;
-      border-radius:24px;
-      aspect-ratio: 4 / 3;
-      object-fit:cover;
-      display:block;
-    }
-
-    .myss-infobox{
-      margin-top:1rem;
-      padding:1.1rem 1.1rem;
-      border-radius:20px;
-      background:rgba(16,82,119,.06);
-      border:1px solid rgba(16,82,119,.16);
-    }
-    .myss-infobox p{ margin:.55rem 0; }
-    .myss-muted{ opacity:.85; }
-
-    .myss-card-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap:1.5rem;
-      margin-top:1.5rem;
-    }
-    .myss-card{
-      padding:1.5rem;
-      border-radius:22px;
-      background:#fff;
-      box-shadow:0 16px 40px rgba(13,39,54,.08);
-      border:1px solid rgba(16,82,119,.08);
-    }
-
-    .myss-steps{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap:1.25rem;
-    }
-    .myss-step{
-      padding:1.2rem;
-      border-radius:18px;
-      background:rgba(16,82,119,.06);
-      border:1px solid rgba(16,82,119,.12);
-    }
-    .myss-step span{
-      display:inline-flex;
-      width:36px;
-      height:36px;
-      border-radius:50%;
-      align-items:center;
-      justify-content:center;
-      background:var(--myss-blue);
-      color:#fff;
-      font-weight:700;
-      margin-bottom:.75rem;
-    }
-
-    /* “Merke”-boks */
-    .myss-mark{
-      display:inline-flex;
-      align-items:center;
-      gap:.55rem;
-      padding:.5rem .85rem;
-      border-radius:999px;
-      border:1px solid rgba(16,82,119,.20);
-      background:rgba(16,82,119,.06);
-      font-weight:700;
-      color:var(--myss-blue);
-      margin-bottom:.75rem;
-    }
-    .myss-mark__dot{
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:var(--myss-orange, #f77c37);
-      box-shadow:0 0 0 4px rgba(247,124,55,.18);
-    }
-
-    /* “Velg behov”-liste (enkel, IP-trygg) */
-    .myss-choice{
-      list-style:none;
-      padding:0;
-      margin:1rem 0 0;
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap:1rem;
-    }
-    .myss-choice li{
-      padding:1.05rem 1.1rem;
-      border-radius:18px;
-      background:rgba(16,82,119,.06);
-      border:1px solid rgba(16,82,119,.12);
-    }
-    .myss-choice strong{ display:block; margin-bottom:.25rem; }
-
-    .gallery-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap:1.25rem;
-      margin-top:1.5rem;
-    }
-    .gallery-grid figure{ margin:0; }
-    .gallery-grid img{
-      width:100%;
-      height:auto;
-      border-radius:18px;
-      display:block;
-      aspect-ratio: 4 / 3;
-      object-fit:cover;
-      box-shadow:0 14px 32px rgba(13,39,54,.12);
-    }
-    .gallery-grid figcaption{
-      margin-top:.6rem;
-      font-size:.95rem;
-      color:#4a4a4a;
-    }
-
-    .js .reveal{
-      opacity:0;
-      transform:translateY(10px);
-      transition:opacity .6s ease, transform .6s ease;
-      will-change:opacity, transform;
-    }
-    .js .reveal.is-visible{
-      opacity:1;
-      transform:none;
-    }
-    .js .reveal.d1{ transition-delay:.05s; }
-    .js .reveal.d2{ transition-delay:.12s; }
-    .js .reveal.d3{ transition-delay:.18s; }
-    .js .reveal.d4{ transition-delay:.24s; }
-
-    /* ===== Tæpp og tren-siden, november 2026 ===== */
-    .taepp-intro{
-      display:grid;
-      grid-template-columns:minmax(0, 1fr) minmax(0, 380px);
-      gap:clamp(1.5rem, 4vw, 3.5rem);
-      align-items:start;
-    }
-    .taepp-intro__img{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius:24px;
-      border:1px solid rgba(16,82,119,.16);
-      background:rgba(16,82,119,.06);
-    }
-    .myss-mark__dot{ flex:none; }
-    .taepp-lead{ font-size:1.1em; line-height:1.5; max-width:34ch; margin:.5rem 0 1rem; }
-
-    .taepp-section{ padding-top:1rem; }
-    .taepp-section h2{ font-size:clamp(28px, 1.6rem + 1vw, 38px); line-height:1.2; margin:0 0 1.25rem; max-width:24ch; }
-    .taepp-section h3{ font-size:1.1em; line-height:1.25; margin:0 0 .35rem; }
-    .taepp-section p{ line-height:1.5; }
-
-    .taepp-chips{
-      display:flex; flex-wrap:wrap; gap:.6rem;
-      list-style:none; margin:0 0 1rem; padding:0;
-    }
-    .taepp-chips li{
-      padding:.45rem .95rem;
-      border-radius:999px;
-      border:1px solid rgba(16,82,119,.35);
-      background:#fff;
-      color:var(--myss-blue);
-      font-weight:700;
-      font-size:.85em;
-      line-height:1.4;
-    }
-
-    .taepp-steps{
-      display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:1.25rem;
-      list-style:none; margin:0; padding:0;
-      counter-reset:taepp;
-    }
-    .taepp-steps li{
-      counter-increment:taepp;
-      border-top:6px solid var(--myss-orange);
-      padding-top:.75rem;
-    }
-    .taepp-steps li::before{
-      content:counter(taepp);
-      display:block;
-      font-size:clamp(56px, 3rem + 3vw, 88px);
-      font-weight:800;
-      line-height:1;
-      color:var(--myss-blue);
-      margin-bottom:.5rem;
-    }
-    .taepp-steps p{ margin:0; }
-
-    .taepp-tiles{
-      display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:1rem;
-      list-style:none; margin:0; padding:0;
-    }
-    .taepp-tiles li{
-      background:rgba(16,82,119,.06);
-      border:1px solid rgba(16,82,119,.16);
-      border-radius:20px;
-      padding:1.1rem 1.15rem;
-    }
-    .taepp-tiles p{ margin:0; font-size:.9em; }
-
-    .taepp-note{ max-width:60ch; margin:0; }
-
-    .taepp-panel{
-      background:var(--myss-blue);
-      color:#fff;
-      border-radius:24px;
-      padding:clamp(1.5rem, 4vw, 3rem);
-    }
-    .taepp-panel .eyebrow{ color:#ffb58c; }
-    .taepp-panel h2{ color:#fff; }
-    .taepp-panel p{ max-width:60ch; }
-    .taepp-check{ list-style:none; margin:0 0 1rem; padding:0; line-height:1.6; }
-    .taepp-check li{ padding-left:1.6em; position:relative; font-weight:700; }
-    .taepp-check li::before{
-      content:"";
-      position:absolute; left:.2em; top:.45em;
-      width:.5em; height:.85em;
-      border:solid #ffb58c; border-width:0 3px 3px 0;
-      transform:rotate(45deg) translateY(-.2em);
-    }
-    .taepp-panel .myss-btn{ background:var(--myss-orange); border-color:var(--myss-orange); color:var(--myss-ink); }
-    .taepp-panel .myss-btn--outline{ background:transparent; border-color:rgba(255,255,255,.7); color:#fff; }
-    .taepp-panel a:focus-visible{ outline:3px solid #fff; outline-offset:3px; }
-    .page-treningssystem main a:focus-visible{ outline:3px solid var(--myss-ink); outline-offset:3px; }
-
-    @media (max-width: 1000px){
-      .taepp-tiles{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 900px){
-      .taepp-intro{ grid-template-columns:1fr; }
-      .taepp-intro__img{ max-width:380px; }
-    }
-    @media (max-width: 700px){
-      .taepp-steps, .taepp-tiles{ grid-template-columns:1fr; }
-      .taepp-steps li{ display:grid; grid-template-columns:auto 1fr; column-gap:1rem; align-items:start; }
-      .taepp-steps li::before{ grid-row:1 / span 2; margin:0; }
-    }
-    @media (prefers-reduced-motion: reduce){
-      .js .reveal{ opacity:1; transform:none; transition:none; }
-    }
-  </style>
   <link rel="stylesheet" href="/assets/consent.css">
 </head>
 
-<body class="page-treningssystem">
-
+<body class="page-treningssystem design-2026">
+  <a class="skip-link" href="#main-content">Hopp til hovedinnhold</a>
   <header data-component="site-header"></header>
 
-  <main>
-
-    <section class="section section--light">
-      <div class="container taepp-intro">
-        <div>
-          <p class="eyebrow reveal d1">My Strongest Side®-treningssystemet</p>
-          <h1 class="reveal d2">Tæpp og tren™</h1>
-
-          <div class="myss-mark reveal d2">
-            <span class="myss-mark__dot" aria-hidden="true"></span>
-            Pilotering fra januar 2027 · begrenset omfang
-          </div>
-
-          <p class="taepp-lead reveal d3">
+  <main id="main-content">
+    <section class="sidetopp sidetopp--bilde moerk">
+      <div class="ramme sidetopp__inn">
+        <div class="sidetopp__tekst">
+          <p class="overlinje">My Strongest Side®-treningssystemet</p>
+          <h1 class="hero-tittel">Tæpp og tren™</h1>
+          <p class="ingress">
             Tæpp mobilen på merket på apparatet, og få veiledning steg for steg mens du står ved apparatet.
           </p>
-
-          <ul class="taepp-chips reveal d3" aria-label="Kort om Tæpp og tren">
+          <ul class="sidetopp__fakta" aria-label="Kort om Tæpp og tren">
+            <li>Pilotering fra januar 2027 · begrenset omfang</li>
             <li>Gratis tjeneste</li>
-            <li>Tilpasset ulike behov</li>
             <li>Første apparat: beinpress</li>
           </ul>
-
-          <div class="myss-actions reveal d4">
-            <a class="myss-btn" href="kontakt.html">Kontakt oss</a>
-            <a class="myss-btn myss-btn--outline" href="#slik-virker-det">Slik virker det</a>
+          <div class="handling">
+            <a class="knapp-rolig" href="#slik-virker-det">Slik virker det</a>
           </div>
         </div>
-
-        <img
-          class="taepp-intro__img reveal d2"
-          src="bilder/taepp-og-tren.png"
-          alt=""
-          width="1448"
-          height="1904"
-          decoding="async"
-        />
+        <figure class="scene foto--kant">
+        <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Tegning av Tæpp og tren-skiltet for beinpress, festet på apparatet. Nederst på skiltet står det: Hold mobilen her.">
+          <defs><clipPath id="skiltform"><rect x="290" y="232" width="440" height="536" rx="30" /></clipPath></defs>
+          <g class="scene__del-strek">
+            <path d="M56 440 L176 772" />
+            <path d="M150 850 H300" />
+            <path d="M0 962 H800" />
+          </g>
+          <rect class="scene__del" x="250" y="72" width="520" height="980" rx="36" />
+          <g class="scene__flate">
+            <rect x="300" y="812" width="420" height="26" rx="8" /><rect x="300" y="848" width="420" height="26" rx="8" /><rect x="300" y="884" width="420" height="26" rx="8" /><rect x="300" y="920" width="420" height="26" rx="8" /><rect x="300" y="956" width="420" height="26" rx="8" />
+            <rect x="505" y="150" width="10" height="670" /><circle cx="510" cy="150" r="38" />
+          </g>
+          <circle class="scene__del" cx="510" cy="150" r="11" />
+          <circle class="scene__lys" cx="328" cy="897" r="9" />
+          <g clip-path="url(#skiltform)"><svg x="290" y="232" width="440" height="536" viewBox="25 122 1387 1690" preserveAspectRatio="none"><image href="/bilder/taepp-skilt-900.png" width="1448" height="1904" /></svg></g>
+          <rect class="scene__kant" x="290" y="232" width="440" height="536" rx="30" />
+        </svg>
+      </figure>
       </div>
     </section>
 
-    <section class="section section--light taepp-section" id="slik-virker-det" aria-labelledby="slik-title">
-      <div class="container">
-        <p class="eyebrow reveal d1">Slik virker det</p>
-        <h2 class="reveal d2" id="slik-title">Tre steg fra tæpp til trening</h2>
-
-        <ol class="taepp-steps reveal d3">
+    <section class="bolk moerk" id="slik-virker-det" aria-labelledby="slik-title">
+      <div class="ramme to-delt">
+        <div class="bolk__hode">
+          <p class="overlinje">Slik virker det</p>
+          <h2 class="tittel" id="slik-title">Tre steg fra tæpp til trening</h2>
+        </div>
+        <ol class="trinn">
           <li>
             <h3>Tæpp</h3>
             <p>Hold mobilen mot merket som sitter på apparatet.</p>
@@ -376,175 +98,121 @@
       </div>
     </section>
 
-    <section class="section section--light taepp-section" aria-labelledby="tilpasset-title">
-      <div class="container">
-        <p class="eyebrow reveal d1">Tilpasset deg</p>
-        <h2 class="reveal d2" id="tilpasset-title">Veiledning som passer måten du trener på</h2>
+    <div class="lys">
+      <section class="bolk" aria-labelledby="tilpasset-title">
+        <div class="ramme to-delt">
+          <h2 class="tittel" id="tilpasset-title">Veiledning som passer måten du trener på</h2>
+          <ul class="ledd-liste">
+            <li class="ledd">
+              <h3>Fra rullestol</h3>
+              <p>Egen veiledning for forflytning fra rullestol til beinpress.</p>
+            </li>
+            <li class="ledd">
+              <h3>Tren én side</h3>
+              <p>Egen veiledning når du trener med ett bein.</p>
+            </li>
+            <li class="ledd">
+              <h3>Treningsutstyr</h3>
+              <p>Kan lånes gratis. Veiledningen viser hva du kan hente i resepsjonen.</p>
+            </li>
+            <li class="ledd">
+              <h3>Noe som er vanskelig?</h3>
+              <p>Velg hva som er vanskelig, og få forslag til tilpasning.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-        <ul class="taepp-tiles reveal d3">
-          <li>
-            <h3>Fra rullestol</h3>
-            <p>Egen veiledning for forflytning fra rullestol til beinpress.</p>
-          </li>
-          <li>
-            <h3>Tren én side</h3>
-            <p>Egen veiledning når du trener med ett bein.</p>
-          </li>
-          <li>
-            <h3>Treningsutstyr</h3>
-            <p>Kan lånes gratis. Veiledningen viser hva du kan hente i resepsjonen.</p>
-          </li>
-          <li>
-            <h3>Noe som er vanskelig?</h3>
-            <p>Velg hva som er vanskelig, og få forslag til tilpasning.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
+      <section class="bolk bolk--tett" aria-labelledby="visning-title">
+        <div class="ramme to-delt">
+          <h2 class="tittel" id="visning-title">Du velger hvordan skjermen skal se ut</h2>
+          <div class="innhold">
+            <ul class="punkter">
+              <li>Les opp</li>
+              <li>Høy kontrast</li>
+              <li>Større tekst</li>
+              <li>Tydeligere knapper</li>
+              <li>Dysleksivennlig skrift</li>
+              <li>Tekstavstand</li>
+            </ul>
+            <p class="lesetekst">
+              Ett steg om gangen. Ikke tidspress. Ingen lydeffekter.
+              Stoppknappen står alltid nederst, og du kan stoppe når som helst.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
 
-    <section class="section section--light taepp-section" aria-labelledby="visning-title">
-      <div class="container">
-        <p class="eyebrow reveal d1">Visning og støtte</p>
-        <h2 class="reveal d2" id="visning-title">Du velger hvordan skjermen skal se ut</h2>
-
-        <ul class="taepp-chips reveal d3">
-          <li>Les opp</li>
-          <li>Høy kontrast</li>
-          <li>Større tekst</li>
-          <li>Tydeligere knapper</li>
-          <li>Dysleksivennlig skrift</li>
-          <li>Tekstavstand</li>
-        </ul>
-
-        <p class="taepp-note reveal d3">
-          Ett steg om gangen. Ikke tidspress. Ingen lydeffekter.
-          Stoppknappen står alltid nederst, og du kan stoppe når som helst.
-        </p>
-      </div>
-    </section>
-
-    <section class="section section--light taepp-section" aria-labelledby="sentre-title">
-      <div class="container">
-        <div class="taepp-panel reveal d2">
-          <p class="eyebrow">For treningssentre</p>
-          <h2 id="sentre-title">My Strongest Side-godkjente sentre</h2>
-          <ul class="taepp-check">
+    <section class="bolk moerk" aria-labelledby="sentre-title">
+      <div class="ramme to-delt">
+        <div class="bolk__hode">
+          <p class="overlinje">For treningssentre</p>
+          <h2 class="tittel" id="sentre-title">My Strongest Side-godkjente sentre</h2>
+        </div>
+        <div class="innhold">
+          <ul class="punkter punkter--en">
             <li>Universell utforming</li>
             <li>Tydelig merking av utvalgte apparater</li>
             <li>Trygg oppfølging og tilrettelegging</li>
           </ul>
-          <p>
+          <p class="lesetekst">
             Løsningen bygger blant annet på metodeboken til <strong>NorCP</strong>,
             Norsk kvalitets- og oppfølgingsregister for cerebral parese.
             Tæpp og tren gir ingen helsefaglig vurdering.
           </p>
-          <div class="myss-actions">
-            <a class="myss-btn" href="kontakt.html">Kontakt oss</a>
-            <a class="myss-btn myss-btn--outline" href="gruppetrening.html">Se gruppetilbud</a>
+          <div class="handling">
+            <a class="knapp-hoved" href="kontakt.html">Kontakt oss <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="knapp-rolig" href="gruppetrening.html">Se gruppetilbud</a>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">
-  <div class="site-footer__inner container">
-    <div class="site-footer__brand">
-      <img
-        src="/bilder/myss-logo-footer.png"
-        alt="My Strongest Side"
-        class="site-footer__logo"
-      />
-      <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
-    </div>
-
-    <div class="site-footer__top">
-      <div data-footer-links-services></div>
-      <div data-footer-links-info></div>
-      <div data-footer-links-brand></div>
-
-      <div class="site-footer__contact">
-        <h3 class="site-footer__title">Kontakt</h3>
-        <div class="site-footer__contact-lines">
-          <div>My Strongest Side AS</div>
-          <div>Brages veg 3<br />5221 Nesttun</div>
-          <div><a class="site-footer__link" href="/kontakt.html">Meld interesse eller still spørsmål</a></div>
+    <div class="ramme">
+      <div class="site-footer__oppe">
+        <div class="site-footer__brand">
+          <img src="/bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" width="900" height="270" loading="lazy" />
+          <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
         </div>
-      </div>
-    </div>
 
-    <div class="site-footer__bottom">
-      <div class="site-footer__social">
-        <span class="site-footer__social-label">Følg oss i sosiale medier</span>
-        <div class="site-footer__social-list">
-          <a
-            class="social-link"
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >
-            <img src="/icons/facebook.png" alt="" aria-hidden="true" />
-          </a>
-          <a
-            class="social-link"
-            href="https://www.instagram.com/mystrongestside/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <img src="/icons/instagram.png" alt="" aria-hidden="true" />
-          </a>
+        <div class="site-footer__top">
+          <div data-footer-links-services></div>
+          <div data-footer-links-info></div>
+          <div data-footer-links-brand></div>
+
+          <div class="site-footer__contact">
+            <h3 class="site-footer__title">Kontakt</h3>
+            <div class="site-footer__contact-lines">
+              <div>My Strongest Side AS</div>
+              <div>Brages veg 3<br />5221 Nesttun</div>
+              <div><a class="site-footer__link" href="/kontakt.html">Meld interesse eller still spørsmål</a></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <p class="site-footer__meta">
-        © <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053
-      </p>
+      <div class="site-footer__bottom">
+        <div class="site-footer__social">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="site-footer__link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a class="site-footer__link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+
+        <div class="site-footer__meta-wrap">
+          <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+          <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<p class="myss-legal">My Strongest Side® er et registrert varemerke.</p><script src="menu.js" defer></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const els = Array.from(document.querySelectorAll('.reveal'));
-
-      if (!('IntersectionObserver' in window)) {
-        els.forEach(el => el.classList.add('is-visible'));
-        return;
-      }
-
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-
-      els.forEach(el => io.observe(el));
-    });
-  </script>
-  <script src="/components/footer-links.js?v=114" defer></script>
-<style>
-  .site-footer__social-list { display:flex !important; gap:14px !important; align-items:center !important; }
-  .site-footer__social-list .social-link { width:36px !important; height:36px !important; display:inline-flex !important; }
-  .site-footer__social-list .social-link img { width:36px !important; height:36px !important; display:block !important; object-fit:contain !important; }
-</style>
-
-  <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
+  <script src="/menu.js?v=115" defer></script>
+  <script src="/components/footer-links.js?v=115" defer></script>
   <script src="/assets/consent.js" defer></script>
-
-<script src="/menu.js?v=113" defer></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var y = document.getElementById("year");
-    if (y) y.textContent = new Date().getFullYear();
-  });
-</script>
 </body>
 </html>
