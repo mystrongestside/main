@@ -1620,7 +1620,7 @@ textarea {
 }
 
 .person .foto {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
 }
 
 .person__tekst {
