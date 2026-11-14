@@ -25,8 +25,8 @@ felt. Resten skal være rolig.
 ## Farger
 
 Mørkt parti er standard. Lyst parti (`.lys`) brukes der det er mye å lese.
-To fargefelt gir farge der innholdet har en grunn til det: oransje felt
-(`.oransje`) og ferskenfelt (`.fersken`). Se «Fargefelt» under.
+Ett fargefelt gir farge der innholdet har en grunn til det: det oransje
+feltet (`.oransje`). Se «Fargefelt» under.
 
 | Variabel | Verdi | Brukes til |
 |---|---|---|
@@ -66,22 +66,23 @@ lyse verdier etter hvilket parti innholdet står i.
 
 ### Fargefelt
 
+Nettsiden bruker merkets to farger, marineblå og oransje, pluss lyst der
+man leser. Det er de samme fargene som i logoen og på skiltet.
+
 | Felt | Bakgrunn | Brukes til |
 |---|---|---|
 | `.oransje` | `--tt-accent` `#F77C37` | Når vi trener: ukedagene på forsiden. Tekst i `--tt-on-accent` (6,3). |
-| `.fersken` | `--w-peach` `#FFB58C` | Kort felt bak portrettet, på forsiden og Teamet. Tittel `--w-ink` (9,1), tekst `--w-ink-soft` (7,4). |
 
-1. Høyst ett oransje og ett fersken felt per side. De står aldri inntil
-   hverandre.
-2. Hovedknappen står aldri i et oransje eller fersken felt. Den står på
-   marineblått eller lyst.
+1. Høyst ett oransje felt per side.
+2. Hovedknappen står aldri i det oransje feltet. Den står på marineblått
+   eller lyst.
 3. Skjema og lange lesestykker står på lyst, ikke i fargefelt.
-4. Feltene møtes kant i kant, uten strek, skygge eller overgang. Portrettet
-   kan stikke 64 px opp over kanten til feltet over (`--w-lift`), bare på PC.
-5. Lys blå og andre nye farger brukes ikke som bakgrunn på bolker. Undersidene
-   åpner i marineblått.
+4. Feltene møtes kant i kant, uten strek, skygge eller overgang.
+5. Fersken, lys blå og andre nye farger brukes ikke som bakgrunn på bolker.
+   Fersken (`--tt-accent-text`) er bare for liten tekst på marineblått.
+   Undersidene åpner i marineblått.
 6. Hvert felt setter `--c-`variablene, så tekst, lenker, streker og fokusring
-   følger feltet de står i. Fokusringen i fargefelt er `--w-ink`.
+   følger feltet de står i. Fokusringen i det oransje feltet er `--w-ink`.
 
 ## Skrift
 
@@ -174,6 +175,29 @@ medier står som tekstlenker. Et ikon står aldri alene uten tekst.
 4. Bilder som bare er stemning, har tom `alt`. Bilder som viser noe leseren
    trenger, har en kort beskrivelse uten navn på personer.
 
+### Tæpp og tren som produkt
+
+Tæpp og tren vises med `.produkt`: det ekte skiltet og to ekte skjermbilder
+av appen. Ingen tegnede apparater, og ingen skygger, fargeoverganger eller
+skråstilte mobiler.
+
+1. Skiltet står øverst til venstre (44 % av bredden), med valgskjermen
+   under. Trinnskjermen med det oransje trinn-tallet står størst, til høyre
+   (51 %). Luften under skiltet er 2,6 % av bredden.
+2. Blokken er skåret rett under trinn-tallet (`aspect-ratio: 100 / 89`) og
+   står nederst i feltet sitt, så mobilene kommer opp av kanten. Har feltet
+   under samme farge, får feltet `.grunnlinje`.
+3. Blokken er lik på forsiden og øverst på Tæpp og tren-siden. På mobil
+   står teksten først og blokken under, også i koden.
+4. Mobilrammen (`.mobil`) er en tynn kant i `--c-ring`, en mørk ramme i
+   `--tt-on-accent` og skjermbildet. Skiltet har den samme kanten.
+5. Figuren har én beskrivelse (`aria-label`), og bildene i den har tom
+   `alt`. Ingenting i figuren kan trykkes.
+6. Filene ligger i `bilder/app/`: skiltet som PNG og skjermbildene som WebP
+   i to bredder med `srcset`. De veier til sammen 79–116 kB per side.
+7. Et nytt skjermbilde må ha trinn-tallet på samme sted (rundt 81 % ned i
+   bildet). Ellers må utsnittet regnes på nytt.
+
 ## Bevegelse
 
 | Variabel | Verdi | Brukes til |
@@ -191,8 +215,8 @@ medier står som tekstlenker. Et ikon står aldri alene uten tekst.
 
 Forsiden: topp, bilde i full bredde med overskrift og hovedknapp på mørk
 bakgrunn, oransje felt med ukedagene, mørkt Tæpp og tren-felt som et bånd
-fra appen, ferskenfelt med portrettet, og så lyse bolker. Siden skal verken
-være mørk eller lys hele veien ned.
+fra appen, og så lyse bolker. Siden skal verken være mørk eller lys hele
+veien ned.
 
 Underside: topp, mørkt felt med overlinje, tittel og ingress (`.sidetopp`),
 lyst parti med lesestoffet, eventuelt et mørkt felt til slutt med
