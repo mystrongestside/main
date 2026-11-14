@@ -41,13 +41,13 @@ Ett fargefelt gir farge der innholdet har en grunn til det: ferskenfeltet
 | `--tt-line` | hvit 55 % | Kant på rolige knapper på mørkt |
 | `--tt-line-soft` | hvit 25 % | Tynne skillestreker på mørkt |
 | `--tt-focus` | `#7CC8FF` | Fokusring på mørkt |
-| `--w-paper` | `#F3F7FA` | Bakgrunn i lyst parti |
+| `--w-paper` | `#FFFFFF` | Bakgrunn i lyst parti. Ren hvit, som logoen og skiltet står på |
 | `--w-ink` | `#08263A` | Titler på lyst |
 | `--w-ink-soft` | `#1D3545` | Brødtekst på lyst |
 | `--w-ink-muted` | `#3F5666` | Hjelpetekst og plassholdertekst på lyst |
 | `--w-ink-line` | marineblå 60 % | Kant på felt, valg og rolige knapper på lyst |
 | `--w-ink-line-soft` | marineblå 20 % | Tynne skillestreker på lyst |
-| `--w-paper-surface` | `#E2EBF1` | Flater man kan trykke på i lyst parti |
+| `--w-paper-surface` | `#EEF2F5` | Flater man kan trykke på i lyst parti |
 | `--w-ink-focus` | `#0B5CAD` | Fokusring på lyst |
 
 Reglene bruker `--c-`variablene (`--c-title`, `--c-text`, `--c-muted`,

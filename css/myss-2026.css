@@ -21,9 +21,9 @@
      tittel #08263A 9,1 · tekst og hjelpetekst #1D3545 7,4
      kant (60 % marineblå) 3,6 · fokus #08263A 9,1
      (#3F5666 gir bare 4,5 og brukes derfor ikke på fersken)
-   Kontrast, lyst parti (bakgrunn #F3F7FA):
-     tittel #08263A 14,4 · tekst #1D3545 11,7 · dempet #3F5666 7,1
-     kant (60 % marineblå) 4,3 · fokus #0B5CAD 6,2
+   Kontrast, lyst parti (bakgrunn #FFFFFF, som logoen og skiltet):
+     tittel #08263A 15,6 · tekst #1D3545 12,7 · dempet #3F5666 7,7
+     kant (60 % marineblå) 4,3 · fokus #0B5CAD 6,7
    ============================================================ */
 
 /* ============================================================
@@ -73,14 +73,14 @@
   --tt-weight-bold: 700;
 
   /* Lyst parti: der det er mye å lese */
-  --w-paper: #F3F7FA;
+  --w-paper: #FFFFFF;
   --w-field: #FFFFFF;
   --w-ink: #08263A;
   --w-ink-soft: #1D3545;
   --w-ink-muted: #3F5666;
   --w-ink-line: rgba(8, 38, 58, 0.6);
   --w-ink-line-soft: rgba(8, 38, 58, 0.2);
-  --w-paper-surface: #E2EBF1;
+  --w-paper-surface: #EEF2F5;
   --w-ink-focus: #0B5CAD;
 
   /* Ferskenfelt: kort felt bak portrettet */
