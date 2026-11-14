@@ -17,6 +17,12 @@
      tittel #FFFFFF 15,6 · tekst #E3EDF3 13,0 · dempet #C9D9E3 10,6
      overlinje #FFB58C 9,2 · kant (55 % hvit) 5,6 · fokus #7CC8FF 8,5
      mørk tekst #0B1F2C på oransje #F77C37 6,6
+   Kontrast, oransje felt (bakgrunn #F77C37):
+     tittel og tekst #0B1F2C 6,3 · kant (75 % marineblå) 4,1 · fokus #08263A 5,8
+   Kontrast, ferskenfelt (bakgrunn #FFB58C):
+     tittel #08263A 9,1 · tekst og hjelpetekst #1D3545 7,4
+     kant (60 % marineblå) 3,6 · fokus #08263A 9,1
+     (#3F5666 gir bare 4,5 og brukes derfor ikke på fersken)
    Kontrast, lyst parti (bakgrunn #F3F7FA):
      tittel #08263A 14,4 · tekst #1D3545 11,7 · dempet #3F5666 7,1
      kant (60 % marineblå) 4,3 · fokus #0B5CAD 6,2
@@ -78,6 +84,14 @@
   --w-ink-line-soft: rgba(8, 38, 58, 0.2);
   --w-paper-surface: #E2EBF1;
   --w-ink-focus: #0B5CAD;
+
+  /* Fargefelt: oransje sier når vi trener, fersken står bak portrettet */
+  --w-peach: #FFB58C;
+  --w-peach-surface: #FFC6A6;
+  --w-ink-line-mid: rgba(8, 38, 58, 0.35);
+  --w-ink-line-strong: rgba(8, 38, 58, 0.75);
+  --w-lift: 64px;
+  --w-rule: 3px;
 
   /* Skrift: sju størrelser. De tre største vokser med skjermen. */
   --w-type-hero: clamp(40px, 22px + 4.6vw, 88px);
@@ -165,9 +179,37 @@
   --c-focus: var(--w-ink-focus);
 }
 
+/* Oransje felt: bare for når vi trener. Aldri hovedknappen her. */
+.oransje {
+  --c-bg: var(--tt-accent);
+  --c-title: var(--tt-on-accent);
+  --c-text: var(--tt-on-accent);
+  --c-muted: var(--tt-on-accent);
+  --c-over: var(--tt-on-accent);
+  --c-line: var(--w-ink-line-mid);
+  --c-ring: var(--w-ink-line-strong);
+  --c-surface: var(--tt-accent-hover);
+  --c-focus: var(--w-ink);
+}
+
+/* Ferskenfelt: kort felt bak portrettet. Aldri hovedknappen eller lange lesestykker her. */
+.fersken {
+  --c-bg: var(--w-peach);
+  --c-title: var(--w-ink);
+  --c-text: var(--w-ink-soft);
+  --c-muted: var(--w-ink-soft);
+  --c-over: var(--w-ink);
+  --c-line: var(--w-ink-line-mid);
+  --c-ring: var(--w-ink-line);
+  --c-surface: var(--w-peach-surface);
+  --c-focus: var(--w-ink);
+}
+
 .moerk,
-.lys {
-  background: var(--c-bg);
+.lys,
+.oransje,
+.fersken {
+  background-color: var(--c-bg);
   color: var(--c-text);
 }
 
@@ -291,6 +333,20 @@ textarea {
   padding-block: var(--w-section);
 }
 
+/* Bildet ligger helt i overkanten av feltet på mobil */
+@media (max-width: 899px) {
+  .bolk--bilde-forst {
+    padding-top: 0;
+  }
+}
+
+/* Bolken under har et bilde som stikker opp hit på PC */
+@media (min-width: 900px) {
+  .bolk--plass-under {
+    padding-bottom: calc(var(--w-section) + var(--w-lift) / 2);
+  }
+}
+
 /* To bolker i samme parti rett etter hverandre: bare én luft imellom */
 .bolk--tett {
   padding-top: 0;
@@ -319,15 +375,29 @@ textarea {
 
 @media (min-width: 900px) {
   .to-delt {
-    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
     gap: var(--w-space-8);
     align-items: start;
+  }
+}
+
+/* Bred skjerm: smalere tittelspalte. Under 1200 px trenger lange ord plassen. */
+@media (min-width: 1200px) {
+  .to-delt {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
   }
 }
 
 /* ============================================================
    4. Skrift
    ============================================================ */
+/* Jevne linjer, så ikke ett ord står alene på siste linje */
+.stor-tittel,
+.tittel,
+.utsagn {
+  text-wrap: balance;
+}
+
 .overlinje {
   font-size: var(--w-type-small);
   font-weight: var(--tt-weight-medium);
@@ -441,7 +511,7 @@ textarea {
   min-width: 260px;
   min-height: var(--tt-tap-primary);
   padding: 0 20px 0 var(--w-space-5);
-  border: 0;
+  border: var(--tt-ring) solid transparent;
   border-radius: var(--tt-radius);
   background: var(--tt-accent);
   color: var(--tt-on-accent);
@@ -501,6 +571,12 @@ textarea {
   text-decoration: underline;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 0.24em;
+}
+
+.pil-lenke:hover,
+.lesetekst a:hover,
+.tekstlenke:hover {
+  text-decoration-thickness: var(--w-rule);
 }
 
 .handling {
@@ -1088,6 +1164,15 @@ textarea {
   }
 }
 
+/* Bildet stikker opp over kanten til bolken over (bare PC) */
+@media (min-width: 900px) {
+  .par--loft > .foto {
+    position: relative;
+    z-index: 1;
+    margin-top: calc(-1 * (var(--w-section) + var(--w-lift)));
+  }
+}
+
 /* Dette tilbyr vi: rader, ikke kort */
 .rader {
   margin: 28px 0 0;
@@ -1643,5 +1728,16 @@ textarea {
 
   .person .foto {
     aspect-ratio: 4 / 5;
+  }
+
+  /* Portrettet stikker opp i ferskenfeltet over */
+  .person--loft .foto {
+    position: relative;
+    z-index: 1;
+    margin-top: calc(-1 * var(--w-lift));
+  }
+
+  .person--loft .person__tekst {
+    padding-top: var(--w-space-8);
   }
 }
