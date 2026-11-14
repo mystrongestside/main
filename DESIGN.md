@@ -74,8 +74,10 @@ lyse verdier etter hvilket parti innholdet står i.
 2. Hovedknappen står aldri i ferskenfeltet. Den står på marineblått eller
    lyst.
 3. Skjema og lange lesestykker står på lyst, ikke i fargefelt.
-4. Feltene møtes kant i kant, uten strek, skygge eller overgang. Portrettet
-   kan stikke 64 px opp over kanten til feltet over (`--w-lift`), bare på PC.
+4. Feltene møtes kant i kant, uten strek, skygge eller overgang. På Teamet
+   stikker portrettet 64 px opp i ferskenfeltet over (`--w-lift`), bare på
+   PC. På forsiden står portrettet helt inne i ferskenfeltet, fordi feltet
+   over har mobilene i underkant.
 5. Oransje, lys blå og andre farger brukes ikke som bakgrunn på bolker.
    Undersidene åpner i marineblått.
 6. Feltet setter `--c-`variablene, så tekst, lenker, streker og fokusring

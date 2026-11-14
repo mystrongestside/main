@@ -1205,15 +1205,6 @@ textarea {
   }
 }
 
-/* Portrettet stikker opp over kanten til bolken over (bare PC) */
-@media (min-width: 900px) {
-  .par--loft > .foto {
-    position: relative;
-    z-index: 1;
-    margin-top: calc(-1 * (var(--w-section) + var(--w-lift)));
-  }
-}
-
 /* Dette tilbyr vi: rader, ikke kort */
 .rader {
   margin: 28px 0 0;
