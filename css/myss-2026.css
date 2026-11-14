@@ -918,8 +918,9 @@ textarea {
   }
 
   .sidetopp__fakta {
-    grid-auto-flow: column;
-    gap: var(--w-space-7);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--w-space-2) var(--w-space-7);
     padding-top: var(--w-space-5);
   }
 }
@@ -1403,6 +1404,11 @@ textarea {
   display: grid;
   gap: var(--w-space-4);
   justify-items: start;
+}
+
+.sidetopp__inn > .foto,
+.sidetopp__inn > .scene {
+  justify-self: stretch;
 }
 
 .sidetopp__merke {
