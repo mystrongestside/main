@@ -141,7 +141,9 @@ medier står som tekstlenker. Et ikon står aldri alene uten tekst.
    over hele bredden.
 2. Legg inn bilder i riktig størrelse. Ingen bildefil over 300 kB på en side.
    Bruk `width` og `height`, og `loading="lazy"` på alt under første skjerm.
-3. Bilder som bare er stemning, har tom `alt`. Bilder som viser noe leseren
+3. Et bilde kan vises i svart-hvitt med `.foto--sh`. Det samme bildet vises
+   likt på alle sider. Portrettet av Alexander er svart-hvitt.
+4. Bilder som bare er stemning, har tom `alt`. Bilder som viser noe leseren
    trenger, har en kort beskrivelse uten navn på personer.
 
 ## Bevegelse
