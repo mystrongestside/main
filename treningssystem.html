@@ -194,6 +194,118 @@
     .js .reveal.d2{ transition-delay:.12s; }
     .js .reveal.d3{ transition-delay:.18s; }
     .js .reveal.d4{ transition-delay:.24s; }
+
+    /* ===== Tæpp og tren-siden, november 2026 ===== */
+    .taepp-intro{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) minmax(0, 380px);
+      gap:clamp(1.5rem, 4vw, 3.5rem);
+      align-items:start;
+    }
+    .taepp-intro__img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:24px;
+      border:1px solid rgba(16,82,119,.16);
+      background:rgba(16,82,119,.06);
+    }
+    .myss-mark__dot{ flex:none; }
+    .taepp-lead{ font-size:1.1em; line-height:1.5; max-width:34ch; margin:.5rem 0 1rem; }
+
+    .taepp-section{ padding-top:1rem; }
+    .taepp-section h2{ font-size:clamp(28px, 1.6rem + 1vw, 38px); line-height:1.2; margin:0 0 1.25rem; max-width:24ch; }
+    .taepp-section h3{ font-size:1.1em; line-height:1.25; margin:0 0 .35rem; }
+    .taepp-section p{ line-height:1.5; }
+
+    .taepp-chips{
+      display:flex; flex-wrap:wrap; gap:.6rem;
+      list-style:none; margin:0 0 1rem; padding:0;
+    }
+    .taepp-chips li{
+      padding:.45rem .95rem;
+      border-radius:999px;
+      border:1px solid rgba(16,82,119,.35);
+      background:#fff;
+      color:var(--myss-blue);
+      font-weight:700;
+      font-size:.85em;
+      line-height:1.4;
+    }
+
+    .taepp-steps{
+      display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:1.25rem;
+      list-style:none; margin:0; padding:0;
+      counter-reset:taepp;
+    }
+    .taepp-steps li{
+      counter-increment:taepp;
+      border-top:6px solid var(--myss-orange);
+      padding-top:.75rem;
+    }
+    .taepp-steps li::before{
+      content:counter(taepp);
+      display:block;
+      font-size:clamp(56px, 3rem + 3vw, 88px);
+      font-weight:800;
+      line-height:1;
+      color:var(--myss-blue);
+      margin-bottom:.5rem;
+    }
+    .taepp-steps p{ margin:0; }
+
+    .taepp-tiles{
+      display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:1rem;
+      list-style:none; margin:0; padding:0;
+    }
+    .taepp-tiles li{
+      background:rgba(16,82,119,.06);
+      border:1px solid rgba(16,82,119,.16);
+      border-radius:20px;
+      padding:1.1rem 1.15rem;
+    }
+    .taepp-tiles p{ margin:0; font-size:.9em; }
+
+    .taepp-note{ max-width:60ch; margin:0; }
+
+    .taepp-panel{
+      background:var(--myss-blue);
+      color:#fff;
+      border-radius:24px;
+      padding:clamp(1.5rem, 4vw, 3rem);
+    }
+    .taepp-panel .eyebrow{ color:#ffb58c; }
+    .taepp-panel h2{ color:#fff; }
+    .taepp-panel p{ max-width:60ch; }
+    .taepp-check{ list-style:none; margin:0 0 1rem; padding:0; line-height:1.6; }
+    .taepp-check li{ padding-left:1.6em; position:relative; font-weight:700; }
+    .taepp-check li::before{
+      content:"";
+      position:absolute; left:.2em; top:.45em;
+      width:.5em; height:.85em;
+      border:solid #ffb58c; border-width:0 3px 3px 0;
+      transform:rotate(45deg) translateY(-.2em);
+    }
+    .taepp-panel .myss-btn{ background:var(--myss-orange); border-color:var(--myss-orange); color:var(--myss-ink); }
+    .taepp-panel .myss-btn--outline{ background:transparent; border-color:rgba(255,255,255,.7); color:#fff; }
+    .taepp-panel a:focus-visible{ outline:3px solid #fff; outline-offset:3px; }
+    .page-treningssystem main a:focus-visible{ outline:3px solid var(--myss-ink); outline-offset:3px; }
+
+    @media (max-width: 1000px){
+      .taepp-tiles{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 900px){
+      .taepp-intro{ grid-template-columns:1fr; }
+      .taepp-intro__img{ max-width:380px; }
+    }
+    @media (max-width: 700px){
+      .taepp-steps, .taepp-tiles{ grid-template-columns:1fr; }
+      .taepp-steps li{ display:grid; grid-template-columns:auto 1fr; column-gap:1rem; align-items:start; }
+      .taepp-steps li::before{ grid-row:1 / span 2; margin:0; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .js .reveal{ opacity:1; transform:none; transition:none; }
+    }
   </style>
   <link rel="stylesheet" href="/assets/consent.css">
 </head>
@@ -204,21 +316,136 @@
 
   <main>
 
-    <!-- HERO -->
     <section class="section section--light">
-      <div class="container myss-hero-grid">
-
+      <div class="container taepp-intro">
         <div>
-  <p class="eyebrow reveal d1">My Strongest Side®-treningssystemet</p>
+          <p class="eyebrow reveal d1">My Strongest Side®-treningssystemet</p>
+          <h1 class="reveal d2">Tæpp og tren™</h1>
 
-  <div class="myss-mark reveal d2">
-    <span class="myss-mark__dot" aria-hidden="true"></span>
-    Pilot fra 1. mars 2026 · begrenset omfang
-  </div>
+          <div class="myss-mark reveal d2">
+            <span class="myss-mark__dot" aria-hidden="true"></span>
+            Pilotering fra januar 2027 · begrenset omfang
+          </div>
 
-  <p class="myss-muted">
-  Løsningen presenteres første gang på seminar 28. februar 2026 og testes i pilot fra 1. mars.
-</p>
+          <p class="taepp-lead reveal d3">
+            Tæpp mobilen på merket på apparatet, og få veiledning steg for steg mens du står ved apparatet.
+          </p>
+
+          <ul class="taepp-chips reveal d3" aria-label="Kort om Tæpp og tren">
+            <li>Gratis tjeneste</li>
+            <li>Tilpasset ulike behov</li>
+            <li>Første apparat: beinpress</li>
+          </ul>
+
+          <div class="myss-actions reveal d4">
+            <a class="myss-btn" href="kontakt.html">Kontakt oss</a>
+            <a class="myss-btn myss-btn--outline" href="#slik-virker-det">Slik virker det</a>
+          </div>
+        </div>
+
+        <img
+          class="taepp-intro__img reveal d2"
+          src="bilder/taepp-og-tren.png"
+          alt=""
+          width="1448"
+          height="1904"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <section class="section section--light taepp-section" id="slik-virker-det" aria-labelledby="slik-title">
+      <div class="container">
+        <p class="eyebrow reveal d1">Slik virker det</p>
+        <h2 class="reveal d2" id="slik-title">Tre steg fra tæpp til trening</h2>
+
+        <ol class="taepp-steps reveal d3">
+          <li>
+            <h3>Tæpp</h3>
+            <p>Hold mobilen mot merket som sitter på apparatet.</p>
+          </li>
+          <li>
+            <h3>Følg stegene</h3>
+            <p>Film og korte tekster viser oppsettet, ett steg om gangen.</p>
+          </li>
+          <li>
+            <h3>Tren</h3>
+            <p>Ett lett oppvarmingssett og tre arbeidssett med pause.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--light taepp-section" aria-labelledby="tilpasset-title">
+      <div class="container">
+        <p class="eyebrow reveal d1">Tilpasset deg</p>
+        <h2 class="reveal d2" id="tilpasset-title">Veiledning som passer måten du trener på</h2>
+
+        <ul class="taepp-tiles reveal d3">
+          <li>
+            <h3>Fra rullestol</h3>
+            <p>Egen veiledning for forflytning fra rullestol til beinpress.</p>
+          </li>
+          <li>
+            <h3>Tren én side</h3>
+            <p>Egen veiledning når du trener med ett bein.</p>
+          </li>
+          <li>
+            <h3>Treningsutstyr</h3>
+            <p>Kan lånes gratis. Veiledningen viser hva du kan hente i resepsjonen.</p>
+          </li>
+          <li>
+            <h3>Noe som er vanskelig?</h3>
+            <p>Velg hva som er vanskelig, og få forslag til tilpasning.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--light taepp-section" aria-labelledby="visning-title">
+      <div class="container">
+        <p class="eyebrow reveal d1">Visning og støtte</p>
+        <h2 class="reveal d2" id="visning-title">Du velger hvordan skjermen skal se ut</h2>
+
+        <ul class="taepp-chips reveal d3">
+          <li>Les opp</li>
+          <li>Høy kontrast</li>
+          <li>Større tekst</li>
+          <li>Tydeligere knapper</li>
+          <li>Dysleksivennlig skrift</li>
+          <li>Tekstavstand</li>
+        </ul>
+
+        <p class="taepp-note reveal d3">
+          Ett steg om gangen. Ikke tidspress. Ingen lydeffekter.
+          Stoppknappen står alltid nederst, og du kan stoppe når som helst.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--light taepp-section" aria-labelledby="sentre-title">
+      <div class="container">
+        <div class="taepp-panel reveal d2">
+          <p class="eyebrow">For treningssentre</p>
+          <h2 id="sentre-title">My Strongest Side-godkjente sentre</h2>
+          <ul class="taepp-check">
+            <li>Universell utforming</li>
+            <li>Tydelig merking av utvalgte apparater</li>
+            <li>Trygg oppfølging og tilrettelegging</li>
+          </ul>
+          <p>
+            Løsningen bygger blant annet på metodeboken til <strong>NorCP</strong>,
+            Norsk kvalitets- og oppfølgingsregister for cerebral parese.
+            Tæpp og tren gir ingen helsefaglig vurdering.
+          </p>
+          <div class="myss-actions">
+            <a class="myss-btn" href="kontakt.html">Kontakt oss</a>
+            <a class="myss-btn myss-btn--outline" href="gruppetrening.html">Se gruppetilbud</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">

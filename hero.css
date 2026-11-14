@@ -15,8 +15,7 @@
   background: linear-gradient(
       rgba(36, 52, 77, 0.85),  /* mørk blå topp */
       rgba(63, 78, 99, 0.85)   /* lysere blå bunn */
-    ),
-    url("bilder/hero-large.jpg") center center / cover no-repeat;
+    );
 }
 
 /* --- HERO-TEKST --- */
