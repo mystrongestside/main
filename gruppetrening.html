@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
@@ -24,533 +24,197 @@
     gtag('config', 'G-LK0WY59R15');
   </script>
 
-  <link rel="stylesheet" href="styles.css" />
-
-  <style>
-    :root{
-      --navy:#0c2d48;
-      --navy-2:#173d5c;
-      --orange:#f28c28;
-
-      --bg:#ffffff;
-      --surface:#f7f7f5;
-      --border:rgba(15,23,42,.10);
-
-      --text:#111827;
-      --muted:#4b5563;
-
-      --radius-xl:28px;
-      --radius-lg:22px;
-      --radius-md:16px;
-      --radius-sm:12px;
-
-      --shadow:0 10px 28px rgba(15,23,42,.06);
-
-      --maxw:1180px;
-      --textw:760px;
-
-      --fs-hero:clamp(2.5rem, 5vw, 4.6rem);
-      --fs-h2:clamp(1.6rem, 2vw, 2rem);
-      --fs-h3:1.125rem;
-      --fs-lead:1.125rem;
-      --fs-body:1rem;
-      --fs-small:.95rem;
-    }
-
-    *{
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body.page--gruppetrening{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      font-size:var(--fs-body);
-      line-height:1.65;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
-
-    img{
-      display:block;
-      max-width:100%;
-    }
-
-    .container{
-      width:min(var(--maxw), calc(100% - 40px));
-      margin:0 auto;
-    }
-
-    .hero-media{
-      padding:20px 0 0;
-    }
-
-    .hero-media__frame{
-      overflow:hidden;
-      border-radius:var(--radius-xl);
-      background:#d8d8d8;
-    }
-
-    .hero-media__frame img{
-      width:100%;
-      aspect-ratio:16 / 6;
-      object-fit:cover;
-      object-position:center 42%;
-    }
-
-    .article{
-      padding:48px 0 72px;
-    }
-
-    .article__header{
-      max-width:var(--textw);
-      margin:0 auto 36px;
-    }
-
-    .article__kicker{
-      margin:0 0 14px;
-      color:var(--navy);
-      font-size:.82rem;
-      font-weight:700;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-
-    .article__header h1{
-      margin:0 0 18px;
-      color:var(--navy);
-      font-size:var(--fs-hero);
-      line-height:1.02;
-      letter-spacing:-.04em;
-      font-weight:800;
-    }
-
-    .article__lead{
-      margin:0 0 14px;
-      color:var(--text);
-      font-size:var(--fs-lead);
-      line-height:1.5;
-      font-weight:500;
-    }
-
-    .article__intro{
-      margin:0;
-      color:var(--muted);
-      font-size:var(--fs-body);
-    }
-
-    .article__meta{
-      max-width:var(--textw);
-      margin:24px auto 0;
-      padding-top:16px;
-      border-top:1px solid var(--border);
-      color:var(--muted);
-      font-size:var(--fs-small);
-    }
-
-    .article__body{
-      max-width:var(--textw);
-      margin:0 auto;
-    }
-
-    .article section{
-      padding:30px 0;
-      border-top:1px solid var(--border);
-    }
-
-    .article section:first-of-type{
-      padding-top:0;
-      border-top:0;
-    }
-
-    .article h2{
-      margin:0 0 14px;
-      color:var(--navy);
-      font-size:var(--fs-h2);
-      line-height:1.12;
-      letter-spacing:-.02em;
-      font-weight:750;
-    }
-
-    .article h3{
-      margin:22px 0 8px;
-      color:var(--navy);
-      font-size:var(--fs-h3);
-      line-height:1.3;
-      font-weight:700;
-    }
-
-    .article p{
-      margin:0 0 14px;
-      color:var(--muted);
-      font-size:var(--fs-body);
-    }
-
-    .article ul{
-      margin:0;
-      padding-left:20px;
-      color:var(--muted);
-    }
-
-    .article li + li{
-      margin-top:8px;
-    }
-
-    .group{
-      padding:18px 0;
-      border-top:1px solid var(--border);
-    }
-
-    .group:first-child{
-      padding-top:0;
-      border-top:0;
-    }
-
-    .group p:last-child{
-      margin-bottom:0;
-    }
-
-    .practical{
-      display:grid;
-      gap:12px;
-      margin-top:8px;
-    }
-
-    .practical__item{
-      padding:18px 20px;
-      border:1px solid var(--border);
-      border-radius:var(--radius-md);
-      background:#fff;
-    }
-
-    .practical__item strong{
-      display:block;
-      margin-bottom:4px;
-      color:var(--navy);
-      font-size:.98rem;
-      font-weight:700;
-    }
-
-    .contact-box{
-      margin-top:10px;
-      padding:24px;
-      border:1px solid var(--border);
-      border-radius:var(--radius-lg);
-      background:var(--surface);
-      box-shadow:var(--shadow);
-    }
-
-    .contact-box p:last-child{
-      margin-bottom:0;
-    }
-
-    .contact-box a{
-      color:var(--navy);
-      text-decoration:none;
-      font-weight:700;
-    }
-
-    .contact-box a:hover{
-      text-decoration:underline;
-    }
-
-    .site-footer{
-      background:var(--navy);
-      color:#dbe7f2;
-    }
-
-    .site-footer__inner{
-      padding:36px 0 24px;
-    }
-
-    .site-footer__top{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-      margin-top:18px;
-    }
-
-    .site-footer__logo{
-      width:180px;
-      height:auto;
-    }
-
-    .site-footer__tagline{
-      margin:10px 0 0;
-      color:#c9d7e6;
-      font-size:.98rem;
-    }
-
-    .site-footer__title{
-      margin:0 0 10px;
-      color:#fff;
-      font-size:1rem;
-      font-weight:700;
-    }
-
-    .site-footer__contact-lines div{
-      margin-bottom:8px;
-      font-size:.98rem;
-    }
-
-    .site-footer__link{
-      color:#fff;
-      text-decoration:none;
-    }
-
-    .site-footer__link:hover{
-      text-decoration:underline;
-    }
-
-    .site-footer__bottom{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-      margin-top:24px;
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.14);
-    }
-
-    .site-footer__social-label{
-      display:block;
-      margin-bottom:8px;
-      font-size:.95rem;
-    }
-
-    .site-footer__social-list{
-      display:flex;
-      gap:12px;
-    }
-
-    .social-link img{
-      width:28px;
-      height:28px;
-    }
-
-    .myss-legal,
-    .site-footer__meta{
-      color:#c9d7e6;
-      font-size:.95rem;
-    }
-
-    .myss-legal{
-      margin:16px 0 0;
-    }
-
-    @media (max-width: 800px){
-      .hero-media__frame img{
-        aspect-ratio:16 / 9;
-      }
-
-      .site-footer__top{
-        grid-template-columns:1fr;
-      }
-
-      .article{
-        padding:38px 0 56px;
-      }
-    }
-  </style>
+  <link rel="preload" href="/assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/css/myss-2026.css?v=1" />
 </head>
-<body class="page--gruppetrening">
+
+<body class="page--gruppetrening design-2026">
+  <a class="skip-link" href="#main-content">Hopp til hovedinnhold</a>
   <header data-component="site-header"></header>
 
-  <main>
+  <main id="main-content">
     <article class="article">
-      <div class="container">
-        <header class="article__header">
-          <p class="article__kicker">Gruppetrening</p>
-          <h1>Styrketrening med tilpasning og oppfølging</h1>
-          <p class="article__lead">
+      <header class="sidetopp moerk">
+        <div class="ramme sidetopp__inn">
+          <p class="overlinje">Gruppetrening</p>
+          <h1 class="stor-tittel">Styrketrening med tilpasning og oppfølging</h1>
+          <p class="ingress">
             Har du nedsatt funksjonsevne og ønsker å trene i et ordinært treningssenter med lettere tilpasninger eller tett veiledning?
           </p>
-          <p class="article__intro">
+          <p class="lesetekst">
             Gruppetrening for deg som vil komme i gang med styrketrening, eller som ønsker mer støtte underveis.
           </p>
-          <div class="article__meta">
-            Trening hver uke · Onsdager på Sotra Sportsenter · Fredager på Trene Sammen Fantoft
+          <ul class="sidetopp__fakta">
+            <li>Trening hver uke</li>
+            <li>Onsdager på Sotra Sportsenter</li>
+            <li>Fredager på Trene Sammen Fantoft</li>
+          </ul>
+        </div>
+      </header>
+
+      <div class="lys">
+        <section class="bolk">
+          <div class="ramme to-delt">
+            <h2 class="tittel">Hvem passer tilbudet for?</h2>
+            <div class="lesetekst">
+              <ul>
+                <li>Du ønsker lettere tilpasninger</li>
+                <li>Du ønsker tett veiledning</li>
+                <li>Du vil komme i gang i ditt eget tempo</li>
+                <li>Du ønsker et oversiktlig og inkluderende miljø</li>
+              </ul>
+            </div>
           </div>
-        </header>
+        </section>
 
-        <div class="article__body">
-          <section>
-            <h2>Hvem passer tilbudet for?</h2>
-            <ul>
-              <li>Du ønsker lettere tilpasninger</li>
-              <li>Du ønsker tett veiledning</li>
-              <li>Du vil komme i gang i ditt eget tempo</li>
-              <li>Du ønsker et oversiktlig og inkluderende miljø</li>
-            </ul>
-          </section>
+        <section class="bolk bolk--tett">
+          <div class="ramme to-delt">
+            <h2 class="tittel">Våre treningsgrupper</h2>
+            <div class="ledd-liste">
+              <div class="ledd">
+                <h3>Ungdomsgruppe 12 til 15 år</h3>
+                <p>
+                  En trygg introduksjon til styrketrening, med grunnleggende øvelser og trygg bruk av utstyr.
+                </p>
+              </div>
 
-          <section>
-            <h2>Våre treningsgrupper</h2>
+              <div class="ledd">
+                <h3>Gruppetrening fra 16 år og oppover</h3>
+                <p>
+                  For deg som klarer mye selv, men har nytte av tydelige rammer og oppfølging.
+                </p>
+              </div>
 
-            <div class="group">
-              <h3>Ungdomsgruppe 12 til 15 år</h3>
+              <div class="ledd">
+                <h3>Trening med tett oppfølging fra 16 år</h3>
+                <p>
+                  For deg som trenger tettere veiledning, mer struktur og mer hjelp til gjennomføring.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bolk bolk--tett">
+          <div class="ramme to-delt">
+            <h2 class="tittel">Hva får du som deltaker?</h2>
+            <div class="ledd-liste">
+              <div class="ledd">
+                <h3>Tæpp og tren™, en del av MY STRONGEST SIDE®</h3>
+                <p>
+                  Veiledning rett på apparatet. Pilotering fra januar 2027.
+                </p>
+              </div>
+
+              <div class="ledd">
+                <h3>Treningsprogram i app</h3>
+                <p>
+                  Følg treningen og se egen utvikling.
+                </p>
+              </div>
+
+              <div class="ledd">
+                <h3>5 gode vaner</h3>
+                <p>
+                  Utviklet av psykolog Sissel Garnes, om motivasjon, mestring og varige treningsvaner.
+                </p>
+              </div>
+
+              <div class="ledd">
+                <h3>Oppfølging fra ergo- og fysioterapistudenter</h3>
+                <p>
+                  Fra studenter ved Høgskulen på Vestlandet.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bolk bolk--tett">
+          <div class="ramme to-delt">
+            <h2 class="tittel">Slik foregår treningen</h2>
+            <div class="lesetekst">
               <p>
-                En trygg introduksjon til styrketrening, med grunnleggende øvelser og trygg bruk av utstyr.
+                En typisk økt: 15 minutter oppvarming, 45 minutter styrketrening og 15 minutter felles avslutning. Opplegget kan variere noe mellom gruppene.
               </p>
             </div>
+          </div>
+        </section>
 
-            <div class="group">
-              <h3>Gruppetrening fra 16 år og oppover</h3>
-              <p>
-                For deg som klarer mye selv, men har nytte av tydelige rammer og oppfølging.
-              </p>
-            </div>
-
-            <div class="group">
-              <h3>Trening med tett oppfølging fra 16 år</h3>
-              <p>
-                For deg som trenger tettere veiledning, mer struktur og mer hjelp til gjennomføring.
-              </p>
-            </div>
-          </section>
-
-          <section>
-            <h2>Hva får du som deltaker?</h2>
-            <h3>Tæpp og tren™, en del av MY STRONGEST SIDE®</h3>
-            <p>
-              Veiledning rett på apparatet. Pilotering fra januar 2027.
-            </p>
-
-            <h3>Treningsprogram i app</h3>
-            <p>
-              Følg treningen og se egen utvikling.
-            </p>
-
-            <h3>5 gode vaner</h3>
-            <p>
-              Utviklet av psykolog Sissel Garnes, om motivasjon, mestring og varige treningsvaner.
-            </p>
-
-            <h3>Oppfølging fra ergo- og fysioterapistudenter</h3>
-            <p>
-              Fra studenter ved Høgskulen på Vestlandet.
-            </p>
-          </section>
-
-          <section>
-            <h2>Slik foregår treningen</h2>
-            <p>
-              En typisk økt: 15 minutter oppvarming, 45 minutter styrketrening og 15 minutter felles avslutning. Opplegget kan variere noe mellom gruppene.
-            </p>
-          </section>
-
-          <section>
-            <h2>Praktisk informasjon</h2>
-            <div class="practical">
-              <div class="practical__item">
+        <section class="bolk bolk--tett">
+          <div class="ramme to-delt">
+            <h2 class="tittel">Praktisk informasjon</h2>
+            <div class="ledd-liste">
+              <div class="ledd">
                 <strong>Når og hvor trener vi?</strong>
                 Hver uke: onsdager på Sotra Sportsenter og fredager på Trene Sammen Fantoft. Ta kontakt for klokkeslett.
               </div>
 
-              <div class="practical__item">
+              <div class="ledd">
                 <strong>Usikker på hvilken gruppe som passer?</strong>
                 Ta kontakt, så finner vi en gruppe som passer.
               </div>
             </div>
-          </section>
-
-          <section>
-            <h2>Kontakt</h2>
-            <div class="contact-box">
-              <p>
-                Ønsker du å delta, kan du ta kontakt med <strong>Alexander Sviggum</strong>.
-              </p>
-              <p>
-                <a class="btn-myss btn-myss--ghost" href="/kontakt.html">Meld interesse eller still spørsmål</a>
-              </p>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
+
+      <section class="bolk moerk">
+        <div class="ramme to-delt">
+          <h2 class="tittel">Kontakt</h2>
+          <div class="avslutning">
+            <p class="ingress">
+              Ønsker du å delta, kan du ta kontakt med <strong>Alexander Sviggum</strong>.
+            </p>
+            <a class="knapp-hoved" href="/kontakt.html">Meld interesse eller still spørsmål <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </section>
     </article>
   </main>
 
   <footer class="site-footer">
-  <div class="site-footer__inner container">
-    <div class="site-footer__brand">
-      <img
-        src="/bilder/myss-logo-footer.png"
-        alt="My Strongest Side"
-        class="site-footer__logo"
-      />
-      <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
-    </div>
-
-    <div class="site-footer__top">
-      <div data-footer-links-services></div>
-      <div data-footer-links-info></div>
-      <div data-footer-links-brand></div>
-
-      <div class="site-footer__contact">
-        <h3 class="site-footer__title">Kontakt</h3>
-        <div class="site-footer__contact-lines">
-          <div>My Strongest Side AS</div>
-          <div>Brages veg 3<br />5221 Nesttun</div>
-          <div><a class="site-footer__link" href="/kontakt.html">Meld interesse eller still spørsmål</a></div>
+    <div class="ramme">
+      <div class="site-footer__oppe">
+        <div class="site-footer__brand">
+          <img src="/bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" width="900" height="270" loading="lazy" />
+          <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
         </div>
-      </div>
-    </div>
 
-    <div class="site-footer__bottom">
-      <div class="site-footer__social">
-        <span class="site-footer__social-label">Følg oss i sosiale medier</span>
-        <div class="site-footer__social-list">
-          <a
-            class="social-link"
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >
-            <img src="/icons/facebook.png" alt="" aria-hidden="true" />
-          </a>
-          <a
-            class="social-link"
-            href="https://www.instagram.com/mystrongestside/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <img src="/icons/instagram.png" alt="" aria-hidden="true" />
-          </a>
+        <div class="site-footer__top">
+          <div data-footer-links-services></div>
+          <div data-footer-links-info></div>
+          <div data-footer-links-brand></div>
+
+          <div class="site-footer__contact">
+            <h3 class="site-footer__title">Kontakt</h3>
+            <div class="site-footer__contact-lines">
+              <div>My Strongest Side AS</div>
+              <div>Brages veg 3<br />5221 Nesttun</div>
+              <div><a class="site-footer__link" href="/kontakt.html">Meld interesse eller still spørsmål</a></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <p class="site-footer__meta">
-        © <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053
-      </p>
+      <div class="site-footer__bottom">
+        <div class="site-footer__social">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="site-footer__link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a class="site-footer__link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+
+        <div class="site-footer__meta-wrap">
+          <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+          <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
-
-  <script src="menu.js" defer></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const yearEl = document.getElementById('year');
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-    });
-  </script>
-
-<script src="/menu.js?v=113" defer></script>
-<script src="/components/footer-links.js?v=114" defer></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var y = document.getElementById("year");
-    if (y) y.textContent = new Date().getFullYear();
-  });
-</script>
+  <script src="/menu.js?v=115" defer></script>
+  <script src="/components/footer-links.js?v=115" defer></script>
 </body>
 </html>
