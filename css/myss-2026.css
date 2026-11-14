@@ -1190,6 +1190,13 @@ textarea {
   max-width: 100% !important;
 }
 
+/* Fokusringen i samtykkeboksen følger partiet (consent.css bruker gult) */
+.insta .embed-consent-placeholder button:focus-visible,
+.insta .embed-consent-placeholder a:focus-visible {
+  outline: 3px solid var(--c-focus);
+  outline-offset: 3px;
+}
+
 /* Samtykkeboksen fra consent.css, uten stiplet ramme */
 .embed-consent-placeholder {
   display: grid;

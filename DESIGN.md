@@ -163,8 +163,9 @@ medier står som tekstlenker. Et ikon står aldri alene uten tekst.
 
 ## Oppbygging av en side
 
-Forsiden: topp, bilde i full bredde med overskrift og hovedknapp, og så
-bolkene nedover på mørk bakgrunn.
+Forsiden: topp, bilde i full bredde med overskrift og hovedknapp på mørk
+bakgrunn, og så lyse bolker nedover. Tæpp og tren-feltet er mørkt, som et
+bånd fra appen. Siden skal ikke være mørk hele veien ned.
 
 Underside: topp, mørkt felt med overlinje, tittel og ingress (`.sidetopp`),
 lyst parti med lesestoffet, eventuelt et mørkt felt til slutt med
