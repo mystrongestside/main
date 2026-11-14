@@ -9,8 +9,8 @@ Archivo, stor hvit skrift og én oransje hovedknapp. Variabler som starter med
 som starter med `--w-` er det nettsiden legger til.
 
 Det folk skal huske: det store bildet øverst på forsiden med overskriften i
-stor hvit skrift, og ukedagene i sidens største skrift på et helt oransje
-felt. Resten skal være rolig.
+stor hvit skrift, og ukedagene i sidens største skrift. Resten skal være
+rolig.
 
 ## Dette skal ikke endres
 
@@ -25,8 +25,8 @@ felt. Resten skal være rolig.
 ## Farger
 
 Mørkt parti er standard. Lyst parti (`.lys`) brukes der det er mye å lese.
-Ett fargefelt gir farge der innholdet har en grunn til det: det oransje
-feltet (`.oransje`). Se «Fargefelt» under.
+Ett fargefelt gir farge der innholdet har en grunn til det: ferskenfeltet
+(`.fersken`) bak portrettet. Se «Fargefelt» under.
 
 | Variabel | Verdi | Brukes til |
 |---|---|---|
@@ -54,9 +54,9 @@ Reglene bruker `--c-`variablene (`--c-title`, `--c-text`, `--c-muted`,
 `--c-line`, `--c-ring`, `--c-surface`, `--c-focus`). De peker på mørke eller
 lyse verdier etter hvilket parti innholdet står i.
 
-1. Oransje brukes til hovedknappen, trinn-tallene på Tæpp og tren-siden og
-   det oransje feltet. Én oransje knapp per side. Trinn-tall står bare på
-   mørk bakgrunn.
+1. Oransje brukes bare til hovedknappen og til trinn-tallene på Tæpp og
+   tren-siden. Én oransje knapp per side. Trinn-tall står bare på mørk
+   bakgrunn. Oransje brukes ikke som bakgrunn på bolker.
 2. Hvit tekst står aldri på oransje. Bruk `--tt-on-accent`.
 3. Oransje tekst (`--tt-accent-text`) brukes bare på mørkt.
 4. Ingen nye fargekoder i reglene. Trengs en ny farge, legges den inn som
@@ -66,23 +66,20 @@ lyse verdier etter hvilket parti innholdet står i.
 
 ### Fargefelt
 
-Nettsiden bruker merkets to farger, marineblå og oransje, pluss lyst der
-man leser. Det er de samme fargene som i logoen og på skiltet.
-
 | Felt | Bakgrunn | Brukes til |
 |---|---|---|
-| `.oransje` | `--tt-accent` `#F77C37` | Når vi trener: ukedagene på forsiden. Tekst i `--tt-on-accent` (6,3). |
+| `.fersken` | `--w-peach` `#FFB58C` | Kort felt bak portrettet, på forsiden og Teamet. Tittel `--w-ink` (9,1), tekst `--w-ink-soft` (7,4). |
 
-1. Høyst ett oransje felt per side.
-2. Hovedknappen står aldri i det oransje feltet. Den står på marineblått
-   eller lyst.
+1. Høyst ett ferskenfelt per side, og bare sammen med portrettet.
+2. Hovedknappen står aldri i ferskenfeltet. Den står på marineblått eller
+   lyst.
 3. Skjema og lange lesestykker står på lyst, ikke i fargefelt.
-4. Feltene møtes kant i kant, uten strek, skygge eller overgang.
-5. Fersken, lys blå og andre nye farger brukes ikke som bakgrunn på bolker.
-   Fersken (`--tt-accent-text`) er bare for liten tekst på marineblått.
+4. Feltene møtes kant i kant, uten strek, skygge eller overgang. Portrettet
+   kan stikke 64 px opp over kanten til feltet over (`--w-lift`), bare på PC.
+5. Oransje, lys blå og andre farger brukes ikke som bakgrunn på bolker.
    Undersidene åpner i marineblått.
-6. Hvert felt setter `--c-`variablene, så tekst, lenker, streker og fokusring
-   følger feltet de står i. Fokusringen i det oransje feltet er `--w-ink`.
+6. Feltet setter `--c-`variablene, så tekst, lenker, streker og fokusring
+   følger feltet de står i. Fokusringen i ferskenfeltet er `--w-ink`.
 
 ## Skrift
 
@@ -214,9 +211,9 @@ skråstilte mobiler.
 ## Oppbygging av en side
 
 Forsiden: topp, bilde i full bredde med overskrift og hovedknapp på mørk
-bakgrunn, oransje felt med ukedagene, mørkt Tæpp og tren-felt som et bånd
-fra appen, og så lyse bolker. Siden skal verken være mørk eller lys hele
-veien ned.
+bakgrunn, lyst felt med ukedagene, mørkt Tæpp og tren-felt som et bånd fra
+appen, ferskenfelt med portrettet, og så lyse bolker. Siden skal verken
+være mørk eller lys hele veien ned.
 
 Underside: topp, mørkt felt med overlinje, tittel og ingress (`.sidetopp`),
 lyst parti med lesestoffet, eventuelt et mørkt felt til slutt med
