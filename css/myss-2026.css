@@ -97,9 +97,9 @@
      bredde der nettleseren kan det (se @supports under). Fra 1296 px
      følger figuren vindusbredden, så den ikke blir liten på store skjermer. */
   --w-produkt: clamp(467px, 36vw, 653px);
-  --w-produkt-luft: 12px;
-  --w-mobil-liten: 2.11px;
-  --w-mobil-stor: 2.45px;
+  --w-produkt-luft: calc(var(--w-produkt) * 0.026);
+  --w-mobil-liten: calc(var(--w-produkt) * 0.0044);
+  --w-mobil-stor: calc(var(--w-produkt) * 0.0051);
   --w-sidetopp-bunn: var(--w-space-7);
 
   /* Skrift: sju størrelser. De tre største vokser med skjermen. */
@@ -1064,7 +1064,6 @@ textarea {
   justify-items: start;
 }
 
-.avslutning > .knapp-hoved,
 .avslutning > .handling {
   margin-top: var(--w-space-2);
 }
@@ -1175,6 +1174,11 @@ textarea {
   color: var(--c-title);
   font-size: var(--w-type-lead);
   font-weight: var(--tt-weight-medium);
+}
+
+/* Et tidsrom (18:00–19:00) brytes aldri midt i */
+.klokke {
+  white-space: nowrap;
 }
 
 .tider__sted {

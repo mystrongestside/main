@@ -87,7 +87,7 @@ Sju størrelser. De tre største vokser med skjermbredden.
 | `--w-type-hero` | 40 – 88 px | Overskriften på forsiden |
 | `--w-type-display` | 40 – 64 px | Tittelen øverst på en underside, «Tæpp og tren» på forsiden |
 | `--w-type-title` | 32 – 48 px | Tittelen på en bolk |
-| `--w-type-lead` | 19 – 22 px | Ingress, hovedknappen, overskrift på et ledd |
+| `--w-type-lead` | 19 – 22 px | Ingress, hovedknappen, overskrift på et ledd, tid og sted ved ukedagene |
 | `--w-type-body` | 17 – 18 px | Lesetekst, lenker, felt |
 | `--w-type-small` | 15 px | Overlinje, hjelpetekst |
 | `--w-type-micro` | 13 px | Linjen nederst i bunnfeltet |
@@ -100,7 +100,7 @@ Sju størrelser. De tre største vokser med skjermbredden.
 De er sidens største skrift og får hele sidebredden. Ved siden av (under på
 mobil) står tiden i marineblått og stedet i logoens blå. Under ukedagene
 står én linje om når sesongen slutter, med lenke til ventelisten
-(`.dager__slutt`).
+(`.dager__slutt`). Et tidsrom står i `.klokke`, så det ikke brytes midt i.
 
 1. Én stor tittel per side. Venstrestilt.
 2. Overlinjen er kort, i vanlig setningsform, og brukes bare øverst på siden
@@ -179,8 +179,9 @@ medier står som tekstlenker. Et ikon står aldri alene uten tekst.
    trenger, har en kort beskrivelse uten navn på personer. Unntak: portrettet
    av Alexander på Teamet har navnet hans som `alt`.
 5. Portrettet vises i sitt eget format (`--w-foto-format`, 1200 / 954), så
-   det ikke beskjæres. `--fokus` (58 % 41 %, der ansiktet er) holder motivet
-   på plass om formatet endres. Ingen tekst står oppå et ansikt.
+   det ikke beskjæres. Unntaket er forsiden på PC når teksten er høyere
+   enn bildet, se punkt 6. `--fokus` (58 % 41 %, der ansiktet er) holder
+   da motivet på plass. Ingen tekst står oppå et ansikt.
 6. Forsiden: «Bak My Strongest Side» står i et hvitt felt. På PC står
    teksten til venstre i sidebredden og portrettet til høyre, helt ut til
    skjermkanten og fra feltkant til feltkant. Portrettet er 44 % av
