@@ -89,6 +89,9 @@
 
   /* Fotografiene: samme utsnitt overalt, som bildet er tatt (1200 × 954) */
   --w-foto-format: 1200 / 954;
+  /* Portrettet på forsiden på PC: en fast andel av vindusbredden, så det
+     ikke fyller hele skjermen. Høyden følger bildets eget format. */
+  --w-portrett: clamp(400px, 44vw, 880px);
 
   /* Tæpp og tren vist som produkt (.produkt). Målene følger figurens
      bredde der nettleseren kan det (se @supports under). */
@@ -664,9 +667,15 @@ textarea {
     height: 42px;
   }
 
+  /* Får ikke snarveiene plass på én linje (økt tekstavstand), brytes de
+     over to linjer i stedet for å skyve menyknappen ut av vinduet. */
   .site-header__snarveier {
     display: flex;
+    flex: 0 1 auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     gap: var(--w-space-1);
+    min-width: 0;
     margin-right: var(--w-space-3);
   }
 
@@ -1128,6 +1137,7 @@ textarea {
    og dagene får hele bredden, som en tavle i treningssalen. */
 .dager {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--w-space-6);
 }
 
@@ -1215,10 +1225,11 @@ textarea {
   }
 }
 
-/* Bak My Strongest Side: portrettet stort og helt ut til kanten.
+/* Bak My Strongest Side: portrettet helt ut til kanten.
    Mobil: teksten først, bildet under i full bredde.
    PC: teksten til venstre i sidebredden, bildet til høyre helt ut til
-   skjermkanten og fra feltkant til feltkant (ingen luft over og under). */
+   skjermkanten og fra feltkant til feltkant (ingen luft over og under).
+   Bildet er --w-portrett bredt, så hele feltet får plass i vinduet. */
 .portrett__inn {
   display: grid;
   gap: var(--w-space-6);
@@ -1244,14 +1255,28 @@ textarea {
   }
 
   .portrett__inn {
-    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    grid-template-columns: minmax(0, 1fr) var(--w-portrett);
     gap: var(--w-space-9);
     align-items: center;
     padding-left: max(var(--w-gutter), calc((100% - var(--w-max)) / 2));
   }
 
+  /* Bildet har sitt eget format. Blir teksten høyere enn bildet (smale
+     vinduer, økt tekstavstand), fyller bildet høyden i feltet, og sidene
+     beskjæres rundt --fokus. */
+  .portrett__foto {
+    align-self: stretch;
+    aspect-ratio: auto;
+    min-height: calc(var(--w-portrett) * 954 / 1200);
+  }
+
+  .portrett__foto img {
+    position: absolute;
+    inset: 0;
+  }
+
   .portrett__tekst {
-    padding: var(--w-space-8) 0;
+    padding: var(--w-space-7) 0;
   }
 }
 

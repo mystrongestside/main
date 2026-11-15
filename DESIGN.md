@@ -69,7 +69,8 @@ lyse verdier etter hvilket parti innholdet står i.
 ### Hvite og marineblå bolker
 
 1. Bolker har bare bakgrunnen `--w-paper` (hvit) eller `--tt-bg`
-   (marineblå), satt med `background-color` på selve bolken.
+   (marineblå), satt med `background-color` på bolken (`.lys`, `.moerk`),
+   eller på en `div.lys` rundt flere bolker i samme parti.
 2. Minst halvparten av forsidens høyde under toppbildet er hvit.
 3. Oransje, fersken, rosa, beige og lys blå brukes ikke som bakgrunn på
    bolker. Undersidene åpner i marineblått.
@@ -140,6 +141,7 @@ Lenker inne i en setning er understreket.
 
 Toppen er marineblå på alle sider: merket til venstre og «Vis menyen» til
 høyre. På PC (fra 1240 px) står også fire snarveier og en rolig «Kontakt oss».
+Får ikke snarveiene plass på én linje (økt tekstavstand), brytes de over to.
 Menyen dekker hele skjermen, med de samme menypunktene som før i stor skrift.
 Siden du står på, er merket med både farge og strek. Menyen kan åpnes og lukkes med tastatur, Escape
 lukker, og fokus følger med inn og ut.
@@ -172,16 +174,22 @@ medier står som tekstlenker. Et ikon står aldri alene uten tekst.
 3. Et bilde kan vises i svart-hvitt med `.foto--sh`. Det samme bildet vises
    likt på alle sider. Portrettet av Alexander er svart-hvitt.
 4. Bilder som bare er stemning, har tom `alt`. Bilder som viser noe leseren
-   trenger, har en kort beskrivelse uten navn på personer.
-5. Portrettet vises alltid i sitt eget format (`--w-foto-format`, 1200 / 954),
-   så det ikke beskjæres. `--fokus` (58 % 41 %, der ansiktet er) holder
-   motivet på plass om formatet endres. Ingen tekst står oppå et ansikt.
+   trenger, har en kort beskrivelse uten navn på personer. Unntak: portrettet
+   av Alexander på Teamet har navnet hans som `alt`.
+5. Portrettet vises i sitt eget format (`--w-foto-format`, 1200 / 954), så
+   det ikke beskjæres. `--fokus` (58 % 41 %, der ansiktet er) holder motivet
+   på plass om formatet endres. Ingen tekst står oppå et ansikt.
 6. Forsiden: «Bak My Strongest Side» står i et hvitt felt. På PC står
    teksten til venstre i sidebredden og portrettet til høyre, helt ut til
-   skjermkanten og fra feltkant til feltkant. På mobil kommer teksten
-   først og portrettet under i full bredde.
+   skjermkanten og fra feltkant til feltkant. Portrettet er 44 % av
+   vindusbredden (`--w-portrett`, minst 400 og høyst 880 px), så hele
+   feltet får plass i vinduet. Blir teksten høyere enn bildet (vinduer
+   under ca. 950 px, økt tekstavstand), fyller bildet høyden i feltet, og
+   sidene beskjæres rundt `--fokus`. På mobil kommer teksten først og
+   portrettet under i full bredde.
 7. Teamet: portrettet går ut til venstre skjermkant på PC, teksten holder
-   sidebredden. Portrettet står inne i sitt eget felt.
+   sidebredden. Portrettet står i en egen bolk i samme hvite parti som
+   innledningen.
 8. Treningsbildet brukes bare øverst på forsiden. Det gjentas ikke som
    bånd lenger ned.
 
