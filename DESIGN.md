@@ -90,13 +90,15 @@ Sju størrelser. De tre største vokser med skjermbredden.
 
 | Variabel | Mobil – PC | Brukes til |
 |---|---|---|
-| `--w-type-hero` | 40 – 88 px | Overskriften på forsiden, ukedagene på PC |
-| `--w-type-display` | 40 – 64 px | Tittelen øverst på en underside |
+| `--w-type-hero` | 40 – 88 px | Overskriften på forsiden, tittelen øverst på Tæpp og tren-siden, ukedagene fra 1200 px |
+| `--w-type-display` | 40 – 64 px | Tittelen øverst på en underside, ukedagene under 1200 px, «Tæpp og tren» på forsiden |
 | `--w-type-title` | 32 – 48 px | Tittelen på en bolk |
 | `--w-type-lead` | 19 – 22 px | Ingress, hovedknappen, overskrift på et ledd |
 | `--w-type-body` | 17 – 18 px | Lesetekst, lenker, felt |
 | `--w-type-small` | 15 px | Overlinje, hjelpetekst |
 | `--w-type-micro` | 13 px | Linjen nederst i bunnfeltet |
+
+`--w-type-menu` (24 – 32 px) er bare for lenkene i den åpne menyen.
 
 `--w-type-number` (64 – 88 px) er bare for trinn-tallet (`.trinn`), som i appen.
 
@@ -111,6 +113,8 @@ Sju størrelser. De tre største vokser med skjermbredden.
 Innholdet er høyst 1200 px bredt (`.ramme`), med 20 px marg på mobil og 48 px
 på PC. Luft: 4, 8, 12, 16, 24, 32, 48, 64 og 80 px (`--w-space-1` til `-9`).
 Mellom bolker: 56 px på mobil og 104 px på PC (`--w-section`).
+Farger står alltid som variabler. Noen få mål som bare brukes ett sted
+(toppbildet, ukedagene, bunnfeltet), står rett i regelen.
 
 1. Innholdet ligger rett på bakgrunnen. Ingen kort med ramme rundt tekst.
 2. Bilder går helt ut til kanten på mobil (`.foto--kant`). På PC har de 18 px
@@ -130,7 +134,6 @@ Mellom bolker: 56 px på mobil og 104 px på PC (`--w-section`).
 | Hovedknapp (`.knapp-hoved`) | Oransje, 60 px høy, 18 px radius, tekst til venstre og pil til høyre. Én per side. Full bredde på mobil. |
 | Rolig knapp (`.knapp-rolig`) | Gjennomsiktig med kant, 60 px høy. Lav utgave (48 px) i toppen. |
 | Lenke med pil (`.pil-lenke`) | Understreket tekst og pil, minst 48 px høy. Fører videre til en annen side. |
-| Rad (`.rad`) | Hel rad som lenke, minst 72 px høy, med bilde, navn, tekst og pil. |
 | Hurtigvalg | Flate med kant, minst 56 px høy. |
 
 Alle trykkflater er minst 48 px. Fokusringen er 3 px i `--c-focus`.
@@ -139,9 +142,9 @@ Lenker inne i en setning er understreket.
 ## Topp og meny
 
 Toppen er marineblå på alle sider: merket til venstre og «Vis menyen» til
-høyre. På PC (fra 1100 px) står også fire snarveier og en rolig «Kontakt oss».
+høyre. På PC (fra 1240 px) står også fire snarveier og en rolig «Kontakt oss».
 Menyen dekker hele skjermen, med de samme menypunktene som før i stor skrift.
-Siden du står på, er merket. Menyen kan åpnes og lukkes med tastatur, Escape
+Siden du står på, er merket med både farge og strek. Menyen kan åpnes og lukkes med tastatur, Escape
 lukker, og fokus følger med inn og ut.
 
 Toppen og menyen lages av `menu.js`. Sider med `design-2026` får den nye
