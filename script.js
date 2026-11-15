@@ -21,7 +21,6 @@ const buildHeaderTemplate = (prefix = '') => `
               <li><a href="${prefix}treningstilbud/voksne-lett.html" data-page="voksne-lett.html">Styrketrening for voksne med lett funksjonsvariasjon</a></li>
               <li><a href="${prefix}treningstilbud/tett-oppfolging.html" data-page="tett-oppfolging.html">Tilrettelagt styrketrening – tett oppfølging</a></li>
               <li><a href="${prefix}treningstilbud/barn-ungdom.html" data-page="barn-ungdom.html">Styrketrening for barn og ungdom</a></li>
-              <li><a href="${prefix}foresatte.html" data-page="foresatte.html">Foresatte</a></li>
             </ul>
           </li>
           <li><a href="${prefix}om-oss.html" data-page="om-oss.html">Om oss</a></li>
