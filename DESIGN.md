@@ -96,9 +96,11 @@ Sju størrelser. De tre største vokser med skjermbredden.
 
 `--w-type-number` (64 – 88 px) er bare for trinn-tallet (`.trinn`), som i appen.
 
-`--w-type-dag` (51 – 136 px) er bare for ukedagene på forsiden (`.tider`).
-De er sidens største skrift og får hele sidebredden, med stedet i
-`--w-brand` til høyre (under på mobil).
+`--w-type-dag` (50 – 136 px) er bare for ukedagene på forsiden (`.tider`).
+De er sidens største skrift og får hele sidebredden. Ved siden av (under på
+mobil) står tiden i marineblått og stedet i logoens blå. Under ukedagene
+står én linje om når sesongen slutter, med lenke til ventelisten
+(`.dager__slutt`).
 
 1. Én stor tittel per side. Venstrestilt.
 2. Overlinjen er kort, i vanlig setningsform, og brukes bare øverst på siden

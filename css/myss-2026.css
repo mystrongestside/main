@@ -111,7 +111,7 @@
   --w-type-micro: 13px;
   --w-type-menu: clamp(24px, 20px + 1vw, 32px);
   --w-type-number: clamp(64px, 44px + 5vw, 88px);
-  --w-type-dag: clamp(44px, min(4px + 14.6vw, 36px + 6.8vw), 136px);
+  --w-type-dag: clamp(44px, min(4px + 14.4vw, 36px + 6.8vw), 136px);
   --w-number-column: clamp(48px, 30px + 5vw, 72px);
   --w-icon-large: 88px;
   --w-leading-tight: 1.06;
@@ -1063,7 +1063,8 @@ textarea {
   justify-items: start;
 }
 
-.avslutning .knapp-hoved {
+.avslutning > .knapp-hoved,
+.avslutning > .handling {
   margin-top: var(--w-space-2);
 }
 
@@ -1163,10 +1164,32 @@ textarea {
   line-height: 0.95;
 }
 
+/* Når og hvor: tiden over stedet */
+.tider__mer {
+  display: grid;
+  gap: 2px;
+}
+
+.tider__tid {
+  color: var(--c-title);
+  font-size: var(--w-type-lead);
+  font-weight: var(--tt-weight-medium);
+}
+
 .tider__sted {
   color: var(--w-brand);
   font-size: var(--w-type-lead);
   font-weight: var(--tt-weight-medium);
+}
+
+/* Linjen under ukedagene: når sesongen slutter, og veien til ventelisten */
+.dager__slutt {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--w-space-1);
+  margin: 0;
+  font-size: var(--w-type-lead);
 }
 
 @media (min-width: 900px) {
@@ -1186,12 +1209,25 @@ textarea {
     align-self: end;
   }
 
+  /* Stedet står på linje med ukedagen, tiden over */
   .tider li {
     flex-direction: row;
     align-items: baseline;
+    align-items: last baseline;
     justify-content: space-between;
     gap: var(--w-space-6);
     padding: var(--w-space-5) 0 var(--w-space-6);
+  }
+
+  .tider__mer {
+    text-align: right;
+  }
+
+  .dager__slutt {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--w-space-6);
   }
 }
 
