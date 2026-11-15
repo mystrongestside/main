@@ -330,15 +330,6 @@ textarea {
   justify-items: start;
 }
 
-/* Lang tittel med ingress under, i full bredde */
-.bolk__hode--bred {
-  gap: var(--w-space-4);
-}
-
-.bolk__hode--bred .tittel {
-  max-width: 24ch;
-}
-
 /* På PC: tittel til venstre, innhold til høyre */
 .to-delt {
   display: grid;
@@ -1404,14 +1395,14 @@ textarea {
   max-width: 640px;
 }
 
-.skjema-del h3 {
+.skjema-del h2 {
   color: var(--c-title);
   font-size: var(--w-type-title);
   font-weight: var(--tt-weight-bold);
   line-height: 1.1;
 }
 
-.contact-info h3 {
+.contact-info h2 {
   color: var(--c-title);
   font-size: var(--w-type-lead);
   font-weight: var(--tt-weight-bold);
@@ -1564,7 +1555,7 @@ textarea {
   border-top: 1px solid var(--c-line);
 }
 
-.contact-info h4 {
+.contact-info h3 {
   color: var(--c-title);
   font-size: var(--w-type-body);
   font-weight: var(--tt-weight-bold);
