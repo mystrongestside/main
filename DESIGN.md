@@ -84,7 +84,7 @@ Sju størrelser. De tre største vokser med skjermbredden.
 
 | Variabel | Mobil – PC | Brukes til |
 |---|---|---|
-| `--w-type-hero` | 40 – 88 px | Overskriften på forsiden, tittelen øverst på Tæpp og tren-siden |
+| `--w-type-hero` | 40 – 88 px | Overskriften på forsiden |
 | `--w-type-display` | 40 – 64 px | Tittelen øverst på en underside, «Tæpp og tren» på forsiden |
 | `--w-type-title` | 32 – 48 px | Tittelen på en bolk |
 | `--w-type-lead` | 19 – 22 px | Ingress, hovedknappen, overskrift på et ledd |
@@ -208,13 +208,16 @@ skråstilte mobiler.
    står nederst i feltet sitt, så mobilene kommer opp av kanten. Har feltet
    under samme farge, får feltet `.grunnlinje`.
 3. Blokken er lik på forsiden og øverst på Tæpp og tren-siden. På mobil
-   står teksten først og blokken under, også i koden.
+   står teksten først og blokken under, også i koden. På PC er blokken
+   5 av 12 spalter (opptil 467 px). Fra 1296 px følger den vindusbredden
+   (`--w-produkt`, 36 % av vinduet, høyst 653 px), og teksten får resten.
 4. Mobilrammen (`.mobil`) er en tynn kant i `--c-ring`, en mørk ramme i
    `--tt-on-accent` og skjermbildet. Skiltet har den samme kanten.
 5. Figuren har én beskrivelse (`aria-label`), og bildene i den har tom
    `alt`. Ingenting i figuren kan trykkes.
 6. Filene ligger i `bilder/app/`: skiltet som PNG og skjermbildene som WebP
-   i to bredder med `srcset`. De veier til sammen 79–116 kB per side.
+   i to eller tre bredder med `srcset`. De veier til sammen 81–125 kB per
+   side.
 7. Et nytt skjermbilde må ha trinn-tallet på samme sted (rundt 81 % ned i
    bildet). Ellers må utsnittet regnes på nytt.
 

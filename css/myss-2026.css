@@ -94,8 +94,9 @@
   --w-portrett: clamp(400px, 44vw, 880px);
 
   /* Tæpp og tren vist som produkt (.produkt). Målene følger figurens
-     bredde der nettleseren kan det (se @supports under). */
-  --w-produkt: 480px;
+     bredde der nettleseren kan det (se @supports under). Fra 1296 px
+     følger figuren vindusbredden, så den ikke blir liten på store skjermer. */
+  --w-produkt: clamp(467px, 36vw, 653px);
   --w-produkt-luft: 12px;
   --w-mobil-liten: 2.11px;
   --w-mobil-stor: 2.45px;
@@ -1261,6 +1262,13 @@ textarea {
   }
 }
 
+/* Sidebredden er nådd: figuren får --w-produkt, teksten får resten */
+@media (min-width: 1296px) {
+  .par--produkt {
+    grid-template-columns: var(--w-produkt) minmax(0, 1fr);
+  }
+}
+
 /* Bak My Strongest Side: portrettet helt ut til kanten.
    Mobil: teksten først, bildet under i full bredde.
    PC: teksten til venstre i sidebredden, bildet til høyre helt ut til
@@ -1593,6 +1601,13 @@ textarea {
 
   .sidetopp .handling {
     width: auto;
+  }
+}
+
+/* Sidebredden er nådd: figuren får --w-produkt, teksten får resten */
+@media (min-width: 1296px) {
+  .sidetopp--bilde .sidetopp__inn {
+    grid-template-columns: minmax(0, 1fr) var(--w-produkt);
   }
 }
 
