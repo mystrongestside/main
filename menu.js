@@ -280,6 +280,7 @@
     };
 
     const requestFadeUpdate = () => {
+      if (is2026) return; // den nye toppen står stille
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(updateHeaderFade);
@@ -301,7 +302,7 @@
       // Nye sider: menyen dekker hele skjermen. Resten av siden settes ut av
       // spill mens den er åpen, og fokus følger med inn og ut.
       if (is2026) {
-        document.querySelectorAll("main, footer, .skip-link").forEach((el) => { el.inert = open; });
+        document.querySelectorAll("main, footer, .skip-link, .site-header__inner").forEach((el) => { el.inert = open; });
         const target = open ? nav.querySelector(".site-nav__close") : toggle;
         if (target && (open || nav.contains(document.activeElement) || document.activeElement === body)) target.focus();
       }

@@ -32,12 +32,8 @@
 
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="preload" href="/assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/css/myss-2026.css?v=8" />
+  <link rel="stylesheet" href="/css/myss-2026.css?v=21" />
   <link rel="stylesheet" href="/assets/consent.css" />
-
-  <script>
-    document.documentElement.classList.add("js");
-  </script>
 
   <script
     data-consent-category="analytics"
@@ -75,70 +71,65 @@
             kronisk sykdom eller andre behov som gjør vanlig trening utilgjengelig.
           </p>
           <div class="handling">
-            <a class="knapp-hoved" href="/gruppetrening.html">Bli medlem <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="knapp-hoved" href="https://myss.no/pamelding">Bli medlem <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a class="knapp-rolig" href="#trening">Se når vi trener</a>
           </div>
-          <p class="liten">Gratis prøvetime med PT og faglig veiledning</p>
         </div>
       </div>
     </section>
 
     <section class="bolk lys" id="trening" aria-labelledby="trening-title">
-      <div class="ramme to-delt">
+      <div class="ramme dager">
         <div class="bolk__hode">
-          <h2 class="tittel" id="trening-title">Vi trener hver uke</h2>
+          <h2 class="tittel" id="trening-title">Når vi trener</h2>
           <p class="ingress">Små grupper og øvelser tilpasset deg.</p>
           <a class="pil-lenke" href="/gruppetrening.html">Se gruppene <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-        <ul class="tider">
+        <ul class="tider" role="list">
           <li>
             <span class="tider__dag">Onsdager</span>
-            <span class="tider__sted">Sotra Sportsenter</span>
+            <span class="tider__mer">
+              <span class="tider__tid">Annenhver uke, <span class="klokke">18:00–19:00</span></span>
+              <span class="tider__sted">Sotra Sportsenter</span>
+            </span>
           </li>
           <li>
-            <span class="tider__dag">Fredager</span>
-            <span class="tider__sted">Trene Sammen Fantoft</span>
+            <span class="tider__dag">Torsdager</span>
+            <span class="tider__mer">
+              <span class="tider__tid">Hver uke, <span class="klokke">17:00–18:00</span> og <span class="klokke">18:15–19:15</span></span>
+              <span class="tider__sted">Trene Sammen Fantoft</span>
+            </span>
           </li>
         </ul>
+        <p class="dager__slutt">
+          <span>Siste trening i høst er 3. desember.</span>
+          <a class="pil-lenke" href="https://myss.no/pamelding">Sett deg på venteliste <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </p>
       </div>
     </section>
 
     <section class="bolk moerk" aria-labelledby="taepp-title">
-      <div class="ramme par">
-        <figure class="scene foto--kant">
-          <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Tegning av Tæpp og tren-skiltet for beinpress, festet på apparatet. Nederst på skiltet står det: Hold mobilen her.">
-            <defs><clipPath id="skiltform"><rect x="290" y="232" width="440" height="536" rx="30" /></clipPath></defs>
-            <g class="scene__del-strek">
-              <path d="M56 440 L176 772" />
-              <path d="M150 850 H300" />
-              <path d="M0 962 H800" />
-            </g>
-            <rect class="scene__del" x="250" y="72" width="520" height="980" rx="36" />
-            <g class="scene__flate">
-              <rect x="300" y="812" width="420" height="26" rx="8" /><rect x="300" y="848" width="420" height="26" rx="8" /><rect x="300" y="884" width="420" height="26" rx="8" /><rect x="300" y="920" width="420" height="26" rx="8" /><rect x="300" y="956" width="420" height="26" rx="8" />
-              <rect x="505" y="150" width="10" height="670" /><circle cx="510" cy="150" r="38" />
-            </g>
-            <circle class="scene__del" cx="510" cy="150" r="11" />
-            <circle class="scene__lys" cx="328" cy="897" r="9" />
-            <g clip-path="url(#skiltform)"><svg x="290" y="232" width="440" height="536" viewBox="25 122 1387 1690" preserveAspectRatio="none"><image href="/bilder/taepp-skilt-900.png" width="1448" height="1904" /></svg></g>
-            <rect class="scene__kant" x="290" y="232" width="440" height="536" rx="30" />
-          </svg>
-        </figure>
+      <div class="ramme par par--produkt">
         <div class="par__tekst">
           <p class="overlinje">Pilotering fra januar 2027</p>
           <h2 class="stor-tittel" id="taepp-title">Tæpp og tren™</h2>
           <p class="ingress">Tæpp på apparatet og få veiledning, øvelser og forslag til tilpasninger.</p>
           <a class="pil-lenke" href="/treningssystem.html">Les mer om Tæpp og tren <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <figure class="produkt" role="img" aria-label="Tæpp og tren-skiltet for beinpress med teksten «Hold mobilen her», også i punktskrift, og to skjermbilder av appen på mobil: «Hvordan vil du trene?» og steg 3 av 5, «Plasser føttene», med film.">
+          <img class="produkt__skilt" src="/bilder/app/skilt-420.png" width="420" height="510" alt="" loading="lazy" />
+          <div class="mobil produkt__valg"><div class="mobil__skjerm"><img src="/bilder/app/valg-412.webp" srcset="/bilder/app/valg-206.webp 205w, /bilder/app/valg-412.webp 411w, /bilder/app/valg-560.webp 560w" sizes="(min-width: 1814px) 273px, (min-width: 1296px) 15vw, (min-width: 900px) 200px, (min-width: 511px) 194px, 38vw" width="411" height="891" alt="" loading="lazy" /></div></div>
+          <div class="mobil produkt__steg"><div class="mobil__skjerm"><img src="/bilder/app/steg3-618.webp" srcset="/bilder/app/steg3-412.webp 412w, /bilder/app/steg3-618.webp 618w" sizes="(min-width: 1814px) 317px, (min-width: 1296px) 17.5vw, (min-width: 900px) 240px, (min-width: 490px) 225px, 46vw" width="618" height="1337" alt="" loading="lazy" /></div></div>
+        </figure>
       </div>
     </section>
 
-    <section class="bolk lys" aria-labelledby="bak-title">
-      <div class="ramme par par--bilde-hoyre">
-        <figure class="foto foto--kant foto--sh foto--kvadrat" style="--fokus: 100% 50%">
-          <img src="/bilder/alexander-2026-1200.jpg" srcset="/bilder/alexander-2026-700.jpg 700w, /bilder/alexander-2026-1200.jpg 1200w" sizes="(min-width: 900px) 560px, 100vw" width="1200" height="954" alt="" loading="lazy" />
+    <section class="bolk lys portrett" aria-labelledby="bak-title">
+      <div class="portrett__inn">
+        <figure class="foto foto--sh portrett__foto" style="--fokus: 58% 41%">
+          <img src="/bilder/alexander-2026-1200.jpg" srcset="/bilder/alexander-2026-700.jpg 700w, /bilder/alexander-2026-1200.jpg 1200w" sizes="(min-width: 900px) 44vw, 100vw" width="1200" height="954" alt="" loading="lazy" />
         </figure>
-        <div class="par__tekst">
+        <div class="par__tekst portrett__tekst">
           <h2 class="tittel" id="bak-title">Bak My Strongest Side</h2>
           <p class="ingress">
             Startet av Alexander Sviggum, ergoterapeut og styrkeløfter med cerebral parese.
@@ -149,7 +140,7 @@
       </div>
     </section>
 
-    <section class="bolk bolk--tett lys" aria-labelledby="aktuelt-title">
+    <section class="bolk lys" aria-labelledby="aktuelt-title">
       <div class="ramme to-delt">
         <h2 class="tittel" id="aktuelt-title">Nytt fra My Strongest Side</h2>
         <div class="nytt">
@@ -233,8 +224,8 @@
     </div>
   </footer>
 
-  <script src="/menu.js?v=115" defer></script>
-  <script src="/components/footer-links.js?v=115" defer></script>
+  <script src="/menu.js?v=116" defer></script>
+  <script src="/components/footer-links.js?v=116" defer></script>
 
   <script
     data-consent-category="marketing"
