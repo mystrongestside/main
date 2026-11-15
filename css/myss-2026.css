@@ -1430,7 +1430,8 @@ textarea {
   }
 }
 
-.contact-quick-links button {
+.contact-quick-links button,
+.contact-quick-links a {
   min-height: var(--w-field-height);
   padding: var(--w-space-3) var(--w-space-4);
   border: var(--tt-ring) solid var(--c-ring);
@@ -1445,11 +1446,22 @@ textarea {
   transition: border-color var(--tt-fast) var(--tt-ease), transform var(--tt-fast) var(--tt-ease);
 }
 
-.contact-quick-links button:hover {
+/* Hurtigvalg som går til en annen side, har pil til høyre */
+.contact-quick-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--w-space-3);
+  text-decoration: none;
+}
+
+.contact-quick-links button:hover,
+.contact-quick-links a:hover {
   border-color: var(--c-title);
 }
 
-.contact-quick-links button:active {
+.contact-quick-links button:active,
+.contact-quick-links a:active {
   transform: scale(var(--tt-press));
 }
 

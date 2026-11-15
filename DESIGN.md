@@ -134,7 +134,7 @@ Farger står alltid som variabler. Noen få mål som bare brukes ett sted
 | Hovedknapp (`.knapp-hoved`) | Oransje, 60 px høy, 18 px radius, tekst til venstre og pil til høyre. Én per side. Full bredde på mobil. |
 | Rolig knapp (`.knapp-rolig`) | Gjennomsiktig med kant, 60 px høy. Lav utgave (48 px) i toppen. |
 | Lenke med pil (`.pil-lenke`) | Understreket tekst og pil, minst 48 px høy. Fører videre til en annen side. |
-| Hurtigvalg | Flate med kant, minst 56 px høy. |
+| Hurtigvalg | Flate med kant, minst 56 px høy. Et hurtigvalg som går til en annen side (påmeldingen), er en lenke med pil til høyre. |
 
 Alle trykkflater er minst 48 px. Fokusringen er 3 px i `--c-focus`.
 Lenker inne i en setning er understreket.
