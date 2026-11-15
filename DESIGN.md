@@ -9,8 +9,9 @@ Archivo, stor hvit skrift og én oransje hovedknapp. Variabler som starter med
 som starter med `--w-` er det nettsiden legger til.
 
 Det folk skal huske: det store bildet øverst på forsiden med overskriften i
-stor hvit skrift, og ukedagene i sidens største skrift. Resten skal være
-rolig.
+stor hvit skrift, ukedagene i sidens største skrift og portrettet i
+svart-hvitt helt ut til kanten. Farge og kraft kommer fra fotografiene og
+skriften, ikke fra fargede felt. Resten skal være rolig.
 
 ## Dette skal ikke endres
 
@@ -25,8 +26,7 @@ rolig.
 ## Farger
 
 Mørkt parti er standard. Lyst parti (`.lys`) brukes der det er mye å lese.
-Ett fargefelt gir farge der innholdet har en grunn til det: ferskenfeltet
-(`.fersken`) bak portrettet. Se «Fargefelt» under.
+Bolker er bare hvite eller marineblå. Det finnes ingen fargefelt.
 
 | Variabel | Verdi | Brukes til |
 |---|---|---|
@@ -49,14 +49,16 @@ Ett fargefelt gir farge der innholdet har en grunn til det: ferskenfeltet
 | `--w-ink-line-soft` | marineblå 20 % | Tynne skillestreker på lyst |
 | `--w-paper-surface` | `#EEF2F5` | Flater man kan trykke på i lyst parti |
 | `--w-ink-focus` | `#0B5CAD` | Fokusring på lyst |
+| `--w-brand` | `#13577A` | Logoens blå. Bare tekst på hvitt (7,9:1): stedene under ukedagene. Aldri bakgrunn |
 
 Reglene bruker `--c-`variablene (`--c-title`, `--c-text`, `--c-muted`,
 `--c-line`, `--c-ring`, `--c-surface`, `--c-focus`). De peker på mørke eller
 lyse verdier etter hvilket parti innholdet står i.
 
 1. Oransje brukes bare til hovedknappen og til trinn-tallene på Tæpp og
-   tren-siden. Én oransje knapp per side. Trinn-tall står bare på mørk
-   bakgrunn. Oransje brukes ikke som bakgrunn på bolker.
+   tren-siden (og trinn-tallet i skjermbildet av appen). Én oransje knapp
+   per side. Trinn-tall står bare på mørk bakgrunn. Oransje brukes ikke som
+   bakgrunn på bolker.
 2. Hvit tekst står aldri på oransje. Bruk `--tt-on-accent`.
 3. Oransje tekst (`--tt-accent-text`) brukes bare på mørkt.
 4. Ingen nye fargekoder i reglene. Trengs en ny farge, legges den inn som
@@ -64,24 +66,15 @@ lyse verdier etter hvilket parti innholdet står i.
 5. Ingen fargeoverganger som pynt. Den eneste overgangen er skyggen som gjør
    teksten lesbar oppå bildet øverst på forsiden.
 
-### Fargefelt
+### Hvite og marineblå bolker
 
-| Felt | Bakgrunn | Brukes til |
-|---|---|---|
-| `.fersken` | `--w-peach` `#FFB58C` | Kort felt bak portrettet, på forsiden og Teamet. Tittel `--w-ink` (9,1), tekst `--w-ink-soft` (7,4). |
-
-1. Høyst ett ferskenfelt per side, og bare sammen med portrettet.
-2. Hovedknappen står aldri i ferskenfeltet. Den står på marineblått eller
-   lyst.
-3. Skjema og lange lesestykker står på lyst, ikke i fargefelt.
-4. Feltene møtes kant i kant, uten strek, skygge eller overgang. På Teamet
-   stikker portrettet 64 px opp i ferskenfeltet over (`--w-lift`), bare på
-   PC. På forsiden står portrettet helt inne i ferskenfeltet, fordi feltet
-   over har mobilene i underkant.
-5. Oransje, lys blå og andre farger brukes ikke som bakgrunn på bolker.
-   Undersidene åpner i marineblått.
-6. Feltet setter `--c-`variablene, så tekst, lenker, streker og fokusring
-   følger feltet de står i. Fokusringen i ferskenfeltet er `--w-ink`.
+1. Bolker har bare bakgrunnen `--w-paper` (hvit) eller `--tt-bg`
+   (marineblå), satt med `background-color` på selve bolken.
+2. Minst halvparten av forsidens høyde under toppbildet er hvit.
+3. Oransje, fersken, rosa, beige og lys blå brukes ikke som bakgrunn på
+   bolker. Undersidene åpner i marineblått.
+4. Feltene møtes kant i kant, uten strek, skygge eller overgang. Ingenting
+   stikker inn i feltet over.
 
 ## Skrift
 
@@ -90,8 +83,8 @@ Sju størrelser. De tre største vokser med skjermbredden.
 
 | Variabel | Mobil – PC | Brukes til |
 |---|---|---|
-| `--w-type-hero` | 40 – 88 px | Overskriften på forsiden, tittelen øverst på Tæpp og tren-siden, ukedagene fra 1200 px |
-| `--w-type-display` | 40 – 64 px | Tittelen øverst på en underside, ukedagene under 1200 px, «Tæpp og tren» på forsiden |
+| `--w-type-hero` | 40 – 88 px | Overskriften på forsiden, tittelen øverst på Tæpp og tren-siden |
+| `--w-type-display` | 40 – 64 px | Tittelen øverst på en underside, «Tæpp og tren» på forsiden |
 | `--w-type-title` | 32 – 48 px | Tittelen på en bolk |
 | `--w-type-lead` | 19 – 22 px | Ingress, hovedknappen, overskrift på et ledd |
 | `--w-type-body` | 17 – 18 px | Lesetekst, lenker, felt |
@@ -101,6 +94,10 @@ Sju størrelser. De tre største vokser med skjermbredden.
 `--w-type-menu` (24 – 32 px) er bare for lenkene i den åpne menyen.
 
 `--w-type-number` (64 – 88 px) er bare for trinn-tallet (`.trinn`), som i appen.
+
+`--w-type-dag` (51 – 136 px) er bare for ukedagene på forsiden (`.tider`).
+De er sidens største skrift og får hele sidebredden, med stedet i
+`--w-brand` til høyre (under på mobil).
 
 1. Én stor tittel per side. Venstrestilt.
 2. Overlinjen er kort, i vanlig setningsform, og brukes bare øverst på siden
@@ -117,8 +114,8 @@ Farger står alltid som variabler. Noen få mål som bare brukes ett sted
 (toppbildet, ukedagene, bunnfeltet), står rett i regelen.
 
 1. Innholdet ligger rett på bakgrunnen. Ingen kort med ramme rundt tekst.
-2. Bilder går helt ut til kanten på mobil (`.foto--kant`). På PC har de 18 px
-   radius.
+2. Portrettet går helt ut til kanten, uten radius: i full bredde på mobil,
+   og ut til skjermkanten på PC (`.portrett`, `.person`).
 3. Skill deler med luft. Trengs en strek, brukes `--c-line`.
 4. Flater med farge er bare for ting man kan trykke på.
 5. På PC står tittelen til venstre og innholdet til høyre (`.to-delt`).
@@ -176,6 +173,17 @@ medier står som tekstlenker. Et ikon står aldri alene uten tekst.
    likt på alle sider. Portrettet av Alexander er svart-hvitt.
 4. Bilder som bare er stemning, har tom `alt`. Bilder som viser noe leseren
    trenger, har en kort beskrivelse uten navn på personer.
+5. Portrettet vises alltid i sitt eget format (`--w-foto-format`, 1200 / 954),
+   så det ikke beskjæres. `--fokus` (58 % 41 %, der ansiktet er) holder
+   motivet på plass om formatet endres. Ingen tekst står oppå et ansikt.
+6. Forsiden: «Bak My Strongest Side» står i et hvitt felt. På PC står
+   teksten til venstre i sidebredden og portrettet til høyre, helt ut til
+   skjermkanten og fra feltkant til feltkant. På mobil kommer teksten
+   først og portrettet under i full bredde.
+7. Teamet: portrettet går ut til venstre skjermkant på PC, teksten holder
+   sidebredden. Portrettet står inne i sitt eget felt.
+8. Treningsbildet brukes bare øverst på forsiden. Det gjentas ikke som
+   bånd lenger ned.
 
 ### Tæpp og tren som produkt
 
@@ -216,8 +224,9 @@ skråstilte mobiler.
 ## Oppbygging av en side
 
 Forsiden: topp, bilde i full bredde med overskrift og hovedknapp på mørk
-bakgrunn, lyst felt med ukedagene, mørkt Tæpp og tren-felt som et bånd fra
-appen, ferskenfelt med portrettet, og så lyse bolker. Siden skal verken
+bakgrunn, hvitt felt med ukedagene i full bredde, mørkt Tæpp og tren-felt
+som et bånd fra appen, hvitt felt med portrettet ut til kanten, og så hvite
+bolker. Siden skal verken
 være mørk eller lys hele veien ned.
 
 Underside: topp, mørkt felt med overlinje, tittel og ingress (`.sidetopp`),
