@@ -213,32 +213,6 @@
     .js .reveal.d3{ transition-delay:.18s; }
     .js .reveal.d4{ transition-delay:.24s; }
 
-    /* ===== Checkin embed: mobil-sikker ===== */
-    #checkin_registration{
-      width: 100%;
-      overflow: visible;
-      min-height: 760px; /* gir plass mens den laster */
-    }
-    /* liten "laster..."-fallback hvis embed ikke har rendret ennå */
-    #checkin_registration:empty::before{
-      content: "Laster påmelding …";
-      display: block;
-      padding: .9rem 1rem;
-      border-radius: 14px;
-      border: 1px solid rgba(16,82,119,.16);
-      background: rgba(16,82,119,.04);
-      font-weight: 800;
-      color: var(--myss-blue);
-      opacity: .85;
-    }
-    #checkin_registration iframe{
-      width: 100% !important;
-      max-width: 100% !important;
-      border: 0;
-    }
-    @media (max-width: 900px){
-      #checkin_registration{ min-height: 980px; }
-    }
 
     /* myss: ungdom-mobile-fix-start */
 
@@ -369,7 +343,7 @@
                 <ul class="site-nav__list">
                   <li><a href="../gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
                   <li><a href="../kurs og seminar.html" class="site-nav__link">Kurs og seminar</a></li>
-                  <li><a href="../qr/trening/index.html" class="site-nav__link">QR/NFC treningssystem</a></li>
+                  <li><a href="../treningssystem.html" class="site-nav__link">Tæpp og tren</a></li>
                 </ul>
               </div>
 
@@ -423,20 +397,11 @@
           </ul>
 
           <div class="myss-actions reveal d4">
-            <a class="myss-btn" href="#paamelding">Meld deg på</a>
+            <a class="myss-btn" href="https://myss.no/pamelding">Meld deg på</a>
             <a class="myss-btn myss-btn--outline" href="barn-ungdom.html">Tilbake til info</a>
           </div>
         </div>
 
-        <div class="reveal d2">
-          <div class="media-frame">
-            <img
-              src="../bilder/tett-oppfolging-hero.jpg"
-              alt="Ungdomstrening hos My Strongest Side"
-              loading="lazy"
-            />
-          </div>
-        </div>
       </div>
     </section>
 
@@ -469,7 +434,7 @@
           </div>
         </section>
         <div class="myss-primary-cta">
-          <a href="https://event.checkin.no/214663" target="_blank" rel="noopener noreferrer">
+          <a href="https://myss.no/pamelding" target="_blank" rel="noopener noreferrer">
             Åpne påmeldingen i egen fane →
           </a>
         </div>
@@ -509,22 +474,9 @@
           Tilpasning: Vi tilpasser øvelser, utstyr og tempo (sittende/stående, pauser ved behov).
         </p>
 
-        <div id="checkin_registration" style="margin-top:1rem;"></div>
-
-        <script
-          src="https://registration.checkin.no/registration.loader.js"
-          data-event-id="214663"
-          data-theme="light"
-          data-primary-color="#105277"
-          data-secondary-color="#f77c37"
-          async>
-        </script>
-
-        <noscript>
-          <p>For å melde deg på må JavaScript være aktivert i nettleseren.</p>
-<p class="myss-note">Hvis påmeldingen ikke åpner seg, bruk kontaktsiden: <a href="/kontakt.html">Kontakt</a>.</p>
-
-        </noscript>
+        <div class="myss-actions" style="margin-top:1rem;">
+          <a class="myss-btn" href="https://myss.no/pamelding">Meld deg på gruppetrening</a>
+        </div>
       </div>
     </section>
 
@@ -659,7 +611,7 @@
             </div>
 
             <div class="myss-actions" style="margin-top:1rem;">
-              <a class="myss-btn" href="#paamelding">Meld deg på</a>
+              <a class="myss-btn" href="https://myss.no/pamelding">Meld deg på</a>
              <a class="myss-btn myss-btn--outline" href="../kontakt.html">Spørsmål?</a>
             </div>
           </div>
@@ -673,7 +625,7 @@
   <div class="myss-sticky" role="region" aria-label="Hurtig påmelding">
     <div class="myss-sticky__inner">
       <div class="myss-sticky__text">Ungdom 12 15 Fantoft</div>
-      <a class="myss-btn" href="#paamelding">Meld deg på</a>
+      <a class="myss-btn" href="https://myss.no/pamelding">Meld deg på</a>
     </div>
   </div>
 

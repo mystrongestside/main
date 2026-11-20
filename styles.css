@@ -244,14 +244,14 @@ main {
 .btn--primary {
 	background: var(--myss-orange);
 	border-color: var(--myss-orange);
-	color: #fff;
+	color: var(--myss-ink);
 }
 
 .btn--primary:hover,
 .btn--primary:focus-visible {
 	background: #e76923;
 	border-color: #e76923;
-	color: #fff;
+	color: var(--myss-ink);
 	text-decoration: none;
 }
 

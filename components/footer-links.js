@@ -21,7 +21,7 @@
 
     host.innerHTML = `
       <h3 class="site-footer__heading reveal d2">${esc(title)}</h3>
-      <ul class="site-footer__list">
+      <ul class="site-footer__list" role="list">
         ${items.map((i, idx) => `
           <li class="${liClass(idx)}">
             <a class="site-footer__link" href="${esc(i.href)}">${esc(i.label)}</a>
@@ -35,7 +35,7 @@
     mount("[data-footer-links-services]", "Våre tjenester", [
       { label: "Treningstilbud", href: "/gruppetrening.html" },
       { label: "Kurs / seminar", href: "/kurs%20og%20seminar.html" },
-      { label: "Treningssystem", href: "/treningssystem.html" }
+      { label: "Tæpp og tren", href: "/treningssystem.html" }
     ]);
 
     mount("[data-footer-links-info]", "Informasjon", [

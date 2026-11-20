@@ -11,7 +11,6 @@ const STYLES_PATH = resolve(PROJECT_ROOT, 'styles.css');
 
 const HERO_LINES = [
   '<section class="hero-card" data-experiment="hero-ab">',
-  '  <img src="bilder/hero-large.jpg" alt="Trening og fellesskap på My Strongest Side" class="hero-image">',
   '  <div class="hero-overlay">',
   '    <p class="hero-label">Tilrettelagt styrketrening i Bergen</p>',
   '    <h1>Tren trygt med fagpersoner som heier på deg<span class="dot">.</span></h1>',
