@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="no">
 <head>
   <script
@@ -31,7 +31,8 @@
   <link rel="canonical" href="https://mystrongestside.no/" />
 
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="stylesheet" href="/styles.css?v=1202" />
+  <link rel="preload" href="/assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/css/myss-2026.css?v=1" />
   <link rel="stylesheet" href="/assets/consent.css" />
 
   <script>
@@ -54,677 +55,186 @@
       gtag("config", "G-LK0WY59R15");
     });
   </script>
-
-  <style>
-    /* ===== Forsiden, november 2026 ===== */
-    .page-home {
-      --home-accent-soft: #ffb58c; /* oransje som holder 4,5:1 på blått */
-      --home-tint: rgba(16, 82, 119, 0.06);
-      --home-line: rgba(16, 82, 119, 0.16);
-    }
-
-    .page-home main {
-      padding-top: 1.5rem;
-    }
-
-    header[data-component="site-header"] {
-      position: relative;
-      z-index: 50;
-    }
-
-    .home-section {
-      padding: 2.75rem 0 0;
-    }
-
-    .home-section h2 {
-      font-size: clamp(28px, 1.6rem + 1vw, 38px);
-      line-height: 1.2;
-      margin: 0 0 0.75rem;
-    }
-
-    .home-section p {
-      line-height: 1.6;
-      max-width: 65ch;
-    }
-
-    .home-link {
-      display: inline-flex;
-      align-items: center;
-      min-height: 48px;
-      font-weight: 800;
-      color: var(--myss-blue);
-      text-decoration: underline;
-      text-underline-offset: 0.2em;
-    }
-
-    .page-home a:focus-visible,
-    .page-home button:focus-visible {
-      outline: 3px solid var(--myss-ink);
-      outline-offset: 3px;
-    }
-
-    /* --- Toppfelt --- */
-    .home-hero__panel {
-      background: var(--myss-blue);
-      color: #fff;
-      border-radius: 24px;
-      padding: clamp(1.75rem, 5vw, 4rem);
-    }
-
-    .home-hero__eyebrow {
-      margin: 0 0 0.75rem;
-      font-size: 0.85em;
-      font-weight: 700;
-      color: var(--home-accent-soft);
-    }
-
-    .home-hero__title {
-      margin: 0 0 1rem;
-      max-width: 18ch;
-      color: #fff;
-      font-size: clamp(36px, 2rem + 3vw, 64px);
-      line-height: 1.08;
-      letter-spacing: -0.01em;
-    }
-
-    .home-hero__lead {
-      margin: 0 0 1.75rem;
-      max-width: 52ch;
-      line-height: 1.5;
-      color: #fff;
-    }
-
-    .home-hero__actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .home-hero__actions .btn {
-      min-height: 52px;
-      padding: 0.75rem 1.6rem;
-      font-size: 1em;
-      font-weight: 700;
-    }
-
-    .home-hero__btn-ghost {
-      background: transparent;
-      border-color: rgba(255, 255, 255, 0.7);
-      color: #fff;
-    }
-
-    .home-hero__btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.12);
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .home-hero__panel a:focus-visible {
-      outline-color: #fff;
-    }
-
-    .home-hero__note {
-      margin: 1.5rem 0 0;
-      font-size: 0.85em;
-      color: #fff;
-    }
-
-    /* --- Når vi trener --- */
-    .home-times {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin: 1.25rem 0 0.75rem;
-      padding: 0;
-      list-style: none;
-    }
-
-    .home-times__item {
-      border-left: 6px solid var(--myss-orange);
-      background: var(--home-tint);
-      border-radius: 0 20px 20px 0;
-      padding: 1.1rem 1.25rem;
-    }
-
-    .home-times__day {
-      display: block;
-      font-size: clamp(26px, 1.4rem + 1vw, 34px);
-      font-weight: 800;
-      line-height: 1.15;
-      color: var(--myss-ink);
-    }
-
-    .home-times__place {
-      display: block;
-      margin-top: 0.25rem;
-      line-height: 1.4;
-    }
-
-    /* --- Tæpp og tren --- */
-    .home-product {
-      border: 1px solid var(--home-line);
-      background: var(--home-tint);
-      border-radius: 24px;
-      padding: clamp(1.5rem, 4vw, 2.75rem);
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) clamp(180px, 24vw, 300px);
-      gap: clamp(1.5rem, 4vw, 3rem);
-      align-items: center;
-    }
-
-    .home-product__art {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .home-product__art-plate {
-      fill: var(--myss-blue);
-    }
-
-    .home-product__art-plate--outer {
-      fill: var(--myss-ink-2, #24344d);
-    }
-
-    .home-product__art-grip {
-      fill: var(--myss-orange);
-    }
-
-    .home-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      margin: 0 0 1rem;
-      padding: 0.45rem 0.9rem;
-      border-radius: 999px;
-      background: var(--myss-blue);
-      color: #fff;
-      font-size: 0.8em;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
-    .home-badge__dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--myss-orange);
-      flex: none;
-    }
-
-    /* --- Bevegelse --- */
-    .reveal {
-      opacity: 1;
-      transform: none;
-    }
-
-    @keyframes myssFadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    .js .reveal.is-visible {
-      animation: myssFadeUp 0.6s ease both;
-    }
-
-    .js .reveal.d1 { animation-delay: 0.05s; }
-    .js .reveal.d2 { animation-delay: 0.12s; }
-    .js .reveal.d3 { animation-delay: 0.18s; }
-    .js .reveal.d4 { animation-delay: 0.24s; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .js .reveal.is-visible {
-        animation: none;
-      }
-
-      .myss-service-card,
-      .myss-news-card {
-        transition: none;
-      }
-    }
-
-    /* --- Tjenester --- */
-    .myss-services {
-      margin-top: 1.25rem;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .myss-service-card {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      text-decoration: none;
-      color: inherit;
-      border-radius: 20px;
-      padding: 1.05rem;
-      background: var(--home-tint);
-      border: 1px solid var(--home-line);
-      transition: transform 0.08s ease, filter 0.2s ease, background 0.2s ease;
-    }
-
-    .myss-service-card:hover {
-      filter: brightness(1.02);
-      transform: translateY(-1px);
-    }
-
-    .myss-service-card:active {
-      transform: translateY(0);
-    }
-
-    .myss-service-card__img {
-      width: 100%;
-      height: 170px;
-      display: block;
-      object-fit: cover;
-      border-radius: 16px;
-      margin-bottom: 0.75rem;
-      background: var(--home-tint);
-    }
-
-    .myss-service-card__title {
-      margin: 0.25rem 0 0.35rem;
-      font-size: 1.15em;
-      line-height: 1.2;
-    }
-
-    .myss-service-card__text {
-      margin: 0 0 0.65rem;
-      line-height: 1.5;
-    }
-
-    .myss-service-card__cta {
-      margin-top: auto;
-      font-weight: 800;
-      color: var(--myss-blue);
-    }
-
-    /* --- Aktuelt --- */
-    .myss-news-card {
-      display: block;
-      margin-top: 1.25rem;
-      text-decoration: none;
-      color: inherit;
-      border-radius: 20px;
-      background: var(--home-tint);
-      border: 1px solid var(--home-line);
-      transition: transform 0.08s ease, filter 0.2s ease;
-    }
-
-    .myss-news-card:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.02);
-    }
-
-    .myss-news-card__body {
-      padding: 1.25rem 1.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      color: var(--myss-ink);
-    }
-
-    .myss-news-card__kicker {
-      font-size: 0.75em;
-      font-weight: 800;
-      color: var(--myss-blue);
-    }
-
-    .myss-news-card__title {
-      margin: 0;
-      font-size: 1.2em;
-      line-height: 1.25;
-    }
-
-    .myss-news-card__teaser {
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    .myss-news-card__cta {
-      font-weight: 800;
-      color: var(--myss-blue);
-    }
-
-    /* --- Instagram og bunn --- */
-    .instagram {
-      padding: 2.75rem 0 0;
-    }
-
-    .instagram .container {
-      max-width: var(--container);
-    }
-
-    .instagram .sk-instagram-feed {
-      width: 100%;
-      max-width: 980px;
-      margin: 1rem 0 0;
-    }
-
-    .instagram iframe {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-
-    .site-footer__social-list {
-      display: flex !important;
-      gap: 14px !important;
-      align-items: center !important;
-    }
-
-    .site-footer__social-list .social-link {
-      width: 36px !important;
-      height: 36px !important;
-      display: inline-flex !important;
-    }
-
-    .site-footer__social-list .social-link img {
-      width: 36px !important;
-      height: 36px !important;
-      display: block !important;
-      object-fit: contain !important;
-    }
-
-    @media (max-width: 900px) {
-      .myss-services,
-      .home-times,
-      .home-product {
-        grid-template-columns: 1fr;
-        max-width: none;
-      }
-
-      .home-product__art {
-        width: 160px;
-        justify-self: end;
-      }
-
-      .myss-service-card__img {
-        height: 150px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .home-section {
-        padding-top: 2.25rem;
-      }
-
-      .home-hero__panel {
-        border-radius: 20px;
-      }
-
-      .home-hero__actions .btn {
-        width: 100%;
-      }
-    }
-  </style>
 </head>
 
-<body class="page-home">
+<body class="page-home design-2026">
+  <a class="skip-link" href="#main-content">Hopp til hovedinnhold</a>
   <header data-component="site-header"></header>
 
-  <main>
-    <section class="home-hero" aria-labelledby="home-title">
-      <div class="container">
-        <div class="home-hero__panel reveal d1">
-          <div class="home-hero__text">
-          <p class="home-hero__eyebrow">My Strongest Side®</p>
-          <h1 class="home-hero__title" id="home-title">Gjør trening tilgjengelig for flest mulig</h1>
-          <p class="home-hero__lead">
+  <main id="main-content">
+    <section class="hjem-topp" aria-labelledby="home-title">
+      <figure class="foto">
+        <img src="/bilder/trening-1600.jpg" srcset="/bilder/trening-800.jpg 800w, /bilder/trening-1600.jpg 1600w" sizes="100vw" width="1600" height="1066" alt="" fetchpriority="high" />
+      </figure>
+      <div class="ramme">
+        <div class="hjem-topp__tekst">
+          <p class="overlinje">My Strongest Side®</p>
+          <h1 class="hero-tittel" id="home-title">Gjør trening tilgjengelig for flest mulig</h1>
+          <p class="ingress">
             Vi tilbyr tilrettelagt styrketrening for personer med funksjonsnedsettelser,
             kronisk sykdom eller andre behov som gjør vanlig trening utilgjengelig.
           </p>
-          <div class="home-hero__actions">
-            <a class="btn btn--primary" href="/gruppetrening.html">Bli medlem</a>
-            <a class="btn home-hero__btn-ghost" href="#trening">Se når vi trener</a>
+          <div class="handling">
+            <a class="knapp-hoved" href="/gruppetrening.html">Bli medlem <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="knapp-rolig" href="#trening">Se når vi trener</a>
           </div>
-          <p class="home-hero__note">Gratis prøvetime med PT og faglig veiledning 🧡</p>
-          </div>
+          <p class="liten">Gratis prøvetime med PT og faglig veiledning</p>
         </div>
       </div>
     </section>
 
-    <section class="home-section" id="trening" aria-labelledby="trening-title">
-      <div class="container">
-        <p class="eyebrow reveal d1">Gruppetrening</p>
-        <h2 class="reveal d2" id="trening-title">Vi trener hver uke</h2>
-        <p class="reveal d3">
-          Små grupper og øvelser tilpasset deg.
-        </p>
-        <ul class="home-times reveal d3">
-          <li class="home-times__item">
-            <span class="home-times__day">Onsdager</span>
-            <span class="home-times__place">Sotra Sportsenter</span>
+    <section class="bolk lys" id="trening" aria-labelledby="trening-title">
+      <div class="ramme to-delt">
+        <div class="bolk__hode">
+          <h2 class="tittel" id="trening-title">Vi trener hver uke</h2>
+          <p class="ingress">Små grupper og øvelser tilpasset deg.</p>
+          <a class="pil-lenke" href="/gruppetrening.html">Se gruppene <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <ul class="tider">
+          <li>
+            <span class="tider__dag">Onsdager</span>
+            <span class="tider__sted">Sotra Sportsenter</span>
           </li>
-          <li class="home-times__item">
-            <span class="home-times__day">Fredager</span>
-            <span class="home-times__place">Trene Sammen Fantoft</span>
+          <li>
+            <span class="tider__dag">Fredager</span>
+            <span class="tider__sted">Trene Sammen Fantoft</span>
           </li>
         </ul>
-        <a class="home-link reveal d4" href="/gruppetrening.html">Se gruppene →</a>
       </div>
     </section>
 
-    <section class="home-section" aria-labelledby="taepp-title">
-      <div class="container">
-        <div class="home-product reveal d2">
-          <div class="home-product__text">
-          <p class="home-badge">
-            <span class="home-badge__dot" aria-hidden="true"></span>
-            Pilotering fra januar 2027
-          </p>
-          <h2 id="taepp-title">Tæpp og tren™</h2>
-          <p>
-            Tæpp på apparatet og få veiledning, øvelser og forslag til tilpasninger.
-          </p>
-          <a class="home-link" href="/treningssystem.html">Les mer om Tæpp og tren →</a>
-          </div>
-          <svg class="home-product__art" viewBox="0 0 240 160" aria-hidden="true" focusable="false">
-            <g transform="rotate(-18 120 80)">
-              <rect class="home-product__art-grip" x="66" y="71" width="108" height="18" rx="9" />
-              <rect class="home-product__art-plate" x="50" y="36" width="24" height="88" rx="9" />
-              <rect class="home-product__art-plate" x="166" y="36" width="24" height="88" rx="9" />
-              <rect class="home-product__art-plate home-product__art-plate--outer" x="26" y="50" width="20" height="60" rx="8" />
-              <rect class="home-product__art-plate home-product__art-plate--outer" x="194" y="50" width="20" height="60" rx="8" />
-              <rect class="home-product__art-grip" x="12" y="68" width="10" height="24" rx="5" />
-              <rect class="home-product__art-grip" x="218" y="68" width="10" height="24" rx="5" />
+    <section class="bolk moerk" aria-labelledby="taepp-title">
+      <div class="ramme par">
+        <figure class="scene foto--kant">
+          <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Tegning av Tæpp og tren-skiltet for beinpress, festet på apparatet. Nederst på skiltet står det: Hold mobilen her.">
+            <defs><clipPath id="skiltform"><rect x="290" y="232" width="440" height="536" rx="30" /></clipPath></defs>
+            <g class="scene__del-strek">
+              <path d="M56 440 L176 772" />
+              <path d="M150 850 H300" />
+              <path d="M0 962 H800" />
             </g>
+            <rect class="scene__del" x="250" y="72" width="520" height="980" rx="36" />
+            <g class="scene__flate">
+              <rect x="300" y="812" width="420" height="26" rx="8" /><rect x="300" y="848" width="420" height="26" rx="8" /><rect x="300" y="884" width="420" height="26" rx="8" /><rect x="300" y="920" width="420" height="26" rx="8" /><rect x="300" y="956" width="420" height="26" rx="8" />
+              <rect x="505" y="150" width="10" height="670" /><circle cx="510" cy="150" r="38" />
+            </g>
+            <circle class="scene__del" cx="510" cy="150" r="11" />
+            <circle class="scene__lys" cx="328" cy="897" r="9" />
+            <g clip-path="url(#skiltform)"><svg x="290" y="232" width="440" height="536" viewBox="25 122 1387 1690" preserveAspectRatio="none"><image href="/bilder/taepp-skilt-900.png" width="1448" height="1904" /></svg></g>
+            <rect class="scene__kant" x="290" y="232" width="440" height="536" rx="30" />
           </svg>
+        </figure>
+        <div class="par__tekst">
+          <p class="overlinje">Pilotering fra januar 2027</p>
+          <h2 class="stor-tittel" id="taepp-title">Tæpp og tren™</h2>
+          <p class="ingress">Tæpp på apparatet og få veiledning, øvelser og forslag til tilpasninger.</p>
+          <a class="pil-lenke" href="/treningssystem.html">Les mer om Tæpp og tren <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
     </section>
 
-    <section class="home-section" aria-labelledby="tjenester-title">
-      <div class="container">
-        <p class="eyebrow reveal d1">Våre tjenester</p>
-        <h2 class="reveal d2" id="tjenester-title">Dette tilbyr vi</h2>
-
-        <div class="myss-services reveal d3">
-          <a class="myss-service-card" href="/gruppetrening.html">
-            <img src="/bilde01.jpg" alt="" aria-hidden="true" class="myss-service-card__img" />
-            <h3 class="myss-service-card__title">Treningstilbud</h3>
-            <p class="myss-service-card__text">
-              Gruppetrening hver uke på Sotra og Fantoft.
-            </p>
-            <span class="myss-service-card__cta">Les mer →</span>
-          </a>
-
-          <a class="myss-service-card" href="/kurs%20og%20seminar.html">
-            <img src="/kurs.jpg" alt="" aria-hidden="true" class="myss-service-card__img" />
-            <h3 class="myss-service-card__title">Kurs / seminar</h3>
-            <p class="myss-service-card__text">
-              For sentre, fagpersoner og partnere.
-            </p>
-            <span class="myss-service-card__cta">Les mer →</span>
-          </a>
-
-          <a class="myss-service-card" href="/treningssystem.html">
-            <img src="/nfc1.jpg" alt="" aria-hidden="true" class="myss-service-card__img" />
-            <h3 class="myss-service-card__title">Treningssystem</h3>
-            <p class="myss-service-card__text">
-              Veiledning rett på apparatet.
-            </p>
-            <span class="myss-service-card__cta">Les mer →</span>
-          </a>
+    <section class="bolk lys" aria-labelledby="bak-title">
+      <div class="ramme par par--bilde-hoyre">
+        <figure class="foto foto--kant foto--sh foto--kvadrat" style="--fokus: 100% 50%">
+          <img src="/bilder/alexander-2026-1200.jpg" srcset="/bilder/alexander-2026-700.jpg 700w, /bilder/alexander-2026-1200.jpg 1200w" sizes="(min-width: 900px) 560px, 100vw" width="1200" height="954" alt="" loading="lazy" />
+        </figure>
+        <div class="par__tekst">
+          <h2 class="tittel" id="bak-title">Bak My Strongest Side</h2>
+          <p class="ingress">
+            Startet av Alexander Sviggum, ergoterapeut og styrkeløfter med cerebral parese.
+            Alexander er trener for treningsgruppene.
+          </p>
+          <a class="pil-lenke" href="/om-oss.html">Mer om oss <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
     </section>
 
-    <section class="home-section" aria-labelledby="bak-title">
-      <div class="container">
-        <p class="eyebrow reveal d1">Om oss</p>
-        <h2 class="reveal d2" id="bak-title">Bak My Strongest Side</h2>
-        <p class="reveal d3">
-          Startet av Alexander Sviggum, ergoterapeut og styrkeløfter med cerebral parese.
-          Alexander er trener for treningsgruppene.
-        </p>
-        <a class="home-link reveal d4" href="/om-oss.html">Mer om oss →</a>
+    <section class="bolk bolk--tett lys" aria-labelledby="aktuelt-title">
+      <div class="ramme to-delt">
+        <h2 class="tittel" id="aktuelt-title">Nytt fra My Strongest Side</h2>
+        <div class="nytt">
+          <p class="liten">Nyhet</p>
+          <h3 class="tittel">
+            <a href="/aktuelt/cp-bladet-myss.html">Treningstilbud for personer med CP videreføres i Vestland</a>
+          </h3>
+          <p class="ingress">CP-foreningen Vestland viderefører avtalen med My Strongest Side.</p>
+          <a class="pil-lenke" href="/aktuelt/cp-bladet-myss.html" aria-hidden="true" tabindex="-1">Les mer <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
       </div>
     </section>
 
-    <section class="home-section" aria-labelledby="aktuelt-title">
-      <div class="container">
-        <p class="eyebrow reveal d1">Aktuelt</p>
-        <h2 class="reveal d2" id="aktuelt-title">Nytt fra My Strongest Side</h2>
+    <section id="instagram" class="bolk bolk--tett lys instagram">
+      <div class="ramme to-delt">
+        <h2 class="tittel">Instagram</h2>
+        <div class="insta">
+          <p class="ig-fallback" data-ig-fallback>
+            Hvis du ikke ser feeden, kan det skyldes samtykke til markedsføring eller blokkering i
+            nettleser.
+            <a
+              class="tekstlenke"
+              href="https://www.instagram.com/mystrongestside/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Åpne Instagram</a>.
+          </p>
 
-        <a class="myss-news-card reveal d3" href="/aktuelt/cp-bladet-myss.html">
-          <div class="myss-news-card__body">
-            <span class="myss-news-card__kicker">Nyhet</span>
-            <h3 class="myss-news-card__title">
-              Treningstilbud for personer med CP videreføres i Vestland
-            </h3>
-            <p class="myss-news-card__teaser">
-              CP-foreningen Vestland viderefører avtalen med My Strongest Side.
-            </p>
-            <span class="myss-news-card__cta">Les mer →</span>
+          <div class="embed-consent-placeholder" data-instagram-placeholder>
+            <p>Instagram-feed er blokkert inntil du gir samtykke til markedsføringscookies.</p>
+            <div class="embed-consent-placeholder__actions handling">
+              <button type="button" class="knapp-rolig" data-instagram-load>Vis Instagram</button>
+              <a href="/cookies.html" class="knapp-rolig">Administrer cookies</a>
+            </div>
           </div>
-        </a>
-      </div>
-    </section>
 
-    <section id="instagram" class="instagram">
-      <div class="container">
-        <h2>Instagram</h2>
-        <p class="ig-fallback" data-ig-fallback>
-          Hvis du ikke ser feeden, kan det skyldes samtykke til markedsføring eller blokkering i
-          nettleser.
-          <a
-            href="https://www.instagram.com/mystrongestside/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Åpne Instagram</a>.
-        </p>
-
-        <div class="embed-consent-placeholder" data-instagram-placeholder>
-          <p>Instagram-feed er blokkert inntil du gir samtykke til markedsføringscookies.</p>
-          <div class="embed-consent-placeholder__actions">
-            <button type="button" class="btn btn--primary" data-instagram-load>Vis Instagram</button>
-            <a href="/cookies.html" class="btn btn--ghost">Administrer cookies</a>
-          </div>
+          <div class="sk-instagram-feed" data-embed-id="25652202"></div>
         </div>
-
-        <div class="sk-instagram-feed" data-embed-id="25652202"></div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-  <div class="site-footer__inner container">
-    <div class="site-footer__brand">
-      <img
-        src="/bilder/myss-logo-footer.png"
-        alt="My Strongest Side"
-        class="site-footer__logo"
-      />
-      <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
-    </div>
-
-    <div class="site-footer__top">
-      <div data-footer-links-services></div>
-      <div data-footer-links-info></div>
-      <div data-footer-links-brand></div>
-
-      <div class="site-footer__contact">
-        <h3 class="site-footer__title">Kontakt</h3>
-        <div class="site-footer__contact-lines">
-          <div>My Strongest Side AS</div>
-          <div>Brages veg 3<br />5221 Nesttun</div>
-          <div><a class="site-footer__link" href="/kontakt.html">Meld interesse eller still spørsmål</a></div>
+    <div class="ramme">
+      <div class="site-footer__oppe">
+        <div class="site-footer__brand">
+          <img src="/bilder/myss-logo-footer.png" alt="My Strongest Side" class="site-footer__logo" width="900" height="270" loading="lazy" />
+          <p class="site-footer__tagline">Gjør trening tilgjengelig for flest mulig</p>
         </div>
-      </div>
-    </div>
 
-    <div class="site-footer__bottom">
-      <div class="site-footer__social">
-        <span class="site-footer__social-label">Følg oss i sosiale medier</span>
-        <div class="site-footer__social-list">
-          <a
-            class="social-link"
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >
-            <img src="/icons/facebook.png" alt="" aria-hidden="true" />
-          </a>
-          <a
-            class="social-link"
-            href="https://www.instagram.com/mystrongestside/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <img src="/icons/instagram.png" alt="" aria-hidden="true" />
-          </a>
+        <div class="site-footer__top">
+          <div data-footer-links-services></div>
+          <div data-footer-links-info></div>
+          <div data-footer-links-brand></div>
+
+          <div class="site-footer__contact">
+            <h3 class="site-footer__title">Kontakt</h3>
+            <div class="site-footer__contact-lines">
+              <div>My Strongest Side AS</div>
+              <div>Brages veg 3<br />5221 Nesttun</div>
+              <div><a class="site-footer__link" href="/kontakt.html">Meld interesse eller still spørsmål</a></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <p class="site-footer__meta">
-        © <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053
-      </p>
+      <div class="site-footer__bottom">
+        <div class="site-footer__social">
+          <span class="site-footer__social-label">Følg oss i sosiale medier</span>
+          <div class="site-footer__social-list">
+            <a class="site-footer__link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a class="site-footer__link" href="https://www.instagram.com/mystrongestside/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+
+        <div class="site-footer__meta-wrap">
+          <p class="site-footer__meta">© <span id="year"></span> My Strongest Side AS · Org.nr 935 786 053</p>
+          <p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<p class="myss-legal">My Strongest Side® er et registrert varemerke.</p>
-
-  <script src="/menu.js?v=113" defer></script>
-  <script src="/components/footer-links.js?v=114" defer></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var y = document.getElementById("year");
-      if (y) y.textContent = new Date().getFullYear();
-
-      var els = Array.from(document.querySelectorAll(".reveal"));
-
-      if (!("IntersectionObserver" in window)) {
-        els.forEach(function (el) {
-          el.classList.add("is-visible");
-        });
-        return;
-      }
-
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-
-      els.forEach(function (el) {
-        io.observe(el);
-      });
-    });
-  </script>
+  <script src="/menu.js?v=115" defer></script>
+  <script src="/components/footer-links.js?v=115" defer></script>
 
   <script
     data-consent-category="marketing"
@@ -732,12 +242,5 @@
     defer
   ></script>
   <script src="/assets/consent.js" defer></script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var y = document.getElementById("year");
-    if (y) y.textContent = new Date().getFullYear();
-  });
-</script>
 </body>
 </html>

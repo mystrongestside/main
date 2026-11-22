@@ -1,0 +1,1404 @@
+/* ============================================================
+   My Strongest Side – felles designregler for nettsiden (november 2026)
+   Samme familie som Tæpp og tren-appen: marineblå, Archivo, stor hvit
+   skrift og én oransje hovedknapp. Forklaring og bruk står i DESIGN.md.
+
+   Slik brukes fila:
+   1. Sider som er lagt om, har <body class="design-2026"> og laster
+      denne fila i stedet for styles.css. Sider som ikke er lagt om,
+      ser ut som før.
+   2. Farger, størrelser, luft, radius og tid settes bare som variabler
+      i avsnitt 1. --tt- er de samme verdiene som i appen
+      (beinpress/taepp-regler.css). --w- er det nettsiden legger til.
+   3. Reglene under bruker bare var(--…). Ingen nye fargekoder eller
+      størrelser rett i en regel.
+
+   Kontrast, mørkt parti (bakgrunn #08263A):
+     tittel #FFFFFF 15,6 · tekst #E3EDF3 13,0 · dempet #C9D9E3 10,6
+     overlinje #FFB58C 9,2 · kant (55 % hvit) 5,6 · fokus #7CC8FF 8,5
+     mørk tekst #0B1F2C på oransje #F77C37 6,6
+   Kontrast, lyst parti (bakgrunn #F3F7FA):
+     tittel #08263A 14,4 · tekst #1D3545 11,7 · dempet #3F5666 7,1
+     kant (60 % marineblå) 4,3 · fokus #0B5CAD 6,2
+   ============================================================ */
+
+/* ============================================================
+   1. Variabler
+   ============================================================ */
+@font-face {
+  font-family: Archivo;
+  src: url("/assets/fonts/archivo.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Fra appen */
+  --tt-bg: #08263A;
+  --tt-surface: #0F3A56;
+  --tt-surface-selected: #14496B;
+  --tt-text: #FFFFFF;
+  --tt-text-soft: #E3EDF3;
+  --tt-text-muted: #C9D9E3;
+  --tt-accent: #F77C37;
+  --tt-accent-hover: #FF8D4C;
+  --tt-on-accent: #0B1F2C;
+  --tt-accent-text: #FFB58C;
+  --tt-line: rgba(255, 255, 255, 0.55);
+  --tt-line-soft: rgba(255, 255, 255, 0.25);
+  --tt-focus: #7CC8FF;
+  --tt-scrim: #08263A;
+  --tt-scrim-92: rgba(8, 38, 58, 0.92);
+  --tt-scrim-82: rgba(8, 38, 58, 0.82);
+  --tt-scrim-72: rgba(8, 38, 58, 0.72);
+  --tt-scrim-60: rgba(8, 38, 58, 0.6);
+  --tt-scrim-clear: rgba(8, 38, 58, 0);
+  --tt-radius: 18px;
+  --tt-radius-small: 12px;
+  --tt-tap: 48px;
+  --tt-tap-primary: 60px;
+  --tt-tap-choice: 72px;
+  --tt-ring: 1.5px;
+  --tt-icon: 24px;
+  --tt-ease: cubic-bezier(0.2, 0, 0, 1);
+  --tt-fast: 140ms;
+  --tt-press: 0.98;
+  --tt-weight-regular: 400;
+  --tt-weight-medium: 600;
+  --tt-weight-bold: 700;
+
+  /* Lyst parti: der det er mye å lese */
+  --w-paper: #F3F7FA;
+  --w-field: #FFFFFF;
+  --w-ink: #08263A;
+  --w-ink-soft: #1D3545;
+  --w-ink-muted: #3F5666;
+  --w-ink-line: rgba(8, 38, 58, 0.6);
+  --w-ink-line-soft: rgba(8, 38, 58, 0.2);
+  --w-paper-surface: #E2EBF1;
+  --w-ink-focus: #0B5CAD;
+
+  /* Skrift: sju størrelser. De tre største vokser med skjermen. */
+  --w-type-hero: clamp(40px, 22px + 4.6vw, 88px);
+  --w-type-display: clamp(40px, 31px + 2.3vw, 64px);
+  --w-type-title: clamp(32px, 26px + 1.5vw, 48px);
+  --w-type-lead: clamp(19px, 18px + 0.3vw, 22px);
+  --w-type-body: clamp(17px, 16.6px + 0.1vw, 18px);
+  --w-type-small: 15px;
+  --w-type-micro: 13px;
+  --w-leading-tight: 1.06;
+  --w-leading-lead: 1.45;
+  --w-leading-body: 1.6;
+  --w-measure: 65ch;
+
+  /* Sidebredde og luft */
+  --w-max: 1200px;
+  --w-gutter: 20px;
+  --w-space-1: 4px;
+  --w-space-2: 8px;
+  --w-space-3: 12px;
+  --w-space-4: 16px;
+  --w-space-5: 24px;
+  --w-space-6: 32px;
+  --w-space-7: 48px;
+  --w-space-8: 64px;
+  --w-space-9: 80px;
+  --w-section: 56px;
+  --w-header: 64px;
+  --w-field-height: 56px;
+
+  /* Gjeldende parti. Mørkt er standard; .lys bytter. */
+  --c-bg: var(--tt-bg);
+  --c-title: var(--tt-text);
+  --c-text: var(--tt-text-soft);
+  --c-muted: var(--tt-text-muted);
+  --c-over: var(--tt-accent-text);
+  --c-line: var(--tt-line-soft);
+  --c-ring: var(--tt-line);
+  --c-surface: var(--tt-surface);
+  --c-focus: var(--tt-focus);
+}
+
+@media (min-width: 900px) {
+  :root {
+    --w-gutter: 48px;
+    --w-section: 104px;
+    --w-header: 84px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --tt-fast: 0.01ms;
+    --tt-press: 1;
+  }
+}
+
+.moerk,
+.site-header,
+.site-nav,
+.site-footer {
+  --c-bg: var(--tt-bg);
+  --c-title: var(--tt-text);
+  --c-text: var(--tt-text-soft);
+  --c-muted: var(--tt-text-muted);
+  --c-over: var(--tt-accent-text);
+  --c-line: var(--tt-line-soft);
+  --c-ring: var(--tt-line);
+  --c-surface: var(--tt-surface);
+  --c-focus: var(--tt-focus);
+}
+
+.lys {
+  --c-bg: var(--w-paper);
+  --c-title: var(--w-ink);
+  --c-text: var(--w-ink-soft);
+  --c-muted: var(--w-ink-muted);
+  --c-over: var(--w-ink);
+  --c-line: var(--w-ink-line-soft);
+  --c-ring: var(--w-ink-line);
+  --c-surface: var(--w-paper-surface);
+  --c-focus: var(--w-ink-focus);
+}
+
+.moerk,
+.lys {
+  background: var(--c-bg);
+  color: var(--c-text);
+}
+
+/* ============================================================
+   2. Grunnlag
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: Archivo, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: var(--w-type-body);
+  font-weight: var(--tt-weight-regular);
+  line-height: var(--w-leading-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-focus);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+[id] {
+  scroll-margin-top: var(--w-space-5);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--w-space-4);
+  top: -100px;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tt-tap);
+  padding: 0 var(--w-space-4);
+  border-radius: var(--tt-radius-small);
+  background: var(--tt-text);
+  color: var(--tt-on-accent);
+  font-weight: var(--tt-weight-medium);
+  text-decoration: none;
+}
+
+.skip-link:focus-visible {
+  top: var(--w-space-4);
+}
+
+.skjult {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   3. Sidebredde og bolker
+   ============================================================ */
+.ramme {
+  width: 100%;
+  max-width: calc(var(--w-max) + 2 * var(--w-gutter));
+  margin-inline: auto;
+  padding-inline: var(--w-gutter);
+}
+
+.bolk {
+  padding-block: var(--w-section);
+}
+
+/* To bolker i samme parti rett etter hverandre: bare én luft imellom */
+.bolk--tett {
+  padding-top: 0;
+}
+
+.bolk__hode {
+  display: grid;
+  gap: var(--w-space-3);
+  justify-items: start;
+}
+
+/* Lang tittel med ingress under, i full bredde */
+.bolk__hode--bred {
+  gap: var(--w-space-4);
+}
+
+.bolk__hode--bred .tittel {
+  max-width: 24ch;
+}
+
+/* På PC: tittel til venstre, innhold til høyre */
+.to-delt {
+  display: grid;
+  gap: var(--w-space-6);
+}
+
+@media (min-width: 900px) {
+  .to-delt {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: var(--w-space-8);
+    align-items: start;
+  }
+}
+
+/* ============================================================
+   4. Skrift
+   ============================================================ */
+.overlinje {
+  font-size: var(--w-type-small);
+  font-weight: var(--tt-weight-medium);
+  line-height: 1.3;
+  color: var(--c-over);
+}
+
+.hero-tittel {
+  max-width: 13ch;
+  font-size: var(--w-type-hero);
+  font-weight: var(--tt-weight-bold);
+  line-height: 1.04;
+  color: var(--c-title);
+}
+
+.stor-tittel {
+  font-size: var(--w-type-display);
+  font-weight: var(--tt-weight-bold);
+  line-height: var(--w-leading-tight);
+  color: var(--c-title);
+}
+
+.tittel {
+  font-size: var(--w-type-title);
+  font-weight: var(--tt-weight-bold);
+  line-height: 1.1;
+  color: var(--c-title);
+}
+
+.ingress {
+  max-width: 34em;
+  font-size: var(--w-type-lead);
+  line-height: var(--w-leading-lead);
+}
+
+.liten {
+  font-size: var(--w-type-small);
+  line-height: 1.45;
+  color: var(--c-muted);
+}
+
+/* Lesetekst: behagelig linjelengde, luft mellom avsnitt */
+.lesetekst {
+  max-width: var(--w-measure);
+}
+
+.lesetekst > * + * {
+  margin-top: var(--w-space-4);
+}
+
+.lesetekst ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.lesetekst li + li {
+  margin-top: var(--w-space-2);
+}
+
+.lesetekst li::marker {
+  color: var(--c-muted);
+}
+
+.lesetekst a,
+.tekstlenke {
+  color: var(--c-title);
+  font-weight: var(--tt-weight-medium);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.24em;
+}
+
+/* Ledd: korte punkter med overskrift, skilt med tynn strek */
+.ledd-liste {
+  max-width: var(--w-measure);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.ledd {
+  padding-block: var(--w-space-4) calc(var(--w-space-4) + 2px);
+  border-top: 1px solid var(--c-line);
+}
+
+.ledd h3,
+.ledd strong {
+  display: block;
+  margin-bottom: var(--w-space-1);
+  font-size: var(--w-type-lead);
+  font-weight: var(--tt-weight-bold);
+  line-height: 1.25;
+  color: var(--c-title);
+}
+
+/* ============================================================
+   5. Knapper og lenker
+   ============================================================ */
+.pil {
+  flex: none;
+  width: var(--tt-icon);
+  height: var(--tt-icon);
+}
+
+.knapp-hoved {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--w-space-5);
+  min-width: 260px;
+  min-height: var(--tt-tap-primary);
+  padding: 0 20px 0 var(--w-space-5);
+  border: 0;
+  border-radius: var(--tt-radius);
+  background: var(--tt-accent);
+  color: var(--tt-on-accent);
+  font-size: var(--w-type-lead);
+  font-weight: var(--tt-weight-bold);
+  line-height: 1.2;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--tt-fast) var(--tt-ease), background-color var(--tt-fast) var(--tt-ease);
+}
+
+.knapp-hoved:hover {
+  background: var(--tt-accent-hover);
+}
+
+.knapp-hoved:active {
+  transform: scale(var(--tt-press));
+}
+
+.knapp-rolig {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--w-space-2);
+  min-height: var(--tt-tap-primary);
+  padding: 0 var(--w-space-5);
+  border: var(--tt-ring) solid var(--c-ring);
+  border-radius: var(--tt-radius);
+  background: transparent;
+  color: var(--c-title);
+  font-size: var(--w-type-body);
+  font-weight: var(--tt-weight-medium);
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--tt-fast) var(--tt-ease);
+}
+
+.knapp-rolig:hover {
+  background: var(--c-surface);
+}
+
+.knapp-rolig--lav {
+  min-height: var(--tt-tap);
+  padding: 0 var(--w-space-4);
+  border-radius: var(--tt-radius-small);
+}
+
+.pil-lenke {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--w-space-2);
+  min-height: var(--tt-tap);
+  color: var(--c-title);
+  font-weight: var(--tt-weight-medium);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.24em;
+}
+
+.handling {
+  display: flex;
+  flex-direction: column;
+  gap: var(--w-space-3);
+}
+
+/* På mobil fyller hovedknappen bredden, som i appen */
+@media (max-width: 599px) {
+  .knapp-hoved {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (min-width: 600px) {
+  .handling {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* ============================================================
+   6. Topp og meny (menu.js)
+   ============================================================ */
+.site-header {
+  position: relative;
+  z-index: 5;
+  background: var(--tt-bg);
+  color: var(--tt-text);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--w-space-2);
+  min-height: var(--w-header);
+}
+
+.site-header__logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tt-tap);
+  margin-right: auto;
+}
+
+.site-header__logo img {
+  width: auto;
+  height: 34px;
+}
+
+.site-header__snarveier,
+.site-header__kontakt {
+  display: none;
+}
+
+.site-header__toggle,
+.site-nav__close {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--tt-tap);
+  margin-right: calc(-1 * var(--w-space-3));
+  padding: 0 var(--w-space-3);
+  border: 0;
+  border-radius: var(--tt-radius-small);
+  background: transparent;
+  color: var(--tt-text);
+  font-size: var(--w-type-body);
+  font-weight: var(--tt-weight-medium);
+  cursor: pointer;
+  transition: background-color var(--tt-fast) var(--tt-ease);
+}
+
+.site-header__toggle:hover,
+.site-nav__close:hover,
+.site-header__snarveier a:hover {
+  background: var(--tt-surface);
+}
+
+@media (min-width: 1100px) {
+  .site-header__inner {
+    gap: var(--w-space-1);
+  }
+
+  .site-header__logo img {
+    height: 42px;
+  }
+
+  .site-header__snarveier {
+    display: flex;
+    gap: var(--w-space-1);
+    margin-right: var(--w-space-3);
+  }
+
+  .site-header__snarveier a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tt-tap);
+    padding: 0 14px;
+    border-radius: var(--tt-radius-small);
+    color: var(--tt-text-soft);
+    font-size: var(--w-type-body);
+    font-weight: var(--tt-weight-medium);
+    text-decoration: none;
+    transition: background-color var(--tt-fast) var(--tt-ease);
+  }
+
+  .site-header__snarveier a[aria-current="page"] {
+    color: var(--tt-text);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4em;
+  }
+
+  .site-header__kontakt {
+    display: inline-flex;
+    margin-right: var(--w-space-2);
+  }
+
+  .site-header__toggle,
+  .site-nav__close {
+    margin-right: 0;
+  }
+}
+
+.site-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  overflow: auto;
+  background: var(--tt-bg);
+  color: var(--tt-text-soft);
+}
+
+.site-nav--open {
+  display: block;
+}
+
+.site-nav__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--w-header);
+}
+
+.site-nav__columns {
+  display: grid;
+  gap: var(--w-space-6);
+  padding-block: var(--w-space-5) var(--w-space-7);
+}
+
+.site-nav__heading {
+  margin-bottom: var(--w-space-1);
+  font-size: var(--w-type-small);
+  font-weight: var(--tt-weight-medium);
+  color: var(--tt-accent-text);
+}
+
+.site-nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--w-space-4);
+  min-height: var(--tt-tap-primary);
+  border-bottom: 1px solid var(--tt-line-soft);
+  color: var(--tt-text);
+  font-size: clamp(24px, 20px + 1vw, 32px);
+  font-weight: var(--tt-weight-bold);
+  line-height: 1.15;
+  text-decoration: none;
+}
+
+.site-nav__link[aria-current="page"] {
+  color: var(--tt-accent-text);
+}
+
+@media (min-width: 900px) {
+  .site-nav__columns {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--w-space-7);
+    padding-top: var(--w-space-7);
+  }
+}
+
+/* ============================================================
+   7. Bunnfelt (footer-links.js fyller lenkelistene)
+   ============================================================ */
+.site-footer {
+  padding-block: var(--w-section) 28px;
+  border-top: 1px solid var(--tt-line-soft);
+  background: var(--tt-bg);
+  color: var(--tt-text-soft);
+}
+
+.site-footer__logo {
+  width: auto;
+  height: 44px;
+}
+
+.site-footer__tagline {
+  max-width: 16em;
+  margin-top: var(--w-space-4);
+  color: var(--tt-text);
+  font-size: var(--w-type-lead);
+  font-weight: var(--tt-weight-medium);
+  line-height: 1.3;
+}
+
+.site-footer__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--w-space-6) var(--w-gutter);
+  margin-top: 40px;
+}
+
+.site-footer__heading,
+.site-footer__title,
+.site-footer__social-label {
+  display: block;
+  margin-bottom: var(--w-space-1);
+  color: var(--tt-accent-text);
+  font-size: var(--w-type-small);
+  font-weight: var(--tt-weight-medium);
+  line-height: 1.3;
+}
+
+.site-footer__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tt-tap);
+  text-decoration: none;
+}
+
+.site-footer__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.24em;
+}
+
+.site-footer__contact-lines {
+  padding-top: 10px;
+}
+
+.site-footer__contact .site-footer__link {
+  text-decoration: underline;
+  text-underline-offset: 0.24em;
+}
+
+.site-footer__bottom {
+  display: grid;
+  gap: var(--w-space-5);
+  margin-top: 40px;
+  padding-top: var(--w-space-5);
+  border-top: 1px solid var(--tt-line-soft);
+}
+
+.site-footer__social-list {
+  display: flex;
+  gap: var(--w-space-5);
+}
+
+.site-footer__meta-wrap {
+  display: grid;
+  gap: var(--w-space-1);
+  color: var(--tt-text-muted);
+  font-size: var(--w-type-micro);
+}
+
+@media (min-width: 900px) {
+  .site-footer {
+    padding-block: 88px var(--w-space-6);
+  }
+
+  .site-footer__oppe {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: var(--w-space-8);
+  }
+
+  .site-footer__top {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 0;
+  }
+
+  .site-footer__bottom {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    margin-top: 72px;
+  }
+
+  .site-footer__meta-wrap {
+    justify-items: end;
+  }
+}
+
+/* ============================================================
+   8. Bilder
+   ============================================================ */
+.foto {
+  position: relative;
+  overflow: hidden;
+  background: var(--tt-surface);
+}
+
+/* --fokus settes på figuren når motivet ikke står midt i bildet */
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--fokus, 50% 50%);
+}
+
+/* Kvadratisk utsnitt */
+.foto--kvadrat {
+  aspect-ratio: 1 / 1;
+}
+
+/* Svart-hvitt bilde */
+.foto--sh img {
+  filter: grayscale(1);
+}
+
+/* Bilde som går helt ut til kanten på mobil */
+.foto--kant {
+  margin-inline: calc(-1 * var(--w-gutter));
+}
+
+@media (min-width: 900px) {
+  .foto--kant {
+    margin-inline: 0;
+    border-radius: var(--tt-radius);
+  }
+}
+
+/* Tegning av skiltet på apparatet. Byttes med et foto når det finnes. */
+.scene {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--tt-surface);
+}
+
+.scene svg {
+  width: 100%;
+  height: 100%;
+}
+
+.scene__flate {
+  fill: var(--tt-surface);
+}
+
+.scene__del {
+  fill: var(--tt-surface-selected);
+}
+
+.scene__del-strek {
+  fill: none;
+  stroke: var(--tt-surface-selected);
+  stroke-width: 78;
+  stroke-linecap: round;
+}
+
+.scene__lys {
+  fill: var(--tt-text-muted);
+}
+
+.scene__kant {
+  fill: none;
+  stroke: var(--tt-text-muted);
+  stroke-width: 2;
+}
+
+@media (min-width: 900px) {
+  .scene {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* ============================================================
+   9. Toppen av en underside
+   ============================================================ */
+.sidetopp {
+  padding-block: var(--w-space-6) var(--w-space-7);
+}
+
+.sidetopp__inn {
+  display: grid;
+  gap: var(--w-space-4);
+  justify-items: start;
+}
+
+.sidetopp .stor-tittel {
+  max-width: 18ch;
+}
+
+.sidetopp__fakta {
+  display: grid;
+  gap: var(--w-space-1);
+  margin: var(--w-space-2) 0 0;
+  padding: var(--w-space-4) 0 0;
+  border-top: 1px solid var(--c-line);
+  list-style: none;
+  color: var(--c-title);
+  font-weight: var(--tt-weight-medium);
+}
+
+@media (min-width: 900px) {
+  .sidetopp {
+    padding-block: var(--w-space-8) var(--w-space-9);
+  }
+
+  .sidetopp__inn {
+    gap: var(--w-space-5);
+  }
+
+  .sidetopp__fakta {
+    grid-auto-flow: column;
+    gap: var(--w-space-7);
+    padding-top: var(--w-space-5);
+  }
+}
+
+/* Avslutning med hovedknapp */
+.avslutning {
+  display: grid;
+  gap: var(--w-space-4);
+  justify-items: start;
+}
+
+.avslutning .knapp-hoved {
+  margin-top: var(--w-space-2);
+}
+
+/* ============================================================
+   10. Forsiden
+   ============================================================ */
+.hjem-topp {
+  position: relative;
+}
+
+.hjem-topp .foto {
+  height: max(280px, 40vh);
+}
+
+.hjem-topp .foto::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 60%;
+  background: linear-gradient(to top, var(--tt-scrim) 0%, var(--tt-scrim-72) 42%, var(--tt-scrim-clear) 100%);
+  pointer-events: none;
+}
+
+.hjem-topp__tekst {
+  position: relative;
+  display: grid;
+  gap: var(--w-space-4);
+  justify-items: start;
+  margin-top: -44px;
+  padding-bottom: 40px;
+}
+
+.hjem-topp__tekst .handling {
+  width: 100%;
+  margin-top: var(--w-space-2);
+}
+
+@media (min-width: 900px) {
+  .hjem-topp {
+    display: flex;
+    align-items: flex-end;
+    min-height: min(calc(100vh - var(--w-header)), 860px);
+  }
+
+  .hjem-topp .foto {
+    position: absolute;
+    inset: 0;
+    height: auto;
+  }
+
+  .hjem-topp .foto::after {
+    inset: 0;
+    height: auto;
+    background:
+      linear-gradient(to top, var(--tt-scrim) 0%, var(--tt-scrim-82) 34%, var(--tt-scrim-clear) 72%),
+      linear-gradient(to right, var(--tt-scrim-92) 0%, var(--tt-scrim-60) 40%, var(--tt-scrim-clear) 68%);
+  }
+
+  .hjem-topp__tekst {
+    gap: 20px;
+    margin-top: 0;
+    padding-block: 140px 72px;
+  }
+
+  .hjem-topp__tekst .handling {
+    width: auto;
+  }
+}
+
+/* Når vi trener: ukedagene er sidens største skrift */
+.tider {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--c-line);
+  list-style: none;
+}
+
+.tider li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 0 22px;
+  border-bottom: 1px solid var(--c-line);
+}
+
+.tider__dag {
+  color: var(--c-title);
+  font-size: var(--w-type-display);
+  font-weight: var(--tt-weight-bold);
+  line-height: 1;
+}
+
+.tider__sted {
+  font-size: var(--w-type-lead);
+}
+
+@media (min-width: 900px) {
+  .tider li {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--w-space-6);
+    padding: 28px 0 30px;
+  }
+
+  .tider__dag {
+    font-size: var(--w-type-hero);
+    line-height: 0.95;
+  }
+}
+
+/* Bilde og tekst side om side */
+.par {
+  display: grid;
+  gap: 28px;
+}
+
+.par__tekst {
+  display: grid;
+  gap: var(--w-space-3);
+  justify-items: start;
+}
+
+@media (min-width: 900px) {
+  .par {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--w-space-9);
+    align-items: center;
+  }
+
+  .par--bilde-hoyre {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  }
+
+  .par--bilde-hoyre .foto {
+    order: 1;
+  }
+
+  .par__tekst {
+    gap: var(--w-space-4);
+  }
+}
+
+/* Dette tilbyr vi: rader, ikke kort */
+.rader {
+  margin: 28px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--c-line);
+  list-style: none;
+}
+
+.rader li {
+  border-bottom: 1px solid var(--c-line);
+}
+
+.rad {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr) var(--tt-icon);
+  gap: var(--w-space-4);
+  align-items: center;
+  min-height: var(--tt-tap-choice);
+  padding: var(--w-space-4) 0;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color var(--tt-fast) var(--tt-ease);
+}
+
+.rad:hover {
+  background: var(--c-surface);
+}
+
+.rad .foto {
+  width: 96px;
+  aspect-ratio: 1;
+  border-radius: var(--tt-radius-small);
+}
+
+.rad__navn {
+  display: block;
+  color: var(--c-title);
+  font-size: var(--w-type-lead);
+  font-weight: var(--tt-weight-bold);
+  line-height: 1.2;
+}
+
+.rad__tekst {
+  display: block;
+  margin-top: var(--w-space-1);
+}
+
+.rad .pil {
+  color: var(--c-title);
+}
+
+@media (min-width: 900px) {
+  .rad {
+    grid-template-columns: 240px minmax(0, 5fr) minmax(0, 5fr) var(--tt-icon);
+    gap: 40px;
+    padding: var(--w-space-5) var(--w-space-4) var(--w-space-5) 0;
+  }
+
+  .rad .foto {
+    width: 240px;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--tt-radius);
+  }
+
+  .rad__ord {
+    display: contents;
+  }
+
+  .rad__navn {
+    font-size: var(--w-type-title);
+    line-height: 1.1;
+  }
+
+  .rad__tekst {
+    margin-top: 0;
+    font-size: var(--w-type-lead);
+  }
+}
+
+.nytt {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.nytt .tittel {
+  max-width: 22ch;
+}
+
+.nytt .tittel a {
+  text-decoration: none;
+}
+
+.nytt .tittel a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.16em;
+}
+
+.insta {
+  display: grid;
+  gap: var(--w-space-4);
+  justify-items: start;
+}
+
+.insta .sk-instagram-feed {
+  width: 100%;
+}
+
+.insta iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Fokusringen i samtykkeboksen følger partiet (consent.css bruker gult) */
+.insta .embed-consent-placeholder button:focus-visible,
+.insta .embed-consent-placeholder a:focus-visible {
+  outline: 3px solid var(--c-focus);
+  outline-offset: 3px;
+}
+
+/* Samtykkeboksen fra consent.css, uten stiplet ramme */
+.embed-consent-placeholder {
+  display: grid;
+  gap: var(--w-space-4);
+  justify-items: start;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* ============================================================
+   11. Skjema
+   ============================================================ */
+.skjema-oppsett {
+  display: grid;
+  gap: var(--w-space-7);
+}
+
+@media (min-width: 960px) {
+  .skjema-oppsett {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: var(--w-space-9);
+    align-items: start;
+  }
+}
+
+.skjema-del {
+  display: grid;
+  gap: var(--w-space-4);
+  max-width: 640px;
+}
+
+.skjema-del h3 {
+  color: var(--c-title);
+  font-size: var(--w-type-title);
+  font-weight: var(--tt-weight-bold);
+  line-height: 1.1;
+}
+
+.contact-info h3 {
+  color: var(--c-title);
+  font-size: var(--w-type-lead);
+  font-weight: var(--tt-weight-bold);
+  line-height: 1.25;
+}
+
+/* Hurtigvalg: flate man kan trykke på */
+.contact-quick-links {
+  display: grid;
+  gap: var(--w-space-2);
+}
+
+@media (min-width: 600px) {
+  .contact-quick-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.contact-quick-links button {
+  min-height: var(--w-field-height);
+  padding: var(--w-space-3) var(--w-space-4);
+  border: var(--tt-ring) solid var(--c-ring);
+  border-radius: var(--tt-radius-small);
+  background: var(--c-surface);
+  color: var(--c-title);
+  font-size: var(--w-type-body);
+  font-weight: var(--tt-weight-medium);
+  line-height: 1.3;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--tt-fast) var(--tt-ease), transform var(--tt-fast) var(--tt-ease);
+}
+
+.contact-quick-links button:hover {
+  border-color: var(--c-title);
+}
+
+.contact-quick-links button:active {
+  transform: scale(var(--tt-press));
+}
+
+.skjema {
+  display: grid;
+  gap: 20px;
+  margin-top: var(--w-space-2);
+}
+
+.skjema label {
+  display: block;
+  margin-bottom: var(--w-space-2);
+  color: var(--c-title);
+  font-weight: var(--tt-weight-medium);
+  line-height: 1.3;
+}
+
+.skjema input,
+.skjema textarea {
+  display: block;
+  width: 100%;
+  min-height: var(--w-field-height);
+  padding: 14px var(--w-space-4);
+  border: var(--tt-ring) solid var(--c-ring);
+  border-radius: var(--tt-radius-small);
+  background: var(--w-field);
+  color: var(--tt-on-accent);
+  font-size: var(--w-type-body);
+  line-height: 1.5;
+}
+
+.skjema textarea {
+  min-height: 168px;
+  resize: vertical;
+}
+
+.skjema input::placeholder,
+.skjema textarea::placeholder {
+  color: var(--w-ink-muted);
+  opacity: 1;
+}
+
+.skjema input:focus-visible,
+.skjema textarea:focus-visible {
+  outline-offset: 2px;
+  border-color: var(--c-title);
+  border-radius: var(--tt-radius-small);
+}
+
+.skjema .knapp-hoved {
+  justify-self: start;
+  margin-top: var(--w-space-1);
+}
+
+.form-feedback {
+  color: var(--c-title);
+  font-weight: var(--tt-weight-medium);
+}
+
+.form-privacy-note {
+  max-width: 62ch;
+  color: var(--c-muted);
+  font-size: var(--w-type-small);
+  line-height: 1.5;
+}
+
+.form-privacy-note a,
+.contact-info a {
+  color: var(--c-title);
+  font-weight: var(--tt-weight-medium);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.24em;
+}
+
+/* Feltet som skal stå tomt (vern mot roboter) */
+.hp-field {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Opplysninger ved siden av skjemaet */
+.contact-info {
+  display: grid;
+  gap: var(--w-space-5);
+}
+
+.contact-info section {
+  display: grid;
+  gap: var(--w-space-2);
+  padding-top: var(--w-space-5);
+  border-top: 1px solid var(--c-line);
+}
+
+.contact-info h4 {
+  color: var(--c-title);
+  font-size: var(--w-type-body);
+  font-weight: var(--tt-weight-bold);
+  line-height: 1.3;
+}
+
+.contact-info ul {
+  display: grid;
+  gap: var(--w-space-2);
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.contact-info p a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tt-tap);
+}

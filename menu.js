@@ -58,7 +58,7 @@
                 <ul class="site-nav__list">
                   <li><a href="${prefix}gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
                   <li><a href="${prefix}kurs og seminar.html" class="site-nav__link">Kurs og seminar</a></li>
-                  <li><a href="${prefix}treningssystem.html" class="site-nav__link">QR/NFC treningssystem</a></li>
+                  <li><a href="${prefix}treningssystem.html" class="site-nav__link">Tæpp og tren</a></li>
                 </ul>
               </div>
 
@@ -86,6 +86,69 @@
     </nav>
   `;
 
+  // Topp og meny for sider med <body class="design-2026"> (se DESIGN.md).
+  // Samme menypunkter og klassenavn som over, slik at koden under virker likt.
+  const arrowIcon = `<svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+  const logo2026 = (prefix) => `
+        <a href="${prefix}index.html" class="site-header__logo">
+          <img src="${prefix}bilder/myss-logo-footer.png" alt="My Strongest Side" width="900" height="270" />
+        </a>`;
+  const navLink2026 = (prefix, href, label) =>
+    `<li><a href="${prefix}${href}" class="site-nav__link">${label}${arrowIcon}</a></li>`;
+
+  const headerTemplate2026 = (prefix = "") => `
+    <div class="site-header__inner ramme">
+      ${logo2026(prefix)}
+      <nav class="site-header__snarveier" aria-label="Snarveier">
+        <a href="${prefix}gruppetrening.html">Gruppetrening på apparat</a>
+        <a href="${prefix}kurs og seminar.html">Kurs og seminar</a>
+        <a href="${prefix}treningssystem.html">Tæpp og tren</a>
+        <a href="${prefix}om-oss.html">Om oss</a>
+      </nav>
+      <a href="${prefix}kontakt.html" class="knapp-rolig knapp-rolig--lav site-header__kontakt">Kontakt oss</a>
+      <button class="site-header__toggle" aria-expanded="false" aria-controls="hovedmeny" type="button">
+        <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <span class="site-header__toggle-label">Vis menyen</span>
+      </button>
+    </div>
+
+    <nav class="site-nav" aria-label="Hovedmeny" id="hovedmeny">
+      <div class="site-nav__top ramme">
+        ${logo2026(prefix)}
+        <button class="site-nav__close" type="button">
+          <svg class="pil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          <span class="site-nav__close-label">Lukk menyen</span>
+        </button>
+      </div>
+      <div class="site-nav__columns ramme">
+        <div class="site-nav__column">
+          <h2 class="site-nav__heading">Våre tjenester</h2>
+          <ul class="site-nav__list">
+            ${navLink2026(prefix, "gruppetrening.html", "Gruppetrening på apparat")}
+            ${navLink2026(prefix, "kurs og seminar.html", "Kurs og seminar")}
+            ${navLink2026(prefix, "treningssystem.html", "Tæpp og tren")}
+          </ul>
+        </div>
+        <div class="site-nav__column">
+          <h2 class="site-nav__heading">Informasjon</h2>
+          <ul class="site-nav__list">
+            ${navLink2026(prefix, "om-oss.html", "Om oss")}
+            ${navLink2026(prefix, "Individuelloppfølging.html", "Teamet")}
+            ${navLink2026(prefix, "presse.html", "Presse og media")}
+            ${navLink2026(prefix, "samarbeid.html", "Samarbeid")}
+          </ul>
+        </div>
+        <div class="site-nav__column">
+          <h2 class="site-nav__heading">My Strongest Side</h2>
+          <ul class="site-nav__list">
+            ${navLink2026(prefix, "index.html", "Forside")}
+            ${navLink2026(prefix, "kontakt.html", "Kontakt")}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  `;
+
   function ready(fn) {
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", fn, { once: true });
@@ -101,6 +164,7 @@
 
     const root = document.documentElement;
     const body = document.body;
+    const is2026 = body.classList.contains("design-2026");
 
     const enforceSafeBlankLinks = () => {
       document.querySelectorAll('a[target="_blank"]').forEach((link) => {
@@ -137,7 +201,7 @@
 
     if (isComponentMount || isEmpty) {
       mount.classList.add("site-header");
-      mount.innerHTML = headerTemplate(prefix);
+      mount.innerHTML = is2026 ? headerTemplate2026(prefix) : headerTemplate(prefix);
     }
 
     const header = mount.classList.contains("site-header") ? mount : document.querySelector(".site-header");
@@ -234,8 +298,26 @@
       const label = toggle.querySelector(".site-header__toggle-label");
       if (label) label.textContent = open ? "Lukk menyen" : "Vis menyen";
 
+      // Nye sider: menyen dekker hele skjermen. Resten av siden settes ut av
+      // spill mens den er åpen, og fokus følger med inn og ut.
+      if (is2026) {
+        document.querySelectorAll("main, footer, .skip-link").forEach((el) => { el.inert = open; });
+        const target = open ? nav.querySelector(".site-nav__close") : toggle;
+        if (target && (open || nav.contains(document.activeElement) || document.activeElement === body)) target.focus();
+      }
+
       requestFadeUpdate();
     };
+
+    // Nye sider: marker siden du står på i meny og snarveier.
+    if (is2026) {
+      const here = decodeURIComponent(window.location.pathname).replace(/\/index\.html$/, "/");
+      header.querySelectorAll("a[href]").forEach((link) => {
+        if (link.classList.contains("site-header__logo")) return;
+        const path = decodeURIComponent(new URL(link.getAttribute("href"), window.location.href).pathname).replace(/\/index\.html$/, "/");
+        if (path === here) link.setAttribute("aria-current", "page");
+      });
+    }
 
     toggle.addEventListener("click", (e) => {
       e.preventDefault();
