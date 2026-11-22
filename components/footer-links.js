@@ -21,7 +21,7 @@
 
     host.innerHTML = `
       <h3 class="site-footer__heading reveal d2">${esc(title)}</h3>
-      <ul class="site-footer__list">
+      <ul class="site-footer__list" role="list">
         ${items.map((i, idx) => `
           <li class="${liClass(idx)}">
             <a class="site-footer__link" href="${esc(i.href)}">${esc(i.label)}</a>

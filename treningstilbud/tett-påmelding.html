@@ -232,29 +232,7 @@
     .js .reveal.d3{ transition-delay:.18s; }
     .js .reveal.d4{ transition-delay:.24s; }
 
-    #checkin_registration{
-      width: 100%;
-      overflow: visible;
-      min-height: 760px;
-    }
-    #checkin_registration:empty::before{
-      content: "Laster påmelding …";
-      display: block;
-      padding: .9rem 1rem;
-      border-radius: 14px;
-      border: 1px solid rgba(16,82,119,.16);
-      background: rgba(16,82,119,.04);
-      font-weight: 800;
-      color: var(--myss-blue);
-      opacity: .85;
-    }
-    #checkin_registration iframe{
-      width: 100% !important;
-      max-width: 100% !important;
-      border: 0;
-    }
     @media (max-width: 900px){
-      #checkin_registration{ min-height: 980px; }
       .myss-sticky{
         padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
       }
@@ -346,7 +324,7 @@
                 <ul class="site-nav__list">
                   <li><a href="../gruppetrening.html" class="site-nav__link">Gruppetrening på apparat</a></li>
                   <li><a href="../kurs og seminar.html" class="site-nav__link">Kurs og seminar</a></li>
-                  <li><a href="../qr/trening/index.html" class="site-nav__link">Tæpp og tren</a></li>
+                  <li><a href="../treningssystem.html" class="site-nav__link">Tæpp og tren</a></li>
                 </ul>
               </div>
 
@@ -393,7 +371,7 @@
           </ul>
 
           <div class="youth-toplinks reveal d4">
-            <a href="#paamelding">Start påmelding</a>
+            <a href="https://myss.no/pamelding">Start påmelding</a>
             <a href="#inngar">Dette inngår</a>
             <a href="#praktisk">Praktisk info</a>
             <a href="#datoer">Datoer</a>
@@ -401,7 +379,7 @@
           </div>
 
           <div class="myss-actions reveal d4">
-            <a class="myss-btn" href="#paamelding">Start påmelding</a>
+            <a class="myss-btn" href="https://myss.no/pamelding">Start påmelding</a>
             <a class="myss-btn myss-btn--outline" href="tett-oppfolging.html">Tilbake til info</a>
           </div>
         </div>
@@ -439,7 +417,7 @@
         </section>
 
         <div class="myss-primary-cta">
-          <a href="https://event.checkin.no/215779" target="_blank" rel="noopener noreferrer">
+          <a href="https://myss.no/pamelding" target="_blank" rel="noopener noreferrer">
             Åpne påmeldingen i egen fane →
           </a>
         </div>
@@ -476,21 +454,9 @@
         <p style="opacity:.92;">Vi tar inn maks 8 deltakere. Prøvetime kan velges i påmeldingen.</p>
         <p style="margin-top:.75rem; opacity:.9;">Vi tilpasser øvelser, utstyr og tempo. Du kan trene sittende eller stående, og ta pauser ved behov.</p>
 
-        <div id="checkin_registration" style="margin-top:1rem;"></div>
-
-        <script
-          src="https://registration.checkin.no/registration.loader.js"
-          data-event-id="215779"
-          data-theme="light"
-          data-primary-color="#105277"
-          data-secondary-color="#f77c37"
-          async>
-        </script>
-
-        <noscript>
-          <p>For å melde deg på må JavaScript være aktivert i nettleseren.</p>
-          <p class="myss-note">Hvis påmeldingen ikke åpner seg, bruk kontaktsiden: <a href="/kontakt.html">Kontakt</a>.</p>
-        </noscript>
+        <div class="myss-actions" style="margin-top:1rem;">
+          <a class="myss-btn" href="https://myss.no/pamelding">Meld deg på gruppetrening</a>
+        </div>
       </div>
     </section>
 
@@ -621,7 +587,7 @@
             </div>
 
             <div class="myss-actions" style="margin-top:1rem;">
-              <a class="myss-btn" href="#paamelding">Start påmelding</a>
+              <a class="myss-btn" href="https://myss.no/pamelding">Start påmelding</a>
               <a class="myss-btn myss-btn--outline" href="../kontakt.html">Still et spørsmål</a>
             </div>
           </div>
@@ -633,7 +599,7 @@
   <div class="myss-sticky" role="region" aria-label="Hurtig påmelding">
     <div class="myss-sticky__inner">
       <div class="myss-sticky__text">Tett oppfølging Fantoft</div>
-      <a class="myss-btn" href="#paamelding">Start påmelding</a>
+      <a class="myss-btn" href="https://myss.no/pamelding">Start påmelding</a>
     </div>
   </div>
 
